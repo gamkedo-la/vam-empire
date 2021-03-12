@@ -1,0 +1,134 @@
+[gd_scene load_steps=5 format=2]
+
+[ext_resource path="res://Player/Shmup_Player_Ship_001.png" type="Texture" id=1]
+[ext_resource path="res://Player/headlight_001.png" type="Texture" id=2]
+
+[sub_resource type="GDScript" id=1]
+script/source = "extends KinematicBody2D
+
+
+const ACCELERATION = 3200
+const MAX_SPEED = 320
+const ROLL_SPEED = 125
+const FRICTION = 600
+
+enum {
+	MOVE,
+	ROLL,
+	ATTACK
+}
+
+var state = MOVE
+var velocity = Vector2.ZERO
+var roll_vector = Vector2.LEFT
+var rng = RandomNumberGenerator.new()
+
+onready var base_bullet = preload(\"res://Bullets/BasicBullet.tscn\")
+onready var left_gun = $LeftGunPos
+onready var right_gun = $RightGunPos
+
+func _ready():
+	rng.randomize()
+
+func _process(delta):
+	match state:
+		MOVE:
+			move_state(delta)
+		ROLL:
+			roll_state(delta)
+		ATTACK:
+			attack_state(delta)	
+
+
+func move_state(delta):
+	var input_vector = Vector2.ZERO
+	input_vector.x = Input.get_action_strength(\"ui_right\") - Input.get_action_strength(\"ui_left\")
+	input_vector.y = Input.get_action_strength(\"ui_down\") - Input.get_action_strength(\"ui_up\")
+	input_vector = input_vector.normalized()
+	
+	if input_vector != Vector2.ZERO:
+		roll_vector = input_vector
+		velocity = velocity.move_toward(input_vector * MAX_SPEED, ACCELERATION * delta)
+	else:
+		velocity = velocity.move_toward(Vector2.ZERO, FRICTION * delta)
+	
+	move()
+	
+	if Input.is_action_pressed(\"attack\"):
+		#state = ATTACK
+		var bullet_l = base_bullet.instance()
+		var bullet_r = base_bullet.instance()
+		var bullet_vel = Vector2.UP
+		get_node(\"/root/World\").add_child(bullet_l)
+		get_node(\"/root/World\").add_child(bullet_r)
+		
+		bullet_l.global_position = left_gun.global_position
+		bullet_r.global_position = right_gun.global_position
+		
+		var rnd_impulse = rng.randf_range(0.8, 2.0)
+		bullet_l.launchBullet(rnd_impulse)
+		rnd_impulse = rng.randf_range(0.8, 2.0)
+		bullet_r.launchBullet(rnd_impulse)
+
+	elif Input.is_action_just_pressed(\"roll\"):
+		state = ROLL
+
+func roll_state(delta):
+	velocity = roll_vector * ROLL_SPEED	
+	move()
+	
+func attack_state(delta):
+	velocity = Vector2.ZERO
+	
+func move():
+	velocity = move_and_slide(velocity)	
+	
+func roll_animation_finished():
+	state = MOVE
+	velocity *= .75
+
+func attack_animation_finished():
+	state = MOVE
+"
+
+[sub_resource type="CapsuleShape2D" id=2]
+radius = 2.14236
+height = 1.4316
+
+[node name="Player" type="KinematicBody2D"]
+collision_layer = 2
+collision_mask = 9
+script = SubResource( 1 )
+
+[node name="Sprite" type="Sprite" parent="."]
+texture = ExtResource( 1 )
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2( 0, -6 )
+shape = SubResource( 2 )
+
+[node name="LeftGunPos" type="Position2D" parent="."]
+position = Vector2( -7.66452, -6.05561 )
+
+[node name="RightGunPos" type="Position2D" parent="."]
+position = Vector2( 6.33548, -6.05561 )
+
+[node name="L_Headlight" type="Light2D" parent="."]
+position = Vector2( -8.12485, -8.83615 )
+rotation = -0.205336
+scale = Vector2( 1.0039, 5.83863 )
+texture = ExtResource( 2 )
+color = Color( 0.901961, 0.678431, 0.180392, 1 )
+energy = 2.0
+range_height = 2048.0
+shadow_enabled = true
+
+[node name="R_Headlight" type="Light2D" parent="."]
+position = Vector2( 6.87515, -8.83615 )
+rotation = 0.205949
+scale = Vector2( 1.0039, 5.83863 )
+texture = ExtResource( 2 )
+color = Color( 0.901961, 0.678431, 0.180392, 1 )
+energy = 2.0
+range_height = 2048.0
+shadow_enabled = true
