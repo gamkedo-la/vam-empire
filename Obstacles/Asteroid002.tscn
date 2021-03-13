@@ -26,7 +26,6 @@ texture = ExtResource( 1 )
 centered = false
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
-visible = false
 position = Vector2( 34.9834, -1.59015 )
 rotation = 0.680678
 shape = SubResource( 1 )
@@ -35,7 +34,6 @@ shape = SubResource( 1 )
 collision_layer = 8
 
 [node name="CollisionShape2D" parent="HurtBox" index="0"]
-visible = false
 position = Vector2( 34.5157, -1.12242 )
 rotation = 0.678933
 shape = SubResource( 2 )
