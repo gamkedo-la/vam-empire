@@ -5,18 +5,18 @@
 [ext_resource path="res://Obstacles/Asteroid001.gd" type="Script" id=3]
 
 [sub_resource type="RectangleShape2D" id=1]
-extents = Vector2( 11.6479, 28.0943 )
+extents = Vector2( 11.6479, 25.5521 )
 
 [sub_resource type="CapsuleShape2D" id=2]
-radius = 18.9814
-height = 29.1716
+radius = 17.6163
+height = 20.3483
 
 [sub_resource type="OccluderPolygon2D" id=3]
 closed = false
-polygon = PoolVector2Array( 30.2712, -11.2912, 33.736, -6.56651, 38.8282, -6.619, 41.1381, -8.82386, 43.2379, -11.7637, 43.1329, -18.2208, 38.4607, -9.08635, 32.0561, -11.6062, 30.3237, -11.4487 )
+polygon = PoolVector2Array( -17.1892, 23.6102, -22.9435, 20.8322, -21.8191, 7.1409 )
 
 [sub_resource type="OccluderPolygon2D" id=4]
-polygon = PoolVector2Array( 28.4339, 12.3323, 28.8538, 14.6947, 31.1112, 12.3323, 29.1163, 8.55255 )
+polygon = PoolVector2Array( 1.92578, 21.1629, 15.8817, 7.00862, 17.7337, 0.19602 )
 
 [node name="Asteroid001" type="RigidBody2D"]
 mass = 750.0
@@ -24,14 +24,12 @@ script = ExtResource( 3 )
 health = 20000
 
 [node name="Sprite" type="Sprite" parent="."]
-position = Vector2( 0.052494, -42.519 )
 scale = Vector2( 2.32708, 2.32708 )
 texture = ExtResource( 1 )
-centered = false
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 visible = false
-position = Vector2( 34.9834, -1.59015 )
+position = Vector2( -1.55432, 3.44954 )
 rotation = 0.680678
 shape = SubResource( 1 )
 
@@ -40,17 +38,19 @@ collision_layer = 8
 
 [node name="CollisionShape2D" parent="HurtBox" index="0"]
 visible = false
-position = Vector2( 34.5157, -1.12242 )
+position = Vector2( -1.81206, 3.49727 )
 rotation = 0.678933
 shape = SubResource( 2 )
 
 [node name="Occluders" type="Node2D" parent="."]
+position = Vector2( -0.209991, 0.839943 )
 
 [node name="LightOccluder2D" type="LightOccluder2D" parent="Occluders"]
 z_index = -1
 occluder = SubResource( 3 )
 
 [node name="LightOccluder2D2" type="LightOccluder2D" parent="Occluders"]
+z_index = -1
 occluder = SubResource( 4 )
 [connection signal="area_entered" from="HurtBox" to="." method="_on_HurtBox_area_entered"]
 

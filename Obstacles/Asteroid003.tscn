@@ -4,8 +4,9 @@
 [ext_resource path="res://Collisions/HurtBox.tscn" type="PackedScene" id=2]
 [ext_resource path="res://Obstacles/Asteroid001.gd" type="Script" id=3]
 
-[sub_resource type="RectangleShape2D" id=1]
-extents = Vector2( 87.9255, 159.031 )
+[sub_resource type="CapsuleShape2D" id=1]
+radius = 107.78
+height = 123.665
 
 [sub_resource type="CapsuleShape2D" id=2]
 radius = 108.168
@@ -17,13 +18,12 @@ script = ExtResource( 3 )
 health = 200000
 
 [node name="Sprite" type="Sprite" parent="."]
-position = Vector2( 0, -431.058 )
 scale = Vector2( 14.4706, 14.4706 )
 texture = ExtResource( 1 )
-centered = false
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
-position = Vector2( 220.245, -176.481 )
+visible = false
+position = Vector2( -10.5826, 17.4614 )
 rotation = 0.680678
 shape = SubResource( 1 )
 
@@ -31,7 +31,7 @@ shape = SubResource( 1 )
 collision_layer = 8
 
 [node name="CollisionShape2D" parent="HurtBox" index="0"]
-position = Vector2( 224.02, -177.428 )
+position = Vector2( -8.9953, 16.4031 )
 rotation = 0.678933
 shape = SubResource( 2 )
 [connection signal="area_entered" from="HurtBox" to="." method="_on_HurtBox_area_entered"]
