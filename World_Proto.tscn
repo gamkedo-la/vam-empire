@@ -14,7 +14,7 @@
 [node name="ParallaxBackground" type="ParallaxBackground" parent="."]
 
 [node name="CanvasModulate" type="CanvasModulate" parent="."]
-color = Color( 0.242188, 0.242188, 0.242188, 1 )
+color = Color( 0.129412, 0.129412, 0.129412, 1 )
 
 [node name="Camera2D" type="Camera2D" parent="."]
 current = true
