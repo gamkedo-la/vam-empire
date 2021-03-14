@@ -72,7 +72,7 @@ func move_state(delta):
 	thrust_light.set_energy(thrust_vector.length() + 1)
 	print(thrust_exhaust.amount)
 	#thrust_exhaust.set_amout(thrust_vector.length() + 100)
-	thrust_exhaust.initial_velocity = thrust_vector.length()*10
+	thrust_exhaust.initial_velocity = thrust_vector.length()*100
 	
 	move()
 	strafe()
@@ -163,6 +163,10 @@ color = Color( 0.901961, 0.678431, 0.180392, 1 )
 energy = 2.0
 range_height = 2048.0
 shadow_enabled = true
+
+[node name="PlayerIllumination" type="Light2D" parent="."]
+texture = ExtResource( 3 )
+mode = 2
 
 [node name="DomeLightBlue" type="Light2D" parent="."]
 position = Vector2( 7.03456, -0.104986 )
