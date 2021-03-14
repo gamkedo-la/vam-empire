@@ -49,6 +49,7 @@ mass = 0.25
 script = ExtResource( 2 )
 
 [node name="Sprite" type="Sprite" parent="."]
+visible = false
 texture = ExtResource( 1 )
 hframes = 5
 
@@ -66,6 +67,8 @@ collision_mask = 8
 shape = SubResource( 3 )
 
 [node name="Light2D" type="Light2D" parent="."]
+position = Vector2( 2.10223, 0.560598 )
+scale = Vector2( 0.20728, 0.34305 )
 texture = ExtResource( 4 )
 color = Color( 1, 0.501961, 0, 1 )
 shadow_enabled = true

@@ -10,7 +10,7 @@ script/source = "extends KinematicBody2D
 const ACCELERATION = 3200
 const MAX_SPEED = 320
 const ROLL_SPEED = 125
-const FRICTION = 600
+const FRICTION = 60
 
 enum {
 	MOVE,
@@ -20,6 +20,7 @@ enum {
 
 var state = MOVE
 var velocity = Vector2.ZERO
+var strafe_velocity = Vector2.ZERO
 var roll_vector = Vector2.LEFT
 var rng = RandomNumberGenerator.new()
 
@@ -41,25 +42,31 @@ func _process(delta):
 
 
 func move_state(delta):
-	var input_vector = Vector2.ZERO
+	var thrust_vector = Vector2.ZERO
+	var strafe_vector = Vector2.ZERO
 	
 	var look_vec = get_global_mouse_position() - global_position
 	look_at(get_global_mouse_position())
 	
-	input_vector.x = Input.get_action_strength(\"ui_up\") - Input.get_action_strength(\"ui_down\")
-	input_vector.y = Input.get_action_strength(\"ui_right\") - Input.get_action_strength(\"ui_left\")
-	input_vector = input_vector.rotated(global_rotation)
-	input_vector = input_vector.normalized()
+	thrust_vector.x = Input.get_action_strength(\"ui_up\") - Input.get_action_strength(\"ui_down\")
+	strafe_vector.y = Input.get_action_strength(\"ui_right\") - Input.get_action_strength(\"ui_left\")
+	thrust_vector = thrust_vector.rotated(global_rotation)
+	thrust_vector = thrust_vector.normalized()
+	strafe_vector = strafe_vector.rotated(global_rotation)
+	strafe_vector = strafe_vector.normalized()
 	
 	
-	if input_vector != Vector2.ZERO:
-		roll_vector = input_vector
-		velocity = velocity.move_toward(input_vector * MAX_SPEED, ACCELERATION * delta)
+	if thrust_vector != Vector2.ZERO:		
+		velocity = velocity.move_toward(thrust_vector * MAX_SPEED, ACCELERATION * delta)
 	else:
-		velocity = velocity.move_toward(Vector2.ZERO, FRICTION * delta)
-	
+		velocity = velocity.move_toward(Vector2.ZERO, FRICTION * delta)	
+		
+	if strafe_vector != Vector2.ZERO:		
+		strafe_velocity = strafe_velocity.move_toward(strafe_vector * MAX_SPEED/3, ACCELERATION/3 * delta)
+	else:
+		strafe_velocity = strafe_velocity.move_toward(Vector2.ZERO, FRICTION * delta)	
 	move()
-	
+	strafe()
 	
 	if Input.is_action_pressed(\"attack\"):
 		#state = ATTACK
@@ -91,6 +98,9 @@ func attack_state(delta):
 	
 func move():
 	velocity = move_and_slide(velocity)	
+
+func strafe():
+	strafe_velocity = move_and_slide(strafe_velocity)
 	
 func roll_animation_finished():
 	state = MOVE
