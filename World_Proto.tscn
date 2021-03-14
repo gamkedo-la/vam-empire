@@ -15,13 +15,9 @@
 
 [node name="Camera2D" type="Camera2D" parent="."]
 current = true
-smoothing_enabled = true
 script = ExtResource( 2 )
 
 [node name="Player" parent="." instance=ExtResource( 1 )]
-
-[node name="LeftGunPos" parent="Player" index="2"]
-position = Vector2( 5.82486, -7.49214 )
 
 [node name="ParallaxBackground2" type="ParallaxBackground" parent="."]
 
