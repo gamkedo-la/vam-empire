@@ -28,8 +28,8 @@ var rng = RandomNumberGenerator.new()
 onready var base_bullet = preload(\"res://Bullets/BasicBullet.tscn\")
 onready var left_gun = $LeftGunPos
 onready var right_gun = $RightGunPos
-onready var thrust_light = $RearLightAmber
-onready var thrust_exhaust = $RearLightAmber/Particles2D
+onready var thrust_light = $Sprite/RearLightAmber
+onready var thrust_exhaust = $Sprite/RearLightAmber/Particles2D
 
 func _ready():
 	rng.randomize()
@@ -69,7 +69,7 @@ func move_state(delta):
 	else:
 		strafe_velocity = strafe_velocity.move_toward(Vector2.ZERO, FRICTION * delta)	
 		
-	thrust_light.set_energy(thrust_vector.length() + 1)
+	thrust_light.set_energy(thrust_vector.length()* 10)
 	print(thrust_exhaust.amount)
 	#thrust_exhaust.set_amout(thrust_vector.length() + 100)
 	thrust_exhaust.initial_velocity = thrust_vector.length()*100
@@ -119,12 +119,12 @@ func attack_animation_finished():
 	state = MOVE
 "
 
+[sub_resource type="Curve" id=3]
+_data = [ Vector2( 0, 1 ), 0.0, 0.0, 0, 0, Vector2( 0.546332, 0.0122699 ), 0.0, 0.0, 0, 0 ]
+
 [sub_resource type="CapsuleShape2D" id=2]
 radius = 2.14236
 height = 1.4316
-
-[sub_resource type="Curve" id=3]
-_data = [ Vector2( 0, 1 ), 0.0, 0.0, 0, 0, Vector2( 0.546332, 0.0122699 ), 0.0, 0.0, 0, 0 ]
 
 [node name="Player" type="KinematicBody2D"]
 collision_layer = 2
@@ -134,8 +134,34 @@ script = SubResource( 1 )
 [node name="Sprite" type="Sprite" parent="."]
 texture = ExtResource( 1 )
 
+[node name="RearLightAmber" type="Light2D" parent="Sprite"]
+show_behind_parent = true
+position = Vector2( -18.5747, -0.0641212 )
+scale = Vector2( 0.731139, 0.225412 )
+z_index = -15
+z_as_relative = false
+texture = ExtResource( 3 )
+color = Color( 0, 0.635294, 1, 1 )
+mode = 2
+
+[node name="Particles2D" type="CPUParticles2D" parent="Sprite/RearLightAmber"]
+show_behind_parent = true
+position = Vector2( 9.85847, 0.931574 )
+amount = 50
+local_coords = false
+texture = ExtResource( 3 )
+direction = Vector2( -1, 0 )
+spread = 0.0
+gravity = Vector2( 0, 0 )
+initial_velocity = 250.0
+initial_velocity_random = 0.18
+scale_amount = 0.15
+scale_amount_curve = SubResource( 3 )
+color = Color( 0, 0.635294, 1, 1 )
+
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
-position = Vector2( 0, -6 )
+position = Vector2( 6.05069, -0.0977974 )
+rotation = 1.5708
 shape = SubResource( 2 )
 
 [node name="LeftGunPos" type="Position2D" parent="."]
@@ -177,27 +203,3 @@ texture = ExtResource( 3 )
 color = Color( 0.0235294, 0.772549, 1, 1 )
 energy = 0.8
 mode = 2
-
-[node name="RearLightAmber" type="Light2D" parent="."]
-position = Vector2( -26.5837, 0.269597 )
-scale = Vector2( 0.731139, 0.764214 )
-z_index = -15
-z_as_relative = false
-texture = ExtResource( 3 )
-color = Color( 1, 0.427451, 0.262745, 1 )
-mode = 2
-
-[node name="Particles2D" type="CPUParticles2D" parent="RearLightAmber"]
-show_behind_parent = true
-position = Vector2( 21.3467, -1.19209e-07 )
-amount = 50
-local_coords = false
-texture = ExtResource( 3 )
-direction = Vector2( -1, 0 )
-spread = 0.0
-gravity = Vector2( 0, 0 )
-initial_velocity = 250.0
-initial_velocity_random = 0.18
-scale_amount = 0.15
-scale_amount_curve = SubResource( 3 )
-color = Color( 0, 0.635294, 1, 1 )
