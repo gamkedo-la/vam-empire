@@ -10,10 +10,10 @@ var originalPos = Vector2.ZERO
 onready var animPlayer = $AnimationPlayer
 
 
-func launchBullet(rnd_impulse):
+func launchBullet(rnd_impulse, direction):
 	originalPos = self.position	
 	
-	apply_central_impulse(Vector2.UP * (ImpulseMag * rnd_impulse))
+	apply_central_impulse(direction * (ImpulseMag * rnd_impulse))
 
 func _physics_process(delta):
 	var distanceTravelled = self.position.distance_to(originalPos)

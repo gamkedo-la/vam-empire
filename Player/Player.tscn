@@ -42,6 +42,8 @@ func _process(delta):
 
 func move_state(delta):
 	var input_vector = Vector2.ZERO
+	
+	
 	input_vector.x = Input.get_action_strength(\"ui_right\") - Input.get_action_strength(\"ui_left\")
 	input_vector.y = Input.get_action_strength(\"ui_down\") - Input.get_action_strength(\"ui_up\")
 	input_vector = input_vector.normalized()
@@ -54,11 +56,15 @@ func move_state(delta):
 	
 	move()
 	
+	var look_vec = get_global_mouse_position() - global_position
+	#global_rotation = atan2(look_vec.y, look_vec.x)
+	look_at(get_global_mouse_position())
+	
 	if Input.is_action_pressed(\"attack\"):
 		#state = ATTACK
 		var bullet_l = base_bullet.instance()
 		var bullet_r = base_bullet.instance()
-		var bullet_vel = Vector2.UP
+		
 		get_node(\"/root/World\").add_child(bullet_l)
 		get_node(\"/root/World\").add_child(bullet_r)
 		
@@ -66,9 +72,9 @@ func move_state(delta):
 		bullet_r.global_position = right_gun.global_position
 		
 		var rnd_impulse = rng.randf_range(0.8, 2.0)
-		bullet_l.launchBullet(rnd_impulse)
+		bullet_l.launchBullet(rnd_impulse, look_vec.normalized())
 		rnd_impulse = rng.randf_range(0.8, 2.0)
-		bullet_r.launchBullet(rnd_impulse)
+		bullet_r.launchBullet(rnd_impulse, look_vec.normalized())
 
 	elif Input.is_action_just_pressed(\"roll\"):
 		state = ROLL
@@ -109,13 +115,14 @@ shape = SubResource( 2 )
 
 [node name="LeftGunPos" type="Position2D" parent="."]
 position = Vector2( -7.66452, -6.05561 )
+position = Vector2( 5.82486, -7.49214 )
 
 [node name="RightGunPos" type="Position2D" parent="."]
-position = Vector2( 6.33548, -6.05561 )
+position = Vector2( 5.80992, 6.5228 )
 
 [node name="L_Headlight" type="Light2D" parent="."]
-position = Vector2( -8.12485, -8.83615 )
-rotation = -0.205336
+position = Vector2( 6.00132, -7.33525 )
+rotation = 1.309
 scale = Vector2( 1.0039, 5.83863 )
 texture = ExtResource( 2 )
 color = Color( 0.901961, 0.678431, 0.180392, 1 )
@@ -124,8 +131,8 @@ range_height = 2048.0
 shadow_enabled = true
 
 [node name="R_Headlight" type="Light2D" parent="."]
-position = Vector2( 6.87515, -8.83615 )
-rotation = 0.205949
+position = Vector2( 5.7274, 6.79092 )
+rotation = 1.8326
 scale = Vector2( 1.0039, 5.83863 )
 texture = ExtResource( 2 )
 color = Color( 0.901961, 0.678431, 0.180392, 1 )
