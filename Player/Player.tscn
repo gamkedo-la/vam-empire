@@ -10,7 +10,7 @@ script/source = "extends KinematicBody2D
 
 export (int, 0, 3200) var ACCELERATION = 150
 export (int, 0, 1000) var MAX_SPEED = 320
-export (int, 0, 200) var FRICTION = 60
+export (int, 0, 200) var FRICTION = 0
 export (int, 0, 200) var MASS = 100
 
 # Default variables for move_and_slide
@@ -135,6 +135,7 @@ height = 1.4316
 collision_layer = 2
 collision_mask = 9
 script = SubResource( 1 )
+FRICTION = 60
 
 [node name="Sprite" type="Sprite" parent="."]
 texture = ExtResource( 1 )

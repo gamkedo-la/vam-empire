@@ -1,13 +1,14 @@
-[gd_scene load_steps=5 format=2]
+[gd_scene load_steps=6 format=2]
 
 [ext_resource path="res://HUD/Textures/shield_bar_fill.png" type="Texture" id=1]
 [ext_resource path="res://HUD/Textures/shield_bar_bord.png" type="Texture" id=2]
 [ext_resource path="res://HUD/Textures/hull_bar_fill.png" type="Texture" id=3]
 [ext_resource path="res://HUD/Textures/hull_bar_bord.png" type="Texture" id=4]
+[ext_resource path="res://HUD/Textures/energy_bar.png" type="Texture" id=5]
 
 [node name="HUD" type="MarginContainer"]
-margin_right = 480.0
-margin_bottom = 320.0
+margin_right = 960.0
+margin_bottom = 540.0
 custom_constants/margin_right = 10
 custom_constants/margin_top = 10
 custom_constants/margin_left = 10
@@ -19,11 +20,11 @@ __meta__ = {
 [node name="VBoxContainer" type="VBoxContainer" parent="."]
 margin_left = 10.0
 margin_top = 10.0
-margin_right = 250.0
-margin_bottom = 46.0
+margin_right = 950.0
+margin_bottom = 530.0
 
 [node name="HBoxContainer" type="HBoxContainer" parent="VBoxContainer"]
-margin_right = 240.0
+margin_right = 940.0
 margin_bottom = 16.0
 
 [node name="TextureProgress" type="TextureProgress" parent="VBoxContainer/HBoxContainer"]
@@ -35,7 +36,7 @@ texture_progress = ExtResource( 1 )
 
 [node name="HBoxContainer2" type="HBoxContainer" parent="VBoxContainer"]
 margin_top = 20.0
-margin_right = 240.0
+margin_right = 940.0
 margin_bottom = 36.0
 
 [node name="TextureProgress" type="TextureProgress" parent="VBoxContainer/HBoxContainer2"]
@@ -44,3 +45,14 @@ margin_bottom = 16.0
 value = 86.0
 texture_over = ExtResource( 4 )
 texture_progress = ExtResource( 3 )
+
+[node name="HBoxContainer3" type="HBoxContainer" parent="VBoxContainer"]
+margin_top = 40.0
+margin_right = 940.0
+margin_bottom = 48.0
+
+[node name="TextureProgress" type="TextureProgress" parent="VBoxContainer/HBoxContainer3"]
+margin_right = 176.0
+margin_bottom = 8.0
+value = 65.0
+texture_progress = ExtResource( 5 )
