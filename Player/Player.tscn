@@ -111,7 +111,8 @@ func move():
 	
 	for index in get_slide_count():
 		var collision = get_slide_collision(index)
-		collision.collider.apply_impulse(velocity, -collision.normal * (velocity * MASS))
+		if collision.collider.get_parent().is_in_group(\"asteroids\"):
+			collision.collider.apply_impulse(velocity, -collision.normal * (velocity * MASS))
 
 func strafe():
 	strafe_velocity = move_and_slide(strafe_velocity)
@@ -131,7 +132,9 @@ _data = [ Vector2( 0, 1 ), 0.0, 0.0, 0, 0, Vector2( 0.546332, 0.0122699 ), 0.0, 
 radius = 2.14236
 height = 1.4316
 
-[node name="Player" type="KinematicBody2D"]
+[node name="Player" type="KinematicBody2D" groups=[
+"player",
+]]
 collision_layer = 2
 collision_mask = 9
 script = SubResource( 1 )

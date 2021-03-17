@@ -12,7 +12,9 @@ height = 8.28431
 radius = 7.28048
 height = 9.87344
 
-[node name="Asteroid001" type="RigidBody2D"]
+[node name="Asteroid001" type="RigidBody2D" groups=[
+"asteroids",
+]]
 mass = 25.0
 script = ExtResource( 3 )
 __meta__ = {

@@ -12,7 +12,7 @@ height = 123.665
 radius = 108.168
 height = 154.389
 
-[node name="Asteroid001" type="RigidBody2D"]
+[node name="Asteroid003" type="RigidBody2D"]
 mass = 7500.0
 script = ExtResource( 3 )
 health = 200000
@@ -30,7 +30,9 @@ shape = SubResource( 1 )
 [node name="HurtBox" parent="." instance=ExtResource( 2 )]
 collision_layer = 8
 
-[node name="CollisionShape2D" parent="HurtBox" index="0"]
+[node name="CollisionShape2D" parent="HurtBox" index="0" groups=[
+"asteroids",
+]]
 position = Vector2( -8.9953, 16.4031 )
 rotation = 0.678933
 shape = SubResource( 2 )

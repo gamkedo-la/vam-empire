@@ -15,7 +15,7 @@ _global_script_class_icons={
 
 [application]
 
-config/name="Shmup Proto"
+config/name="V.A.M. Empire"
 run/main_scene="res://World_Proto.tscn"
 config/icon="res://icon.png"
 
