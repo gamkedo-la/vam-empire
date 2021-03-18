@@ -94,6 +94,12 @@ flip_v = true
 ] instance=ExtResource( 7 )]
 position = Vector2( 39.3334, -112 )
 
+[node name="CollisionShape2D" parent="Asteroids/AsteroidsBig/Asteroid001" index="1"]
+visible = true
+
+[node name="CollisionShape2D" parent="Asteroids/AsteroidsBig/Asteroid001/HurtBox" index="0"]
+visible = true
+
 [node name="Asteroid002" parent="Asteroids/AsteroidsBig" instance=ExtResource( 7 )]
 position = Vector2( 186.448, 24.9749 )
 
@@ -2372,8 +2378,16 @@ position = Vector2( 53.9603, -1157.9 )
 [node name="ProtoEnemy" parent="." instance=ExtResource( 10 )]
 position = Vector2( -12.4432, 241.303 )
 
+[node name="ProtoEnemy2" parent="." instance=ExtResource( 10 )]
+position = Vector2( -162.094, -294.095 )
+
+[node name="ProtoEnemy3" parent="." instance=ExtResource( 10 )]
+position = Vector2( 590.334, -301.503 )
+
 [editable path="CanvasLayer/HUD"]
 
 [editable path="Player"]
 
 [editable path="Asteroids/AsteroidsBig/Asteroid001"]
+
+[editable path="Asteroids/AsteroidsBig/Asteroid001/HurtBox"]

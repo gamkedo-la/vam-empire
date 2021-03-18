@@ -125,10 +125,11 @@ func move():
 	for index in get_slide_count():
 		var collision = get_slide_collision(index)
 		#if collision.collider.get_parent().is_in_group(\"asteroids\"):
-		collision.collider.apply_impulse(velocity, -collision.normal * (velocity * MASS))
-		var damage = velocity.length()/20
-		print(damage)
-		take_damage(damage)
+		if collision.collider.is_in_group(\"asteroids\"):
+			collision.collider.apply_impulse(velocity, -collision.normal * (velocity * MASS))
+			var damage = velocity.length()/20
+			print(damage)
+			take_damage(damage)
 
 func strafe():
 	strafe_velocity = move_and_slide(strafe_velocity)
