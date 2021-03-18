@@ -17,7 +17,7 @@ func launchBullet(rnd_impulse, direction):
 	apply_central_impulse(direction * (ImpulseMag * rnd_impulse))
 	
 
-func _physics_process(delta):
+func _physics_process(_delta):
 	var distanceTravelled = self.position.distance_to(originalPos)
 	if distanceTravelled > 0:
 		sprite.visible = true;

@@ -16,9 +16,6 @@ func _on_PlayerDetect_body_entered(body):
 	if body.is_in_group("player"):
 		target = body
 
-
-
-
 func _on_PlayerLeash_body_exited(body):
 	if body.is_in_group("player"):
 		target = null
