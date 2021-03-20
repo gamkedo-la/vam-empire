@@ -2,15 +2,15 @@
 
 importer="texture"
 type="StreamTexture"
-path="res://.import/Asteroid_001.png-975e3f91b376c067bf1bd8bf590bf3a2.stex"
+path="res://.import/StarField.png-446d58dc629a62a33ba24c4647d57853.stex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Obstacles/Asteroid_001.png"
-dest_files=[ "res://.import/Asteroid_001.png-975e3f91b376c067bf1bd8bf590bf3a2.stex" ]
+source_file="res://World/background_textures/StarField.png"
+dest_files=[ "res://.import/StarField.png-446d58dc629a62a33ba24c4647d57853.stex" ]
 
 [params]
 

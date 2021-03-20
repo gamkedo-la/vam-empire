@@ -2,15 +2,15 @@
 
 importer="texture"
 type="StreamTexture"
-path="res://.import/Basic_Bullet_001.png-342e4b0418ff2ceb8cd8c17ca6c44e25.stex"
+path="res://.import/Asteroid_001.png-aa0de3ef50050a337910dba2ee41fd7a.stex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Bullets/Basic_Bullet_001.png"
-dest_files=[ "res://.import/Basic_Bullet_001.png-342e4b0418ff2ceb8cd8c17ca6c44e25.stex" ]
+source_file="res://Obstacles/Textures/Asteroid_001.png"
+dest_files=[ "res://.import/Asteroid_001.png-aa0de3ef50050a337910dba2ee41fd7a.stex" ]
 
 [params]
 

@@ -1,9 +1,9 @@
 [gd_scene load_steps=8 format=2]
 
-[ext_resource path="res://Bullets/Basic_Bullet_001-Sheet.png" type="Texture" id=1]
-[ext_resource path="res://Bullets/BasicBullet.gd" type="Script" id=2]
-[ext_resource path="res://Collisions/HitBox.tscn" type="PackedScene" id=3]
-[ext_resource path="res://Bullets/light_orb.png" type="Texture" id=4]
+[ext_resource path="res://Collisions/HitBox.tscn" type="PackedScene" id=1]
+[ext_resource path="res://Scripts/BasicBullet.gd" type="Script" id=2]
+[ext_resource path="res://Bullets/Textures/Basic_Bullet_001-Sheet.png" type="Texture" id=3]
+[ext_resource path="res://Lights/Textures/light_orb.png" type="Texture" id=4]
 
 [sub_resource type="Animation" id=1]
 resource_name = "HitTarget"
@@ -50,7 +50,7 @@ script = ExtResource( 2 )
 
 [node name="Sprite" type="Sprite" parent="."]
 visible = false
-texture = ExtResource( 1 )
+texture = ExtResource( 3 )
 hframes = 5
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="."]
@@ -60,7 +60,7 @@ anims/HitTarget = SubResource( 1 )
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 shape = SubResource( 2 )
 
-[node name="HurtBox" parent="." instance=ExtResource( 3 )]
+[node name="HurtBox" parent="." instance=ExtResource( 1 )]
 collision_mask = 8
 
 [node name="CollisionShape2D" parent="HurtBox" index="0"]

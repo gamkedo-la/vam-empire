@@ -2,15 +2,15 @@
 
 importer="texture"
 type="StreamTexture"
-path="res://.import/headlight_001.png-4cd0f5242b735c4d1697d161b1d09594.stex"
+path="res://.import/Shmup_Player_Ship_001.png-db2bfd9da4246fcf4f91f8713e074383.stex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Player/headlight_001.png"
-dest_files=[ "res://.import/headlight_001.png-4cd0f5242b735c4d1697d161b1d09594.stex" ]
+source_file="res://Player/Textures/Shmup_Player_Ship_001.png"
+dest_files=[ "res://.import/Shmup_Player_Ship_001.png-db2bfd9da4246fcf4f91f8713e074383.stex" ]
 
 [params]
 

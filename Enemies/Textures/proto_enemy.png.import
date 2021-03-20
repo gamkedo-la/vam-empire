@@ -2,15 +2,15 @@
 
 importer="texture"
 type="StreamTexture"
-path="res://.import/proto_enemy.png-09ec70946e20e5074383d522bf2549e3.stex"
+path="res://.import/proto_enemy.png-7185e4857de69c9f4a242b392b6e5c56.stex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Enemies/proto_enemy.png"
-dest_files=[ "res://.import/proto_enemy.png-09ec70946e20e5074383d522bf2549e3.stex" ]
+source_file="res://Enemies/Textures/proto_enemy.png"
+dest_files=[ "res://.import/proto_enemy.png-7185e4857de69c9f4a242b392b6e5c56.stex" ]
 
 [params]
 

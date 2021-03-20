@@ -2,15 +2,15 @@
 
 importer="texture"
 type="StreamTexture"
-path="res://.import/Basic_Bullet_001-Sheet.png-78e417414eb3289d6687dd673554e047.stex"
+path="res://.import/light_orb.png-cef082a688395d030d92b2708089f43f.stex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Bullets/Basic_Bullet_001-Sheet.png"
-dest_files=[ "res://.import/Basic_Bullet_001-Sheet.png-78e417414eb3289d6687dd673554e047.stex" ]
+source_file="res://Lights/Textures/light_orb.png"
+dest_files=[ "res://.import/light_orb.png-cef082a688395d030d92b2708089f43f.stex" ]
 
 [params]
 

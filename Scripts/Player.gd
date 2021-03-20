@@ -35,7 +35,7 @@ var rng = RandomNumberGenerator.new()
 
 var player_target = null
 
-onready var base_bullet = preload("res://Bullets/BasicBullet.tscn")
+onready var base_bullet = preload("res://Bullets/Scenes/BasicBullet.tscn")
 onready var left_gun = $LeftGunPos
 onready var right_gun = $RightGunPos
 onready var thrust_light = $Sprite/RearLightAmber
@@ -68,8 +68,6 @@ func _physics_process(delta):
 		
 		debug_select.global_transform = player_target.global_transform
 		debug_select.visible = true
-		
-		
 
 	rotate_to_target(targ)
 
