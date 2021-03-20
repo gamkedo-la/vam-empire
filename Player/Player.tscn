@@ -95,6 +95,7 @@ energy = 0.8
 mode = 2
 
 [node name="DebugDraw" type="Light2D" parent="."]
+light_mask = 2
 z_index = 10
 texture = ExtResource( 3 )
 color = Color( 1, 0, 0, 1 )
@@ -102,4 +103,5 @@ energy = 4.11
 shadow_enabled = true
 
 [node name="Sprite2" type="Sprite" parent="DebugDraw"]
+light_mask = -2147483646
 texture = ExtResource( 5 )

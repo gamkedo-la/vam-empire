@@ -65,7 +65,8 @@ func _physics_process(delta):
 		debug_select.visible = false
 	else:
 		targ = player_target.global_position
-		debug_select.global_position = targ
+		
+		debug_select.global_transform = player_target.global_transform
 		debug_select.visible = true
 		
 		
@@ -107,6 +108,7 @@ func move_state(delta):
 	
 	if Input.is_action_pressed("attack"):
 		#state = ATTACK
+		#This code should be modularized and passed off to various 'weapons' that may be installed on the ship
 		var bullet_l = base_bullet.instance()
 		var bullet_r = base_bullet.instance()
 		
@@ -117,11 +119,11 @@ func move_state(delta):
 		bullet_l.global_rotation = global_rotation
 		bullet_r.global_position = right_gun.global_position
 		bullet_r.global_rotation = global_rotation
-		
+		var dir = Vector2(1, 0).rotated(self.global_rotation)
 		var rnd_impulse = rng.randf_range(0.8, 2.0)
-		bullet_l.launchBullet(rnd_impulse, look_vec.normalized())
+		bullet_l.launchBullet(rnd_impulse, dir)
 		rnd_impulse = rng.randf_range(0.8, 2.0)
-		bullet_r.launchBullet(rnd_impulse, look_vec.normalized())
+		bullet_r.launchBullet(rnd_impulse, dir)
 
 	elif Input.is_action_pressed("ui_esc"):
 		player_target = null
