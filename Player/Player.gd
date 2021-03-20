@@ -41,6 +41,8 @@ onready var right_gun = $RightGunPos
 onready var thrust_light = $Sprite/RearLightAmber
 onready var thrust_exhaust = $Sprite/RearLightAmber/Particles2D
 
+onready var debug_select = $DebugDraw
+
 
 func _ready():
 	rng.randomize()
@@ -60,10 +62,15 @@ func _physics_process(delta):
 	var targ = player_target
 	if !player_target:
 		targ = get_global_mouse_position()
+		debug_select.visible = false
 	else:
-		targ = player_target.position
-	rotate_to_target(targ)
+		targ = player_target.global_position
+		debug_select.global_position = targ
+		debug_select.visible = true
+		
+		
 
+	rotate_to_target(targ)
 
 func move_state(delta):
 	var thrust_vector = Vector2.ZERO
