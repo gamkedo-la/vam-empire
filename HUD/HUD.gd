@@ -26,4 +26,5 @@ func refresh_bar():
 		hullHealthBar.value = (p.hullHealth / p.hullMaxHealth) * 100
 		energyReserveBar.value = (p.energyReserve / p.energyMax) * 100
 
-	
+
+

@@ -15,6 +15,7 @@ height = 9.87344
 [node name="Asteroid001" type="RigidBody2D" groups=[
 "asteroids",
 ]]
+input_pickable = true
 mass = 25.0
 script = ExtResource( 3 )
 __meta__ = {
@@ -37,6 +38,7 @@ visible = false
 position = Vector2( -0.8269, 1.40288 )
 rotation = 0.678933
 shape = SubResource( 2 )
+[connection signal="input_event" from="." to="." method="_on_Asteroid001_input_event"]
 [connection signal="area_entered" from="HurtBox" to="." method="_on_HurtBox_area_entered"]
 
 [editable path="HurtBox"]

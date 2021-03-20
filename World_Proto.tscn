@@ -2376,13 +2376,17 @@ rotation = -4.04682
 position = Vector2( 53.9603, -1157.9 )
 
 [node name="ProtoEnemy" parent="." instance=ExtResource( 10 )]
+visible = false
 position = Vector2( -12.4432, 241.303 )
 
 [node name="ProtoEnemy2" parent="." instance=ExtResource( 10 )]
+visible = false
 position = Vector2( -162.094, -294.095 )
 
 [node name="ProtoEnemy3" parent="." instance=ExtResource( 10 )]
-position = Vector2( 590.334, -301.503 )
+visible = false
+position = Vector2( 590.334, -301.621 )
+[connection signal="input_event" from="Asteroids/AsteroidsBig/Asteroid001" to="Asteroids/AsteroidsBig/Asteroid001" method="_on_Asteroid001_input_event"]
 
 [editable path="CanvasLayer/HUD"]
 

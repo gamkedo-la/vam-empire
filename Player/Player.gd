@@ -5,6 +5,7 @@ export (int, 0, 3200) var ACCELERATION = 150
 export (int, 0, 1000) var MAX_SPEED = 320
 export (int, 0, 200) var FRICTION = 0
 export (int, 0, 200) var MASS = 100
+export var ROT_SPEED = deg2rad(1)
 
 export (float, 0, 400) var shieldHealth = 200
 export (float, 0, 600) var hullHealth = 250
@@ -32,11 +33,14 @@ var strafe_velocity = Vector2.ZERO
 var roll_vector = Vector2.LEFT
 var rng = RandomNumberGenerator.new()
 
+var player_target = null
+
 onready var base_bullet = preload("res://Bullets/BasicBullet.tscn")
 onready var left_gun = $LeftGunPos
 onready var right_gun = $RightGunPos
 onready var thrust_light = $Sprite/RearLightAmber
 onready var thrust_exhaust = $Sprite/RearLightAmber/Particles2D
+
 
 func _ready():
 	rng.randomize()
@@ -51,15 +55,21 @@ func _process(delta):
 			move_state(delta)
 		ATTACK:
 			attack_state(delta)	
+			
+func _physics_process(delta):
+	var targ = player_target
+	if !player_target:
+		targ = get_global_mouse_position()
+	else:
+		targ = player_target.position
+	rotate_to_target(targ)
 
 
 func move_state(delta):
 	var thrust_vector = Vector2.ZERO
 	var strafe_vector = Vector2.ZERO
 	
-	var look_vec = get_global_mouse_position() - global_position
-	
-	look_at(get_global_mouse_position())
+	var look_vec = get_global_mouse_position() - global_position	
 	
 	thrust_vector.x = Input.get_action_strength("ui_up") - Input.get_action_strength("ui_down")
 	strafe_vector.y = Input.get_action_strength("ui_right") - Input.get_action_strength("ui_left")
@@ -106,8 +116,9 @@ func move_state(delta):
 		rnd_impulse = rng.randf_range(0.8, 2.0)
 		bullet_r.launchBullet(rnd_impulse, look_vec.normalized())
 
-	elif Input.is_action_just_pressed("roll"):
-		state = ROLL
+	elif Input.is_action_pressed("ui_esc"):
+		player_target = null
+	
 	
 func attack_state(_delta):
 	velocity = Vector2.ZERO
@@ -140,3 +151,13 @@ func take_damage(damage):
 		hullHealth -= damage
 	else:
 		print("You're Dead")
+		
+
+func rotate_to_target(target):
+	if self.get_angle_to(target) > 0:
+		self.rotation += ROT_SPEED
+	else:
+		self.rotation -= ROT_SPEED
+
+
+

@@ -13,6 +13,7 @@ radius = 108.168
 height = 154.389
 
 [node name="Asteroid003" type="RigidBody2D"]
+input_pickable = true
 mass = 7500.0
 script = ExtResource( 3 )
 health = 200000
@@ -36,6 +37,7 @@ collision_layer = 8
 position = Vector2( -8.9953, 16.4031 )
 rotation = 0.678933
 shape = SubResource( 2 )
+[connection signal="input_event" from="." to="." method="_on_Asteroid003_input_event"]
 [connection signal="area_entered" from="HurtBox" to="." method="_on_HurtBox_area_entered"]
 
 [editable path="HurtBox"]

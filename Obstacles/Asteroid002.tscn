@@ -19,6 +19,7 @@ polygon = PoolVector2Array( -17.1892, 23.6102, -22.9435, 20.8322, -21.8191, 7.14
 polygon = PoolVector2Array( 1.92578, 21.1629, 15.8817, 7.00862, 17.7337, 0.19602 )
 
 [node name="Asteroid002" type="RigidBody2D"]
+input_pickable = true
 mass = 750.0
 script = ExtResource( 3 )
 health = 20000
@@ -54,6 +55,7 @@ occluder = SubResource( 3 )
 ]]
 z_index = -1
 occluder = SubResource( 4 )
+[connection signal="input_event" from="." to="." method="_on_Asteroid002_input_event"]
 [connection signal="area_entered" from="HurtBox" to="." method="_on_HurtBox_area_entered"]
 
 [editable path="HurtBox"]

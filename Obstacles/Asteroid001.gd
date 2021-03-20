@@ -15,3 +15,18 @@ func _on_HurtBox_area_entered(area):
 	health -= hitParent.Damage
 	hitParent.hit_something()
 
+
+
+func _on_Asteroid001_input_event(viewport, event, shape_idx):
+	make_target(viewport, event, shape_idx)
+
+func _on_Asteroid002_input_event(viewport, event, shape_idx):
+	make_target(viewport, event, shape_idx)
+
+func _on_Asteroid003_input_event(viewport, event, shape_idx):
+	make_target(viewport, event, shape_idx)
+
+func make_target(viewport, event, shape_idx):
+	if event is InputEventMouseButton and event.pressed and event.button_index == BUTTON_LEFT:
+		var player = get_node("/root/World/Player")
+		player.player_target = self
