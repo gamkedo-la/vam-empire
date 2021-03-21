@@ -1,7 +1,7 @@
 extends Node2D
 
-var plax_scroll_widths = 1.5
-var plax_scroll_heights = 1.5
+var plax_scroll_widths = 3
+var plax_scroll_heights = 3
 
 onready var dimensions = get_viewport_rect().size
 
@@ -34,13 +34,13 @@ func _on_Tween_tween_completed(object, key):
 	print("Target: ", target)
 	print("Key: ", key)
 	if key == ":scroll_offset:x":
-		target.x *= -1.5
+		target.x *= -1.1
 		tween_to_target_x(target)
-		if abs(target.x) > orig_target.x * 3.5:
+		if abs(target.x) > abs(orig_target.x * 2):
 			target.x = orig_target.x
 	if key == ":scroll_offset:y":
-		target.y *= -1.5
+		target.y *= -1.1
 		tween_to_target_y(target)
-		if abs(target.y) > orig_target.y * 3:
+		if abs(target.y) > abs(orig_target.y * 2):
 			target.y = orig_target.y
 

@@ -17,7 +17,7 @@ centered = false
 
 [node name="StarFieldSparse" type="ParallaxLayer" parent="."]
 motion_scale = Vector2( 0.012, 0.012 )
-motion_mirroring = Vector2( 960, 640 )
+motion_mirroring = Vector2( 960, 1280 )
 
 [node name="Sprite" type="Sprite" parent="StarFieldSparse"]
 texture = ExtResource( 1 )
@@ -26,7 +26,7 @@ flip_h = true
 
 [node name="AsteroidDebris" type="ParallaxLayer" parent="."]
 motion_scale = Vector2( 0.35, 0.35 )
-motion_mirroring = Vector2( 960, 640 )
+motion_mirroring = Vector2( 960, 1280 )
 
 [node name="Sprite" type="Sprite" parent="AsteroidDebris"]
 texture = ExtResource( 3 )
@@ -34,7 +34,7 @@ centered = false
 
 [node name="AsteroidDebris2" type="ParallaxLayer" parent="."]
 motion_scale = Vector2( 0.5, 0.5 )
-motion_mirroring = Vector2( 960, 640 )
+motion_mirroring = Vector2( 960, 1280 )
 
 [node name="Sprite" type="Sprite" parent="AsteroidDebris2"]
 texture = ExtResource( 3 )
