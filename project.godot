@@ -19,6 +19,12 @@ config/name="V.A.M. Empire"
 run/main_scene="res://World_Proto.tscn"
 config/icon="res://icon.png"
 
+[autoload]
+
+UserSettings="*res://Scripts/UserSettings.gd"
+Global="*res://Scripts/Global.gd"
+PlayerVars="*res://Scripts/PlayerVars.gd"
+
 [display]
 
 window/size/width=960

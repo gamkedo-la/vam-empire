@@ -1,0 +1,42 @@
+[gd_scene load_steps=4 format=2]
+
+[ext_resource path="res://World/background_textures/StarField_Midlayer.png" type="Texture" id=1]
+[ext_resource path="res://World/background_textures/StarField.png" type="Texture" id=2]
+[ext_resource path="res://World/background_textures/StarField_Foreground.png" type="Texture" id=3]
+
+[node name="ParallaxBackground2" type="ParallaxBackground"]
+
+[node name="StarFieldBlack" type="ParallaxLayer" parent="."]
+motion_scale = Vector2( 0.01, 0.01 )
+motion_offset = Vector2( 0, 320 )
+motion_mirroring = Vector2( 960, 1280 )
+
+[node name="Sprite" type="Sprite" parent="StarFieldBlack"]
+texture = ExtResource( 2 )
+centered = false
+
+[node name="StarFieldSparse" type="ParallaxLayer" parent="."]
+motion_scale = Vector2( 0.012, 0.012 )
+motion_mirroring = Vector2( 960, 640 )
+
+[node name="Sprite" type="Sprite" parent="StarFieldSparse"]
+texture = ExtResource( 1 )
+centered = false
+flip_h = true
+
+[node name="AsteroidDebris" type="ParallaxLayer" parent="."]
+motion_scale = Vector2( 0.35, 0.35 )
+motion_mirroring = Vector2( 960, 640 )
+
+[node name="Sprite" type="Sprite" parent="AsteroidDebris"]
+texture = ExtResource( 3 )
+centered = false
+
+[node name="AsteroidDebris2" type="ParallaxLayer" parent="."]
+motion_scale = Vector2( 0.5, 0.5 )
+motion_mirroring = Vector2( 960, 640 )
+
+[node name="Sprite" type="Sprite" parent="AsteroidDebris2"]
+texture = ExtResource( 3 )
+centered = false
+flip_v = true

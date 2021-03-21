@@ -5,7 +5,8 @@ export (int, 0, 3200) var ACCELERATION = 150
 export (int, 0, 1000) var MAX_SPEED = 320
 export (int, 0, 200) var FRICTION = 0
 export (int, 0, 200) var MASS = 100
-export var ROT_SPEED = deg2rad(1)
+export var ROT_SPEED = deg2rad(2)
+var ROT_ACCEL = deg2rad(0)
 
 export (float, 0, 400) var shieldHealth = 200
 export (float, 0, 600) var hullHealth = 250
@@ -161,10 +162,17 @@ func take_damage(damage):
 		
 
 func rotate_to_target(target):
-	if self.get_angle_to(target) > 0:
-		self.rotation += ROT_SPEED
-	else:
-		self.rotation -= ROT_SPEED
 
+	if self.get_angle_to(target) > ROT_SPEED:
+		self.rotation += ROT_SPEED + ROT_ACCEL
+	else:
+		self.rotation -= ROT_SPEED + ROT_ACCEL
+		
+	if abs(self.get_angle_to(target)) < ROT_SPEED * 1.1:
+		self.look_at(target)
+		ROT_ACCEL = deg2rad(0)
+	else:
+		ROT_ACCEL += deg2rad(.05)
+	
 
 
