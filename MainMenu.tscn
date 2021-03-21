@@ -33,7 +33,6 @@ margin_right = 960.0
 margin_bottom = 18.0
 
 [node name="MainMenuParallax" parent="." instance=ExtResource( 1 )]
-scroll_base_offset = Vector2( 960, -540 )
 
 [node name="StarFieldSparse" parent="MainMenuParallax" index="1"]
 visible = false
