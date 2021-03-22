@@ -9,16 +9,18 @@ func _ready():
 	
 func goto_scene(path):
 	# Defer the load until the current scene is done executing code
-	call_deferred("deferred_goto_scene", path)
+	print("Getting to goto_scene...")
+	call_deferred("_deferred_goto_scene", path)
 
 
 func _deferred_goto_scene(path):
 	
 	current_scene.free()
 	
-	var s = ResourceLoader.load(path)
+	print("Loading level...", path)
+	var s = load(path)
 	
-	current_scene = s.Instance()
+	current_scene = s.instance()
 	
 	get_tree().get_root().add_child(current_scene)
 	

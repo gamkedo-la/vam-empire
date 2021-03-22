@@ -43,3 +43,9 @@ func _on_Tween_tween_completed(object, key):
 		if abs(target.y) > abs(orig_target.y * 2):
 			target.y = orig_target.y
 
+
+
+func _on_New_pressed():
+	print("Loading new Scene...")
+	tween.stop_all()
+	Global.goto_scene("res://World_Proto.tscn")
