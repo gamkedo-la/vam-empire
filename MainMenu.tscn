@@ -160,6 +160,7 @@ pause_mode = 2
 script = ExtResource( 2 )
 
 [node name="MenuCanvas" type="CanvasLayer" parent="."]
+layer = 6
 
 [node name="MainMenuVBox" type="VBoxContainer" parent="MenuCanvas"]
 margin_right = 960.0
@@ -185,7 +186,7 @@ stretch_mode = 6
 show_behind_parent = true
 position = Vector2( 221, 170 )
 frames = SubResource( 33 )
-frame = 30
+frame = 10
 playing = true
 
 [node name="InteractVB" type="VBoxContainer" parent="MenuCanvas/MainMenuVBox"]
@@ -430,7 +431,7 @@ margin_right = -4.0
 margin_bottom = -4.0
 
 [node name="CanvasLayer" type="CanvasLayer" parent="."]
-layer = -1
+layer = 5
 
 [node name="BackPlate" type="TextureRect" parent="CanvasLayer"]
 modulate = Color( 1, 1, 1, 0.615686 )

@@ -43,5 +43,6 @@ func _display_menu():
 	else:
 		if in_game_menu:
 			in_game_menu.free()
-		get_tree().paused = false
+		if get_tree().paused == true:
+			get_tree().paused = false
 		menu_open = false
