@@ -18,9 +18,6 @@ func _ready():
 func _process(delta):
 	#animate_background()
 	pass
-	
-
-
 
 func tween_to_target_x(targ):
 	tween.interpolate_property(background, "scroll_offset:x", background.scroll_offset.x, targ.x, 16, Tween.TRANS_BACK, Tween.EASE_IN_OUT)	
