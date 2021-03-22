@@ -29,7 +29,7 @@ func _process(delta):
 		#TODO: Do something smarter here, in case 'unsaved' settings
 		options.visible = false
 		main_menu.visible = true		
-	pass
+	
 
 func tween_to_target_x(targ):
 	tween.interpolate_property(background, "scroll_offset:x", background.scroll_offset.x, targ.x, 16, Tween.TRANS_BACK, Tween.EASE_IN_OUT)	
