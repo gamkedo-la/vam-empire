@@ -183,7 +183,7 @@ stretch_mode = 6
 show_behind_parent = true
 position = Vector2( 221, 170 )
 frames = SubResource( 19 )
-frame = 3
+frame = 6
 playing = true
 
 [node name="InteractVB" type="VBoxContainer" parent="MainMenuVBox"]
@@ -300,9 +300,117 @@ margin_top = 7.0
 margin_right = 479.0
 margin_bottom = 217.0
 
-[node name="HSlider" type="HSlider" parent="OptionsContainer/VBoxContainer/TabContainer/Audio/VBoxContainer"]
+[node name="HBoxContainer" type="HBoxContainer" parent="OptionsContainer/VBoxContainer/TabContainer/Audio/VBoxContainer"]
 margin_right = 472.0
 margin_bottom = 16.0
+alignment = 1
+
+[node name="RichTextLabel" type="RichTextLabel" parent="OptionsContainer/VBoxContainer/TabContainer/Audio/VBoxContainer/HBoxContainer"]
+margin_left = 34.0
+margin_right = 314.0
+margin_bottom = 16.0
+rect_min_size = Vector2( 280, 0 )
+text = "Master Volume"
+
+[node name="mast_volume_slider" type="HSlider" parent="OptionsContainer/VBoxContainer/TabContainer/Audio/VBoxContainer/HBoxContainer"]
+margin_left = 318.0
+margin_right = 438.0
+margin_bottom = 16.0
+rect_min_size = Vector2( 120, 0 )
+rounded = true
+
+[node name="HBoxContainer2" type="HBoxContainer" parent="OptionsContainer/VBoxContainer/TabContainer/Audio/VBoxContainer"]
+margin_top = 20.0
+margin_right = 472.0
+margin_bottom = 36.0
+alignment = 1
+
+[node name="RichTextLabel" type="RichTextLabel" parent="OptionsContainer/VBoxContainer/TabContainer/Audio/VBoxContainer/HBoxContainer2"]
+margin_left = 34.0
+margin_right = 314.0
+margin_bottom = 16.0
+rect_min_size = Vector2( 280, 0 )
+text = "Music Volume"
+
+[node name="music_volume_slider" type="HSlider" parent="OptionsContainer/VBoxContainer/TabContainer/Audio/VBoxContainer/HBoxContainer2"]
+margin_left = 318.0
+margin_right = 438.0
+margin_bottom = 16.0
+rect_min_size = Vector2( 120, 0 )
+
+[node name="HBoxContainer3" type="HBoxContainer" parent="OptionsContainer/VBoxContainer/TabContainer/Audio/VBoxContainer"]
+margin_top = 40.0
+margin_right = 472.0
+margin_bottom = 56.0
+alignment = 1
+
+[node name="RichTextLabel" type="RichTextLabel" parent="OptionsContainer/VBoxContainer/TabContainer/Audio/VBoxContainer/HBoxContainer3"]
+margin_left = 34.0
+margin_right = 314.0
+margin_bottom = 16.0
+rect_min_size = Vector2( 280, 0 )
+text = "Sound Effect Volume"
+
+[node name="sound_effect_volume_slider" type="HSlider" parent="OptionsContainer/VBoxContainer/TabContainer/Audio/VBoxContainer/HBoxContainer3"]
+margin_left = 318.0
+margin_right = 438.0
+margin_bottom = 16.0
+rect_min_size = Vector2( 120, 0 )
+
+[node name="HBoxContainer4" type="HBoxContainer" parent="OptionsContainer/VBoxContainer/TabContainer/Audio/VBoxContainer"]
+margin_top = 60.0
+margin_right = 472.0
+margin_bottom = 76.0
+alignment = 1
+
+[node name="RichTextLabel" type="RichTextLabel" parent="OptionsContainer/VBoxContainer/TabContainer/Audio/VBoxContainer/HBoxContainer4"]
+margin_left = 34.0
+margin_right = 314.0
+margin_bottom = 16.0
+rect_min_size = Vector2( 280, 0 )
+text = "Ambience"
+
+[node name="ambience_slider" type="HSlider" parent="OptionsContainer/VBoxContainer/TabContainer/Audio/VBoxContainer/HBoxContainer4"]
+margin_left = 318.0
+margin_right = 438.0
+margin_bottom = 16.0
+rect_min_size = Vector2( 120, 0 )
+
+[node name="HBoxContainer5" type="HBoxContainer" parent="OptionsContainer/VBoxContainer/TabContainer/Audio/VBoxContainer"]
+margin_top = 80.0
+margin_right = 472.0
+margin_bottom = 96.0
+alignment = 1
+
+[node name="RichTextLabel" type="RichTextLabel" parent="OptionsContainer/VBoxContainer/TabContainer/Audio/VBoxContainer/HBoxContainer5"]
+margin_left = 34.0
+margin_right = 314.0
+margin_bottom = 16.0
+rect_min_size = Vector2( 280, 0 )
+
+[node name="HSlider" type="HSlider" parent="OptionsContainer/VBoxContainer/TabContainer/Audio/VBoxContainer/HBoxContainer5"]
+margin_left = 318.0
+margin_right = 438.0
+margin_bottom = 16.0
+rect_min_size = Vector2( 120, 0 )
+
+[node name="HBoxContainer6" type="HBoxContainer" parent="OptionsContainer/VBoxContainer/TabContainer/Audio/VBoxContainer"]
+margin_top = 100.0
+margin_right = 472.0
+margin_bottom = 116.0
+alignment = 1
+
+[node name="RichTextLabel" type="RichTextLabel" parent="OptionsContainer/VBoxContainer/TabContainer/Audio/VBoxContainer/HBoxContainer6"]
+margin_left = 34.0
+margin_right = 314.0
+margin_bottom = 16.0
+rect_min_size = Vector2( 280, 0 )
+
+[node name="HSlider" type="HSlider" parent="OptionsContainer/VBoxContainer/TabContainer/Audio/VBoxContainer/HBoxContainer6"]
+margin_left = 318.0
+margin_right = 438.0
+margin_bottom = 16.0
+rect_min_size = Vector2( 120, 0 )
 
 [node name="Graphics" type="PanelContainer" parent="OptionsContainer/VBoxContainer/TabContainer"]
 visible = false
@@ -330,5 +438,9 @@ margin_bottom = -36.0
 [connection signal="pressed" from="MainMenuVBox/InteractVB/NewHB/New" to="." method="_on_New_pressed"]
 [connection signal="pressed" from="MainMenuVBox/InteractVB/OptionsHB3/Options" to="." method="_on_Options_pressed"]
 [connection signal="tween_completed" from="Tween" to="." method="_on_Tween_tween_completed"]
+[connection signal="value_changed" from="OptionsContainer/VBoxContainer/TabContainer/Audio/VBoxContainer/HBoxContainer/mast_volume_slider" to="." method="_on_mast_volume_slider_value_changed"]
+[connection signal="value_changed" from="OptionsContainer/VBoxContainer/TabContainer/Audio/VBoxContainer/HBoxContainer2/music_volume_slider" to="." method="_on_music_volume_slider_value_changed"]
+[connection signal="value_changed" from="OptionsContainer/VBoxContainer/TabContainer/Audio/VBoxContainer/HBoxContainer3/sound_effect_volume_slider" to="." method="_on_sound_effect_volume_slider_value_changed"]
+[connection signal="value_changed" from="OptionsContainer/VBoxContainer/TabContainer/Audio/VBoxContainer/HBoxContainer4/ambience_slider" to="." method="_on_ambience_slider_value_changed"]
 
 [editable path="MainMenuParallax"]

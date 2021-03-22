@@ -65,3 +65,17 @@ func _on_Options_pressed():
 	main_menu.visible = false
 	options.visible = true
 	
+
+
+func _on_mast_volume_slider_value_changed(value):
+	print("Master Volume: ", value)
+
+func _on_music_volume_slider_value_changed(value):
+	print("Music Volume: ", value)
+
+
+func _on_sound_effect_volume_slider_value_changed(value):
+	print("Sound Effect Volume:", value)
+
+func _on_ambience_slider_value_changed(value):
+	print("Ambience Volume", value)
