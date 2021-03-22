@@ -6,7 +6,7 @@
 [ext_resource path="res://Obstacles/Scenes/Asteroid001.tscn" type="PackedScene" id=5]
 [ext_resource path="res://Obstacles/Scenes/Asteroid002.tscn" type="PackedScene" id=7]
 [ext_resource path="res://Obstacles/Scenes/Asteroid003.tscn" type="PackedScene" id=8]
-[ext_resource path="res://HUD/Scenes/HUD.tscn" type="PackedScene" id=9]
+[ext_resource path="res://UI/HUD/Scenes/HUD.tscn" type="PackedScene" id=9]
 [ext_resource path="res://Enemies/Scenes/ProtoEnemy.tscn" type="PackedScene" id=10]
 
 [node name="World" type="Node2D"]

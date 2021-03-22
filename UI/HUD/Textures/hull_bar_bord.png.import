@@ -2,15 +2,15 @@
 
 importer="texture"
 type="StreamTexture"
-path="res://.import/shield_bar_bord.png-f6472d82526289c72bb05b3371f7af70.stex"
+path="res://.import/hull_bar_bord.png-daab97f67545b29cdb151ac0661591d3.stex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://HUD/Textures/shield_bar_bord.png"
-dest_files=[ "res://.import/shield_bar_bord.png-f6472d82526289c72bb05b3371f7af70.stex" ]
+source_file="res://UI/HUD/Textures/hull_bar_bord.png"
+dest_files=[ "res://.import/hull_bar_bord.png-daab97f67545b29cdb151ac0661591d3.stex" ]
 
 [params]
 

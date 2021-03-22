@@ -6,6 +6,8 @@ var plax_scroll_heights = 3
 onready var dimensions = get_viewport_rect().size
 
 onready var background = $MainMenuParallax
+onready var vam_logo = $MainMenuVBox/LogoBox/VamLogo
+onready var empire_logo = $MainMenuVBox/LogoBox/VamLogo/EmpireLogo
 onready var tween = $Tween
 onready var target = Vector2(plax_scroll_widths*1.1*dimensions.x, plax_scroll_heights*1.1*dimensions.y)
 onready var orig_target = Vector2(plax_scroll_widths*1.1*dimensions.x, plax_scroll_heights*1.1*dimensions.y)

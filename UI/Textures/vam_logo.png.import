@@ -2,15 +2,15 @@
 
 importer="texture"
 type="StreamTexture"
-path="res://.import/hull_bar_bord.png-d0df5b74a096e0d46752d76618654ba7.stex"
+path="res://.import/vam_logo.png-0104c1d1da42179090afd6c46e4ff8ce.stex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://HUD/Textures/hull_bar_bord.png"
-dest_files=[ "res://.import/hull_bar_bord.png-d0df5b74a096e0d46752d76618654ba7.stex" ]
+source_file="res://UI/Textures/vam_logo.png"
+dest_files=[ "res://.import/vam_logo.png-0104c1d1da42179090afd6c46e4ff8ce.stex" ]
 
 [params]
 
