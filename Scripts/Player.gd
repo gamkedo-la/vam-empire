@@ -124,8 +124,12 @@ func move_state(delta):
 		rnd_impulse = rng.randf_range(0.8, 2.0)
 		bullet_r.launchBullet(rnd_impulse, dir)
 
-	elif Input.is_action_pressed("ui_esc"):
-		player_target = null
+	elif Input.is_action_just_pressed("ui_esc"):
+		# If no target, bring up main menu, otherwise get rid of target first
+		if !player_target:
+			Global._display_menu()			
+		else:
+			player_target = null
 	
 	
 func attack_state(_delta):

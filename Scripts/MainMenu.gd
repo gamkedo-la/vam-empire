@@ -5,13 +5,14 @@ var plax_scroll_heights = 3
 
 onready var dimensions = get_viewport_rect().size
 
-onready var background = $MainMenuParallax
-onready var vam_logo = $MainMenuVBox/LogoBox/VamLogo
-onready var empire_logo = $MainMenuVBox/LogoBox/VamLogo/EmpireLogo
+onready var background = $MenuCanvas/MainMenuParallax
+onready var vam_logo = $MenuCanvas/MainMenuVBox/LogoBox/VamLogo
+onready var empire_logo = $MenuCanvas/MainMenuVBox/LogoBox/VamLogo/EmpireLogo
 
-onready var main_menu = $MainMenuVBox
-onready var options = $OptionsContainer
-onready var tween = $Tween
+onready var main_menu = $MenuCanvas/MainMenuVBox
+onready var new_button = $MenuCanvas/MainMenuVBox/InteractVB/NewHB/New
+onready var options = $MenuCanvas/OptionsContainer
+onready var tween = $MenuCanvas/Tween
 onready var target = Vector2(plax_scroll_widths*1.1*dimensions.x, plax_scroll_heights*1.1*dimensions.y)
 onready var orig_target = Vector2(plax_scroll_widths*1.1*dimensions.x, plax_scroll_heights*1.1*dimensions.y)
 
@@ -21,14 +22,22 @@ func _ready():
 	tween_to_target_y(target)
 	options.visible = false
 	main_menu.visible = true
+	Global.menu_open = true
 	
 func _process(delta):
 	#animate_background()
 	
-	if Input.is_action_pressed("ui_esc"):
+	if Input.is_action_just_pressed("ui_esc"):
 		#TODO: Do something smarter here, in case 'unsaved' settings
-		options.visible = false
-		main_menu.visible = true		
+		if options.visible:
+			options.visible = false
+			main_menu.visible = true
+		#TODO: (fix) There is no way this is the best way to handle pause/unpause
+		elif get_tree().paused == true:	
+			print("Unpausing")
+			Global._display_menu()
+
+			
 	
 
 func tween_to_target_x(targ):
@@ -59,7 +68,10 @@ func _on_New_pressed():
 	print("Loading new Scene...")
 	tween.stop_all()
 	Global.goto_scene("res://World_Proto.tscn")
+	Global.menu_open = true
 
+func _disable_new():
+	new_button.disabled = true
 
 func _on_Options_pressed():
 	main_menu.visible = false
