@@ -8,6 +8,7 @@ onready var dimensions = get_viewport_rect().size
 onready var background = $MenuCanvas/MainMenuParallax
 onready var vam_logo = $MenuCanvas/MainMenuVBox/LogoBox/VamLogo
 onready var empire_logo = $MenuCanvas/MainMenuVBox/LogoBox/VamLogo/EmpireLogo
+onready var ani_player = $MenuCanvas/AnimationPlayer
 
 onready var main_menu = $MenuCanvas/MainMenuVBox
 onready var new_button = $MenuCanvas/MainMenuVBox/InteractVB/NewHB/New
@@ -23,6 +24,7 @@ func _ready():
 	options.visible = false
 	main_menu.visible = true
 	Global.menu_open = true
+	ani_player.play("Empire_Loop")
 	
 func _process(delta):
 	#animate_background()
