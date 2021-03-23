@@ -17,7 +17,7 @@ _global_script_class_icons={
 
 config/name="V.A.M. Empire"
 run/main_scene="res://MainMenu.tscn"
-config/icon="res://icon.png"
+config/icon="res://logo_only.png"
 
 [autoload]
 
