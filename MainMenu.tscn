@@ -1216,7 +1216,7 @@ animations = [ {
 
 [sub_resource type="Animation" id=298]
 resource_name = "Empire_Loop"
-length = 46.0
+length = 33.3333
 loop = true
 step = 0.0555556
 tracks/0/type = "value"
@@ -1226,7 +1226,7 @@ tracks/0/loop_wrap = true
 tracks/0/imported = false
 tracks/0/enabled = true
 tracks/0/keys = {
-"times": PoolRealArray( 0.1, 12.1, 31.9 ),
+"times": PoolRealArray( 0.1, 12.1, 20.3333 ),
 "transitions": PoolRealArray( 1, 1, 1 ),
 "update": 1,
 "values": [ "Longer", "InfLoop", "Longer" ]
@@ -1238,7 +1238,7 @@ tracks/1/loop_wrap = true
 tracks/1/imported = false
 tracks/1/enabled = true
 tracks/1/keys = {
-"times": PoolRealArray( 0, 31.9, 39.5773 ),
+"times": PoolRealArray( 0, 20.3333, 39.5773 ),
 "transitions": PoolRealArray( 1, 1, 1 ),
 "update": 1,
 "values": [ true, false, false ]
@@ -1250,10 +1250,10 @@ tracks/2/loop_wrap = true
 tracks/2/imported = false
 tracks/2/enabled = true
 tracks/2/keys = {
-"times": PoolRealArray( 31.8889, 31.9444, 32, 32.0556, 32.1111, 32.1667, 32.2222, 32.2778, 32.3333, 32.3889, 32.4444, 32.5, 32.5556, 32.6111, 32.6667, 32.7222, 32.7778, 32.8333, 32.8889, 32.9444, 33, 33.0556, 33.1111, 33.1667, 33.2222, 33.2778, 33.3333, 33.3889, 33.4444, 33.5, 33.5556 ),
-"transitions": PoolRealArray( 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1 ),
+"times": PoolRealArray( 20.3333, 20.3889, 20.4444, 20.5, 20.5556, 20.6111, 20.6667, 20.7222, 20.7778, 20.8333, 20.8889, 20.9444, 21, 21.0556, 21.1111, 21.1667, 21.2222, 21.2778, 21.3333, 21.3889, 21.4444, 21.5, 21.5556, 21.6111, 21.6667, 21.7222, 21.7778, 21.8333, 21.8889, 21.9444, 22, 22.1667, 22.2222, 22.2778, 22.3333 ),
+"transitions": PoolRealArray( 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1 ),
 "update": 1,
-"values": [ 98, 99, 100, 101, 102, 103, 104, 105, 106, 107, 108, 109, 110, 111, 112, 113, 114, 115, 116, 117, 118, 119, 120, 121, 122, 123, 124, 125, 126, 127, 128 ]
+"values": [ 98, 99, 100, 101, 102, 103, 104, 105, 106, 107, 108, 109, 110, 111, 112, 113, 114, 115, 116, 117, 118, 119, 120, 121, 122, 123, 124, 125, 126, 127, 128, 129, 130, 131, 0 ]
 }
 
 [node name="MainMenu" type="Node2D"]
@@ -1288,7 +1288,7 @@ show_behind_parent = true
 position = Vector2( 221, 170 )
 frames = SubResource( 33 )
 animation = "Longer"
-frame = 67
+frame = 61
 playing = true
 
 [node name="InteractVB" type="VBoxContainer" parent="MenuCanvas/MainMenuVBox"]
