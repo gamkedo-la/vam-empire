@@ -6,7 +6,7 @@ var in_game_menu = null
 var main_menu_scene = load("res://MainMenu.tscn")
 var menu_open = false
 var game_live = false
-
+export var day = true
 
 func _ready():
 	var root = get_tree().get_root()

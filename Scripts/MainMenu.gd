@@ -14,6 +14,11 @@ onready var main_menu = $MenuCanvas/MainMenuVBox
 onready var new_button = $MenuCanvas/MainMenuVBox/InteractVB/NewHB/New
 onready var options = $MenuCanvas/OptionsContainer
 onready var tween = $MenuCanvas/Tween
+
+onready var tod_toggle = $MenuCanvas/OptionsContainer/VBoxContainer/TabContainer/Graphics/VBoxContainer/HBoxContainer/DayToggle
+
+onready var music = $AudioStreamPlayer
+
 onready var target = Vector2(plax_scroll_widths*1.1*dimensions.x, plax_scroll_heights*1.1*dimensions.y)
 onready var orig_target = Vector2(plax_scroll_widths*1.1*dimensions.x, plax_scroll_heights*1.1*dimensions.y)
 
@@ -24,6 +29,7 @@ func _ready():
 	options.visible = false
 	main_menu.visible = true
 	Global.menu_open = true
+	tod_toggle.pressed = Global.day
 	ani_player.play("Empire_Loop")
 	
 func _process(delta):
@@ -93,3 +99,16 @@ func _on_sound_effect_volume_slider_value_changed(value):
 
 func _on_ambience_slider_value_changed(value):
 	print("Ambience Volume", value)
+
+
+func _on_DayToggle_toggled(button_pressed):
+	if button_pressed:
+		Global.day = true
+	else:
+		Global.day = false
+	
+
+
+func _on_AudioStreamPlayer_finished():
+	music.play()
+	

@@ -1,9 +1,9 @@
-[gd_scene load_steps=6 format=2]
+[gd_scene load_steps=8 format=2]
 
 [ext_resource path="res://Obstacles/Textures/Asteroid_001.png" type="Texture" id=1]
 [ext_resource path="res://Collisions/HurtBox.tscn" type="PackedScene" id=2]
 [ext_resource path="res://Scripts/Asteroid001.gd" type="Script" id=3]
-
+[ext_resource path="res://Lights/Textures/light_orb.png" type="Texture" id=4]
 
 [sub_resource type="CapsuleShape2D" id=1]
 radius = 6.7346
@@ -13,11 +13,15 @@ height = 8.28431
 radius = 7.28048
 height = 9.87344
 
+[sub_resource type="OccluderPolygon2D" id=3]
+closed = false
+polygon = PoolVector2Array( -1.39226, 1.45522, -1.20072, 0.0998689, 0.0958135, -1.2257, 1.24501, -0.585255, 0.891413, 0.502007, 0.16948, 1.47012, -0.62612, 1.70842 )
+
 [node name="Asteroid001" type="RigidBody2D" groups=[
 "asteroids",
 ]]
 input_pickable = true
-mass = 25.0
+mass = 100.0
 script = ExtResource( 3 )
 __meta__ = {
 "_edit_group_": true
@@ -39,6 +43,19 @@ visible = false
 position = Vector2( -0.8269, 1.40288 )
 rotation = 0.678933
 shape = SubResource( 2 )
+
+[node name="Fog" type="Sprite" parent="."]
+self_modulate = Color( 1, 1, 1, 0.294118 )
+position = Vector2( 1.90735e-06, -1.90735e-06 )
+scale = Vector2( 6.72628, 6.72628 )
+texture = ExtResource( 4 )
+
+[node name="Tween" type="Tween" parent="Fog"]
+
+[node name="LightOccluder2D" type="LightOccluder2D" parent="."]
+position = Vector2( 1.90735e-06, -1.90735e-06 )
+scale = Vector2( 4.07653, 4.16607 )
+occluder = SubResource( 3 )
 [connection signal="input_event" from="." to="." method="_on_Asteroid001_input_event"]
 [connection signal="area_entered" from="HurtBox" to="." method="_on_HurtBox_area_entered"]
 
