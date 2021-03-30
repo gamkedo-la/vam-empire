@@ -2,20 +2,29 @@ extends RigidBody2D
 
 export var health = 200
 var TOD = false
-onready var tween = $Fog/Tween
+
+#onready var tween = $Fog/Tween
+var fog = null
+var tween = null
 
 func _ready():
 	add_to_group("asteroids")
 	TOD = Global.day
-	adjust_for_tod()
+	if !fog:
+		fog = get_node_or_null("Fog")
+		if fog:
+			tween = get_node_or_null("Fog/Tween")
+			if tween:
+				adjust_for_tod()		
 
 
 func _process(_delta):
 	if health < 0:
 		queue_free()
-	if TOD != Global.day:
-		TOD = Global.day
-		adjust_for_tod()
+	if tween:
+		if TOD != Global.day:
+			TOD = Global.day
+			adjust_for_tod()
 
 
 func _on_HurtBox_area_entered(area):

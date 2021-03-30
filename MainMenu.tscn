@@ -1385,7 +1385,6 @@ rect_min_size = Vector2( 480, 270 )
 drag_to_rearrange_enabled = true
 
 [node name="Audio" type="PanelContainer" parent="MenuCanvas/OptionsContainer/VBoxContainer/TabContainer"]
-visible = false
 anchor_right = 1.0
 anchor_bottom = 1.0
 margin_left = 4.0
@@ -1416,7 +1415,10 @@ margin_left = 311.0
 margin_right = 431.0
 margin_bottom = 16.0
 rect_min_size = Vector2( 120, 0 )
-rounded = true
+min_value = 0.01
+max_value = 1.0
+step = 0.05
+value = 0.05
 
 [node name="HBoxContainer2" type="HBoxContainer" parent="MenuCanvas/OptionsContainer/VBoxContainer/TabContainer/Audio/VBoxContainer"]
 margin_top = 20.0
@@ -1436,6 +1438,10 @@ margin_left = 311.0
 margin_right = 431.0
 margin_bottom = 16.0
 rect_min_size = Vector2( 120, 0 )
+min_value = 0.01
+max_value = 1.0
+step = 0.05
+value = 0.05
 
 [node name="HBoxContainer3" type="HBoxContainer" parent="MenuCanvas/OptionsContainer/VBoxContainer/TabContainer/Audio/VBoxContainer"]
 margin_top = 40.0
@@ -1455,6 +1461,10 @@ margin_left = 311.0
 margin_right = 431.0
 margin_bottom = 16.0
 rect_min_size = Vector2( 120, 0 )
+min_value = 0.01
+max_value = 1.0
+step = 0.05
+value = 0.05
 
 [node name="HBoxContainer4" type="HBoxContainer" parent="MenuCanvas/OptionsContainer/VBoxContainer/TabContainer/Audio/VBoxContainer"]
 margin_top = 60.0
@@ -1512,6 +1522,7 @@ margin_bottom = 16.0
 rect_min_size = Vector2( 120, 0 )
 
 [node name="Graphics" type="PanelContainer" parent="MenuCanvas/OptionsContainer/VBoxContainer/TabContainer"]
+visible = false
 anchor_right = 1.0
 anchor_bottom = 1.0
 margin_left = 4.0

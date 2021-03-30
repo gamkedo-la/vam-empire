@@ -22,6 +22,10 @@ onready var music = $AudioStreamPlayer
 onready var target = Vector2(plax_scroll_widths*1.1*dimensions.x, plax_scroll_heights*1.1*dimensions.y)
 onready var orig_target = Vector2(plax_scroll_widths*1.1*dimensions.x, plax_scroll_heights*1.1*dimensions.y)
 
+onready var mast_vol_slider = $MenuCanvas/OptionsContainer/VBoxContainer/TabContainer/Audio/VBoxContainer/HBoxContainer/mast_volume_slider
+onready var music_vol_slider =  $MenuCanvas/OptionsContainer/VBoxContainer/TabContainer/Audio/VBoxContainer/HBoxContainer2/music_volume_slider
+onready var sfx_vol_slider = $MenuCanvas/OptionsContainer/VBoxContainer/TabContainer/Audio/VBoxContainer/HBoxContainer3/sound_effect_volume_slider
+
 
 func _ready():
 	tween_to_target_x(target)
@@ -30,7 +34,12 @@ func _ready():
 	main_menu.visible = true
 	Global.menu_open = true
 	tod_toggle.pressed = Global.day
+	
+	#TODO: This is just a quick hack to get some placeholder menu music. Music should be handled in a persistent way to allow smooth transitions
 	ani_player.play("Empire_Loop")
+	
+	update_volume()
+	
 	
 func _process(delta):
 	#animate_background()
@@ -55,6 +64,12 @@ func tween_to_target_x(targ):
 func tween_to_target_y(targ):
 	tween.interpolate_property(background, "scroll_offset:y", background.scroll_offset.y, targ.y, 12, Tween.TRANS_BACK, Tween.EASE_IN_OUT)	
 	tween.start()
+	
+func update_volume():
+	music.volume_db = linear2db(UserSettings.master_volume) + linear2db(UserSettings.music_volume)
+	mast_vol_slider.value = UserSettings.master_volume
+	music_vol_slider.value = UserSettings.music_volume
+	sfx_vol_slider.value = UserSettings.effects_volume
 
 func _on_Tween_tween_completed(object, key):
 	print("Target: ", target)
@@ -89,13 +104,20 @@ func _on_Options_pressed():
 
 func _on_mast_volume_slider_value_changed(value):
 	print("Master Volume: ", value)
+	UserSettings.master_volume = value
+	update_volume()
 
 func _on_music_volume_slider_value_changed(value):
 	print("Music Volume: ", value)
+	UserSettings.music_volume = value
+	update_volume()
+	print("Actual volume db: ", music.volume_db)
 
 
 func _on_sound_effect_volume_slider_value_changed(value):
 	print("Sound Effect Volume:", value)
+	UserSettings.effects_volume = value
+	update_volume()
 
 func _on_ambience_slider_value_changed(value):
 	print("Ambience Volume", value)
