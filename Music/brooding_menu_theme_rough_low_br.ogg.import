@@ -1,0 +1,15 @@
+[remap]
+
+importer="ogg_vorbis"
+type="AudioStreamOGGVorbis"
+path="res://.import/brooding_menu_theme_rough_low_br.ogg-858f91b7438f2187e425f0547210ed80.oggstr"
+
+[deps]
+
+source_file="res://Music/brooding_menu_theme_rough_low_br.ogg"
+dest_files=[ "res://.import/brooding_menu_theme_rough_low_br.ogg-858f91b7438f2187e425f0547210ed80.oggstr" ]
+
+[params]
+
+loop=true
+loop_offset=0

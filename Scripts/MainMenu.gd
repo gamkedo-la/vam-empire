@@ -66,10 +66,14 @@ func tween_to_target_y(targ):
 	tween.start()
 	
 func update_volume():
-	music.volume_db = linear2db(UserSettings.master_volume) + linear2db(UserSettings.music_volume)
 	mast_vol_slider.value = UserSettings.master_volume
 	music_vol_slider.value = UserSettings.music_volume
 	sfx_vol_slider.value = UserSettings.effects_volume
+	AudioServer.set_bus_volume_db(AudioServer.get_bus_index("Master"), linear2db(UserSettings.master_volume))
+	AudioServer.set_bus_volume_db(AudioServer.get_bus_index("Music"), linear2db(UserSettings.music_volume))
+	AudioServer.set_bus_volume_db(AudioServer.get_bus_index("SFX"), linear2db(UserSettings.effects_volume))
+	
+	
 
 func _on_Tween_tween_completed(object, key):
 	print("Target: ", target)
