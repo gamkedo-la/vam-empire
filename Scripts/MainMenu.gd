@@ -94,7 +94,7 @@ func _on_Tween_tween_completed(object, key):
 func _on_New_pressed():
 	print("Loading new Scene...")
 	tween.stop_all()
-	Global.goto_scene("res://World_Proto.tscn")
+	Global.goto_scene("res://World/game_zones/home_base.tscn")
 	Global.menu_open = true
 
 func _disable_new():
