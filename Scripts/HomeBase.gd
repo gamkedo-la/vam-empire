@@ -18,3 +18,7 @@ func _ready():
 
 func _on_GoMiningEasy_pressed():
 	Global.goto_scene("res://World/game_zones/EasyZone_001.tscn")
+
+func _on_GoWorldProto_pressed():
+	Global.goto_scene("res://World_Proto.tscn")
+	

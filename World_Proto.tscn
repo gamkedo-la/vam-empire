@@ -1,10 +1,11 @@
-[gd_scene load_steps=10 format=2]
+[gd_scene load_steps=11 format=2]
 
 [ext_resource path="res://Player/Scenes/Player.tscn" type="PackedScene" id=1]
 [ext_resource path="res://World/common_scenes/Camera2D.tscn" type="PackedScene" id=2]
 [ext_resource path="res://World/common_scenes/ParallaxBackground2.tscn" type="PackedScene" id=3]
 [ext_resource path="res://World/common_scenes/TimeOfDay.tscn" type="PackedScene" id=4]
 [ext_resource path="res://Obstacles/Scenes/Asteroid001.tscn" type="PackedScene" id=5]
+[ext_resource path="res://World/common_assets/ReturnHomeBeacon.tscn" type="PackedScene" id=6]
 [ext_resource path="res://Obstacles/Scenes/Asteroid002.tscn" type="PackedScene" id=7]
 [ext_resource path="res://Obstacles/Scenes/Asteroid003.tscn" type="PackedScene" id=8]
 [ext_resource path="res://UI/HUD/Scenes/HUD.tscn" type="PackedScene" id=9]
@@ -41,6 +42,9 @@ margin_right = 300.0
 [node name="TimeOfDay" parent="." instance=ExtResource( 4 )]
 
 [node name="Camera2D" parent="." instance=ExtResource( 2 )]
+
+[node name="ReturnHomeBeacon" parent="." instance=ExtResource( 6 )]
+position = Vector2( -182.269, -34.4378 )
 
 [node name="Player" parent="." instance=ExtResource( 1 )]
 
@@ -2336,9 +2340,6 @@ rotation = -4.04682
 [node name="Asteroid001" parent="Asteroids/AsteroidsHuge15" instance=ExtResource( 8 )]
 position = Vector2( 53.9603, -1157.9 )
 
-[node name="ProtoEnemy" parent="." instance=ExtResource( 10 )]
-position = Vector2( -12.4432, 241.303 )
-
 [node name="ProtoEnemy2" parent="." instance=ExtResource( 10 )]
 position = Vector2( -162.094, -294.095 )
 
@@ -2357,5 +2358,3 @@ position = Vector2( 590.334, -301.621 )
 [editable path="Asteroids/AsteroidsBig/Asteroid001"]
 
 [editable path="Asteroids/AsteroidsBig/Asteroid001/HurtBox"]
-
-[editable path="ProtoEnemy"]

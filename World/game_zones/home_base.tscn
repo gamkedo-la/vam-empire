@@ -65,4 +65,18 @@ margin_right = 586.0
 margin_bottom = 38.0
 text = "Go Mining (Medium Zone)"
 icon = ExtResource( 1 )
+
+[node name="HB_PlayPrototype" type="HBoxContainer" parent="CanvasLayer/Control/VBoxContainer"]
+margin_top = 103.0
+margin_right = 960.0
+margin_bottom = 141.0
+alignment = 1
+
+[node name="GoWorldProto" type="Button" parent="CanvasLayer/Control/VBoxContainer/HB_PlayPrototype"]
+margin_left = 356.0
+margin_right = 603.0
+margin_bottom = 38.0
+text = "Go To Prototype World (*Pitch!)"
+icon = ExtResource( 1 )
 [connection signal="pressed" from="CanvasLayer/Control/VBoxContainer/HB_GoMiningEasy/GoMiningEasy" to="." method="_on_GoMiningEasy_pressed"]
+[connection signal="pressed" from="CanvasLayer/Control/VBoxContainer/HB_PlayPrototype/GoWorldProto" to="." method="_on_GoWorldProto_pressed"]
