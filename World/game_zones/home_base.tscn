@@ -83,16 +83,26 @@ icon = ExtResource( 1 )
 [node name="WelcomeSign" type="HBoxContainer" parent="CanvasLayer/Control/VBoxContainer"]
 margin_top = 145.0
 margin_right = 960.0
-margin_bottom = 465.0
+margin_bottom = 525.0
+alignment = 1
 
-[node name="Label" type="Label" parent="CanvasLayer/Control/VBoxContainer/WelcomeSign"]
-margin_right = 960.0
-margin_bottom = 320.0
-rect_min_size = Vector2( 960, 0 )
-text = "Hi! Welcome to the HTGD Lighthouse project \"V.A.M. Empire\"!
+[node name="ScrollContainer" type="ScrollContainer" parent="CanvasLayer/Control/VBoxContainer/WelcomeSign"]
+margin_left = 5.0
+margin_right = 955.0
+margin_bottom = 380.0
+rect_min_size = Vector2( 950, 380 )
+scroll_horizontal_enabled = false
+
+[node name="Label" type="Label" parent="CanvasLayer/Control/VBoxContainer/WelcomeSign/ScrollContainer"]
+margin_right = 945.0
+margin_bottom = 354.0
+rect_min_size = Vector2( 945, 0 )
+text = "[Home Base DevLog #001: 04-04-2021]
+
+Hi! Welcome to the HTGD Lighthouse project \"V.A.M. Empire\"!
 
 We're excited to have you here, and look forward to your ideas and contributions to this project!
-If you haven't already, you should stop by the Trello  to see what all we're working on, look for good warm-up task ideas or even to add your idea!
+If you haven't already, you should stop by the Trello to see what all we're working on, look for good warm-up task ideas or even add your own task!
 
 The scene you are currently in, is a placeholder of sorts. This space is where our character will return after dangerous forays into the asteroid belt which is plagued by all sorts of unknown dangers and most notably, vampires! But for now, it doesn't look like much of a base does it? That's ok, in the meantime while we hook up the autoclaves, hydraulic drill presses and cold fusion engines behind the scenes, think of this as a place to hook up all of the wires of our game.  The scenes that branch from here don't necessarily represent what will be the final \"levels\" so to speak, but think of them as shared and themed  Sandboxes (think: Easy Area-Day, Easy Area-Night), where we will experiment with the pieces and parts that ultimately will make up our scenes that will be built in a more \"on the fly\" modular fashion.
 
