@@ -131,217 +131,507 @@ color = Color( 0.545098, 0.545098, 0.545098, 1 )
 position = Vector2( 933.936, 318.12 )
 texture = ExtResource( 5 )
 texture_scale = 0.75
+color = Color( 0.980392, 0.415686, 0.0392157, 1 )
 energy = 1.25
 
 [node name="RunwayLight2D26" type="Light2D" parent="SceneLighting/Runway"]
 position = Vector2( 933.936, 222.12 )
 texture = ExtResource( 5 )
 texture_scale = 0.75
+color = Color( 0.980392, 0.415686, 0.0392157, 1 )
 energy = 1.25
 
 [node name="RunwayLight2D27" type="Light2D" parent="SceneLighting/Runway"]
 position = Vector2( 885.936, 318.12 )
 texture = ExtResource( 5 )
 texture_scale = 0.75
+color = Color( 0.980392, 0.415686, 0.0392157, 1 )
 energy = 1.25
 
 [node name="RunwayLight2D28" type="Light2D" parent="SceneLighting/Runway"]
 position = Vector2( 885.936, 222.12 )
 texture = ExtResource( 5 )
 texture_scale = 0.75
+color = Color( 0.980392, 0.415686, 0.0392157, 1 )
 energy = 1.25
 
 [node name="RunwayLight2D29" type="Light2D" parent="SceneLighting/Runway"]
 position = Vector2( 837.936, 318.12 )
 texture = ExtResource( 5 )
 texture_scale = 0.75
+color = Color( 0.980392, 0.415686, 0.0392157, 1 )
 energy = 1.25
 
 [node name="RunwayLight2D30" type="Light2D" parent="SceneLighting/Runway"]
 position = Vector2( 837.936, 222.12 )
 texture = ExtResource( 5 )
 texture_scale = 0.75
+color = Color( 0.980392, 0.415686, 0.0392157, 1 )
 energy = 1.25
 
 [node name="RunwayLight2D31" type="Light2D" parent="SceneLighting/Runway"]
 position = Vector2( 786.87, 318.12 )
 texture = ExtResource( 5 )
 texture_scale = 0.75
+color = Color( 0.980392, 0.415686, 0.0392157, 1 )
 energy = 1.25
 
 [node name="RunwayLight2D32" type="Light2D" parent="SceneLighting/Runway"]
 position = Vector2( 786.87, 222.12 )
 texture = ExtResource( 5 )
 texture_scale = 0.75
+color = Color( 0.980392, 0.415686, 0.0392157, 1 )
 energy = 1.25
 
 [node name="RunwayLight2D33" type="Light2D" parent="SceneLighting/Runway"]
 position = Vector2( 738.87, 318.12 )
 texture = ExtResource( 5 )
 texture_scale = 0.75
+color = Color( 0.980392, 0.415686, 0.0392157, 1 )
 energy = 1.25
 
 [node name="RunwayLight2D34" type="Light2D" parent="SceneLighting/Runway"]
 position = Vector2( 738.87, 222.12 )
 texture = ExtResource( 5 )
 texture_scale = 0.75
+color = Color( 0.980392, 0.415686, 0.0392157, 1 )
 energy = 1.25
 
 [node name="RunwayLight2D35" type="Light2D" parent="SceneLighting/Runway"]
 position = Vector2( 690.87, 318.12 )
 texture = ExtResource( 5 )
 texture_scale = 0.75
+color = Color( 0.980392, 0.415686, 0.0392157, 1 )
 energy = 1.25
 
 [node name="RunwayLight2D36" type="Light2D" parent="SceneLighting/Runway"]
 position = Vector2( 690.87, 222.12 )
 texture = ExtResource( 5 )
 texture_scale = 0.75
+color = Color( 0.980392, 0.415686, 0.0392157, 1 )
 energy = 1.25
 
 [node name="RunwayLight2D37" type="Light2D" parent="SceneLighting/Runway"]
 position = Vector2( 641.391, 318.12 )
 texture = ExtResource( 5 )
 texture_scale = 0.75
+color = Color( 0.980392, 0.415686, 0.0392157, 1 )
 energy = 1.25
 
 [node name="RunwayLight2D38" type="Light2D" parent="SceneLighting/Runway"]
 position = Vector2( 641.391, 222.12 )
 texture = ExtResource( 5 )
 texture_scale = 0.75
+color = Color( 0.980392, 0.415686, 0.0392157, 1 )
 energy = 1.25
 
 [node name="RunwayLight2D39" type="Light2D" parent="SceneLighting/Runway"]
 position = Vector2( 593.391, 318.12 )
 texture = ExtResource( 5 )
 texture_scale = 0.75
+color = Color( 0.980392, 0.415686, 0.0392157, 1 )
 energy = 1.25
 
 [node name="RunwayLight2D40" type="Light2D" parent="SceneLighting/Runway"]
 position = Vector2( 593.391, 222.12 )
 texture = ExtResource( 5 )
 texture_scale = 0.75
+color = Color( 0.980392, 0.415686, 0.0392157, 1 )
 energy = 1.25
 
 [node name="RunwayLight2D41" type="Light2D" parent="SceneLighting/Runway"]
 position = Vector2( 545.391, 318.12 )
 texture = ExtResource( 5 )
 texture_scale = 0.75
+color = Color( 0.980392, 0.415686, 0.0392157, 1 )
 energy = 1.25
 
 [node name="RunwayLight2D42" type="Light2D" parent="SceneLighting/Runway"]
 position = Vector2( 545.391, 222.12 )
 texture = ExtResource( 5 )
 texture_scale = 0.75
+color = Color( 0.980392, 0.415686, 0.0392157, 1 )
 energy = 1.25
 
 [node name="RunwayLight2D43" type="Light2D" parent="SceneLighting/Runway"]
 position = Vector2( 494.325, 318.12 )
 texture = ExtResource( 5 )
 texture_scale = 0.75
+color = Color( 0.980392, 0.415686, 0.0392157, 1 )
 energy = 1.25
 
 [node name="RunwayLight2D44" type="Light2D" parent="SceneLighting/Runway"]
 position = Vector2( 494.325, 222.12 )
 texture = ExtResource( 5 )
 texture_scale = 0.75
+color = Color( 0.980392, 0.415686, 0.0392157, 1 )
 energy = 1.25
 
 [node name="RunwayLight2D45" type="Light2D" parent="SceneLighting/Runway"]
 position = Vector2( 446.325, 318.12 )
 texture = ExtResource( 5 )
 texture_scale = 0.75
+color = Color( 0.980392, 0.415686, 0.0392157, 1 )
 energy = 1.25
 
 [node name="RunwayLight2D46" type="Light2D" parent="SceneLighting/Runway"]
 position = Vector2( 446.325, 222.12 )
 texture = ExtResource( 5 )
 texture_scale = 0.75
+color = Color( 0.980392, 0.415686, 0.0392157, 1 )
 energy = 1.25
 
 [node name="RunwayLight2D47" type="Light2D" parent="SceneLighting/Runway"]
 position = Vector2( 398.325, 318.12 )
 texture = ExtResource( 5 )
 texture_scale = 0.75
+color = Color( 0.980392, 0.415686, 0.0392157, 1 )
 energy = 1.25
 
 [node name="RunwayLight2D48" type="Light2D" parent="SceneLighting/Runway"]
 position = Vector2( 398.325, 222.12 )
 texture = ExtResource( 5 )
 texture_scale = 0.75
+color = Color( 0.980392, 0.415686, 0.0392157, 1 )
 energy = 1.25
 
 [node name="RunwayLight2D49" type="Light2D" parent="SceneLighting/Runway"]
 position = Vector2( 346.071, 318.12 )
 texture = ExtResource( 5 )
 texture_scale = 0.75
+color = Color( 0.980392, 0.415686, 0.0392157, 1 )
 energy = 1.25
 
 [node name="RunwayLight2D50" type="Light2D" parent="SceneLighting/Runway"]
 position = Vector2( 346.071, 222.12 )
 texture = ExtResource( 5 )
 texture_scale = 0.75
+color = Color( 0.980392, 0.415686, 0.0392157, 1 )
 energy = 1.25
 
 [node name="RunwayLight2D51" type="Light2D" parent="SceneLighting/Runway"]
 position = Vector2( 298.071, 318.12 )
 texture = ExtResource( 5 )
 texture_scale = 0.75
+color = Color( 0.980392, 0.415686, 0.0392157, 1 )
 energy = 1.25
 
 [node name="RunwayLight2D52" type="Light2D" parent="SceneLighting/Runway"]
 position = Vector2( 298.071, 222.12 )
 texture = ExtResource( 5 )
 texture_scale = 0.75
+color = Color( 0.980392, 0.415686, 0.0392157, 1 )
 energy = 1.25
 
 [node name="RunwayLight2D53" type="Light2D" parent="SceneLighting/Runway"]
 position = Vector2( 250.071, 318.12 )
 texture = ExtResource( 5 )
 texture_scale = 0.75
+color = Color( 0.980392, 0.415686, 0.0392157, 1 )
 energy = 1.25
 
 [node name="RunwayLight2D54" type="Light2D" parent="SceneLighting/Runway"]
 position = Vector2( 250.071, 222.12 )
 texture = ExtResource( 5 )
 texture_scale = 0.75
+color = Color( 0.980392, 0.415686, 0.0392157, 1 )
 energy = 1.25
 
 [node name="RunwayLight2D55" type="Light2D" parent="SceneLighting/Runway"]
 position = Vector2( 197.816, 318.12 )
 texture = ExtResource( 5 )
 texture_scale = 0.75
+color = Color( 0.980392, 0.415686, 0.0392157, 1 )
 energy = 1.25
 
 [node name="RunwayLight2D56" type="Light2D" parent="SceneLighting/Runway"]
 position = Vector2( 197.816, 222.12 )
 texture = ExtResource( 5 )
 texture_scale = 0.75
+color = Color( 0.980392, 0.415686, 0.0392157, 1 )
 energy = 1.25
 
 [node name="RunwayLight2D57" type="Light2D" parent="SceneLighting/Runway"]
 position = Vector2( 149.816, 318.12 )
 texture = ExtResource( 5 )
 texture_scale = 0.75
+color = Color( 0.980392, 0.415686, 0.0392157, 1 )
 energy = 1.25
 
 [node name="RunwayLight2D58" type="Light2D" parent="SceneLighting/Runway"]
 position = Vector2( 149.816, 222.12 )
 texture = ExtResource( 5 )
 texture_scale = 0.75
+color = Color( 0.980392, 0.415686, 0.0392157, 1 )
 energy = 1.25
 
 [node name="RunwayLight2D59" type="Light2D" parent="SceneLighting/Runway"]
 position = Vector2( 101.816, 318.12 )
 texture = ExtResource( 5 )
 texture_scale = 0.75
+color = Color( 0.980392, 0.415686, 0.0392157, 1 )
 energy = 1.25
 
 [node name="RunwayLight2D60" type="Light2D" parent="SceneLighting/Runway"]
 position = Vector2( 101.816, 222.12 )
 texture = ExtResource( 5 )
 texture_scale = 0.75
+color = Color( 0.980392, 0.415686, 0.0392157, 1 )
 energy = 1.25
+
+[node name="RunwayInset" type="Node2D" parent="SceneLighting"]
+
+[node name="RunwayLight2D25" type="Light2D" parent="SceneLighting/RunwayInset"]
+position = Vector2( 933.936, 318.12 )
+texture = ExtResource( 5 )
+texture_scale = 0.07
+color = Color( 0.980392, 0.415686, 0.0392157, 1 )
+energy = 2.0
+
+[node name="RunwayLight2D26" type="Light2D" parent="SceneLighting/RunwayInset"]
+position = Vector2( 933.936, 222.12 )
+texture = ExtResource( 5 )
+texture_scale = 0.07
+color = Color( 0.980392, 0.415686, 0.0392157, 1 )
+energy = 2.0
+
+[node name="RunwayLight2D27" type="Light2D" parent="SceneLighting/RunwayInset"]
+position = Vector2( 885.936, 318.12 )
+texture = ExtResource( 5 )
+texture_scale = 0.07
+color = Color( 0.980392, 0.415686, 0.0392157, 1 )
+energy = 2.0
+
+[node name="RunwayLight2D28" type="Light2D" parent="SceneLighting/RunwayInset"]
+position = Vector2( 885.936, 222.12 )
+texture = ExtResource( 5 )
+texture_scale = 0.07
+color = Color( 0.980392, 0.415686, 0.0392157, 1 )
+energy = 2.0
+
+[node name="RunwayLight2D29" type="Light2D" parent="SceneLighting/RunwayInset"]
+position = Vector2( 837.936, 318.12 )
+texture = ExtResource( 5 )
+texture_scale = 0.07
+color = Color( 0.980392, 0.415686, 0.0392157, 1 )
+energy = 2.0
+
+[node name="RunwayLight2D30" type="Light2D" parent="SceneLighting/RunwayInset"]
+position = Vector2( 837.936, 222.12 )
+texture = ExtResource( 5 )
+texture_scale = 0.07
+color = Color( 0.980392, 0.415686, 0.0392157, 1 )
+energy = 2.0
+
+[node name="RunwayLight2D31" type="Light2D" parent="SceneLighting/RunwayInset"]
+position = Vector2( 786.87, 318.12 )
+texture = ExtResource( 5 )
+texture_scale = 0.07
+color = Color( 0.980392, 0.415686, 0.0392157, 1 )
+energy = 2.0
+
+[node name="RunwayLight2D32" type="Light2D" parent="SceneLighting/RunwayInset"]
+position = Vector2( 786.87, 222.12 )
+texture = ExtResource( 5 )
+texture_scale = 0.07
+color = Color( 0.980392, 0.415686, 0.0392157, 1 )
+energy = 2.0
+
+[node name="RunwayLight2D33" type="Light2D" parent="SceneLighting/RunwayInset"]
+position = Vector2( 738.87, 318.12 )
+texture = ExtResource( 5 )
+texture_scale = 0.07
+color = Color( 0.980392, 0.415686, 0.0392157, 1 )
+energy = 2.0
+
+[node name="RunwayLight2D34" type="Light2D" parent="SceneLighting/RunwayInset"]
+position = Vector2( 738.87, 222.12 )
+texture = ExtResource( 5 )
+texture_scale = 0.07
+color = Color( 0.980392, 0.415686, 0.0392157, 1 )
+energy = 2.0
+
+[node name="RunwayLight2D35" type="Light2D" parent="SceneLighting/RunwayInset"]
+position = Vector2( 690.87, 318.12 )
+texture = ExtResource( 5 )
+texture_scale = 0.07
+color = Color( 0.980392, 0.415686, 0.0392157, 1 )
+energy = 2.0
+
+[node name="RunwayLight2D36" type="Light2D" parent="SceneLighting/RunwayInset"]
+position = Vector2( 690.87, 222.12 )
+texture = ExtResource( 5 )
+texture_scale = 0.07
+color = Color( 0.980392, 0.415686, 0.0392157, 1 )
+energy = 2.0
+
+[node name="RunwayLight2D37" type="Light2D" parent="SceneLighting/RunwayInset"]
+position = Vector2( 641.391, 318.12 )
+texture = ExtResource( 5 )
+texture_scale = 0.07
+color = Color( 0.980392, 0.415686, 0.0392157, 1 )
+energy = 2.0
+
+[node name="RunwayLight2D38" type="Light2D" parent="SceneLighting/RunwayInset"]
+position = Vector2( 641.391, 222.12 )
+texture = ExtResource( 5 )
+texture_scale = 0.07
+color = Color( 0.980392, 0.415686, 0.0392157, 1 )
+energy = 2.0
+
+[node name="RunwayLight2D39" type="Light2D" parent="SceneLighting/RunwayInset"]
+position = Vector2( 593.391, 318.12 )
+texture = ExtResource( 5 )
+texture_scale = 0.07
+color = Color( 0.980392, 0.415686, 0.0392157, 1 )
+energy = 2.0
+
+[node name="RunwayLight2D40" type="Light2D" parent="SceneLighting/RunwayInset"]
+position = Vector2( 593.391, 222.12 )
+texture = ExtResource( 5 )
+texture_scale = 0.07
+color = Color( 0.980392, 0.415686, 0.0392157, 1 )
+energy = 2.0
+
+[node name="RunwayLight2D41" type="Light2D" parent="SceneLighting/RunwayInset"]
+position = Vector2( 545.391, 318.12 )
+texture = ExtResource( 5 )
+texture_scale = 0.07
+color = Color( 0.980392, 0.415686, 0.0392157, 1 )
+energy = 2.0
+
+[node name="RunwayLight2D42" type="Light2D" parent="SceneLighting/RunwayInset"]
+position = Vector2( 545.391, 222.12 )
+texture = ExtResource( 5 )
+texture_scale = 0.07
+color = Color( 0.980392, 0.415686, 0.0392157, 1 )
+energy = 2.0
+
+[node name="RunwayLight2D43" type="Light2D" parent="SceneLighting/RunwayInset"]
+position = Vector2( 494.325, 318.12 )
+texture = ExtResource( 5 )
+texture_scale = 0.07
+color = Color( 0.980392, 0.415686, 0.0392157, 1 )
+energy = 2.0
+
+[node name="RunwayLight2D44" type="Light2D" parent="SceneLighting/RunwayInset"]
+position = Vector2( 494.325, 222.12 )
+texture = ExtResource( 5 )
+texture_scale = 0.07
+color = Color( 0.980392, 0.415686, 0.0392157, 1 )
+energy = 2.0
+
+[node name="RunwayLight2D45" type="Light2D" parent="SceneLighting/RunwayInset"]
+position = Vector2( 446.325, 318.12 )
+texture = ExtResource( 5 )
+texture_scale = 0.07
+color = Color( 0.980392, 0.415686, 0.0392157, 1 )
+energy = 2.0
+
+[node name="RunwayLight2D46" type="Light2D" parent="SceneLighting/RunwayInset"]
+position = Vector2( 446.325, 222.12 )
+texture = ExtResource( 5 )
+texture_scale = 0.07
+color = Color( 0.980392, 0.415686, 0.0392157, 1 )
+energy = 2.0
+
+[node name="RunwayLight2D47" type="Light2D" parent="SceneLighting/RunwayInset"]
+position = Vector2( 398.325, 318.12 )
+texture = ExtResource( 5 )
+texture_scale = 0.07
+color = Color( 0.980392, 0.415686, 0.0392157, 1 )
+energy = 2.0
+
+[node name="RunwayLight2D48" type="Light2D" parent="SceneLighting/RunwayInset"]
+position = Vector2( 398.325, 222.12 )
+texture = ExtResource( 5 )
+texture_scale = 0.07
+color = Color( 0.980392, 0.415686, 0.0392157, 1 )
+energy = 2.0
+
+[node name="RunwayLight2D49" type="Light2D" parent="SceneLighting/RunwayInset"]
+position = Vector2( 346.071, 318.12 )
+texture = ExtResource( 5 )
+texture_scale = 0.07
+color = Color( 0.980392, 0.415686, 0.0392157, 1 )
+energy = 2.0
+
+[node name="RunwayLight2D50" type="Light2D" parent="SceneLighting/RunwayInset"]
+position = Vector2( 346.071, 222.12 )
+texture = ExtResource( 5 )
+texture_scale = 0.07
+color = Color( 0.980392, 0.415686, 0.0392157, 1 )
+energy = 2.0
+
+[node name="RunwayLight2D51" type="Light2D" parent="SceneLighting/RunwayInset"]
+position = Vector2( 298.071, 318.12 )
+texture = ExtResource( 5 )
+texture_scale = 0.07
+color = Color( 0.980392, 0.415686, 0.0392157, 1 )
+energy = 2.0
+
+[node name="RunwayLight2D52" type="Light2D" parent="SceneLighting/RunwayInset"]
+position = Vector2( 298.071, 222.12 )
+texture = ExtResource( 5 )
+texture_scale = 0.07
+color = Color( 0.980392, 0.415686, 0.0392157, 1 )
+energy = 2.0
+
+[node name="RunwayLight2D53" type="Light2D" parent="SceneLighting/RunwayInset"]
+position = Vector2( 250.071, 318.12 )
+texture = ExtResource( 5 )
+texture_scale = 0.07
+color = Color( 0.980392, 0.415686, 0.0392157, 1 )
+energy = 2.0
+
+[node name="RunwayLight2D54" type="Light2D" parent="SceneLighting/RunwayInset"]
+position = Vector2( 250.071, 222.12 )
+texture = ExtResource( 5 )
+texture_scale = 0.07
+color = Color( 0.980392, 0.415686, 0.0392157, 1 )
+energy = 2.0
+
+[node name="RunwayLight2D55" type="Light2D" parent="SceneLighting/RunwayInset"]
+position = Vector2( 197.816, 318.12 )
+texture = ExtResource( 5 )
+texture_scale = 0.07
+color = Color( 0.980392, 0.415686, 0.0392157, 1 )
+energy = 2.0
+
+[node name="RunwayLight2D56" type="Light2D" parent="SceneLighting/RunwayInset"]
+position = Vector2( 197.816, 222.12 )
+texture = ExtResource( 5 )
+texture_scale = 0.07
+color = Color( 0.980392, 0.415686, 0.0392157, 1 )
+energy = 2.0
+
+[node name="RunwayLight2D57" type="Light2D" parent="SceneLighting/RunwayInset"]
+position = Vector2( 149.816, 318.12 )
+texture = ExtResource( 5 )
+texture_scale = 0.07
+color = Color( 0.980392, 0.415686, 0.0392157, 1 )
+energy = 2.0
+
+[node name="RunwayLight2D58" type="Light2D" parent="SceneLighting/RunwayInset"]
+position = Vector2( 149.816, 222.12 )
+texture = ExtResource( 5 )
+texture_scale = 0.07
+color = Color( 0.980392, 0.415686, 0.0392157, 1 )
+energy = 2.0
+
+[node name="RunwayLight2D59" type="Light2D" parent="SceneLighting/RunwayInset"]
+position = Vector2( 101.816, 318.12 )
+texture = ExtResource( 5 )
+texture_scale = 0.07
+color = Color( 0.980392, 0.415686, 0.0392157, 1 )
+energy = 2.0
+
+[node name="RunwayLight2D60" type="Light2D" parent="SceneLighting/RunwayInset"]
+position = Vector2( 101.816, 222.12 )
+texture = ExtResource( 5 )
+texture_scale = 0.07
+color = Color( 0.980392, 0.415686, 0.0392157, 1 )
+energy = 2.0
 
 [node name="AirLock" type="Node2D" parent="SceneLighting"]
 
