@@ -12,20 +12,30 @@ onready var player_ship = $PlayerLeaveAnimation/PlayerPlaceholder
 onready var takeoff_tween = $PlayerLeaveAnimation/TakeoffTween
 onready var rear_pos = $PlayerLeaveAnimation/RearTakeoff
 onready var front_pos = $PlayerLeaveAnimation/FrontTakeoff
+
+onready var port_light = $SceneLighting/AirLock/PortLight
+onready var starboard_light = $SceneLighting/AirLock/StarboardLight
+onready var lighting_tween = $SceneLighting/LightingTween
+var glow_up = 4
+var glow_down = 0.5
+var glow_time = 2
+
 var backing_up = true
 var leaving_to = null
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
-	pass # Replace with function body.
-
+	start_light_tweens()
 
 func _process(_delta):
 	starfield.scroll_offset.x += 10
 	starfield.scroll_offset.y += 3
-# Called every frame. 'delta' is the elapsed time since the previous frame.
-#func _process(delta):
-#	pass
+	
+func start_light_tweens():
+	lighting_tween.interpolate_property(port_light, "texture_scale", port_light.texture_scale, glow_up, glow_time, Tween.TRANS_CUBIC, Tween.EASE_IN_OUT)
+	lighting_tween.interpolate_property(starboard_light, "texture_scale", starboard_light.texture_scale, glow_up, glow_time, Tween.TRANS_CUBIC, Tween.EASE_IN_OUT)
+	lighting_tween.start()
+	
 func take_off():
 	if backing_up:
 		takeoff_tween.interpolate_property(player_ship, "position", player_ship.position, rear_pos.position, 3, Tween.TRANS_BACK, Tween.EASE_IN_OUT)
@@ -54,4 +64,11 @@ func _on_TakeoffTween_tween_completed(object, key):
 	else:
 		if leaving_to:
 			Global.goto_scene(leaving_to)
+
+func _on_LightingTween_tween_completed(object, key):
+	if object.texture_scale - glow_down < 1:
+		lighting_tween.interpolate_property(object, "texture_scale", object.texture_scale, glow_up, glow_time, Tween.TRANS_CUBIC, Tween.EASE_IN_OUT)
+	else:
+		lighting_tween.interpolate_property(object, "texture_scale", object.texture_scale, glow_down, glow_time, Tween.TRANS_CUBIC, Tween.EASE_IN_OUT)
+	lighting_tween.start()
 	
