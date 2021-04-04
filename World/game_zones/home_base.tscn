@@ -642,6 +642,14 @@ texture_scale = 0.5
 color = Color( 0.705882, 0.12549, 0.164706, 1 )
 shadow_enabled = true
 
+[node name="PortLightInset" type="Light2D" parent="SceneLighting/AirLock"]
+position = Vector2( 948.936, 206.12 )
+texture = ExtResource( 5 )
+texture_scale = 0.07
+color = Color( 0.705882, 0.12549, 0.164706, 1 )
+energy = 5.0
+shadow_enabled = true
+
 [node name="PortLightOccluder2D" type="LightOccluder2D" parent="SceneLighting/AirLock"]
 position = Vector2( 943.879, 204.546 )
 rotation = 3.14159
@@ -652,6 +660,14 @@ position = Vector2( 949.936, 334.12 )
 texture = ExtResource( 5 )
 texture_scale = 0.5
 color = Color( 0.34902, 0.756863, 0.207843, 1 )
+shadow_enabled = true
+
+[node name="StarboardLightInset" type="Light2D" parent="SceneLighting/AirLock"]
+position = Vector2( 949.936, 334.12 )
+texture = ExtResource( 5 )
+texture_scale = 0.07
+color = Color( 0.34902, 0.756863, 0.207843, 1 )
+energy = 5.0
 shadow_enabled = true
 
 [node name="StarboardLightOccluder2D" type="LightOccluder2D" parent="SceneLighting/AirLock"]
