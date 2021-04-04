@@ -76,8 +76,6 @@ func update_volume():
 	
 
 func _on_Tween_tween_completed(object, key):
-	print("Target: ", target)
-	print("Key: ", key)
 	if key == ":scroll_offset:x":
 		target.x *= -1.1
 		tween_to_target_x(target)
