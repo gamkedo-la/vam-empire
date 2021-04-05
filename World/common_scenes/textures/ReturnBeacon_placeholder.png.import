@@ -2,15 +2,15 @@
 
 importer="texture"
 type="StreamTexture"
-path="res://.import/ReturnBeaconRing_placeholder.png-5b3a91abba1eddd2100799040aa30927.stex"
+path="res://.import/ReturnBeacon_placeholder.png-e60ac2de8f57aa82bbcfc768ca07c442.stex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://World/common_assets/textures/ReturnBeaconRing_placeholder.png"
-dest_files=[ "res://.import/ReturnBeaconRing_placeholder.png-5b3a91abba1eddd2100799040aa30927.stex" ]
+source_file="res://World/common_scenes/textures/ReturnBeacon_placeholder.png"
+dest_files=[ "res://.import/ReturnBeacon_placeholder.png-e60ac2de8f57aa82bbcfc768ca07c442.stex" ]
 
 [params]
 

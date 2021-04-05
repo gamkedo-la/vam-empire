@@ -1,9 +1,9 @@
 [gd_scene load_steps=6 format=2]
 
-[ext_resource path="res://World/common_assets/ReturnHomeBeacon.gd" type="Script" id=1]
-[ext_resource path="res://World/common_assets/textures/ReturnBeacon_placeholder.png" type="Texture" id=2]
-[ext_resource path="res://World/common_assets/textures/ReturnBeaconIndicator_placeholder.png" type="Texture" id=3]
-[ext_resource path="res://Lights/Textures/light_orb.png" type="Texture" id=4]
+[ext_resource path="res://Lights/Textures/light_orb.png" type="Texture" id=1]
+[ext_resource path="res://Scripts/ReturnHomeBeacon.gd" type="Script" id=2]
+[ext_resource path="res://World/common_scenes/textures/ReturnBeaconIndicator_placeholder.png" type="Texture" id=3]
+[ext_resource path="res://World/common_scenes/textures/ReturnBeacon_placeholder.png" type="Texture" id=4]
 
 [sub_resource type="CircleShape2D" id=1]
 radius = 62.0345
@@ -12,7 +12,7 @@ radius = 62.0345
 gravity_point = true
 collision_layer = 2
 collision_mask = 2
-script = ExtResource( 1 )
+script = ExtResource( 2 )
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 position = Vector2( -0.296936, 47.2177 )
@@ -26,10 +26,10 @@ texture = ExtResource( 3 )
 [node name="BeaconSign" type="Sprite" parent="."]
 position = Vector2( 0, 18 )
 z_as_relative = false
-texture = ExtResource( 2 )
+texture = ExtResource( 4 )
 
 [node name="BeaconLight" type="Light2D" parent="BeaconSign"]
-texture = ExtResource( 4 )
+texture = ExtResource( 1 )
 texture_scale = 2.0
 color = Color( 0.505882, 0.490196, 1, 1 )
 energy = 1.17

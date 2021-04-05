@@ -1,22 +1,44 @@
 - [Kyle's DevJournal](#kyles-devjournal)
-- [Notes on Ship Design](#notes-on-ship-design)
-  - [Godot Specifics (*Work in Progress/Active Design)](#godot-specifics-work-in-progressactive-design)
+- [Godot Specifics (*Work in Progress/Active Design)](#godot-specifics-work-in-progressactive-design)
+  - [World/Game Scenes](#worldgame-scenes)
+    - [Home Base](#home-base)
+    - [Asteroid Field Scenes (Mining and Combat!)](#asteroid-field-scenes-mining-and-combat)
+    - [Making a test Asteroid Field Scene](#making-a-test-asteroid-field-scene)
+  - [Player Scene](#player-scene)
     - [ModularPlayer Ship Controller](#modularplayer-ship-controller)
     - [Ship Scene Template](#ship-scene-template)
+- [Notes on Ship Design](#notes-on-ship-design)
   - [Ship Flight Feel](#ship-flight-feel)
   - [Inventory](#inventory)
   - [Hardpoint and Equipment Management](#hardpoint-and-equipment-management)
   - [Modular Ship](#modular-ship)
 
-Return to [README.md](README.md 
+Return to [README.md](README.md) 
 
 # Kyle's DevJournal
 I'll be using this document as a means to collect my ideas on the overall design and schema of V.A.M. Empire primarily as a means to help keep my thoughts organized, but also as an easy way to make the information accessible without spamming Discord or overfilling cards on Trello. A place to be freely verbose, dream, ramble, explore... So, if I say something below that never makes it in the game? That's to be expected!
 
-# Notes on Ship Design
 
-## Godot Specifics (*Work in Progress/Active Design)
 
+# Godot Specifics (*Work in Progress/Active Design)
+
+## World/Game Scenes
+
+### Home Base
+At current moment, the Home Base is simply a scene to hang some buttons on to instance our world scenes. I did pair it with a nice little ship take-off animation just to make it feel like a "base" though! If you have a new world scene you want other members of the project to test out, feel free to add a launcher from this scene.  As our test scenes grow, I'll likely change from using big buttons to something like a Drop Down list and we can start adding our .tscn files to a Dictionary to manage them all.
+
+### Asteroid Field Scenes (Mining and Combat!)
+
+As of right now, there is only 1 required object for a World scene. 
+- [ReturnHomeBeacon.tscn](../../World/common_scenes/ReturnHomeBeacon.tscn)
+  - This beacon object has a simple 10 second countdown timer activated by the player entering its collider, that will return the player to the "Home Base" level selection screen. Without it, the player will be maroooned in space!
+
+As more things become parts of our base scene, they will be added here. 
+
+### Making a test Asteroid Field Scene
+* The scene [TemplateAsteroidZone](../../World/game_zones/TemplateAsteroidZone.tscn) will be kept up to date to reflect the "minimum" pieces required for a scene to function in game. Feel free to instance from this scene and make your own scenes and freely experiment!
+
+## Player Scene
 ### ModularPlayer Ship Controller
 - The player controller scene (ModularPlayer.tscn) will load ships at the PilotedShip Node2D.
 - The KinematicBody2D node ModularPlayer starts with no Collision2D. The instanced Ship will have a CollisionShape2D named HullCollision which will be reparented to ModularPlayer at runtime.
@@ -37,6 +59,7 @@ Each ship will have the following "Node2D" groupings for parts:
 
 TBD: A "Template Scene" will be created that all ships can be created from with the basics needed to get a 2 Hardpoint, 2 Forward Light, 1 Thruster ship started. Then the designer can add more from there.
 
+# Notes on Ship Design
 ## Ship Flight Feel
 
 Starting simply, a good goal to have for the flight system of our player ship will be to make sure that the first ship "flys poorly", yet is still fun to fly from the very start.
