@@ -13,7 +13,7 @@ _data = [ Vector2( 0, 1 ), 0.0, 0.0, 0, 0, Vector2( 0.546332, 0.0122699 ), 0.0, 
 
 [node name="StarterShip" type="Node2D"]
 
-[node name="Sprite" type="Sprite" parent="."]
+[node name="ShipSprite" type="Sprite" parent="."]
 texture = ExtResource( 3 )
 
 [node name="HullCollision" type="CollisionShape2D" parent="."]
@@ -70,9 +70,9 @@ mode = 2
 
 [node name="Thrusters" type="Node2D" parent="."]
 
-[node name="StarterThruster" type="Node2D" parent="Thrusters"]
+[node name="SternThruster01" type="Node2D" parent="Thrusters"]
 
-[node name="RearLightAmber" type="Light2D" parent="Thrusters/StarterThruster"]
+[node name="RearLightAmber" type="Light2D" parent="Thrusters/SternThruster01"]
 show_behind_parent = true
 light_mask = 3
 position = Vector2( -10.422, 0.290236 )
@@ -87,7 +87,7 @@ mode = 2
 shadow_enabled = true
 shadow_item_cull_mask = -2147483647
 
-[node name="Particles2D" type="CPUParticles2D" parent="Thrusters/StarterThruster/RearLightAmber"]
+[node name="Particles2D" type="CPUParticles2D" parent="Thrusters/SternThruster01/RearLightAmber"]
 show_behind_parent = true
 position = Vector2( -0.836177, -0.0798298 )
 scale = Vector2( 0.647085, 0.124643 )
