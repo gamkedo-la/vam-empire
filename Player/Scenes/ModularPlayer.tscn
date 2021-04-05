@@ -1,0 +1,25 @@
+[gd_scene load_steps=4 format=2]
+
+[ext_resource path="res://Scripts/ModularPlayer.gd" type="Script" id=2]
+[ext_resource path="res://Lights/Textures/light_orb.png" type="Texture" id=3]
+[ext_resource path="res://Enemies/Textures/proto_enemy.png" type="Texture" id=5]
+
+[node name="ModularPlayer" type="KinematicBody2D" groups=[
+"player",
+]]
+script = ExtResource( 2 )
+
+[node name="PilotedShip" type="Node2D" parent="."]
+
+[node name="DebugDraw" type="Light2D" parent="."]
+visible = false
+light_mask = 2
+z_index = 10
+texture = ExtResource( 3 )
+color = Color( 1, 0, 0, 1 )
+energy = 4.11
+shadow_enabled = true
+
+[node name="Sprite2" type="Sprite" parent="DebugDraw"]
+light_mask = -2147483646
+texture = ExtResource( 5 )
