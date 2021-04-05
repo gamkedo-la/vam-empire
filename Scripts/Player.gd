@@ -11,10 +11,13 @@ var ROT_ACCEL = deg2rad(0)
 export (float, 0, 400) var shieldHealth = 200
 export (float, 0, 600) var hullHealth = 250
 export (float, 0, 150) var energyReserve = 100
+export (float, 0, 600) var healingEnergy = 250
+export (float, 0, 10)  var healingEnergyRecoveryPerTimeUnit = 5
 
 var shieldMaxHealth = null
 var hullMaxHealth = null
 var energyMax = null
+var healingMaxEnergy = null
 # Default variables for move_and_slide
 const m_s_up = Vector2.ZERO
 const m_s_sos = false
@@ -25,7 +28,8 @@ const m_s_fma = 0.785398
 enum {
 	MOVE,
 	ROLL,
-	ATTACK
+	ATTACK, 
+	HEAL
 }
 
 var state = MOVE
@@ -50,15 +54,22 @@ func _ready():
 	shieldMaxHealth = shieldHealth
 	hullMaxHealth = hullHealth
 	energyMax = energyReserve
+	healingMaxEnergy = healingEnergy
 
 func _process(delta):
 	#print(shieldMaxHealth)
+	if(Input.is_key_pressed(KEY_H)):
+		state = HEAL
+		heal_ship()
+	else:
+		state = MOVE
+		
 	match state:
 		MOVE:
 			move_state(delta)
 		ATTACK:
 			attack_state(delta)	
-			
+	
 func _physics_process(delta):
 	var targ = player_target
 	if !player_target:
@@ -178,5 +189,21 @@ func rotate_to_target(target):
 	else:
 		ROT_ACCEL += deg2rad(.05)
 	
+func heal_ship():
+	if(healingEnergy > 0):
+		if(hullHealth < hullMaxHealth):
+			hullHealth = min(hullHealth + 1, hullMaxHealth)
+			healingEnergy-=1
+		elif (shieldHealth < shieldMaxHealth):
+			shieldHealth = min(shieldHealth + 1, shieldMaxHealth)
+			healingEnergy-=1
+	print("Heal: ", hullHealth)
+	print("Shield: ", shieldHealth)
 
 
+
+
+func _on_HealingTimer_timeout():
+	if (state != HEAL && healingEnergy < healingMaxEnergy):
+		healingEnergy+=healingEnergyRecoveryPerTimeUnit
+		print("Heal Energy Recovery :", healingEnergy)

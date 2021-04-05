@@ -9,11 +9,11 @@
 [sub_resource type="Curve" id=1]
 _data = [ Vector2( 0, 1 ), 0.0, 0.0, 0, 0, Vector2( 0.546332, 0.0122699 ), 0.0, 0.0, 0, 0 ]
 
-[sub_resource type="OccluderPolygon2D" id=3]
+[sub_resource type="OccluderPolygon2D" id=2]
 closed = false
 polygon = PoolVector2Array( -8.2856, -9.72413, -8.22317, 10.3782, 5.63617, 6.25781, -1.04378, 6.19538, 9.19465, 0.264584, -2.04265, -4.04305, 5.32402, -7.47667 )
 
-[sub_resource type="CapsuleShape2D" id=2]
+[sub_resource type="CapsuleShape2D" id=3]
 radius = 2.14236
 height = 1.4316
 
@@ -61,13 +61,13 @@ color = Color( 0, 0.635294, 1, 1 )
 
 [node name="LightOccluder2D" type="LightOccluder2D" parent="Sprite"]
 light_mask = 2
-occluder = SubResource( 3 )
+occluder = SubResource( 2 )
 light_mask = 2
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 position = Vector2( 6.05069, -0.0977974 )
 rotation = 1.5708
-shape = SubResource( 2 )
+shape = SubResource( 3 )
 
 [node name="LeftGunPos" type="Position2D" parent="."]
 position = Vector2( 5.82486, -7.49214 )
@@ -123,3 +123,8 @@ shadow_enabled = true
 [node name="Sprite2" type="Sprite" parent="DebugDraw"]
 light_mask = -2147483646
 texture = ExtResource( 5 )
+
+[node name="HealingTimer" type="Timer" parent="."]
+wait_time = 2.0
+autostart = true
+[connection signal="timeout" from="HealingTimer" to="." method="_on_HealingTimer_timeout"]

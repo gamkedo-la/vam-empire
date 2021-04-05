@@ -7,8 +7,6 @@
 [ext_resource path="res://UI/HUD/Textures/energy_bar.png" type="Texture" id=5]
 [ext_resource path="res://Scripts/HUD.gd" type="Script" id=6]
 
-
-
 [node name="HUD" type="MarginContainer"]
 margin_right = 960.0
 margin_bottom = 540.0
