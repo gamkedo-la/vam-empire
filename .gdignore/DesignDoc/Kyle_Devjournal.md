@@ -24,14 +24,18 @@ I'll be using this document as a means to collect my ideas on the overall design
   
 Each ship will have the following "Node2D" groupings for parts:
 - Hardpoints
+  - Collection of Position2D Nodes
   - Individual Hardpoints will be labeled "Bow" (front), "Stern" rear,  "Starboard" and "Port" and enumerated using 2 digits i.e. PortHp01, StarboardHp01. A designation/standard for pure-center will need to be decided.
 - Lights
+  - Collection of Light2D Nodes and any framing Occluder2Ds required
   - Inididual Lights will be labeled "Starboard" and "Port", designate a "type" and enumerated using 2 digits i.e. PortSpotlight01, StarboardSpotlight01
   - Some lights will be standard to all ships, i.e. "PlayerIllumination" will always be the basic ship lighting to set the 'base level' of lighting for the player.
   - Custom 1 off lights for a ship will start "Custom" and will work largely as static lights, but can have localized scripting in the ship scene.
-- Thrusters
-  - Same conventions as Hardpoints and 
+- Thrusters (Very much WIP)
+  - Collection of Thrusters which will be more complex Node objects, involving particle effects/lights and more.
+  - Same conventions as followed in other collections, but *TBD* need to designate whether they are Stern thrusters, Bow braking thrusters, or Port/Starboard strafing thrusters. RCS/flight stabilization thrusters will likely come into the mix here as well.
 
+TBD: A "Template Scene" will be created that all ships can be created from with the basics needed to get a 2 Hardpoint, 2 Forward Light, 1 Thruster ship started. Then the designer can add more from there.
 
 ## Ship Flight Feel
 
