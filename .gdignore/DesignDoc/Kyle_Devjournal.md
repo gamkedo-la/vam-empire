@@ -12,6 +12,7 @@
   - [Inventory](#inventory)
   - [Hardpoint and Equipment Management](#hardpoint-and-equipment-management)
   - [Modular Ship](#modular-ship)
+    - [Character Sheet Example](#character-sheet-example)
 
 Return to [README.md](README.md) 
 
@@ -42,6 +43,10 @@ As more things become parts of our base scene, they will be added here.
 ### ModularPlayer Ship Controller
 - The player controller scene (ModularPlayer.tscn) will load ships at the PilotedShip Node2D.
 - The KinematicBody2D node ModularPlayer starts with no Collision2D. The instanced Ship will have a CollisionShape2D named HullCollision which will be reparented to ModularPlayer at runtime.
+
+<sub>Modular Player Ship Scene Example </sub>
+
+![Modular Player Ship Example](images/modplayer_fig1.png)
 ### Ship Scene Template
   
 Each ship will have the following "Node2D" groupings for parts:
@@ -56,6 +61,9 @@ Each ship will have the following "Node2D" groupings for parts:
 - Thrusters (Very much WIP)
   - Collection of Thrusters which will be more complex Node objects, involving particle effects/lights and more.
   - Same conventions as followed in other collections, but *TBD* need to designate whether they are Stern thrusters, Bow braking thrusters, or Port/Starboard strafing thrusters. RCS/flight stabilization thrusters will likely come into the mix here as well.
+
+<sub> Example of the Starter Ship from the Demo in our new Modular Ship Form </sub>
+![Modular Starter Ship Example](images/ShipTemplateDesign.png)
 
 TBD: A "Template Scene" will be created that all ships can be created from with the basics needed to get a 2 Hardpoint, 2 Forward Light, 1 Thruster ship started. Then the designer can add more from there.
 
@@ -86,12 +94,12 @@ We do not yet have any "modular" ships in V.A.M. Empire, but designing a new shi
 1) Draw/Design the general look of the ship.
 2) Determine where things like Hardpoints (Weapons/Mining Lasers/etc..) will go
 3) Decide the class "Small, Medium, Large" of the hardpoints (so weapon's can be designed to fit based on these designations)
-4) Design the ship in Godot as a single scene, using [TBD Naming Conventions](#TBD_Nmaing_Conventions) for things like Point2Ds that will designate where the hardpoints are on the ship.
+4) Design the ship in Godot as a single scene, using [Ship Scene Template](#ship-scene-template) naming conventions for things like Position2Ds that will designate where the hardpoints are on the ship.
 5) Decide stock (pre-upgrade module) ship variables for things like flight variables, hull strength, shield strength etc..
 6) Test the ship out with existing modules and parts
 7) The inventory and equipment management screens in game should also be designed in a way, that the UI will automatically build a character sheet style layout for the player to drop on weapons and modules. Thinking Diablo/ARPG style character sheet for this. 
 
-###Character Sheet Example
+### Character Sheet Example
    
 ![Diablo Character Sheet](https://external-content.duckduckgo.com/iu/?u=http%3A%2F%2Fmedia.blizzard.com%2Fd3%2Fmedia%2Fscreenshots%2Fguide%2Fglobal%2Finventory%2Foverview-thumb.jpg&f=1&nofb=1)
 
