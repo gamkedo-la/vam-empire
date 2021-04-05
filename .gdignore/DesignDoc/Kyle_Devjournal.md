@@ -1,11 +1,17 @@
 - [Kyle's DevJournal](#kyles-devjournal)
 - [Godot Specifics (*Work in Progress/Active Design)](#godot-specifics-work-in-progressactive-design)
+  - [Art Standards](#art-standards)
+    - [Player Ship Conventions](#player-ship-conventions)
+    - [Mounted Weapon/Mining Tool Conventions](#mounted-weaponmining-tool-conventions)
+    - [Enemy Ship Conventions [WIP]](#enemy-ship-conventions-wip)
+    - [Level Objects [WIP]](#level-objects-wip)
   - [World/Game Scenes](#worldgame-scenes)
     - [Home Base](#home-base)
     - [Asteroid Field Scenes (Mining and Combat!)](#asteroid-field-scenes-mining-and-combat)
     - [Making a test Asteroid Field Scene](#making-a-test-asteroid-field-scene)
   - [Player Scene](#player-scene)
     - [ModularPlayer Ship Controller](#modularplayer-ship-controller)
+    - [Ship Specifications](#ship-specifications)
     - [Ship Scene Template](#ship-scene-template)
 - [Notes on Ship Design](#notes-on-ship-design)
   - [Ship Flight Feel](#ship-flight-feel)
@@ -22,7 +28,51 @@ I'll be using this document as a means to collect my ideas on the overall design
 
 
 # Godot Specifics (*Work in Progress/Active Design)
+## Art Standards
+- Game Screen is 960x540 pixels
+- Color Palette (even for in game things like lighting is) AAP 64 by Adigun Polack
+  - Available standard in Aseprite
+  
+<sub> AAP 64 Palette </sub>
 
+![AAP 64 Palette Preview Image](images/pjaaporiginalstheaap64colorpalette.png)
+
+### Player Ship Conventions
+- Small Ships
+  - Pixels: 32x32
+  - Max Hardpoints: 3
+  - Carrying Capacity Range: TBD
+  - Hardpoint Sizes: S
+- Medium Ships
+  - Pixels: 64x64
+  - Max Hardpoints: TBD
+  - Carrying Capacity Range: TBD
+  - Hardpoint Sizes: S, M
+- Large Ships
+  - Pixels: 128x128
+  - Max Hardpoints: TBD
+  - Carrying Capacity Range: TBD
+  - Hardpoint Sizes: M, L
+- X-Large Ships
+  - Pixels: 256x256
+  - Max Hardpoints: TBD
+  - Carrying Capacity Range: TBD
+  - Hardpoint Sizes: L, XL
+
+### Mounted Weapon/Mining Tool Conventions
+As hardpoint mounted weapons get created, we will flesh out the standards here. These specs should work well for the ship sizes they are built to fit, to make them as modular as possible.
+- Small Hardpoints
+  - Pixels: TBD
+- Medium Hardpoints
+  - Pixels: TBD
+- Large Hardpoints
+  - Pixels: TBD
+- X-Large Hardpoints
+  - Pixels: TBD
+
+### Enemy Ship Conventions [WIP]
+
+### Level Objects [WIP]
 ## World/Game Scenes
 
 ### Home Base
@@ -39,7 +89,7 @@ As more things become parts of our base scene, they will be added here.
 ### Making a test Asteroid Field Scene
 * The scene [TemplateAsteroidZone](../../World/game_zones/TemplateAsteroidZone.tscn) will be kept up to date to reflect the "minimum" pieces required for a scene to function in game. Feel free to instance from this scene and make your own scenes and freely experiment!
 
-## Player Scene
+## Player Scene 
 ### ModularPlayer Ship Controller
 - The player controller scene (ModularPlayer.tscn) will load ships at the PilotedShip Node2D.
 - The KinematicBody2D node ModularPlayer starts with no Collision2D. The instanced Ship will have a CollisionShape2D named HullCollision which will be reparented to ModularPlayer at runtime.
@@ -47,6 +97,8 @@ As more things become parts of our base scene, they will be added here.
 <sub>Modular Player Ship Scene Example </sub>
 
 ![Modular Player Ship Example](images/modplayer_fig1.png)
+
+### Ship Specifications
 ### Ship Scene Template
   
 Each ship will have the following "Node2D" groupings for parts:
