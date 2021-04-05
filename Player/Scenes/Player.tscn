@@ -1,10 +1,11 @@
-[gd_scene load_steps=9 format=2]
+[gd_scene load_steps=10 format=2]
 
 [ext_resource path="res://Player/Textures/Shmup_Player_Ship_001.png" type="Texture" id=1]
 [ext_resource path="res://Lights/Textures/headlight_001.png" type="Texture" id=2]
 [ext_resource path="res://Lights/Textures/light_orb.png" type="Texture" id=3]
 [ext_resource path="res://Scripts/Player.gd" type="Script" id=4]
 [ext_resource path="res://Enemies/Textures/proto_enemy.png" type="Texture" id=5]
+[ext_resource path="res://Player/Textures/RepairDrone.png" type="Texture" id=6]
 
 [sub_resource type="Curve" id=1]
 _data = [ Vector2( 0, 1 ), 0.0, 0.0, 0, 0, Vector2( 0.546332, 0.0122699 ), 0.0, 0.0, 0, 0 ]
@@ -127,4 +128,11 @@ texture = ExtResource( 5 )
 [node name="HealingTimer" type="Timer" parent="."]
 wait_time = 2.0
 autostart = true
+
+[node name="HealingBot" type="Sprite" parent="."]
+visible = false
+position = Vector2( 2, -4.5 )
+rotation = 0.349066
+scale = Vector2( 0.2, 0.2 )
+texture = ExtResource( 6 )
 [connection signal="timeout" from="HealingTimer" to="." method="_on_HealingTimer_timeout"]

@@ -18,6 +18,8 @@ var shieldMaxHealth = null
 var hullMaxHealth = null
 var energyMax = null
 var healingMaxEnergy = null
+
+var healingBot = null
 # Default variables for move_and_slide
 const m_s_up = Vector2.ZERO
 const m_s_sos = false
@@ -55,6 +57,8 @@ func _ready():
 	hullMaxHealth = hullHealth
 	energyMax = energyReserve
 	healingMaxEnergy = healingEnergy
+	healingBot = get_node("HealingBot")
+	healingBot.visible = false
 
 func _process(delta):
 	#print(shieldMaxHealth)
@@ -63,6 +67,7 @@ func _process(delta):
 		heal_ship()
 	else:
 		state = MOVE
+		healingBot.visible = false
 		
 	match state:
 		MOVE:
@@ -191,6 +196,7 @@ func rotate_to_target(target):
 	
 func heal_ship():
 	if(healingEnergy > 0):
+		healingBot.visible = true
 		if(hullHealth < hullMaxHealth):
 			hullHealth = min(hullHealth + 1, hullMaxHealth)
 			healingEnergy-=1
