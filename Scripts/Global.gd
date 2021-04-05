@@ -17,6 +17,14 @@ func goto_scene(path):
 	print("Getting to goto_scene...")
 	call_deferred("_deferred_goto_scene", path)
 
+# A function to simplify reparenting nodes, a function that will likely happen a lot as we design things "Modularly"
+func reparent(child: Node, new_parent: Node):
+	if child:
+		var old_parent = child.get_parent()
+		old_parent.remove_child(child)
+		new_parent.add_child(child)
+	else:
+		print_debug("Global.gd: Attempt to reparent child node failed due to child being null.")
 
 func _deferred_goto_scene(path):
 	

@@ -13,13 +13,5 @@ func _ready():
 	var ship_load = load(PlayerVars.player.current_ship)
 	piloted_ship = ship_load.instance()
 	ship_node.add_child(piloted_ship)
-	hull_hitbox = piloted_ship.get_node_or_null("HullCollision")
-	piloted_ship.remove_child(hull_hitbox)
-	self.add_child(hull_hitbox)
-	
-	
+	Global.reparent(piloted_ship.get_node_or_null("HullCollision"), self)
 
-
-# Called every frame. 'delta' is the elapsed time since the previous frame.
-#func _process(delta):
-#	pass
