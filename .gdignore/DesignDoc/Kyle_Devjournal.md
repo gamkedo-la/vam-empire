@@ -1,5 +1,8 @@
 - [Kyle's DevJournal](#kyles-devjournal)
 - [Notes on Ship Design](#notes-on-ship-design)
+  - [Godot Specifics (*Work in Progress/Active Design)](#godot-specifics-work-in-progressactive-design)
+    - [ModularPlayer Ship Controller](#modularplayer-ship-controller)
+    - [Ship Scene Template](#ship-scene-template)
   - [Ship Flight Feel](#ship-flight-feel)
   - [Inventory](#inventory)
   - [Hardpoint and Equipment Management](#hardpoint-and-equipment-management)
@@ -12,7 +15,23 @@ I'll be using this document as a means to collect my ideas on the overall design
 
 # Notes on Ship Design
 
-   
+## Godot Specifics (*Work in Progress/Active Design)
+
+### ModularPlayer Ship Controller
+- The player controller scene (ModularPlayer.tscn) will load ships at the PilotedShip Node2D.
+- The KinematicBody2D node ModularPlayer starts with no Collision2D. The instanced Ship will have a CollisionShape2D named HullCollision which will be reparented to ModularPlayer at runtime.
+### Ship Scene Template
+  
+Each ship will have the following "Node2D" groupings for parts:
+- Hardpoints
+  - Individual Hardpoints will be labeled "Bow" (front), "Stern" rear,  "Starboard" and "Port" and enumerated using 2 digits i.e. PortHp01, StarboardHp01. A designation/standard for pure-center will need to be decided.
+- Lights
+  - Inididual Lights will be labeled "Starboard" and "Port", designate a "type" and enumerated using 2 digits i.e. PortSpotlight01, StarboardSpotlight01
+  - Some lights will be standard to all ships, i.e. "PlayerIllumination" will always be the basic ship lighting to set the 'base level' of lighting for the player.
+  - Custom 1 off lights for a ship will start "Custom" and will work largely as static lights, but can have localized scripting in the ship scene.
+- Thrusters
+  - Same conventions as Hardpoints and 
+
 
 ## Ship Flight Feel
 
