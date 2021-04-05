@@ -34,7 +34,6 @@ shape = SubResource( 1 )
 [node name="CollisionShape2D" parent="PlayerLeash" index="0"]
 shape = SubResource( 2 )
 [connection signal="body_entered" from="PlayerDetect" to="." method="_on_PlayerDetect_body_entered"]
-[connection signal="body_exited" from="PlayerDetect" to="." method="_on_PlayerDetect_body_exited"]
 [connection signal="body_exited" from="PlayerLeash" to="." method="_on_PlayerLeash_body_exited"]
 
 [editable path="PlayerDetect"]
