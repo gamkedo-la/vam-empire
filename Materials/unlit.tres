@@ -1,0 +1,25 @@
+[gd_resource type="ShaderMaterial" load_steps=2 format=2]
+
+[sub_resource type="Shader" id=1]
+code = "shader_type canvas_item;
+render_mode unshaded;
+//uniform sampler2D emission_texture;
+//
+//void fragment()
+//{
+//	vec4 current_color = texture(TEXTURE,UV);
+//	vec4 emission_color = texture(emission_texture,UV);
+//
+//	if (emission_color.r > 0f)
+//	{
+//		COLOR = (emission_color * vec4(2f,2f,2f,0f))
+//	}
+//	else
+//	{
+//		COLOR = (current_color);
+//	}
+//
+//}"
+
+[resource]
+shader = SubResource( 1 )
