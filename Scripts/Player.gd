@@ -25,6 +25,7 @@ var energyMax = null
 var healingMaxEnergy = null
 
 var healingBot = null
+var isHealing = false
 # Default variables for move_and_slide
 const m_s_up = Vector2.ZERO
 const m_s_sos = false
@@ -82,10 +83,10 @@ func _ready():
 func _process(delta):
 	#print(shieldMaxHealth)
 	if(Input.is_key_pressed(KEY_H)):
-		state = HEAL
+		isHealing = true
 		heal_ship()
 	else:
-		state = MOVE
+		isHealing = false
 		healingBot.visible = false
 		
 	match state:

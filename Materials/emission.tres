@@ -1,0 +1,28 @@
+[gd_resource type="ShaderMaterial" load_steps=3 format=2]
+
+[ext_resource path="res://Materials/explosionemissioncrunchedbw.png" type="Texture" id=1]
+
+[sub_resource type="Shader" id=1]
+code = "shader_type canvas_item;
+//render_mode unshaded;
+uniform sampler2D emission_texture;
+
+void fragment()
+{
+	vec4 current_color = texture(TEXTURE,UV);
+	vec4 emission_color = texture(emission_texture,UV);
+
+	if (emission_color.g > 0f)
+	{
+		COLOR = (emission_color + vec4(1.7f,1.2f,1.7f,0f))
+	}
+	else
+	{
+		COLOR = (current_color);
+	}
+
+}"
+
+[resource]
+shader = SubResource( 1 )
+shader_param/emission_texture = ExtResource( 1 )
