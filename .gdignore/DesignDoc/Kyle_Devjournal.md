@@ -101,10 +101,10 @@ For an example, let's say you are interested in starting work on a new 'scene' o
 
 ## Player Scene 
 ### ModularPlayer Ship Controller
-- The player controller scene (ModularPlayer.tscn) will load ships at the PilotedShip Node2D.
-- The KinematicBody2D node ModularPlayer starts with no Collision2D. The instanced Ship will have a CollisionShape2D named HullCollision which will be reparented to ModularPlayer at runtime.
+- The player controller scene [Player.tscn](../../Player/Scenes/Player.tscn) will load ships at the PilotedShip Node2D.
+- The KinematicBody2D node <b>Player</b> starts with no Collision2D. The instanced Ship will have a CollisionShape2D named HullCollision which will be reparented to ModularPlayer at runtime.
 
-<sub>Modular Player Ship Scene Example </sub>
+<sub>Modular Player Ship Scene Example</sub>
 
 ![Modular Player Ship Example](images/modplayer_fig1.png)
 
