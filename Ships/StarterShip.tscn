@@ -72,7 +72,7 @@ mode = 2
 
 [node name="SternThruster01" type="Node2D" parent="Thrusters"]
 
-[node name="RearLightAmber" type="Light2D" parent="Thrusters/SternThruster01"]
+[node name="LightEffect" type="Light2D" parent="Thrusters/SternThruster01"]
 show_behind_parent = true
 light_mask = 3
 position = Vector2( -10.422, 0.290236 )
@@ -87,10 +87,10 @@ mode = 2
 shadow_enabled = true
 shadow_item_cull_mask = -2147483647
 
-[node name="Particles2D" type="CPUParticles2D" parent="Thrusters/SternThruster01/RearLightAmber"]
+[node name="ParticleEffect" type="CPUParticles2D" parent="Thrusters/SternThruster01"]
 show_behind_parent = true
-position = Vector2( -0.836177, -0.0798298 )
-scale = Vector2( 0.647085, 0.124643 )
+position = Vector2( -12.0453, 0.223221 )
+scale = Vector2( 1.25624, 0.104634 )
 amount = 50
 local_coords = false
 texture = ExtResource( 1 )

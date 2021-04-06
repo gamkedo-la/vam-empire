@@ -206,9 +206,6 @@ func heal_ship():
 	print("Heal: ", hullHealth)
 	print("Shield: ", shieldHealth)
 
-
-
-
 func _on_HealingTimer_timeout():
 	if (state != HEAL && healingEnergy < healingMaxEnergy):
 		healingEnergy+=healingEnergyRecoveryPerTimeUnit
