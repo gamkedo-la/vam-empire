@@ -24,8 +24,6 @@ var hullMaxHealth = null
 var energyMax = null
 var healingMaxEnergy = null
 
-var healingBot = null
-var isHealing = false
 # Default variables for move_and_slide
 const m_s_up = Vector2.ZERO
 const m_s_sos = false
@@ -36,8 +34,7 @@ const m_s_fma = 0.785398
 enum {
 	MOVE,
 	ROLL,
-	ATTACK, 
-	HEAL
+	ATTACK
 }
 
 var state = MOVE
@@ -76,19 +73,9 @@ func _ready():
 	energyMax = energyReserve
 	
 	healingMaxEnergy = healingEnergy
-	healingBot = get_node("HealingBot")
-	healingBot.visible = false
 
 	
 func _process(delta):
-	#print(shieldMaxHealth)
-	if(Input.is_key_pressed(KEY_H)):
-		isHealing = true
-		heal_ship()
-	else:
-		isHealing = false
-		healingBot.visible = false
-		
 	match state:
 		MOVE:
 			move_state(delta)
@@ -189,20 +176,6 @@ func rotate_to_target(target):
 		ROT_ACCEL = deg2rad(0)
 	else:
 		ROT_ACCEL += deg2rad(.05)
-
-
-
-func heal_ship():
-	if(healingEnergy > 0):
-		healingBot.visible = true
-		if(hullHealth < hullMaxHealth):
-			hullHealth = min(hullHealth + 1, hullMaxHealth)
-			healingEnergy-=1
-		elif (shieldHealth < shieldMaxHealth):
-			shieldHealth = min(shieldHealth + 1, shieldMaxHealth)
-			healingEnergy-=1
-	print("Heal: ", hullHealth)
-	print("Shield: ", shieldHealth)
 
 
 func animate_thrusters(t_vec):
