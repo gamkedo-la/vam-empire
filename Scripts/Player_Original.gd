@@ -1,10 +1,5 @@
 extends KinematicBody2D
 
-# Script to replace Player.gd 
-# The player and the ship will be 2 separte scenes combined modularly
-
-# Original Player.gd variables, some of which may break off into PlayerVars.gd (for easier global access) and some may
-# break off to become part of the instanced Ships which will be 'equipped' or piloted by the Player.
 
 export (int, 0, 3200) var ACCELERATION = 150
 export (int, 0, 1000) var MAX_SPEED = 320
@@ -47,38 +42,24 @@ var rng = RandomNumberGenerator.new()
 
 var player_target = null
 
-# Bullet will be modularized as part of the Hardpoint mounted weapons, for now we're just going to fire it off the hardpoints
 onready var base_bullet = preload("res://Bullets/Scenes/BasicBullet.tscn")
-
-#onready var thrust_light = $Sprite/RearLightAmber
-#onready var thrust_exhaust = $Sprite/RearLightAmber/Particles2D
+onready var left_gun = $LeftGunPos
+onready var right_gun = $RightGunPos
+onready var thrust_light = $Sprite/RearLightAmber
+onready var thrust_exhaust = $Sprite/RearLightAmber/Particles2D
 
 onready var debug_select = $DebugDraw
-# End of Original Player.gd variables
-
-
-
-# Node to mount an instanced ship scene
-onready var ship_node = $PilotedShip
-var hardpoints = null
-var thrusters = null
-var hull_hitbox = null
-var piloted_ship = null
 
 
 func _ready():
-	pilot_ship(PlayerVars.player.current_ship)
-		
 	rng.randomize()
 	shieldMaxHealth = shieldHealth
 	hullMaxHealth = hullHealth
 	energyMax = energyReserve
-	
 	healingMaxEnergy = healingEnergy
 	healingBot = get_node("HealingBot")
 	healingBot.visible = false
 
-	
 func _process(delta):
 	#print(shieldMaxHealth)
 	if(Input.is_key_pressed(KEY_H)):
@@ -91,6 +72,8 @@ func _process(delta):
 	match state:
 		MOVE:
 			move_state(delta)
+		ATTACK:
+			attack_state(delta)	
 	
 func _physics_process(delta):
 	var targ = player_target
@@ -105,7 +88,6 @@ func _physics_process(delta):
 
 	rotate_to_target(targ)
 
-
 func move_state(delta):
 	var thrust_vector = Vector2.ZERO
 	var strafe_vector = Vector2.ZERO
@@ -118,7 +100,7 @@ func move_state(delta):
 	thrust_vector = thrust_vector.normalized()
 	strafe_vector = strafe_vector.rotated(global_rotation)
 	strafe_vector = strafe_vector.normalized()
-
+	
 	
 	if thrust_vector != Vector2.ZERO:		
 		velocity = velocity.move_toward(thrust_vector * MAX_SPEED, ACCELERATION * delta)
@@ -131,13 +113,32 @@ func move_state(delta):
 	else:
 		#strafe_velocity = strafe_velocity.move_toward(Vector2.ZERO, FRICTION * delta)	
 		pass
-
-	animate_thrusters(thrust_vector)
+		
+	thrust_light.set_energy(thrust_vector.length()* 10)	
+	#thrust_exhaust.set_amout(thrust_vector.length() + 100)
+	thrust_exhaust.initial_velocity = thrust_vector.length()*100
+	
 	move()
 	strafe()
 	
 	if Input.is_action_pressed("attack"):
-		fire_attached_weapons()
+		#state = ATTACK
+		#This code should be modularized and passed off to various 'weapons' that may be installed on the ship
+		var bullet_l = base_bullet.instance()
+		var bullet_r = base_bullet.instance()
+		
+		get_node("/root/World").add_child(bullet_l)
+		get_node("/root/World").add_child(bullet_r)
+		
+		bullet_l.global_position = left_gun.global_position
+		bullet_l.global_rotation = global_rotation
+		bullet_r.global_position = right_gun.global_position
+		bullet_r.global_rotation = global_rotation
+		var dir = Vector2(1, 0).rotated(self.global_rotation)
+		var rnd_impulse = rng.randf_range(0.8, 2.0)
+		bullet_l.launchBullet(rnd_impulse, dir)
+		rnd_impulse = rng.randf_range(0.8, 2.0)
+		bullet_r.launchBullet(rnd_impulse, dir)
 
 	elif Input.is_action_just_pressed("ui_esc"):
 		# If no target, bring up main menu, otherwise get rid of target first
@@ -145,6 +146,10 @@ func move_state(delta):
 			Global._display_menu()			
 		else:
 			player_target = null
+	
+	
+func attack_state(_delta):
+	velocity = Vector2.ZERO
 	
 func move():
 	velocity = move_and_slide(velocity, m_s_up, m_s_sos, m_s_maxsli, m_s_fma, false)
@@ -188,9 +193,7 @@ func rotate_to_target(target):
 		ROT_ACCEL = deg2rad(0)
 	else:
 		ROT_ACCEL += deg2rad(.05)
-
-
-
+	
 func heal_ship():
 	if(healingEnergy > 0):
 		healingBot.visible = true
@@ -203,45 +206,7 @@ func heal_ship():
 	print("Heal: ", hullHealth)
 	print("Shield: ", shieldHealth)
 
-
-func animate_thrusters(t_vec):
-	for T in thrusters.get_children():
-		var thrust_light = T.get_node_or_null("LightEffect")		
-		var thrust_exhaust = T.get_node_or_null("ParticleEffect")		
-		thrust_light.set_energy(t_vec.length()* 10)
-		thrust_exhaust.initial_velocity = t_vec.length()*100
-	
-	pass
-	
-func load_hardpoints():
-	# Simplified until we have actual weapons to mount.  We'll just 'fire' from the hardpoint for now
-	hardpoints = piloted_ship.get_node_or_null("Hardpoints")
-	
-func load_thrusters():
-	thrusters = piloted_ship.get_node_or_null("Thrusters")
-
-func pilot_ship(ship):
-	var ship_load = load(ship)
-	piloted_ship = ship_load.instance()
-	ship_node.add_child(piloted_ship)
-	Global.reparent(piloted_ship.get_node_or_null("HullCollision"), self)
-	load_hardpoints()
-	load_thrusters()
-	for T in thrusters.get_children():
-		var thrust_exhaust = T.get_node_or_null("ParticleEffect")
-		thrust_exhaust.emitting = true
-		
-
-func fire_attached_weapons():
-	var root_node = get_tree().get_root()
-	var rnd_impulse = rng.randf_range(0.8, 2.0)
-	for Weap in hardpoints.get_children():
-		var projectile = base_bullet.instance()
-		projectile.global_position = Weap.global_position
-		projectile.global_rotation = global_rotation
-		root_node.add_child(projectile)
-		var dir = Vector2(1, 0).rotated(self.global_rotation)
-		rnd_impulse = rng.randf_range(0.8, 2.0)
-		projectile.launchBullet(rnd_impulse, dir)
-		
-	
+func _on_HealingTimer_timeout():
+	if (state != HEAL && healingEnergy < healingMaxEnergy):
+		healingEnergy+=healingEnergyRecoveryPerTimeUnit
+		print("Heal Energy Recovery :", healingEnergy)
