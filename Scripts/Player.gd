@@ -5,23 +5,26 @@ extends KinematicBody2D
 # Original Player.gd variables, some of which may break off into PlayerVars.gd (for easier global access) and some may
 # break off to become part of the instanced Ships which will be 'equipped' or piloted by the Player.
 
-export (int, 0, 3200) var ACCELERATION = 150
-export (int, 0, 1000) var MAX_SPEED = 320
-export (int, 0, 200) var FRICTION = 0
-export (int, 0, 200) var MASS = 100
-export var ROT_SPEED = deg2rad(2)
-var ROT_ACCEL = deg2rad(0)
-
-export (float, 0, 400) var shieldHealth = 200
-export (float, 0, 600) var hullHealth = 250
-export (float, 0, 150) var energyReserve = 100
-export (float, 0, 600) var healingEnergy = 250
-export (float, 0, 10)  var healingEnergyRecoveryPerTimeUnit = 5
-
+# Loaded from Ship
+var ACCELERATION = 0
+var MAX_SPEED = 0
+var FRICTION = 0
+var MASS = 0
+var ROT_SPEED = 0
+var ROT_ACCEL = 0
+var shieldHealth = 0
+var hullHealth = 0
+var energyReserve = 0
 var shieldMaxHealth = null
 var hullMaxHealth = null
 var energyMax = null
 var healingMaxEnergy = null
+
+# HealBot Vars
+var healingEnergy = 250
+var healingEnergyRecoveryPerTimeUnit = 5
+
+
 
 # Default variables for move_and_slide
 const m_s_up = Vector2.ZERO
@@ -193,6 +196,18 @@ func load_hardpoints():
 func load_thrusters():
 	thrusters = piloted_ship.get_node_or_null("Thrusters")
 
+func instantiate_ship_variables():
+	ACCELERATION = piloted_ship.ACCELERATION
+	MAX_SPEED = piloted_ship.MAX_SPEED
+	FRICTION = piloted_ship.FRICTION
+	MASS = piloted_ship.MASS 
+	ROT_SPEED = piloted_ship.ROT_SPEED
+	ROT_ACCEL = piloted_ship.ROT_ACCEL
+	shieldHealth = piloted_ship.shieldHealth
+	hullHealth = piloted_ship.hullHealth
+	energyReserve = piloted_ship.energyReserve
+	
+	
 func pilot_ship(ship):
 	var ship_load = load(ship)
 	piloted_ship = ship_load.instance()
@@ -200,6 +215,7 @@ func pilot_ship(ship):
 	Global.reparent(piloted_ship.get_node_or_null("HullCollision"), self)
 	load_hardpoints()
 	load_thrusters()
+	instantiate_ship_variables()
 	for T in thrusters.get_children():
 		var thrust_exhaust = T.get_node_or_null("ParticleEffect")
 		thrust_exhaust.emitting = true

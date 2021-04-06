@@ -1,8 +1,9 @@
-[gd_scene load_steps=6 format=2]
+[gd_scene load_steps=7 format=2]
 
 [ext_resource path="res://Lights/Textures/light_orb.png" type="Texture" id=1]
 [ext_resource path="res://Lights/Textures/headlight_001.png" type="Texture" id=2]
 [ext_resource path="res://Player/Textures/Shmup_Player_Ship_001.png" type="Texture" id=3]
+[ext_resource path="res://Scripts/Ship.gd" type="Script" id=4]
 
 [sub_resource type="CapsuleShape2D" id=1]
 radius = 2.14236
@@ -12,6 +13,7 @@ height = 1.4316
 _data = [ Vector2( 0, 1 ), 0.0, 0.0, 0, 0, Vector2( 0.546332, 0.0122699 ), 0.0, 0.0, 0, 0 ]
 
 [node name="StarterShip" type="Node2D"]
+script = ExtResource( 4 )
 
 [node name="ShipSprite" type="Sprite" parent="."]
 texture = ExtResource( 3 )
