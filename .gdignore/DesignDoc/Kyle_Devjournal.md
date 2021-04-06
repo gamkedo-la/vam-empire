@@ -1,5 +1,5 @@
 - [Kyle's DevJournal](#kyles-devjournal)
-- [Godot Specifics (*Work in Progress/Active Design)](#godot-specifics-work-in-progressactive-design)
+- [Project Standards and Conventions](#project-standards-and-conventions)
   - [Art Standards](#art-standards)
     - [Player Ship Conventions](#player-ship-conventions)
     - [Mounted Weapon/Mining Tool Conventions](#mounted-weaponmining-tool-conventions)
@@ -7,7 +7,7 @@
     - [Level Objects [WIP]](#level-objects-wip)
   - [World/Game Scenes](#worldgame-scenes)
     - [Home Base](#home-base)
-    - [Asteroid Field Scenes (Mining and Combat!)](#asteroid-field-scenes-mining-and-combat)
+    - [Asteroid Belt Scenes (Mining and Combat!)](#asteroid-belt-scenes-mining-and-combat)
     - [Making a test Asteroid Field Scene](#making-a-test-asteroid-field-scene)
   - [Player Scene](#player-scene)
     - [ModularPlayer Ship Controller](#modularplayer-ship-controller)
@@ -27,11 +27,12 @@ I'll be using this document as a means to collect my ideas on the overall design
 
 
 
-# Godot Specifics (*Work in Progress/Active Design)
+# Project Standards and Conventions
 ## Art Standards
 - Game Screen is 960x540 pixels
 - Color Palette (even for in game things like lighting is) AAP 64 by Adigun Polack
   - Available standard in Aseprite
+- All pixel sizes (32x32, 64x64, etc..) are just denoting the bounding box "maximums"
   
 <sub> AAP 64 Palette </sub>
 
@@ -71,23 +72,32 @@ As hardpoint mounted weapons get created, we will flesh out the standards here. 
   - Pixels: TBD
 
 ### Enemy Ship Conventions [WIP]
+At the current moment, for enemy ships in the same class sizes as player ships, we'll just match the art conventions in [Player Ship Conventions](#player-ship-conventions) . For Mini-Boss -> Final Boss sized enemies, we'll have to do some experimenting to see what works.
 
 ### Level Objects [WIP]
+
+Most things outside of the Player ship and enemy ships and their interconnected components are free reign at the current moment. The tighter specs on the ships is primarily to make standardizing the Player/Ship controller easier in the long run and work with as many ships as possible. Asteroids and the other objects in space don't have to follow any strict standards for now. Let 'er rip! 
+
 ## World/Game Scenes
 
 ### Home Base
 At current moment, the Home Base is simply a scene to hang some buttons on to instance our world scenes. I did pair it with a nice little ship take-off animation just to make it feel like a "base" though! If you have a new world scene you want other members of the project to test out, feel free to add a launcher from this scene.  As our test scenes grow, I'll likely change from using big buttons to something like a Drop Down list and we can start adding our .tscn files to a Dictionary to manage them all.
 
-### Asteroid Field Scenes (Mining and Combat!)
+### Asteroid Belt Scenes (Mining and Combat!)
+The following list represents items currently required for a "minimum" Asteroid scene from a "Game Object" design sense. More global scene objects like the Camera, CanvasModulate node, HUD, ParallaxBG etc.. will soon be loaded and handled by the Global scene management code when it detects it is loading a "Gameworld Scene" vs. "Home Base". But for now those assets are still "manually" mounted up in the [Template Asteroid Scene](../../World/game_zones/TemplateAsteroidZone.tscn)
 
-As of right now, there is only 1 required object for a World scene. 
 - [ReturnHomeBeacon.tscn](../../World/common_scenes/ReturnHomeBeacon.tscn)
   - This beacon object has a simple 10 second countdown timer activated by the player entering its collider, that will return the player to the "Home Base" level selection screen. Without it, the player will be maroooned in space!
 
 As more things become parts of our base scene, they will be added here. 
 
 ### Making a test Asteroid Field Scene
-* The scene [TemplateAsteroidZone](../../World/game_zones/TemplateAsteroidZone.tscn) will be kept up to date to reflect the "minimum" pieces required for a scene to function in game. Feel free to instance from this scene and make your own scenes and freely experiment!
+* The scene [TemplateAsteroidZone](../../World/game_zones/TemplateAsteroidZone.tscn) will be kept up to date to reflect the "minimum" pieces required for a scene to function in game. Feel free to inherit from this scene and make your own scenes and freely experiment, and you will receive any updates being made to the master template this way!
+
+For an example, let's say you are interested in starting work on a new 'scene' or maybe a feature, and you will be calling it (for example purposes) <b>NewSceneElement</b>. The following gif will walk through the steps in Godot to start a new scene by inheriting from an existing scene, and then begin building. This is a very freeing and powerful workflow in Godot.
+
+![Animated GIF Walkthrough of Inheriting a new Scene from TemplateAsteroidZone.tscn](images/NewInheritedScene_demo.gif)
+
 
 ## Player Scene 
 ### ModularPlayer Ship Controller
