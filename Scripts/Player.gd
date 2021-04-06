@@ -1,6 +1,5 @@
 extends KinematicBody2D
 
-# Script to replace Player.gd 
 # The player and the ship will be 2 separte scenes combined modularly
 
 # Original Player.gd variables, some of which may break off into PlayerVars.gd (for easier global access) and some may
