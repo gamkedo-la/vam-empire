@@ -14,7 +14,7 @@ void fragment()
 
 	if (emission_color.g > 0f)
 	{
-		COLOR = (emission_color + vec4(1.7f,1.2f,1.7f,0f))
+		COLOR = (emission_color + vec4(10f,10f,4f,0f))
 	}
 	else
 	{
