@@ -6,6 +6,7 @@ var in_game_menu = null
 var main_menu_scene = load("res://MainMenu.tscn")
 var menu_open = false
 var game_live = false
+var hold_fire = false
 export var day = true
 
 func _ready():
@@ -25,6 +26,9 @@ func reparent(child: Node, new_parent: Node):
 		new_parent.add_child(child)
 	else:
 		print_debug("Global.gd: Attempt to reparent child node failed due to child being null.")
+
+func hold_fire(hold_release):
+	hold_fire = hold_release
 
 func _deferred_goto_scene(path):
 	

@@ -1,9 +1,12 @@
-[gd_scene load_steps=5 format=2]
+[gd_scene load_steps=8 format=2]
 
+[ext_resource path="res://Scripts/UI/CharacterSheet.gd" type="Script" id=1]
+[ext_resource path="res://Scripts/UI/DraggableBar.gd" type="Script" id=2]
 [ext_resource path="res://Lights/Textures/light_orb.png" type="Texture" id=3]
 [ext_resource path="res://Scripts/Player.gd" type="Script" id=4]
 [ext_resource path="res://Enemies/Textures/proto_enemy.png" type="Texture" id=5]
 [ext_resource path="res://Player/Scenes/HealingBot.tscn" type="PackedScene" id=6]
+[ext_resource path="res://UI/Theme/darkred_theme.tres" type="Theme" id=7]
 
 [node name="Player" type="KinematicBody2D" groups=[
 "player",
@@ -28,3 +31,45 @@ light_mask = -2147483646
 texture = ExtResource( 5 )
 
 [node name="HealingBot" parent="." instance=ExtResource( 6 )]
+
+[node name="PlayerUICanvas" type="CanvasLayer" parent="."]
+
+[node name="CharacterSheet" type="Panel" parent="PlayerUICanvas"]
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+margin_left = -20.0
+margin_top = -20.0
+margin_right = 300.0
+margin_bottom = 160.0
+rect_min_size = Vector2( 320, 180 )
+theme = ExtResource( 7 )
+script = ExtResource( 1 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="TopBar" type="Panel" parent="PlayerUICanvas/CharacterSheet"]
+margin_right = 320.0
+margin_bottom = 20.0
+rect_min_size = Vector2( 320, 20 )
+theme = ExtResource( 7 )
+script = ExtResource( 2 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Label" type="Label" parent="PlayerUICanvas/CharacterSheet/TopBar"]
+anchor_left = 0.5
+anchor_right = 0.5
+margin_left = -30.0
+margin_right = 30.0
+margin_bottom = 14.0
+text = "Character"
+align = 1
+valign = 1
+[connection signal="mouse_entered" from="PlayerUICanvas/CharacterSheet" to="PlayerUICanvas/CharacterSheet" method="_on_CharacterSheet_mouse_entered"]
+[connection signal="mouse_exited" from="PlayerUICanvas/CharacterSheet" to="PlayerUICanvas/CharacterSheet" method="_on_CharacterSheet_mouse_exited"]
+[connection signal="mouse_entered" from="PlayerUICanvas/CharacterSheet/TopBar" to="PlayerUICanvas/CharacterSheet" method="_on_TopBar_mouse_entered"]
+[connection signal="mouse_exited" from="PlayerUICanvas/CharacterSheet/TopBar" to="PlayerUICanvas/CharacterSheet" method="_on_TopBar_mouse_exited"]

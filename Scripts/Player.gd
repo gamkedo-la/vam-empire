@@ -127,7 +127,8 @@ func move_state(delta):
 	strafe()
 	
 	if Input.is_action_pressed("attack"):
-		fire_attached_weapons()
+		if !Global.hold_fire:
+			fire_attached_weapons()
 
 	elif Input.is_action_just_pressed("ui_esc"):
 		# If no target, bring up main menu, otherwise get rid of target first

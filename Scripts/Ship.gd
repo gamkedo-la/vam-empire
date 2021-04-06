@@ -1,5 +1,6 @@
 extends Node2D
 
+export (String) var ship_name
 export (int, 0, 3200) var ACCELERATION = 150
 export (int, 0, 1000) var MAX_SPEED = 320
 export (int, 0, 200) var FRICTION = 0
