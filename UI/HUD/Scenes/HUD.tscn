@@ -58,3 +58,19 @@ margin_right = 176.0
 margin_bottom = 8.0
 value = 65.0
 texture_progress = ExtResource( 5 )
+
+[node name="CurrencyHBox" type="HBoxContainer" parent="HudVbox"]
+margin_top = 52.0
+margin_right = 940.0
+margin_bottom = 64.0
+rect_min_size = Vector2( 0, 12 )
+
+[node name="CurrencyRichText" type="RichTextLabel" parent="HudVbox/CurrencyHBox"]
+margin_right = 940.0
+margin_bottom = 12.0
+rect_min_size = Vector2( 0, 12 )
+size_flags_horizontal = 3
+size_flags_vertical = 3
+bbcode_enabled = true
+bbcode_text = "[color=yellow]$[/color]100,000"
+text = "$100,000"

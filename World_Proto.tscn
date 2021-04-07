@@ -39,6 +39,14 @@ margin_right = 300.0
 [node name="EnergyHbox" parent="CanvasLayer/HUD/HudVbox" index="2"]
 margin_right = 300.0
 
+[node name="CurrencyHBox" parent="CanvasLayer/HUD/HudVbox" index="3"]
+margin_right = 300.0
+margin_bottom = 52.0
+
+[node name="CurrencyRichText" parent="CanvasLayer/HUD/HudVbox/CurrencyHBox" index="0"]
+margin_right = 0.0
+margin_bottom = 0.0
+
 [node name="TimeOfDay" parent="." instance=ExtResource( 4 )]
 
 [node name="Camera2D" parent="." instance=ExtResource( 2 )]
@@ -47,9 +55,6 @@ margin_right = 300.0
 position = Vector2( -182.269, -34.4378 )
 
 [node name="Player" parent="." instance=ExtResource( 1 )]
-
-[node name="LightOccluder2D" parent="Player/Sprite" index="1"]
-occluder = null
 
 [node name="ParallaxBackground2" parent="." instance=ExtResource( 3 )]
 
