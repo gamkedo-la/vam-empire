@@ -1,0 +1,24 @@
+[gd_scene load_steps=3 format=2]
+
+[ext_resource path="res://Scripts/UI/DraggableBar.gd" type="Script" id=1]
+[ext_resource path="res://UI/Theme/darkred_theme.tres" type="Theme" id=2]
+
+[node name="TopBar" type="Panel"]
+margin_right = 320.0
+margin_bottom = 20.0
+rect_min_size = Vector2( 320, 20 )
+theme = ExtResource( 2 )
+script = ExtResource( 1 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Label" type="Label" parent="."]
+anchor_left = 0.5
+anchor_right = 0.5
+margin_left = -30.0
+margin_right = 30.0
+margin_bottom = 14.0
+text = "Character"
+align = 1
+valign = 1

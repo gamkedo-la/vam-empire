@@ -1,6 +1,9 @@
 extends Panel
 var player_node
 
+onready var statbox = load("res://UI/HUD/Scenes/StatHBox.tscn")
+onready var char_vbox = $CharVBox
+
 func _ready():
 	# Start Hidden
 	self.visible = false
@@ -16,6 +19,15 @@ func _process(_delta):
 			# in case the mouse was over the panel when it closes
 			Global.hold_fire(false)
 			
+
+func add_sheetStat(name, value):
+	var new_statbox = statbox.instance()
+	char_vbox.add_child(new_statbox)
+	var labl = new_statbox.get_node_or_null("StatLabel")
+	var statbox = new_statbox.get_node_or_null("StatEdit")
+	labl.set_text(str(name))
+	statbox.set_text(str(value))
+	
 
 
 # Is there a better way to keep "left click" from firing? Not sure... 

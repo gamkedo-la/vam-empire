@@ -50,8 +50,7 @@ var player_target = null
 # Bullet will be modularized as part of the Hardpoint mounted weapons, for now we're just going to fire it off the hardpoints
 onready var base_bullet = preload("res://Bullets/Scenes/BasicBullet.tscn")
 
-#onready var thrust_light = $Sprite/RearLightAmber
-#onready var thrust_exhaust = $Sprite/RearLightAmber/Particles2D
+onready var char_sheet = $PlayerUICanvas/CharacterSheet
 
 onready var debug_select = $DebugDraw
 # End of Original Player.gd variables
@@ -164,7 +163,7 @@ func take_damage(damage):
 	elif hullHealth > 0:
 		hullHealth -= damage
 	else:
-		print("You're Dead")
+		print_debug("You're Dead")
 		
 
 func rotate_to_target(target):
@@ -199,14 +198,23 @@ func load_thrusters():
 
 func instantiate_ship_variables():
 	ACCELERATION = piloted_ship.ACCELERATION
+	char_sheet.add_sheetStat("Acceleration", ACCELERATION)
 	MAX_SPEED = piloted_ship.MAX_SPEED
+	char_sheet.add_sheetStat("Max Speed", MAX_SPEED)
 	FRICTION = piloted_ship.FRICTION
-	MASS = piloted_ship.MASS 
+	char_sheet.add_sheetStat("Friction", FRICTION)
+	MASS = piloted_ship.MASS
+	char_sheet.add_sheetStat("Mass", MASS) 
 	ROT_SPEED = piloted_ship.ROT_SPEED
+	char_sheet.add_sheetStat("Rotation Speed", ROT_SPEED)
 	ROT_ACCEL = piloted_ship.ROT_ACCEL
+	char_sheet.add_sheetStat("Rotation Acceleration", ROT_ACCEL)
 	shieldHealth = piloted_ship.shieldHealth
+	char_sheet.add_sheetStat("Shield Health", shieldHealth)
 	hullHealth = piloted_ship.hullHealth
+	char_sheet.add_sheetStat("Hull Health", hullHealth)
 	energyReserve = piloted_ship.energyReserve
+	char_sheet.add_sheetStat("Energy Reserve", energyReserve)
 	
 	
 func pilot_ship(ship):

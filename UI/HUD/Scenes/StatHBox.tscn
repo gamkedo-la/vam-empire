@@ -1,0 +1,20 @@
+[gd_scene format=2]
+
+[node name="StatHBox" type="HBoxContainer"]
+margin_right = 480.0
+margin_bottom = 26.0
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="StatLabel" type="Label" parent="."]
+margin_top = 6.0
+margin_right = 280.0
+margin_bottom = 20.0
+rect_min_size = Vector2( 280, 0 )
+
+[node name="StatEdit" type="LineEdit" parent="."]
+margin_left = 284.0
+margin_right = 342.0
+margin_bottom = 26.0
+align = 2
