@@ -27,7 +27,7 @@ func reparent(child: Node, new_parent: Node):
 	else:
 		print_debug("Global.gd: Attempt to reparent child node failed due to child being null.")
 
-func hold_fire(hold_release):
+func hold_fire(hold_release: bool):
 	hold_fire = hold_release
 
 func _deferred_goto_scene(path):

@@ -5,6 +5,10 @@
     - [Mounted Weapon/Mining Tool Conventions](#mounted-weaponmining-tool-conventions)
     - [Enemy Ship Conventions [WIP]](#enemy-ship-conventions-wip)
     - [Level Objects [WIP]](#level-objects-wip)
+  - [Autoload Singletons](#autoload-singletons)
+    - [Global.gd](#globalgd)
+    - [PlayerVars.gd](#playervarsgd)
+    - [UserSettings.gd](#usersettingsgd)
   - [World/Game Scenes](#worldgame-scenes)
     - [Home Base](#home-base)
     - [Asteroid Belt Scenes (Mining and Combat!)](#asteroid-belt-scenes-mining-and-combat)
@@ -78,6 +82,24 @@ At the current moment, for enemy ships in the same class sizes as player ships, 
 
 Most things outside of the Player ship and enemy ships and their interconnected components are free reign at the current moment. The tighter specs on the ships is primarily to make standardizing the Player/Ship controller easier in the long run and work with as many ships as possible. Asteroids and the other objects in space don't have to follow any strict standards for now. Let 'er rip! 
 
+## Autoload Singletons
+
+### Global.gd
+A place to store common reusable functions that can be referenced from anywhere in the project i.e. `Global.halt_fire(true)` to disable the player's guns for instance.
+
+- **goto_scene**(path)
+  - Load and move to a scene, using call_deferred to make a clean transition
+- **reparent**(child: Node, new_parent: Node)
+  - A function written to quickly move nodes to new parents. Useful for loading 'packed scenes' and then moving the nodes into the places you want.
+- **hold_fire**(hold_release: bool)
+  - Player.gd tests for `!Global.hold_fire` before firing weapons. Use this to quickly disable guns, i.e. in custom UI functions like the draggable HUD overlays, to prevent the player from firing while they drag around UI elements.
+- **_display_menu()**
+  - Bring up the Main Menu (Save/Load/Options) over the current scene.
+### PlayerVars.gd
+Will become the primary method the player's stats, currency, inventory, owned ships, and so on will be saved and loaded, as well as referenced in game.
+### UserSettings.gd
+
+Empty today. Menu Options will stored here, saved as part of a 'global' save file (outside the individual game saves)
 ## World/Game Scenes
 
 ### Home Base
