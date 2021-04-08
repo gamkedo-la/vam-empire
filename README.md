@@ -277,7 +277,7 @@ This Appendix will serve as a place to gather useful information we all come acr
 
 ## **Global Singletons/Autoload Scripts**
 
-- Scripts loaded as part of the Autoload project settings can be referred to directly from any script in the project to save having to 'source out' a reference on the fly. I.e. if you want to know something about the player from PlayerVars autoload, simply reference it as `PlayerVars.`. Functions in these scripts can be called directly as well, such as a Global scene switcher function, `Global.load_scene(scene_path)`.
+- Scripts loaded as part of the Autoload project settings can be referred to directly from any script in the project to save having to 'source out' a reference on the fly. I.e. if you want to know something about the player from PlayerVars autoload, simply reference it as `PlayerVars.`. Functions in these scripts can be called directly as well, such as a Global scene switcher function, `Global.goto_scene(scene_path)`.
 
 ## **Learning Resources**
 ### **Written Documentation/Resources**
