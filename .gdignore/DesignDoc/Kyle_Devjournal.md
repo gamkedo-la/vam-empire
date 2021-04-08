@@ -43,22 +43,22 @@ I'll be using this document as a means to collect my ideas on the overall design
 ![AAP 64 Palette Preview Image](images/pjaaporiginalstheaap64colorpalette.png)
 
 ### Player Ship Conventions
-- Small Ships
+- Small Ships (Player: Frigate Class | VAM: Impaler Class)
   - Pixels: 32x32
   - Max Hardpoints: 3
   - Carrying Capacity Range: TBD
   - Hardpoint Sizes: S
-- Medium Ships
+- Medium Ships (Player: Destroyer Class | VAM: Stoker Class)
   - Pixels: 64x64
   - Max Hardpoints: TBD
   - Carrying Capacity Range: TBD
   - Hardpoint Sizes: S, M
-- Large Ships
+- Large Ships (Player: Corvette Class | VAM: Kinski Class)
   - Pixels: 128x128
   - Max Hardpoints: TBD
   - Carrying Capacity Range: TBD
   - Hardpoint Sizes: M, L
-- X-Large Ships
+- X-Large Ships (Player: Dreadnought Class | VAM: Nosferatu Class)
   - Pixels: 256x256
   - Max Hardpoints: TBD
   - Carrying Capacity Range: TBD
