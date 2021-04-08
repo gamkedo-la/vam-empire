@@ -123,9 +123,16 @@ A place to store common reusable functions that can be referenced from anywhere 
   - Bring up the Main Menu (Save/Load/Options) over the current scene.
 ### **PlayerVars.gd**
 Will become the primary method the player's stats, currency, inventory, owned ships, and so on will be saved and loaded, as well as referenced in game.
+
+- `new(name: String)`
+  - A new player dictionary is created from `player_defaults` and the name is populated. Used for starting a new game from the Main Menu.
+- `save()`
+  - Save the PlayerVars.player dictionary to `user://game-data.json` . Multiple Save File support will come when `UserSettings.gd` is developed. For now, there is (1) save file and a call to `PlayerVars.new()` will wipe out that file and start a new one.
+- `load()`
+  - Loads PlayerVars.player from `user://game-data.json`.
 ### **UserSettings.gd**
 
-Empty today. Menu Options will stored here, saved as part of a 'global' save file (outside the individual game saves)
+Empty today. Menu Options, and list of game save files will be stored here, saved as part of a 'global' save file (outside the individual game saves)
 
 <sub>[Back to Top](#)</sub>
 
