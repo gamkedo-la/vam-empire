@@ -3,11 +3,13 @@ var player_node
 
 onready var statbox = load("res://UI/HUD/Scenes/StatHBox.tscn")
 onready var char_vbox = $CharVBox
+onready var char_topbar_lbl = $TopBar/Label
 
 func _ready():
 	# Start Hidden
 	self.visible = false
 	player_node = get_parent().get_parent()
+	char_topbar_lbl.text = "Character: " + PlayerVars.player.name
 	
 
 func _process(_delta):

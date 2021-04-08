@@ -22,6 +22,11 @@ onready var music = $AudioStreamPlayer
 onready var target = Vector2(plax_scroll_widths*1.1*dimensions.x, plax_scroll_heights*1.1*dimensions.y)
 onready var orig_target = Vector2(plax_scroll_widths*1.1*dimensions.x, plax_scroll_heights*1.1*dimensions.y)
 
+# New Player Popup
+onready var name_popup = $MenuCanvas/NewPlayerPop
+onready var name_entry = $MenuCanvas/NewPlayerPop/NewPlayerVB/EntryHB/PlayerNameEdit
+onready var name_start_button = $MenuCanvas/NewPlayerPop/NewPlayerVB/StartHB/PNameStartButton
+
 onready var mast_vol_slider = $MenuCanvas/OptionsContainer/VBoxContainer/TabContainer/Audio/VBoxContainer/HBoxContainer/mast_volume_slider
 onready var music_vol_slider =  $MenuCanvas/OptionsContainer/VBoxContainer/TabContainer/Audio/VBoxContainer/HBoxContainer2/music_volume_slider
 onready var sfx_vol_slider = $MenuCanvas/OptionsContainer/VBoxContainer/TabContainer/Audio/VBoxContainer/HBoxContainer3/sound_effect_volume_slider
@@ -90,10 +95,8 @@ func _on_Tween_tween_completed(object, key):
 
 
 func _on_New_pressed():
-	print("Loading new Scene...")
-	tween.stop_all()
-	Global.goto_scene("res://World/game_zones/home_base.tscn")
-	Global.menu_open = true
+	#print("Loading new Scene...")
+	name_popup.popup()
 
 func _disable_new():
 	new_button.disabled = true
@@ -135,4 +138,13 @@ func _on_DayToggle_toggled(button_pressed):
 
 func _on_AudioStreamPlayer_finished():
 	music.play()
-	
+
+func _on_TextEdit_text_changed():
+	name_start_button.disabled = false
+
+
+func _on_PNameStartButton_pressed():
+	tween.stop_all()
+	PlayerVars.new(name_entry.text)
+	Global.goto_scene("res://World/game_zones/home_base.tscn")
+	Global.menu_open = true
