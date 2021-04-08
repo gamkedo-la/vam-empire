@@ -2,7 +2,7 @@ extends Node
 
 var player = {
 	"name": "Player",
-	"cash": 100,
+	"cash": 10000,
 	"current_ship": "res://Ships/StarterShip.tscn"	
 }
 

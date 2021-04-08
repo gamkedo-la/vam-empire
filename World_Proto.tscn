@@ -41,11 +41,9 @@ margin_right = 300.0
 
 [node name="CurrencyHBox" parent="CanvasLayer/HUD/HudVbox" index="3"]
 margin_right = 300.0
-margin_bottom = 52.0
 
 [node name="CurrencyRichText" parent="CanvasLayer/HUD/HudVbox/CurrencyHBox" index="0"]
-margin_right = 0.0
-margin_bottom = 0.0
+margin_right = 300.0
 
 [node name="TimeOfDay" parent="." instance=ExtResource( 4 )]
 
