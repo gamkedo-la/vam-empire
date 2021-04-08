@@ -7,7 +7,7 @@ onready var char_vbox = $CharVBox
 func _ready():
 	# Start Hidden
 	self.visible = false
-	player_node = get_tree().get_root().get_node_or_null("Player")
+	player_node = get_parent().get_parent()
 	
 
 func _process(_delta):

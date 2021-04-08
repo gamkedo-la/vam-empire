@@ -66,8 +66,7 @@ var piloted_ship = null
 
 
 func _ready():
-	pilot_ship(PlayerVars.player.current_ship)
-		
+	pilot_ship(PlayerVars.player.current_ship)	
 	rng.randomize()
 	shieldMaxHealth = shieldHealth
 	hullMaxHealth = hullHealth
@@ -216,8 +215,26 @@ func instantiate_ship_variables():
 	energyReserve = piloted_ship.energyReserve
 	char_sheet.add_sheetStat("Energy Reserve", energyReserve)
 	
-	
-func pilot_ship(ship):
+func pilot_ship_from_pack(ship):
+	var collider =  self.get_node_or_null("HullCollision")
+	if piloted_ship:
+		piloted_ship.queue_free()
+		thrusters = null
+		hardpoints = null
+	if collider:
+		collider.queue_free()	
+	piloted_ship = ship
+	ship_node.add_child(piloted_ship)	
+	Global.reparent(piloted_ship.get_node_or_null("HullCollision"), self)
+	load_hardpoints()
+	load_thrusters()
+	instantiate_ship_variables()
+	for T in thrusters.get_children():
+		var thrust_exhaust = T.get_node_or_null("ParticleEffect")
+		thrust_exhaust.emitting = true
+
+
+func pilot_ship(ship):		
 	var ship_load = load(ship)
 	piloted_ship = ship_load.instance()
 	ship_node.add_child(piloted_ship)
