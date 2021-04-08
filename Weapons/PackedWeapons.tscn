@@ -6,28 +6,88 @@
 
 [node name="PackedWeapons" type="Node2D"]
 
-[node name="SHP" type="Node2D" parent="."]
+[node name="Small" type="Node2D" parent="."]
 
-[node name="0" type="Node2D" parent="SHP"]
+[node name="0" type="Node2D" parent="Small"]
 
-[node name="SHP_TemplateWeapon01" parent="SHP/0" instance=ExtResource( 1 )]
+[node name="SHP_TemplateWeapon01" parent="Small/0" instance=ExtResource( 1 )]
 
-[node name="1" type="Node2D" parent="SHP"]
+[node name="1" type="Node2D" parent="Small"]
 
-[node name="SHP_TemplateWeapon02" parent="SHP/1" instance=ExtResource( 2 )]
+[node name="SHP_TemplateWeapon02" parent="Small/1" instance=ExtResource( 2 )]
 
-[node name="2" type="Node2D" parent="SHP"]
+[node name="2" type="Node2D" parent="Small"]
 
-[node name="SHP_TemplateMiningLaser01" parent="SHP/2" instance=ExtResource( 3 )]
+[node name="SHP_TemplateMiningLaser01" parent="Small/2" instance=ExtResource( 3 )]
 
-[node name="3" type="Node2D" parent="SHP"]
+[node name="3" type="Node2D" parent="Small"]
 
-[node name="4" type="Node2D" parent="SHP"]
+[node name="4" type="Node2D" parent="Small"]
 
-[node name="5" type="Node2D" parent="SHP"]
+[node name="5" type="Node2D" parent="Small"]
 
-[node name="6" type="Node2D" parent="SHP"]
+[node name="6" type="Node2D" parent="Small"]
 
-[node name="7" type="Node2D" parent="SHP"]
+[node name="7" type="Node2D" parent="Small"]
 
-[node name="8" type="Node2D" parent="SHP"]
+[node name="8" type="Node2D" parent="Small"]
+
+[node name="Medium" type="Node2D" parent="."]
+
+[node name="0" type="Node2D" parent="Medium"]
+
+[node name="1" type="Node2D" parent="Medium"]
+
+[node name="2" type="Node2D" parent="Medium"]
+
+[node name="3" type="Node2D" parent="Medium"]
+
+[node name="4" type="Node2D" parent="Medium"]
+
+[node name="5" type="Node2D" parent="Medium"]
+
+[node name="6" type="Node2D" parent="Medium"]
+
+[node name="7" type="Node2D" parent="Medium"]
+
+[node name="8" type="Node2D" parent="Medium"]
+
+[node name="Large" type="Node2D" parent="."]
+
+[node name="0" type="Node2D" parent="Large"]
+
+[node name="1" type="Node2D" parent="Large"]
+
+[node name="2" type="Node2D" parent="Large"]
+
+[node name="3" type="Node2D" parent="Large"]
+
+[node name="4" type="Node2D" parent="Large"]
+
+[node name="5" type="Node2D" parent="Large"]
+
+[node name="6" type="Node2D" parent="Large"]
+
+[node name="7" type="Node2D" parent="Large"]
+
+[node name="8" type="Node2D" parent="Large"]
+
+[node name="XLarge" type="Node2D" parent="."]
+
+[node name="0" type="Node2D" parent="XLarge"]
+
+[node name="1" type="Node2D" parent="XLarge"]
+
+[node name="2" type="Node2D" parent="XLarge"]
+
+[node name="3" type="Node2D" parent="XLarge"]
+
+[node name="4" type="Node2D" parent="XLarge"]
+
+[node name="5" type="Node2D" parent="XLarge"]
+
+[node name="6" type="Node2D" parent="XLarge"]
+
+[node name="7" type="Node2D" parent="XLarge"]
+
+[node name="8" type="Node2D" parent="XLarge"]

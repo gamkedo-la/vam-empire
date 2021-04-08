@@ -6,6 +6,7 @@
 
 [node name="SHP_TemplateWeapon01" type="Node2D"]
 script = ExtResource( 2 )
+weap_name = "Template AutoRifle"
 projectile = ExtResource( 3 )
 
 [node name="WeaponSprite" type="Sprite" parent="."]
