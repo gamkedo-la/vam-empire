@@ -35,6 +35,12 @@ margin_right = 300.0
 [node name="EnergyHbox" parent="CanvasLayer/HUD/HudVbox" index="2"]
 margin_right = 300.0
 
+[node name="CurrencyHBox" parent="CanvasLayer/HUD/HudVbox" index="3"]
+margin_right = 300.0
+
+[node name="CurrencyRichText" parent="CanvasLayer/HUD/HudVbox/CurrencyHBox" index="0"]
+margin_right = 300.0
+
 [node name="TimeOfDay" parent="." instance=ExtResource( 9 )]
 visible = false
 
@@ -42,8 +48,6 @@ visible = false
 
 [node name="ReturnHomeBeacon" parent="." instance=ExtResource( 2 )]
 position = Vector2( 323.434, 297.635 )
-collision_layer = 31
-collision_mask = 15
 
 [node name="Player" parent="." instance=ExtResource( 5 )]
 

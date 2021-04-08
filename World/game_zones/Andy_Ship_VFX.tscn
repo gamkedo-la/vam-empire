@@ -467,7 +467,7 @@ material = ExtResource( 10 )
 position = Vector2( -71.4193, 0.998871 )
 rotation = -3.1392
 frames = SubResource( 33 )
-frame = 13
+frame = 9
 speed_scale = 2.0
 playing = true
 
@@ -490,14 +490,14 @@ material = ExtResource( 7 )
 position = Vector2( 523.435, 190.981 )
 scale = Vector2( 0.4, 0.4 )
 frames = SubResource( 51 )
-frame = 8
+frame = 5
 playing = true
 
 [node name="explosion no normal" type="AnimatedSprite" parent="Andy_Ship_VFX" index="3"]
 position = Vector2( 475.812, 151.378 )
 scale = Vector2( 0.4, 0.4 )
 frames = SubResource( 68 )
-frame = 10
+frame = 7
 playing = true
 
 [node name="explosion emission" type="AnimatedSprite" parent="Andy_Ship_VFX" index="4"]
@@ -505,7 +505,7 @@ material = ExtResource( 11 )
 position = Vector2( 569.856, 261.205 )
 scale = Vector2( 0.652553, 0.652553 )
 frames = SubResource( 85 )
-frame = 5
+frame = 2
 playing = true
 
 [node name="explosion unlit" type="AnimatedSprite" parent="Andy_Ship_VFX" index="5"]
@@ -513,7 +513,7 @@ material = ExtResource( 10 )
 position = Vector2( 596.229, 55.6183 )
 scale = Vector2( 0.4, 0.4 )
 frames = SubResource( 102 )
-frame = 14
+frame = 11
 playing = true
 
 [node name="Neutral background" type="Sprite" parent="Andy_Ship_VFX" index="6"]
@@ -528,6 +528,9 @@ environment = SubResource( 103 )
 [node name="TimeOfDay" parent="." index="2"]
 visible = true
 color = Color( 0.168627, 0.168627, 0.211765, 0.960784 )
+
+[node name="ReturnHomeBeacon" parent="." index="4"]
+collision_mask = 2147483650
 
 [node name="Sprite" parent="ParallaxBackground2/StarFieldBlack" index="0"]
 position = Vector2( 0.889893, -0.444946 )

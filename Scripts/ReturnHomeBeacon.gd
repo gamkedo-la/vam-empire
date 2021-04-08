@@ -51,14 +51,13 @@ func _on_Tween_tween_all_completed():
 		tween.interpolate_property(beacon_light, "energy", beacon_light.energy, 1, bounce_speed, Tween.TRANS_BACK, Tween.EASE_IN_OUT)
 		tween.start()
 
-func _on_ReturnHomeBeacon_body_entered(body):	
-	begin_return_countdown()
-
-func _on_ReturnHomeBeacon_body_exited(body):
-	stop_return_countdown()
-
 func _on_ReturnTimer_timeout():
 	Global.goto_scene(home_base)	
 
+func _on_ReturnHomeBeacon_area_entered(area):
+	var ar_parent = area.get_parent()
+	print_debug(ar_parent)
+	begin_return_countdown()
 
-
+func _on_ReturnHomeBeacon_area_exited(area):
+	stop_return_countdown()
