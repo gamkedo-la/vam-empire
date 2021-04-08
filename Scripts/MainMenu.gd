@@ -12,6 +12,8 @@ onready var ani_player = $MenuCanvas/AnimationPlayer
 
 onready var main_menu = $MenuCanvas/MainMenuVBox
 onready var new_button = $MenuCanvas/MainMenuVBox/InteractVB/NewHB/New
+onready var load_button = $MenuCanvas/MainMenuVBox/InteractVB/LoadHB2/Load
+onready var load_accept_popup = $MenuCanvas/LoadAcceptDialog
 onready var options = $MenuCanvas/OptionsContainer
 onready var tween = $MenuCanvas/Tween
 
@@ -39,7 +41,10 @@ func _ready():
 	main_menu.visible = true
 	Global.menu_open = true
 	tod_toggle.pressed = Global.day
-	
+	if PlayerVars.save_exists():
+		load_button.disabled = false
+	else:
+		load_button.disabled = true
 	#TODO: This is just a quick hack to get some placeholder menu music. Music should be handled in a persistent way to allow smooth transitions
 	ani_player.play("Empire_Loop")
 	
@@ -78,7 +83,10 @@ func update_volume():
 	AudioServer.set_bus_volume_db(AudioServer.get_bus_index("Music"), linear2db(UserSettings.music_volume))
 	AudioServer.set_bus_volume_db(AudioServer.get_bus_index("SFX"), linear2db(UserSettings.effects_volume))
 	
-	
+func load_into_homebase():
+	tween.stop_all()
+	Global.goto_scene("res://World/game_zones/home_base.tscn")
+	Global.menu_open = true
 
 func _on_Tween_tween_completed(object, key):
 	if key == ":scroll_offset:x":
@@ -144,7 +152,12 @@ func _on_TextEdit_text_changed():
 
 
 func _on_PNameStartButton_pressed():
-	tween.stop_all()
 	PlayerVars.new(name_entry.text)
-	Global.goto_scene("res://World/game_zones/home_base.tscn")
-	Global.menu_open = true
+	load_into_homebase()
+
+func _on_Load_pressed():
+	load_accept_popup.popup()
+
+func _on_LoadAcceptDialog_confirmed():
+	PlayerVars.load()
+	load_into_homebase()

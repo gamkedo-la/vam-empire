@@ -42,3 +42,10 @@ func load():
 			printerr("Corrupted Player Save Data!")
 	else:
 		printerr("No saved data to load")
+
+func save_exists():
+	var file = File.new()
+	if file.file_exists(FILE_NAME):
+		return true
+	else:
+		return false
