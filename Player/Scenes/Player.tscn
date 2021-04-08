@@ -43,7 +43,13 @@ texture = ExtResource( 5 )
 [node name="PlayerUICanvas" type="CanvasLayer" parent="."]
 
 [node name="CharacterSheet" parent="PlayerUICanvas" instance=ExtResource( 1 )]
-visible = false
+
+[node name="Label" parent="PlayerUICanvas/CharacterSheet/TopBar" index="0"]
+margin_left = -192.0
+margin_right = 192.0
+margin_bottom = 26.0
+rect_min_size = Vector2( 384, 26 )
+align = 1
 
 [node name="PlayerDebugMenu" parent="PlayerUICanvas" instance=ExtResource( 2 )]
 visible = false
@@ -51,3 +57,5 @@ visible = false
 [connection signal="mouse_exited" from="PlayerUICanvas/CharacterSheet/TopBar" to="PlayerUICanvas/CharacterSheet" method="_on_TopBar_mouse_exited"]
 
 [editable path="PlayerUICanvas/CharacterSheet"]
+
+[editable path="PlayerUICanvas/CharacterSheet/TopBar"]
