@@ -259,9 +259,6 @@ This section will document some of the UI elements we may end up creating that c
   - A simple `Panel` node that can be dropped onto any UI element that you would like to 'drag' around. It will drag whatever element it is *parented* to, so make sure to have it's Node Tree heirarchy setup correctly.
 
 
-<sub>[Back to Top](#)</sub>
-
-
 
 <sub>[Back to Top](#)</sub>
 # **Appendix A: Universal Godot Information** 
