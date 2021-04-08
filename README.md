@@ -130,6 +130,8 @@ Will become the primary method the player's stats, currency, inventory, owned sh
   - Save the PlayerVars.player dictionary to `user://game-data.json` . Multiple Save File support will come when `UserSettings.gd` is developed. For now, there is (1) save file and a call to `PlayerVars.new()` will wipe out that file and start a new one.
 - `load()`
   - Loads PlayerVars.player from `user://game-data.json`.
+- `save_exists()`
+  - Returns true if a save file exists. Used for things such as enabling the "Load" button in the menu.
 ### **UserSettings.gd**
 
 Empty today. Menu Options, and list of game save files will be stored here, saved as part of a 'global' save file (outside the individual game saves)
