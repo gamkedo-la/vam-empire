@@ -31,6 +31,7 @@
 - [**UI**](#ui)
   - [**Reusable UI Elements**](#reusable-ui-elements)
 - [**Appendix A: Universal Godot Information**](#appendix-a-universal-godot-information)
+  - [**GDScript**](#gdscript)
   - [**The Node Tree**](#the-node-tree)
     - [**Node Tree Best Practices**](#node-tree-best-practices)
   - [**Global Singletons/Autoload Scripts**](#global-singletonsautoload-scripts)
@@ -272,6 +273,10 @@ This section will document some of the UI elements we may end up creating that c
 # **Appendix A: Universal Godot Information** 
 
 This Appendix will serve as a place to gather useful information we all come across that will be useful for *all* future Godot projects regardless of genre, 2D vs. 3D, etc... but also not so general as to just be **Good Programming Practices**. Just the pieces and parts that make working in Godot easier and a more enjoyable experience for all.
+
+## **GDScript**
+
+- [Dictionaries](https://docs.godotengine.org/en/stable/classes/class_dictionary.html) are always passed by reference, so make sure to use `duplicate()` if you intend to pass values from something like a 'defaults' Dictionary, but do not want to alter that original Dictionary.  
 ## **The Node Tree**
 
 ### **Node Tree Best Practices**
