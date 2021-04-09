@@ -1364,7 +1364,6 @@ anims/Empire_Loop = SubResource( 297 )
 [node name="Tween" type="Tween" parent="MenuCanvas"]
 
 [node name="OptionsContainer" type="HBoxContainer" parent="MenuCanvas"]
-visible = false
 margin_right = 960.0
 margin_bottom = 540.0
 alignment = 1
@@ -1379,9 +1378,9 @@ margin_bottom = 540.0
 alignment = 1
 
 [node name="TabContainer" type="TabContainer" parent="MenuCanvas/OptionsContainer/VBoxContainer"]
-margin_top = 135.0
+margin_top = 123.0
 margin_right = 480.0
-margin_bottom = 405.0
+margin_bottom = 393.0
 rect_min_size = Vector2( 480, 270 )
 drag_to_rearrange_enabled = true
 
@@ -1561,6 +1560,35 @@ margin_top = 32.0
 margin_right = -4.0
 margin_bottom = -4.0
 
+[node name="System" type="PanelContainer" parent="MenuCanvas/OptionsContainer/VBoxContainer/TabContainer"]
+visible = false
+anchor_right = 1.0
+anchor_bottom = 1.0
+margin_left = 4.0
+margin_top = 32.0
+margin_right = -4.0
+margin_bottom = -4.0
+
+[node name="VBoxContainer" type="VBoxContainer" parent="MenuCanvas/OptionsContainer/VBoxContainer/TabContainer/System"]
+margin_left = 7.0
+margin_top = 7.0
+margin_right = 465.0
+margin_bottom = 227.0
+alignment = 2
+
+[node name="HBoxContainer" type="HBoxContainer" parent="MenuCanvas/OptionsContainer/VBoxContainer/TabContainer/System/VBoxContainer"]
+margin_top = 200.0
+margin_right = 458.0
+margin_bottom = 220.0
+rect_min_size = Vector2( 0, 20 )
+alignment = 2
+
+[node name="ResetSettings" type="Button" parent="MenuCanvas/OptionsContainer/VBoxContainer/TabContainer/System/VBoxContainer/HBoxContainer"]
+margin_left = 288.0
+margin_right = 458.0
+margin_bottom = 20.0
+text = "Reset to Default Settings"
+
 [node name="About" type="PanelContainer" parent="MenuCanvas/OptionsContainer/VBoxContainer/TabContainer"]
 visible = false
 anchor_right = 1.0
@@ -1569,6 +1597,19 @@ margin_left = 4.0
 margin_top = 32.0
 margin_right = -4.0
 margin_bottom = -4.0
+
+[node name="HBoxContainer" type="HBoxContainer" parent="MenuCanvas/OptionsContainer/VBoxContainer"]
+margin_top = 397.0
+margin_right = 480.0
+margin_bottom = 417.0
+alignment = 1
+
+[node name="ReturnFromOptions" type="Button" parent="MenuCanvas/OptionsContainer/VBoxContainer/HBoxContainer"]
+margin_left = 200.0
+margin_right = 280.0
+margin_bottom = 20.0
+rect_min_size = Vector2( 80, 0 )
+text = "Return"
 
 [node name="NewPlayerPop" type="WindowDialog" parent="MenuCanvas"]
 anchor_left = 0.5
@@ -1669,6 +1710,8 @@ bus = "Music"
 [connection signal="value_changed" from="MenuCanvas/OptionsContainer/VBoxContainer/TabContainer/Audio/VBoxContainer/HBoxContainer3/sound_effect_volume_slider" to="." method="_on_sound_effect_volume_slider_value_changed"]
 [connection signal="value_changed" from="MenuCanvas/OptionsContainer/VBoxContainer/TabContainer/Audio/VBoxContainer/HBoxContainer4/ambience_slider" to="." method="_on_ambience_slider_value_changed"]
 [connection signal="toggled" from="MenuCanvas/OptionsContainer/VBoxContainer/TabContainer/Graphics/VBoxContainer/HBoxContainer/DayToggle" to="." method="_on_DayToggle_toggled"]
+[connection signal="pressed" from="MenuCanvas/OptionsContainer/VBoxContainer/TabContainer/System/VBoxContainer/HBoxContainer/ResetSettings" to="." method="_on_ResetSettings_pressed"]
+[connection signal="pressed" from="MenuCanvas/OptionsContainer/VBoxContainer/HBoxContainer/ReturnFromOptions" to="." method="_on_ReturnFromOptions_pressed"]
 [connection signal="text_changed" from="MenuCanvas/NewPlayerPop/NewPlayerVB/EntryHB/PlayerNameEdit" to="." method="_on_TextEdit_text_changed"]
 [connection signal="pressed" from="MenuCanvas/NewPlayerPop/NewPlayerVB/StartHB/PNameStartButton" to="." method="_on_PNameStartButton_pressed"]
 [connection signal="confirmed" from="MenuCanvas/LoadAcceptDialog" to="." method="_on_LoadAcceptDialog_confirmed"]

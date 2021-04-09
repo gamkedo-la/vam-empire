@@ -30,7 +30,7 @@ func save():
 	file.store_string(to_json(player))
 	file.close()
 
-func load():
+func load_save():
 	var file = File.new()
 	if file.file_exists(FILE_NAME):
 		file.open(FILE_NAME, File.READ)

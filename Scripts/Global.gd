@@ -3,7 +3,7 @@ extends Node
 # Built largely by following the doc: https://docs.godotengine.org/en/stable/getting_started/step_by_step/singletons_autoload.html#global-gd
 var current_scene = null
 var in_game_menu = null
-var main_menu_scene = load("res://MainMenu.tscn")
+var main_menu_scene = load("res://UI/Menu/MainMenu.tscn")
 var menu_open = false
 var game_live = false
 var hold_fire = false
@@ -43,7 +43,8 @@ func _deferred_goto_scene(path):
 	
 	get_tree().set_current_scene(current_scene)
 	
-	
+func _deferred_close_menu():
+	in_game_menu.free()
 	
 func _display_menu():
 	if !menu_open:
@@ -54,7 +55,8 @@ func _display_menu():
 		menu_open = true
 	else:
 		if in_game_menu:
-			in_game_menu.free()
+			in_game_menu.visible = false
+			call_deferred("_deferred_close_menu")
 		if get_tree().paused == true:
 			get_tree().paused = false
 		menu_open = false

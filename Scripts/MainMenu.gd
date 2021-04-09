@@ -41,6 +41,11 @@ func _ready():
 	main_menu.visible = true
 	Global.menu_open = true
 	tod_toggle.pressed = Global.day
+	if UserSettings.save_exists():
+		UserSettings.load_save()
+	else:
+		UserSettings.new()
+	
 	if PlayerVars.save_exists():
 		load_button.disabled = false
 	else:
@@ -52,16 +57,17 @@ func _ready():
 	
 	
 func _process(delta):
-	#animate_background()
 	
-	if Input.is_action_just_pressed("ui_esc"):
-		#TODO: Do something smarter here, in case 'unsaved' settings
+	if Input.is_action_just_pressed("ui_esc"):		
+		close_options()
+
+func close_options():
 		if options.visible:
+			UserSettings.save()
 			options.visible = false
-			main_menu.visible = true
-		#TODO: (fix) There is no way this is the best way to handle pause/unpause
-		elif get_tree().paused == true:	
-			print("Unpausing")
+			main_menu.visible = true		
+		elif get_tree().paused == true:				
+			UserSettings.save()
 			Global._display_menu()
 
 			
@@ -74,14 +80,18 @@ func tween_to_target_x(targ):
 func tween_to_target_y(targ):
 	tween.interpolate_property(background, "scroll_offset:y", background.scroll_offset.y, targ.y, 12, Tween.TRANS_BACK, Tween.EASE_IN_OUT)	
 	tween.start()
-	
+
+func update_settings():
+	# Used to pick up fresh settings from UserSettings, like in instances where they've been set back to defaults
+	update_volume()
+
 func update_volume():
-	mast_vol_slider.value = UserSettings.master_volume
-	music_vol_slider.value = UserSettings.music_volume
-	sfx_vol_slider.value = UserSettings.effects_volume
-	AudioServer.set_bus_volume_db(AudioServer.get_bus_index("Master"), linear2db(UserSettings.master_volume))
-	AudioServer.set_bus_volume_db(AudioServer.get_bus_index("Music"), linear2db(UserSettings.music_volume))
-	AudioServer.set_bus_volume_db(AudioServer.get_bus_index("SFX"), linear2db(UserSettings.effects_volume))
+	mast_vol_slider.value = UserSettings.current.master_volume
+	music_vol_slider.value = UserSettings.current.music_volume
+	sfx_vol_slider.value = UserSettings.current.effects_volume
+	AudioServer.set_bus_volume_db(AudioServer.get_bus_index("Master"), linear2db(UserSettings.current.master_volume))
+	AudioServer.set_bus_volume_db(AudioServer.get_bus_index("Music"), linear2db(UserSettings.current.music_volume))
+	AudioServer.set_bus_volume_db(AudioServer.get_bus_index("SFX"), linear2db(UserSettings.current.effects_volume))
 	
 func load_into_homebase():
 	tween.stop_all()
@@ -117,19 +127,19 @@ func _on_Options_pressed():
 
 func _on_mast_volume_slider_value_changed(value):
 	print("Master Volume: ", value)
-	UserSettings.master_volume = value
+	UserSettings.current.master_volume = value
 	update_volume()
 
 func _on_music_volume_slider_value_changed(value):
 	print("Music Volume: ", value)
-	UserSettings.music_volume = value
+	UserSettings.current.music_volume = value
 	update_volume()
 	print("Actual volume db: ", music.volume_db)
 
 
 func _on_sound_effect_volume_slider_value_changed(value):
 	print("Sound Effect Volume:", value)
-	UserSettings.effects_volume = value
+	UserSettings.current.effects_volume = value
 	update_volume()
 
 func _on_ambience_slider_value_changed(value):
@@ -141,8 +151,6 @@ func _on_DayToggle_toggled(button_pressed):
 		Global.day = true
 	else:
 		Global.day = false
-	
-
 
 func _on_AudioStreamPlayer_finished():
 	music.play()
@@ -159,5 +167,14 @@ func _on_Load_pressed():
 	load_accept_popup.popup()
 
 func _on_LoadAcceptDialog_confirmed():
-	PlayerVars.load()
+	PlayerVars.load_save()
 	load_into_homebase()
+
+
+func _on_ResetSettings_pressed():
+	print("RESETTING SETTINGS")
+	UserSettings.new()
+	update_settings()
+
+func _on_ReturnFromOptions_pressed():
+	close_options()
