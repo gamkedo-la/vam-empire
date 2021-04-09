@@ -122,7 +122,7 @@ A place to store common reusable functions that can be referenced from anywhere 
 - **_display_menu()**
   - Bring up the Main Menu (Save/Load/Options) over the current scene.
 ### **PlayerVars.gd**
-Will become the primary method the player's stats, currency, inventory, owned ships, and so on will be saved and loaded, as well as referenced in game.
+The player's stats, currency, inventory, owned ships, and so on will be saved and loaded, as well as referenced in game from this Singleton. When creating a new 'stat' for the player, make sure to add it both to the player dictionary and the player_defaults, so that new player saves will instantiate properly.
 
 - `new(name: String)`
   - A new player dictionary is created from `player_defaults` and the name is populated. Used for starting a new game from the Main Menu.
@@ -133,8 +133,7 @@ Will become the primary method the player's stats, currency, inventory, owned sh
 - `save_exists()`
   - Returns true if a save file exists. Used for things such as enabling the "Load" button in the menu.
 ### **UserSettings.gd**
-
-Empty today. Menu Options, and list of game save files will be stored here, saved as part of a 'global' save file (outside the individual game saves)
+Contains all of the same `new(),save(), load(), save_exists()` functions of [**PlayerVars.gd**](#playervarsgd) for the global User Settings that can be referenced in game at the disctionary UserSettings.current. Settings such as volume, graphics options, difficulty options will go into this dictionary and will be stored at `user://user-settings.json`. Make sure to populate both the `current` and `user_defaults` dictionary with any new settings to make sure new settings are instantiated properly. A button on the `System` tab in the options allows the player to reset to the default settings in `user_defaults`.
 
 <sub>[Back to Top](#)</sub>
 

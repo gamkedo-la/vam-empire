@@ -20,7 +20,7 @@ func _ready():
 	pass # Replace with function body.
 
 func new(name: String):
-	player = player_defaults
+	player = player_defaults.duplicate()
 	player.name = name
 	save()
 
