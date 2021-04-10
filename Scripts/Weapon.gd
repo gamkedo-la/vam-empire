@@ -22,3 +22,7 @@ export (MountTypes) var mount
 
 export(PackedScene) var projectile
 export(PackedScene) var beam
+
+export (NodePath) var anchor
+export (NodePath) var barrel_tip
+

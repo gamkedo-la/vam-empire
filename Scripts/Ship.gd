@@ -16,12 +16,23 @@ export (float, 0, 150) var energyReserve = 100
 export (Array, hpClass) var hardpoint_size
 export (Array, int) var equipped_weapon_index
 
+onready var hardpoints = $Hardpoints
 
 
 func _ready():
-	pass
+	for HPoint in hardpoints.get_children():
+		var HPidx = HPoint.get_index()
+		var weapon = Global.weapon_hangar[hardpoint_size[HPidx]][equipped_weapon_index[HPidx]].duplicate(true)
+		print(weapon[0], HPoint)
+		
+		equip_weapon(weapon[0].duplicate(), HPoint)
+	
 
-func equip_weapon(weapon, mount):
-	mount.add_child(weapon)
-	weapon.global_position = mount.global_position
+func equip_weapon(ordnance, mount):
+	print(ordnance.name)
+	#var newWeapon = ordnance.instance()
+	#Global.reparent(ordnance, mount)	
+	mount.add_child(ordnance)
+	print("Mount children count: ", mount.get_child_count())
+	ordnance.global_position = mount.global_position
 	
