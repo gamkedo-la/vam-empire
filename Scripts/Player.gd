@@ -127,7 +127,11 @@ func move_state(delta):
 	if Input.is_action_pressed("attack"):
 		if !Global.hold_fire:
 			fire_attached_weapons()
-
+	
+	if Input.is_action_pressed("mining"):
+		if !Global.hold_fire:
+			fire_mining_lasers()
+	
 	elif Input.is_action_just_pressed("ui_esc"):
 		# If no target, bring up main menu, otherwise get rid of target first
 		if !player_target:
@@ -259,4 +263,6 @@ func fire_attached_weapons():
 		rnd_impulse = rng.randf_range(0.8, 2.0)
 		projectile.launchBullet(rnd_impulse, dir)
 		
+func fire_mining_lasers():
+	pass
 	
