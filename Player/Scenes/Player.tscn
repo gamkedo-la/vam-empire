@@ -8,6 +8,7 @@
 [ext_resource path="res://Player/Scenes/HealingBot.tscn" type="PackedScene" id=6]
 
 [sub_resource type="CircleShape2D" id=1]
+radius = 16.5606
 
 [node name="Player" type="KinematicBody2D" groups=[
 "player",

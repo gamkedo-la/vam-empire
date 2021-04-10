@@ -6,8 +6,8 @@
 [ext_resource path="res://Lights/Textures/headlight_001.png" type="Texture" id=4]
 
 [sub_resource type="CapsuleShape2D" id=1]
-radius = 7.58739
-height = 11.9119
+radius = 27.5137
+height = 50.7746
 
 [sub_resource type="Curve" id=2]
 _data = [ Vector2( 0, 1 ), 0.0, 0.0, 0, 0, Vector2( 0.546332, 0.0122699 ), 0.0, 0.0, 0, 0 ]
@@ -22,8 +22,7 @@ equipped_weapon_index = [ 1, 1, 1, 1 ]
 texture = ExtResource( 3 )
 
 [node name="HullCollision" type="CollisionShape2D" parent="."]
-visible = false
-position = Vector2( -0.734745, 0.152485 )
+position = Vector2( -0.0680733, 0.152485 )
 rotation = 1.5708
 shape = SubResource( 1 )
 
