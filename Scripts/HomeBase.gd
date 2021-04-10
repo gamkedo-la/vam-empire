@@ -39,6 +39,7 @@ func start_light_tweens():
 func take_off():
 	if backing_up:
 		takeoff_tween.interpolate_property(player_ship, "position", player_ship.position, rear_pos.position, 3, Tween.TRANS_BACK, Tween.EASE_IN_OUT)
+		base_overlay.visible = false
 	else: 
 		takeoff_tween.interpolate_property(player_ship, "position", player_ship.position, front_pos.position, 1, Tween.TRANS_EXPO, Tween.EASE_IN)
 	takeoff_tween.start()
@@ -58,8 +59,7 @@ func _on_GoWorldProto_pressed():
 
 func _on_TakeoffTween_tween_completed(object, key):
 	if object == player_ship && backing_up:
-		backing_up = false
-		base_overlay.visible = false
+		backing_up = false		
 		take_off()
 	else:
 		if leaving_to:
