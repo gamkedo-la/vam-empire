@@ -4,6 +4,10 @@ extends Node
 var current_scene = null
 var in_game_menu = null
 var main_menu_scene = load("res://UI/Menu/MainMenu.tscn")
+var packed_ships = load("res://Ships/PackedShips.tscn")
+var ship_hangar = []
+var packed_weapons = load("res://Weapons/PackedWeapons.tscn")
+var weapon_hangar = []
 var menu_open = false
 var game_live = false
 var hold_fire = false
@@ -12,6 +16,7 @@ export var day = true
 func _ready():
 	var root = get_tree().get_root()
 	current_scene = root.get_child(root.get_child_count() - 1)
+	_populate_hangars()
 	
 func goto_scene(path):
 	# Defer the load until the current scene is done executing code
@@ -60,3 +65,34 @@ func _display_menu():
 		if get_tree().paused == true:
 			get_tree().paused = false
 		menu_open = false
+
+func _populate_hangars():
+	# In this function we're iterating through the Packed Weapon and Ship scenes, and organizing 
+	# the ships and weapons into 2 2D Arrays that breakdown as follows:
+	#	ship_hangar[Ship Class][Ship Index] .. i.e. references can be made like Global.ship_hangar[Frigate][2]
+	#	weapon_hangar[Weapon SizeClass][Weapon Index] i.e. references can be made like  Global.weapon_hangar[Medium][3]
+	var ships = packed_ships.instance()
+	var weapons = packed_weapons.instance()
+	var CIdx = 0
+	var Idx = 0
+	for Class in ships.get_children():
+		print("Class: ", Class)
+		ship_hangar.append([])
+		CIdx = Class.get_index()
+		for Ship in Class.get_children():
+			Idx = Ship.get_index()	
+			if Ship.get_child_count() > 0:		
+				if Ship.get_child(0):
+					ship_hangar[CIdx].append([Ship.get_child(0)])
+					print("Ship ", ship_hangar[CIdx][Idx], " added to index [", CIdx, "][", Idx,"]")
+	for Class in weapons.get_children():
+		print("Class: ", Class)
+		weapon_hangar.append([])
+		CIdx = Class.get_index()
+		for Weapon in Class.get_children():
+			Idx = Weapon.get_index()
+			if Weapon.get_child_count() > 0:
+				if Weapon.get_child(0):
+					weapon_hangar[CIdx].append([Weapon.get_child(0)])
+					print("Weapon ", weapon_hangar[CIdx][Idx], " added to index [", CIdx, "][", Idx, "]")
+		

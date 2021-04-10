@@ -1,5 +1,6 @@
 extends Node2D
 
+enum hpClass {SMALL, MEDIUM, LARGE, XLARGE}
 export (String) var ship_name
 export (int, 0, 3200) var ACCELERATION = 150
 export (int, 0, 1000) var MAX_SPEED = 320
@@ -11,3 +12,16 @@ export var ROT_ACCEL = deg2rad(0)
 export (float, 0, 400) var shieldHealth = 200
 export (float, 0, 600) var hullHealth = 250
 export (float, 0, 150) var energyReserve = 100
+
+export (Array, hpClass) var hardpoint_size
+export (Array, int) var equipped_weapon_index
+
+
+
+func _ready():
+	pass
+
+func equip_weapon(weapon, mount):
+	mount.add_child(weapon)
+	weapon.global_position = mount.global_position
+	

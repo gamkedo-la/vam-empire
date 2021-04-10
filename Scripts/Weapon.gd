@@ -2,6 +2,9 @@ extends Node2D
 
 export(String) var weap_name
 
+enum hpClass {SMALL, MEDIUM, LARGE, XLARGE}
+export (hpClass) var size
+
 enum WeapTypes {
 	PHYS_PROJECTILE,
 	ENERGY_PROJECTILE,

@@ -2,9 +2,11 @@ extends Panel
 
 var player_node
 
-export(PackedScene) var ship_hangar
 onready var debug_vbox = $DebugOptsVBox
-onready var ship_list = $DebugOptsVBox/HBoxContainer/ShipSelect
+onready var frigate_list = $DebugOptsVBox/HBoxContainer/FrigateSelect
+onready var destroyer_list = $DebugOptsVBox/HBoxContainer2/DestroyerSelect
+onready var corvette_list = $DebugOptsVBox/HBoxContainer3/CorvetteSelect
+onready var dreadnought_list = $DebugOptsVBox/HBoxContainer4/DreadnoughtSelect
 var ships
 var ship_inv = []
 
@@ -12,13 +14,20 @@ func _ready():
 	# Start Hidden
 	self.visible = false
 	player_node = get_parent().get_parent()
-	if ship_hangar:
-		ships = ship_hangar.instance()
-		for Class in ships.get_children():
-			var subclass_ships = Class.get_children()
-			for Ship in subclass_ships:
-				ship_list.add_item(Ship.get_child(0).ship_name)
-				ship_inv.append(Ship.get_child(0))
+	# Populate Frigates
+	var temp_hangar = Global.ship_hangar[0].duplicate()
+	for Ship in temp_hangar:		
+		frigate_list.add_item(Ship[0].ship_name)
+	temp_hangar = Global.ship_hangar[1].duplicate()
+	for Ship in temp_hangar:		
+		destroyer_list.add_item(Ship[0].ship_name)
+	temp_hangar = Global.ship_hangar[2].duplicate()
+	for Ship in temp_hangar:		
+		corvette_list.add_item(Ship[0].ship_name)
+	temp_hangar = Global.ship_hangar[3].duplicate()
+	for Ship in temp_hangar:		
+		dreadnought_list.add_item(Ship[0].ship_name)
+		
 
 func _process(_delta):
 	if Input.is_action_just_pressed("debug_menu"):
@@ -52,4 +61,6 @@ func _on_ShipSelect_mouse_exited():
 
 func _on_ShipSelect_item_selected(index):
 	print("Selected item index: ", index)
-	player_node.pilot_ship_from_pack(ship_inv[index].duplicate())
+	#player_node.pilot_ship_from_pack(ship_inv[index].duplicate())
+	var newShip = Global.ship_hangar[0][index].duplicate(true)
+	player_node.pilot_ship_from_pack(newShip[0].duplicate())
