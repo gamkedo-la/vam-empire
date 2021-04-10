@@ -1,7 +1,10 @@
-[gd_scene load_steps=3 format=2]
+[gd_scene load_steps=6 format=2]
 
 [ext_resource path="res://Ships/StarterShip.tscn" type="PackedScene" id=1]
 [ext_resource path="res://Ships/Templates/Sm_Frigates/FrigateTemplate01_Tri.tscn" type="PackedScene" id=2]
+[ext_resource path="res://Ships/Templates/XL_Dreadnoughts/DreadnoughtTemplate01.tscn" type="PackedScene" id=3]
+[ext_resource path="res://Ships/Templates/L_Corvettes/CorvetteTemplate01.tscn" type="PackedScene" id=4]
+[ext_resource path="res://Ships/Templates/M_Destroyers/DestroyerTemplate01.tscn" type="PackedScene" id=5]
 
 [node name="PackedShips" type="Node2D"]
 
@@ -17,6 +20,30 @@
 
 [node name="Destroyers" type="Node2D" parent="."]
 
+[node name="0" type="Node2D" parent="Destroyers"]
+
+[node name="DestroyerTemplate01" parent="Destroyers/0" instance=ExtResource( 5 )]
+
+[node name="1" type="Node2D" parent="Destroyers"]
+
+[node name="DestroyerTemplate01" parent="Destroyers/1" instance=ExtResource( 5 )]
+
 [node name="Corvettes" type="Node2D" parent="."]
 
+[node name="0" type="Node2D" parent="Corvettes"]
+
+[node name="CorvetteTemplate01" parent="Corvettes/0" instance=ExtResource( 4 )]
+
+[node name="1" type="Node2D" parent="Corvettes"]
+
+[node name="CorvetteTemplate01" parent="Corvettes/1" instance=ExtResource( 4 )]
+
 [node name="Dreadnoughts" type="Node2D" parent="."]
+
+[node name="0" type="Node2D" parent="Dreadnoughts"]
+
+[node name="FrigateTemplate01_Tri" parent="Dreadnoughts/0" instance=ExtResource( 3 )]
+
+[node name="1" type="Node2D" parent="Dreadnoughts"]
+
+[node name="FrigateTemplate01_Tri" parent="Dreadnoughts/1" instance=ExtResource( 3 )]
