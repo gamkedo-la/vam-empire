@@ -220,16 +220,18 @@ func instantiate_ship_variables():
 	char_sheet.add_sheetStat("Energy Reserve", energyReserve)
 	
 func pilot_ship_from_pack(ship):
-	var collider =  self.get_node_or_null("HullCollision")
+	var hull_colliders =  self.get_tree().get_nodes_in_group("HullCollider")
 	if piloted_ship:
 		piloted_ship.queue_free()
 		thrusters = null
 		hardpoints = null
-	if collider:
-		collider.queue_free()	
+	if hull_colliders:
+		for Collider in hull_colliders:
+			Collider.queue_free()	
 	piloted_ship = ship
 	ship_node.add_child(piloted_ship)	
-	Global.reparent(piloted_ship.get_node_or_null("HullCollision"), self)
+	# TODO: Retool this to load multiple Hull Colliders from Ship	
+	Global.reparent(piloted_ship.get_node_or_null("HullCollision"), self)	
 	load_hardpoints()
 	load_thrusters()
 	instantiate_ship_variables()

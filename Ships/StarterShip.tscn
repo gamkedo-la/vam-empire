@@ -21,7 +21,9 @@ equipped_weapon_index = [ 0, 0 ]
 [node name="ShipSprite" type="Sprite" parent="."]
 texture = ExtResource( 3 )
 
-[node name="HullCollision" type="CollisionShape2D" parent="."]
+[node name="HullCollision" type="CollisionShape2D" parent="." groups=[
+"HullCollider",
+]]
 position = Vector2( 6.05069, -0.0977974 )
 rotation = 1.5708
 shape = SubResource( 1 )
