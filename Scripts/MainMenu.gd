@@ -41,10 +41,6 @@ func _ready():
 	main_menu.visible = true
 	Global.menu_open = true
 	tod_toggle.pressed = Global.day
-	if UserSettings.save_exists():
-		UserSettings.load_save()
-	else:
-		UserSettings.new()
 	
 	if PlayerVars.save_exists():
 		load_button.disabled = false
@@ -86,12 +82,12 @@ func update_settings():
 	update_volume()
 
 func update_volume():
-	mast_vol_slider.value = UserSettings.current.master_volume
-	music_vol_slider.value = UserSettings.current.music_volume
-	sfx_vol_slider.value = UserSettings.current.effects_volume
-	AudioServer.set_bus_volume_db(AudioServer.get_bus_index("Master"), linear2db(UserSettings.current.master_volume))
-	AudioServer.set_bus_volume_db(AudioServer.get_bus_index("Music"), linear2db(UserSettings.current.music_volume))
-	AudioServer.set_bus_volume_db(AudioServer.get_bus_index("SFX"), linear2db(UserSettings.current.effects_volume))
+	mast_vol_slider.value = UserSettings.current.sound.master_volume
+	music_vol_slider.value = UserSettings.current.sound.music_volume
+	sfx_vol_slider.value = UserSettings.current.sound.effects_volume
+	AudioServer.set_bus_volume_db(AudioServer.get_bus_index("Master"), linear2db(UserSettings.current.sound.master_volume))
+	AudioServer.set_bus_volume_db(AudioServer.get_bus_index("Music"), linear2db(UserSettings.current.sound.music_volume))
+	AudioServer.set_bus_volume_db(AudioServer.get_bus_index("SFX"), linear2db(UserSettings.current.sound.effects_volume))
 	
 func load_into_homebase():
 	tween.stop_all()
@@ -127,19 +123,19 @@ func _on_Options_pressed():
 
 func _on_mast_volume_slider_value_changed(value):
 	print("Master Volume: ", value)
-	UserSettings.current.master_volume = value
+	UserSettings.current.sound.master_volume = value
 	update_volume()
 
 func _on_music_volume_slider_value_changed(value):
 	print("Music Volume: ", value)
-	UserSettings.current.music_volume = value
+	UserSettings.current.sound.music_volume = value
 	update_volume()
 	print("Actual volume db: ", music.volume_db)
 
 
 func _on_sound_effect_volume_slider_value_changed(value):
 	print("Sound Effect Volume:", value)
-	UserSettings.current.effects_volume = value
+	UserSettings.current.sound.effects_volume = value
 	update_volume()
 
 func _on_ambience_slider_value_changed(value):
