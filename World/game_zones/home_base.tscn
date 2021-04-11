@@ -97,6 +97,7 @@ icon = ExtResource( 1 )
 margin_left = 560.0
 margin_right = 807.0
 margin_bottom = 38.0
+disabled = true
 text = "Go To Prototype World (*Pitch!)"
 icon = ExtResource( 1 )
 

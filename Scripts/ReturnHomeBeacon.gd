@@ -18,6 +18,7 @@ var going_up = true
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
+	add_to_group("always_on_map")
 	tween.interpolate_property(beacon_sign, "position", beacon_sign.position, upper_pos.position, bounce_speed, Tween.TRANS_BACK, Tween.EASE_IN_OUT)
 	tween.interpolate_property(indicator, "scale", indicator.scale, small_ind, bounce_speed, Tween.TRANS_BACK, Tween.EASE_IN_OUT)
 	tween.interpolate_property(beacon_light, "energy", beacon_light.energy, 1, bounce_speed, Tween.TRANS_BACK, Tween.EASE_IN_OUT)

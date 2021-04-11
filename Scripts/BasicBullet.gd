@@ -3,7 +3,7 @@ extends RigidBody2D
 const MaxDistance = 800
 const MaxSeconds = 1
 const ImpulseMag = 550
-const Damage = 10
+const Damage = 100
 
 var originalPos = Vector2.ZERO
 

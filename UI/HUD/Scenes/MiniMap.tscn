@@ -1,6 +1,7 @@
-[gd_scene load_steps=2 format=2]
+[gd_scene load_steps=3 format=2]
 
 [ext_resource path="res://Scripts/UI/MiniMap.gd" type="Script" id=1]
+[ext_resource path="res://Player/Textures/Shmup_Player_Ship_001.png" type="Texture" id=2]
 
 [node name="MiniMap" type="MarginContainer"]
 anchor_left = 0.65
@@ -23,3 +24,6 @@ margin_top = 5.0
 margin_right = 187.0
 margin_bottom = 103.0
 color = Color( 0.141176, 0.321569, 0.231373, 0.0941176 )
+
+[node name="PlayerMarker" type="Sprite" parent="MiniMapCanvas"]
+texture = ExtResource( 2 )

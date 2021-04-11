@@ -5,7 +5,7 @@ extends MarginContainer
 onready var pixel_grid = $MiniMapCanvas
 export var zoom = 4.5
 
-var player_marker = Vector2.ZERO
+onready var player_marker = $MiniMapCanvas/PlayerMarker
 var grid_scale 
 var map_icons = {}
 
@@ -17,15 +17,17 @@ func _ready():
 	pass
 
 func _initialize():
-	player_marker = Vector2.ONE * (pixel_grid.rect_size/2)
+	player_marker.position = pixel_grid.rect_size/2
+	player_marker.scale /= 3
 	grid_scale = pixel_grid.rect_size / (get_viewport_rect().size * zoom)
 	print("player_marker: ", player_marker, " PlayerVars.player_node.position: ", PlayerVars.player_node.position)
 	var map_objects = get_tree().get_nodes_in_group("mini_map")
 	print("map_objects: ", map_objects.size())
-	for obj in map_objects:		
+	for obj in map_objects:	
+		obj.connect("removed", self, "_on_object_removed")	
 		var new_icon = obj.get_node_or_null("Sprite").duplicate()
 		if new_icon:
-			new_icon.scale /= 10
+			new_icon.scale /= zoom
 			pixel_grid.add_child(new_icon)
 			new_icon.set_visible(true)
 			map_icons[obj] = new_icon
@@ -37,20 +39,27 @@ func _process(delta):
 		_initialize()
 	if !PlayerVars.player_node:
 		_initialized = false
-		return
+		return	
+	player_marker.rotation = PlayerVars.player_node.rotation
 	for item in map_icons:
 		if item:
 			var obj_pos = (item.position - PlayerVars.player_node.position) * grid_scale + pixel_grid.rect_size / 2
+			if !item.is_in_group("always_on_map"):
+				if pixel_grid.get_rect().has_point(obj_pos + pixel_grid.rect_position):
+					map_icons[item].set_visible(true)
+				else:
+					map_icons[item].set_visible(false)
+			
 			obj_pos.x = clamp(obj_pos.x, 0, pixel_grid.rect_size.x)
 			obj_pos.y = clamp(obj_pos.y, 0, pixel_grid.rect_size.y)
-			map_icons[item].position = obj_pos
-		else:
-			map_icons.erase(item)
-	
+			map_icons[item].position = obj_pos	
 	
 	#player_marker.rotation = PlayerVars.player_node.rotation	
 	
-
+func _on_object_removed(icon):
+	if icon in map_icons:
+		map_icons[icon].queue_free()
+		map_icons.erase(icon)
 
 func _draw():
 	pass

@@ -1,0 +1,83 @@
+[gd_scene load_steps=3 format=2]
+
+[ext_resource path="res://Obstacles/Scenes/MedAsteroid01.tscn" type="PackedScene" id=1]
+[ext_resource path="res://World/common_scenes/ReturnHomeBeacon.tscn" type="PackedScene" id=2]
+
+[node name="AsteroidScene0" type="Node2D"]
+rotation = 0.174741
+
+[node name="ReturnHomeBeacon" parent="." instance=ExtResource( 2 )]
+position = Vector2( 4694.47, -7905.38 )
+
+[node name="MedAsteroid01" parent="." instance=ExtResource( 1 )]
+position = Vector2( 204.447, -134.867 )
+rotation = -0.202294
+
+[node name="MedAsteroid02" parent="." instance=ExtResource( 1 )]
+position = Vector2( -255.046, -104.373 )
+rotation = -4.16042
+
+[node name="MedAsteroid03" parent="." instance=ExtResource( 1 )]
+position = Vector2( -99.4234, 226.696 )
+rotation = 1.15683
+
+[node name="MedAsteroid04" parent="." instance=ExtResource( 1 )]
+position = Vector2( 281.458, 133.605 )
+rotation = -1.42228
+
+[node name="MedAsteroid05" parent="." instance=ExtResource( 1 )]
+position = Vector2( 855.396, -2779.19 )
+
+[node name="MedAsteroid06" parent="." instance=ExtResource( 1 )]
+position = Vector2( -5226.3, -2442.46 )
+
+[node name="MedAsteroid07" parent="." instance=ExtResource( 1 )]
+position = Vector2( 7480.11, 2704.17 )
+
+[node name="MedAsteroid08" parent="." instance=ExtResource( 1 )]
+position = Vector2( -6039.25, 6093.95 )
+
+[node name="MedAsteroid09" parent="." instance=ExtResource( 1 )]
+position = Vector2( -6869.53, 501.977 )
+
+[node name="MedAsteroid10" parent="." instance=ExtResource( 1 )]
+position = Vector2( 4394.49, 2696.21 )
+
+[node name="MedAsteroid11" parent="." instance=ExtResource( 1 )]
+position = Vector2( 5941.81, -2530.81 )
+
+[node name="MedAsteroid12" parent="." instance=ExtResource( 1 )]
+position = Vector2( -2774.08, 1901.07 )
+
+[node name="MedAsteroid13" parent="." instance=ExtResource( 1 )]
+position = Vector2( -2113.1, -3360.54 )
+
+[node name="MedAsteroid14" parent="." instance=ExtResource( 1 )]
+position = Vector2( 3775.09, -4290.87 )
+
+[node name="MedAsteroid15" parent="." instance=ExtResource( 1 )]
+position = Vector2( 5517.9, -6749.68 )
+
+[node name="MedAsteroid16" parent="." instance=ExtResource( 1 )]
+position = Vector2( 1805.68, -6299.37 )
+
+[node name="MedAsteroid17" parent="." instance=ExtResource( 1 )]
+position = Vector2( 3031.19, -5987.84 )
+
+[node name="MedAsteroid18" parent="." instance=ExtResource( 1 )]
+position = Vector2( 2083.53, -2125.37 )
+
+[node name="MedAsteroid19" parent="." instance=ExtResource( 1 )]
+position = Vector2( -673.783, -1363.17 )
+
+[node name="MedAsteroid20" parent="." instance=ExtResource( 1 )]
+position = Vector2( 937.732, -4585.45 )
+
+[node name="MedAsteroid21" parent="." instance=ExtResource( 1 )]
+position = Vector2( 1917.13, -3978 )
+
+[node name="MedAsteroid22" parent="." instance=ExtResource( 1 )]
+position = Vector2( 4154.55, -6255.02 )
+
+[node name="MedAsteroid23" parent="." instance=ExtResource( 1 )]
+position = Vector2( 2838.63, -7468.64 )

@@ -8,7 +8,7 @@ var fog = null
 var tween = null
 
 func _ready():
-	add_to_group("asteroids")
+	add_to_group("asteroids")	
 	TOD = Global.day
 	if !fog:
 		fog = get_node_or_null("Fog")
@@ -20,7 +20,7 @@ func _ready():
 
 func _process(_delta):
 	if health < 0:
-		queue_free()
+		queue_free()		
 	if tween:
 		if TOD != Global.day:
 			TOD = Global.day

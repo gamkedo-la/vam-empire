@@ -19,9 +19,7 @@ polygon = PoolVector2Array( -14.508, 22.1402, -20.0386, 13.8897, -24.9524, 7.478
 [sub_resource type="OccluderPolygon2D" id=4]
 polygon = PoolVector2Array( -11.0631, 22.8654, 2.6272, 27.036, 18.1308, 21.5961, 24.6587, 11.5324, 24.9307, -5.51254, 12.0563, -20.7442, 0.541908, -25.912, -12.4231, -24.0987, -24.9348, -10.0458, -24.3908, 7.9058 )
 
-[node name="Asteroid002" type="RigidBody2D" groups=[
-"mini_map",
-]]
+[node name="Asteroid002" type="RigidBody2D"]
 input_pickable = true
 mass = 750.0
 script = ExtResource( 3 )
