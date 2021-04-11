@@ -1,7 +1,9 @@
-[gd_scene load_steps=3 format=2]
+[gd_scene load_steps=5 format=2]
 
 [ext_resource path="res://Scripts/UI/MiniMap.gd" type="Script" id=1]
 [ext_resource path="res://Player/Textures/Shmup_Player_Ship_001.png" type="Texture" id=2]
+[ext_resource path="res://UI/HUD/Textures/MiniMap/pixel_grid.png" type="Texture" id=3]
+[ext_resource path="res://UI/HUD/Textures/MiniMap/mini_map_border.png" type="Texture" id=4]
 
 [node name="MiniMap" type="MarginContainer"]
 anchor_left = 0.79
@@ -20,12 +22,31 @@ __meta__ = {
 "_edit_use_anchors_": false
 }
 
-[node name="MiniMapCanvas" type="ColorRect" parent="."]
+[node name="ScreenContainer" type="MarginContainer" parent="."]
 margin_left = 5.0
 margin_top = 5.0
-margin_right = 187.0
-margin_bottom = 103.0
-color = Color( 0.141176, 0.321569, 0.231373, 0.0941176 )
+margin_right = 197.0
+margin_bottom = 113.0
+__meta__ = {
+"_edit_use_anchors_": false
+}
 
-[node name="PlayerMarker" type="Sprite" parent="MiniMapCanvas"]
+[node name="PixelGrid" type="TextureRect" parent="ScreenContainer"]
+self_modulate = Color( 1, 1, 1, 0.156863 )
+show_behind_parent = true
+margin_right = 192.0
+margin_bottom = 108.0
+texture = ExtResource( 3 )
+stretch_mode = 2
+
+[node name="PlayerMarker" type="Sprite" parent="ScreenContainer/PixelGrid"]
 texture = ExtResource( 2 )
+
+[node name="Border" type="NinePatchRect" parent="."]
+self_modulate = Color( 1, 1, 1, 0.470588 )
+margin_left = 5.0
+margin_top = 5.0
+margin_right = 197.0
+margin_bottom = 113.0
+rect_min_size = Vector2( 192, 108 )
+texture = ExtResource( 4 )

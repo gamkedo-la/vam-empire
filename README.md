@@ -33,6 +33,8 @@
     - [**HUD.tscn**](#hudtscn)
     - [**MiniMap.tscn**](#minimaptscn)
       - [**Requirements for MiniMap Objects**](#requirements-for-minimap-objects)
+      - [**Objects in group mini_map**](#objects-in-group-mini_map)
+      - [**Objects in group mini_map + always_on_map**](#objects-in-group-mini_map--always_on_map)
   - [**Reusable UI Elements**](#reusable-ui-elements)
 - [**Appendix A: Universal Godot Information**](#appendix-a-universal-godot-information)
   - [**GDScript**](#gdscript)
@@ -278,9 +280,17 @@ The MiniMap itself is a 1/5th scale version of the game screen, to keep the aspe
 
 #### **Requirements for MiniMap Objects**
 Any object that will be tracked on the MiniMap has to have the following:
+- Placed in the group "mini_map". Doing this as part of code in `_ready()` seems preferable over trying to make sure the object's .tscn stays in the group. Simply because we can track it in the code base a little easier.
 - `signal removed` must be present on the object to be monitored by the minimap.
 - `removed` must be emitted before completing a `.queue_free()` on the object. This allows the MiniMap to track the referenced object, and properly remove the icon and prevent 'orphaned' icons.
 - The object must have a sprite named `Sprite` as a child for the minimap to use as an icon.  The Sprite does not have to be visible on the game object itself (in the instance that the in-game sprite is already named something else). `Sprite` should be at 'in-game' scale, the minimap will handle the scaling itself based on it's zoom factor.
+- (Optional): If the object is something that a permanent tracker is desired, it should be placed in the group "always_on_map"
+
+#### **Objects in group mini_map**
+- [MedAsteroid.tscn](Obstacles/Scenes/MedAsteroid01.tscn)
+
+#### **Objects in group mini_map + always_on_map**
+- [ReturnHomeBeacon.tscn](World/common_scenes/ReturnHomeBeacon.tscn)
 
 ## **Reusable UI Elements**
 This section will document some of the UI elements we may end up creating that can be reused to cut down on the time it takes to spin up useful tools, and UI elements.

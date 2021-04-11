@@ -2,10 +2,10 @@ extends MarginContainer
 
 # Largely adapted from an approach taken by https://kidscancode.org/godot_recipes/ui/minimap/
 
-onready var pixel_grid = $MiniMapCanvas
+onready var pixel_grid = $ScreenContainer/PixelGrid
 export var zoom = 10
 
-onready var player_marker = $MiniMapCanvas/PlayerMarker
+onready var player_marker = $ScreenContainer/PixelGrid/PlayerMarker
 var grid_scale 
 var map_icons = {}
 
