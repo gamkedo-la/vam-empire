@@ -3,7 +3,7 @@ extends MarginContainer
 # Largely adapted from an approach taken by https://kidscancode.org/godot_recipes/ui/minimap/
 
 onready var pixel_grid = $MiniMapCanvas
-export var zoom = 4.5
+export var zoom = 10
 
 onready var player_marker = $MiniMapCanvas/PlayerMarker
 var grid_scale 
@@ -18,8 +18,9 @@ func _ready():
 
 func _initialize():
 	player_marker.position = pixel_grid.rect_size/2
-	player_marker.scale /= 3
+	player_marker.scale /= 5
 	grid_scale = pixel_grid.rect_size / (get_viewport_rect().size * zoom)
+	print(get_viewport_rect().size)
 	print("player_marker: ", player_marker, " PlayerVars.player_node.position: ", PlayerVars.player_node.position)
 	var map_objects = get_tree().get_nodes_in_group("mini_map")
 	print("map_objects: ", map_objects.size())
@@ -43,7 +44,7 @@ func _process(delta):
 	player_marker.rotation = PlayerVars.player_node.rotation
 	for item in map_icons:
 		if item:
-			var obj_pos = (item.position - PlayerVars.player_node.position) * grid_scale + pixel_grid.rect_size / 2
+			var obj_pos = (item.global_position - PlayerVars.player_node.global_position) * grid_scale + pixel_grid.rect_size / 2
 			if !item.is_in_group("always_on_map"):
 				if pixel_grid.get_rect().has_point(obj_pos + pixel_grid.rect_position):
 					map_icons[item].set_visible(true)
