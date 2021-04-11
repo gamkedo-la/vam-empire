@@ -123,7 +123,6 @@ margin_right = 940.0
 margin_bottom = 16.0
 
 [node name="Shields" type="TextureProgress" parent="HudVbox/ShieldHBox"]
-anchor_right = 0.169
 margin_right = 240.0
 margin_bottom = 16.0
 rect_pivot_offset = Vector2( 100, 8 )
@@ -176,6 +175,7 @@ size_flags_vertical = 3
 bbcode_enabled = true
 bbcode_text = "[color=yellow]$[/color]100,000"
 text = "$100,000"
+scroll_active = false
 script = ExtResource( 7 )
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="."]
