@@ -49,6 +49,8 @@ var player_target = null
 
 # Bullet will be modularized as part of the Hardpoint mounted weapons, for now we're just going to fire it off the hardpoints
 onready var base_bullet = preload("res://Bullets/Scenes/BasicBullet.tscn")
+#provisional
+onready var mining_beam = preload("res://Bullets/Scenes/MiningLaserBeam.tscn")
 
 onready var char_sheet = $PlayerUICanvas/CharacterSheet
 
@@ -269,5 +271,14 @@ func fire_attached_weapons():
 		projectile.launchBullet(rnd_impulse, dir)
 		
 func fire_mining_lasers():
-	pass
+	var root_node = get_tree().get_root()
+	var rnd_impulse = rng.randf_range(0.8, 2.0)
+	print(hardpoints.get_children().size())
+	for Weap in hardpoints.get_children():
+		var beam = mining_beam.instance()
+		#print (Weap.type)
+		beam.global_position = Weap.global_position
+		beam.global_rotation = Weap.global_rotation + PI/2
+		root_node.add_child(beam)
+		var dir = Vector2(1, 0).rotated(self.global_rotation)
 	
