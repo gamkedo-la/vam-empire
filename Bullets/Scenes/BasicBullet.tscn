@@ -54,6 +54,7 @@ script = ExtResource( 2 )
 visible = false
 texture = ExtResource( 3 )
 hframes = 5
+frame = 1
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="."]
 playback_speed = 2.0
