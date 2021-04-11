@@ -29,6 +29,10 @@
   - [**Weapon Scene Template**](#weapon-scene-template)
     - [**Packed Weapons Scene**](#packed-weapons-scene)
 - [**UI**](#ui)
+  - [**Player HUD**](#player-hud)
+    - [**HUD.tscn**](#hudtscn)
+    - [**MiniMap.tscn**](#minimaptscn)
+      - [**Requirements for MiniMap Objects**](#requirements-for-minimap-objects)
   - [**Reusable UI Elements**](#reusable-ui-elements)
 - [**Appendix A: Universal Godot Information**](#appendix-a-universal-godot-information)
   - [**GDScript**](#gdscript)
@@ -262,6 +266,22 @@ Like the Ships Packed Scene, Weapons will be organized much the same way with si
 
 <sub>[Back to Top](#)</sub>
 # **UI**
+
+## **Player HUD**
+The Player HUD (In-Game) Overlay is made up of several master scene files.
+### **HUD.tscn**
+The player HUD scene contains the Shield, Hull, Energy, and Currency displays. [HUD.gd](Scripts/HUD.gd) and [CurrencyRichText.gd](Scripts/UI/CurrencyRichText.gd) control these HUD elements. Currently, they all update in their `_process(_delta):` functions, but a more efficient model may be to only update based on a signal emitted on a `setget` tied to each variable that the bars are 'moniotoring'.  For now, this model seems performant enough, but it's one to keep our eye on.
+### **MiniMap.tscn**
+The MiniMap functions by monitoring the in-game world for objects in the group "mini_map". If an object is found in that group, the [Minimap.gd](Scripts/UI/MiniMap.gd) will add their child `Sprite` to a dictionary to use as an icon on the minimap. The icons are scaled based on the minimap zoom factor. The ability to control the zoom factor of the minimap is coming.
+
+The MiniMap itself is a 1/5th scale version of the game screen, to keep the aspect ratio clean and intuitive. Something like a circle MiniMap may look better, but working within rectangular coordinates for now was easier.
+
+#### **Requirements for MiniMap Objects**
+Any object that will be tracked on the MiniMap has to have the following:
+- `signal removed` must be present on the object to be monitored by the minimap.
+- `removed` must be emitted before completing a `.queue_free()` on the object. This allows the MiniMap to track the referenced object, and properly remove the icon and prevent 'orphaned' icons.
+- The object must have a sprite named `Sprite` as a child for the minimap to use as an icon.  The Sprite does not have to be visible on the game object itself (in the instance that the in-game sprite is already named something else). `Sprite` should be at 'in-game' scale, the minimap will handle the scaling itself based on it's zoom factor.
+
 ## **Reusable UI Elements**
 This section will document some of the UI elements we may end up creating that can be reused to cut down on the time it takes to spin up useful tools, and UI elements.
 - [**DraggableBar.tscn**](UI/HUD/Scenes/DraggableBar.tscn) 

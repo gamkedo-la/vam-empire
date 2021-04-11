@@ -6,7 +6,8 @@
 [ext_resource path="res://UI/HUD/Textures/hull_bar_bord.png" type="Texture" id=4]
 [ext_resource path="res://UI/HUD/Textures/energy_bar.png" type="Texture" id=5]
 [ext_resource path="res://Scripts/HUD.gd" type="Script" id=6]
-[ext_resource path="res://UI/HUD/Scenes/CurrencyRichText.gd" type="Script" id=7]
+[ext_resource path="res://Scripts/UI/CurrencyRichText.gd" type="Script" id=7]
+
 
 [sub_resource type="Animation" id=1]
 resource_name = "Hit"
@@ -101,8 +102,9 @@ tracks/3/keys = {
 }
 
 [node name="HUD" type="MarginContainer"]
-margin_right = 960.0
-margin_bottom = 540.0
+margin_right = 260.0
+margin_bottom = 135.0
+rect_min_size = Vector2( 240, 135 )
 custom_constants/margin_right = 10
 custom_constants/margin_top = 10
 custom_constants/margin_left = 10
@@ -115,11 +117,11 @@ __meta__ = {
 [node name="HudVbox" type="VBoxContainer" parent="."]
 margin_left = 10.0
 margin_top = 10.0
-margin_right = 950.0
-margin_bottom = 530.0
+margin_right = 250.0
+margin_bottom = 125.0
 
 [node name="ShieldHBox" type="HBoxContainer" parent="HudVbox"]
-margin_right = 940.0
+margin_right = 240.0
 margin_bottom = 16.0
 
 [node name="Shields" type="TextureProgress" parent="HudVbox/ShieldHBox"]
@@ -135,7 +137,7 @@ anims/Hit = SubResource( 1 )
 
 [node name="HealthHbox" type="HBoxContainer" parent="HudVbox"]
 margin_top = 20.0
-margin_right = 940.0
+margin_right = 240.0
 margin_bottom = 36.0
 
 [node name="Health" type="TextureProgress" parent="HudVbox/HealthHbox"]
@@ -151,7 +153,7 @@ anims/Hit = SubResource( 2 )
 
 [node name="EnergyHbox" type="HBoxContainer" parent="HudVbox"]
 margin_top = 40.0
-margin_right = 940.0
+margin_right = 240.0
 margin_bottom = 48.0
 
 [node name="Energy" type="TextureProgress" parent="HudVbox/EnergyHbox"]
@@ -162,12 +164,12 @@ texture_progress = ExtResource( 5 )
 
 [node name="CurrencyHBox" type="HBoxContainer" parent="HudVbox"]
 margin_top = 52.0
-margin_right = 940.0
+margin_right = 240.0
 margin_bottom = 64.0
 rect_min_size = Vector2( 0, 12 )
 
 [node name="CurrencyRichText" type="RichTextLabel" parent="HudVbox/CurrencyHBox"]
-margin_right = 940.0
+margin_right = 240.0
 margin_bottom = 12.0
 rect_min_size = Vector2( 0, 12 )
 size_flags_horizontal = 3

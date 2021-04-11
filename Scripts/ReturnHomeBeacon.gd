@@ -1,4 +1,6 @@
 extends Area2D
+# signal required to be a mininmap object. Emit this signal before freeing this object
+signal removed
 
 var home_base = "res://World/game_zones/home_base.tscn"
 onready var tween = $Tween

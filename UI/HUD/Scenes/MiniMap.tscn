@@ -4,8 +4,10 @@
 [ext_resource path="res://Player/Textures/Shmup_Player_Ship_001.png" type="Texture" id=2]
 
 [node name="MiniMap" type="MarginContainer"]
-anchor_left = 0.65
-anchor_right = 0.65
+anchor_left = 0.79
+anchor_top = 0.02
+anchor_right = 0.79
+anchor_bottom = 0.02
 margin_right = 192.0
 margin_bottom = 108.0
 rect_min_size = Vector2( 192, 108 )
