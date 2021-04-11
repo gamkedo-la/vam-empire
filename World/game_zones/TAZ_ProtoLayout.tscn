@@ -1,0 +1,2315 @@
+[gd_scene load_steps=6 format=2]
+
+[ext_resource path="res://Obstacles/Scenes/Asteroid002.tscn" type="PackedScene" id=1]
+[ext_resource path="res://Obstacles/Scenes/Asteroid001.tscn" type="PackedScene" id=2]
+[ext_resource path="res://Obstacles/Scenes/Asteroid003.tscn" type="PackedScene" id=3]
+[ext_resource path="res://Enemies/Scenes/ProtoEnemy.tscn" type="PackedScene" id=4]
+[ext_resource path="res://World/game_zones/TemplateAsteroidZone.tscn" type="PackedScene" id=5]
+
+[node name="World" instance=ExtResource( 5 )]
+
+[node name="Asteroids" type="Node2D" parent="GameWorld" index="0"]
+__meta__ = {
+"_edit_lock_": true
+}
+
+[node name="AsteroidsBig" type="Node2D" parent="GameWorld/Asteroids" index="0"]
+
+[node name="Asteroid001" parent="GameWorld/Asteroids/AsteroidsBig" index="0" groups=[
+"asteroids",
+] instance=ExtResource( 1 )]
+position = Vector2( 39.3334, -112 )
+
+[node name="Asteroid002" parent="GameWorld/Asteroids/AsteroidsBig" index="1" instance=ExtResource( 1 )]
+position = Vector2( 186.448, 24.9749 )
+
+[node name="Asteroid003" parent="GameWorld/Asteroids/AsteroidsBig" index="2" instance=ExtResource( 1 )]
+position = Vector2( 355.757, 26.4732 )
+
+[node name="Asteroid004" parent="GameWorld/Asteroids/AsteroidsBig" index="3" instance=ExtResource( 1 )]
+position = Vector2( 272.37, -245.164 )
+
+[node name="Asteroid005" parent="GameWorld/Asteroids/AsteroidsBig" index="4" instance=ExtResource( 1 )]
+position = Vector2( 91.1457, -305.572 )
+
+[node name="Asteroid006" parent="GameWorld/Asteroids/AsteroidsBig" index="5" instance=ExtResource( 1 )]
+position = Vector2( 247.2, -397.443 )
+
+[node name="Asteroid007" parent="GameWorld/Asteroids/AsteroidsBig" index="6" instance=ExtResource( 1 )]
+position = Vector2( 60.9417, -476.099 )
+
+[node name="Asteroid008" parent="GameWorld/Asteroids/AsteroidsBig" index="7" instance=ExtResource( 1 )]
+position = Vector2( 66.6667, -612 )
+
+[node name="Asteroid009" parent="GameWorld/Asteroids/AsteroidsBig" index="8" instance=ExtResource( 1 )]
+position = Vector2( 253.115, -587.025 )
+
+[node name="Asteroid010" parent="GameWorld/Asteroids/AsteroidsBig" index="9" instance=ExtResource( 1 )]
+position = Vector2( 422.424, -585.527 )
+
+[node name="Asteroid011" parent="GameWorld/Asteroids/AsteroidsBig" index="10" instance=ExtResource( 1 )]
+position = Vector2( 339.036, -857.164 )
+
+[node name="Asteroid012" parent="GameWorld/Asteroids/AsteroidsBig" index="11" instance=ExtResource( 1 )]
+position = Vector2( 157.812, -917.572 )
+
+[node name="Asteroid013" parent="GameWorld/Asteroids/AsteroidsBig" index="12" instance=ExtResource( 1 )]
+position = Vector2( 313.866, -1009.44 )
+
+[node name="Asteroid014" parent="GameWorld/Asteroids/AsteroidsBig" index="13" instance=ExtResource( 1 )]
+position = Vector2( 127.608, -1088.1 )
+
+[node name="AsteroidsSmall" type="Node2D" parent="GameWorld/Asteroids" index="1"]
+
+[node name="Asteroid001" parent="GameWorld/Asteroids/AsteroidsSmall" index="0" instance=ExtResource( 2 )]
+position = Vector2( 77.5714, 26.9726 )
+mass = 75.0
+
+[node name="Asteroid002" parent="GameWorld/Asteroids/AsteroidsSmall" index="1" instance=ExtResource( 2 )]
+position = Vector2( 128.514, 64.9297 )
+mass = 75.0
+
+[node name="Asteroid003" parent="GameWorld/Asteroids/AsteroidsSmall" index="2" instance=ExtResource( 2 )]
+position = Vector2( 288.833, 45.9512 )
+mass = 75.0
+
+[node name="Asteroid004" parent="GameWorld/Asteroids/AsteroidsSmall" index="3" instance=ExtResource( 2 )]
+position = Vector2( 221.409, 85.9061 )
+mass = 75.0
+
+[node name="Asteroid005" parent="GameWorld/Asteroids/AsteroidsSmall" index="4" instance=ExtResource( 2 )]
+position = Vector2( 108.536, -90.8942 )
+mass = 75.0
+
+[node name="Asteroid006" parent="GameWorld/Asteroids/AsteroidsSmall" index="5" instance=ExtResource( 2 )]
+position = Vector2( 173.577, -104.79 )
+mass = 75.0
+
+[node name="Asteroid007" parent="GameWorld/Asteroids/AsteroidsSmall" index="6" instance=ExtResource( 2 )]
+position = Vector2( 179.87, -253.922 )
+mass = 75.0
+
+[node name="Asteroid008" parent="GameWorld/Asteroids/AsteroidsSmall" index="7" instance=ExtResource( 2 )]
+position = Vector2( 332.148, -134.416 )
+mass = 75.0
+
+[node name="Asteroid009" parent="GameWorld/Asteroids/AsteroidsSmall" index="8" instance=ExtResource( 2 )]
+position = Vector2( 33.884, -212.443 )
+mass = 75.0
+
+[node name="Asteroid010" parent="GameWorld/Asteroids/AsteroidsSmall" index="9" instance=ExtResource( 2 )]
+position = Vector2( 63.4587, -385.487 )
+mass = 75.0
+
+[node name="Asteroid011" parent="GameWorld/Asteroids/AsteroidsSmall" index="10" instance=ExtResource( 2 )]
+position = Vector2( 344.733, -450.929 )
+mass = 75.0
+
+[node name="Asteroid012" parent="GameWorld/Asteroids/AsteroidsSmall" index="11" instance=ExtResource( 2 )]
+position = Vector2( 164.768, -451.558 )
+mass = 75.0
+
+[node name="Asteroid013" parent="GameWorld/Asteroids/AsteroidsSmall" index="12" instance=ExtResource( 2 )]
+position = Vector2( 140.238, -564.361 )
+mass = 75.0
+
+[node name="Asteroid014" parent="GameWorld/Asteroids/AsteroidsSmall" index="13" instance=ExtResource( 2 )]
+position = Vector2( 191.181, -526.404 )
+mass = 75.0
+
+[node name="Asteroid015" parent="GameWorld/Asteroids/AsteroidsSmall" index="14" instance=ExtResource( 2 )]
+position = Vector2( 351.499, -545.382 )
+mass = 75.0
+
+[node name="Asteroid016" parent="GameWorld/Asteroids/AsteroidsSmall" index="15" instance=ExtResource( 2 )]
+position = Vector2( 284.076, -505.427 )
+mass = 75.0
+
+[node name="Asteroid017" parent="GameWorld/Asteroids/AsteroidsSmall" index="16" instance=ExtResource( 2 )]
+position = Vector2( 171.203, -682.228 )
+mass = 75.0
+
+[node name="Asteroid018" parent="GameWorld/Asteroids/AsteroidsSmall" index="17" instance=ExtResource( 2 )]
+position = Vector2( 236.244, -696.123 )
+mass = 75.0
+
+[node name="Asteroid019" parent="GameWorld/Asteroids/AsteroidsSmall" index="18" instance=ExtResource( 2 )]
+position = Vector2( 242.537, -845.255 )
+mass = 75.0
+
+[node name="Asteroid020" parent="GameWorld/Asteroids/AsteroidsSmall" index="19" instance=ExtResource( 2 )]
+position = Vector2( 394.815, -725.75 )
+mass = 75.0
+
+[node name="Asteroid021" parent="GameWorld/Asteroids/AsteroidsSmall" index="20" instance=ExtResource( 2 )]
+position = Vector2( 96.5507, -803.777 )
+mass = 75.0
+
+[node name="Asteroid022" parent="GameWorld/Asteroids/AsteroidsSmall" index="21" instance=ExtResource( 2 )]
+position = Vector2( 126.125, -976.82 )
+mass = 75.0
+
+[node name="Asteroid023" parent="GameWorld/Asteroids/AsteroidsSmall" index="22" instance=ExtResource( 2 )]
+position = Vector2( 407.4, -1042.26 )
+mass = 75.0
+
+[node name="Asteroid024" parent="GameWorld/Asteroids/AsteroidsSmall" index="23" instance=ExtResource( 2 )]
+position = Vector2( 227.435, -1042.89 )
+mass = 75.0
+
+[node name="AsteroidsHuge" type="Node2D" parent="GameWorld/Asteroids" index="2"]
+
+[node name="Asteroid001" parent="GameWorld/Asteroids/AsteroidsHuge" index="0" instance=ExtResource( 3 )]
+position = Vector2( 53.9603, -1157.9 )
+
+[node name="AsteroidsBig2" type="Node2D" parent="GameWorld/Asteroids" index="3"]
+position = Vector2( -207.318, -391.88 )
+rotation = -2.8299
+
+[node name="Asteroid001" parent="GameWorld/Asteroids/AsteroidsBig2" index="0" instance=ExtResource( 1 )]
+position = Vector2( 39.3334, -112 )
+
+[node name="Asteroid002" parent="GameWorld/Asteroids/AsteroidsBig2" index="1" instance=ExtResource( 1 )]
+position = Vector2( 186.448, 24.9749 )
+
+[node name="Asteroid003" parent="GameWorld/Asteroids/AsteroidsBig2" index="2" instance=ExtResource( 1 )]
+position = Vector2( 355.757, 26.4732 )
+
+[node name="Asteroid004" parent="GameWorld/Asteroids/AsteroidsBig2" index="3" instance=ExtResource( 1 )]
+position = Vector2( 272.37, -245.164 )
+
+[node name="Asteroid005" parent="GameWorld/Asteroids/AsteroidsBig2" index="4" instance=ExtResource( 1 )]
+position = Vector2( 91.1457, -305.572 )
+
+[node name="Asteroid006" parent="GameWorld/Asteroids/AsteroidsBig2" index="5" instance=ExtResource( 1 )]
+position = Vector2( 247.2, -397.443 )
+
+[node name="Asteroid007" parent="GameWorld/Asteroids/AsteroidsBig2" index="6" instance=ExtResource( 1 )]
+position = Vector2( 60.9417, -476.099 )
+
+[node name="Asteroid008" parent="GameWorld/Asteroids/AsteroidsBig2" index="7" instance=ExtResource( 1 )]
+position = Vector2( 66.6667, -612 )
+
+[node name="Asteroid009" parent="GameWorld/Asteroids/AsteroidsBig2" index="8" instance=ExtResource( 1 )]
+position = Vector2( 253.115, -587.025 )
+
+[node name="Asteroid010" parent="GameWorld/Asteroids/AsteroidsBig2" index="9" instance=ExtResource( 1 )]
+position = Vector2( 422.424, -585.527 )
+
+[node name="Asteroid011" parent="GameWorld/Asteroids/AsteroidsBig2" index="10" instance=ExtResource( 1 )]
+position = Vector2( 339.036, -857.164 )
+
+[node name="Asteroid012" parent="GameWorld/Asteroids/AsteroidsBig2" index="11" instance=ExtResource( 1 )]
+position = Vector2( 157.812, -917.572 )
+
+[node name="Asteroid013" parent="GameWorld/Asteroids/AsteroidsBig2" index="12" instance=ExtResource( 1 )]
+position = Vector2( 313.866, -1009.44 )
+
+[node name="Asteroid014" parent="GameWorld/Asteroids/AsteroidsBig2" index="13" instance=ExtResource( 1 )]
+position = Vector2( 127.608, -1088.1 )
+
+[node name="AsteroidsSmall2" type="Node2D" parent="GameWorld/Asteroids" index="4"]
+position = Vector2( -207.318, -391.88 )
+rotation = -2.8299
+
+[node name="Asteroid001" parent="GameWorld/Asteroids/AsteroidsSmall2" index="0" instance=ExtResource( 2 )]
+position = Vector2( 77.5714, 26.9726 )
+mass = 75.0
+
+[node name="Asteroid002" parent="GameWorld/Asteroids/AsteroidsSmall2" index="1" instance=ExtResource( 2 )]
+position = Vector2( 128.514, 64.9297 )
+mass = 75.0
+
+[node name="Asteroid003" parent="GameWorld/Asteroids/AsteroidsSmall2" index="2" instance=ExtResource( 2 )]
+position = Vector2( 288.833, 45.9512 )
+mass = 75.0
+
+[node name="Asteroid004" parent="GameWorld/Asteroids/AsteroidsSmall2" index="3" instance=ExtResource( 2 )]
+position = Vector2( 221.409, 85.9061 )
+mass = 75.0
+
+[node name="Asteroid005" parent="GameWorld/Asteroids/AsteroidsSmall2" index="4" instance=ExtResource( 2 )]
+position = Vector2( 108.536, -90.8942 )
+mass = 75.0
+
+[node name="Asteroid006" parent="GameWorld/Asteroids/AsteroidsSmall2" index="5" instance=ExtResource( 2 )]
+position = Vector2( 173.577, -104.79 )
+mass = 75.0
+
+[node name="Asteroid007" parent="GameWorld/Asteroids/AsteroidsSmall2" index="6" instance=ExtResource( 2 )]
+position = Vector2( 179.87, -253.922 )
+mass = 75.0
+
+[node name="Asteroid008" parent="GameWorld/Asteroids/AsteroidsSmall2" index="7" instance=ExtResource( 2 )]
+position = Vector2( 332.148, -134.416 )
+mass = 75.0
+
+[node name="Asteroid009" parent="GameWorld/Asteroids/AsteroidsSmall2" index="8" instance=ExtResource( 2 )]
+position = Vector2( 33.884, -212.443 )
+mass = 75.0
+
+[node name="Asteroid010" parent="GameWorld/Asteroids/AsteroidsSmall2" index="9" instance=ExtResource( 2 )]
+position = Vector2( 63.4587, -385.487 )
+mass = 75.0
+
+[node name="Asteroid011" parent="GameWorld/Asteroids/AsteroidsSmall2" index="10" instance=ExtResource( 2 )]
+position = Vector2( 344.733, -450.929 )
+mass = 75.0
+
+[node name="Asteroid012" parent="GameWorld/Asteroids/AsteroidsSmall2" index="11" instance=ExtResource( 2 )]
+position = Vector2( 164.768, -451.558 )
+mass = 75.0
+
+[node name="Asteroid013" parent="GameWorld/Asteroids/AsteroidsSmall2" index="12" instance=ExtResource( 2 )]
+position = Vector2( 140.238, -564.361 )
+mass = 75.0
+
+[node name="Asteroid014" parent="GameWorld/Asteroids/AsteroidsSmall2" index="13" instance=ExtResource( 2 )]
+position = Vector2( 191.181, -526.404 )
+mass = 75.0
+
+[node name="Asteroid015" parent="GameWorld/Asteroids/AsteroidsSmall2" index="14" instance=ExtResource( 2 )]
+position = Vector2( 351.499, -545.382 )
+mass = 75.0
+
+[node name="Asteroid016" parent="GameWorld/Asteroids/AsteroidsSmall2" index="15" instance=ExtResource( 2 )]
+position = Vector2( 284.076, -505.427 )
+mass = 75.0
+
+[node name="Asteroid017" parent="GameWorld/Asteroids/AsteroidsSmall2" index="16" instance=ExtResource( 2 )]
+position = Vector2( 171.203, -682.228 )
+mass = 75.0
+
+[node name="Asteroid018" parent="GameWorld/Asteroids/AsteroidsSmall2" index="17" instance=ExtResource( 2 )]
+position = Vector2( 236.244, -696.123 )
+mass = 75.0
+
+[node name="Asteroid019" parent="GameWorld/Asteroids/AsteroidsSmall2" index="18" instance=ExtResource( 2 )]
+position = Vector2( 242.537, -845.255 )
+mass = 75.0
+
+[node name="Asteroid020" parent="GameWorld/Asteroids/AsteroidsSmall2" index="19" instance=ExtResource( 2 )]
+position = Vector2( 394.815, -725.75 )
+mass = 75.0
+
+[node name="Asteroid021" parent="GameWorld/Asteroids/AsteroidsSmall2" index="20" instance=ExtResource( 2 )]
+position = Vector2( 96.5507, -803.777 )
+mass = 75.0
+
+[node name="Asteroid022" parent="GameWorld/Asteroids/AsteroidsSmall2" index="21" instance=ExtResource( 2 )]
+position = Vector2( 126.125, -976.82 )
+mass = 75.0
+
+[node name="Asteroid023" parent="GameWorld/Asteroids/AsteroidsSmall2" index="22" instance=ExtResource( 2 )]
+position = Vector2( 407.4, -1042.26 )
+mass = 75.0
+
+[node name="Asteroid024" parent="GameWorld/Asteroids/AsteroidsSmall2" index="23" instance=ExtResource( 2 )]
+position = Vector2( 227.435, -1042.89 )
+mass = 75.0
+
+[node name="AsteroidsHuge2" type="Node2D" parent="GameWorld/Asteroids" index="5"]
+position = Vector2( -207.318, -391.88 )
+rotation = -2.8299
+
+[node name="Asteroid001" parent="GameWorld/Asteroids/AsteroidsHuge2" index="0" instance=ExtResource( 3 )]
+position = Vector2( 53.9603, -1157.9 )
+
+[node name="AsteroidsBig3" type="Node2D" parent="GameWorld/Asteroids" index="6"]
+position = Vector2( 332.681, -291.88 )
+rotation = -4.53187
+
+[node name="Asteroid001" parent="GameWorld/Asteroids/AsteroidsBig3" index="0" instance=ExtResource( 1 )]
+position = Vector2( 39.3334, -112 )
+
+[node name="Asteroid002" parent="GameWorld/Asteroids/AsteroidsBig3" index="1" instance=ExtResource( 1 )]
+position = Vector2( 186.448, 24.9749 )
+
+[node name="Asteroid003" parent="GameWorld/Asteroids/AsteroidsBig3" index="2" instance=ExtResource( 1 )]
+position = Vector2( 355.757, 26.4732 )
+
+[node name="Asteroid004" parent="GameWorld/Asteroids/AsteroidsBig3" index="3" instance=ExtResource( 1 )]
+position = Vector2( 272.37, -245.164 )
+
+[node name="Asteroid005" parent="GameWorld/Asteroids/AsteroidsBig3" index="4" instance=ExtResource( 1 )]
+position = Vector2( 91.1457, -305.572 )
+
+[node name="Asteroid006" parent="GameWorld/Asteroids/AsteroidsBig3" index="5" instance=ExtResource( 1 )]
+position = Vector2( 247.2, -397.443 )
+
+[node name="Asteroid007" parent="GameWorld/Asteroids/AsteroidsBig3" index="6" instance=ExtResource( 1 )]
+position = Vector2( 60.9417, -476.099 )
+
+[node name="Asteroid008" parent="GameWorld/Asteroids/AsteroidsBig3" index="7" instance=ExtResource( 1 )]
+position = Vector2( 66.6667, -612 )
+
+[node name="Asteroid009" parent="GameWorld/Asteroids/AsteroidsBig3" index="8" instance=ExtResource( 1 )]
+position = Vector2( 253.115, -587.025 )
+
+[node name="Asteroid010" parent="GameWorld/Asteroids/AsteroidsBig3" index="9" instance=ExtResource( 1 )]
+position = Vector2( 422.424, -585.527 )
+
+[node name="Asteroid011" parent="GameWorld/Asteroids/AsteroidsBig3" index="10" instance=ExtResource( 1 )]
+position = Vector2( 339.036, -857.164 )
+
+[node name="Asteroid012" parent="GameWorld/Asteroids/AsteroidsBig3" index="11" instance=ExtResource( 1 )]
+position = Vector2( 157.812, -917.572 )
+
+[node name="Asteroid013" parent="GameWorld/Asteroids/AsteroidsBig3" index="12" instance=ExtResource( 1 )]
+position = Vector2( 313.866, -1009.44 )
+
+[node name="Asteroid014" parent="GameWorld/Asteroids/AsteroidsBig3" index="13" instance=ExtResource( 1 )]
+position = Vector2( 127.608, -1088.1 )
+
+[node name="AsteroidsSmall3" type="Node2D" parent="GameWorld/Asteroids" index="7"]
+position = Vector2( 332.681, -291.88 )
+rotation = -4.53187
+
+[node name="Asteroid001" parent="GameWorld/Asteroids/AsteroidsSmall3" index="0" instance=ExtResource( 2 )]
+position = Vector2( 77.5714, 26.9726 )
+mass = 75.0
+
+[node name="Asteroid002" parent="GameWorld/Asteroids/AsteroidsSmall3" index="1" instance=ExtResource( 2 )]
+position = Vector2( 128.514, 64.9297 )
+mass = 75.0
+
+[node name="Asteroid003" parent="GameWorld/Asteroids/AsteroidsSmall3" index="2" instance=ExtResource( 2 )]
+position = Vector2( 288.833, 45.9512 )
+mass = 75.0
+
+[node name="Asteroid004" parent="GameWorld/Asteroids/AsteroidsSmall3" index="3" instance=ExtResource( 2 )]
+position = Vector2( 221.409, 85.9061 )
+mass = 75.0
+
+[node name="Asteroid005" parent="GameWorld/Asteroids/AsteroidsSmall3" index="4" instance=ExtResource( 2 )]
+position = Vector2( 108.536, -90.8942 )
+mass = 75.0
+
+[node name="Asteroid006" parent="GameWorld/Asteroids/AsteroidsSmall3" index="5" instance=ExtResource( 2 )]
+position = Vector2( 173.577, -104.79 )
+mass = 75.0
+
+[node name="Asteroid007" parent="GameWorld/Asteroids/AsteroidsSmall3" index="6" instance=ExtResource( 2 )]
+position = Vector2( 179.87, -253.922 )
+mass = 75.0
+
+[node name="Asteroid008" parent="GameWorld/Asteroids/AsteroidsSmall3" index="7" instance=ExtResource( 2 )]
+position = Vector2( 332.148, -134.416 )
+mass = 75.0
+
+[node name="Asteroid009" parent="GameWorld/Asteroids/AsteroidsSmall3" index="8" instance=ExtResource( 2 )]
+position = Vector2( 33.884, -212.443 )
+mass = 75.0
+
+[node name="Asteroid010" parent="GameWorld/Asteroids/AsteroidsSmall3" index="9" instance=ExtResource( 2 )]
+position = Vector2( 63.4587, -385.487 )
+mass = 75.0
+
+[node name="Asteroid011" parent="GameWorld/Asteroids/AsteroidsSmall3" index="10" instance=ExtResource( 2 )]
+position = Vector2( 344.733, -450.929 )
+mass = 75.0
+
+[node name="Asteroid012" parent="GameWorld/Asteroids/AsteroidsSmall3" index="11" instance=ExtResource( 2 )]
+position = Vector2( 164.768, -451.558 )
+mass = 75.0
+
+[node name="Asteroid013" parent="GameWorld/Asteroids/AsteroidsSmall3" index="12" instance=ExtResource( 2 )]
+position = Vector2( 140.238, -564.361 )
+mass = 75.0
+
+[node name="Asteroid014" parent="GameWorld/Asteroids/AsteroidsSmall3" index="13" instance=ExtResource( 2 )]
+position = Vector2( 191.181, -526.404 )
+mass = 75.0
+
+[node name="Asteroid015" parent="GameWorld/Asteroids/AsteroidsSmall3" index="14" instance=ExtResource( 2 )]
+position = Vector2( 351.499, -545.382 )
+mass = 75.0
+
+[node name="Asteroid016" parent="GameWorld/Asteroids/AsteroidsSmall3" index="15" instance=ExtResource( 2 )]
+position = Vector2( 284.076, -505.427 )
+mass = 75.0
+
+[node name="Asteroid017" parent="GameWorld/Asteroids/AsteroidsSmall3" index="16" instance=ExtResource( 2 )]
+position = Vector2( 171.203, -682.228 )
+mass = 75.0
+
+[node name="Asteroid018" parent="GameWorld/Asteroids/AsteroidsSmall3" index="17" instance=ExtResource( 2 )]
+position = Vector2( 236.244, -696.123 )
+mass = 75.0
+
+[node name="Asteroid019" parent="GameWorld/Asteroids/AsteroidsSmall3" index="18" instance=ExtResource( 2 )]
+position = Vector2( 242.537, -845.255 )
+mass = 75.0
+
+[node name="Asteroid020" parent="GameWorld/Asteroids/AsteroidsSmall3" index="19" instance=ExtResource( 2 )]
+position = Vector2( 394.815, -725.75 )
+mass = 75.0
+
+[node name="Asteroid021" parent="GameWorld/Asteroids/AsteroidsSmall3" index="20" instance=ExtResource( 2 )]
+position = Vector2( 96.5507, -803.777 )
+mass = 75.0
+
+[node name="Asteroid022" parent="GameWorld/Asteroids/AsteroidsSmall3" index="21" instance=ExtResource( 2 )]
+position = Vector2( 126.125, -976.82 )
+mass = 75.0
+
+[node name="Asteroid023" parent="GameWorld/Asteroids/AsteroidsSmall3" index="22" instance=ExtResource( 2 )]
+position = Vector2( 407.4, -1042.26 )
+mass = 75.0
+
+[node name="Asteroid024" parent="GameWorld/Asteroids/AsteroidsSmall3" index="23" instance=ExtResource( 2 )]
+position = Vector2( 227.435, -1042.89 )
+mass = 75.0
+
+[node name="AsteroidsHuge3" type="Node2D" parent="GameWorld/Asteroids" index="8"]
+position = Vector2( 332.681, -291.88 )
+rotation = -4.53187
+
+[node name="Asteroid001" parent="GameWorld/Asteroids/AsteroidsHuge3" index="0" instance=ExtResource( 3 )]
+position = Vector2( 53.9603, -1157.9 )
+
+[node name="AsteroidsBig4" type="Node2D" parent="GameWorld/Asteroids" index="9"]
+position = Vector2( 121.485, 1618.86 )
+
+[node name="Asteroid001" parent="GameWorld/Asteroids/AsteroidsBig4" index="0" instance=ExtResource( 1 )]
+position = Vector2( 39.3334, -112 )
+
+[node name="Asteroid002" parent="GameWorld/Asteroids/AsteroidsBig4" index="1" instance=ExtResource( 1 )]
+position = Vector2( 186.448, 24.9749 )
+
+[node name="Asteroid003" parent="GameWorld/Asteroids/AsteroidsBig4" index="2" instance=ExtResource( 1 )]
+position = Vector2( 355.757, 26.4732 )
+
+[node name="Asteroid004" parent="GameWorld/Asteroids/AsteroidsBig4" index="3" instance=ExtResource( 1 )]
+position = Vector2( 272.37, -245.164 )
+
+[node name="Asteroid005" parent="GameWorld/Asteroids/AsteroidsBig4" index="4" instance=ExtResource( 1 )]
+position = Vector2( 91.1457, -305.572 )
+
+[node name="Asteroid006" parent="GameWorld/Asteroids/AsteroidsBig4" index="5" instance=ExtResource( 1 )]
+position = Vector2( 247.2, -397.443 )
+
+[node name="Asteroid007" parent="GameWorld/Asteroids/AsteroidsBig4" index="6" instance=ExtResource( 1 )]
+position = Vector2( 60.9417, -476.099 )
+
+[node name="Asteroid008" parent="GameWorld/Asteroids/AsteroidsBig4" index="7" instance=ExtResource( 1 )]
+position = Vector2( 66.6667, -612 )
+
+[node name="Asteroid009" parent="GameWorld/Asteroids/AsteroidsBig4" index="8" instance=ExtResource( 1 )]
+position = Vector2( 253.115, -587.025 )
+
+[node name="Asteroid010" parent="GameWorld/Asteroids/AsteroidsBig4" index="9" instance=ExtResource( 1 )]
+position = Vector2( 422.424, -585.527 )
+
+[node name="Asteroid011" parent="GameWorld/Asteroids/AsteroidsBig4" index="10" instance=ExtResource( 1 )]
+position = Vector2( 339.036, -857.164 )
+
+[node name="Asteroid012" parent="GameWorld/Asteroids/AsteroidsBig4" index="11" instance=ExtResource( 1 )]
+position = Vector2( 157.812, -917.572 )
+
+[node name="Asteroid013" parent="GameWorld/Asteroids/AsteroidsBig4" index="12" instance=ExtResource( 1 )]
+position = Vector2( 313.866, -1009.44 )
+
+[node name="Asteroid014" parent="GameWorld/Asteroids/AsteroidsBig4" index="13" instance=ExtResource( 1 )]
+position = Vector2( 127.608, -1088.1 )
+
+[node name="AsteroidsSmall4" type="Node2D" parent="GameWorld/Asteroids" index="10"]
+position = Vector2( 121.485, 1618.86 )
+
+[node name="Asteroid001" parent="GameWorld/Asteroids/AsteroidsSmall4" index="0" instance=ExtResource( 2 )]
+position = Vector2( 77.5714, 26.9726 )
+mass = 75.0
+
+[node name="Asteroid002" parent="GameWorld/Asteroids/AsteroidsSmall4" index="1" instance=ExtResource( 2 )]
+position = Vector2( 128.514, 64.9297 )
+mass = 75.0
+
+[node name="Asteroid003" parent="GameWorld/Asteroids/AsteroidsSmall4" index="2" instance=ExtResource( 2 )]
+position = Vector2( 288.833, 45.9512 )
+mass = 75.0
+
+[node name="Asteroid004" parent="GameWorld/Asteroids/AsteroidsSmall4" index="3" instance=ExtResource( 2 )]
+position = Vector2( 221.409, 85.9061 )
+mass = 75.0
+
+[node name="Asteroid005" parent="GameWorld/Asteroids/AsteroidsSmall4" index="4" instance=ExtResource( 2 )]
+position = Vector2( 108.536, -90.8942 )
+mass = 75.0
+
+[node name="Asteroid006" parent="GameWorld/Asteroids/AsteroidsSmall4" index="5" instance=ExtResource( 2 )]
+position = Vector2( 173.577, -104.79 )
+mass = 75.0
+
+[node name="Asteroid007" parent="GameWorld/Asteroids/AsteroidsSmall4" index="6" instance=ExtResource( 2 )]
+position = Vector2( 179.87, -253.922 )
+mass = 75.0
+
+[node name="Asteroid008" parent="GameWorld/Asteroids/AsteroidsSmall4" index="7" instance=ExtResource( 2 )]
+position = Vector2( 332.148, -134.416 )
+mass = 75.0
+
+[node name="Asteroid009" parent="GameWorld/Asteroids/AsteroidsSmall4" index="8" instance=ExtResource( 2 )]
+position = Vector2( 33.884, -212.443 )
+mass = 75.0
+
+[node name="Asteroid010" parent="GameWorld/Asteroids/AsteroidsSmall4" index="9" instance=ExtResource( 2 )]
+position = Vector2( 63.4587, -385.487 )
+mass = 75.0
+
+[node name="Asteroid011" parent="GameWorld/Asteroids/AsteroidsSmall4" index="10" instance=ExtResource( 2 )]
+position = Vector2( 344.733, -450.929 )
+mass = 75.0
+
+[node name="Asteroid012" parent="GameWorld/Asteroids/AsteroidsSmall4" index="11" instance=ExtResource( 2 )]
+position = Vector2( 164.768, -451.558 )
+mass = 75.0
+
+[node name="Asteroid013" parent="GameWorld/Asteroids/AsteroidsSmall4" index="12" instance=ExtResource( 2 )]
+position = Vector2( 140.238, -564.361 )
+mass = 75.0
+
+[node name="Asteroid014" parent="GameWorld/Asteroids/AsteroidsSmall4" index="13" instance=ExtResource( 2 )]
+position = Vector2( 191.181, -526.404 )
+mass = 75.0
+
+[node name="Asteroid015" parent="GameWorld/Asteroids/AsteroidsSmall4" index="14" instance=ExtResource( 2 )]
+position = Vector2( 351.499, -545.382 )
+mass = 75.0
+
+[node name="Asteroid016" parent="GameWorld/Asteroids/AsteroidsSmall4" index="15" instance=ExtResource( 2 )]
+position = Vector2( 284.076, -505.427 )
+mass = 75.0
+
+[node name="Asteroid017" parent="GameWorld/Asteroids/AsteroidsSmall4" index="16" instance=ExtResource( 2 )]
+position = Vector2( 171.203, -682.228 )
+mass = 75.0
+
+[node name="Asteroid018" parent="GameWorld/Asteroids/AsteroidsSmall4" index="17" instance=ExtResource( 2 )]
+position = Vector2( 236.244, -696.123 )
+mass = 75.0
+
+[node name="Asteroid019" parent="GameWorld/Asteroids/AsteroidsSmall4" index="18" instance=ExtResource( 2 )]
+position = Vector2( 242.537, -845.255 )
+mass = 75.0
+
+[node name="Asteroid020" parent="GameWorld/Asteroids/AsteroidsSmall4" index="19" instance=ExtResource( 2 )]
+position = Vector2( 394.815, -725.75 )
+mass = 75.0
+
+[node name="Asteroid021" parent="GameWorld/Asteroids/AsteroidsSmall4" index="20" instance=ExtResource( 2 )]
+position = Vector2( 96.5507, -803.777 )
+mass = 75.0
+
+[node name="Asteroid022" parent="GameWorld/Asteroids/AsteroidsSmall4" index="21" instance=ExtResource( 2 )]
+position = Vector2( 126.125, -976.82 )
+mass = 75.0
+
+[node name="Asteroid023" parent="GameWorld/Asteroids/AsteroidsSmall4" index="22" instance=ExtResource( 2 )]
+position = Vector2( 407.4, -1042.26 )
+mass = 75.0
+
+[node name="Asteroid024" parent="GameWorld/Asteroids/AsteroidsSmall4" index="23" instance=ExtResource( 2 )]
+position = Vector2( 227.435, -1042.89 )
+mass = 75.0
+
+[node name="AsteroidsHuge4" type="Node2D" parent="GameWorld/Asteroids" index="11"]
+position = Vector2( 121.485, 1618.86 )
+
+[node name="Asteroid001" parent="GameWorld/Asteroids/AsteroidsHuge4" index="0" instance=ExtResource( 3 )]
+position = Vector2( 53.9603, -1157.9 )
+
+[node name="AsteroidsBig5" type="Node2D" parent="GameWorld/Asteroids" index="12"]
+position = Vector2( -85.8334, 1226.98 )
+rotation = -2.8299
+
+[node name="Asteroid001" parent="GameWorld/Asteroids/AsteroidsBig5" index="0" instance=ExtResource( 1 )]
+position = Vector2( 39.3334, -112 )
+
+[node name="Asteroid002" parent="GameWorld/Asteroids/AsteroidsBig5" index="1" instance=ExtResource( 1 )]
+position = Vector2( 186.448, 24.9749 )
+
+[node name="Asteroid003" parent="GameWorld/Asteroids/AsteroidsBig5" index="2" instance=ExtResource( 1 )]
+position = Vector2( 355.757, 26.4732 )
+
+[node name="Asteroid004" parent="GameWorld/Asteroids/AsteroidsBig5" index="3" instance=ExtResource( 1 )]
+position = Vector2( 272.37, -245.164 )
+
+[node name="Asteroid005" parent="GameWorld/Asteroids/AsteroidsBig5" index="4" instance=ExtResource( 1 )]
+position = Vector2( 91.1457, -305.572 )
+
+[node name="Asteroid006" parent="GameWorld/Asteroids/AsteroidsBig5" index="5" instance=ExtResource( 1 )]
+position = Vector2( 247.2, -397.443 )
+
+[node name="Asteroid007" parent="GameWorld/Asteroids/AsteroidsBig5" index="6" instance=ExtResource( 1 )]
+position = Vector2( 60.9417, -476.099 )
+
+[node name="Asteroid008" parent="GameWorld/Asteroids/AsteroidsBig5" index="7" instance=ExtResource( 1 )]
+position = Vector2( 66.6667, -612 )
+
+[node name="Asteroid009" parent="GameWorld/Asteroids/AsteroidsBig5" index="8" instance=ExtResource( 1 )]
+position = Vector2( 253.115, -587.025 )
+
+[node name="Asteroid010" parent="GameWorld/Asteroids/AsteroidsBig5" index="9" instance=ExtResource( 1 )]
+position = Vector2( 422.424, -585.527 )
+
+[node name="Asteroid011" parent="GameWorld/Asteroids/AsteroidsBig5" index="10" instance=ExtResource( 1 )]
+position = Vector2( 339.036, -857.164 )
+
+[node name="Asteroid012" parent="GameWorld/Asteroids/AsteroidsBig5" index="11" instance=ExtResource( 1 )]
+position = Vector2( 157.812, -917.572 )
+
+[node name="Asteroid013" parent="GameWorld/Asteroids/AsteroidsBig5" index="12" instance=ExtResource( 1 )]
+position = Vector2( 313.866, -1009.44 )
+
+[node name="Asteroid014" parent="GameWorld/Asteroids/AsteroidsBig5" index="13" instance=ExtResource( 1 )]
+position = Vector2( 127.608, -1088.1 )
+
+[node name="AsteroidsSmall5" type="Node2D" parent="GameWorld/Asteroids" index="13"]
+position = Vector2( -85.8334, 1226.98 )
+rotation = -2.8299
+
+[node name="Asteroid001" parent="GameWorld/Asteroids/AsteroidsSmall5" index="0" instance=ExtResource( 2 )]
+position = Vector2( 77.5714, 26.9726 )
+mass = 75.0
+
+[node name="Asteroid002" parent="GameWorld/Asteroids/AsteroidsSmall5" index="1" instance=ExtResource( 2 )]
+position = Vector2( 128.514, 64.9297 )
+mass = 75.0
+
+[node name="Asteroid003" parent="GameWorld/Asteroids/AsteroidsSmall5" index="2" instance=ExtResource( 2 )]
+position = Vector2( 288.833, 45.9512 )
+mass = 75.0
+
+[node name="Asteroid004" parent="GameWorld/Asteroids/AsteroidsSmall5" index="3" instance=ExtResource( 2 )]
+position = Vector2( 221.409, 85.9061 )
+mass = 75.0
+
+[node name="Asteroid005" parent="GameWorld/Asteroids/AsteroidsSmall5" index="4" instance=ExtResource( 2 )]
+position = Vector2( 108.536, -90.8942 )
+mass = 75.0
+
+[node name="Asteroid006" parent="GameWorld/Asteroids/AsteroidsSmall5" index="5" instance=ExtResource( 2 )]
+position = Vector2( 173.577, -104.79 )
+mass = 75.0
+
+[node name="Asteroid007" parent="GameWorld/Asteroids/AsteroidsSmall5" index="6" instance=ExtResource( 2 )]
+position = Vector2( 179.87, -253.922 )
+mass = 75.0
+
+[node name="Asteroid008" parent="GameWorld/Asteroids/AsteroidsSmall5" index="7" instance=ExtResource( 2 )]
+position = Vector2( 332.148, -134.416 )
+mass = 75.0
+
+[node name="Asteroid009" parent="GameWorld/Asteroids/AsteroidsSmall5" index="8" instance=ExtResource( 2 )]
+position = Vector2( 33.884, -212.443 )
+mass = 75.0
+
+[node name="Asteroid010" parent="GameWorld/Asteroids/AsteroidsSmall5" index="9" instance=ExtResource( 2 )]
+position = Vector2( 63.4587, -385.487 )
+mass = 75.0
+
+[node name="Asteroid011" parent="GameWorld/Asteroids/AsteroidsSmall5" index="10" instance=ExtResource( 2 )]
+position = Vector2( 344.733, -450.929 )
+mass = 75.0
+
+[node name="Asteroid012" parent="GameWorld/Asteroids/AsteroidsSmall5" index="11" instance=ExtResource( 2 )]
+position = Vector2( 164.768, -451.558 )
+mass = 75.0
+
+[node name="Asteroid013" parent="GameWorld/Asteroids/AsteroidsSmall5" index="12" instance=ExtResource( 2 )]
+position = Vector2( 140.238, -564.361 )
+mass = 75.0
+
+[node name="Asteroid014" parent="GameWorld/Asteroids/AsteroidsSmall5" index="13" instance=ExtResource( 2 )]
+position = Vector2( 191.181, -526.404 )
+mass = 75.0
+
+[node name="Asteroid015" parent="GameWorld/Asteroids/AsteroidsSmall5" index="14" instance=ExtResource( 2 )]
+position = Vector2( 351.499, -545.382 )
+mass = 75.0
+
+[node name="Asteroid016" parent="GameWorld/Asteroids/AsteroidsSmall5" index="15" instance=ExtResource( 2 )]
+position = Vector2( 284.076, -505.427 )
+mass = 75.0
+
+[node name="Asteroid017" parent="GameWorld/Asteroids/AsteroidsSmall5" index="16" instance=ExtResource( 2 )]
+position = Vector2( 171.203, -682.228 )
+mass = 75.0
+
+[node name="Asteroid018" parent="GameWorld/Asteroids/AsteroidsSmall5" index="17" instance=ExtResource( 2 )]
+position = Vector2( 236.244, -696.123 )
+mass = 75.0
+
+[node name="Asteroid019" parent="GameWorld/Asteroids/AsteroidsSmall5" index="18" instance=ExtResource( 2 )]
+position = Vector2( 242.537, -845.255 )
+mass = 75.0
+
+[node name="Asteroid020" parent="GameWorld/Asteroids/AsteroidsSmall5" index="19" instance=ExtResource( 2 )]
+position = Vector2( 394.815, -725.75 )
+mass = 75.0
+
+[node name="Asteroid021" parent="GameWorld/Asteroids/AsteroidsSmall5" index="20" instance=ExtResource( 2 )]
+position = Vector2( 96.5507, -803.777 )
+mass = 75.0
+
+[node name="Asteroid022" parent="GameWorld/Asteroids/AsteroidsSmall5" index="21" instance=ExtResource( 2 )]
+position = Vector2( 126.125, -976.82 )
+mass = 75.0
+
+[node name="Asteroid023" parent="GameWorld/Asteroids/AsteroidsSmall5" index="22" instance=ExtResource( 2 )]
+position = Vector2( 407.4, -1042.26 )
+mass = 75.0
+
+[node name="Asteroid024" parent="GameWorld/Asteroids/AsteroidsSmall5" index="23" instance=ExtResource( 2 )]
+position = Vector2( 227.435, -1042.89 )
+mass = 75.0
+
+[node name="AsteroidsHuge5" type="Node2D" parent="GameWorld/Asteroids" index="14"]
+position = Vector2( -85.8334, 1226.98 )
+rotation = -2.8299
+
+[node name="Asteroid001" parent="GameWorld/Asteroids/AsteroidsHuge5" index="0" instance=ExtResource( 3 )]
+position = Vector2( 53.9603, -1157.9 )
+
+[node name="AsteroidsBig6" type="Node2D" parent="GameWorld/Asteroids" index="15"]
+position = Vector2( 454.166, 1326.98 )
+rotation = -4.53187
+
+[node name="Asteroid001" parent="GameWorld/Asteroids/AsteroidsBig6" index="0" instance=ExtResource( 1 )]
+position = Vector2( 39.3334, -112 )
+
+[node name="Asteroid002" parent="GameWorld/Asteroids/AsteroidsBig6" index="1" instance=ExtResource( 1 )]
+position = Vector2( 186.448, 24.9749 )
+
+[node name="Asteroid003" parent="GameWorld/Asteroids/AsteroidsBig6" index="2" instance=ExtResource( 1 )]
+position = Vector2( 355.757, 26.4732 )
+
+[node name="Asteroid004" parent="GameWorld/Asteroids/AsteroidsBig6" index="3" instance=ExtResource( 1 )]
+position = Vector2( 272.37, -245.164 )
+
+[node name="Asteroid005" parent="GameWorld/Asteroids/AsteroidsBig6" index="4" instance=ExtResource( 1 )]
+position = Vector2( 91.1457, -305.572 )
+
+[node name="Asteroid006" parent="GameWorld/Asteroids/AsteroidsBig6" index="5" instance=ExtResource( 1 )]
+position = Vector2( 247.2, -397.443 )
+
+[node name="Asteroid007" parent="GameWorld/Asteroids/AsteroidsBig6" index="6" instance=ExtResource( 1 )]
+position = Vector2( 60.9417, -476.099 )
+
+[node name="Asteroid008" parent="GameWorld/Asteroids/AsteroidsBig6" index="7" instance=ExtResource( 1 )]
+position = Vector2( 66.6667, -612 )
+
+[node name="Asteroid009" parent="GameWorld/Asteroids/AsteroidsBig6" index="8" instance=ExtResource( 1 )]
+position = Vector2( 253.115, -587.025 )
+
+[node name="Asteroid010" parent="GameWorld/Asteroids/AsteroidsBig6" index="9" instance=ExtResource( 1 )]
+position = Vector2( 422.424, -585.527 )
+
+[node name="Asteroid011" parent="GameWorld/Asteroids/AsteroidsBig6" index="10" instance=ExtResource( 1 )]
+position = Vector2( 339.036, -857.164 )
+
+[node name="Asteroid012" parent="GameWorld/Asteroids/AsteroidsBig6" index="11" instance=ExtResource( 1 )]
+position = Vector2( 157.812, -917.572 )
+
+[node name="Asteroid013" parent="GameWorld/Asteroids/AsteroidsBig6" index="12" instance=ExtResource( 1 )]
+position = Vector2( 313.866, -1009.44 )
+
+[node name="Asteroid014" parent="GameWorld/Asteroids/AsteroidsBig6" index="13" instance=ExtResource( 1 )]
+position = Vector2( 127.608, -1088.1 )
+
+[node name="AsteroidsSmall6" type="Node2D" parent="GameWorld/Asteroids" index="16"]
+position = Vector2( 454.166, 1326.98 )
+rotation = -4.53187
+
+[node name="Asteroid001" parent="GameWorld/Asteroids/AsteroidsSmall6" index="0" instance=ExtResource( 2 )]
+position = Vector2( 77.5714, 26.9726 )
+mass = 75.0
+
+[node name="Asteroid002" parent="GameWorld/Asteroids/AsteroidsSmall6" index="1" instance=ExtResource( 2 )]
+position = Vector2( 128.514, 64.9297 )
+mass = 75.0
+
+[node name="Asteroid003" parent="GameWorld/Asteroids/AsteroidsSmall6" index="2" instance=ExtResource( 2 )]
+position = Vector2( 288.833, 45.9512 )
+mass = 75.0
+
+[node name="Asteroid004" parent="GameWorld/Asteroids/AsteroidsSmall6" index="3" instance=ExtResource( 2 )]
+position = Vector2( 221.409, 85.9061 )
+mass = 75.0
+
+[node name="Asteroid005" parent="GameWorld/Asteroids/AsteroidsSmall6" index="4" instance=ExtResource( 2 )]
+position = Vector2( 108.536, -90.8942 )
+mass = 75.0
+
+[node name="Asteroid006" parent="GameWorld/Asteroids/AsteroidsSmall6" index="5" instance=ExtResource( 2 )]
+position = Vector2( 173.577, -104.79 )
+mass = 75.0
+
+[node name="Asteroid007" parent="GameWorld/Asteroids/AsteroidsSmall6" index="6" instance=ExtResource( 2 )]
+position = Vector2( 179.87, -253.922 )
+mass = 75.0
+
+[node name="Asteroid008" parent="GameWorld/Asteroids/AsteroidsSmall6" index="7" instance=ExtResource( 2 )]
+position = Vector2( 332.148, -134.416 )
+mass = 75.0
+
+[node name="Asteroid009" parent="GameWorld/Asteroids/AsteroidsSmall6" index="8" instance=ExtResource( 2 )]
+position = Vector2( 33.884, -212.443 )
+mass = 75.0
+
+[node name="Asteroid010" parent="GameWorld/Asteroids/AsteroidsSmall6" index="9" instance=ExtResource( 2 )]
+position = Vector2( 63.4587, -385.487 )
+mass = 75.0
+
+[node name="Asteroid011" parent="GameWorld/Asteroids/AsteroidsSmall6" index="10" instance=ExtResource( 2 )]
+position = Vector2( 344.733, -450.929 )
+mass = 75.0
+
+[node name="Asteroid012" parent="GameWorld/Asteroids/AsteroidsSmall6" index="11" instance=ExtResource( 2 )]
+position = Vector2( 164.768, -451.558 )
+mass = 75.0
+
+[node name="Asteroid013" parent="GameWorld/Asteroids/AsteroidsSmall6" index="12" instance=ExtResource( 2 )]
+position = Vector2( 140.238, -564.361 )
+mass = 75.0
+
+[node name="Asteroid014" parent="GameWorld/Asteroids/AsteroidsSmall6" index="13" instance=ExtResource( 2 )]
+position = Vector2( 191.181, -526.404 )
+mass = 75.0
+
+[node name="Asteroid015" parent="GameWorld/Asteroids/AsteroidsSmall6" index="14" instance=ExtResource( 2 )]
+position = Vector2( 351.499, -545.382 )
+mass = 75.0
+
+[node name="Asteroid016" parent="GameWorld/Asteroids/AsteroidsSmall6" index="15" instance=ExtResource( 2 )]
+position = Vector2( 284.076, -505.427 )
+mass = 75.0
+
+[node name="Asteroid017" parent="GameWorld/Asteroids/AsteroidsSmall6" index="16" instance=ExtResource( 2 )]
+position = Vector2( 171.203, -682.228 )
+mass = 75.0
+
+[node name="Asteroid018" parent="GameWorld/Asteroids/AsteroidsSmall6" index="17" instance=ExtResource( 2 )]
+position = Vector2( 236.244, -696.123 )
+mass = 75.0
+
+[node name="Asteroid019" parent="GameWorld/Asteroids/AsteroidsSmall6" index="18" instance=ExtResource( 2 )]
+position = Vector2( 242.537, -845.255 )
+mass = 75.0
+
+[node name="Asteroid020" parent="GameWorld/Asteroids/AsteroidsSmall6" index="19" instance=ExtResource( 2 )]
+position = Vector2( 394.815, -725.75 )
+mass = 75.0
+
+[node name="Asteroid021" parent="GameWorld/Asteroids/AsteroidsSmall6" index="20" instance=ExtResource( 2 )]
+position = Vector2( 96.5507, -803.777 )
+mass = 75.0
+
+[node name="Asteroid022" parent="GameWorld/Asteroids/AsteroidsSmall6" index="21" instance=ExtResource( 2 )]
+position = Vector2( 126.125, -976.82 )
+mass = 75.0
+
+[node name="Asteroid023" parent="GameWorld/Asteroids/AsteroidsSmall6" index="22" instance=ExtResource( 2 )]
+position = Vector2( 407.4, -1042.26 )
+mass = 75.0
+
+[node name="Asteroid024" parent="GameWorld/Asteroids/AsteroidsSmall6" index="23" instance=ExtResource( 2 )]
+position = Vector2( 227.435, -1042.89 )
+mass = 75.0
+
+[node name="AsteroidsHuge6" type="Node2D" parent="GameWorld/Asteroids" index="17"]
+position = Vector2( 454.166, 1326.98 )
+rotation = -4.53187
+
+[node name="Asteroid001" parent="GameWorld/Asteroids/AsteroidsHuge6" index="0" instance=ExtResource( 3 )]
+position = Vector2( 53.9603, -1157.9 )
+
+[node name="AsteroidsBig7" type="Node2D" parent="GameWorld/Asteroids" index="18"]
+position = Vector2( 1760.12, -1104.67 )
+
+[node name="Asteroid001" parent="GameWorld/Asteroids/AsteroidsBig7" index="0" instance=ExtResource( 1 )]
+position = Vector2( 39.3334, -112 )
+
+[node name="Asteroid002" parent="GameWorld/Asteroids/AsteroidsBig7" index="1" instance=ExtResource( 1 )]
+position = Vector2( 186.448, 24.9749 )
+
+[node name="Asteroid003" parent="GameWorld/Asteroids/AsteroidsBig7" index="2" instance=ExtResource( 1 )]
+position = Vector2( 355.757, 26.4732 )
+
+[node name="Asteroid004" parent="GameWorld/Asteroids/AsteroidsBig7" index="3" instance=ExtResource( 1 )]
+position = Vector2( 272.37, -245.164 )
+
+[node name="Asteroid005" parent="GameWorld/Asteroids/AsteroidsBig7" index="4" instance=ExtResource( 1 )]
+position = Vector2( 91.1457, -305.572 )
+
+[node name="Asteroid006" parent="GameWorld/Asteroids/AsteroidsBig7" index="5" instance=ExtResource( 1 )]
+position = Vector2( 247.2, -397.443 )
+
+[node name="Asteroid007" parent="GameWorld/Asteroids/AsteroidsBig7" index="6" instance=ExtResource( 1 )]
+position = Vector2( 60.9417, -476.099 )
+
+[node name="Asteroid008" parent="GameWorld/Asteroids/AsteroidsBig7" index="7" instance=ExtResource( 1 )]
+position = Vector2( 66.6667, -612 )
+
+[node name="Asteroid009" parent="GameWorld/Asteroids/AsteroidsBig7" index="8" instance=ExtResource( 1 )]
+position = Vector2( 253.115, -587.025 )
+
+[node name="Asteroid010" parent="GameWorld/Asteroids/AsteroidsBig7" index="9" instance=ExtResource( 1 )]
+position = Vector2( 422.424, -585.527 )
+
+[node name="Asteroid011" parent="GameWorld/Asteroids/AsteroidsBig7" index="10" instance=ExtResource( 1 )]
+position = Vector2( 339.036, -857.164 )
+
+[node name="Asteroid012" parent="GameWorld/Asteroids/AsteroidsBig7" index="11" instance=ExtResource( 1 )]
+position = Vector2( 157.812, -917.572 )
+
+[node name="Asteroid013" parent="GameWorld/Asteroids/AsteroidsBig7" index="12" instance=ExtResource( 1 )]
+position = Vector2( 313.866, -1009.44 )
+
+[node name="Asteroid014" parent="GameWorld/Asteroids/AsteroidsBig7" index="13" instance=ExtResource( 1 )]
+position = Vector2( 127.608, -1088.1 )
+
+[node name="AsteroidsSmall7" type="Node2D" parent="GameWorld/Asteroids" index="19"]
+position = Vector2( 1760.12, -1104.67 )
+
+[node name="Asteroid001" parent="GameWorld/Asteroids/AsteroidsSmall7" index="0" instance=ExtResource( 2 )]
+position = Vector2( 77.5714, 26.9726 )
+mass = 75.0
+
+[node name="Asteroid002" parent="GameWorld/Asteroids/AsteroidsSmall7" index="1" instance=ExtResource( 2 )]
+position = Vector2( 128.514, 64.9297 )
+mass = 75.0
+
+[node name="Asteroid003" parent="GameWorld/Asteroids/AsteroidsSmall7" index="2" instance=ExtResource( 2 )]
+position = Vector2( 288.833, 45.9512 )
+mass = 75.0
+
+[node name="Asteroid004" parent="GameWorld/Asteroids/AsteroidsSmall7" index="3" instance=ExtResource( 2 )]
+position = Vector2( 221.409, 85.9061 )
+mass = 75.0
+
+[node name="Asteroid005" parent="GameWorld/Asteroids/AsteroidsSmall7" index="4" instance=ExtResource( 2 )]
+position = Vector2( 108.536, -90.8942 )
+mass = 75.0
+
+[node name="Asteroid006" parent="GameWorld/Asteroids/AsteroidsSmall7" index="5" instance=ExtResource( 2 )]
+position = Vector2( 173.577, -104.79 )
+mass = 75.0
+
+[node name="Asteroid007" parent="GameWorld/Asteroids/AsteroidsSmall7" index="6" instance=ExtResource( 2 )]
+position = Vector2( 179.87, -253.922 )
+mass = 75.0
+
+[node name="Asteroid008" parent="GameWorld/Asteroids/AsteroidsSmall7" index="7" instance=ExtResource( 2 )]
+position = Vector2( 332.148, -134.416 )
+mass = 75.0
+
+[node name="Asteroid009" parent="GameWorld/Asteroids/AsteroidsSmall7" index="8" instance=ExtResource( 2 )]
+position = Vector2( 33.884, -212.443 )
+mass = 75.0
+
+[node name="Asteroid010" parent="GameWorld/Asteroids/AsteroidsSmall7" index="9" instance=ExtResource( 2 )]
+position = Vector2( 63.4587, -385.487 )
+mass = 75.0
+
+[node name="Asteroid011" parent="GameWorld/Asteroids/AsteroidsSmall7" index="10" instance=ExtResource( 2 )]
+position = Vector2( 344.733, -450.929 )
+mass = 75.0
+
+[node name="Asteroid012" parent="GameWorld/Asteroids/AsteroidsSmall7" index="11" instance=ExtResource( 2 )]
+position = Vector2( 164.768, -451.558 )
+mass = 75.0
+
+[node name="Asteroid013" parent="GameWorld/Asteroids/AsteroidsSmall7" index="12" instance=ExtResource( 2 )]
+position = Vector2( 140.238, -564.361 )
+mass = 75.0
+
+[node name="Asteroid014" parent="GameWorld/Asteroids/AsteroidsSmall7" index="13" instance=ExtResource( 2 )]
+position = Vector2( 191.181, -526.404 )
+mass = 75.0
+
+[node name="Asteroid015" parent="GameWorld/Asteroids/AsteroidsSmall7" index="14" instance=ExtResource( 2 )]
+position = Vector2( 351.499, -545.382 )
+mass = 75.0
+
+[node name="Asteroid016" parent="GameWorld/Asteroids/AsteroidsSmall7" index="15" instance=ExtResource( 2 )]
+position = Vector2( 284.076, -505.427 )
+mass = 75.0
+
+[node name="Asteroid017" parent="GameWorld/Asteroids/AsteroidsSmall7" index="16" instance=ExtResource( 2 )]
+position = Vector2( 171.203, -682.228 )
+mass = 75.0
+
+[node name="Asteroid018" parent="GameWorld/Asteroids/AsteroidsSmall7" index="17" instance=ExtResource( 2 )]
+position = Vector2( 236.244, -696.123 )
+mass = 75.0
+
+[node name="Asteroid019" parent="GameWorld/Asteroids/AsteroidsSmall7" index="18" instance=ExtResource( 2 )]
+position = Vector2( 242.537, -845.255 )
+mass = 75.0
+
+[node name="Asteroid020" parent="GameWorld/Asteroids/AsteroidsSmall7" index="19" instance=ExtResource( 2 )]
+position = Vector2( 394.815, -725.75 )
+mass = 75.0
+
+[node name="Asteroid021" parent="GameWorld/Asteroids/AsteroidsSmall7" index="20" instance=ExtResource( 2 )]
+position = Vector2( 96.5507, -803.777 )
+mass = 75.0
+
+[node name="Asteroid022" parent="GameWorld/Asteroids/AsteroidsSmall7" index="21" instance=ExtResource( 2 )]
+position = Vector2( 126.125, -976.82 )
+mass = 75.0
+
+[node name="Asteroid023" parent="GameWorld/Asteroids/AsteroidsSmall7" index="22" instance=ExtResource( 2 )]
+position = Vector2( 407.4, -1042.26 )
+mass = 75.0
+
+[node name="Asteroid024" parent="GameWorld/Asteroids/AsteroidsSmall7" index="23" instance=ExtResource( 2 )]
+position = Vector2( 227.435, -1042.89 )
+mass = 75.0
+
+[node name="AsteroidsHuge7" type="Node2D" parent="GameWorld/Asteroids" index="20"]
+position = Vector2( 1760.12, -1104.67 )
+
+[node name="Asteroid001" parent="GameWorld/Asteroids/AsteroidsHuge7" index="0" instance=ExtResource( 3 )]
+position = Vector2( 53.9603, -1157.9 )
+
+[node name="AsteroidsBig8" type="Node2D" parent="GameWorld/Asteroids" index="21"]
+position = Vector2( 1552.8, -1496.55 )
+rotation = -2.8299
+
+[node name="Asteroid001" parent="GameWorld/Asteroids/AsteroidsBig8" index="0" instance=ExtResource( 1 )]
+position = Vector2( 39.3334, -112 )
+
+[node name="Asteroid002" parent="GameWorld/Asteroids/AsteroidsBig8" index="1" instance=ExtResource( 1 )]
+position = Vector2( 186.448, 24.9749 )
+
+[node name="Asteroid003" parent="GameWorld/Asteroids/AsteroidsBig8" index="2" instance=ExtResource( 1 )]
+position = Vector2( 355.757, 26.4732 )
+
+[node name="Asteroid004" parent="GameWorld/Asteroids/AsteroidsBig8" index="3" instance=ExtResource( 1 )]
+position = Vector2( 272.37, -245.164 )
+
+[node name="Asteroid005" parent="GameWorld/Asteroids/AsteroidsBig8" index="4" instance=ExtResource( 1 )]
+position = Vector2( 91.1457, -305.572 )
+
+[node name="Asteroid006" parent="GameWorld/Asteroids/AsteroidsBig8" index="5" instance=ExtResource( 1 )]
+position = Vector2( 247.2, -397.443 )
+
+[node name="Asteroid007" parent="GameWorld/Asteroids/AsteroidsBig8" index="6" instance=ExtResource( 1 )]
+position = Vector2( 60.9417, -476.099 )
+
+[node name="Asteroid008" parent="GameWorld/Asteroids/AsteroidsBig8" index="7" instance=ExtResource( 1 )]
+position = Vector2( 66.6667, -612 )
+
+[node name="Asteroid009" parent="GameWorld/Asteroids/AsteroidsBig8" index="8" instance=ExtResource( 1 )]
+position = Vector2( 253.115, -587.025 )
+
+[node name="Asteroid010" parent="GameWorld/Asteroids/AsteroidsBig8" index="9" instance=ExtResource( 1 )]
+position = Vector2( 422.424, -585.527 )
+
+[node name="Asteroid011" parent="GameWorld/Asteroids/AsteroidsBig8" index="10" instance=ExtResource( 1 )]
+position = Vector2( 339.036, -857.164 )
+
+[node name="Asteroid012" parent="GameWorld/Asteroids/AsteroidsBig8" index="11" instance=ExtResource( 1 )]
+position = Vector2( 157.812, -917.572 )
+
+[node name="Asteroid013" parent="GameWorld/Asteroids/AsteroidsBig8" index="12" instance=ExtResource( 1 )]
+position = Vector2( 313.866, -1009.44 )
+
+[node name="Asteroid014" parent="GameWorld/Asteroids/AsteroidsBig8" index="13" instance=ExtResource( 1 )]
+position = Vector2( 127.608, -1088.1 )
+
+[node name="AsteroidsSmall8" type="Node2D" parent="GameWorld/Asteroids" index="22"]
+position = Vector2( 1552.8, -1496.55 )
+rotation = -2.8299
+
+[node name="Asteroid001" parent="GameWorld/Asteroids/AsteroidsSmall8" index="0" instance=ExtResource( 2 )]
+position = Vector2( 77.5714, 26.9726 )
+mass = 75.0
+
+[node name="Asteroid002" parent="GameWorld/Asteroids/AsteroidsSmall8" index="1" instance=ExtResource( 2 )]
+position = Vector2( 128.514, 64.9297 )
+mass = 75.0
+
+[node name="Asteroid003" parent="GameWorld/Asteroids/AsteroidsSmall8" index="2" instance=ExtResource( 2 )]
+position = Vector2( 288.833, 45.9512 )
+mass = 75.0
+
+[node name="Asteroid004" parent="GameWorld/Asteroids/AsteroidsSmall8" index="3" instance=ExtResource( 2 )]
+position = Vector2( 221.409, 85.9061 )
+mass = 75.0
+
+[node name="Asteroid005" parent="GameWorld/Asteroids/AsteroidsSmall8" index="4" instance=ExtResource( 2 )]
+position = Vector2( 108.536, -90.8942 )
+mass = 75.0
+
+[node name="Asteroid006" parent="GameWorld/Asteroids/AsteroidsSmall8" index="5" instance=ExtResource( 2 )]
+position = Vector2( 173.577, -104.79 )
+mass = 75.0
+
+[node name="Asteroid007" parent="GameWorld/Asteroids/AsteroidsSmall8" index="6" instance=ExtResource( 2 )]
+position = Vector2( 179.87, -253.922 )
+mass = 75.0
+
+[node name="Asteroid008" parent="GameWorld/Asteroids/AsteroidsSmall8" index="7" instance=ExtResource( 2 )]
+position = Vector2( 332.148, -134.416 )
+mass = 75.0
+
+[node name="Asteroid009" parent="GameWorld/Asteroids/AsteroidsSmall8" index="8" instance=ExtResource( 2 )]
+position = Vector2( 33.884, -212.443 )
+mass = 75.0
+
+[node name="Asteroid010" parent="GameWorld/Asteroids/AsteroidsSmall8" index="9" instance=ExtResource( 2 )]
+position = Vector2( 63.4587, -385.487 )
+mass = 75.0
+
+[node name="Asteroid011" parent="GameWorld/Asteroids/AsteroidsSmall8" index="10" instance=ExtResource( 2 )]
+position = Vector2( 344.733, -450.929 )
+mass = 75.0
+
+[node name="Asteroid012" parent="GameWorld/Asteroids/AsteroidsSmall8" index="11" instance=ExtResource( 2 )]
+position = Vector2( 164.768, -451.558 )
+mass = 75.0
+
+[node name="Asteroid013" parent="GameWorld/Asteroids/AsteroidsSmall8" index="12" instance=ExtResource( 2 )]
+position = Vector2( 140.238, -564.361 )
+mass = 75.0
+
+[node name="Asteroid014" parent="GameWorld/Asteroids/AsteroidsSmall8" index="13" instance=ExtResource( 2 )]
+position = Vector2( 191.181, -526.404 )
+mass = 75.0
+
+[node name="Asteroid015" parent="GameWorld/Asteroids/AsteroidsSmall8" index="14" instance=ExtResource( 2 )]
+position = Vector2( 351.499, -545.382 )
+mass = 75.0
+
+[node name="Asteroid016" parent="GameWorld/Asteroids/AsteroidsSmall8" index="15" instance=ExtResource( 2 )]
+position = Vector2( 284.076, -505.427 )
+mass = 75.0
+
+[node name="Asteroid017" parent="GameWorld/Asteroids/AsteroidsSmall8" index="16" instance=ExtResource( 2 )]
+position = Vector2( 171.203, -682.228 )
+mass = 75.0
+
+[node name="Asteroid018" parent="GameWorld/Asteroids/AsteroidsSmall8" index="17" instance=ExtResource( 2 )]
+position = Vector2( 236.244, -696.123 )
+mass = 75.0
+
+[node name="Asteroid019" parent="GameWorld/Asteroids/AsteroidsSmall8" index="18" instance=ExtResource( 2 )]
+position = Vector2( 242.537, -845.255 )
+mass = 75.0
+
+[node name="Asteroid020" parent="GameWorld/Asteroids/AsteroidsSmall8" index="19" instance=ExtResource( 2 )]
+position = Vector2( 394.815, -725.75 )
+mass = 75.0
+
+[node name="Asteroid021" parent="GameWorld/Asteroids/AsteroidsSmall8" index="20" instance=ExtResource( 2 )]
+position = Vector2( 96.5507, -803.777 )
+mass = 75.0
+
+[node name="Asteroid022" parent="GameWorld/Asteroids/AsteroidsSmall8" index="21" instance=ExtResource( 2 )]
+position = Vector2( 126.125, -976.82 )
+mass = 75.0
+
+[node name="Asteroid023" parent="GameWorld/Asteroids/AsteroidsSmall8" index="22" instance=ExtResource( 2 )]
+position = Vector2( 407.4, -1042.26 )
+mass = 75.0
+
+[node name="Asteroid024" parent="GameWorld/Asteroids/AsteroidsSmall8" index="23" instance=ExtResource( 2 )]
+position = Vector2( 227.435, -1042.89 )
+mass = 75.0
+
+[node name="AsteroidsHuge8" type="Node2D" parent="GameWorld/Asteroids" index="23"]
+position = Vector2( 1552.8, -1496.55 )
+rotation = -2.8299
+
+[node name="Asteroid001" parent="GameWorld/Asteroids/AsteroidsHuge8" index="0" instance=ExtResource( 3 )]
+position = Vector2( 53.9603, -1157.9 )
+
+[node name="AsteroidsBig9" type="Node2D" parent="GameWorld/Asteroids" index="24"]
+position = Vector2( 2092.8, -1396.55 )
+rotation = -4.53187
+
+[node name="Asteroid001" parent="GameWorld/Asteroids/AsteroidsBig9" index="0" instance=ExtResource( 1 )]
+position = Vector2( 39.3334, -112 )
+
+[node name="Asteroid002" parent="GameWorld/Asteroids/AsteroidsBig9" index="1" instance=ExtResource( 1 )]
+position = Vector2( 186.448, 24.9749 )
+
+[node name="Asteroid003" parent="GameWorld/Asteroids/AsteroidsBig9" index="2" instance=ExtResource( 1 )]
+position = Vector2( 355.757, 26.4732 )
+
+[node name="Asteroid004" parent="GameWorld/Asteroids/AsteroidsBig9" index="3" instance=ExtResource( 1 )]
+position = Vector2( 272.37, -245.164 )
+
+[node name="Asteroid005" parent="GameWorld/Asteroids/AsteroidsBig9" index="4" instance=ExtResource( 1 )]
+position = Vector2( 91.1457, -305.572 )
+
+[node name="Asteroid006" parent="GameWorld/Asteroids/AsteroidsBig9" index="5" instance=ExtResource( 1 )]
+position = Vector2( 247.2, -397.443 )
+
+[node name="Asteroid007" parent="GameWorld/Asteroids/AsteroidsBig9" index="6" instance=ExtResource( 1 )]
+position = Vector2( 60.9417, -476.099 )
+
+[node name="Asteroid008" parent="GameWorld/Asteroids/AsteroidsBig9" index="7" instance=ExtResource( 1 )]
+position = Vector2( 66.6667, -612 )
+
+[node name="Asteroid009" parent="GameWorld/Asteroids/AsteroidsBig9" index="8" instance=ExtResource( 1 )]
+position = Vector2( 253.115, -587.025 )
+
+[node name="Asteroid010" parent="GameWorld/Asteroids/AsteroidsBig9" index="9" instance=ExtResource( 1 )]
+position = Vector2( 422.424, -585.527 )
+
+[node name="Asteroid011" parent="GameWorld/Asteroids/AsteroidsBig9" index="10" instance=ExtResource( 1 )]
+position = Vector2( 339.036, -857.164 )
+
+[node name="Asteroid012" parent="GameWorld/Asteroids/AsteroidsBig9" index="11" instance=ExtResource( 1 )]
+position = Vector2( 157.812, -917.572 )
+
+[node name="Asteroid013" parent="GameWorld/Asteroids/AsteroidsBig9" index="12" instance=ExtResource( 1 )]
+position = Vector2( 313.866, -1009.44 )
+
+[node name="Asteroid014" parent="GameWorld/Asteroids/AsteroidsBig9" index="13" instance=ExtResource( 1 )]
+position = Vector2( 127.608, -1088.1 )
+
+[node name="AsteroidsSmall9" type="Node2D" parent="GameWorld/Asteroids" index="25"]
+position = Vector2( 2092.8, -1396.55 )
+rotation = -4.53187
+
+[node name="Asteroid001" parent="GameWorld/Asteroids/AsteroidsSmall9" index="0" instance=ExtResource( 2 )]
+position = Vector2( 77.5714, 26.9726 )
+mass = 75.0
+
+[node name="Asteroid002" parent="GameWorld/Asteroids/AsteroidsSmall9" index="1" instance=ExtResource( 2 )]
+position = Vector2( 128.514, 64.9297 )
+mass = 75.0
+
+[node name="Asteroid003" parent="GameWorld/Asteroids/AsteroidsSmall9" index="2" instance=ExtResource( 2 )]
+position = Vector2( 288.833, 45.9512 )
+mass = 75.0
+
+[node name="Asteroid004" parent="GameWorld/Asteroids/AsteroidsSmall9" index="3" instance=ExtResource( 2 )]
+position = Vector2( 221.409, 85.9061 )
+mass = 75.0
+
+[node name="Asteroid005" parent="GameWorld/Asteroids/AsteroidsSmall9" index="4" instance=ExtResource( 2 )]
+position = Vector2( 108.536, -90.8942 )
+mass = 75.0
+
+[node name="Asteroid006" parent="GameWorld/Asteroids/AsteroidsSmall9" index="5" instance=ExtResource( 2 )]
+position = Vector2( 173.577, -104.79 )
+mass = 75.0
+
+[node name="Asteroid007" parent="GameWorld/Asteroids/AsteroidsSmall9" index="6" instance=ExtResource( 2 )]
+position = Vector2( 179.87, -253.922 )
+mass = 75.0
+
+[node name="Asteroid008" parent="GameWorld/Asteroids/AsteroidsSmall9" index="7" instance=ExtResource( 2 )]
+position = Vector2( 332.148, -134.416 )
+mass = 75.0
+
+[node name="Asteroid009" parent="GameWorld/Asteroids/AsteroidsSmall9" index="8" instance=ExtResource( 2 )]
+position = Vector2( 33.884, -212.443 )
+mass = 75.0
+
+[node name="Asteroid010" parent="GameWorld/Asteroids/AsteroidsSmall9" index="9" instance=ExtResource( 2 )]
+position = Vector2( 63.4587, -385.487 )
+mass = 75.0
+
+[node name="Asteroid011" parent="GameWorld/Asteroids/AsteroidsSmall9" index="10" instance=ExtResource( 2 )]
+position = Vector2( 344.733, -450.929 )
+mass = 75.0
+
+[node name="Asteroid012" parent="GameWorld/Asteroids/AsteroidsSmall9" index="11" instance=ExtResource( 2 )]
+position = Vector2( 164.768, -451.558 )
+mass = 75.0
+
+[node name="Asteroid013" parent="GameWorld/Asteroids/AsteroidsSmall9" index="12" instance=ExtResource( 2 )]
+position = Vector2( 140.238, -564.361 )
+mass = 75.0
+
+[node name="Asteroid014" parent="GameWorld/Asteroids/AsteroidsSmall9" index="13" instance=ExtResource( 2 )]
+position = Vector2( 191.181, -526.404 )
+mass = 75.0
+
+[node name="Asteroid015" parent="GameWorld/Asteroids/AsteroidsSmall9" index="14" instance=ExtResource( 2 )]
+position = Vector2( 351.499, -545.382 )
+mass = 75.0
+
+[node name="Asteroid016" parent="GameWorld/Asteroids/AsteroidsSmall9" index="15" instance=ExtResource( 2 )]
+position = Vector2( 284.076, -505.427 )
+mass = 75.0
+
+[node name="Asteroid017" parent="GameWorld/Asteroids/AsteroidsSmall9" index="16" instance=ExtResource( 2 )]
+position = Vector2( 171.203, -682.228 )
+mass = 75.0
+
+[node name="Asteroid018" parent="GameWorld/Asteroids/AsteroidsSmall9" index="17" instance=ExtResource( 2 )]
+position = Vector2( 236.244, -696.123 )
+mass = 75.0
+
+[node name="Asteroid019" parent="GameWorld/Asteroids/AsteroidsSmall9" index="18" instance=ExtResource( 2 )]
+position = Vector2( 242.537, -845.255 )
+mass = 75.0
+
+[node name="Asteroid020" parent="GameWorld/Asteroids/AsteroidsSmall9" index="19" instance=ExtResource( 2 )]
+position = Vector2( 394.815, -725.75 )
+mass = 75.0
+
+[node name="Asteroid021" parent="GameWorld/Asteroids/AsteroidsSmall9" index="20" instance=ExtResource( 2 )]
+position = Vector2( 96.5507, -803.777 )
+mass = 75.0
+
+[node name="Asteroid022" parent="GameWorld/Asteroids/AsteroidsSmall9" index="21" instance=ExtResource( 2 )]
+position = Vector2( 126.125, -976.82 )
+mass = 75.0
+
+[node name="Asteroid023" parent="GameWorld/Asteroids/AsteroidsSmall9" index="22" instance=ExtResource( 2 )]
+position = Vector2( 407.4, -1042.26 )
+mass = 75.0
+
+[node name="Asteroid024" parent="GameWorld/Asteroids/AsteroidsSmall9" index="23" instance=ExtResource( 2 )]
+position = Vector2( 227.435, -1042.89 )
+mass = 75.0
+
+[node name="AsteroidsHuge9" type="Node2D" parent="GameWorld/Asteroids" index="26"]
+position = Vector2( 2092.8, -1396.55 )
+rotation = -4.53187
+
+[node name="Asteroid001" parent="GameWorld/Asteroids/AsteroidsHuge9" index="0" instance=ExtResource( 3 )]
+position = Vector2( 53.9603, -1157.9 )
+
+[node name="AsteroidsBig10" type="Node2D" parent="GameWorld/Asteroids" index="27"]
+position = Vector2( -2483.38, 1291.13 )
+
+[node name="Asteroid001" parent="GameWorld/Asteroids/AsteroidsBig10" index="0" instance=ExtResource( 1 )]
+position = Vector2( 39.3334, -112 )
+
+[node name="Asteroid002" parent="GameWorld/Asteroids/AsteroidsBig10" index="1" instance=ExtResource( 1 )]
+position = Vector2( 186.448, 24.9749 )
+
+[node name="Asteroid003" parent="GameWorld/Asteroids/AsteroidsBig10" index="2" instance=ExtResource( 1 )]
+position = Vector2( 355.757, 26.4732 )
+
+[node name="Asteroid004" parent="GameWorld/Asteroids/AsteroidsBig10" index="3" instance=ExtResource( 1 )]
+position = Vector2( 272.37, -245.164 )
+
+[node name="Asteroid005" parent="GameWorld/Asteroids/AsteroidsBig10" index="4" instance=ExtResource( 1 )]
+position = Vector2( 91.1457, -305.572 )
+
+[node name="Asteroid006" parent="GameWorld/Asteroids/AsteroidsBig10" index="5" instance=ExtResource( 1 )]
+position = Vector2( 247.2, -397.443 )
+
+[node name="Asteroid007" parent="GameWorld/Asteroids/AsteroidsBig10" index="6" instance=ExtResource( 1 )]
+position = Vector2( 60.9417, -476.099 )
+
+[node name="Asteroid008" parent="GameWorld/Asteroids/AsteroidsBig10" index="7" instance=ExtResource( 1 )]
+position = Vector2( 66.6667, -612 )
+
+[node name="Asteroid009" parent="GameWorld/Asteroids/AsteroidsBig10" index="8" instance=ExtResource( 1 )]
+position = Vector2( 253.115, -587.025 )
+
+[node name="Asteroid010" parent="GameWorld/Asteroids/AsteroidsBig10" index="9" instance=ExtResource( 1 )]
+position = Vector2( 422.424, -585.527 )
+
+[node name="Asteroid011" parent="GameWorld/Asteroids/AsteroidsBig10" index="10" instance=ExtResource( 1 )]
+position = Vector2( 339.036, -857.164 )
+
+[node name="Asteroid012" parent="GameWorld/Asteroids/AsteroidsBig10" index="11" instance=ExtResource( 1 )]
+position = Vector2( 157.812, -917.572 )
+
+[node name="Asteroid013" parent="GameWorld/Asteroids/AsteroidsBig10" index="12" instance=ExtResource( 1 )]
+position = Vector2( 313.866, -1009.44 )
+
+[node name="Asteroid014" parent="GameWorld/Asteroids/AsteroidsBig10" index="13" instance=ExtResource( 1 )]
+position = Vector2( 127.608, -1088.1 )
+
+[node name="AsteroidsSmall10" type="Node2D" parent="GameWorld/Asteroids" index="28"]
+position = Vector2( -2483.38, 1291.13 )
+
+[node name="Asteroid001" parent="GameWorld/Asteroids/AsteroidsSmall10" index="0" instance=ExtResource( 2 )]
+position = Vector2( 77.5714, 26.9726 )
+mass = 75.0
+
+[node name="Asteroid002" parent="GameWorld/Asteroids/AsteroidsSmall10" index="1" instance=ExtResource( 2 )]
+position = Vector2( 128.514, 64.9297 )
+mass = 75.0
+
+[node name="Asteroid003" parent="GameWorld/Asteroids/AsteroidsSmall10" index="2" instance=ExtResource( 2 )]
+position = Vector2( 288.833, 45.9512 )
+mass = 75.0
+
+[node name="Asteroid004" parent="GameWorld/Asteroids/AsteroidsSmall10" index="3" instance=ExtResource( 2 )]
+position = Vector2( 221.409, 85.9061 )
+mass = 75.0
+
+[node name="Asteroid005" parent="GameWorld/Asteroids/AsteroidsSmall10" index="4" instance=ExtResource( 2 )]
+position = Vector2( 108.536, -90.8942 )
+mass = 75.0
+
+[node name="Asteroid006" parent="GameWorld/Asteroids/AsteroidsSmall10" index="5" instance=ExtResource( 2 )]
+position = Vector2( 173.577, -104.79 )
+mass = 75.0
+
+[node name="Asteroid007" parent="GameWorld/Asteroids/AsteroidsSmall10" index="6" instance=ExtResource( 2 )]
+position = Vector2( 179.87, -253.922 )
+mass = 75.0
+
+[node name="Asteroid008" parent="GameWorld/Asteroids/AsteroidsSmall10" index="7" instance=ExtResource( 2 )]
+position = Vector2( 332.148, -134.416 )
+mass = 75.0
+
+[node name="Asteroid009" parent="GameWorld/Asteroids/AsteroidsSmall10" index="8" instance=ExtResource( 2 )]
+position = Vector2( 33.884, -212.443 )
+mass = 75.0
+
+[node name="Asteroid010" parent="GameWorld/Asteroids/AsteroidsSmall10" index="9" instance=ExtResource( 2 )]
+position = Vector2( 63.4587, -385.487 )
+mass = 75.0
+
+[node name="Asteroid011" parent="GameWorld/Asteroids/AsteroidsSmall10" index="10" instance=ExtResource( 2 )]
+position = Vector2( 344.733, -450.929 )
+mass = 75.0
+
+[node name="Asteroid012" parent="GameWorld/Asteroids/AsteroidsSmall10" index="11" instance=ExtResource( 2 )]
+position = Vector2( 164.768, -451.558 )
+mass = 75.0
+
+[node name="Asteroid013" parent="GameWorld/Asteroids/AsteroidsSmall10" index="12" instance=ExtResource( 2 )]
+position = Vector2( 140.238, -564.361 )
+mass = 75.0
+
+[node name="Asteroid014" parent="GameWorld/Asteroids/AsteroidsSmall10" index="13" instance=ExtResource( 2 )]
+position = Vector2( 191.181, -526.404 )
+mass = 75.0
+
+[node name="Asteroid015" parent="GameWorld/Asteroids/AsteroidsSmall10" index="14" instance=ExtResource( 2 )]
+position = Vector2( 351.499, -545.382 )
+mass = 75.0
+
+[node name="Asteroid016" parent="GameWorld/Asteroids/AsteroidsSmall10" index="15" instance=ExtResource( 2 )]
+position = Vector2( 284.076, -505.427 )
+mass = 75.0
+
+[node name="Asteroid017" parent="GameWorld/Asteroids/AsteroidsSmall10" index="16" instance=ExtResource( 2 )]
+position = Vector2( 171.203, -682.228 )
+mass = 75.0
+
+[node name="Asteroid018" parent="GameWorld/Asteroids/AsteroidsSmall10" index="17" instance=ExtResource( 2 )]
+position = Vector2( 236.244, -696.123 )
+mass = 75.0
+
+[node name="Asteroid019" parent="GameWorld/Asteroids/AsteroidsSmall10" index="18" instance=ExtResource( 2 )]
+position = Vector2( 242.537, -845.255 )
+mass = 75.0
+
+[node name="Asteroid020" parent="GameWorld/Asteroids/AsteroidsSmall10" index="19" instance=ExtResource( 2 )]
+position = Vector2( 394.815, -725.75 )
+mass = 75.0
+
+[node name="Asteroid021" parent="GameWorld/Asteroids/AsteroidsSmall10" index="20" instance=ExtResource( 2 )]
+position = Vector2( 96.5507, -803.777 )
+mass = 75.0
+
+[node name="Asteroid022" parent="GameWorld/Asteroids/AsteroidsSmall10" index="21" instance=ExtResource( 2 )]
+position = Vector2( 126.125, -976.82 )
+mass = 75.0
+
+[node name="Asteroid023" parent="GameWorld/Asteroids/AsteroidsSmall10" index="22" instance=ExtResource( 2 )]
+position = Vector2( 407.4, -1042.26 )
+mass = 75.0
+
+[node name="Asteroid024" parent="GameWorld/Asteroids/AsteroidsSmall10" index="23" instance=ExtResource( 2 )]
+position = Vector2( 227.435, -1042.89 )
+mass = 75.0
+
+[node name="AsteroidsHuge10" type="Node2D" parent="GameWorld/Asteroids" index="29"]
+position = Vector2( -2483.38, 1291.13 )
+
+[node name="Asteroid001" parent="GameWorld/Asteroids/AsteroidsHuge10" index="0" instance=ExtResource( 3 )]
+position = Vector2( 53.9603, -1157.9 )
+
+[node name="AsteroidsBig11" type="Node2D" parent="GameWorld/Asteroids" index="30"]
+position = Vector2( -2690.7, 899.252 )
+rotation = -2.8299
+
+[node name="Asteroid001" parent="GameWorld/Asteroids/AsteroidsBig11" index="0" instance=ExtResource( 1 )]
+position = Vector2( 39.3334, -112 )
+
+[node name="Asteroid002" parent="GameWorld/Asteroids/AsteroidsBig11" index="1" instance=ExtResource( 1 )]
+position = Vector2( 186.448, 24.9749 )
+
+[node name="Asteroid003" parent="GameWorld/Asteroids/AsteroidsBig11" index="2" instance=ExtResource( 1 )]
+position = Vector2( 355.757, 26.4732 )
+
+[node name="Asteroid004" parent="GameWorld/Asteroids/AsteroidsBig11" index="3" instance=ExtResource( 1 )]
+position = Vector2( 272.37, -245.164 )
+
+[node name="Asteroid005" parent="GameWorld/Asteroids/AsteroidsBig11" index="4" instance=ExtResource( 1 )]
+position = Vector2( 91.1457, -305.572 )
+
+[node name="Asteroid006" parent="GameWorld/Asteroids/AsteroidsBig11" index="5" instance=ExtResource( 1 )]
+position = Vector2( 247.2, -397.443 )
+
+[node name="Asteroid007" parent="GameWorld/Asteroids/AsteroidsBig11" index="6" instance=ExtResource( 1 )]
+position = Vector2( 60.9417, -476.099 )
+
+[node name="Asteroid008" parent="GameWorld/Asteroids/AsteroidsBig11" index="7" instance=ExtResource( 1 )]
+position = Vector2( 66.6667, -612 )
+
+[node name="Asteroid009" parent="GameWorld/Asteroids/AsteroidsBig11" index="8" instance=ExtResource( 1 )]
+position = Vector2( 253.115, -587.025 )
+
+[node name="Asteroid010" parent="GameWorld/Asteroids/AsteroidsBig11" index="9" instance=ExtResource( 1 )]
+position = Vector2( 422.424, -585.527 )
+
+[node name="Asteroid011" parent="GameWorld/Asteroids/AsteroidsBig11" index="10" instance=ExtResource( 1 )]
+position = Vector2( 339.036, -857.164 )
+
+[node name="Asteroid012" parent="GameWorld/Asteroids/AsteroidsBig11" index="11" instance=ExtResource( 1 )]
+position = Vector2( 157.812, -917.572 )
+
+[node name="Asteroid013" parent="GameWorld/Asteroids/AsteroidsBig11" index="12" instance=ExtResource( 1 )]
+position = Vector2( 313.866, -1009.44 )
+
+[node name="Asteroid014" parent="GameWorld/Asteroids/AsteroidsBig11" index="13" instance=ExtResource( 1 )]
+position = Vector2( 127.608, -1088.1 )
+
+[node name="AsteroidsSmall11" type="Node2D" parent="GameWorld/Asteroids" index="31"]
+position = Vector2( -2690.7, 899.252 )
+rotation = -2.8299
+
+[node name="Asteroid001" parent="GameWorld/Asteroids/AsteroidsSmall11" index="0" instance=ExtResource( 2 )]
+position = Vector2( 77.5714, 26.9726 )
+mass = 75.0
+
+[node name="Asteroid002" parent="GameWorld/Asteroids/AsteroidsSmall11" index="1" instance=ExtResource( 2 )]
+position = Vector2( 128.514, 64.9297 )
+mass = 75.0
+
+[node name="Asteroid003" parent="GameWorld/Asteroids/AsteroidsSmall11" index="2" instance=ExtResource( 2 )]
+position = Vector2( 288.833, 45.9512 )
+mass = 75.0
+
+[node name="Asteroid004" parent="GameWorld/Asteroids/AsteroidsSmall11" index="3" instance=ExtResource( 2 )]
+position = Vector2( 221.409, 85.9061 )
+mass = 75.0
+
+[node name="Asteroid005" parent="GameWorld/Asteroids/AsteroidsSmall11" index="4" instance=ExtResource( 2 )]
+position = Vector2( 108.536, -90.8942 )
+mass = 75.0
+
+[node name="Asteroid006" parent="GameWorld/Asteroids/AsteroidsSmall11" index="5" instance=ExtResource( 2 )]
+position = Vector2( 173.577, -104.79 )
+mass = 75.0
+
+[node name="Asteroid007" parent="GameWorld/Asteroids/AsteroidsSmall11" index="6" instance=ExtResource( 2 )]
+position = Vector2( 179.87, -253.922 )
+mass = 75.0
+
+[node name="Asteroid008" parent="GameWorld/Asteroids/AsteroidsSmall11" index="7" instance=ExtResource( 2 )]
+position = Vector2( 332.148, -134.416 )
+mass = 75.0
+
+[node name="Asteroid009" parent="GameWorld/Asteroids/AsteroidsSmall11" index="8" instance=ExtResource( 2 )]
+position = Vector2( 33.884, -212.443 )
+mass = 75.0
+
+[node name="Asteroid010" parent="GameWorld/Asteroids/AsteroidsSmall11" index="9" instance=ExtResource( 2 )]
+position = Vector2( 63.4587, -385.487 )
+mass = 75.0
+
+[node name="Asteroid011" parent="GameWorld/Asteroids/AsteroidsSmall11" index="10" instance=ExtResource( 2 )]
+position = Vector2( 344.733, -450.929 )
+mass = 75.0
+
+[node name="Asteroid012" parent="GameWorld/Asteroids/AsteroidsSmall11" index="11" instance=ExtResource( 2 )]
+position = Vector2( 164.768, -451.558 )
+mass = 75.0
+
+[node name="Asteroid013" parent="GameWorld/Asteroids/AsteroidsSmall11" index="12" instance=ExtResource( 2 )]
+position = Vector2( 140.238, -564.361 )
+mass = 75.0
+
+[node name="Asteroid014" parent="GameWorld/Asteroids/AsteroidsSmall11" index="13" instance=ExtResource( 2 )]
+position = Vector2( 191.181, -526.404 )
+mass = 75.0
+
+[node name="Asteroid015" parent="GameWorld/Asteroids/AsteroidsSmall11" index="14" instance=ExtResource( 2 )]
+position = Vector2( 351.499, -545.382 )
+mass = 75.0
+
+[node name="Asteroid016" parent="GameWorld/Asteroids/AsteroidsSmall11" index="15" instance=ExtResource( 2 )]
+position = Vector2( 284.076, -505.427 )
+mass = 75.0
+
+[node name="Asteroid017" parent="GameWorld/Asteroids/AsteroidsSmall11" index="16" instance=ExtResource( 2 )]
+position = Vector2( 171.203, -682.228 )
+mass = 75.0
+
+[node name="Asteroid018" parent="GameWorld/Asteroids/AsteroidsSmall11" index="17" instance=ExtResource( 2 )]
+position = Vector2( 236.244, -696.123 )
+mass = 75.0
+
+[node name="Asteroid019" parent="GameWorld/Asteroids/AsteroidsSmall11" index="18" instance=ExtResource( 2 )]
+position = Vector2( 242.537, -845.255 )
+mass = 75.0
+
+[node name="Asteroid020" parent="GameWorld/Asteroids/AsteroidsSmall11" index="19" instance=ExtResource( 2 )]
+position = Vector2( 394.815, -725.75 )
+mass = 75.0
+
+[node name="Asteroid021" parent="GameWorld/Asteroids/AsteroidsSmall11" index="20" instance=ExtResource( 2 )]
+position = Vector2( 96.5507, -803.777 )
+mass = 75.0
+
+[node name="Asteroid022" parent="GameWorld/Asteroids/AsteroidsSmall11" index="21" instance=ExtResource( 2 )]
+position = Vector2( 126.125, -976.82 )
+mass = 75.0
+
+[node name="Asteroid023" parent="GameWorld/Asteroids/AsteroidsSmall11" index="22" instance=ExtResource( 2 )]
+position = Vector2( 407.4, -1042.26 )
+mass = 75.0
+
+[node name="Asteroid024" parent="GameWorld/Asteroids/AsteroidsSmall11" index="23" instance=ExtResource( 2 )]
+position = Vector2( 227.435, -1042.89 )
+mass = 75.0
+
+[node name="AsteroidsHuge11" type="Node2D" parent="GameWorld/Asteroids" index="32"]
+position = Vector2( -2690.7, 899.252 )
+rotation = -2.8299
+
+[node name="Asteroid001" parent="GameWorld/Asteroids/AsteroidsHuge11" index="0" instance=ExtResource( 3 )]
+position = Vector2( 53.9603, -1157.9 )
+
+[node name="AsteroidsBig12" type="Node2D" parent="GameWorld/Asteroids" index="33"]
+position = Vector2( -2150.7, 999.253 )
+rotation = -4.53187
+
+[node name="Asteroid001" parent="GameWorld/Asteroids/AsteroidsBig12" index="0" instance=ExtResource( 1 )]
+position = Vector2( 39.3334, -112 )
+
+[node name="Asteroid002" parent="GameWorld/Asteroids/AsteroidsBig12" index="1" instance=ExtResource( 1 )]
+position = Vector2( 186.448, 24.9749 )
+
+[node name="Asteroid003" parent="GameWorld/Asteroids/AsteroidsBig12" index="2" instance=ExtResource( 1 )]
+position = Vector2( 355.757, 26.4732 )
+
+[node name="Asteroid004" parent="GameWorld/Asteroids/AsteroidsBig12" index="3" instance=ExtResource( 1 )]
+position = Vector2( 272.37, -245.164 )
+
+[node name="Asteroid005" parent="GameWorld/Asteroids/AsteroidsBig12" index="4" instance=ExtResource( 1 )]
+position = Vector2( 91.1457, -305.572 )
+
+[node name="Asteroid006" parent="GameWorld/Asteroids/AsteroidsBig12" index="5" instance=ExtResource( 1 )]
+position = Vector2( 247.2, -397.443 )
+
+[node name="Asteroid007" parent="GameWorld/Asteroids/AsteroidsBig12" index="6" instance=ExtResource( 1 )]
+position = Vector2( 60.9417, -476.099 )
+
+[node name="Asteroid008" parent="GameWorld/Asteroids/AsteroidsBig12" index="7" instance=ExtResource( 1 )]
+position = Vector2( 66.6667, -612 )
+
+[node name="Asteroid009" parent="GameWorld/Asteroids/AsteroidsBig12" index="8" instance=ExtResource( 1 )]
+position = Vector2( 253.115, -587.025 )
+
+[node name="Asteroid010" parent="GameWorld/Asteroids/AsteroidsBig12" index="9" instance=ExtResource( 1 )]
+position = Vector2( 422.424, -585.527 )
+
+[node name="Asteroid011" parent="GameWorld/Asteroids/AsteroidsBig12" index="10" instance=ExtResource( 1 )]
+position = Vector2( 339.036, -857.164 )
+
+[node name="Asteroid012" parent="GameWorld/Asteroids/AsteroidsBig12" index="11" instance=ExtResource( 1 )]
+position = Vector2( 157.812, -917.572 )
+
+[node name="Asteroid013" parent="GameWorld/Asteroids/AsteroidsBig12" index="12" instance=ExtResource( 1 )]
+position = Vector2( 313.866, -1009.44 )
+
+[node name="Asteroid014" parent="GameWorld/Asteroids/AsteroidsBig12" index="13" instance=ExtResource( 1 )]
+position = Vector2( 127.608, -1088.1 )
+
+[node name="AsteroidsSmall12" type="Node2D" parent="GameWorld/Asteroids" index="34"]
+position = Vector2( -2150.7, 999.253 )
+rotation = -4.53187
+
+[node name="Asteroid001" parent="GameWorld/Asteroids/AsteroidsSmall12" index="0" instance=ExtResource( 2 )]
+position = Vector2( 77.5714, 26.9726 )
+mass = 75.0
+
+[node name="Asteroid002" parent="GameWorld/Asteroids/AsteroidsSmall12" index="1" instance=ExtResource( 2 )]
+position = Vector2( 128.514, 64.9297 )
+mass = 75.0
+
+[node name="Asteroid003" parent="GameWorld/Asteroids/AsteroidsSmall12" index="2" instance=ExtResource( 2 )]
+position = Vector2( 288.833, 45.9512 )
+mass = 75.0
+
+[node name="Asteroid004" parent="GameWorld/Asteroids/AsteroidsSmall12" index="3" instance=ExtResource( 2 )]
+position = Vector2( 221.409, 85.9061 )
+mass = 75.0
+
+[node name="Asteroid005" parent="GameWorld/Asteroids/AsteroidsSmall12" index="4" instance=ExtResource( 2 )]
+position = Vector2( 108.536, -90.8942 )
+mass = 75.0
+
+[node name="Asteroid006" parent="GameWorld/Asteroids/AsteroidsSmall12" index="5" instance=ExtResource( 2 )]
+position = Vector2( 173.577, -104.79 )
+mass = 75.0
+
+[node name="Asteroid007" parent="GameWorld/Asteroids/AsteroidsSmall12" index="6" instance=ExtResource( 2 )]
+position = Vector2( 179.87, -253.922 )
+mass = 75.0
+
+[node name="Asteroid008" parent="GameWorld/Asteroids/AsteroidsSmall12" index="7" instance=ExtResource( 2 )]
+position = Vector2( 332.148, -134.416 )
+mass = 75.0
+
+[node name="Asteroid009" parent="GameWorld/Asteroids/AsteroidsSmall12" index="8" instance=ExtResource( 2 )]
+position = Vector2( 33.884, -212.443 )
+mass = 75.0
+
+[node name="Asteroid010" parent="GameWorld/Asteroids/AsteroidsSmall12" index="9" instance=ExtResource( 2 )]
+position = Vector2( 63.4587, -385.487 )
+mass = 75.0
+
+[node name="Asteroid011" parent="GameWorld/Asteroids/AsteroidsSmall12" index="10" instance=ExtResource( 2 )]
+position = Vector2( 344.733, -450.929 )
+mass = 75.0
+
+[node name="Asteroid012" parent="GameWorld/Asteroids/AsteroidsSmall12" index="11" instance=ExtResource( 2 )]
+position = Vector2( 164.768, -451.558 )
+mass = 75.0
+
+[node name="Asteroid013" parent="GameWorld/Asteroids/AsteroidsSmall12" index="12" instance=ExtResource( 2 )]
+position = Vector2( 140.238, -564.361 )
+mass = 75.0
+
+[node name="Asteroid014" parent="GameWorld/Asteroids/AsteroidsSmall12" index="13" instance=ExtResource( 2 )]
+position = Vector2( 191.181, -526.404 )
+mass = 75.0
+
+[node name="Asteroid015" parent="GameWorld/Asteroids/AsteroidsSmall12" index="14" instance=ExtResource( 2 )]
+position = Vector2( 351.499, -545.382 )
+mass = 75.0
+
+[node name="Asteroid016" parent="GameWorld/Asteroids/AsteroidsSmall12" index="15" instance=ExtResource( 2 )]
+position = Vector2( 284.076, -505.427 )
+mass = 75.0
+
+[node name="Asteroid017" parent="GameWorld/Asteroids/AsteroidsSmall12" index="16" instance=ExtResource( 2 )]
+position = Vector2( 171.203, -682.228 )
+mass = 75.0
+
+[node name="Asteroid018" parent="GameWorld/Asteroids/AsteroidsSmall12" index="17" instance=ExtResource( 2 )]
+position = Vector2( 236.244, -696.123 )
+mass = 75.0
+
+[node name="Asteroid019" parent="GameWorld/Asteroids/AsteroidsSmall12" index="18" instance=ExtResource( 2 )]
+position = Vector2( 242.537, -845.255 )
+mass = 75.0
+
+[node name="Asteroid020" parent="GameWorld/Asteroids/AsteroidsSmall12" index="19" instance=ExtResource( 2 )]
+position = Vector2( 394.815, -725.75 )
+mass = 75.0
+
+[node name="Asteroid021" parent="GameWorld/Asteroids/AsteroidsSmall12" index="20" instance=ExtResource( 2 )]
+position = Vector2( 96.5507, -803.777 )
+mass = 75.0
+
+[node name="Asteroid022" parent="GameWorld/Asteroids/AsteroidsSmall12" index="21" instance=ExtResource( 2 )]
+position = Vector2( 126.125, -976.82 )
+mass = 75.0
+
+[node name="Asteroid023" parent="GameWorld/Asteroids/AsteroidsSmall12" index="22" instance=ExtResource( 2 )]
+position = Vector2( 407.4, -1042.26 )
+mass = 75.0
+
+[node name="Asteroid024" parent="GameWorld/Asteroids/AsteroidsSmall12" index="23" instance=ExtResource( 2 )]
+position = Vector2( 227.435, -1042.89 )
+mass = 75.0
+
+[node name="AsteroidsHuge12" type="Node2D" parent="GameWorld/Asteroids" index="35"]
+position = Vector2( -2150.7, 999.253 )
+rotation = -4.53187
+
+[node name="Asteroid001" parent="GameWorld/Asteroids/AsteroidsHuge12" index="0" instance=ExtResource( 3 )]
+position = Vector2( 53.9603, -1157.9 )
+
+[node name="AsteroidsBig13" type="Node2D" parent="GameWorld/Asteroids" index="36"]
+position = Vector2( -2141.53, -632.852 )
+rotation = 0.485046
+
+[node name="Asteroid001" parent="GameWorld/Asteroids/AsteroidsBig13" index="0" instance=ExtResource( 1 )]
+position = Vector2( 39.3334, -112 )
+
+[node name="Asteroid002" parent="GameWorld/Asteroids/AsteroidsBig13" index="1" instance=ExtResource( 1 )]
+position = Vector2( 186.448, 24.9749 )
+
+[node name="Asteroid003" parent="GameWorld/Asteroids/AsteroidsBig13" index="2" instance=ExtResource( 1 )]
+position = Vector2( 355.757, 26.4732 )
+
+[node name="Asteroid004" parent="GameWorld/Asteroids/AsteroidsBig13" index="3" instance=ExtResource( 1 )]
+position = Vector2( 272.37, -245.164 )
+
+[node name="Asteroid005" parent="GameWorld/Asteroids/AsteroidsBig13" index="4" instance=ExtResource( 1 )]
+position = Vector2( 91.1457, -305.572 )
+
+[node name="Asteroid006" parent="GameWorld/Asteroids/AsteroidsBig13" index="5" instance=ExtResource( 1 )]
+position = Vector2( 247.2, -397.443 )
+
+[node name="Asteroid007" parent="GameWorld/Asteroids/AsteroidsBig13" index="6" instance=ExtResource( 1 )]
+position = Vector2( 60.9417, -476.099 )
+
+[node name="Asteroid008" parent="GameWorld/Asteroids/AsteroidsBig13" index="7" instance=ExtResource( 1 )]
+position = Vector2( 66.6667, -612 )
+
+[node name="Asteroid009" parent="GameWorld/Asteroids/AsteroidsBig13" index="8" instance=ExtResource( 1 )]
+position = Vector2( 253.115, -587.025 )
+
+[node name="Asteroid010" parent="GameWorld/Asteroids/AsteroidsBig13" index="9" instance=ExtResource( 1 )]
+position = Vector2( 422.424, -585.527 )
+
+[node name="Asteroid011" parent="GameWorld/Asteroids/AsteroidsBig13" index="10" instance=ExtResource( 1 )]
+position = Vector2( 339.036, -857.164 )
+
+[node name="Asteroid012" parent="GameWorld/Asteroids/AsteroidsBig13" index="11" instance=ExtResource( 1 )]
+position = Vector2( 157.812, -917.572 )
+
+[node name="Asteroid013" parent="GameWorld/Asteroids/AsteroidsBig13" index="12" instance=ExtResource( 1 )]
+position = Vector2( 313.866, -1009.44 )
+
+[node name="Asteroid014" parent="GameWorld/Asteroids/AsteroidsBig13" index="13" instance=ExtResource( 1 )]
+position = Vector2( 127.608, -1088.1 )
+
+[node name="AsteroidsSmall13" type="Node2D" parent="GameWorld/Asteroids" index="37"]
+position = Vector2( -2141.53, -632.852 )
+rotation = 0.485046
+
+[node name="Asteroid001" parent="GameWorld/Asteroids/AsteroidsSmall13" index="0" instance=ExtResource( 2 )]
+position = Vector2( 77.5714, 26.9726 )
+mass = 75.0
+
+[node name="Asteroid002" parent="GameWorld/Asteroids/AsteroidsSmall13" index="1" instance=ExtResource( 2 )]
+position = Vector2( 128.514, 64.9297 )
+mass = 75.0
+
+[node name="Asteroid003" parent="GameWorld/Asteroids/AsteroidsSmall13" index="2" instance=ExtResource( 2 )]
+position = Vector2( 288.833, 45.9512 )
+mass = 75.0
+
+[node name="Asteroid004" parent="GameWorld/Asteroids/AsteroidsSmall13" index="3" instance=ExtResource( 2 )]
+position = Vector2( 221.409, 85.9061 )
+mass = 75.0
+
+[node name="Asteroid005" parent="GameWorld/Asteroids/AsteroidsSmall13" index="4" instance=ExtResource( 2 )]
+position = Vector2( 108.536, -90.8942 )
+mass = 75.0
+
+[node name="Asteroid006" parent="GameWorld/Asteroids/AsteroidsSmall13" index="5" instance=ExtResource( 2 )]
+position = Vector2( 173.577, -104.79 )
+mass = 75.0
+
+[node name="Asteroid007" parent="GameWorld/Asteroids/AsteroidsSmall13" index="6" instance=ExtResource( 2 )]
+position = Vector2( 179.87, -253.922 )
+mass = 75.0
+
+[node name="Asteroid008" parent="GameWorld/Asteroids/AsteroidsSmall13" index="7" instance=ExtResource( 2 )]
+position = Vector2( 332.148, -134.416 )
+mass = 75.0
+
+[node name="Asteroid009" parent="GameWorld/Asteroids/AsteroidsSmall13" index="8" instance=ExtResource( 2 )]
+position = Vector2( 33.884, -212.443 )
+mass = 75.0
+
+[node name="Asteroid010" parent="GameWorld/Asteroids/AsteroidsSmall13" index="9" instance=ExtResource( 2 )]
+position = Vector2( 63.4587, -385.487 )
+mass = 75.0
+
+[node name="Asteroid011" parent="GameWorld/Asteroids/AsteroidsSmall13" index="10" instance=ExtResource( 2 )]
+position = Vector2( 344.733, -450.929 )
+mass = 75.0
+
+[node name="Asteroid012" parent="GameWorld/Asteroids/AsteroidsSmall13" index="11" instance=ExtResource( 2 )]
+position = Vector2( 164.768, -451.558 )
+mass = 75.0
+
+[node name="Asteroid013" parent="GameWorld/Asteroids/AsteroidsSmall13" index="12" instance=ExtResource( 2 )]
+position = Vector2( 140.238, -564.361 )
+mass = 75.0
+
+[node name="Asteroid014" parent="GameWorld/Asteroids/AsteroidsSmall13" index="13" instance=ExtResource( 2 )]
+position = Vector2( 191.181, -526.404 )
+mass = 75.0
+
+[node name="Asteroid015" parent="GameWorld/Asteroids/AsteroidsSmall13" index="14" instance=ExtResource( 2 )]
+position = Vector2( 351.499, -545.382 )
+mass = 75.0
+
+[node name="Asteroid016" parent="GameWorld/Asteroids/AsteroidsSmall13" index="15" instance=ExtResource( 2 )]
+position = Vector2( 284.076, -505.427 )
+mass = 75.0
+
+[node name="Asteroid017" parent="GameWorld/Asteroids/AsteroidsSmall13" index="16" instance=ExtResource( 2 )]
+position = Vector2( 171.203, -682.228 )
+mass = 75.0
+
+[node name="Asteroid018" parent="GameWorld/Asteroids/AsteroidsSmall13" index="17" instance=ExtResource( 2 )]
+position = Vector2( 236.244, -696.123 )
+mass = 75.0
+
+[node name="Asteroid019" parent="GameWorld/Asteroids/AsteroidsSmall13" index="18" instance=ExtResource( 2 )]
+position = Vector2( 242.537, -845.255 )
+mass = 75.0
+
+[node name="Asteroid020" parent="GameWorld/Asteroids/AsteroidsSmall13" index="19" instance=ExtResource( 2 )]
+position = Vector2( 394.815, -725.75 )
+mass = 75.0
+
+[node name="Asteroid021" parent="GameWorld/Asteroids/AsteroidsSmall13" index="20" instance=ExtResource( 2 )]
+position = Vector2( 96.5507, -803.777 )
+mass = 75.0
+
+[node name="Asteroid022" parent="GameWorld/Asteroids/AsteroidsSmall13" index="21" instance=ExtResource( 2 )]
+position = Vector2( 126.125, -976.82 )
+mass = 75.0
+
+[node name="Asteroid023" parent="GameWorld/Asteroids/AsteroidsSmall13" index="22" instance=ExtResource( 2 )]
+position = Vector2( 407.4, -1042.26 )
+mass = 75.0
+
+[node name="Asteroid024" parent="GameWorld/Asteroids/AsteroidsSmall13" index="23" instance=ExtResource( 2 )]
+position = Vector2( 227.435, -1042.89 )
+mass = 75.0
+
+[node name="AsteroidsHuge13" type="Node2D" parent="GameWorld/Asteroids" index="38"]
+position = Vector2( -2141.53, -632.852 )
+rotation = 0.485046
+
+[node name="Asteroid001" parent="GameWorld/Asteroids/AsteroidsHuge13" index="0" instance=ExtResource( 3 )]
+position = Vector2( 53.9603, -1157.9 )
+
+[node name="AsteroidsBig14" type="Node2D" parent="GameWorld/Asteroids" index="39"]
+position = Vector2( -2348.85, -1024.73 )
+rotation = -2.34486
+
+[node name="Asteroid001" parent="GameWorld/Asteroids/AsteroidsBig14" index="0" instance=ExtResource( 1 )]
+position = Vector2( 39.3334, -112 )
+
+[node name="Asteroid002" parent="GameWorld/Asteroids/AsteroidsBig14" index="1" instance=ExtResource( 1 )]
+position = Vector2( 186.448, 24.9749 )
+
+[node name="Asteroid003" parent="GameWorld/Asteroids/AsteroidsBig14" index="2" instance=ExtResource( 1 )]
+position = Vector2( 355.757, 26.4732 )
+
+[node name="Asteroid004" parent="GameWorld/Asteroids/AsteroidsBig14" index="3" instance=ExtResource( 1 )]
+position = Vector2( 272.37, -245.164 )
+
+[node name="Asteroid005" parent="GameWorld/Asteroids/AsteroidsBig14" index="4" instance=ExtResource( 1 )]
+position = Vector2( 91.1457, -305.572 )
+
+[node name="Asteroid006" parent="GameWorld/Asteroids/AsteroidsBig14" index="5" instance=ExtResource( 1 )]
+position = Vector2( 247.2, -397.443 )
+
+[node name="Asteroid007" parent="GameWorld/Asteroids/AsteroidsBig14" index="6" instance=ExtResource( 1 )]
+position = Vector2( 60.9417, -476.099 )
+
+[node name="Asteroid008" parent="GameWorld/Asteroids/AsteroidsBig14" index="7" instance=ExtResource( 1 )]
+position = Vector2( 66.6667, -612 )
+
+[node name="Asteroid009" parent="GameWorld/Asteroids/AsteroidsBig14" index="8" instance=ExtResource( 1 )]
+position = Vector2( 253.115, -587.025 )
+
+[node name="Asteroid010" parent="GameWorld/Asteroids/AsteroidsBig14" index="9" instance=ExtResource( 1 )]
+position = Vector2( 422.424, -585.527 )
+
+[node name="Asteroid011" parent="GameWorld/Asteroids/AsteroidsBig14" index="10" instance=ExtResource( 1 )]
+position = Vector2( 339.036, -857.164 )
+
+[node name="Asteroid012" parent="GameWorld/Asteroids/AsteroidsBig14" index="11" instance=ExtResource( 1 )]
+position = Vector2( 157.812, -917.572 )
+
+[node name="Asteroid013" parent="GameWorld/Asteroids/AsteroidsBig14" index="12" instance=ExtResource( 1 )]
+position = Vector2( 313.866, -1009.44 )
+
+[node name="Asteroid014" parent="GameWorld/Asteroids/AsteroidsBig14" index="13" instance=ExtResource( 1 )]
+position = Vector2( 127.608, -1088.1 )
+
+[node name="AsteroidsSmall14" type="Node2D" parent="GameWorld/Asteroids" index="40"]
+position = Vector2( -2348.85, -1024.73 )
+rotation = -2.34486
+
+[node name="Asteroid001" parent="GameWorld/Asteroids/AsteroidsSmall14" index="0" instance=ExtResource( 2 )]
+position = Vector2( 77.5714, 26.9726 )
+mass = 75.0
+
+[node name="Asteroid002" parent="GameWorld/Asteroids/AsteroidsSmall14" index="1" instance=ExtResource( 2 )]
+position = Vector2( 128.514, 64.9297 )
+mass = 75.0
+
+[node name="Asteroid003" parent="GameWorld/Asteroids/AsteroidsSmall14" index="2" instance=ExtResource( 2 )]
+position = Vector2( 288.833, 45.9512 )
+mass = 75.0
+
+[node name="Asteroid004" parent="GameWorld/Asteroids/AsteroidsSmall14" index="3" instance=ExtResource( 2 )]
+position = Vector2( 221.409, 85.9061 )
+mass = 75.0
+
+[node name="Asteroid005" parent="GameWorld/Asteroids/AsteroidsSmall14" index="4" instance=ExtResource( 2 )]
+position = Vector2( 108.536, -90.8942 )
+mass = 75.0
+
+[node name="Asteroid006" parent="GameWorld/Asteroids/AsteroidsSmall14" index="5" instance=ExtResource( 2 )]
+position = Vector2( 173.577, -104.79 )
+mass = 75.0
+
+[node name="Asteroid007" parent="GameWorld/Asteroids/AsteroidsSmall14" index="6" instance=ExtResource( 2 )]
+position = Vector2( 179.87, -253.922 )
+mass = 75.0
+
+[node name="Asteroid008" parent="GameWorld/Asteroids/AsteroidsSmall14" index="7" instance=ExtResource( 2 )]
+position = Vector2( 332.148, -134.416 )
+mass = 75.0
+
+[node name="Asteroid009" parent="GameWorld/Asteroids/AsteroidsSmall14" index="8" instance=ExtResource( 2 )]
+position = Vector2( 33.884, -212.443 )
+mass = 75.0
+
+[node name="Asteroid010" parent="GameWorld/Asteroids/AsteroidsSmall14" index="9" instance=ExtResource( 2 )]
+position = Vector2( 63.4587, -385.487 )
+mass = 75.0
+
+[node name="Asteroid011" parent="GameWorld/Asteroids/AsteroidsSmall14" index="10" instance=ExtResource( 2 )]
+position = Vector2( 344.733, -450.929 )
+mass = 75.0
+
+[node name="Asteroid012" parent="GameWorld/Asteroids/AsteroidsSmall14" index="11" instance=ExtResource( 2 )]
+position = Vector2( 164.768, -451.558 )
+mass = 75.0
+
+[node name="Asteroid013" parent="GameWorld/Asteroids/AsteroidsSmall14" index="12" instance=ExtResource( 2 )]
+position = Vector2( 140.238, -564.361 )
+mass = 75.0
+
+[node name="Asteroid014" parent="GameWorld/Asteroids/AsteroidsSmall14" index="13" instance=ExtResource( 2 )]
+position = Vector2( 191.181, -526.404 )
+mass = 75.0
+
+[node name="Asteroid015" parent="GameWorld/Asteroids/AsteroidsSmall14" index="14" instance=ExtResource( 2 )]
+position = Vector2( 351.499, -545.382 )
+mass = 75.0
+
+[node name="Asteroid016" parent="GameWorld/Asteroids/AsteroidsSmall14" index="15" instance=ExtResource( 2 )]
+position = Vector2( 284.076, -505.427 )
+mass = 75.0
+
+[node name="Asteroid017" parent="GameWorld/Asteroids/AsteroidsSmall14" index="16" instance=ExtResource( 2 )]
+position = Vector2( 171.203, -682.228 )
+mass = 75.0
+
+[node name="Asteroid018" parent="GameWorld/Asteroids/AsteroidsSmall14" index="17" instance=ExtResource( 2 )]
+position = Vector2( 236.244, -696.123 )
+mass = 75.0
+
+[node name="Asteroid019" parent="GameWorld/Asteroids/AsteroidsSmall14" index="18" instance=ExtResource( 2 )]
+position = Vector2( 242.537, -845.255 )
+mass = 75.0
+
+[node name="Asteroid020" parent="GameWorld/Asteroids/AsteroidsSmall14" index="19" instance=ExtResource( 2 )]
+position = Vector2( 394.815, -725.75 )
+mass = 75.0
+
+[node name="Asteroid021" parent="GameWorld/Asteroids/AsteroidsSmall14" index="20" instance=ExtResource( 2 )]
+position = Vector2( 96.5507, -803.777 )
+mass = 75.0
+
+[node name="Asteroid022" parent="GameWorld/Asteroids/AsteroidsSmall14" index="21" instance=ExtResource( 2 )]
+position = Vector2( 126.125, -976.82 )
+mass = 75.0
+
+[node name="Asteroid023" parent="GameWorld/Asteroids/AsteroidsSmall14" index="22" instance=ExtResource( 2 )]
+position = Vector2( 407.4, -1042.26 )
+mass = 75.0
+
+[node name="Asteroid024" parent="GameWorld/Asteroids/AsteroidsSmall14" index="23" instance=ExtResource( 2 )]
+position = Vector2( 227.435, -1042.89 )
+mass = 75.0
+
+[node name="AsteroidsHuge14" type="Node2D" parent="GameWorld/Asteroids" index="41"]
+position = Vector2( -2348.85, -1024.73 )
+rotation = -2.34486
+
+[node name="Asteroid001" parent="GameWorld/Asteroids/AsteroidsHuge14" index="0" instance=ExtResource( 3 )]
+position = Vector2( 53.9603, -1157.9 )
+
+[node name="AsteroidsBig15" type="Node2D" parent="GameWorld/Asteroids" index="42"]
+position = Vector2( -1808.85, -924.732 )
+rotation = -4.04682
+
+[node name="Asteroid001" parent="GameWorld/Asteroids/AsteroidsBig15" index="0" instance=ExtResource( 1 )]
+position = Vector2( 39.3334, -112 )
+
+[node name="Asteroid002" parent="GameWorld/Asteroids/AsteroidsBig15" index="1" instance=ExtResource( 1 )]
+position = Vector2( 186.448, 24.9749 )
+
+[node name="Asteroid003" parent="GameWorld/Asteroids/AsteroidsBig15" index="2" instance=ExtResource( 1 )]
+position = Vector2( 355.757, 26.4732 )
+
+[node name="Asteroid004" parent="GameWorld/Asteroids/AsteroidsBig15" index="3" instance=ExtResource( 1 )]
+position = Vector2( 272.37, -245.164 )
+
+[node name="Asteroid005" parent="GameWorld/Asteroids/AsteroidsBig15" index="4" instance=ExtResource( 1 )]
+position = Vector2( 91.1457, -305.572 )
+
+[node name="Asteroid006" parent="GameWorld/Asteroids/AsteroidsBig15" index="5" instance=ExtResource( 1 )]
+position = Vector2( 247.2, -397.443 )
+
+[node name="Asteroid007" parent="GameWorld/Asteroids/AsteroidsBig15" index="6" instance=ExtResource( 1 )]
+position = Vector2( 60.9417, -476.099 )
+
+[node name="Asteroid008" parent="GameWorld/Asteroids/AsteroidsBig15" index="7" instance=ExtResource( 1 )]
+position = Vector2( 66.6667, -612 )
+
+[node name="Asteroid009" parent="GameWorld/Asteroids/AsteroidsBig15" index="8" instance=ExtResource( 1 )]
+position = Vector2( 253.115, -587.025 )
+
+[node name="Asteroid010" parent="GameWorld/Asteroids/AsteroidsBig15" index="9" instance=ExtResource( 1 )]
+position = Vector2( 422.424, -585.527 )
+
+[node name="Asteroid011" parent="GameWorld/Asteroids/AsteroidsBig15" index="10" instance=ExtResource( 1 )]
+position = Vector2( 339.036, -857.164 )
+
+[node name="Asteroid012" parent="GameWorld/Asteroids/AsteroidsBig15" index="11" instance=ExtResource( 1 )]
+position = Vector2( 157.812, -917.572 )
+
+[node name="Asteroid013" parent="GameWorld/Asteroids/AsteroidsBig15" index="12" instance=ExtResource( 1 )]
+position = Vector2( 313.866, -1009.44 )
+
+[node name="Asteroid014" parent="GameWorld/Asteroids/AsteroidsBig15" index="13" instance=ExtResource( 1 )]
+position = Vector2( 127.608, -1088.1 )
+
+[node name="AsteroidsSmall15" type="Node2D" parent="GameWorld/Asteroids" index="43"]
+position = Vector2( -1808.85, -924.732 )
+rotation = -4.04682
+
+[node name="Asteroid001" parent="GameWorld/Asteroids/AsteroidsSmall15" index="0" instance=ExtResource( 2 )]
+position = Vector2( 77.5714, 26.9726 )
+mass = 75.0
+
+[node name="Asteroid002" parent="GameWorld/Asteroids/AsteroidsSmall15" index="1" instance=ExtResource( 2 )]
+position = Vector2( 128.514, 64.9297 )
+mass = 75.0
+
+[node name="Asteroid003" parent="GameWorld/Asteroids/AsteroidsSmall15" index="2" instance=ExtResource( 2 )]
+position = Vector2( 288.833, 45.9512 )
+mass = 75.0
+
+[node name="Asteroid004" parent="GameWorld/Asteroids/AsteroidsSmall15" index="3" instance=ExtResource( 2 )]
+position = Vector2( 221.409, 85.9061 )
+mass = 75.0
+
+[node name="Asteroid005" parent="GameWorld/Asteroids/AsteroidsSmall15" index="4" instance=ExtResource( 2 )]
+position = Vector2( 108.536, -90.8942 )
+mass = 75.0
+
+[node name="Asteroid006" parent="GameWorld/Asteroids/AsteroidsSmall15" index="5" instance=ExtResource( 2 )]
+position = Vector2( 173.577, -104.79 )
+mass = 75.0
+
+[node name="Asteroid007" parent="GameWorld/Asteroids/AsteroidsSmall15" index="6" instance=ExtResource( 2 )]
+position = Vector2( 179.87, -253.922 )
+mass = 75.0
+
+[node name="Asteroid008" parent="GameWorld/Asteroids/AsteroidsSmall15" index="7" instance=ExtResource( 2 )]
+position = Vector2( 332.148, -134.416 )
+mass = 75.0
+
+[node name="Asteroid009" parent="GameWorld/Asteroids/AsteroidsSmall15" index="8" instance=ExtResource( 2 )]
+position = Vector2( 33.884, -212.443 )
+mass = 75.0
+
+[node name="Asteroid010" parent="GameWorld/Asteroids/AsteroidsSmall15" index="9" instance=ExtResource( 2 )]
+position = Vector2( 63.4587, -385.487 )
+mass = 75.0
+
+[node name="Asteroid011" parent="GameWorld/Asteroids/AsteroidsSmall15" index="10" instance=ExtResource( 2 )]
+position = Vector2( 344.733, -450.929 )
+mass = 75.0
+
+[node name="Asteroid012" parent="GameWorld/Asteroids/AsteroidsSmall15" index="11" instance=ExtResource( 2 )]
+position = Vector2( 164.768, -451.558 )
+mass = 75.0
+
+[node name="Asteroid013" parent="GameWorld/Asteroids/AsteroidsSmall15" index="12" instance=ExtResource( 2 )]
+position = Vector2( 140.238, -564.361 )
+mass = 75.0
+
+[node name="Asteroid014" parent="GameWorld/Asteroids/AsteroidsSmall15" index="13" instance=ExtResource( 2 )]
+position = Vector2( 191.181, -526.404 )
+mass = 75.0
+
+[node name="Asteroid015" parent="GameWorld/Asteroids/AsteroidsSmall15" index="14" instance=ExtResource( 2 )]
+position = Vector2( 351.499, -545.382 )
+mass = 75.0
+
+[node name="Asteroid016" parent="GameWorld/Asteroids/AsteroidsSmall15" index="15" instance=ExtResource( 2 )]
+position = Vector2( 284.076, -505.427 )
+mass = 75.0
+
+[node name="Asteroid017" parent="GameWorld/Asteroids/AsteroidsSmall15" index="16" instance=ExtResource( 2 )]
+position = Vector2( 171.203, -682.228 )
+mass = 75.0
+
+[node name="Asteroid018" parent="GameWorld/Asteroids/AsteroidsSmall15" index="17" instance=ExtResource( 2 )]
+position = Vector2( 236.244, -696.123 )
+mass = 75.0
+
+[node name="Asteroid019" parent="GameWorld/Asteroids/AsteroidsSmall15" index="18" instance=ExtResource( 2 )]
+position = Vector2( 242.537, -845.255 )
+mass = 75.0
+
+[node name="Asteroid020" parent="GameWorld/Asteroids/AsteroidsSmall15" index="19" instance=ExtResource( 2 )]
+position = Vector2( 394.815, -725.75 )
+mass = 75.0
+
+[node name="Asteroid021" parent="GameWorld/Asteroids/AsteroidsSmall15" index="20" instance=ExtResource( 2 )]
+position = Vector2( 96.5507, -803.777 )
+mass = 75.0
+
+[node name="Asteroid022" parent="GameWorld/Asteroids/AsteroidsSmall15" index="21" instance=ExtResource( 2 )]
+position = Vector2( 126.125, -976.82 )
+mass = 75.0
+
+[node name="Asteroid023" parent="GameWorld/Asteroids/AsteroidsSmall15" index="22" instance=ExtResource( 2 )]
+position = Vector2( 407.4, -1042.26 )
+mass = 75.0
+
+[node name="Asteroid024" parent="GameWorld/Asteroids/AsteroidsSmall15" index="23" instance=ExtResource( 2 )]
+position = Vector2( 227.435, -1042.89 )
+mass = 75.0
+
+[node name="AsteroidsHuge15" type="Node2D" parent="GameWorld/Asteroids" index="44"]
+position = Vector2( -1808.85, -924.732 )
+rotation = -4.04682
+
+[node name="Asteroid001" parent="GameWorld/Asteroids/AsteroidsHuge15" index="0" instance=ExtResource( 3 )]
+position = Vector2( 53.9603, -1157.9 )
+
+[node name="ProtoEnemy2" parent="GameWorld" index="1" instance=ExtResource( 4 )]
+position = Vector2( -162.094, -294.095 )
+
+[node name="ProtoEnemy3" parent="GameWorld" index="2" instance=ExtResource( 4 )]
+position = Vector2( 590.334, -301.621 )
+[connection signal="input_event" from="GameWorld/Asteroids/AsteroidsBig/Asteroid001" to="GameWorld/Asteroids/AsteroidsBig/Asteroid001" method="_on_Asteroid001_input_event"]
+
+[editable path="CanvasLayer/HUD"]
+
+[editable path="TimeOfDay"]
+
+[editable path="ReturnHomeBeacon"]
+
+[editable path="Player"]
+
+[editable path="ParallaxBackground2"]
+
+[editable path="GameWorld/Asteroids/AsteroidsSmall2/Asteroid001"]

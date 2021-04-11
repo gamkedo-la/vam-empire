@@ -8,7 +8,9 @@
 [sub_resource type="CircleShape2D" id=1]
 radius = 62.0345
 
-[node name="ReturnHomeBeacon" type="Area2D"]
+[node name="ReturnHomeBeacon" type="Area2D" groups=[
+"mini_map",
+]]
 gravity_point = true
 monitorable = false
 collision_layer = 0
@@ -57,6 +59,12 @@ margin_bottom = 19.0
 text = "10"
 align = 1
 valign = 1
+
+[node name="Sprite" type="Sprite" parent="."]
+visible = false
+position = Vector2( 0, 18 )
+z_as_relative = false
+texture = ExtResource( 4 )
 
 [node name="Tween" type="Tween" parent="."]
 

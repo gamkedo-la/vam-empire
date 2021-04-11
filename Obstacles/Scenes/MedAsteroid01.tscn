@@ -1,8 +1,8 @@
 [gd_scene load_steps=8 format=2]
 
 [ext_resource path="res://Obstacles/Textures/Asteroid_002.png" type="Texture" id=1]
-[ext_resource path="res://Collisions/HurtBox.tscn" type="PackedScene" id=2]
-[ext_resource path="res://Scripts/Asteroid001.gd" type="Script" id=3]
+[ext_resource path="res://Scripts/Asteroid001.gd" type="Script" id=2]
+[ext_resource path="res://Collisions/HurtBox.tscn" type="PackedScene" id=3]
 
 [sub_resource type="CapsuleShape2D" id=1]
 radius = 23.559
@@ -19,12 +19,12 @@ polygon = PoolVector2Array( -14.508, 22.1402, -20.0386, 13.8897, -24.9524, 7.478
 [sub_resource type="OccluderPolygon2D" id=4]
 polygon = PoolVector2Array( -11.0631, 22.8654, 2.6272, 27.036, 18.1308, 21.5961, 24.6587, 11.5324, 24.9307, -5.51254, 12.0563, -20.7442, 0.541908, -25.912, -12.4231, -24.0987, -24.9348, -10.0458, -24.3908, 7.9058 )
 
-[node name="Asteroid002" type="RigidBody2D" groups=[
+[node name="MedAsteroid01" type="RigidBody2D" groups=[
 "mini_map",
 ]]
 input_pickable = true
 mass = 750.0
-script = ExtResource( 3 )
+script = ExtResource( 2 )
 health = 20000
 
 [node name="Sprite" type="Sprite" parent="."]
@@ -35,7 +35,7 @@ position = Vector2( 1.19209e-07, 0.839943 )
 rotation = -0.631809
 shape = SubResource( 1 )
 
-[node name="HurtBox" parent="." instance=ExtResource( 2 )]
+[node name="HurtBox" parent="." instance=ExtResource( 3 )]
 collision_layer = 8
 
 [node name="CollisionShape2D" parent="HurtBox" index="0"]

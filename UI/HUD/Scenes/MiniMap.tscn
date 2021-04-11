@@ -1,0 +1,26 @@
+[gd_scene load_steps=2 format=2]
+
+[ext_resource path="res://Scripts/UI/MiniMap.gd" type="Script" id=1]
+
+[node name="MiniMap" type="MarginContainer"]
+visible = false
+anchor_left = 0.65
+anchor_right = 0.65
+margin_right = 192.0
+margin_bottom = 108.0
+rect_min_size = Vector2( 192, 108 )
+custom_constants/margin_right = 5
+custom_constants/margin_top = 5
+custom_constants/margin_left = 5
+custom_constants/margin_bottom = 5
+script = ExtResource( 1 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="MiniMapCanvas" type="ColorRect" parent="."]
+margin_left = 5.0
+margin_top = 5.0
+margin_right = 187.0
+margin_bottom = 103.0
+color = Color( 0.141176, 0.321569, 0.231373, 0.0941176 )

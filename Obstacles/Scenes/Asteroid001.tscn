@@ -19,6 +19,7 @@ polygon = PoolVector2Array( -1.39226, 1.45522, -1.20072, 0.0998689, 0.0958135, -
 
 [node name="Asteroid001" type="RigidBody2D" groups=[
 "asteroids",
+"mini_map",
 ]]
 input_pickable = true
 mass = 100.0

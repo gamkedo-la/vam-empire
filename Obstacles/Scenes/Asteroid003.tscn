@@ -12,7 +12,9 @@ height = 123.665
 radius = 108.168
 height = 154.389
 
-[node name="Asteroid003" type="RigidBody2D"]
+[node name="Asteroid003" type="RigidBody2D" groups=[
+"mini_map",
+]]
 input_pickable = true
 mass = 7500.0
 script = ExtResource( 3 )

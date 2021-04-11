@@ -66,7 +66,10 @@ var piloted_ship = null
 
 
 func _ready():
+	#TODO: pilot_ship_from_pack and change variables in PlayerVars to ShipClass/Index 
 	pilot_ship(PlayerVars.player.current_ship)	
+	PlayerVars.player_node = self
+	
 	rng.randomize()
 	shieldMaxHealth = shieldHealth
 	hullMaxHealth = hullHealth

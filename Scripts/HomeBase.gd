@@ -51,7 +51,7 @@ func _on_GoMiningEasy_pressed():
 	#Global.goto_scene("res://World/game_zones/EasyZone_001.tscn")
 
 func _on_GoWorldProto_pressed():	
-	leaving_to = "res://World_Proto.tscn"
+	leaving_to = "res://World/game_zones/TAZ_ProtoLayout.tscn"
 	take_off()
 	#Global.goto_scene("res://World_Proto.tscn")
 	

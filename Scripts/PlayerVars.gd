@@ -8,6 +8,8 @@ var player = {
 	"current_ship": "res://Ships/StarterShip.tscn"	
 }
 
+var player_node = null
+
 # For instantiating a new player file
 var player_defaults = {
 	"name": " ",
