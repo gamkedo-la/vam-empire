@@ -8,6 +8,7 @@ extends Node2D
 
 onready var starfield = $ParallaxBackground2
 onready var base_overlay = $CanvasLayer/BaseOverlay
+onready var animator = $CanvasLayer/BaseOverlay/VBoxContainer/AnimationPlayer
 onready var player_ship = $PlayerLeaveAnimation/PlayerPlaceholder
 onready var takeoff_tween = $PlayerLeaveAnimation/TakeoffTween
 onready var rear_pos = $PlayerLeaveAnimation/RearTakeoff
@@ -39,7 +40,7 @@ func start_light_tweens():
 func take_off():
 	if backing_up:
 		takeoff_tween.interpolate_property(player_ship, "position", player_ship.position, rear_pos.position, 3, Tween.TRANS_BACK, Tween.EASE_IN_OUT)
-		base_overlay.visible = false
+		animator.play("Start")
 	else: 
 		takeoff_tween.interpolate_property(player_ship, "position", player_ship.position, front_pos.position, 1, Tween.TRANS_EXPO, Tween.EASE_IN)
 	takeoff_tween.start()
