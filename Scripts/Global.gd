@@ -11,14 +11,13 @@ var weapon_hangar = []
 var menu_open = false
 var game_live = false
 var hold_fire = false
+var debug_mode = false
 export var day = true
 
 func _ready():
 	var root = get_tree().get_root()
 	current_scene = root.get_child(root.get_child_count() - 1)
-	_install_menu_vars()
-	if in_game_menu:
-		call_deferred("_deferred_close_menu")
+
 	_populate_hangars()
 	
 func goto_scene(path):
@@ -37,6 +36,10 @@ func reparent(child: Node, new_parent: Node):
 
 func hold_fire(hold_release: bool):
 	hold_fire = hold_release
+
+func debug_print(text):
+	if debug_mode:
+		print_debug(text)
 
 func _deferred_goto_scene(path):
 	
@@ -68,11 +71,6 @@ func _display_menu():
 		if get_tree().paused == true:
 			get_tree().paused = false
 		menu_open = false
-
-func _install_menu_vars():
-	in_game_menu = main_menu_scene.instance()		
-	get_tree().get_root().add_child(in_game_menu)	
-	
 
 func _populate_hangars():
 	# In this function we're iterating through the Packed Weapon and Ship scenes, and organizing 

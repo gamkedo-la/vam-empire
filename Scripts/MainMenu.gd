@@ -224,3 +224,7 @@ func _on_FastLoad_pressed():
 		PlayerVars.load_save()
 	update_settings()
 	Global.goto_scene("res://World/game_zones/EasyZone_001.tscn")
+
+
+func _on_CheckBox_toggled(button_pressed):
+	Global.debug_mode = button_pressed
