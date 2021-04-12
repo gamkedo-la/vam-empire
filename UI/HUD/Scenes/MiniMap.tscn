@@ -1,18 +1,46 @@
-[gd_scene load_steps=5 format=2]
+[gd_scene load_steps=6 format=2]
 
 [ext_resource path="res://Scripts/UI/MiniMap.gd" type="Script" id=1]
 [ext_resource path="res://Player/Textures/Shmup_Player_Ship_001.png" type="Texture" id=2]
 [ext_resource path="res://UI/HUD/Textures/MiniMap/pixel_grid.png" type="Texture" id=3]
 [ext_resource path="res://UI/HUD/Textures/MiniMap/mini_map_border.png" type="Texture" id=4]
 
+[sub_resource type="Animation" id=1]
+resource_name = "Show"
+length = 2.0
+tracks/0/type = "bezier"
+tracks/0/path = NodePath(".:rect_scale:x")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"points": PoolRealArray( 1e-05, -0.25, 0, 0.25, 0, 1e-05, -0.25, 0, 0.25, 0, 1, -0.25, 0, 0.25, 0, 1, -0.25, 0, 0.25, 0 ),
+"times": PoolRealArray( 0, 0.7, 0.9, 1.4 )
+}
+tracks/1/type = "bezier"
+tracks/1/path = NodePath(".:rect_scale:y")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/keys = {
+"points": PoolRealArray( 0.123, -0.25, 0, 0.25, 0, 0.123, -0.25, 0, 0.25, 0, 0.123, -0.25, 0, 0.25, 0, 1, -0.25, 0, 0.25, 0 ),
+"times": PoolRealArray( 0, 0.7, 0.9, 1.4 )
+}
+
 [node name="MiniMap" type="MarginContainer"]
 anchor_left = 0.79
 anchor_top = 0.02
 anchor_right = 0.79
 anchor_bottom = 0.02
-margin_right = 192.0
-margin_bottom = 108.0
+margin_left = -8.5954
+margin_top = -2.94276
+margin_right = 193.405
+margin_bottom = 115.057
 rect_min_size = Vector2( 192, 108 )
+rect_scale = Vector2( 1e-05, 0.123 )
+rect_pivot_offset = Vector2( 102, 55 )
 custom_constants/margin_right = 5
 custom_constants/margin_top = 5
 custom_constants/margin_left = 5
@@ -49,3 +77,7 @@ margin_right = 197.0
 margin_bottom = 113.0
 rect_min_size = Vector2( 192, 108 )
 texture = ExtResource( 4 )
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+autoplay = "Show"
+anims/Show = SubResource( 1 )
