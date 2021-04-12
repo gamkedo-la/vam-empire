@@ -29,9 +29,19 @@ onready var name_popup = $MenuCanvas/NewPlayerPop
 onready var name_entry = $MenuCanvas/NewPlayerPop/NewPlayerVB/EntryHB/PlayerNameEdit
 onready var name_start_button = $MenuCanvas/NewPlayerPop/NewPlayerVB/StartHB/PNameStartButton
 
+# Sound Panel 
 onready var mast_vol_slider = $MenuCanvas/OptionsContainer/VBoxContainer/TabContainer/Audio/VBoxContainer/HBoxContainer/mast_volume_slider
 onready var music_vol_slider =  $MenuCanvas/OptionsContainer/VBoxContainer/TabContainer/Audio/VBoxContainer/HBoxContainer2/music_volume_slider
 onready var sfx_vol_slider = $MenuCanvas/OptionsContainer/VBoxContainer/TabContainer/Audio/VBoxContainer/HBoxContainer3/sound_effect_volume_slider
+
+# HUD Panel
+onready var mast_hud_bright_slider = $MenuCanvas/OptionsContainer/VBoxContainer/TabContainer/HUD/VBoxContainer/MastHUDBrightHBox/hud_brightness_slider
+onready var mast_hud_opac_slider = $MenuCanvas/OptionsContainer/VBoxContainer/TabContainer/HUD/VBoxContainer/MastHUDOpacHBox/hud_opacity_slider
+onready var status_bars_bright_slider = $MenuCanvas/OptionsContainer/VBoxContainer/TabContainer/HUD/VBoxContainer/StatusBarsBrightHBox/status_bars_brightness_slider
+onready var status_bars_opac_slider = $MenuCanvas/OptionsContainer/VBoxContainer/TabContainer/HUD/VBoxContainer/StatusBarsOpacHBox/status_bars_opac_slider
+
+onready var mini_map_style_option = $MenuCanvas/OptionsContainer/VBoxContainer/TabContainer/HUD/VBoxContainer/MiniMapStyleHBox/mini_map_style_optionbutton
+
 
 
 func _ready():
@@ -49,10 +59,11 @@ func _ready():
 	#TODO: This is just a quick hack to get some placeholder menu music. Music should be handled in a persistent way to allow smooth transitions
 	ani_player.play("Empire_Loop")
 	
+	update_ui_settings()
 	update_volume()
 	
 	
-func _process(delta):
+func _process(_delta):
 	
 	if Input.is_action_just_pressed("ui_esc"):		
 		close_options()
@@ -88,13 +99,20 @@ func update_volume():
 	AudioServer.set_bus_volume_db(AudioServer.get_bus_index("Master"), linear2db(UserSettings.current.sound.master_volume))
 	AudioServer.set_bus_volume_db(AudioServer.get_bus_index("Music"), linear2db(UserSettings.current.sound.music_volume))
 	AudioServer.set_bus_volume_db(AudioServer.get_bus_index("SFX"), linear2db(UserSettings.current.sound.effects_volume))
+
+func update_ui_settings():
+	if UserSettings.current.ui.mini_map_style:
+		mini_map_style_option.selected = UserSettings.current.ui.mini_map_style
+	for textOpt in mini_map_style_option.get_item_count():
+		UserSettings.mini_map_textures.push_back(mini_map_style_option.get_item_icon(textOpt))
+	
 	
 func load_into_homebase():
 	tween.stop_all()
 	Global.goto_scene("res://World/game_zones/home_base.tscn")
 	Global.menu_open = true
 
-func _on_Tween_tween_completed(object, key):
+func _on_Tween_tween_completed(_object, key):
 	if key == ":scroll_offset:x":
 		target.x *= -1.1
 		tween_to_target_x(target)
@@ -174,3 +192,9 @@ func _on_ResetSettings_pressed():
 
 func _on_ReturnFromOptions_pressed():
 	close_options()
+
+
+func _on_mini_map_style_optionbutton_item_selected(index):
+	UserSettings.current.ui.mini_map_style = index
+	UserSettings.refresh_ui()
+	pass

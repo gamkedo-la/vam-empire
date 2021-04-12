@@ -76,7 +76,7 @@ func _populate_hangars():
 	var CIdx = 0
 	var Idx = 0
 	for Class in ships.get_children():
-		print("Class: ", Class)
+		#print("Class: ", Class)
 		ship_hangar.append([])
 		CIdx = Class.get_index()
 		for Ship in Class.get_children():
@@ -84,9 +84,9 @@ func _populate_hangars():
 			if Ship.get_child_count() > 0:		
 				if Ship.get_child(0):
 					ship_hangar[CIdx].append([Ship.get_child(0)])
-					print("Ship ", ship_hangar[CIdx][Idx], " added to index [", CIdx, "][", Idx,"]")
+					#print("Ship ", ship_hangar[CIdx][Idx], " added to index [", CIdx, "][", Idx,"]")
 	for Class in weapons.get_children():
-		print("Class: ", Class)
+		#print("Class: ", Class)
 		weapon_hangar.append([])
 		CIdx = Class.get_index()
 		for Weapon in Class.get_children():
@@ -94,5 +94,5 @@ func _populate_hangars():
 			if Weapon.get_child_count() > 0:
 				if Weapon.get_child(0):
 					weapon_hangar[CIdx].append([Weapon.get_child(0)])
-					print("Weapon ", weapon_hangar[CIdx][Idx], " added to index [", CIdx, "][", Idx, "]")
+					#print("Weapon ", weapon_hangar[CIdx][Idx], " added to index [", CIdx, "][", Idx, "]")
 		

@@ -1,5 +1,7 @@
 extends Node
 
+signal ui_refresh
+
 var FILE_NAME = "user://user-settings.json"
 
 var user_defaults = {
@@ -9,12 +11,16 @@ var user_defaults = {
 	"effects_volume": 1
 	},
 	ui = {
+	"master_hud_brightness": 1,
 	"master_hud_opacity": 1,
 	"HUD_opacity": 1,
 	"mini_map_opacity": 1,
-	"mini_map_grid_opacity": 1
+	"mini_map_grid_opacity": 1,
+	"mini_map_style": 0
 	}
 }
+
+var mini_map_textures = []
 
 var current = user_defaults.duplicate()
 
@@ -28,7 +34,7 @@ func _ready():
 	pass # Replace with function body.
 
 func new():
-	print_debug("Loading Factory Default Settings")
+	print_debug("Loading Factory Default [User Settings]")
 	current.clear()
 	current = user_defaults.duplicate()	
 	save()
@@ -40,8 +46,7 @@ func save():
 	file.close()
 
 func load_save():
-	var file = File.new()
-	var build_new_config = false
+	var file = File.new()	
 	if file.file_exists(FILE_NAME):
 		file.open(FILE_NAME, File.READ)
 		var data = parse_json(file.get_as_text())
@@ -68,9 +73,9 @@ func load_save():
 				save()
 				return
 		else:
-			printerr("Corrupted Player Save Data!")			
+			printerr("Corrupted [User Settings] Save Data!")			
 	else:
-		printerr("No saved data to load")
+		printerr("No saved [User Settings] data to load")
 	# No save data, version didn't match, or corrupted save file all lead to making a new() config file
 	new()
 
@@ -80,3 +85,6 @@ func save_exists():
 		return true
 	else:
 		return false
+
+func refresh_ui():
+	emit_signal("ui_refresh")

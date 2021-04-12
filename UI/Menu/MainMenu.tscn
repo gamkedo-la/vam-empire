@@ -1,4 +1,4 @@
-[gd_scene load_steps=316 format=2]
+[gd_scene load_steps=319 format=2]
 
 [ext_resource path="res://World/common_scenes/ParallaxBackground2.tscn" type="PackedScene" id=1]
 [ext_resource path="res://Scripts/MainMenu.gd" type="Script" id=2]
@@ -18,6 +18,9 @@
 [ext_resource path="res://UI/Textures/new_button/new_button4.png" type="Texture" id=16]
 [ext_resource path="res://UI/Textures/animated_EMPIRE_inf.png" type="Texture" id=17]
 [ext_resource path="res://Music/brooding_menu_theme_rough.ogg" type="AudioStream" id=18]
+[ext_resource path="res://UI/HUD/Textures/MiniMap/pixel_grid.png" type="Texture" id=19]
+[ext_resource path="res://UI/HUD/Textures/MiniMap/pixel_grid_dark.png" type="Texture" id=20]
+[ext_resource path="res://UI/HUD/Textures/MiniMap/pixel_grid_clear.png" type="Texture" id=21]
 
 [sub_resource type="AtlasTexture" id=1]
 atlas = ExtResource( 4 )
@@ -1364,7 +1367,6 @@ anims/Empire_Loop = SubResource( 297 )
 [node name="Tween" type="Tween" parent="MenuCanvas"]
 
 [node name="OptionsContainer" type="HBoxContainer" parent="MenuCanvas"]
-visible = false
 margin_right = 960.0
 margin_bottom = 540.0
 alignment = 1
@@ -1373,19 +1375,20 @@ __meta__ = {
 }
 
 [node name="VBoxContainer" type="VBoxContainer" parent="MenuCanvas/OptionsContainer"]
-margin_left = 240.0
-margin_right = 720.0
+margin_left = 227.0
+margin_right = 733.0
 margin_bottom = 540.0
 alignment = 1
 
 [node name="TabContainer" type="TabContainer" parent="MenuCanvas/OptionsContainer/VBoxContainer"]
 margin_top = 123.0
-margin_right = 480.0
+margin_right = 506.0
 margin_bottom = 393.0
 rect_min_size = Vector2( 480, 270 )
 drag_to_rearrange_enabled = true
 
 [node name="Audio" type="PanelContainer" parent="MenuCanvas/OptionsContainer/VBoxContainer/TabContainer"]
+visible = false
 anchor_right = 1.0
 anchor_bottom = 1.0
 margin_left = 4.0
@@ -1552,6 +1555,150 @@ margin_left = 58.0
 margin_right = 82.0
 margin_bottom = 24.0
 
+[node name="HUD" type="PanelContainer" parent="MenuCanvas/OptionsContainer/VBoxContainer/TabContainer"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+margin_left = 4.0
+margin_top = 32.0
+margin_right = -4.0
+margin_bottom = -4.0
+
+[node name="VBoxContainer" type="VBoxContainer" parent="MenuCanvas/OptionsContainer/VBoxContainer/TabContainer/HUD"]
+margin_left = 7.0
+margin_top = 7.0
+margin_right = 491.0
+margin_bottom = 227.0
+
+[node name="MastHUDBrightHBox" type="HBoxContainer" parent="MenuCanvas/OptionsContainer/VBoxContainer/TabContainer/HUD/VBoxContainer"]
+margin_right = 484.0
+margin_bottom = 16.0
+
+[node name="Label" type="Label" parent="MenuCanvas/OptionsContainer/VBoxContainer/TabContainer/HUD/VBoxContainer/MastHUDBrightHBox"]
+margin_top = 1.0
+margin_right = 240.0
+margin_bottom = 15.0
+rect_min_size = Vector2( 240, 0 )
+text = "Master HUD Brightness"
+
+[node name="hud_brightness_slider" type="HSlider" parent="MenuCanvas/OptionsContainer/VBoxContainer/TabContainer/HUD/VBoxContainer/MastHUDBrightHBox"]
+margin_left = 244.0
+margin_right = 484.0
+margin_bottom = 16.0
+rect_min_size = Vector2( 240, 0 )
+
+[node name="MastHUDOpacHBox" type="HBoxContainer" parent="MenuCanvas/OptionsContainer/VBoxContainer/TabContainer/HUD/VBoxContainer"]
+margin_top = 20.0
+margin_right = 484.0
+margin_bottom = 36.0
+
+[node name="Label" type="Label" parent="MenuCanvas/OptionsContainer/VBoxContainer/TabContainer/HUD/VBoxContainer/MastHUDOpacHBox"]
+margin_top = 1.0
+margin_right = 240.0
+margin_bottom = 15.0
+rect_min_size = Vector2( 240, 0 )
+text = "Master HUD Opacity"
+
+[node name="hud_opacity_slider" type="HSlider" parent="MenuCanvas/OptionsContainer/VBoxContainer/TabContainer/HUD/VBoxContainer/MastHUDOpacHBox"]
+margin_left = 244.0
+margin_right = 484.0
+margin_bottom = 16.0
+rect_min_size = Vector2( 240, 0 )
+
+[node name="StatusBarsBrightHBox" type="HBoxContainer" parent="MenuCanvas/OptionsContainer/VBoxContainer/TabContainer/HUD/VBoxContainer"]
+margin_top = 40.0
+margin_right = 484.0
+margin_bottom = 56.0
+
+[node name="Label" type="Label" parent="MenuCanvas/OptionsContainer/VBoxContainer/TabContainer/HUD/VBoxContainer/StatusBarsBrightHBox"]
+margin_top = 1.0
+margin_right = 240.0
+margin_bottom = 15.0
+rect_min_size = Vector2( 240, 0 )
+text = "Ship Health Brightness"
+
+[node name="status_bars_brightness_slider" type="HSlider" parent="MenuCanvas/OptionsContainer/VBoxContainer/TabContainer/HUD/VBoxContainer/StatusBarsBrightHBox"]
+margin_left = 244.0
+margin_right = 484.0
+margin_bottom = 16.0
+rect_min_size = Vector2( 240, 0 )
+
+[node name="StatusBarsOpacHBox" type="HBoxContainer" parent="MenuCanvas/OptionsContainer/VBoxContainer/TabContainer/HUD/VBoxContainer"]
+margin_top = 60.0
+margin_right = 484.0
+margin_bottom = 76.0
+
+[node name="Label" type="Label" parent="MenuCanvas/OptionsContainer/VBoxContainer/TabContainer/HUD/VBoxContainer/StatusBarsOpacHBox"]
+margin_top = 1.0
+margin_right = 240.0
+margin_bottom = 15.0
+rect_min_size = Vector2( 240, 0 )
+text = "Ship Health Brightness"
+
+[node name="status_bars_opac_slider" type="HSlider" parent="MenuCanvas/OptionsContainer/VBoxContainer/TabContainer/HUD/VBoxContainer/StatusBarsOpacHBox"]
+margin_left = 244.0
+margin_right = 484.0
+margin_bottom = 16.0
+rect_min_size = Vector2( 240, 0 )
+
+[node name="MiniMapBrightHBox" type="HBoxContainer" parent="MenuCanvas/OptionsContainer/VBoxContainer/TabContainer/HUD/VBoxContainer"]
+margin_top = 80.0
+margin_right = 484.0
+margin_bottom = 96.0
+
+[node name="Label" type="Label" parent="MenuCanvas/OptionsContainer/VBoxContainer/TabContainer/HUD/VBoxContainer/MiniMapBrightHBox"]
+margin_top = 1.0
+margin_right = 240.0
+margin_bottom = 15.0
+rect_min_size = Vector2( 240, 0 )
+text = "MiniMap Brightness"
+
+[node name="mini_map_bright_slider" type="HSlider" parent="MenuCanvas/OptionsContainer/VBoxContainer/TabContainer/HUD/VBoxContainer/MiniMapBrightHBox"]
+margin_left = 244.0
+margin_right = 484.0
+margin_bottom = 16.0
+rect_min_size = Vector2( 240, 0 )
+
+[node name="MiniMapOpacHBox" type="HBoxContainer" parent="MenuCanvas/OptionsContainer/VBoxContainer/TabContainer/HUD/VBoxContainer"]
+margin_top = 100.0
+margin_right = 484.0
+margin_bottom = 116.0
+
+[node name="Label" type="Label" parent="MenuCanvas/OptionsContainer/VBoxContainer/TabContainer/HUD/VBoxContainer/MiniMapOpacHBox"]
+margin_top = 1.0
+margin_right = 240.0
+margin_bottom = 15.0
+rect_min_size = Vector2( 240, 0 )
+text = "MiniMap Opacity"
+
+[node name="mini_map_opac_slider" type="HSlider" parent="MenuCanvas/OptionsContainer/VBoxContainer/TabContainer/HUD/VBoxContainer/MiniMapOpacHBox"]
+margin_left = 244.0
+margin_right = 484.0
+margin_bottom = 16.0
+rect_min_size = Vector2( 240, 0 )
+
+[node name="MiniMapStyleHBox" type="HBoxContainer" parent="MenuCanvas/OptionsContainer/VBoxContainer/TabContainer/HUD/VBoxContainer"]
+margin_top = 120.0
+margin_right = 484.0
+margin_bottom = 140.0
+
+[node name="Label" type="Label" parent="MenuCanvas/OptionsContainer/VBoxContainer/TabContainer/HUD/VBoxContainer/MiniMapStyleHBox"]
+margin_top = 3.0
+margin_right = 240.0
+margin_bottom = 17.0
+rect_min_size = Vector2( 240, 0 )
+text = "MiniMap Grid Style"
+
+[node name="mini_map_style_optionbutton" type="OptionButton" parent="MenuCanvas/OptionsContainer/VBoxContainer/TabContainer/HUD/VBoxContainer/MiniMapStyleHBox"]
+margin_left = 244.0
+margin_right = 484.0
+margin_bottom = 20.0
+rect_min_size = Vector2( 240, 0 )
+text = "Light"
+icon = ExtResource( 19 )
+expand_icon = true
+items = [ "Light", ExtResource( 19 ), false, 0, null, "Dim", ExtResource( 20 ), false, 1, null, "Clear", ExtResource( 21 ), false, 2, null ]
+selected = 0
+
 [node name="Difficulty" type="PanelContainer" parent="MenuCanvas/OptionsContainer/VBoxContainer/TabContainer"]
 visible = false
 anchor_right = 1.0
@@ -1601,19 +1748,18 @@ margin_bottom = -4.0
 
 [node name="HBoxContainer" type="HBoxContainer" parent="MenuCanvas/OptionsContainer/VBoxContainer"]
 margin_top = 397.0
-margin_right = 480.0
+margin_right = 506.0
 margin_bottom = 417.0
 alignment = 1
 
 [node name="ReturnFromOptions" type="Button" parent="MenuCanvas/OptionsContainer/VBoxContainer/HBoxContainer"]
-margin_left = 200.0
-margin_right = 280.0
+margin_left = 213.0
+margin_right = 293.0
 margin_bottom = 20.0
 rect_min_size = Vector2( 80, 0 )
 text = "Return"
 
 [node name="NewPlayerPop" type="WindowDialog" parent="MenuCanvas"]
-visible = true
 anchor_left = 0.5
 anchor_top = 0.5
 anchor_right = 0.5
@@ -1713,6 +1859,7 @@ bus = "Music"
 [connection signal="value_changed" from="MenuCanvas/OptionsContainer/VBoxContainer/TabContainer/Audio/VBoxContainer/HBoxContainer3/sound_effect_volume_slider" to="." method="_on_sound_effect_volume_slider_value_changed"]
 [connection signal="value_changed" from="MenuCanvas/OptionsContainer/VBoxContainer/TabContainer/Audio/VBoxContainer/HBoxContainer4/ambience_slider" to="." method="_on_ambience_slider_value_changed"]
 [connection signal="toggled" from="MenuCanvas/OptionsContainer/VBoxContainer/TabContainer/Graphics/VBoxContainer/HBoxContainer/DayToggle" to="." method="_on_DayToggle_toggled"]
+[connection signal="item_selected" from="MenuCanvas/OptionsContainer/VBoxContainer/TabContainer/HUD/VBoxContainer/MiniMapStyleHBox/mini_map_style_optionbutton" to="." method="_on_mini_map_style_optionbutton_item_selected"]
 [connection signal="pressed" from="MenuCanvas/OptionsContainer/VBoxContainer/TabContainer/System/VBoxContainer/HBoxContainer/ResetSettings" to="." method="_on_ResetSettings_pressed"]
 [connection signal="pressed" from="MenuCanvas/OptionsContainer/VBoxContainer/HBoxContainer/ReturnFromOptions" to="." method="_on_ReturnFromOptions_pressed"]
 [connection signal="text_changed" from="MenuCanvas/NewPlayerPop/NewPlayerVB/EntryHB/PlayerNameEdit" to="." method="_on_TextEdit_text_changed"]

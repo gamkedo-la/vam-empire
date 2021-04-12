@@ -14,6 +14,8 @@ var _initialized = false
 
 # Note: 192x108 (mini_map dimensions) is 1/5th of 960x540
 func _ready():
+	UserSettings.connect("ui_refresh", self, "_refresh_settings")
+	_refresh_settings()
 	pass
 
 func _initialize():
@@ -65,6 +67,11 @@ func _on_object_removed(icon):
 func _draw():
 	pass
 
+
+func _refresh_settings():
+	print_debug(UserSettings.mini_map_textures)
+	pixel_grid.texture = UserSettings.mini_map_textures[UserSettings.current.ui.mini_map_style]
+	
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 #func _process(delta):
 #	pass
