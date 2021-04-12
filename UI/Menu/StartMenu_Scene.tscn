@@ -1,0 +1,14 @@
+[gd_scene load_steps=4 format=2]
+
+[ext_resource path="res://UI/Menu/MainMenu.tscn" type="PackedScene" id=1]
+[ext_resource path="res://UI/Menu/StartMenu.gd" type="Script" id=3]
+[ext_resource path="res://World/common_scenes/ParallaxBackground2.tscn" type="PackedScene" id=28]
+
+[node name="StartMenu" type="Node2D"]
+script = ExtResource( 3 )
+
+[node name="MainMenuParallax" parent="." instance=ExtResource( 28 )]
+
+[node name="Tween" type="Tween" parent="."]
+
+[node name="MainMenu" parent="." instance=ExtResource( 1 )]

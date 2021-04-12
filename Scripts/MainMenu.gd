@@ -1,9 +1,7 @@
 extends Node2D
 
-var plax_scroll_widths = 3
-var plax_scroll_heights = 3
 
-onready var dimensions = get_viewport_rect().size
+
 
 onready var background = $MenuCanvas/MainMenuParallax
 onready var vam_logo = $MenuCanvas/MainMenuVBox/LogoBox/VamLogo
@@ -15,14 +13,6 @@ onready var new_button = $MenuCanvas/MainMenuVBox/InteractVB/NewHB/New
 onready var load_button = $MenuCanvas/MainMenuVBox/InteractVB/LoadHB2/Load
 onready var load_accept_popup = $MenuCanvas/LoadAcceptDialog
 onready var options = $MenuCanvas/OptionsContainer
-onready var tween = $MenuCanvas/Tween
-
-onready var tod_toggle = $MenuCanvas/OptionsContainer/VBoxContainer/TabContainer/Graphics/VBoxContainer/HBoxContainer/DayToggle
-
-onready var music = $AudioStreamPlayer
-
-onready var target = Vector2(plax_scroll_widths*1.1*dimensions.x, plax_scroll_heights*1.1*dimensions.y)
-onready var orig_target = Vector2(plax_scroll_widths*1.1*dimensions.x, plax_scroll_heights*1.1*dimensions.y)
 
 # New Player Popup
 onready var name_popup = $MenuCanvas/NewPlayerPop
@@ -44,12 +34,9 @@ onready var mini_map_style_option = $MenuCanvas/OptionsContainer/VBoxContainer/T
 
 
 func _ready():
-	tween_to_target_x(target)
-	tween_to_target_y(target)
 	options.visible = false
 	main_menu.visible = true
 	Global.menu_open = true
-	tod_toggle.pressed = Global.day
 	
 	if PlayerVars.save_exists():
 		load_button.disabled = false
@@ -76,17 +63,6 @@ func close_options():
 			UserSettings.save()
 			Global._display_menu()
 
-			
-	
-
-func tween_to_target_x(targ):
-	tween.interpolate_property(background, "scroll_offset:x", background.scroll_offset.x, targ.x, 16, Tween.TRANS_BACK, Tween.EASE_IN_OUT)	
-	tween.start()
-
-func tween_to_target_y(targ):
-	tween.interpolate_property(background, "scroll_offset:y", background.scroll_offset.y, targ.y, 12, Tween.TRANS_BACK, Tween.EASE_IN_OUT)	
-	tween.start()
-
 func update_settings():
 	# Used to pick up fresh settings from UserSettings, like in instances where they've been set back to defaults
 	update_volume()
@@ -112,21 +88,10 @@ func update_ui_settings():
 	
 	
 func load_into_homebase():
-	tween.stop_all()
 	Global.goto_scene("res://World/game_zones/home_base.tscn")
 	Global.menu_open = true
 
-func _on_Tween_tween_completed(_object, key):
-	if key == ":scroll_offset:x":
-		target.x *= -1.1
-		tween_to_target_x(target)
-		if abs(target.x) > abs(orig_target.x * 2):
-			target.x = orig_target.x
-	if key == ":scroll_offset:y":
-		target.y *= -1.1
-		tween_to_target_y(target)
-		if abs(target.y) > abs(orig_target.y * 2):
-			target.y = orig_target.y
+
 
 
 
@@ -151,8 +116,7 @@ func _on_mast_volume_slider_value_changed(value):
 func _on_music_volume_slider_value_changed(value):
 	print("Music Volume: ", value)
 	UserSettings.current.sound.music_volume = value
-	update_volume()
-	print("Actual volume db: ", music.volume_db)
+	update_volume()	
 
 
 func _on_sound_effect_volume_slider_value_changed(value):
@@ -169,9 +133,6 @@ func _on_DayToggle_toggled(button_pressed):
 		Global.day = true
 	else:
 		Global.day = false
-
-func _on_AudioStreamPlayer_finished():
-	music.play()
 
 func _on_TextEdit_text_changed():
 	name_start_button.disabled = false
