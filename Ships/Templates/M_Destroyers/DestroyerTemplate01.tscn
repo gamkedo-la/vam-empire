@@ -15,6 +15,9 @@ _data = [ Vector2( 0, 1 ), 0.0, 0.0, 0, 0, Vector2( 0.546332, 0.0122699 ), 0.0, 
 [node name="DestroyerTemplate01" type="Node2D"]
 script = ExtResource( 1 )
 ship_name = "Destroyer Template"
+ACCELERATION = 1500
+MAX_SPEED = 10000
+MASS = 4000
 hardpoint_size = [ 0, 0, 0, 0 ]
 equipped_weapon_index = [ 1, 1, 1, 1 ]
 

@@ -216,3 +216,7 @@ func _on_status_bars_opac_slider_value_changed(value):
 func _on_mini_map_opac_slider_value_changed(value):
 	UserSettings.current.ui.mini_map_grid_opacity = value
 	UserSettings.refresh_ui()
+
+
+func _on_FastLoad_pressed():
+	Global.goto_scene("res://World/game_zones/EasyZone_001.tscn")

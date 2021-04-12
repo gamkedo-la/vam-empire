@@ -3,9 +3,9 @@ extends Node2D
 enum hpClass {SMALL, MEDIUM, LARGE, XLARGE}
 export (String) var ship_name
 export (int, 0, 3200) var ACCELERATION = 150
-export (int, 0, 1000) var MAX_SPEED = 320
+export (int, 0, 10000) var MAX_SPEED = 320
 export (int, 0, 200) var FRICTION = 0
-export (int, 0, 200) var MASS = 100
+export (int, 0, 4000) var MASS = 100
 export var ROT_SPEED = deg2rad(2)
 export var ROT_ACCEL = deg2rad(0)
 
