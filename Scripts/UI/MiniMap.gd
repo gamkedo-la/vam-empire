@@ -57,7 +57,8 @@ func _process(delta):
 			
 			obj_pos.x = clamp(obj_pos.x, 0, pixel_grid.rect_size.x)
 			obj_pos.y = clamp(obj_pos.y, 0, pixel_grid.rect_size.y)
-			map_icons[item].position = obj_pos	
+			map_icons[item].position = obj_pos
+			map_icons[item].global_rotation = item.global_rotation	
 	
 	#player_marker.rotation = PlayerVars.player_node.rotation	
 	
