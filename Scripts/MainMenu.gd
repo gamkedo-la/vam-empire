@@ -35,11 +35,10 @@ onready var music_vol_slider =  $MenuCanvas/OptionsContainer/VBoxContainer/TabCo
 onready var sfx_vol_slider = $MenuCanvas/OptionsContainer/VBoxContainer/TabContainer/Audio/VBoxContainer/HBoxContainer3/sound_effect_volume_slider
 
 # HUD Panel
-onready var mast_hud_bright_slider = $MenuCanvas/OptionsContainer/VBoxContainer/TabContainer/HUD/VBoxContainer/MastHUDBrightHBox/hud_brightness_slider
-onready var mast_hud_opac_slider = $MenuCanvas/OptionsContainer/VBoxContainer/TabContainer/HUD/VBoxContainer/MastHUDOpacHBox/hud_opacity_slider
-onready var status_bars_bright_slider = $MenuCanvas/OptionsContainer/VBoxContainer/TabContainer/HUD/VBoxContainer/StatusBarsBrightHBox/status_bars_brightness_slider
-onready var status_bars_opac_slider = $MenuCanvas/OptionsContainer/VBoxContainer/TabContainer/HUD/VBoxContainer/StatusBarsOpacHBox/status_bars_opac_slider
 
+onready var mast_hud_opac_slider = $MenuCanvas/OptionsContainer/VBoxContainer/TabContainer/HUD/VBoxContainer/MastHUDOpacHBox/hud_opacity_slider
+onready var status_bars_opac_slider = $MenuCanvas/OptionsContainer/VBoxContainer/TabContainer/HUD/VBoxContainer/StatusBarsOpacHBox/status_bars_opac_slider
+onready var mini_map_opac_slider = $MenuCanvas/OptionsContainer/VBoxContainer/TabContainer/HUD/VBoxContainer/MiniMapOpacHBox/mini_map_opac_slider
 onready var mini_map_style_option = $MenuCanvas/OptionsContainer/VBoxContainer/TabContainer/HUD/VBoxContainer/MiniMapStyleHBox/mini_map_style_optionbutton
 
 
@@ -101,10 +100,14 @@ func update_volume():
 	AudioServer.set_bus_volume_db(AudioServer.get_bus_index("SFX"), linear2db(UserSettings.current.sound.effects_volume))
 
 func update_ui_settings():
+	mast_hud_opac_slider.value = UserSettings.current.ui.master_hud_opacity
+	status_bars_opac_slider.value = UserSettings.current.ui.shipHUD_opacity
+	mini_map_opac_slider.value = UserSettings.current.ui.mini_map_grid_opacity
 	if UserSettings.current.ui.mini_map_style:
 		mini_map_style_option.selected = UserSettings.current.ui.mini_map_style
 	for textOpt in mini_map_style_option.get_item_count():
 		UserSettings.mini_map_textures.push_back(mini_map_style_option.get_item_icon(textOpt))
+	UserSettings.refresh_ui()
 	
 	
 func load_into_homebase():
@@ -198,3 +201,18 @@ func _on_mini_map_style_optionbutton_item_selected(index):
 	UserSettings.current.ui.mini_map_style = index
 	UserSettings.refresh_ui()
 	pass
+
+
+func _on_hud_opacity_slider_value_changed(value):
+	UserSettings.current.ui.master_hud_opacity = value
+	UserSettings.refresh_ui()
+
+
+func _on_status_bars_opac_slider_value_changed(value):
+	UserSettings.current.ui.shipHUD_opacity = value
+	UserSettings.refresh_ui()
+
+
+func _on_mini_map_opac_slider_value_changed(value):
+	UserSettings.current.ui.mini_map_grid_opacity = value
+	UserSettings.refresh_ui()

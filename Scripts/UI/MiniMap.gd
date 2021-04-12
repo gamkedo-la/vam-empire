@@ -36,6 +36,8 @@ func _initialize():
 			map_icons[obj] = new_icon
 		
 	_initialized = true
+	UserSettings.refresh_ui()
+	_refresh_settings()
 
 func _process(delta):
 	if !_initialized && PlayerVars.player_node:
@@ -68,10 +70,11 @@ func _draw():
 	pass
 
 
-func _refresh_settings():
-	print_debug(UserSettings.mini_map_textures)
-	pixel_grid.texture = UserSettings.mini_map_textures[UserSettings.current.ui.mini_map_style]
-	
+func _refresh_settings():	
+	if UserSettings.mini_map_textures:
+		print_debug(UserSettings.mini_map_textures)
+		pixel_grid.texture = UserSettings.mini_map_textures[UserSettings.current.ui.mini_map_style]	
+	pixel_grid.self_modulate.a = UserSettings.current.ui.mini_map_grid_opacity
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 #func _process(delta):
 #	pass

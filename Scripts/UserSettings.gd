@@ -4,18 +4,17 @@ signal ui_refresh
 
 var FILE_NAME = "user://user-settings.json"
 
+
 var user_defaults = {
 	sound = {
 	"master_volume": .8,
 	"music_volume": 1,
 	"effects_volume": 1
 	},
-	ui = {
-	"master_hud_brightness": 1,
+	ui = {	
 	"master_hud_opacity": 1,
-	"HUD_opacity": 1,
-	"mini_map_opacity": 1,
-	"mini_map_grid_opacity": 1,
+	"shipHUD_opacity": 1,	
+	"mini_map_grid_opacity": 0.25,
 	"mini_map_style": 0
 	}
 }
@@ -29,9 +28,8 @@ func _ready():
 	if save_exists():		
 		load_save()
 	else:
-		new()
+		new()	
 	
-	pass # Replace with function body.
 
 func new():
 	print_debug("Loading Factory Default [User Settings]")
@@ -88,3 +86,4 @@ func save_exists():
 
 func refresh_ui():
 	emit_signal("ui_refresh")
+
