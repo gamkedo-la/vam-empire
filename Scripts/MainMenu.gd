@@ -90,6 +90,7 @@ func tween_to_target_y(targ):
 func update_settings():
 	# Used to pick up fresh settings from UserSettings, like in instances where they've been set back to defaults
 	update_volume()
+	update_ui_settings()
 
 func update_volume():
 	mast_vol_slider.value = UserSettings.current.sound.master_volume
@@ -219,4 +220,7 @@ func _on_mini_map_opac_slider_value_changed(value):
 
 
 func _on_FastLoad_pressed():
+	if PlayerVars.save_exists():
+		PlayerVars.load_save()
+	update_settings()
 	Global.goto_scene("res://World/game_zones/EasyZone_001.tscn")
