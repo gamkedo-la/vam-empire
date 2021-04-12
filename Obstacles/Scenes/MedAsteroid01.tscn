@@ -25,6 +25,7 @@ polygon = PoolVector2Array( -11.0631, 22.8654, 2.6272, 27.036, 18.1308, 21.5961,
 input_pickable = true
 mass = 750.0
 script = ExtResource( 2 )
+health = 20000
 
 [node name="Sprite" type="Sprite" parent="."]
 texture = ExtResource( 1 )

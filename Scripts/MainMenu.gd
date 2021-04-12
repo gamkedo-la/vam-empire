@@ -1,9 +1,5 @@
 extends Node2D
 
-
-
-
-onready var background = $MenuCanvas/MainMenuParallax
 onready var vam_logo = $MenuCanvas/MainMenuVBox/LogoBox/VamLogo
 onready var empire_logo = $MenuCanvas/MainMenuVBox/LogoBox/VamLogo/EmpireLogo
 onready var ani_player = $MenuCanvas/AnimationPlayer
@@ -25,12 +21,10 @@ onready var music_vol_slider =  $MenuCanvas/OptionsContainer/VBoxContainer/TabCo
 onready var sfx_vol_slider = $MenuCanvas/OptionsContainer/VBoxContainer/TabContainer/Audio/VBoxContainer/HBoxContainer3/sound_effect_volume_slider
 
 # HUD Panel
-
 onready var mast_hud_opac_slider = $MenuCanvas/OptionsContainer/VBoxContainer/TabContainer/HUD/VBoxContainer/MastHUDOpacHBox/hud_opacity_slider
 onready var status_bars_opac_slider = $MenuCanvas/OptionsContainer/VBoxContainer/TabContainer/HUD/VBoxContainer/StatusBarsOpacHBox/status_bars_opac_slider
 onready var mini_map_opac_slider = $MenuCanvas/OptionsContainer/VBoxContainer/TabContainer/HUD/VBoxContainer/MiniMapOpacHBox/mini_map_opac_slider
 onready var mini_map_style_option = $MenuCanvas/OptionsContainer/VBoxContainer/TabContainer/HUD/VBoxContainer/MiniMapStyleHBox/mini_map_style_optionbutton
-
 
 
 func _ready():
