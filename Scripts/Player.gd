@@ -268,6 +268,7 @@ func fire_attached_weapons():
 		root_node.add_child(projectile)
 		var dir = Vector2(1, 0).rotated(self.global_rotation)
 		rnd_impulse = rng.randf_range(0.8, 2.0)
+		projectile.linear_velocity = self.velocity
 		projectile.launchBullet(rnd_impulse, dir)
 		
 func fire_mining_lasers():
