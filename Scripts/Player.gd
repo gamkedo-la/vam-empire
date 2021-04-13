@@ -80,9 +80,6 @@ func _ready():
 	healingMaxEnergy = healingEnergy
 
 	
-func _process(delta):
-	pass
-	
 func _physics_process(delta):
 	var targ = player_target
 	if !player_target:
