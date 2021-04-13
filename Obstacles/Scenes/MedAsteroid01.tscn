@@ -5,8 +5,8 @@
 [ext_resource path="res://Collisions/HurtBox.tscn" type="PackedScene" id=3]
 
 [sub_resource type="CapsuleShape2D" id=1]
-radius = 23.559
-height = 7.90124
+radius = 20.4655
+height = 4.20104
 
 [sub_resource type="CapsuleShape2D" id=2]
 radius = 24.7163
@@ -39,7 +39,6 @@ shape = SubResource( 1 )
 collision_layer = 8
 
 [node name="CollisionShape2D" parent="HurtBox" index="0"]
-visible = false
 position = Vector2( 0.66868, 1.25168 )
 rotation = -0.63879
 shape = SubResource( 2 )

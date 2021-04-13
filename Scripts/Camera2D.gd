@@ -5,7 +5,11 @@ onready var tween = $Tween
 
 func _process(_delta):
 	
-	tween.interpolate_property(self, "position", position, player.position, .5, Tween.TRANS_EXPO, Tween.EASE_OUT)
+	#tween.interpolate_property(self, "position", position, player.position, .01, Tween.TRANS_EXPO, Tween.EASE_IN)
+	#position = player.position
+	#tween.start()
+	pass
 	
-	tween.start()
+func _physics_process(delta):
+	position = player.position
 
