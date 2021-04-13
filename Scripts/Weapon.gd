@@ -25,7 +25,7 @@ export(PackedScene) var beam
 
 export (NodePath) var anchor_path
 export (NodePath) var barrel_tip_path
-export (float, 50.0, 1000.0) var fire_rate
+export (float, 50.0, 1000.0) var fire_rate setget set_fire_rate, get_fire_rate
 onready var root_node = get_tree().get_root()
 
 var anchor
@@ -64,7 +64,14 @@ func fire(parent_velocity):
 			_:
 				# Tell the ship to stop trying to fire this weapon
 				return false 
-		
+				
+func set_fire_rate(val):
+	fire_rate = val
+	if fire_timer:
+		fire_timer.wait_time = 100/fire_rate
+
+func get_fire_rate():
+	return fire_rate
 
 func _fire_projectile(parent_velocity):
 	var rnd_impulse = rng.randf_range(0.8, 2.0)
