@@ -8,8 +8,8 @@
 script = ExtResource( 2 )
 weap_name = "Template AutoRifle"
 projectile = ExtResource( 3 )
-anchor = NodePath("WeaponAnchor")
-barrel_tip = NodePath("WeaponAnchor/WeaponSprite/BarrelTip")
+anchor_path = NodePath("WeaponAnchor")
+barrel_tip_path = NodePath("WeaponAnchor/WeaponSprite/BarrelTip")
 
 [node name="WeaponAnchor" type="Position2D" parent="."]
 position = Vector2( -3.00339, 0 )

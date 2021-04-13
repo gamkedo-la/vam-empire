@@ -18,12 +18,13 @@ export (Array, int) var equipped_weapon_index
 
 onready var hardpoints = $Hardpoints
 
+var weapons = []
 
 func _ready():
 	for HPoint in hardpoints.get_children():
 		var HPidx = HPoint.get_index()
 		var weapon = Global.weapon_hangar[hardpoint_size[HPidx]][equipped_weapon_index[HPidx]].duplicate(true)
-		print(weapon[0], HPoint)
+		#print(weapon[0], HPoint)
 		
 		equip_weapon(weapon[0].duplicate(), HPoint)
 	
@@ -35,4 +36,12 @@ func equip_weapon(ordnance, mount):
 	mount.add_child(ordnance)
 	print("Mount children count: ", mount.get_child_count())
 	ordnance.global_position = mount.global_position
+	weapons.append(ordnance)
 	
+func fire_weapons(parent_velocity):
+	var fired = false
+	for weapon in weapons:
+		fired = weapon.fire(parent_velocity)
+		# TODO: add conditional checking and remove weapons that don't fire for efficiency
+
+		

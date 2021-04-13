@@ -259,17 +259,7 @@ func pilot_ship(ship):
 		
 
 func fire_attached_weapons():
-	var root_node = get_tree().get_root()
-	var rnd_impulse = rng.randf_range(0.8, 2.0)
-	for Weap in hardpoints.get_children():
-		var projectile = base_bullet.instance()
-		projectile.global_position = Weap.global_position
-		projectile.global_rotation = Weap.global_rotation
-		root_node.add_child(projectile)
-		var dir = Vector2(1, 0).rotated(self.global_rotation)
-		rnd_impulse = rng.randf_range(0.8, 2.0)
-		projectile.linear_velocity = self.velocity
-		projectile.launchBullet(rnd_impulse, dir)
+	piloted_ship.fire_weapons(velocity)
 		
 func fire_mining_lasers():
 	var root_node = get_tree().get_root()

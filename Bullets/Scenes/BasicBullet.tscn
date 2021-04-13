@@ -7,7 +7,7 @@
 
 [sub_resource type="Animation" id=1]
 resource_name = "HitTarget"
-length = 0.4
+length = 0.5
 tracks/0/type = "value"
 tracks/0/path = NodePath("Sprite:frame")
 tracks/0/interp = 1
@@ -15,10 +15,10 @@ tracks/0/loop_wrap = true
 tracks/0/imported = false
 tracks/0/enabled = true
 tracks/0/keys = {
-"times": PoolRealArray( 0, 0.1, 0.2, 0.3 ),
-"transitions": PoolRealArray( 1, 1, 1, 1 ),
+"times": PoolRealArray( 0, 0.1, 0.2, 0.3, 0.4 ),
+"transitions": PoolRealArray( 1, 1, 1, 1, 1 ),
 "update": 1,
-"values": [ 1, 2, 3, 4 ]
+"values": [ 0, 1, 2, 3, 4 ]
 }
 tracks/1/type = "method"
 tracks/1/path = NodePath(".")
@@ -27,7 +27,7 @@ tracks/1/loop_wrap = true
 tracks/1/imported = false
 tracks/1/enabled = true
 tracks/1/keys = {
-"times": PoolRealArray( 0.4 ),
+"times": PoolRealArray( 0.5 ),
 "transitions": PoolRealArray( 1 ),
 "values": [ {
 "args": [  ],
@@ -36,12 +36,12 @@ tracks/1/keys = {
 }
 
 [sub_resource type="CapsuleShape2D" id=2]
-radius = 1.37497
-height = 2.33333
+radius = 4.24148
+height = 0.0
 
 [sub_resource type="CapsuleShape2D" id=3]
-radius = 1.54164
-height = 4.24999
+radius = 3.99622
+height = 0.0
 
 [node name="BasicBullet" type="RigidBody2D"]
 position = Vector2( 0, -2 )
@@ -51,10 +51,8 @@ mass = 0.25
 script = ExtResource( 2 )
 
 [node name="Sprite" type="Sprite" parent="."]
-visible = false
 texture = ExtResource( 3 )
-hframes = 5
-frame = 1
+vframes = 5
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="."]
 playback_speed = 2.0
