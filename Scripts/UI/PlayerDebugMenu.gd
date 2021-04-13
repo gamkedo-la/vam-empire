@@ -36,27 +36,27 @@ func _process(_delta):
 		else:
 			self.visible = false
 			# in case the mouse was over the panel when it closes
-			Global.hold_fire(false)
+			Global.set_hold_fire(false)
 
 
 
 func _on_PlayerDebugMenu_mouse_entered():
-	Global.hold_fire(true)
+	Global.set_hold_fire(true)
 
 func _on_PlayerDebugMenu_mouse_exited():
-	Global.hold_fire(false)
+	Global.set_hold_fire(false)
 
 func _on_TopBar_mouse_entered():
-	Global.hold_fire(true)
+	Global.set_hold_fire(true)
 
 func _on_TopBar_mouse_exited():
-	Global.hold_fire(false)
+	Global.set_hold_fire(false)
 
 func _on_ShipSelect_mouse_entered():
-	Global.hold_fire(true)
+	Global.set_hold_fire(true)
 
 func _on_ShipSelect_mouse_exited():
-	Global.hold_fire(false)
+	Global.set_hold_fire(false)
 
 
 func _on_ShipSelect_item_selected(index):

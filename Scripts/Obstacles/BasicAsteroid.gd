@@ -34,7 +34,7 @@ func _on_Asteroid002_input_event(viewport, event, shape_idx):
 func _on_Asteroid003_input_event(viewport, event, shape_idx):
 	make_target(viewport, event, shape_idx)
 
-func make_target(viewport, event, shape_idx):
+func make_target(_viewport, event, _shape_idx):
 	if event is InputEventMouseButton and event.pressed and event.button_index == BUTTON_LEFT:
 #		var player = get_node("/root/World/Player")
 #		player.player_target = self

@@ -10,7 +10,7 @@ var packed_weapons = load("res://Weapons/PackedWeapons.tscn")
 var weapon_hangar = []
 var menu_open = false
 var game_live = false
-var hold_fire = false
+var hold_fire = false setget set_hold_fire
 var debug_mode = false
 export var day = true
 
@@ -34,7 +34,7 @@ func reparent(child: Node, new_parent: Node):
 	else:
 		print_debug("Global.gd: Attempt to reparent child node failed due to child being null.")
 
-func hold_fire(hold_release: bool):
+func set_hold_fire(hold_release: bool):
 	hold_fire = hold_release
 
 func debug_print(text):
@@ -79,14 +79,12 @@ func _populate_hangars():
 	#	weapon_hangar[Weapon SizeClass][Weapon Index] i.e. references can be made like  Global.weapon_hangar[Medium][3]
 	var ships = packed_ships.instance()
 	var weapons = packed_weapons.instance()
-	var CIdx = 0
-	var Idx = 0
+	var CIdx = 0	
 	for Class in ships.get_children():
 		#print("Class: ", Class)
 		ship_hangar.append([])
 		CIdx = Class.get_index()
-		for Ship in Class.get_children():
-			Idx = Ship.get_index()	
+		for Ship in Class.get_children():		
 			if Ship.get_child_count() > 0:		
 				if Ship.get_child(0):
 					ship_hangar[CIdx].append([Ship.get_child(0)])
@@ -96,7 +94,6 @@ func _populate_hangars():
 		weapon_hangar.append([])
 		CIdx = Class.get_index()
 		for Weapon in Class.get_children():
-			Idx = Weapon.get_index()
 			if Weapon.get_child_count() > 0:
 				if Weapon.get_child(0):
 					weapon_hangar[CIdx].append([Weapon.get_child(0)])

@@ -19,7 +19,7 @@ func _process(_delta):
 		else:
 			self.visible = false
 			# in case the mouse was over the panel when it closes
-			Global.hold_fire(false)
+			Global.set_hold_fire(false)
 			
 
 func add_sheetStat(name, value):
@@ -33,15 +33,15 @@ func add_sheetStat(name, value):
 
 
 # Is there a better way to keep "left click" from firing? Not sure... 
-# but using a Global.hold_fire variable to disable the "ui_attack" action while mouse is over the character sheet
+# but using a Global.set_hold_fire variable to disable the "ui_attack" action while mouse is over the character sheet
 func _on_TopBar_mouse_entered():
-	Global.hold_fire(true)
+	Global.set_hold_fire(true)
 
 func _on_TopBar_mouse_exited():
-	Global.hold_fire(false)
+	Global.set_hold_fire(false)
 
 func _on_CharacterSheet_mouse_entered():
-	Global.hold_fire(true)
+	Global.set_hold_fire(true)
 
 func _on_CharacterSheet_mouse_exited():
-	Global.hold_fire(false)
+	Global.set_hold_fire(false)

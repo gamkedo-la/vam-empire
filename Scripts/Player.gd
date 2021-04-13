@@ -81,9 +81,7 @@ func _ready():
 
 	
 func _process(delta):
-	match state:
-		MOVE:
-			move_state(delta)
+	pass
 	
 func _physics_process(delta):
 	var targ = player_target
@@ -97,13 +95,15 @@ func _physics_process(delta):
 		debug_select.visible = true
 
 	rotate_to_target(targ)
+	
+	match state:
+		MOVE:
+			move_state(delta)
 
 
 func move_state(delta):
 	var thrust_vector = Vector2.ZERO
 	var strafe_vector = Vector2.ZERO
-	
-	var look_vec = get_global_mouse_position() - global_position	
 	
 	thrust_vector.x = Input.get_action_strength("ui_up") - Input.get_action_strength("ui_down")
 	strafe_vector.y = Input.get_action_strength("ui_right") - Input.get_action_strength("ui_left")

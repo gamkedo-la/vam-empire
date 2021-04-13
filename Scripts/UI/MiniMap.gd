@@ -39,7 +39,7 @@ func _initialize():
 	UserSettings.refresh_ui()
 	_refresh_settings()
 
-func _process(delta):
+func _process(_delta):
 	if !_initialized && PlayerVars.player_node:
 		_initialize()
 	if !PlayerVars.player_node:

@@ -62,5 +62,5 @@ func _on_ReturnHomeBeacon_area_entered(area):
 	print_debug(ar_parent)
 	begin_return_countdown()
 
-func _on_ReturnHomeBeacon_area_exited(area):
+func _on_ReturnHomeBeacon_area_exited(_area):
 	stop_return_countdown()
