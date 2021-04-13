@@ -76,7 +76,13 @@ position = Vector2( 323.434, 297.635 )
 
 [node name="ParallaxBackground2" parent="." instance=ExtResource( 6 )]
 
-[node name="GameWorld" type="Node2D" parent="."]
+[node name="GameZone" type="Node2D" parent="."]
+
+[node name="ZoneAreas" type="Node2D" parent="GameZone"]
+
+[node name="ZoneEncounters" type="Node2D" parent="GameZone"]
+
+[node name="ZonePointsOfInterest" type="Node2D" parent="GameZone"]
 
 [editable path="CanvasLayer/HUD"]
 

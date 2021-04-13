@@ -60,7 +60,7 @@ func load_save():
 								# If the Save File was missing any sub-keys, i.e. UserSettings.sound.music_volume, replace 
 								# that single setting with the user_default to avoid regenerating the entire config file from scratch
 								if !data[key].has(subkey):
-									print("Setting [", subkey,"] from System Defaults.")
+									print_debug("Setting [", subkey,"] from System Defaults.")
 									data[key][subkey] = user_defaults[key][subkey]
 					else:
 						if !data.has(key):
