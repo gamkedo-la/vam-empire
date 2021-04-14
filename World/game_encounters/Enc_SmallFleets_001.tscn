@@ -6,18 +6,18 @@
 
 [sub_resource type="Curve2D" id=1]
 _data = {
-"points": PoolVector2Array( 448.478, 6511.9, -448.478, -6511.9, -826.69, 606.506, -385.691, -1022.53, 385.691, 1022.53, 20859, 423.174, 0, 0, 0, 0, 21057.3, 1909.15, 4229.59, 7024.93, -4229.59, -7024.93, -814.015, 666.952 )
+"points": PoolVector2Array( 271.223, 11.3009, -271.223, -11.3009, -2817.84, 980.359, -395.533, 2282.79, 395.533, -2282.79, -5022.73, -1818.54, -768.464, 293.824, 768.464, -293.824, -2415.12, -5060.44, -452.038, -135.611, 452.038, 135.611, 343.51, -5151.05, -237.32, -339.028, 237.32, 339.028, 2830.3, -3499.9, 0, -452.038, 0, 452.038, 4119.01, -972.832, 282.524, -734.561, -282.524, 734.561, 4108.94, 1846.21, 847.571, -598.95, -847.571, 598.95, 2538.33, 3326.2, 1005.78, -56.5047, -1005.78, 56.5047, -1347.91, 4212.19, 892.774, 293.824, -892.774, -293.824, -4368.31, 3869.87, 519.843, 644.154, -519.843, -644.154, -6885.31, 2309.33, 56.5047, 644.154, -56.5047, -644.154, -8576.73, -1113.78, -768.464, 1039.69, 768.464, -1039.69, -8264.63, -4788.6, -271.223, 79.1066, 271.223, -79.1066, -5777.83, -6037.03, -858.872, 45.2038, 858.872, -45.2038, -331.046, -6117.58, -847.571, -655.455, 847.571, 655.455, 4400.91, -5352.41, -259.922, -757.163, 259.922, 757.163, 6313.83, -2704.53, 802.367, -1062.29, -802.367, 1062.29, 6001.72, 406.484, 779.765, -192.116, -779.765, 192.116, 3716.29, 1564.3, 1480.42, 22.6019, -1480.42, -22.6019, 504.598, 1755.59, 0, 0, 0, 0, -2777.57, 980.359, 0, 0, 0, 0, -2817.84, 980.359 )
 }
 
 [node name="Enc_SmallFleets_001" instance=ExtResource( 1 )]
 
 [node name="Path2D" type="Path2D" parent="." index="0"]
-position = Vector2( 871.281, -125.093 )
+position = Vector2( 1461.13, -373.424 )
 curve = SubResource( 1 )
 
 [node name="PathFollow2D" type="PathFollow2D" parent="Path2D" index="0"]
-position = Vector2( 168.461, 61.7824 )
-rotation = 0.940523
+position = Vector2( -826.69, 606.506 )
+rotation = -1.63875
 script = ExtResource( 3 )
 
 [node name="Tween" type="Tween" parent="Path2D/PathFollow2D" index="0"]
@@ -27,12 +27,12 @@ playback/repeat = true
 [node name="AutoPilot" parent="Path2D/PathFollow2D" index="1" instance=ExtResource( 2 )]
 
 [node name="Path2D2" type="Path2D" parent="." index="1"]
-position = Vector2( 871.281, -205.819 )
+position = Vector2( 1099.5, -746.356 )
 curve = SubResource( 1 )
 
 [node name="PathFollow2D" type="PathFollow2D" parent="Path2D2" index="0"]
-position = Vector2( -826.69, 606.506 )
-rotation = -1.63875
+position = Vector2( -2817.84, 980.359 )
+rotation = -3.09259
 script = ExtResource( 3 )
 
 [node name="Tween" type="Tween" parent="Path2D2/PathFollow2D" index="0"]
@@ -42,12 +42,12 @@ playback/repeat = true
 [node name="AutoPilot" parent="Path2D2/PathFollow2D" index="1" instance=ExtResource( 2 )]
 
 [node name="Path2D3" type="Path2D" parent="." index="2"]
-position = Vector2( 889.22, -304.484 )
+position = Vector2( 692.666, -1187.09 )
 curve = SubResource( 1 )
 
 [node name="PathFollow2D" type="PathFollow2D" parent="Path2D3" index="0"]
-position = Vector2( -826.69, 606.506 )
-rotation = -1.63875
+position = Vector2( -2817.84, 980.359 )
+rotation = -3.09259
 script = ExtResource( 3 )
 
 [node name="Tween" type="Tween" parent="Path2D3/PathFollow2D" index="0"]
@@ -57,12 +57,12 @@ playback/repeat = true
 [node name="AutoPilot" parent="Path2D3/PathFollow2D" index="1" instance=ExtResource( 2 )]
 
 [node name="Path2D4" type="Path2D" parent="." index="3"]
-position = Vector2( 862.312, -394.179 )
+position = Vector2( 161.521, -1593.93 )
 curve = SubResource( 1 )
 
 [node name="PathFollow2D" type="PathFollow2D" parent="Path2D4" index="0"]
-position = Vector2( -826.69, 606.506 )
-rotation = -1.63875
+position = Vector2( -2817.84, 980.359 )
+rotation = -3.09259
 script = ExtResource( 3 )
 
 [node name="Tween" type="Tween" parent="Path2D4/PathFollow2D" index="0"]
@@ -72,12 +72,12 @@ playback/repeat = true
 [node name="AutoPilot" parent="Path2D4/PathFollow2D" index="1" instance=ExtResource( 2 )]
 
 [node name="Path2D5" type="Path2D" parent="." index="4"]
-position = Vector2( 772.616, -501.814 )
+position = Vector2( -313.117, -2136.37 )
 curve = SubResource( 1 )
 
 [node name="PathFollow2D" type="PathFollow2D" parent="Path2D5" index="0"]
-position = Vector2( -826.69, 606.506 )
-rotation = -1.63875
+position = Vector2( -2817.84, 980.359 )
+rotation = -3.09259
 script = ExtResource( 3 )
 
 [node name="Tween" type="Tween" parent="Path2D5/PathFollow2D" index="0"]
@@ -87,12 +87,12 @@ playback/repeat = true
 [node name="AutoPilot" parent="Path2D5/PathFollow2D" index="1" instance=ExtResource( 2 )]
 
 [node name="Path2D6" type="Path2D" parent="." index="5"]
-position = Vector2( 638.073, -600.48 )
+position = Vector2( -900.766, -2588.41 )
 curve = SubResource( 1 )
 
 [node name="PathFollow2D" type="PathFollow2D" parent="Path2D6" index="0"]
-position = Vector2( -826.69, 606.506 )
-rotation = -1.63875
+position = Vector2( -2817.84, 980.359 )
+rotation = -3.09259
 script = ExtResource( 3 )
 
 [node name="Tween" type="Tween" parent="Path2D6/PathFollow2D" index="0"]
@@ -100,3 +100,33 @@ repeat = true
 playback/repeat = true
 
 [node name="AutoPilot" parent="Path2D6/PathFollow2D" index="1" instance=ExtResource( 2 )]
+
+[node name="Path2D7" type="Path2D" parent="." index="6"]
+position = Vector2( -1560.38, -3209.97 )
+curve = SubResource( 1 )
+
+[node name="PathFollow2D" type="PathFollow2D" parent="Path2D7" index="0"]
+position = Vector2( -2817.84, 980.359 )
+rotation = -3.09259
+script = ExtResource( 3 )
+
+[node name="Tween" type="Tween" parent="Path2D7/PathFollow2D" index="0"]
+repeat = true
+playback/repeat = true
+
+[node name="AutoPilot" parent="Path2D7/PathFollow2D" index="1" instance=ExtResource( 2 )]
+
+[node name="Path2D8" type="Path2D" parent="." index="7"]
+position = Vector2( -2384.9, -3894.95 )
+curve = SubResource( 1 )
+
+[node name="PathFollow2D" type="PathFollow2D" parent="Path2D8" index="0"]
+position = Vector2( -2817.84, 980.359 )
+rotation = -3.09259
+script = ExtResource( 3 )
+
+[node name="Tween" type="Tween" parent="Path2D8/PathFollow2D" index="0"]
+repeat = true
+playback/repeat = true
+
+[node name="AutoPilot" parent="Path2D8/PathFollow2D" index="1" instance=ExtResource( 2 )]
