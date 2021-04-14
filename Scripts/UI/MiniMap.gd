@@ -3,12 +3,13 @@ extends MarginContainer
 # Largely adapted from an approach taken by https://kidscancode.org/godot_recipes/ui/minimap/
 
 onready var pixel_grid = $ScreenContainer/PixelGrid
-export var zoom = 10
+export var zoom = 10 setget set_zoom
 
 onready var player_marker = $ScreenContainer/PixelGrid/PlayerMarker
 var grid_scale 
 var map_icons = {}
 
+onready var zoomlbl = $Border/Zoom
 
 var _initialized = false
 
@@ -40,6 +41,13 @@ func _initialize():
 	_refresh_settings()
 
 func _process(_delta):
+	if Input.is_action_pressed("minimap_zoom_in"):
+		self.zoom -= 0.1		
+		
+	if Input.is_action_pressed("minimap_zoom_out"):		
+		self.zoom += 0.1
+		
+		print_debug("zoom", zoom)
 	if !_initialized && PlayerVars.player_node:
 		_initialize()
 	if !PlayerVars.player_node:
@@ -61,7 +69,12 @@ func _process(_delta):
 			map_icons[item].global_rotation = item.global_rotation	
 	
 	#player_marker.rotation = PlayerVars.player_node.rotation	
-	
+
+func set_zoom(value):
+	zoom = clamp(value,0.5, 50)
+	zoomlbl.text = str(zoom).pad_decimals(1)
+	grid_scale = pixel_grid.rect_size / (get_viewport_rect().size * zoom)
+
 func _on_object_removed(icon):
 	if icon in map_icons:
 		map_icons[icon].queue_free()
@@ -79,3 +92,11 @@ func _refresh_settings():
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 #func _process(delta):
 #	pass
+
+
+func _on_MiniMap_gui_input(event):
+	if event is InputEventMouseButton and event.pressed:
+		if event.button_index == BUTTON_WHEEL_UP:
+			self.zoom += 0.5
+		if event.button_index == BUTTON_WHEEL_DOWN:
+			self.zoom -= 0.5
