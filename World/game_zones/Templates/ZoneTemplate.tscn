@@ -14,6 +14,9 @@
 [node name="MainMenu" parent="." instance=ExtResource( 8 )]
 visible = false
 
+[node name="EmpireLogo" parent="MainMenu/MenuCanvas/Viz/MainMenuVBox/LogoBox/VamLogo" index="0"]
+frame = 66
+
 [node name="CanvasLayer" type="CanvasLayer" parent="."]
 
 [node name="HUD" parent="CanvasLayer" instance=ExtResource( 7 )]
@@ -66,7 +69,7 @@ margin_left = 160.0
 margin_right = 800.0
 margin_bottom = 20.0
 rect_min_size = Vector2( 640, 20 )
-text = "Press: 'C' for Character Screen, 'F4' for Debug Menu,  'Esc' to bring up the in-game menu"
+text = "Press: 'C' for Character Screen, 'F4' for Debug Menu, 'Esc' to bring up Pause Menu"
 
 [node name="TimeOfDay" parent="." instance=ExtResource( 2 )]
 visible = false
