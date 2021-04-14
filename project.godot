@@ -21,9 +21,9 @@ config/icon="res://logo_only.png"
 
 [autoload]
 
-UserSettings="*res://Scripts/UserSettings.gd"
-Global="*res://Scripts/Global.gd"
-PlayerVars="*res://Scripts/PlayerVars.gd"
+UserSettings="*res://Scripts/Autoload/UserSettings.gd"
+Global="*res://Scripts/Autoload/Global.gd"
+PlayerVars="*res://Scripts/Autoload/PlayerVars.gd"
 
 [display]
 

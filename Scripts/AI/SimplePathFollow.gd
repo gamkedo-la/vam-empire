@@ -11,7 +11,7 @@ var rng = RandomNumberGenerator.new()
 # Called when the node enters the scene tree for the first time.
 func _ready():
 	rng.randomize()
-	var random_time = rand_range(100,280)
+	var random_time = rand_range(30,280)
 	tween.interpolate_property(
 		self, "unit_offset",
 		0, 1, random_time,
