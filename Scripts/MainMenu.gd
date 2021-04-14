@@ -1,37 +1,43 @@
 extends Node2D
 
-onready var vam_logo = $MenuCanvas/MainMenuVBox/LogoBox/VamLogo
-onready var empire_logo = $MenuCanvas/MainMenuVBox/LogoBox/VamLogo/EmpireLogo
-onready var ani_player = $MenuCanvas/AnimationPlayer
+onready var vam_logo = $MenuCanvas/Viz/MainMenuVBox/LogoBox/VamLogo
+onready var empire_logo = $MenuCanvas/Viz/MainMenuVBox/LogoBox/VamLogo/EmpireLogo
+onready var ani_player = $MenuCanvas/Viz/AnimationPlayer
 
-onready var main_menu = $MenuCanvas/MainMenuVBox
-onready var new_button = $MenuCanvas/MainMenuVBox/InteractVB/NewHB/New
-onready var load_button = $MenuCanvas/MainMenuVBox/InteractVB/LoadHB2/Load
-onready var load_accept_popup = $MenuCanvas/LoadAcceptDialog
-onready var options = $MenuCanvas/OptionsContainer
+onready var main_menu = $MenuCanvas/Viz/MainMenuVBox
+onready var new_button = $MenuCanvas/Viz/MainMenuVBox/InteractVB/NewHB/New
+onready var load_button = $MenuCanvas/Viz/MainMenuVBox/InteractVB/LoadHB2/Load
+onready var load_accept_popup = $MenuCanvas/Viz/LoadAcceptDialog
+onready var options = $MenuCanvas/Viz/OptionsContainer
 
 # New Player Popup
-onready var name_popup = $MenuCanvas/NewPlayerPop
-onready var name_entry = $MenuCanvas/NewPlayerPop/NewPlayerVB/EntryHB/PlayerNameEdit
-onready var name_start_button = $MenuCanvas/NewPlayerPop/NewPlayerVB/StartHB/PNameStartButton
+onready var name_popup = $MenuCanvas/Viz/NewPlayerPop
+onready var name_entry = $MenuCanvas/Viz/NewPlayerPop/NewPlayerVB/EntryHB/PlayerNameEdit
+onready var name_start_button = $MenuCanvas/Viz/NewPlayerPop/NewPlayerVB/StartHB/PNameStartButton
 
 # Sound Panel 
-onready var mast_vol_slider = $MenuCanvas/OptionsContainer/VBoxContainer/TabContainer/Audio/VBoxContainer/HBoxContainer/mast_volume_slider
-onready var music_vol_slider =  $MenuCanvas/OptionsContainer/VBoxContainer/TabContainer/Audio/VBoxContainer/HBoxContainer2/music_volume_slider
-onready var sfx_vol_slider = $MenuCanvas/OptionsContainer/VBoxContainer/TabContainer/Audio/VBoxContainer/HBoxContainer3/sound_effect_volume_slider
+onready var mast_vol_slider = $MenuCanvas/Viz/OptionsContainer/VBoxContainer/TabContainer/Audio/VBoxContainer/HBoxContainer/mast_volume_slider
+onready var music_vol_slider =  $MenuCanvas/Viz/OptionsContainer/VBoxContainer/TabContainer/Audio/VBoxContainer/HBoxContainer2/music_volume_slider
+onready var sfx_vol_slider = $MenuCanvas/Viz/OptionsContainer/VBoxContainer/TabContainer/Audio/VBoxContainer/HBoxContainer3/sound_effect_volume_slider
 
 # HUD Panel
-onready var mast_hud_opac_slider = $MenuCanvas/OptionsContainer/VBoxContainer/TabContainer/HUD/VBoxContainer/MastHUDOpacHBox/hud_opacity_slider
-onready var status_bars_opac_slider = $MenuCanvas/OptionsContainer/VBoxContainer/TabContainer/HUD/VBoxContainer/StatusBarsOpacHBox/status_bars_opac_slider
-onready var mini_map_opac_slider = $MenuCanvas/OptionsContainer/VBoxContainer/TabContainer/HUD/VBoxContainer/MiniMapOpacHBox/mini_map_opac_slider
-onready var mini_map_style_option = $MenuCanvas/OptionsContainer/VBoxContainer/TabContainer/HUD/VBoxContainer/MiniMapStyleHBox/mini_map_style_optionbutton
+onready var mast_hud_opac_slider = $MenuCanvas/Viz/OptionsContainer/VBoxContainer/TabContainer/HUD/VBoxContainer/MastHUDOpacHBox/hud_opacity_slider
+onready var status_bars_opac_slider = $MenuCanvas/Viz/OptionsContainer/VBoxContainer/TabContainer/HUD/VBoxContainer/StatusBarsOpacHBox/status_bars_opac_slider
+onready var mini_map_opac_slider = $MenuCanvas/Viz/OptionsContainer/VBoxContainer/TabContainer/HUD/VBoxContainer/MiniMapOpacHBox/mini_map_opac_slider
+onready var mini_map_style_option = $MenuCanvas/Viz/OptionsContainer/VBoxContainer/TabContainer/HUD/VBoxContainer/MiniMapStyleHBox/mini_map_style_optionbutton
 
+onready var menu_viz = $MenuCanvas/Viz
+var start_menu = false
 
 func _ready():
-	options.visible = false
-	main_menu.visible = true
-	Global.menu_open = true
-	
+#	options.visible = false
+#	main_menu.visible = true
+#	menu_open = true
+	if get_parent().name == "StartMenu":
+		self.visible = true
+		start_menu = true
+	else:
+		menu_viz.visible = false	
 	if PlayerVars.save_exists():
 		load_button.disabled = false
 	else:
@@ -44,18 +50,41 @@ func _ready():
 	
 	
 func _process(_delta):
-	
-	if Input.is_action_just_pressed("ui_esc"):		
-		close_options()
+	if !start_menu:
+		if PlayerVars.player_node.player_target:
+			print(PlayerVars.player_node.player_target)
+			return
+		if Input.is_action_just_pressed("ui_esc"):
+			if menu_viz.visible && !options.visible:
+				menu_viz.visible = false
+				main_menu.visible = false
+				Global.pause_game(false)
+			elif options.visible:
+				UserSettings.save()
+				options.visible = false
+				main_menu.visible = true
+			else:
+				menu_viz.visible = true
+				main_menu.visible = true
+				options.visible = false
+				Global.pause_game(true)
+	else:
+		if Input.is_action_just_pressed("ui_esc"):
+			if options.visible:
+				UserSettings.save()
+				options.visible = false
+			
+			
+		
 
 func close_options():
 		if options.visible:
 			UserSettings.save()
 			options.visible = false
 			main_menu.visible = true		
-		elif get_tree().paused == true:				
+		elif get_tree().paused == true:
 			UserSettings.save()
-			Global._display_menu()
+			
 
 func update_settings():
 	# Used to pick up fresh settings from UserSettings, like in instances where they've been set back to defaults
@@ -82,12 +111,7 @@ func update_ui_settings():
 	
 	
 func load_into_homebase():
-	Global.goto_scene("res://World/game_zones/home_base.tscn")
-	Global.menu_open = true
-
-
-
-
+	Global.goto_scene("res://World/game_zones/home_base.tscn")	
 
 func _on_New_pressed():
 	#print("Loading new Scene...")
@@ -134,6 +158,7 @@ func _on_TextEdit_text_changed():
 
 func _on_PNameStartButton_pressed():
 	PlayerVars.new(name_entry.text)
+	Global.pause_game(false)
 	load_into_homebase()
 
 func _on_Load_pressed():
@@ -141,6 +166,7 @@ func _on_Load_pressed():
 
 func _on_LoadAcceptDialog_confirmed():
 	PlayerVars.load_save()
+	Global.pause_game(false)
 	load_into_homebase()
 
 
@@ -178,6 +204,7 @@ func _on_FastLoad_pressed():
 	if PlayerVars.save_exists():
 		PlayerVars.load_save()
 	update_settings()
+	Global.pause_game(false)
 	Global.goto_scene("res://World/game_zones/EasyZone_001.tscn")
 
 

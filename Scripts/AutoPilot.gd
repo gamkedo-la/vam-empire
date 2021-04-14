@@ -15,7 +15,7 @@ func _ready():
 	var randClass = rng.randi_range(0,3)
 	var randShip = rng.randi_range(0,1)
 	var ship_to_pilot = Global.ship_hangar[randClass][randShip].duplicate()[0]
-	print_debug("ship_to_pilot: ", ship_to_pilot)
+	#print_debug("ship_to_pilot: ", ship_to_pilot)
 	pilot_ship_from_pack(ship_to_pilot.duplicate(true))
 	var ship_sprite = piloted_ship.get_node_or_null("ShipSprite")
 	if ship_sprite:

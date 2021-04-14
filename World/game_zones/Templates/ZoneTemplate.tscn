@@ -1,4 +1,4 @@
-[gd_scene load_steps=8 format=2]
+[gd_scene load_steps=9 format=2]
 
 [ext_resource path="res://World/common_scenes/ParallaxBackground2.tscn" type="PackedScene" id=1]
 [ext_resource path="res://World/common_scenes/TimeOfDay.tscn" type="PackedScene" id=2]
@@ -7,8 +7,12 @@
 [ext_resource path="res://UI/HUD/Scenes/MiniMap.tscn" type="PackedScene" id=5]
 [ext_resource path="res://World/common_scenes/Camera2D.tscn" type="PackedScene" id=6]
 [ext_resource path="res://UI/HUD/Scenes/HUD.tscn" type="PackedScene" id=7]
+[ext_resource path="res://UI/Menu/MainMenu.tscn" type="PackedScene" id=8]
 
 [node name="World" type="Node2D"]
+
+[node name="MainMenu" parent="." instance=ExtResource( 8 )]
+visible = false
 
 [node name="CanvasLayer" type="CanvasLayer" parent="."]
 
@@ -83,6 +87,8 @@ position = Vector2( 323.434, 297.635 )
 [node name="Encounters" type="Node2D" parent="Zone"]
 
 [node name="PointsOfInterest" type="Node2D" parent="Zone"]
+
+[editable path="MainMenu"]
 
 [editable path="CanvasLayer/HUD"]
 

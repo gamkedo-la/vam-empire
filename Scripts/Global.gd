@@ -40,6 +40,9 @@ func set_hold_fire(hold_release: bool):
 func debug_print(text):
 	if debug_mode:
 		print_debug(text)
+		
+func pause_game(pause: bool):
+	get_tree().paused = pause
 
 func _deferred_goto_scene(path):
 	
@@ -56,7 +59,9 @@ func _deferred_goto_scene(path):
 	
 func _deferred_close_menu():
 	in_game_menu.free()
-	
+
+
+
 func _display_menu():
 	if !menu_open:
 		get_tree().paused = true

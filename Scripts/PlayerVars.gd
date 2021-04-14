@@ -14,6 +14,8 @@ var player_defaults = {
 
 var player = player_defaults
 
+var target = null
+
 func _ready():
 	pass # Replace with function body.
 

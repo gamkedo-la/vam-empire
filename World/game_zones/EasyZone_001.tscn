@@ -8,6 +8,14 @@
 
 [node name="World" instance=ExtResource( 1 )]
 
+[node name="LogoBox" parent="MainMenu/MenuCanvas/Viz/MainMenuVBox" index="0"]
+margin_top = 0.0
+margin_bottom = 208.0
+
+[node name="InteractVB" parent="MainMenu/MenuCanvas/Viz/MainMenuVBox" index="1"]
+margin_top = 212.0
+margin_bottom = 345.0
+
 [node name="Area_AsteroidField001" parent="Zone/Areas" index="0" instance=ExtResource( 2 )]
 
 [node name="Enc_001s" type="Node2D" parent="Zone/Encounters" index="0"]
@@ -21,7 +29,6 @@ rotation = -3.0515
 [node name="Enc_003" parent="Zone/Encounters/Enc_001s" index="2" instance=ExtResource( 3 )]
 position = Vector2( 7678.36, -8894.74 )
 rotation = -0.918707
-scale = Vector2( 1, 1 )
 
 [node name="Enc_004" parent="Zone/Encounters/Enc_001s" index="3" instance=ExtResource( 3 )]
 position = Vector2( -4637.43, -9578.94 )
@@ -38,7 +45,6 @@ rotation = 2.52831
 [node name="Enc_007" parent="Zone/Encounters/Enc_001s" index="6" instance=ExtResource( 3 )]
 position = Vector2( 16801.2, 4105.27 )
 rotation = -1.62207
-scale = Vector2( 1, 1 )
 
 [node name="Enc_008" parent="Zone/Encounters/Enc_001s" index="7" instance=ExtResource( 3 )]
 position = Vector2( 4485.38, 3421.06 )
@@ -86,7 +92,6 @@ rotation = -3.0515
 [node name="Enc_019" parent="Zone/Encounters/Enc_001s" index="18" instance=ExtResource( 3 )]
 position = Vector2( -6918.12, -21058.5 )
 rotation = -0.918707
-scale = Vector2( 1, 1 )
 
 [node name="Enc_020" parent="Zone/Encounters/Enc_001s" index="19" instance=ExtResource( 3 )]
 position = Vector2( -19233.9, -21742.7 )
@@ -103,7 +108,6 @@ rotation = 2.52831
 [node name="Enc_023" parent="Zone/Encounters/Enc_001s" index="22" instance=ExtResource( 3 )]
 position = Vector2( 2204.68, -8058.47 )
 rotation = -1.62207
-scale = Vector2( 1, 1 )
 
 [node name="Enc_024" parent="Zone/Encounters/Enc_001s" index="23" instance=ExtResource( 3 )]
 position = Vector2( -10111.1, -8742.68 )
@@ -152,6 +156,8 @@ position = Vector2( -511.879, -16624.7 )
 rotation = 1.53883
 
 [node name="PoI_001" parent="Zone/PointsOfInterest" index="0" instance=ExtResource( 4 )]
+
+[editable path="MainMenu"]
 
 [editable path="CanvasLayer/HUD"]
 

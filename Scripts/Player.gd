@@ -135,10 +135,7 @@ func move_state(delta):
 			fire_mining_lasers()
 	
 	elif Input.is_action_just_pressed("ui_esc"):
-		# If no target, bring up main menu, otherwise get rid of target first
-		if !player_target:
-			Global._display_menu()			
-		else:
+		if player_target:
 			player_target = null
 	
 func move():
