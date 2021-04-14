@@ -11,6 +11,7 @@ var rng = RandomNumberGenerator.new()
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
+	rng.randomize()
 	var randClass = rng.randi_range(0,3)
 	var randShip = rng.randi_range(0,1)
 	var ship_to_pilot = Global.ship_hangar[randClass][randShip].duplicate()[0]

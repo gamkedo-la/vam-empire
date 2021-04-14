@@ -7,7 +7,6 @@
 radius = 16.5606
 
 [node name="AutoPilot" type="KinematicBody2D" groups=[
-"always_on_map",
 "mini_map",
 ]]
 collision_mask = 3

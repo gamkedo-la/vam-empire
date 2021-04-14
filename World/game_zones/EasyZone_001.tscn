@@ -142,12 +142,13 @@ position = Vector2( 912.277, -22122.8 )
 rotation = -2.19025
 
 [node name="Enc_SmallFleets_001" parent="Zone/Encounters" index="1" instance=ExtResource( 5 )]
+position = Vector2( -1196.09, -127.672 )
 
 [node name="Enc_SmallFleets_002" parent="Zone/Encounters" index="2" instance=ExtResource( 5 )]
-position = Vector2( -17713.4, 76.0234 )
+position = Vector2( -18909.5, -51.6484 )
 
 [node name="Enc_SmallFleets_003" parent="Zone/Encounters" index="3" instance=ExtResource( 5 )]
-position = Vector2( 684.207, -16497.1 )
+position = Vector2( -511.879, -16624.7 )
 rotation = 1.53883
 
 [node name="PoI_001" parent="Zone/PointsOfInterest" index="0" instance=ExtResource( 4 )]
