@@ -14,8 +14,12 @@
     - [**UserSettings.gd**](#usersettingsgd)
 - [**World/Game Scenes**](#worldgame-scenes)
   - [**Home Base**](#home-base)
-  - [**Asteroid Belt Scenes** (Mining and Combat!)](#asteroid-belt-scenes-mining-and-combat)
-    - [**Making a test Asteroid Field Scene**](#making-a-test-asteroid-field-scene)
+  - [**Terminology for Game Zones**](#terminology-for-game-zones)
+    - [**Zones**](#zones)
+    - [**Areas**](#areas)
+    - [**Encounters**](#encounters)
+    - [**Points of Interest**](#points-of-interest)
+    - [**Making a new Zone or Scene Element**](#making-a-new-zone-or-scene-element)
   - [**Player Scene**](#player-scene)
     - [**HealBot**](#healbot)
     - [**Player Menus**](#player-menus)
@@ -149,21 +153,49 @@ Contains all of the same `new(),save(), load(), save_exists()` functions of [**P
 ## **Home Base**
 At current moment, the Home Base is simply a scene to hang some buttons on to instance our world scenes. I did pair it with a nice little ship take-off animation just to make it feel like a "base" though! If you have a new world scene you want other members of the project to test out, feel free to add a launcher from this scene.  As our test scenes grow, I'll likely change from using big buttons to something like a Drop Down list and we can start adding our .tscn files to a Dictionary to manage them all.
 
-## **Asteroid Belt Scenes** (Mining and Combat!)
-The following list represents items currently required for a "minimum" Asteroid scene from a "Game Object" design sense. More global scene objects like the Camera, CanvasModulate node, HUD, ParallaxBG etc.. will soon be loaded and handled by the Global scene management code when it detects it is loading a "Gameworld Scene" vs. "Home Base". But for now those assets are still "manually" mounted up in the [Template Asteroid Scene](./World/game_zones/TemplateAsteroidZone.tscn)
+## **Terminology for Game Zones**
 
-- [ReturnHomeBeacon.tscn](./World/common_scenes/ReturnHomeBeacon.tscn)
-  - This beacon object has a simple 10 second countdown timer activated by the player entering its collider, that will return the player to the "Home Base" level selection screen. Without it, the player will be maroooned in space!
+V.A.M. Empire will have larger 'scenes' that get reused by moving around various elements and subscenes to keep things fresh, but still manageable from a game design sense for a smaller shorter project. In order to manage these, these larger scenes will break down in 4 separate nested parts that will all inherit from "Template" parts that can be managed in a way to allow updating large amounts of assets with new features as we go without having to backtrack and do a lot of re-work.
 
-As more things become parts of our base scene, they will be added here. 
+In an effort  primarily just to have a shared language for referring to the various parts of our game world, V.A.M. game scenes will break down into Zones, Areas, Encounters and Points of Interest. Their breakdowns and definitions are in the following sections. 
 
-### **Making a test Asteroid Field Scene**
-* The scene [TemplateAsteroidZone](./World/game_zones/TemplateAsteroidZone.tscn) will be kept up to date to reflect the "minimum" pieces required for a scene to function in game. Feel free to inherit from this scene and make your own scenes and freely experiment, and you will receive any updates being made to the master template this way!
+<sub>Diagram depicting the parts of a `Zone` in V.A.M. Empire</sub>
+![Zone Breakdown Diagram](.gdignore/Aseprite/zone_layout_mockup.png)
+### **Zones**
+The "Zone" is the top level container scene, which will be inherited from a Template Zone such as the current primary template in use [ZoneTemplate](./World/game_zones/Templates/ZoneTemplate.tscn).  For the most part, the "Zone" will server as a means of running the base required elements of a scene, such as the background, the primary HUD, and other "always present" elemts of the game scene. The other most notable part of the `Zone` is that it will contain the base `Node2D` mount points for `Areas`, `Encounters` and `Points of Interest`.
+### **Areas**
+`Areas` are larger collections of more static (in terms of game logic, not necessarily physical motion) objects in space. Asteroids, space debris, mining nodes, and other 'scenery' that will be designed as a singular `.tscn` file and used as a way to fill the void of space with 'things' that are not necessarily doing complex game logic, but bringing a sense of place to the world. Game logic in `Areas`, if it exists and the scene is not primarily designed by hand, will be focused mostly on the 'layout' of the set pieces within the Godot scene, such as randomly spawning Asteroids in a large radius around the `Area's` center point.
 
-For an example, let's say you are interested in starting work on a new 'scene' or maybe a feature, and you will be calling it (for example purposes) <b>NewSceneElement</b>. The following gif will walk through the steps in Godot to start a new scene by inheriting from an existing scene, and then begin building. This is a very freeing and powerful workflow in Godot.
+`Areas` inherit from [AreaTemplate](World/game_areas/Templates/AreaTemplate.tscn)
+### **Encounters**
+`Encounters` are friendly, neutral or hostile encounters with game elements that are under control of some form of game logic or AI that is more complex than simply determining layout and position. Examples of things that would fit as an `Encounter` would be:
+- A lone friendly mining vessel buzzing rocks within a vicinity.
+- A lane of space freighters caravaning to a destination.
+- A band of space pirate NPCs that may aggro the player
+- V.A.M. vampire units flying in a formation at night
+- A mini-boss stalking the player 
+- A travelling merchant vessel
+- A mine field primed to explode on the player
+
+`Encounters` inherit from [EncounterTemplate](World/game_encounters/Templates/EncounterTemplate.tscn)
+### **Points of Interest**
+`Points of Interest` generally will be the types of elements in a scene that would likely make it onto the minimap for one reason or another, and may even generally be called out as being "undiscovered" points of the world until the player goes and visits them. A `PoI` could be any one or more of the following types of 'sub-scenes':
+
+- An abandoned mining site with roaming pirates for the player to fight
+- A V.A.M. outpost with important information to further the player's quest
+- A ship in distress the player can rescue through chance discovery or a mission objective
+- A friendly base the player can visit and enter to trade and upgrade their ship
+
+`Points of Interest` inherit from [PoITemplate](World/game_points_of_interest/Templates/PoITemplate.tscn)
+
+### **Making a new Zone or Scene Element**
+* The scene [ZoneTemplate](./World/game_zones/Templates/ZoneTemplate.tscn) will be kept up to date to reflect the "minimum" pieces required for a scene to function in game. Feel free to inherit from this scene and make your own `Zones`` and freely experiment, and you will receive any updates being made to the master template this way!
+
+For an example, let's say you are interested in starting work on a new `Area` or maybe a feature, and you will be calling it (for example purposes) <b>NewSceneElement</b>. The following gif will walk through the steps in Godot to start a new scene by inheriting from an existing scene, and then begin building. This is a very freeing and powerful workflow in Godot.
 
 ![Animated GIF Walkthrough of Inheriting a new Scene from TemplateAsteroidZone.tscn](.gdignore/DesignDoc/images/NewInheritedScene_demo.gif)
 
+One you have a test `Zone`, you can repeat the process to create inherited `Areas`, `Encounters` or `Points of Interest` from the templates listed above, so that your scene parts will be ready to be incorporated into the primary game once you've got it working and looking the way you want!
 
 ## **Player Scene**
 
