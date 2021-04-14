@@ -5,13 +5,17 @@ extends PathFollow2D
 # var a = 2
 # var b = "text"
 onready var tween = $Tween
+var rng = RandomNumberGenerator.new()
+
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
+	rng.randomize()
+	var random_time = rand_range(100,280)
 	tween.interpolate_property(
 		self, "unit_offset",
-		0, 1, 120,
-		Tween.TRANS_QUART, Tween.EASE_IN_OUT	)
+		0, 1, random_time,
+		Tween.TRANS_EXPO, Tween.EASE_IN_OUT	)
 	tween.start()
 	pass # Replace with function body.
 
