@@ -195,7 +195,9 @@ For an example, let's say you are interested in starting work on a new `Area` or
 
 ![Animated GIF Walkthrough of Inheriting a new Scene from TemplateAsteroidZone.tscn](.gdignore/DesignDoc/images/NewInheritedScene_demo.gif)
 
-One you have a test `Zone`, you can repeat the process to create inherited `Areas`, `Encounters` or `Points of Interest` from the templates listed above, so that your scene parts will be ready to be incorporated into the primary game once you've got it working and looking the way you want!
+<sub>The scene name in the gif is dated, but the process of inheriting is still sound</sub>
+
+Once you have a test `Zone`, you can repeat the process to create inherited `Areas`, `Encounters` or `Points of Interest` from the templates listed above, so that your scene parts will be ready to be incorporated into the primary game once you've got it working and looking the way you want!
 
 ## **Player Scene**
 

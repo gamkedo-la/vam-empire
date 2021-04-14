@@ -62,7 +62,7 @@ onready var debug_select = $DebugDraw
 # Node to mount an instanced ship scene
 onready var ship_node = $PilotedShip
 var hardpoints = null
-var thrusters = null
+#var thrusters = null
 var hull_hitbox = null
 var piloted_ship = null
 
@@ -122,7 +122,7 @@ func move_state(delta):
 		#strafe_velocity = strafe_velocity.move_toward(Vector2.ZERO, FRICTION * delta)	
 		pass
 
-	animate_thrusters(thrust_vector)
+	piloted_ship.animate_thrusters(thrust_vector)
 	move()
 	strafe()
 	
@@ -183,23 +183,11 @@ func rotate_to_target(target):
 		ROT_ACCEL = deg2rad(0)
 	else:
 		ROT_ACCEL += deg2rad(.05)
-
-
-func animate_thrusters(t_vec):
-	for T in thrusters.get_children():
-		var thrust_light = T.get_node_or_null("LightEffect")		
-		var thrust_exhaust = T.get_node_or_null("ParticleEffect")		
-		thrust_light.set_energy(t_vec.length()* 10)
-		thrust_exhaust.initial_velocity = t_vec.length()*100
-	
-	pass
 	
 func load_hardpoints():
 	# Simplified until we have actual weapons to mount.  We'll just 'fire' from the hardpoint for now
 	hardpoints = piloted_ship.get_node_or_null("Hardpoints")
-	
-func load_thrusters():
-	thrusters = piloted_ship.get_node_or_null("Thrusters")
+
 
 func instantiate_ship_variables():
 	ACCELERATION = piloted_ship.ACCELERATION
@@ -225,8 +213,6 @@ func pilot_ship_from_pack(ship):
 	var hull_colliders =  self.get_tree().get_nodes_in_group("HullCollider")
 	if piloted_ship:
 		piloted_ship.queue_free()
-		thrusters = null
-		hardpoints = null
 	if hull_colliders:
 		for Collider in hull_colliders:
 			Collider.queue_free()	
@@ -234,12 +220,8 @@ func pilot_ship_from_pack(ship):
 	ship_node.add_child(piloted_ship)	
 	# TODO: Retool this to load multiple Hull Colliders from Ship	
 	Global.reparent(piloted_ship.get_node_or_null("HullCollision"), self)	
-	load_hardpoints()
-	load_thrusters()
 	instantiate_ship_variables()
-	for T in thrusters.get_children():
-		var thrust_exhaust = T.get_node_or_null("ParticleEffect")
-		thrust_exhaust.emitting = true
+
 
 
 func pilot_ship(ship):		
@@ -247,12 +229,7 @@ func pilot_ship(ship):
 	piloted_ship = ship_load.instance()
 	ship_node.add_child(piloted_ship)
 	Global.reparent(piloted_ship.get_node_or_null("HullCollision"), self)
-	load_hardpoints()
-	load_thrusters()
 	instantiate_ship_variables()
-	for T in thrusters.get_children():
-		var thrust_exhaust = T.get_node_or_null("ParticleEffect")
-		thrust_exhaust.emitting = true
 		
 
 func fire_attached_weapons():

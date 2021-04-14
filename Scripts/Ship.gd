@@ -18,6 +18,8 @@ export (Array, int) var equipped_weapon_index
 
 onready var hardpoints = $Hardpoints
 
+onready var thrusters = $Thrusters
+
 var weapons = []
 
 func _ready():
@@ -27,6 +29,9 @@ func _ready():
 		#print(weapon[0], HPoint)
 		
 		equip_weapon(weapon[0].duplicate(), HPoint)
+	for T in thrusters.get_children():
+		var thrust_exhaust = T.get_node_or_null("ParticleEffect")
+		thrust_exhaust.emitting = true
 	
 
 func equip_weapon(ordnance, mount):
@@ -43,5 +48,14 @@ func fire_weapons(parent_velocity):
 	for weapon in weapons:
 		fired = weapon.fire(parent_velocity)
 		# TODO: add conditional checking and remove weapons that don't fire for efficiency
-
 		
+func animate_thrusters(t_vec):
+	for T in thrusters.get_children():
+		var thrust_light = T.get_node_or_null("LightEffect")		
+		var thrust_exhaust = T.get_node_or_null("ParticleEffect")		
+		thrust_light.set_energy(t_vec.length()* 10)
+		thrust_exhaust.initial_velocity = t_vec.length()*100
+	
+	pass
+
+

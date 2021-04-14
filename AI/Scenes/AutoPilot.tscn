@@ -1,0 +1,27 @@
+[gd_scene load_steps=4 format=2]
+
+[ext_resource path="res://Scripts/AutoPilot.gd" type="Script" id=1]
+[ext_resource path="res://Enemies/Textures/proto_enemy.png" type="Texture" id=3]
+
+[sub_resource type="CircleShape2D" id=1]
+radius = 16.5606
+
+[node name="AutoPilot" type="KinematicBody2D" groups=[
+"always_on_map",
+"mini_map",
+]]
+collision_mask = 3
+script = ExtResource( 1 )
+
+[node name="Trigger" type="Area2D" parent="."]
+collision_layer = 2147483650
+collision_mask = 0
+
+[node name="TriggerCollider" type="CollisionShape2D" parent="Trigger"]
+shape = SubResource( 1 )
+
+[node name="PilotedShip" type="Node2D" parent="."]
+
+[node name="Sprite" type="Sprite" parent="."]
+visible = false
+texture = ExtResource( 3 )
