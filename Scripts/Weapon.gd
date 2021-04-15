@@ -2,6 +2,8 @@ extends Node2D
 
 export(String) var weap_name
 
+export (AudioStreamRandomPitch) var sfxFire
+
 enum hpClass {SMALL, MEDIUM, LARGE, XLARGE}
 export (hpClass) var size
 
@@ -25,7 +27,7 @@ export(PackedScene) var beam
 
 export (NodePath) var anchor_path
 export (NodePath) var barrel_tip_path
-export (float, 50.0, 1000.0) var fire_rate setget set_fire_rate, get_fire_rate
+export (float, 50.0, 10000.0) var fire_rate setget set_fire_rate, get_fire_rate
 onready var root_node = get_tree().get_root()
 
 var anchor
@@ -34,6 +36,7 @@ var barrel_tip
 var rng = RandomNumberGenerator.new()
 var fire_timer
 var primed = true
+var weap_sound
 
 func _ready():
 	# Import the anchor and barrel tip Position2D objects actual "nodes" from the NodePath added in the editor so they can be used	
@@ -44,6 +47,10 @@ func _ready():
 	fire_timer.autostart = true
 	fire_timer.wait_time = 100/fire_rate
 	fire_timer.connect("timeout", self, "_reprime")
+	
+	if $AudioStreamPlayer2D:
+		weap_sound = $AudioStreamPlayer2D
+		weap_sound.stream = sfxFire
 	
 	
 	
@@ -64,6 +71,7 @@ func fire(parent_velocity):
 			_:
 				# Tell the ship to stop trying to fire this weapon
 				return false 
+
 				
 func set_fire_rate(val):
 	fire_rate = val
@@ -83,7 +91,9 @@ func _fire_projectile(parent_velocity):
 	rnd_impulse = rng.randf_range(0.8, 2.0) * clamp(parent_velocity.length()/100, 1, 5)
 	proj.linear_velocity = parent_velocity
 	proj.launchBullet(rnd_impulse, dir)
-	primed = false
+	primed = false	
+	if weap_sound:		
+		weap_sound.play(0.1)
 	fire_timer.start()
 	
 

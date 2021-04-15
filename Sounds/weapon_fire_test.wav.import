@@ -11,9 +11,9 @@ dest_files=[ "res://.import/weapon_fire_test.wav-5fc36833a0b7bfb1637525ad9dd5561
 
 [params]
 
-force/8_bit=false
-force/mono=false
-force/max_rate=false
+force/8_bit=true
+force/mono=true
+force/max_rate=true
 force/max_rate_hz=44100
 edit/trim=false
 edit/normalize=false

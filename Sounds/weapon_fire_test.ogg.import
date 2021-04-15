@@ -1,0 +1,15 @@
+[remap]
+
+importer="ogg_vorbis"
+type="AudioStreamOGGVorbis"
+path="res://.import/weapon_fire_test.ogg-897a9fb42ce7c108e944c61b41f03d18.oggstr"
+
+[deps]
+
+source_file="res://Sounds/weapon_fire_test.ogg"
+dest_files=[ "res://.import/weapon_fire_test.ogg-897a9fb42ce7c108e944c61b41f03d18.oggstr" ]
+
+[params]
+
+loop=false
+loop_offset=0

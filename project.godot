@@ -19,6 +19,10 @@ config/name="V.A.M. Empire"
 run/main_scene="res://UI/Menu/StartMenu_Scene.tscn"
 config/icon="res://logo_only.png"
 
+[audio]
+
+output_latency.web=250
+
 [autoload]
 
 UserSettings="*res://Scripts/Autoload/UserSettings.gd"
@@ -54,6 +58,10 @@ texture={
 "size_limit": 0,
 "stream": false,
 "svg/scale": 1.0
+}
+ogg_vorbis={
+"loop": false,
+"loop_offset": 0
 }
 
 [input]
