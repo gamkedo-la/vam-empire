@@ -24,6 +24,7 @@ config/icon="res://logo_only.png"
 UserSettings="*res://Scripts/Autoload/UserSettings.gd"
 Global="*res://Scripts/Autoload/Global.gd"
 PlayerVars="*res://Scripts/Autoload/PlayerVars.gd"
+Music="*res://Music/Music.tscn"
 
 [display]
 

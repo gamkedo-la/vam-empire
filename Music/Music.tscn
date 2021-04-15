@@ -1,0 +1,16 @@
+[gd_scene load_steps=3 format=2]
+
+[ext_resource path="res://Music/Ambient Space Exploration Loop.wav" type="AudioStream" id=1]
+[ext_resource path="res://Scripts/Autoload/Music.gd" type="Script" id=2]
+
+[node name="Music" type="Node"]
+pause_mode = 2
+script = ExtResource( 2 )
+
+[node name="Ambient_Exploration" type="AudioStreamPlayer" parent="."]
+stream = ExtResource( 1 )
+volume_db = -60.0
+autoplay = true
+bus = "Music"
+
+[node name="Tween" type="Tween" parent="."]
