@@ -7,39 +7,42 @@
 
 [node name="AsteroidRingSpawner" parent="." index="0" instance=ExtResource( 2 )]
 position = Vector2( 539.049, -282.63 )
+ring_density = 75
 
 [node name="AsteroidRingSpawner2" parent="." index="1" instance=ExtResource( 2 )]
 position = Vector2( 628.912, -805.052 )
+ring_density = 75
 
 [node name="AsteroidRingSpawner3" parent="." index="2" instance=ExtResource( 2 )]
 position = Vector2( 659.084, -1378.28 )
+ring_density = 75
 
 [node name="AsteroidRingSpawner4" parent="." index="3" instance=ExtResource( 2 )]
 position = Vector2( 539.049, -1791.12 )
-ring_density = 240
+ring_density = 75
 ring_speed = 1.5
 
 [node name="AsteroidRingSpawner5" parent="." index="4" instance=ExtResource( 2 )]
 position = Vector2( 628.912, -2313.55 )
-ring_density = 240
+ring_density = 75
 ring_speed = 1.5
 
 [node name="AsteroidRingSpawner6" parent="." index="5" instance=ExtResource( 2 )]
 position = Vector2( 659.084, -2886.77 )
-ring_density = 240
+ring_density = 75
 ring_speed = 1.5
 
 [node name="AsteroidRingSpawner7" parent="." index="6" instance=ExtResource( 2 )]
 position = Vector2( 539.049, -3329.79 )
-ring_density = 320
+ring_density = 75
 ring_speed = 2.5
 
 [node name="AsteroidRingSpawner8" parent="." index="7" instance=ExtResource( 2 )]
 position = Vector2( 628.912, -3852.21 )
-ring_density = 320
+ring_density = 75
 ring_speed = 2.5
 
 [node name="AsteroidRingSpawner9" parent="." index="8" instance=ExtResource( 2 )]
 position = Vector2( 659.084, -4425.44 )
-ring_density = 320
+ring_density = 75
 ring_speed = 2.5

@@ -2,13 +2,13 @@
 
 [ext_resource path="res://Scripts/ZoneOrchestration/AsteroidRingSpawner.gd" type="Script" id=1]
 
-[sub_resource type="Curve2D" id=2]
+[sub_resource type="Curve2D" id=1]
 _data = {
 "points": PoolVector2Array( -4018.36, -7301.22, 4018.36, 7301.22, -21823, -3305.46, -2834.38, 2942.02, 2834.38, -2942.02, 24244.7, -3269.58 )
 }
 
 [node name="AsteroidRingSpawner" type="Path2D"]
 position = Vector2( 1.25989, 3.77975 )
-curve = SubResource( 2 )
+curve = SubResource( 1 )
 script = ExtResource( 1 )
 ring_density = 120

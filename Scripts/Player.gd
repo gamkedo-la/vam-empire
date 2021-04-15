@@ -216,7 +216,10 @@ func pilot_ship_from_pack(ship):
 	piloted_ship = ship
 	ship_node.add_child(piloted_ship)	
 	# TODO: Retool this to load multiple Hull Colliders from Ship	
-	Global.reparent(piloted_ship.get_node_or_null("HullCollision"), self)	
+	var hull = piloted_ship.get_node_or_null("HullCollision").duplicate()
+	add_child(hull)
+	#Global.reparent(piloted_ship.get_node_or_null("HullCollision"), self)	
+	
 	instantiate_ship_variables()
 
 

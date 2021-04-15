@@ -35,5 +35,7 @@ func pilot_ship_from_pack(ship):
 	# TODO: Retool this to load multiple Hull Colliders from Ship	
 #	var test = piloted_ship.get_node_or_null("HullCollision")
 #	print_debug("AutoPilot TEST: ", test)
-	Global.reparent(piloted_ship.get_node_or_null("HullCollision"), self)	
+	#Global.reparent(piloted_ship.get_node_or_null("HullCollision").duplicate(true), self)
+	var hull = piloted_ship.get_node_or_null("HullCollision").duplicate()
+	add_child(hull)
 

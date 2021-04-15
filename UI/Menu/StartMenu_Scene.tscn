@@ -14,7 +14,7 @@ script = ExtResource( 3 )
 [node name="MainMenu" parent="." instance=ExtResource( 1 )]
 
 [node name="EmpireLogo" parent="MainMenu/MenuCanvas/Viz/MainMenuVBox/LogoBox/VamLogo" index="0"]
-frame = 49
+frame = 11
 
 [node name="PlayerNameEdit" parent="MainMenu/MenuCanvas/Viz/NewPlayerPop/NewPlayerVB/EntryHB" index="1"]
 text = "Johny Cry'ton"
