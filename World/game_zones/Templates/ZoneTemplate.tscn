@@ -15,7 +15,7 @@
 visible = false
 
 [node name="EmpireLogo" parent="MainMenu/MenuCanvas/Viz/MainMenuVBox/LogoBox/VamLogo" index="0"]
-frame = 66
+frame = 110
 
 [node name="CanvasLayer" type="CanvasLayer" parent="."]
 

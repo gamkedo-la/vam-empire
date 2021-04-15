@@ -55,6 +55,9 @@ func _on_GoWorldProto_pressed():
 	leaving_to = "res://World/game_zones/TAZ_ProtoLayout.tscn"
 	take_off()
 	#Global.goto_scene("res://World_Proto.tscn")
+func _on_GoMiningMed_pressed():
+	leaving_to = "res://World/game_zones/EasyZone_002.tscn"
+	take_off()
 	
 
 
@@ -72,4 +75,3 @@ func _on_LightingTween_tween_completed(object, key):
 	else:
 		lighting_tween.interpolate_property(object, "texture_scale", object.texture_scale, glow_down, glow_time, Tween.TRANS_CUBIC, Tween.EASE_IN_OUT)
 	lighting_tween.start()
-	

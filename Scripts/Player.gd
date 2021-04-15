@@ -225,6 +225,8 @@ func pilot_ship(ship):
 	var ship_load = load(ship)
 	piloted_ship = ship_load.instance()
 	ship_node.add_child(piloted_ship)
+	var test = piloted_ship.get_node_or_null("HullCollision")
+	print_debug("TEST: ", test)
 	Global.reparent(piloted_ship.get_node_or_null("HullCollision"), self)
 	instantiate_ship_variables()
 		

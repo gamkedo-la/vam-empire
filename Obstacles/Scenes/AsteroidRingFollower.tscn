@@ -1,0 +1,7 @@
+[gd_scene format=2]
+
+[node name="PathFollow2D" type="PathFollow2D"]
+position = Vector2( -21823, -3305.46 )
+rotation = 1.06649
+rotate = false
+cubic_interp = false

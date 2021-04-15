@@ -4,7 +4,8 @@ extends Path2D
 export (int, 10, 1000) var ring_density = 10
 export (float, 1, 100) var ring_speed = 1
 
-var asteroid = load("res://Obstacles/Scenes/KineMedAsteroid.tscn")
+var asteroid = load("res://Obstacles/Scenes/MedAsteroid01.tscn")
+var follow_agent = load("res://Obstacles/Scenes/AsteroidRingFollower.tscn")
 
 onready var rng = RandomNumberGenerator.new()
 onready var asteroid_agents = []
@@ -17,7 +18,7 @@ func _ready():
 		var vert_offset = rng.randi_range(-280,280)
 		#print("roid: ", roid)
 		var new_roid =  asteroid.instance()
-		var new_followagent = PathFollow2D.new()
+		var new_followagent = follow_agent.instance()
 		add_child(new_followagent)
 		new_followagent.unit_offset = float(roid) / 1000
 		new_followagent.v_offset = vert_offset

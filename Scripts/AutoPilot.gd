@@ -28,16 +28,12 @@ func _process(_delta):
 
 
 
-func pilot_ship_from_pack(ship):
-	var hull_colliders =  self.get_tree().get_nodes_in_group("HullCollider")
-	if piloted_ship:
-		piloted_ship.queue_free()
-	if hull_colliders:
-		for Collider in hull_colliders:
-			Collider.queue_free()	
+func pilot_ship_from_pack(ship):	
 	piloted_ship = ship
 	#Global.reparent(piloted_ship, ship_node)
 	ship_node.add_child(piloted_ship)	
 	# TODO: Retool this to load multiple Hull Colliders from Ship	
+#	var test = piloted_ship.get_node_or_null("HullCollision")
+#	print_debug("AutoPilot TEST: ", test)
 	Global.reparent(piloted_ship.get_node_or_null("HullCollision"), self)	
 
