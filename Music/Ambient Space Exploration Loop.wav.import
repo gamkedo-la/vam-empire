@@ -1,0 +1,21 @@
+[remap]
+
+importer="wav"
+type="AudioStreamSample"
+path="res://.import/Ambient Space Exploration Loop.wav-487eca9a3f70249abe9af2123d014d5e.sample"
+
+[deps]
+
+source_file="res://Music/Ambient Space Exploration Loop.wav"
+dest_files=[ "res://.import/Ambient Space Exploration Loop.wav-487eca9a3f70249abe9af2123d014d5e.sample" ]
+
+[params]
+
+force/8_bit=false
+force/mono=false
+force/max_rate=false
+force/max_rate_hz=44100
+edit/trim=false
+edit/normalize=false
+edit/loop=false
+compress/mode=0
