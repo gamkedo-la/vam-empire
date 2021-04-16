@@ -1,10 +1,11 @@
-[gd_scene load_steps=9 format=2]
+[gd_scene load_steps=10 format=2]
 
 [ext_resource path="res://Player/Textures/Shmup_Player_Ship_001.png" type="Texture" id=1]
 [ext_resource path="res://Scripts/HomeBase.gd" type="Script" id=2]
 [ext_resource path="res://World/background_textures/base_floot_and_walls_placeholder.png" type="Texture" id=3]
 [ext_resource path="res://World/common_scenes/ParallaxBackground2.tscn" type="PackedScene" id=4]
 [ext_resource path="res://Lights/Textures/light_orb.png" type="Texture" id=5]
+[ext_resource path="res://Lights/RunwayLight.tscn" type="PackedScene" id=6]
 
 [sub_resource type="StyleBoxFlat" id=1]
 bg_color = Color( 0, 0, 0, 0.878431 )
@@ -153,513 +154,155 @@ color = Color( 0.545098, 0.545098, 0.545098, 1 )
 
 [node name="SceneLighting" type="Node2D" parent="."]
 
-[node name="Runway" type="Node2D" parent="SceneLighting"]
-
-[node name="RunwayLight2D25" type="Light2D" parent="SceneLighting/Runway"]
-position = Vector2( 933.936, 318.12 )
-texture = ExtResource( 5 )
-texture_scale = 0.75
-color = Color( 0.980392, 0.415686, 0.0392157, 1 )
-energy = 1.25
-
-[node name="RunwayLight2D26" type="Light2D" parent="SceneLighting/Runway"]
-position = Vector2( 933.936, 222.12 )
-texture = ExtResource( 5 )
-texture_scale = 0.75
-color = Color( 0.980392, 0.415686, 0.0392157, 1 )
-energy = 1.25
-
-[node name="RunwayLight2D27" type="Light2D" parent="SceneLighting/Runway"]
-position = Vector2( 885.936, 318.12 )
-texture = ExtResource( 5 )
-texture_scale = 0.75
-color = Color( 0.980392, 0.415686, 0.0392157, 1 )
-energy = 1.25
-
-[node name="RunwayLight2D28" type="Light2D" parent="SceneLighting/Runway"]
-position = Vector2( 885.936, 222.12 )
-texture = ExtResource( 5 )
-texture_scale = 0.75
-color = Color( 0.980392, 0.415686, 0.0392157, 1 )
-energy = 1.25
-
-[node name="RunwayLight2D29" type="Light2D" parent="SceneLighting/Runway"]
-position = Vector2( 837.936, 318.12 )
-texture = ExtResource( 5 )
-texture_scale = 0.75
-color = Color( 0.980392, 0.415686, 0.0392157, 1 )
-energy = 1.25
-
-[node name="RunwayLight2D30" type="Light2D" parent="SceneLighting/Runway"]
-position = Vector2( 837.936, 222.12 )
-texture = ExtResource( 5 )
-texture_scale = 0.75
-color = Color( 0.980392, 0.415686, 0.0392157, 1 )
-energy = 1.25
-
-[node name="RunwayLight2D31" type="Light2D" parent="SceneLighting/Runway"]
-position = Vector2( 786.87, 318.12 )
-texture = ExtResource( 5 )
-texture_scale = 0.75
-color = Color( 0.980392, 0.415686, 0.0392157, 1 )
-energy = 1.25
-
-[node name="RunwayLight2D32" type="Light2D" parent="SceneLighting/Runway"]
-position = Vector2( 786.87, 222.12 )
-texture = ExtResource( 5 )
-texture_scale = 0.75
-color = Color( 0.980392, 0.415686, 0.0392157, 1 )
-energy = 1.25
-
-[node name="RunwayLight2D33" type="Light2D" parent="SceneLighting/Runway"]
-position = Vector2( 738.87, 318.12 )
-texture = ExtResource( 5 )
-texture_scale = 0.75
-color = Color( 0.980392, 0.415686, 0.0392157, 1 )
-energy = 1.25
-
-[node name="RunwayLight2D34" type="Light2D" parent="SceneLighting/Runway"]
-position = Vector2( 738.87, 222.12 )
-texture = ExtResource( 5 )
-texture_scale = 0.75
-color = Color( 0.980392, 0.415686, 0.0392157, 1 )
-energy = 1.25
-
-[node name="RunwayLight2D35" type="Light2D" parent="SceneLighting/Runway"]
-position = Vector2( 690.87, 318.12 )
-texture = ExtResource( 5 )
-texture_scale = 0.75
-color = Color( 0.980392, 0.415686, 0.0392157, 1 )
-energy = 1.25
-
-[node name="RunwayLight2D36" type="Light2D" parent="SceneLighting/Runway"]
-position = Vector2( 690.87, 222.12 )
-texture = ExtResource( 5 )
-texture_scale = 0.75
-color = Color( 0.980392, 0.415686, 0.0392157, 1 )
-energy = 1.25
-
-[node name="RunwayLight2D37" type="Light2D" parent="SceneLighting/Runway"]
-position = Vector2( 641.391, 318.12 )
-texture = ExtResource( 5 )
-texture_scale = 0.75
-color = Color( 0.980392, 0.415686, 0.0392157, 1 )
-energy = 1.25
-
-[node name="RunwayLight2D38" type="Light2D" parent="SceneLighting/Runway"]
-position = Vector2( 641.391, 222.12 )
-texture = ExtResource( 5 )
-texture_scale = 0.75
-color = Color( 0.980392, 0.415686, 0.0392157, 1 )
-energy = 1.25
-
-[node name="RunwayLight2D39" type="Light2D" parent="SceneLighting/Runway"]
-position = Vector2( 593.391, 318.12 )
-texture = ExtResource( 5 )
-texture_scale = 0.75
-color = Color( 0.980392, 0.415686, 0.0392157, 1 )
-energy = 1.25
-
-[node name="RunwayLight2D40" type="Light2D" parent="SceneLighting/Runway"]
-position = Vector2( 593.391, 222.12 )
-texture = ExtResource( 5 )
-texture_scale = 0.75
-color = Color( 0.980392, 0.415686, 0.0392157, 1 )
-energy = 1.25
-
-[node name="RunwayLight2D41" type="Light2D" parent="SceneLighting/Runway"]
-position = Vector2( 545.391, 318.12 )
-texture = ExtResource( 5 )
-texture_scale = 0.75
-color = Color( 0.980392, 0.415686, 0.0392157, 1 )
-energy = 1.25
-
-[node name="RunwayLight2D42" type="Light2D" parent="SceneLighting/Runway"]
-position = Vector2( 545.391, 222.12 )
-texture = ExtResource( 5 )
-texture_scale = 0.75
-color = Color( 0.980392, 0.415686, 0.0392157, 1 )
-energy = 1.25
-
-[node name="RunwayLight2D43" type="Light2D" parent="SceneLighting/Runway"]
-position = Vector2( 494.325, 318.12 )
-texture = ExtResource( 5 )
-texture_scale = 0.75
-color = Color( 0.980392, 0.415686, 0.0392157, 1 )
-energy = 1.25
-
-[node name="RunwayLight2D44" type="Light2D" parent="SceneLighting/Runway"]
-position = Vector2( 494.325, 222.12 )
-texture = ExtResource( 5 )
-texture_scale = 0.75
-color = Color( 0.980392, 0.415686, 0.0392157, 1 )
-energy = 1.25
-
-[node name="RunwayLight2D45" type="Light2D" parent="SceneLighting/Runway"]
-position = Vector2( 446.325, 318.12 )
-texture = ExtResource( 5 )
-texture_scale = 0.75
-color = Color( 0.980392, 0.415686, 0.0392157, 1 )
-energy = 1.25
-
-[node name="RunwayLight2D46" type="Light2D" parent="SceneLighting/Runway"]
-position = Vector2( 446.325, 222.12 )
-texture = ExtResource( 5 )
-texture_scale = 0.75
-color = Color( 0.980392, 0.415686, 0.0392157, 1 )
-energy = 1.25
-
-[node name="RunwayLight2D47" type="Light2D" parent="SceneLighting/Runway"]
-position = Vector2( 398.325, 318.12 )
-texture = ExtResource( 5 )
-texture_scale = 0.75
-color = Color( 0.980392, 0.415686, 0.0392157, 1 )
-energy = 1.25
-
-[node name="RunwayLight2D48" type="Light2D" parent="SceneLighting/Runway"]
-position = Vector2( 398.325, 222.12 )
-texture = ExtResource( 5 )
-texture_scale = 0.75
-color = Color( 0.980392, 0.415686, 0.0392157, 1 )
-energy = 1.25
-
-[node name="RunwayLight2D49" type="Light2D" parent="SceneLighting/Runway"]
-position = Vector2( 346.071, 318.12 )
-texture = ExtResource( 5 )
-texture_scale = 0.75
-color = Color( 0.980392, 0.415686, 0.0392157, 1 )
-energy = 1.25
-
-[node name="RunwayLight2D50" type="Light2D" parent="SceneLighting/Runway"]
-position = Vector2( 346.071, 222.12 )
-texture = ExtResource( 5 )
-texture_scale = 0.75
-color = Color( 0.980392, 0.415686, 0.0392157, 1 )
-energy = 1.25
-
-[node name="RunwayLight2D51" type="Light2D" parent="SceneLighting/Runway"]
-position = Vector2( 298.071, 318.12 )
-texture = ExtResource( 5 )
-texture_scale = 0.75
-color = Color( 0.980392, 0.415686, 0.0392157, 1 )
-energy = 1.25
-
-[node name="RunwayLight2D52" type="Light2D" parent="SceneLighting/Runway"]
-position = Vector2( 298.071, 222.12 )
-texture = ExtResource( 5 )
-texture_scale = 0.75
-color = Color( 0.980392, 0.415686, 0.0392157, 1 )
-energy = 1.25
-
-[node name="RunwayLight2D53" type="Light2D" parent="SceneLighting/Runway"]
-position = Vector2( 250.071, 318.12 )
-texture = ExtResource( 5 )
-texture_scale = 0.75
-color = Color( 0.980392, 0.415686, 0.0392157, 1 )
-energy = 1.25
-
-[node name="RunwayLight2D54" type="Light2D" parent="SceneLighting/Runway"]
-position = Vector2( 250.071, 222.12 )
-texture = ExtResource( 5 )
-texture_scale = 0.75
-color = Color( 0.980392, 0.415686, 0.0392157, 1 )
-energy = 1.25
-
-[node name="RunwayLight2D55" type="Light2D" parent="SceneLighting/Runway"]
-position = Vector2( 197.816, 318.12 )
-texture = ExtResource( 5 )
-texture_scale = 0.75
-color = Color( 0.980392, 0.415686, 0.0392157, 1 )
-energy = 1.25
-
-[node name="RunwayLight2D56" type="Light2D" parent="SceneLighting/Runway"]
-position = Vector2( 197.816, 222.12 )
-texture = ExtResource( 5 )
-texture_scale = 0.75
-color = Color( 0.980392, 0.415686, 0.0392157, 1 )
-energy = 1.25
-
-[node name="RunwayLight2D57" type="Light2D" parent="SceneLighting/Runway"]
-position = Vector2( 149.816, 318.12 )
-texture = ExtResource( 5 )
-texture_scale = 0.75
-color = Color( 0.980392, 0.415686, 0.0392157, 1 )
-energy = 1.25
-
-[node name="RunwayLight2D58" type="Light2D" parent="SceneLighting/Runway"]
-position = Vector2( 149.816, 222.12 )
-texture = ExtResource( 5 )
-texture_scale = 0.75
-color = Color( 0.980392, 0.415686, 0.0392157, 1 )
-energy = 1.25
-
-[node name="RunwayLight2D59" type="Light2D" parent="SceneLighting/Runway"]
-position = Vector2( 101.816, 318.12 )
-texture = ExtResource( 5 )
-texture_scale = 0.75
-color = Color( 0.980392, 0.415686, 0.0392157, 1 )
-energy = 1.25
-
-[node name="RunwayLight2D60" type="Light2D" parent="SceneLighting/Runway"]
-position = Vector2( 101.816, 222.12 )
-texture = ExtResource( 5 )
-texture_scale = 0.75
-color = Color( 0.980392, 0.415686, 0.0392157, 1 )
-energy = 1.25
-
-[node name="RunwayInset" type="Node2D" parent="SceneLighting"]
-
-[node name="RunwayLight2D25" type="Light2D" parent="SceneLighting/RunwayInset"]
-position = Vector2( 933.936, 318.12 )
-texture = ExtResource( 5 )
-texture_scale = 0.07
-color = Color( 0.980392, 0.415686, 0.0392157, 1 )
-energy = 2.0
-
-[node name="RunwayLight2D26" type="Light2D" parent="SceneLighting/RunwayInset"]
-position = Vector2( 933.936, 222.12 )
-texture = ExtResource( 5 )
-texture_scale = 0.07
-color = Color( 0.980392, 0.415686, 0.0392157, 1 )
-energy = 2.0
-
-[node name="RunwayLight2D27" type="Light2D" parent="SceneLighting/RunwayInset"]
-position = Vector2( 885.936, 318.12 )
-texture = ExtResource( 5 )
-texture_scale = 0.07
-color = Color( 0.980392, 0.415686, 0.0392157, 1 )
-energy = 2.0
-
-[node name="RunwayLight2D28" type="Light2D" parent="SceneLighting/RunwayInset"]
-position = Vector2( 885.936, 222.12 )
-texture = ExtResource( 5 )
-texture_scale = 0.07
-color = Color( 0.980392, 0.415686, 0.0392157, 1 )
-energy = 2.0
-
-[node name="RunwayLight2D29" type="Light2D" parent="SceneLighting/RunwayInset"]
-position = Vector2( 837.936, 318.12 )
-texture = ExtResource( 5 )
-texture_scale = 0.07
-color = Color( 0.980392, 0.415686, 0.0392157, 1 )
-energy = 2.0
-
-[node name="RunwayLight2D30" type="Light2D" parent="SceneLighting/RunwayInset"]
-position = Vector2( 837.936, 222.12 )
-texture = ExtResource( 5 )
-texture_scale = 0.07
-color = Color( 0.980392, 0.415686, 0.0392157, 1 )
-energy = 2.0
-
-[node name="RunwayLight2D31" type="Light2D" parent="SceneLighting/RunwayInset"]
-position = Vector2( 786.87, 318.12 )
-texture = ExtResource( 5 )
-texture_scale = 0.07
-color = Color( 0.980392, 0.415686, 0.0392157, 1 )
-energy = 2.0
-
-[node name="RunwayLight2D32" type="Light2D" parent="SceneLighting/RunwayInset"]
-position = Vector2( 786.87, 222.12 )
-texture = ExtResource( 5 )
-texture_scale = 0.07
-color = Color( 0.980392, 0.415686, 0.0392157, 1 )
-energy = 2.0
-
-[node name="RunwayLight2D33" type="Light2D" parent="SceneLighting/RunwayInset"]
-position = Vector2( 738.87, 318.12 )
-texture = ExtResource( 5 )
-texture_scale = 0.07
-color = Color( 0.980392, 0.415686, 0.0392157, 1 )
-energy = 2.0
-
-[node name="RunwayLight2D34" type="Light2D" parent="SceneLighting/RunwayInset"]
-position = Vector2( 738.87, 222.12 )
-texture = ExtResource( 5 )
-texture_scale = 0.07
-color = Color( 0.980392, 0.415686, 0.0392157, 1 )
-energy = 2.0
-
-[node name="RunwayLight2D35" type="Light2D" parent="SceneLighting/RunwayInset"]
-position = Vector2( 690.87, 318.12 )
-texture = ExtResource( 5 )
-texture_scale = 0.07
-color = Color( 0.980392, 0.415686, 0.0392157, 1 )
-energy = 2.0
-
-[node name="RunwayLight2D36" type="Light2D" parent="SceneLighting/RunwayInset"]
-position = Vector2( 690.87, 222.12 )
-texture = ExtResource( 5 )
-texture_scale = 0.07
-color = Color( 0.980392, 0.415686, 0.0392157, 1 )
-energy = 2.0
-
-[node name="RunwayLight2D37" type="Light2D" parent="SceneLighting/RunwayInset"]
-position = Vector2( 641.391, 318.12 )
-texture = ExtResource( 5 )
-texture_scale = 0.07
-color = Color( 0.980392, 0.415686, 0.0392157, 1 )
-energy = 2.0
-
-[node name="RunwayLight2D38" type="Light2D" parent="SceneLighting/RunwayInset"]
-position = Vector2( 641.391, 222.12 )
-texture = ExtResource( 5 )
-texture_scale = 0.07
-color = Color( 0.980392, 0.415686, 0.0392157, 1 )
-energy = 2.0
-
-[node name="RunwayLight2D39" type="Light2D" parent="SceneLighting/RunwayInset"]
-position = Vector2( 593.391, 318.12 )
-texture = ExtResource( 5 )
-texture_scale = 0.07
-color = Color( 0.980392, 0.415686, 0.0392157, 1 )
-energy = 2.0
-
-[node name="RunwayLight2D40" type="Light2D" parent="SceneLighting/RunwayInset"]
-position = Vector2( 593.391, 222.12 )
-texture = ExtResource( 5 )
-texture_scale = 0.07
-color = Color( 0.980392, 0.415686, 0.0392157, 1 )
-energy = 2.0
-
-[node name="RunwayLight2D41" type="Light2D" parent="SceneLighting/RunwayInset"]
-position = Vector2( 545.391, 318.12 )
-texture = ExtResource( 5 )
-texture_scale = 0.07
-color = Color( 0.980392, 0.415686, 0.0392157, 1 )
-energy = 2.0
-
-[node name="RunwayLight2D42" type="Light2D" parent="SceneLighting/RunwayInset"]
-position = Vector2( 545.391, 222.12 )
-texture = ExtResource( 5 )
-texture_scale = 0.07
-color = Color( 0.980392, 0.415686, 0.0392157, 1 )
-energy = 2.0
-
-[node name="RunwayLight2D43" type="Light2D" parent="SceneLighting/RunwayInset"]
-position = Vector2( 494.325, 318.12 )
-texture = ExtResource( 5 )
-texture_scale = 0.07
-color = Color( 0.980392, 0.415686, 0.0392157, 1 )
-energy = 2.0
-
-[node name="RunwayLight2D44" type="Light2D" parent="SceneLighting/RunwayInset"]
-position = Vector2( 494.325, 222.12 )
-texture = ExtResource( 5 )
-texture_scale = 0.07
-color = Color( 0.980392, 0.415686, 0.0392157, 1 )
-energy = 2.0
-
-[node name="RunwayLight2D45" type="Light2D" parent="SceneLighting/RunwayInset"]
-position = Vector2( 446.325, 318.12 )
-texture = ExtResource( 5 )
-texture_scale = 0.07
-color = Color( 0.980392, 0.415686, 0.0392157, 1 )
-energy = 2.0
-
-[node name="RunwayLight2D46" type="Light2D" parent="SceneLighting/RunwayInset"]
-position = Vector2( 446.325, 222.12 )
-texture = ExtResource( 5 )
-texture_scale = 0.07
-color = Color( 0.980392, 0.415686, 0.0392157, 1 )
-energy = 2.0
-
-[node name="RunwayLight2D47" type="Light2D" parent="SceneLighting/RunwayInset"]
-position = Vector2( 398.325, 318.12 )
-texture = ExtResource( 5 )
-texture_scale = 0.07
-color = Color( 0.980392, 0.415686, 0.0392157, 1 )
-energy = 2.0
-
-[node name="RunwayLight2D48" type="Light2D" parent="SceneLighting/RunwayInset"]
-position = Vector2( 398.325, 222.12 )
-texture = ExtResource( 5 )
-texture_scale = 0.07
-color = Color( 0.980392, 0.415686, 0.0392157, 1 )
-energy = 2.0
-
-[node name="RunwayLight2D49" type="Light2D" parent="SceneLighting/RunwayInset"]
-position = Vector2( 346.071, 318.12 )
-texture = ExtResource( 5 )
-texture_scale = 0.07
-color = Color( 0.980392, 0.415686, 0.0392157, 1 )
-energy = 2.0
-
-[node name="RunwayLight2D50" type="Light2D" parent="SceneLighting/RunwayInset"]
-position = Vector2( 346.071, 222.12 )
-texture = ExtResource( 5 )
-texture_scale = 0.07
-color = Color( 0.980392, 0.415686, 0.0392157, 1 )
-energy = 2.0
-
-[node name="RunwayLight2D51" type="Light2D" parent="SceneLighting/RunwayInset"]
-position = Vector2( 298.071, 318.12 )
-texture = ExtResource( 5 )
-texture_scale = 0.07
-color = Color( 0.980392, 0.415686, 0.0392157, 1 )
-energy = 2.0
-
-[node name="RunwayLight2D52" type="Light2D" parent="SceneLighting/RunwayInset"]
-position = Vector2( 298.071, 222.12 )
-texture = ExtResource( 5 )
-texture_scale = 0.07
-color = Color( 0.980392, 0.415686, 0.0392157, 1 )
-energy = 2.0
-
-[node name="RunwayLight2D53" type="Light2D" parent="SceneLighting/RunwayInset"]
-position = Vector2( 250.071, 318.12 )
-texture = ExtResource( 5 )
-texture_scale = 0.07
-color = Color( 0.980392, 0.415686, 0.0392157, 1 )
-energy = 2.0
-
-[node name="RunwayLight2D54" type="Light2D" parent="SceneLighting/RunwayInset"]
-position = Vector2( 250.071, 222.12 )
-texture = ExtResource( 5 )
-texture_scale = 0.07
-color = Color( 0.980392, 0.415686, 0.0392157, 1 )
-energy = 2.0
-
-[node name="RunwayLight2D55" type="Light2D" parent="SceneLighting/RunwayInset"]
-position = Vector2( 197.816, 318.12 )
-texture = ExtResource( 5 )
-texture_scale = 0.07
-color = Color( 0.980392, 0.415686, 0.0392157, 1 )
-energy = 2.0
-
-[node name="RunwayLight2D56" type="Light2D" parent="SceneLighting/RunwayInset"]
-position = Vector2( 197.816, 222.12 )
-texture = ExtResource( 5 )
-texture_scale = 0.07
-color = Color( 0.980392, 0.415686, 0.0392157, 1 )
-energy = 2.0
-
-[node name="RunwayLight2D57" type="Light2D" parent="SceneLighting/RunwayInset"]
-position = Vector2( 149.816, 318.12 )
-texture = ExtResource( 5 )
-texture_scale = 0.07
-color = Color( 0.980392, 0.415686, 0.0392157, 1 )
-energy = 2.0
-
-[node name="RunwayLight2D58" type="Light2D" parent="SceneLighting/RunwayInset"]
-position = Vector2( 149.816, 222.12 )
-texture = ExtResource( 5 )
-texture_scale = 0.07
-color = Color( 0.980392, 0.415686, 0.0392157, 1 )
-energy = 2.0
-
-[node name="RunwayLight2D59" type="Light2D" parent="SceneLighting/RunwayInset"]
-position = Vector2( 101.816, 318.12 )
-texture = ExtResource( 5 )
-texture_scale = 0.07
-color = Color( 0.980392, 0.415686, 0.0392157, 1 )
-energy = 2.0
-
-[node name="RunwayLight2D60" type="Light2D" parent="SceneLighting/RunwayInset"]
-position = Vector2( 101.816, 222.12 )
-texture = ExtResource( 5 )
-texture_scale = 0.07
-color = Color( 0.980392, 0.415686, 0.0392157, 1 )
-energy = 2.0
+[node name="RunwayLight" parent="SceneLighting" instance=ExtResource( 6 )]
+position = Vector2( 103.945, 223.446 )
+
+[node name="RunwayLight2" parent="SceneLighting" instance=ExtResource( 6 )]
+position = Vector2( 103.945, 318.12 )
+
+[node name="RunwayLight3" parent="SceneLighting" instance=ExtResource( 6 )]
+position = Vector2( 152.056, 223.446 )
+index = 2
+
+[node name="RunwayLight4" parent="SceneLighting" instance=ExtResource( 6 )]
+position = Vector2( 152.056, 318.12 )
+index = 2
+
+[node name="RunwayLight5" parent="SceneLighting" instance=ExtResource( 6 )]
+position = Vector2( 200.056, 223.446 )
+index = 3
+
+[node name="RunwayLight6" parent="SceneLighting" instance=ExtResource( 6 )]
+position = Vector2( 200.056, 318.12 )
+index = 3
+
+[node name="RunwayLight7" parent="SceneLighting" instance=ExtResource( 6 )]
+position = Vector2( 247.831, 223.446 )
+index = 4
+
+[node name="RunwayLight8" parent="SceneLighting" instance=ExtResource( 6 )]
+position = Vector2( 247.831, 318.12 )
+index = 4
+
+[node name="RunwayLight9" parent="SceneLighting" instance=ExtResource( 6 )]
+position = Vector2( 295.831, 223.446 )
+index = 5
+
+[node name="RunwayLight10" parent="SceneLighting" instance=ExtResource( 6 )]
+position = Vector2( 295.831, 318.12 )
+index = 5
+
+[node name="RunwayLight11" parent="SceneLighting" instance=ExtResource( 6 )]
+position = Vector2( 341.472, 222.12 )
+index = 6
+
+[node name="RunwayLight12" parent="SceneLighting" instance=ExtResource( 6 )]
+position = Vector2( 341.472, 316.794 )
+index = 6
+
+[node name="RunwayLight13" parent="SceneLighting" instance=ExtResource( 6 )]
+position = Vector2( 390.916, 222.12 )
+index = 7
+
+[node name="RunwayLight14" parent="SceneLighting" instance=ExtResource( 6 )]
+position = Vector2( 390.916, 316.794 )
+index = 7
+
+[node name="RunwayLight15" parent="SceneLighting" instance=ExtResource( 6 )]
+position = Vector2( 439.986, 222.12 )
+index = 8
+
+[node name="RunwayLight16" parent="SceneLighting" instance=ExtResource( 6 )]
+position = Vector2( 439.986, 316.794 )
+index = 8
+
+[node name="RunwayLight17" parent="SceneLighting" instance=ExtResource( 6 )]
+position = Vector2( 484.884, 221.169 )
+index = 9
+
+[node name="RunwayLight18" parent="SceneLighting" instance=ExtResource( 6 )]
+position = Vector2( 484.884, 315.843 )
+index = 9
+
+[node name="RunwayLight19" parent="SceneLighting" instance=ExtResource( 6 )]
+position = Vector2( 531.466, 221.169 )
+index = 10
+
+[node name="RunwayLight20" parent="SceneLighting" instance=ExtResource( 6 )]
+position = Vector2( 531.466, 315.843 )
+index = 10
+
+[node name="RunwayLight21" parent="SceneLighting" instance=ExtResource( 6 )]
+position = Vector2( 579.171, 221.169 )
+index = 11
+
+[node name="RunwayLight22" parent="SceneLighting" instance=ExtResource( 6 )]
+position = Vector2( 579.171, 315.843 )
+index = 11
+
+[node name="RunwayLight23" parent="SceneLighting" instance=ExtResource( 6 )]
+position = Vector2( 625.192, 221.169 )
+index = 12
+
+[node name="RunwayLight24" parent="SceneLighting" instance=ExtResource( 6 )]
+position = Vector2( 625.192, 315.843 )
+index = 12
+
+[node name="RunwayLight25" parent="SceneLighting" instance=ExtResource( 6 )]
+position = Vector2( 673.458, 221.169 )
+index = 13
+
+[node name="RunwayLight26" parent="SceneLighting" instance=ExtResource( 6 )]
+position = Vector2( 673.458, 315.843 )
+index = 13
+
+[node name="RunwayLight27" parent="SceneLighting" instance=ExtResource( 6 )]
+position = Vector2( 718.356, 221.169 )
+index = 14
+
+[node name="RunwayLight28" parent="SceneLighting" instance=ExtResource( 6 )]
+position = Vector2( 718.356, 315.843 )
+index = 14
+
+[node name="RunwayLight29" parent="SceneLighting" instance=ExtResource( 6 )]
+position = Vector2( 762.87, 221.169 )
+index = 15
+
+[node name="RunwayLight30" parent="SceneLighting" instance=ExtResource( 6 )]
+position = Vector2( 762.87, 315.843 )
+index = 15
+
+[node name="RunwayLight31" parent="SceneLighting" instance=ExtResource( 6 )]
+position = Vector2( 810.87, 221.169 )
+index = 16
+
+[node name="RunwayLight32" parent="SceneLighting" instance=ExtResource( 6 )]
+position = Vector2( 810.87, 315.843 )
+index = 16
+
+[node name="RunwayLight33" parent="SceneLighting" instance=ExtResource( 6 )]
+position = Vector2( 855.769, 221.169 )
+index = 17
+
+[node name="RunwayLight34" parent="SceneLighting" instance=ExtResource( 6 )]
+position = Vector2( 855.769, 315.843 )
+index = 17
+
+[node name="RunwayLight35" parent="SceneLighting" instance=ExtResource( 6 )]
+position = Vector2( 901.228, 222.12 )
+index = 18
+
+[node name="RunwayLight36" parent="SceneLighting" instance=ExtResource( 6 )]
+position = Vector2( 901.228, 316.794 )
+index = 18
+
+[node name="RunwayLight37" parent="SceneLighting" instance=ExtResource( 6 )]
+position = Vector2( 943.321, 222.12 )
+index = 19
+
+[node name="RunwayLight38" parent="SceneLighting" instance=ExtResource( 6 )]
+position = Vector2( 943.321, 316.794 )
+index = 19
 
 [node name="AirLock" type="Node2D" parent="SceneLighting"]
 
@@ -703,6 +346,8 @@ position = Vector2( 960, 335.12 )
 occluder = SubResource( 3 )
 
 [node name="LightingTween" type="Tween" parent="SceneLighting"]
+
+[node name="Tween" type="Tween" parent="."]
 [connection signal="pressed" from="CanvasLayer/BaseOverlay/VBoxContainer/HB_GoMiningEasy/GoMiningEasy" to="." method="_on_GoMiningEasy_pressed"]
 [connection signal="pressed" from="CanvasLayer/BaseOverlay/VBoxContainer/HB_GoMiningEasy/GoMiningMed" to="." method="_on_GoMiningMed_pressed"]
 [connection signal="pressed" from="CanvasLayer/BaseOverlay/VBoxContainer/HB_GoMiningEasy/GoWorldProto" to="." method="_on_GoWorldProto_pressed"]
