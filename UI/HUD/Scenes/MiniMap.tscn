@@ -84,6 +84,9 @@ __meta__ = {
 "_edit_use_anchors_": false
 }
 
+[node name="ZoomTimer" type="Timer" parent="Border/Zoom"]
+autostart = true
+
 [node name="AnimationPlayer" type="AnimationPlayer" parent="."]
 autoplay = "Show"
 anims/Show = SubResource( 1 )

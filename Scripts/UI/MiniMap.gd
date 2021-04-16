@@ -10,6 +10,7 @@ var grid_scale
 var map_icons = {}
 
 onready var zoomlbl = $Border/Zoom
+onready var zoomtimer = $Border/Zoom/ZoomTimer
 
 var _initialized = false
 
@@ -17,7 +18,7 @@ var _initialized = false
 func _ready():
 	UserSettings.connect("ui_refresh", self, "_refresh_settings")
 	_refresh_settings()
-	pass
+	zoomtimer.connect("timeout", self, "_hide_zoom_lbl")	
 
 func _initialize():
 	player_marker.position = pixel_grid.rect_size/2
@@ -71,9 +72,17 @@ func _process(_delta):
 	#player_marker.rotation = PlayerVars.player_node.rotation	
 
 func set_zoom(value):
+	zoomtimer.stop()
 	zoom = clamp(value,0.5, 50)
 	zoomlbl.text = str(zoom).pad_decimals(1)
+	zoomlbl.visible = true
 	grid_scale = pixel_grid.rect_size / (get_viewport_rect().size * zoom)
+	zoomtimer.wait_time = 3
+	zoomtimer.start()
+	
+
+func _hide_zoom_lbl():
+	zoomlbl.visible = false
 
 func _on_object_removed(icon):
 	if icon in map_icons:

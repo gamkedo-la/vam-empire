@@ -7,7 +7,6 @@
 
 [sub_resource type="AudioStreamRandomPitch" id=1]
 audio_stream = ExtResource( 4 )
-random_pitch = 1.01
 
 [node name="SHP_TemplateWeapon01" type="Node2D"]
 script = ExtResource( 2 )
