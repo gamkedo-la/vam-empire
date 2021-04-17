@@ -1,7 +1,7 @@
 tool
 extends Control
 
-var newItem = preload("res://Database/Item.tscn")
+var newItem = preload("res://addons/vam_inventory/ItemSmithItem.tscn")
 var _editor: EditorPlugin
 
 
@@ -51,17 +51,17 @@ func _load_items():
 		var itemType = Items[item].itemType
 		var asteroids = Items[item].asteroids
 		var itemTexture = Items[item].itemTexture
-		print(itemName," ", itemType," ", asteroids," ",itemTexture)
-		print(_items_grid)
-		print("Testing how up to date the plugin stays")
+#		print(itemName," ", itemType," ", asteroids," ",itemTexture)
+#		print(_items_grid)
+#		print("Testing how up to date the plugin stays")
 		var treeItem = newItem.instance()
-		#treeItem.set_owner(get_tree().get_edited_scene_root())
-		#treeItem.itemName = itemName
-#		treeItem.itemType = itemType
-#		treeItem.asteroids = asteroids
-#		treeItem.itemTexture = load(itemTexture)
+		treeItem.itemName = itemName
+		treeItem.itemType = itemType
+		treeItem.asteroids = asteroids
+		treeItem.itemTexture = load(itemTexture)
 		#get_tree().get_node_or_null("CanvasLayer").get_node_or_null("BG").get_node_or_null("Items").add_child(treeItem)		
 		treeItem.texture = load(itemTexture)
+		treeItem.set_editor(_editor)
 		if _items_grid:
 			_items_grid.add_child(treeItem)
 		#print(treeItem.itemName)

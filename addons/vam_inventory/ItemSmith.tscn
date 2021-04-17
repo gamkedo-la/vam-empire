@@ -54,13 +54,13 @@ text = "Clear"
 
 [node name="ItemsVB" type="VBoxContainer" parent="BG/MainVB/MainHB"]
 margin_left = 100.0
-margin_right = 960.0
+margin_right = 956.0
 margin_bottom = 540.0
 size_flags_horizontal = 3
 size_flags_vertical = 3
 
 [node name="Items" type="GridContainer" parent="BG/MainVB/MainHB/ItemsVB"]
-margin_right = 860.0
+margin_right = 856.0
 margin_bottom = 540.0
 size_flags_horizontal = 3
 size_flags_vertical = 3
@@ -68,3 +68,8 @@ columns = 15
 __meta__ = {
 "_edit_use_anchors_": false
 }
+
+[node name="InspectVB" type="VBoxContainer" parent="BG/MainVB/MainHB"]
+margin_left = 960.0
+margin_right = 960.0
+margin_bottom = 540.0
