@@ -1,5 +1,12 @@
+tool
 extends Node
 
+enum ItemType {
+	MINERAL,
+	AMMO,
+	CONSUMABLE,
+	WEAPON
+}
 var DATABASE = "res://Database/Database.json"
 
 var table
@@ -23,3 +30,4 @@ func load_db():
 			printerr("Corrupted Player Save Data!")
 	else:
 		printerr("No saved data to load")
+

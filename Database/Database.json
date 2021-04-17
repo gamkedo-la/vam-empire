@@ -39,41 +39,41 @@
         }
     },
     "Items": {
-        "copper": {
-            "index": 0,
-            "name": "Copper",
-            "itemtype": 0,
+        "0": {            
+            "itemName": "Copper",
+            "itemType": 0,
             "asteroids": [
                 0,
                 1
-            ]
+            ],
+            "itemTexture": "res://MiningMaterials/Textures/mat-copper.png"
         },
-        "iron": {
-            "index": 1,
-            "name": "Iron",
-            "itemtype": 0,
+        "1": {            
+            "itemName": "Iron",
+            "itemType": 0,
             "asteroids": [
                 0,
                 1
-            ]
+            ],
+            "itemTexture": "res://MiningMaterials/Textures/mat-iron.png"
         },
-        "ice": {
-            "index": 2,
-            "name": "Ice",
-            "itemtype": 0,
+        "2": {
+            "itemName": "Ice",
+            "itemType": 0,
             "asteroids": [
                 0,
                 1
-            ]
+            ],
+            "itemTexture": "res://MiningMaterials/Textures/mat-ice.png"
         },
-        "gold": {
-            "index": 3,
-            "name": "Gold",
-            "itemtype": 0,
+        "3": {
+            "itemName": "Gold",
+            "itemType": 0,
             "asteroids": [
                 0,
                 1
-            ]
+            ],
+            "itemTexture": "res://MiningMaterials/Textures/mat-gold.png"
         }
     }
 }

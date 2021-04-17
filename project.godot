@@ -38,6 +38,10 @@ window/size/height=540
 window/stretch/mode="viewport"
 window/stretch/aspect="keep"
 
+[editor_plugins]
+
+enabled=PoolStringArray( "vam_inventory" )
+
 [importer_defaults]
 
 texture={
