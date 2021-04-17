@@ -40,13 +40,13 @@ func _regen(val):
 func _load_items():
 	_clear()
 	var Items = Database.table.Items
-	print(_items_grid)
+#	print(_items_grid)
 #	if _items_grid.get_child_count() > 0:		
 #		for grid_item in _items_grid.get_children():
 #			_items_grid.remove_child(grid_item)
 	for item in Items:
-		print("item: ", item)
-		print(Items[item])
+#		print("item: ", item)
+#		print(Items[item])
 		var itemName = Items[item].itemName
 		var itemType = Items[item].itemType
 		var asteroids = Items[item].asteroids
@@ -67,8 +67,9 @@ func _load_items():
 		#print(treeItem.itemName)
 
 func _clear():
-	for item in _items_grid.get_children():
-		_items_grid.remove_child(item)
+	if _items_grid && _items_grid.get_child_count() > 0:
+		for item in _items_grid.get_children():
+			_items_grid.remove_child(item)
 
 func _generate_items():
 	pass
