@@ -37,7 +37,8 @@ func _regen(val):
 	regenerate = !regenerate	
 	_load_items()
 	
-func _load_items():	
+func _load_items():
+	_clear()
 	var Items = Database.table.Items
 	print(_items_grid)
 #	if _items_grid.get_child_count() > 0:		
