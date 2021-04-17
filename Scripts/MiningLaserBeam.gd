@@ -17,3 +17,6 @@ func _ready():
 
 func hit_something():
 	animPlayer.play("keepFiringLaser")
+	
+func free_laser_beam():
+	queue_free()

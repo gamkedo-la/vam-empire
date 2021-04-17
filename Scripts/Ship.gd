@@ -49,6 +49,16 @@ func fire_weapons(parent_velocity):
 		fired = weapon.fire(parent_velocity)
 		# TODO: add conditional checking and remove weapons that don't fire for efficiency
 		
+func fire_mining_lasers():
+	for weapon in weapons:
+		if weapon.type == weapon.WeapTypes.MINING_LASER:
+			weapon.fire_mining_laser()
+
+func release_mining_lasers():
+	for weapon in weapons:
+		if weapon.type == weapon.WeapTypes.MINING_LASER:
+			weapon.release_mining_laser()
+		
 func animate_thrusters(t_vec):
 	for T in thrusters.get_children():
 		var thrust_light = T.get_node_or_null("LightEffect")		

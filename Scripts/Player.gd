@@ -131,8 +131,11 @@ func move_state(delta):
 			fire_attached_weapons()
 	
 	if Input.is_action_pressed("mining"):
-		if !Global.hold_fire:
-			fire_mining_lasers()
+		fire_mining_lasers()
+		Global.hold_fire = true
+	elif Input.is_action_just_released("mining"):
+		Global.hold_fire = false
+		release_mining_lasers()
 	
 	elif Input.is_action_just_pressed("ui_esc"):
 		if player_target:
@@ -238,5 +241,8 @@ func fire_attached_weapons():
 	piloted_ship.fire_weapons(velocity)
 		
 func fire_mining_lasers():
-	pass
+	piloted_ship.fire_mining_lasers()
+
+func release_mining_lasers():
+	piloted_ship.release_mining_lasers()
 	
