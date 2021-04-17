@@ -238,14 +238,5 @@ func fire_attached_weapons():
 	piloted_ship.fire_weapons(velocity)
 		
 func fire_mining_lasers():
-	var root_node = get_tree().get_root()
-	var rnd_impulse = rng.randf_range(0.8, 2.0)
-	print(hardpoints.get_children().size())
-	for Weap in hardpoints.get_children():
-		var beam = mining_beam.instance()
-		#print (Weap.type)
-		beam.global_position = Weap.global_position
-		beam.global_rotation = Weap.global_rotation + PI/2
-		root_node.add_child(beam)
-		var dir = Vector2(1, 0).rotated(self.global_rotation)
+	pass
 	

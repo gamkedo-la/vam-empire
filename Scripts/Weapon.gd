@@ -98,7 +98,14 @@ func _fire_projectile(parent_velocity):
 	
 
 func _fire_laser(parent_velocity):
-	pass
+	var rnd_impulse = rng.randf_range(0.8, 2.0)
+
+	var mining_beam = beam.instance()
+	#print (Weap.type)
+	beam.global_position = barrel_tip.global_position
+	beam.global_rotation = barrel_tip.global_rotation + PI/2
+	root_node.add_child(beam)
+	var dir = Vector2(1, 0).rotated(self.global_rotation)
 
 func _reprime():	
 	primed = true

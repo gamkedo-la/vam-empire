@@ -16,7 +16,7 @@ _data = [ Vector2( 0, 1 ), 0.0, 0.0, 0, 0, Vector2( 0.546332, 0.0122699 ), 0.0, 
 script = ExtResource( 4 )
 ship_name = "Starter"
 hardpoint_size = [ 0, 0 ]
-equipped_weapon_index = [ 0, 0 ]
+equipped_weapon_index = [ 0, 2 ]
 
 [node name="ShipSprite" type="Sprite" parent="."]
 texture = ExtResource( 3 )
