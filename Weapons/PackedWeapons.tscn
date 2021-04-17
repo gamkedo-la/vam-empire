@@ -20,6 +20,7 @@
 [node name="2" type="Node2D" parent="Small"]
 
 [node name="SHP_TemplateMiningLaser01" parent="Small/2" instance=ExtResource( 3 )]
+fire_rate = 100.0
 
 [node name="3" type="Node2D" parent="Small"]
 

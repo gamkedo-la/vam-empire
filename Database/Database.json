@@ -1,0 +1,79 @@
+{
+    "ItemTypes": {
+        "MINERAL": 0,
+        "AMMO": 1,
+        "CONSUMABLE": 2,
+        "WEAPON": 3
+    },
+    "Asteroids": {
+        "POOR": 0,
+        "NORMAL": 1,
+        "RICH": 2,
+        "PRISTINE": 3
+    },
+    "Zones": {
+        "_comment": "Zones are broken up into EASY,MEDIUM,HARD. Asteroids[] determine the % chance of the POOR,NORMAL,RICH,PRISTINE spawning. ",
+        "EASY": {
+            "Asteroids": [
+                85,
+                15,
+                0,
+                0
+            ]
+        },
+        "MEDIUM": {
+            "Asteroids": [
+                65,
+                25,
+                10,
+                0
+            ]
+        },
+        "HARD": {
+            "Asteroids": [
+                45,
+                35,
+                25,
+                10
+            ]
+        }
+    },
+    "Items": {
+        "0": {            
+            "itemName": "Copper",
+            "itemType": 0,
+            "asteroids": [
+                0,
+                1
+            ],
+            "itemTexture": "res://MiningMaterials/Textures/mat-copper.png"
+        },
+        "1": {            
+            "itemName": "Iron",
+            "itemType": 0,
+            "asteroids": [
+                0,
+                1
+            ],
+            "itemTexture": "res://MiningMaterials/Textures/mat-iron.png"
+        },
+        "2": {
+            "itemName": "Ice",
+            "itemType": 0,
+            "asteroids": [
+                0,
+                1
+            ],
+            "itemTexture": "res://MiningMaterials/Textures/mat-ice.png"
+        },
+        "3": {
+            "itemName": "Gold",
+            "itemType": 0,
+            "asteroids": [
+                0,
+                1
+            ],
+            "itemTexture": "res://MiningMaterials/Textures/mat-gold.png"
+        }
+    }
+}

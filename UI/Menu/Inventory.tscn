@@ -1,0 +1,113 @@
+[gd_scene load_steps=5 format=2]
+
+[ext_resource path="res://UI/Theme/darkred_theme.tres" type="Theme" id=1]
+[ext_resource path="res://Scripts/UI/Inventory.gd" type="Script" id=2]
+
+[sub_resource type="InputEventAction" id=1]
+action = "ui_inventory"
+
+[sub_resource type="ShortCut" id=2]
+shortcut = SubResource( 1 )
+
+[node name="Inventory" type="Control"]
+pause_mode = 2
+anchor_right = 1.0
+anchor_bottom = 1.0
+script = ExtResource( 2 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Background" type="Panel" parent="."]
+anchor_right = 1.0
+anchor_bottom = 1.0
+margin_left = 32.0
+margin_top = 24.0
+margin_right = -32.0
+margin_bottom = -24.0
+size_flags_horizontal = 3
+size_flags_vertical = 3
+theme = ExtResource( 1 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="FrameVBox" type="VBoxContainer" parent="Background"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+margin_left = 12.0
+margin_top = 7.0
+margin_right = -12.0
+margin_bottom = -7.0
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Top" type="HBoxContainer" parent="Background/FrameVBox"]
+margin_right = 872.0
+margin_bottom = 26.0
+size_flags_horizontal = 3
+alignment = 1
+
+[node name="Label" type="Label" parent="Background/FrameVBox/Top"]
+margin_right = 840.0
+margin_bottom = 26.0
+size_flags_horizontal = 3
+text = "Inventory"
+align = 1
+
+[node name="ExitInventory" type="Button" parent="Background/FrameVBox/Top"]
+margin_left = 846.0
+margin_right = 872.0
+margin_bottom = 26.0
+focus_mode = 0
+size_flags_horizontal = 0
+enabled_focus_mode = 0
+shortcut = SubResource( 2 )
+text = "X"
+align = 2
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Ship" type="HBoxContainer" parent="Background/FrameVBox"]
+margin_top = 32.0
+margin_right = 872.0
+margin_bottom = 196.0
+
+[node name="CategorySelect" type="VBoxContainer" parent="Background/FrameVBox/Ship"]
+margin_right = 224.0
+margin_bottom = 164.0
+rect_min_size = Vector2( 224, 164 )
+
+[node name="HardpointsHB" type="HBoxContainer" parent="Background/FrameVBox/Ship/CategorySelect"]
+margin_right = 224.0
+margin_bottom = 26.0
+size_flags_horizontal = 3
+
+[node name="hardpoints_tab" type="Button" parent="Background/FrameVBox/Ship/CategorySelect/HardpointsHB"]
+margin_right = 224.0
+margin_bottom = 26.0
+size_flags_horizontal = 3
+size_flags_vertical = 0
+text = "Hardpoints"
+
+[node name="SystemsHB" type="HBoxContainer" parent="Background/FrameVBox/Ship/CategorySelect"]
+margin_top = 32.0
+margin_right = 224.0
+margin_bottom = 58.0
+size_flags_horizontal = 3
+
+[node name="systems_tab" type="Button" parent="Background/FrameVBox/Ship/CategorySelect/SystemsHB"]
+margin_right = 224.0
+margin_bottom = 26.0
+size_flags_horizontal = 3
+size_flags_vertical = 0
+text = "Systems"
+
+[node name="InventorySlots" type="VBoxContainer" parent="Background/FrameVBox/Ship"]
+margin_left = 230.0
+margin_right = 872.0
+margin_bottom = 164.0
+size_flags_horizontal = 3
+[connection signal="pressed" from="Background/FrameVBox/Top/ExitInventory" to="." method="_on_ExitInventory_pressed"]

@@ -26,9 +26,9 @@ func add_sheetStat(name, value):
 	var new_statbox = statbox.instance()
 	char_vbox.add_child(new_statbox)
 	var labl = new_statbox.get_node_or_null("StatLabel")
-	var statbox = new_statbox.get_node_or_null("StatEdit")
+	var stat_edit = new_statbox.get_node_or_null("StatEdit")
 	labl.set_text(str(name))
-	statbox.set_text(str(value))
+	stat_edit.set_text(str(value))
 	
 
 

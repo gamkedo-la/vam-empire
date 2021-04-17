@@ -11,6 +11,7 @@ type = 3
 beam = ExtResource( 2 )
 anchor_path = NodePath("WeaponAnchor")
 barrel_tip_path = NodePath("WeaponAnchor/WeaponSprite/BarrelTip")
+fire_rate = 100.0
 
 [node name="WeaponAnchor" type="Position2D" parent="."]
 position = Vector2( -3.41714, 0 )

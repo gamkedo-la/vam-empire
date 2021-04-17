@@ -32,6 +32,7 @@ onready var root_node = get_tree().get_root()
 
 var anchor
 var barrel_tip
+var mining_beam
 
 var rng = RandomNumberGenerator.new()
 var fire_timer
@@ -72,7 +73,19 @@ func fire(parent_velocity):
 				# Tell the ship to stop trying to fire this weapon
 				return false 
 
-				
+func fire_mining_laser():
+	if !Global.hold_fire:
+		mining_beam = beam.instance()
+		root_node.add_child(mining_beam)
+	elif mining_beam:
+		mining_beam.global_position = barrel_tip.global_position
+		mining_beam.global_rotation = barrel_tip.global_rotation + PI/2	
+	
+func release_mining_laser():
+	print("Releasing mining laser")
+	if mining_beam:
+		mining_beam.free_laser_beam()
+	
 func set_fire_rate(val):
 	fire_rate = val
 	if fire_timer:
