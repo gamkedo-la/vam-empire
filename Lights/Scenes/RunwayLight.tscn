@@ -1,6 +1,6 @@
 [gd_scene load_steps=3 format=2]
 
-[ext_resource path="res://Lights/LightChanger.gd" type="Script" id=1]
+[ext_resource path="res://Scripts/Effects/LightChanger.gd" type="Script" id=1]
 [ext_resource path="res://Lights/Textures/light_orb.png" type="Texture" id=2]
 
 [node name="RunwayLight" type="Node2D"]
