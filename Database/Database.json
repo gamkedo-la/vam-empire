@@ -1,0 +1,79 @@
+{
+    "ItemTypes": {
+        "MINERAL": 0,
+        "AMMO": 1,
+        "CONSUMABLE": 2,
+        "WEAPON": 3
+    },
+    "Asteroids": {
+        "POOR": 0,
+        "NORMAL": 1,
+        "RICH": 2,
+        "PRISTINE": 3
+    },
+    "Zones": {
+        "_comment": "Zones are broken up into EASY,MEDIUM,HARD. Asteroids[] determine the % chance of the POOR,NORMAL,RICH,PRISTINE spawning. ",
+        "EASY": {
+            "Asteroids": [
+                85,
+                15,
+                0,
+                0
+            ]
+        },
+        "MEDIUM": {
+            "Asteroids": [
+                65,
+                25,
+                10,
+                0
+            ]
+        },
+        "HARD": {
+            "Asteroids": [
+                45,
+                35,
+                25,
+                10
+            ]
+        }
+    },
+    "Items": {
+        "copper": {
+            "index": 0,
+            "name": "Copper",
+            "itemtype": 0,
+            "asteroids": [
+                0,
+                1
+            ]
+        },
+        "iron": {
+            "index": 1,
+            "name": "Iron",
+            "itemtype": 0,
+            "asteroids": [
+                0,
+                1
+            ]
+        },
+        "ice": {
+            "index": 2,
+            "name": "Ice",
+            "itemtype": 0,
+            "asteroids": [
+                0,
+                1
+            ]
+        },
+        "gold": {
+            "index": 3,
+            "name": "Gold",
+            "itemtype": 0,
+            "asteroids": [
+                0,
+                1
+            ]
+        }
+    }
+}
