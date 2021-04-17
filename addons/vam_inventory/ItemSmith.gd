@@ -7,6 +7,7 @@ var _editor: EditorPlugin
 
 onready var _items_grid = $BG/MainVB/MainHB/ItemsVB/Items as GridContainer
 onready var _load_db = $BG/MainVB/MainHB/ButtonVB/LoadDB as Button
+onready var _clear = $BG/MainVB/MainHB/ButtonVB/Clear as Button
 
 
 export (bool) var regenerate = false setget _regen
@@ -29,6 +30,8 @@ func set_editor(editor: EditorPlugin) -> void:
 func _init_connections() -> void:
 	if not _load_db.is_connected("pressed", self, "_load_items"):
 		assert(_load_db.connect("pressed", self, "_load_items") == OK)
+	if not _clear.is_connected("pressed", self, "_clear"):
+		assert(_clear.connect("pressed", self, "_clear") == OK)
 
 func _regen(val):
 	regenerate = !regenerate	
@@ -61,6 +64,10 @@ func _load_items():
 		if _items_grid:
 			_items_grid.add_child(treeItem)
 		#print(treeItem.itemName)
+
+func _clear():
+	for item in _items_grid.get_children():
+		_items_grid.remove_child(item)
 
 func _generate_items():
 	pass
