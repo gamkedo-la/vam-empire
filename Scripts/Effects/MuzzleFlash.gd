@@ -16,7 +16,6 @@ onready var tween = $Tween
 var is_on = false
 
 func on():
-	tween.stop_all()
 	tween.interpolate_property(inset, "energy", max_value_inset, min_value_inset, off_duration, Tween.TRANS_LINEAR, Tween.EASE_IN_OUT)
 	tween.interpolate_property(glow, "energy", max_value_glow, min_value_glow, off_duration, Tween.TRANS_LINEAR, Tween.EASE_IN_OUT)
 	tween.start()
