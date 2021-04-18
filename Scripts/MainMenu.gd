@@ -37,7 +37,9 @@ func _ready():
 		self.visible = true
 		start_menu = true
 	else:
-		menu_viz.visible = false	
+		menu_viz.visible = false
+		start_menu = false
+				
 	if PlayerVars.save_exists():
 		load_button.disabled = false
 	else:
@@ -51,11 +53,10 @@ func _ready():
 	
 func _process(_delta):
 	if !start_menu:
-		if PlayerVars.player_node.player_target:
-			print(PlayerVars.player_node.player_target)
-			return
 		if Input.is_action_just_pressed("ui_esc"):
-			if menu_viz.visible && !options.visible:
+			if PlayerVars.get_target():
+				PlayerVars.set_target(null)
+			elif menu_viz.visible && !options.visible:
 				menu_viz.visible = false
 				main_menu.visible = false
 				Global.pause_game(false)

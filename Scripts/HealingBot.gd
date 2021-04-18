@@ -33,7 +33,7 @@ func _process(_delta):
 func _on_HealingTimer_timeout():
 	if(!isHealing):
 		parentNode.healingEnergy = min(parentNode.healingEnergy + parentNode.healingEnergyRecoveryPerTimeUnit, parentNode.healingMaxEnergy)
-		print("Healing Energy : ", parentNode.healingEnergy)
+		#print("Healing Energy : ", parentNode.healingEnergy)
 
 func heal_parent():
 	if(parentNode.healingEnergy > 0):

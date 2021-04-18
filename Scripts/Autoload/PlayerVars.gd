@@ -1,4 +1,7 @@
 extends Node
+
+signal target_change
+
 # File saving/loading methodology adapted from https://gdscript.com/solutions/how-to-save-and-load-godot-game-data/
 var FILE_NAME  = "user://game-data.json"
 
@@ -14,10 +17,17 @@ var player_defaults = {
 
 var player = player_defaults
 
-var target = null
+var target = null setget set_target, get_target
 
 func _ready():
 	pass # Replace with function body.
+
+func set_target(val):
+	target = val
+	emit_signal("target_change", target)
+
+func get_target():
+	return target
 
 func new(name: String):
 	player = player_defaults.duplicate()
@@ -85,3 +95,4 @@ func save_exists():
 		return true
 	else:
 		return false
+

@@ -71,7 +71,7 @@ func _ready():
 	#TODO: pilot_ship_from_pack and change variables in PlayerVars to ShipClass/Index 
 	pilot_ship(PlayerVars.player.current_ship)	
 	PlayerVars.player_node = self
-	
+	PlayerVars.connect("target_change", self, "_target_change")
 	rng.randomize()
 	shieldMaxHealth = shieldHealth
 	hullMaxHealth = hullHealth
@@ -136,11 +136,7 @@ func move_state(delta):
 	elif Input.is_action_just_released("mining"):
 		Global.hold_fire = false
 		release_mining_lasers()
-	
-	elif Input.is_action_just_pressed("ui_esc"):
-		if player_target:
-			player_target = null
-	
+			
 func move():
 	velocity = move_and_slide(velocity, m_s_up, m_s_sos, m_s_maxsli, m_s_fma, false)
 	
@@ -246,3 +242,5 @@ func fire_mining_lasers():
 func release_mining_lasers():
 	piloted_ship.release_mining_lasers()
 	
+func _target_change(val):	
+	player_target = val
