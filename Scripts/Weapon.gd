@@ -49,8 +49,9 @@ func _ready():
 	fire_timer.wait_time = 100/fire_rate
 	fire_timer.connect("timeout", self, "_reprime")
 	
-	if $AudioStreamPlayer2D:
-		weap_sound = $AudioStreamPlayer2D
+	weap_sound = get_node_or_null("AudioStreamPlayer2D")
+	
+	if weap_sound:		
 		weap_sound.stream = sfxFire
 	
 	
