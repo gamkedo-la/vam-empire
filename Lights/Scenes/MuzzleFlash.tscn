@@ -1,0 +1,24 @@
+[gd_scene load_steps=3 format=2]
+
+[ext_resource path="res://Scripts/Effects/MuzzleFlash.gd" type="Script" id=1]
+[ext_resource path="res://Lights/Textures/light_orb.png" type="Texture" id=2]
+
+[node name="MuzzleFlash" type="Node2D"]
+script = ExtResource( 1 )
+off_duration = 0.3
+
+[node name="InsetLight" type="Light2D" parent="."]
+texture = ExtResource( 2 )
+texture_scale = 0.07
+color = Color( 0.980392, 0.415686, 0.0392157, 1 )
+energy = 2.0
+
+[node name="GlowLight" type="Light2D" parent="."]
+scale = Vector2( 0.558057, 0.558057 )
+texture = ExtResource( 2 )
+texture_scale = 0.75
+color = Color( 0.980392, 0.415686, 0.0392157, 1 )
+energy = 1.25
+
+[node name="Tween" type="Tween" parent="."]
+[connection signal="tween_all_completed" from="Tween" to="." method="_on_Tween_tween_all_completed"]
