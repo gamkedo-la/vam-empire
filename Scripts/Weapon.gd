@@ -29,8 +29,8 @@ export (NodePath) var anchor_path
 export (NodePath) var barrel_tip_path
 export (float, 50.0, 10000.0) var fire_rate setget set_fire_rate, get_fire_rate
 onready var root_node = get_tree().get_root()
-onready var muzzle_flash = $WeaponAnchor/WeaponSprite/BarrelTip/MuzzleFlash
 
+var muzzle_flash
 var anchor
 var barrel_tip
 var mining_beam
@@ -44,6 +44,7 @@ func _ready():
 	# Import the anchor and barrel tip Position2D objects actual "nodes" from the NodePath added in the editor so they can be used	
 	anchor = get_node(anchor_path)
 	barrel_tip = get_node(barrel_tip_path)
+	muzzle_flash = get_node_or_null("WeaponAnchor/WeaponSprite/BarrelTip/MuzzleFlash")
 	fire_timer = Timer.new()
 	add_child(fire_timer)
 	fire_timer.autostart = true
@@ -64,15 +65,18 @@ func fire(parent_velocity):
 		match type:
 			WeapTypes.PHYS_PROJECTILE:
 				_fire_projectile(parent_velocity)
-				muzzle_flash.on()
+				if muzzle_flash:
+					muzzle_flash.on()
 				return true
 			WeapTypes.ENERGY_PROJECTILE:
 				_fire_projectile(parent_velocity)
-				muzzle_flash.on()
+				if muzzle_flash:
+					muzzle_flash.on()
 				return true
 			WeapTypes.LASER:
 				_fire_laser(parent_velocity)
-				muzzle_flash.on()
+				if muzzle_flash:
+					muzzle_flash.on()
 				return true
 			_:
 				# Tell the ship to stop trying to fire this weapon
