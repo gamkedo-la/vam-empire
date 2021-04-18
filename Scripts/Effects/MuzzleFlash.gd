@@ -20,12 +20,12 @@ func on():
 	tween.interpolate_property(inset, "energy", max_value_inset, min_value_inset, off_duration, Tween.TRANS_LINEAR, Tween.EASE_IN_OUT)
 	tween.interpolate_property(glow, "energy", max_value_glow, min_value_glow, off_duration, Tween.TRANS_LINEAR, Tween.EASE_IN_OUT)
 	tween.start()
-	is_on = false
+	is_on = true
 
 func off():
 	inset.energy = min_value_inset
 	glow.energy = min_value_glow
-	is_on = true
+	is_on = false
 
 func _on_Tween_tween_all_completed():
 	if is_on:
