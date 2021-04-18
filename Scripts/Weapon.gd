@@ -29,6 +29,7 @@ export (NodePath) var anchor_path
 export (NodePath) var barrel_tip_path
 export (float, 50.0, 10000.0) var fire_rate setget set_fire_rate, get_fire_rate
 onready var root_node = get_tree().get_root()
+onready var muzzle_flash = $WeaponAnchor/WeaponSprite/BarrelTip/MuzzleFlash
 
 var anchor
 var barrel_tip
@@ -62,12 +63,15 @@ func fire(parent_velocity):
 		match type:
 			WeapTypes.PHYS_PROJECTILE:
 				_fire_projectile(parent_velocity)
+				muzzle_flash.on()
 				return true
 			WeapTypes.ENERGY_PROJECTILE:
 				_fire_projectile(parent_velocity)
+				muzzle_flash.on()
 				return true
 			WeapTypes.LASER:
 				_fire_laser(parent_velocity)
+				muzzle_flash.on()
 				return true
 			_:
 				# Tell the ship to stop trying to fire this weapon
