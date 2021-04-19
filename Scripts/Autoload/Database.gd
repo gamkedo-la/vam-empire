@@ -32,9 +32,9 @@ func load_db():
 		if typeof(data) == TYPE_DICTIONARY:
 			table = data
 		else:
-			printerr("Corrupted Player Save Data!")
+			printerr("Corrupted Database Data!")
 	else:
-		printerr("No saved data to load")
+		printerr("No saved Database to load")
 
 func emit_item_selected(item):
 	selected_item = item

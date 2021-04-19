@@ -46,7 +46,7 @@
                 0,
                 1
             ],
-            "itemTexture": "res://MiningMaterials/Textures/mat-copper.png"
+            "itemIcon": "res://MiningMaterials/Textures/mat-copper.png"
         },
         "1": {            
             "itemName": "Iron",
@@ -55,7 +55,7 @@
                 0,
                 1
             ],
-            "itemTexture": "res://MiningMaterials/Textures/mat-iron.png"
+            "itemIcon": "res://MiningMaterials/Textures/mat-iron.png"
         },
         "2": {
             "itemName": "Ice",
@@ -64,7 +64,7 @@
                 0,
                 1
             ],
-            "itemTexture": "res://MiningMaterials/Textures/mat-ice.png"
+            "itemIcon": "res://MiningMaterials/Textures/mat-ice.png"
         },
         "3": {
             "itemName": "Gold",
@@ -73,7 +73,7 @@
                 0,
                 1
             ],
-            "itemTexture": "res://MiningMaterials/Textures/mat-gold.png"
+            "itemIcon": "res://MiningMaterials/Textures/mat-gold.png"
         }
     }
 }

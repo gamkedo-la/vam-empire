@@ -6,10 +6,12 @@ var index
 var _editor: EditorPlugin
 var _item_smith
 
+var _index = null setget set_index, get_index
 export (String) var itemName
 export (Database.ItemType) var itemType
 export (Array, int) var asteroids
 export (Texture) var itemTexture
+export (String) var itemIcon
 var BG
 
 func set_editor(editor: EditorPlugin) -> void:
@@ -43,4 +45,9 @@ func _on_gui_input(event: InputEvent) -> void:
 			if event.pressed:
 				print_debug(event.button_index, " BUTTON_LEFT Pressed.")
 				Database.emit_item_selected(self)
-	
+
+func set_index(val):
+	_index = val
+
+func get_index():
+	return _index
