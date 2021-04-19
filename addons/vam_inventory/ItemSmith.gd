@@ -5,6 +5,8 @@ var newItem = preload("res://addons/vam_inventory/ItemSmithItem.tscn")
 var ItemSmithFileDialog = preload("res://addons/vam_inventory/ItemSmithFileDialog.tscn")
 var newProp = preload("res://addons/vam_inventory/NewProp.tscn")
 
+var default_icon = preload("res://icon.png")
+
 var _editor: EditorPlugin
 
 
@@ -38,6 +40,7 @@ func _ready() -> void:
 #	if get_tree().get_root().has_node("Database"):
 #		print("Got a Database")
 	Database.connect("item_selected", self, "set_selected_item")
+	Database.connect("clear_selected_item", self, "clear_selected_item")
 	
 
 func set_editor(editor: EditorPlugin) -> void:
@@ -48,21 +51,38 @@ func set_selected_item(item):
 	clear_properties()
 	print_debug(item," is selected.")
 	var sel_item = Database.table.Items[item.get_index()]
-	_icon_file_edit.text = sel_item.itemIcon
-	_item_icon_rect.texture = load(sel_item.itemIcon)
-	for props in sel_item:
-		print(typeof(props))
+	if _icon_file_edit:
+		_icon_file_edit.text = sel_item.itemIcon
+	if _item_name_lbl:
+		_item_name_lbl.text = sel_item.itemName
+	if _item_icon_rect:
+		_item_icon_rect.texture = load(sel_item.itemIcon)
+	for props in sel_item:		
 		print("props: ",props," value:", sel_item[props])
 		add_property(props, str(sel_item[props]))
+
+func clear_selected_item() -> void:
+	clear_properties()
 	
 func add_property(property, value) -> void:
-	var new_prop = newProp.instance()
-	_props_vbox.add_child(new_prop)
-	new_prop.set_prop(property, value)
+	if _props_vbox:
+		var new_prop = newProp.instance()
+		_props_vbox.add_child(new_prop)
+		new_prop.set_prop(property, value)
+	
+		
 
 func clear_properties() -> void:
-	for prop_child in _props_vbox.get_children():
-		_props_vbox.remove_child(prop_child)
+	if _props_vbox:
+		if _props_vbox.get_child_count() > 0:
+			for prop_child in _props_vbox.get_children():
+				_props_vbox.remove_child(prop_child)
+	if _icon_file_edit:
+		_icon_file_edit.text = ""
+	if _item_name_lbl:
+		_item_name_lbl.text = ""
+	if _item_icon_rect:
+		_item_icon_rect.texture = default_icon
 
 func _init_connections() -> void:
 	if not _load_db.is_connected("pressed", self, "_load_items"):
@@ -102,7 +122,7 @@ func _load_items() -> void:
 		treeItem.itemIcon = Items[item].itemIcon
 		treeItem.itemTexture = load(Items[item].itemIcon)
 		#get_tree().get_node_or_null("CanvasLayer").get_node_or_null("BG").get_node_or_null("Items").add_child(treeItem)		
-		treeItem.texture = load(Items[item].itemIcon)
+		treeItem.texture_normal = load(Items[item].itemIcon)
 		treeItem.set_editor(_editor)
 		if _items_grid:
 			_items_grid.add_child(treeItem)
@@ -112,6 +132,8 @@ func _clear() -> void:
 	if _items_grid && _items_grid.get_child_count() > 0:
 		for item in _items_grid.get_children():
 			_items_grid.remove_child(item)
+	Database.emit_clear_selected_item()
+	
 
 func _generate_items():
 	pass

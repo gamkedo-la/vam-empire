@@ -3,6 +3,7 @@ extends Node
 
 # ItemSmith UI Signals
 signal item_selected
+signal clear_selected_item
 
 enum ItemType {
 	MINERAL,
@@ -42,3 +43,7 @@ func emit_item_selected(item):
 
 func get_selected_item():
 	return selected_item
+
+func emit_clear_selected_item():
+	selected_item = null
+	emit_signal("clear_selected_item")

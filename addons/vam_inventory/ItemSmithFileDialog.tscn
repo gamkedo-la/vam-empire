@@ -1,7 +1,6 @@
 [gd_scene format=2]
 
 [node name="ItemSmithFileDialog" type="FileDialog"]
-visible = true
 margin_right = 316.0
 margin_bottom = 149.0
 rect_min_size = Vector2( 480, 270 )
