@@ -54,13 +54,13 @@ text = "Clear"
 
 [node name="ItemsVB" type="VBoxContainer" parent="BG/MainVB/MainHB"]
 margin_left = 100.0
-margin_right = 956.0
+margin_right = 528.0
 margin_bottom = 540.0
 size_flags_horizontal = 3
 size_flags_vertical = 3
 
 [node name="Items" type="GridContainer" parent="BG/MainVB/MainHB/ItemsVB"]
-margin_right = 856.0
+margin_right = 428.0
 margin_bottom = 540.0
 size_flags_horizontal = 3
 size_flags_vertical = 3
@@ -70,6 +70,87 @@ __meta__ = {
 }
 
 [node name="InspectVB" type="VBoxContainer" parent="BG/MainVB/MainHB"]
-margin_left = 960.0
+margin_left = 532.0
 margin_right = 960.0
 margin_bottom = 540.0
+size_flags_horizontal = 3
+size_flags_vertical = 3
+
+[node name="HBoxContainer2" type="HBoxContainer" parent="BG/MainVB/MainHB/InspectVB"]
+margin_right = 428.0
+margin_bottom = 40.0
+rect_min_size = Vector2( 0, 40 )
+size_flags_horizontal = 3
+
+[node name="ItemEditLabelHB" type="HBoxContainer" parent="BG/MainVB/MainHB/InspectVB"]
+margin_top = 44.0
+margin_right = 428.0
+margin_bottom = 58.0
+
+[node name="ItemEditLabel" type="Label" parent="BG/MainVB/MainHB/InspectVB/ItemEditLabelHB"]
+margin_right = 428.0
+margin_bottom = 14.0
+size_flags_horizontal = 3
+text = "Item Editor"
+align = 1
+
+[node name="SceneHB" type="HBoxContainer" parent="BG/MainVB/MainHB/InspectVB"]
+margin_top = 62.0
+margin_right = 428.0
+margin_bottom = 86.0
+
+[node name="Label" type="Label" parent="BG/MainVB/MainHB/InspectVB/SceneHB"]
+margin_top = 5.0
+margin_right = 70.0
+margin_bottom = 19.0
+rect_min_size = Vector2( 70, 0 )
+text = "Scene File"
+
+[node name="SceneFileButton" type="Button" parent="BG/MainVB/MainHB/InspectVB/SceneHB"]
+margin_left = 74.0
+margin_right = 100.0
+margin_bottom = 24.0
+hint_tooltip = "Select the .tscn file associated with the item. This would be the object to be instantiated if the object were in space free floating, attached to a ship, etc..."
+text = "[_]"
+
+[node name="SceneFileLineEdit" type="LineEdit" parent="BG/MainVB/MainHB/InspectVB/SceneHB"]
+margin_left = 104.0
+margin_right = 404.0
+margin_bottom = 24.0
+size_flags_horizontal = 3
+
+[node name="SceneLineClr" type="Button" parent="BG/MainVB/MainHB/InspectVB/SceneHB"]
+margin_left = 408.0
+margin_right = 428.0
+margin_bottom = 24.0
+text = "X"
+
+[node name="IconHB" type="HBoxContainer" parent="BG/MainVB/MainHB/InspectVB"]
+margin_top = 90.0
+margin_right = 428.0
+margin_bottom = 114.0
+
+[node name="Label" type="Label" parent="BG/MainVB/MainHB/InspectVB/IconHB"]
+margin_top = 5.0
+margin_right = 70.0
+margin_bottom = 19.0
+rect_min_size = Vector2( 70, 0 )
+text = "Icon File"
+
+[node name="IconFileButton" type="Button" parent="BG/MainVB/MainHB/InspectVB/IconHB"]
+margin_left = 74.0
+margin_right = 100.0
+margin_bottom = 24.0
+text = "[_]"
+
+[node name="IconFileLineEdit" type="LineEdit" parent="BG/MainVB/MainHB/InspectVB/IconHB"]
+margin_left = 104.0
+margin_right = 404.0
+margin_bottom = 24.0
+size_flags_horizontal = 3
+
+[node name="IconLineClr" type="Button" parent="BG/MainVB/MainHB/InspectVB/IconHB"]
+margin_left = 408.0
+margin_right = 428.0
+margin_bottom = 24.0
+text = "X"

@@ -1,5 +1,12 @@
 tool
 extends EditorPlugin
+#********************************************************************************************************************************
+# Pieces and parts taken from studying other Godot Plugins to learn the general construction, signaling methodology, and approaches.
+# General concept and overview taken from InventoryEditor by Vladimir Petrenko (MIT License) @ https://godotengine.org/asset-library/asset/896
+# VAM Item Smith was adapted to serve a smaller purpose targeting only a small JSON "database", so Vladimir's work served as a means of learning
+# how to snap the pieces and parts of UI together to serve this smaller purpose.
+# ********************************************************************************************************************************
+
 
 const ItemSmith = preload("res://addons/vam_inventory/ItemSmith.tscn")
 const IconTexture = preload("res://addons/vam_inventory/icons/gold-icon.png")

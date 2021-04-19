@@ -1,6 +1,9 @@
 tool
 extends Node
 
+# ItemSmith UI Signals
+signal item_selected
+
 enum ItemType {
 	MINERAL,
 	AMMO,
@@ -10,6 +13,8 @@ enum ItemType {
 var DATABASE = "res://Database/Database.json"
 
 var table
+
+var selected_item setget emit_item_selected, get_selected_item
 
 func _init():
 	load_db()
@@ -31,3 +36,9 @@ func load_db():
 	else:
 		printerr("No saved data to load")
 
+func emit_item_selected(item):
+	selected_item = item
+	emit_signal("item_selected", item)
+
+func get_selected_item():
+	return selected_item
