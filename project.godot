@@ -29,6 +29,7 @@ Global="*res://Scripts/Autoload/Global.gd"
 Database="*res://Scripts/Autoload/Database.gd"
 UserSettings="*res://Scripts/Autoload/UserSettings.gd"
 PlayerVars="*res://Scripts/Autoload/PlayerVars.gd"
+Effects="*res://Scripts/Autoload/Effects.gd"
 Music="*res://Music/Music.tscn"
 
 [display]
