@@ -49,10 +49,10 @@ func _on_PropDelete_pressed():
 
 
 func _populate_type():
-	_prop_type.add_item("bool")
+	_prop_type.add_item("String")
 	_prop_type.add_item("int")
 	_prop_type.add_item("float")
-	_prop_type.add_item("String")
+	_prop_type.add_item("bool")
 
 
 func _on_PropType_item_selected(index):
