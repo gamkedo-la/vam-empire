@@ -11,13 +11,20 @@ __meta__ = {
 "_edit_use_anchors_": false
 }
 
+[node name="PropType" type="OptionButton" parent="."]
+margin_right = 64.0
+margin_bottom = 24.0
+rect_min_size = Vector2( 64, 0 )
+text = "Type"
+
 [node name="PropName" type="LineEdit" parent="."]
-margin_right = 192.0
+margin_left = 68.0
+margin_right = 226.0
 margin_bottom = 24.0
 size_flags_horizontal = 3
 
 [node name="PropVal" type="LineEdit" parent="."]
-margin_left = 196.0
+margin_left = 230.0
 margin_right = 388.0
 margin_bottom = 24.0
 size_flags_horizontal = 3
@@ -27,4 +34,5 @@ margin_left = 392.0
 margin_right = 428.0
 margin_bottom = 24.0
 text = "DEL"
+[connection signal="item_selected" from="PropType" to="." method="_on_PropType_item_selected"]
 [connection signal="pressed" from="PropDelete" to="." method="_on_PropDelete_pressed"]

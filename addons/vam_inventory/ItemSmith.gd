@@ -24,6 +24,8 @@ onready var _icon_file_clr = $BG/MainVB/MainHB/InspectVB/IconHB/IconLineClr as B
 onready var _item_name_lbl = $BG/MainVB/MainHB/InspectVB/ItemIconHB/ItemNameLbl as Label
 onready var _item_icon_rect = $BG/MainVB/MainHB/InspectVB/ItemIconHB/ItemIconRect as TextureRect
 
+onready var _type_option = $BG/MainVB/MainHB/InspectVB/TypeHB/TypeOption as OptionButton
+
 onready var _props_vbox = $BG/MainVB/MainHB/InspectVB/PropsVB as VBoxContainer
 onready var _add_prop_button = $BG/MainVB/MainHB/InspectVB/AddPropHB/AddPropButton as Button
 
@@ -41,6 +43,8 @@ func _ready() -> void:
 #		print("Got a Database")
 	Database.connect("item_selected", self, "set_selected_item")
 	Database.connect("clear_selected_item", self, "clear_selected_item")
+	for item_type in Database.ItemType:
+		_type_option.add_item(item_type)
 	
 
 func set_editor(editor: EditorPlugin) -> void:
@@ -51,24 +55,33 @@ func set_selected_item(item):
 	clear_properties()
 	print_debug(item," is selected.")
 	var sel_item = Database.table.Items[item.get_index()]
+	print(sel_item)
 	if _icon_file_edit:
-		_icon_file_edit.text = sel_item.itemIcon
+		_icon_file_edit.text = var2str(sel_item.itemIcon)
 	if _item_name_lbl:
 		_item_name_lbl.text = sel_item.itemName
 	if _item_icon_rect:
 		_item_icon_rect.texture = load(sel_item.itemIcon)
-	for props in sel_item:		
-		print("props: ",props," value:", sel_item[props])
-		add_property(props, str(sel_item[props]))
+	if _type_option:
+		_type_option.select(sel_item.itemType)	
+	if sel_item.has("properties"):
+		print("HAS PROPERTIES")
+		for props in sel_item.properties:
+			print(var2str(props))			
+			add_property(props.type, var2str(props.name), var2str(props.value))
 
 func clear_selected_item() -> void:
 	clear_properties()
 	
-func add_property(property, value) -> void:
+func add_property(p_type, property, value) -> void:
 	if _props_vbox:
 		var new_prop = newProp.instance()
 		_props_vbox.add_child(new_prop)
-		new_prop.set_prop(property, value)
+		new_prop.set_editor(_editor)
+		new_prop.set_prop(p_type, property, value)
+		
+		#test that it was set!
+		print(var2str(new_prop.get_prop()))
 	
 		
 
@@ -108,25 +121,26 @@ func _regen(val):
 	
 func _load_items() -> void:
 	_clear()
-	var Items = Database.table.Items
+	Database.load_db()
+	var Items = Database.table.Items	
 #	print(_items_grid)
 #	if _items_grid.get_child_count() > 0:		
 #		for grid_item in _items_grid.get_children():
 #			_items_grid.remove_child(grid_item)
 	for item in Items:
 		var treeItem = newItem.instance()
-		treeItem.set_index(item)  
-		treeItem.itemName = Items[item].itemName
-		treeItem.itemType = Items[item].itemType
-		treeItem.asteroids = Items[item].asteroids
-		treeItem.itemIcon = Items[item].itemIcon
-		treeItem.itemTexture = load(Items[item].itemIcon)
-		#get_tree().get_node_or_null("CanvasLayer").get_node_or_null("BG").get_node_or_null("Items").add_child(treeItem)		
-		treeItem.texture_normal = load(Items[item].itemIcon)
-		treeItem.set_editor(_editor)
-		if _items_grid:
-			_items_grid.add_child(treeItem)
-		#print(treeItem.itemName)
+		if typeof(item) == TYPE_DICTIONARY:
+			# "Required" Item Fields
+			treeItem.set_index(Items.find(item))
+			treeItem.itemName = var2str(item.itemName)
+			treeItem.itemType = var2str(int(item.itemType))
+			treeItem.itemIcon = var2str(item.itemIcon)
+			treeItem.itemTexture = load(item.itemIcon)
+			treeItem.texture_normal = load(item.itemIcon)
+			treeItem.set_editor(_editor)
+			if _items_grid:
+				_items_grid.add_child(treeItem)
+			
 
 func _clear() -> void:
 	if _items_grid && _items_grid.get_child_count() > 0:
@@ -146,6 +160,8 @@ func _scene_file_load() -> void:
 	root.add_child(file_dialog)
 	assert(file_dialog.connect("file_selected", self, "_scene_path_value_changed") == OK)
 	assert(file_dialog.connect("popup_hide", self, "_on_popup_hide", [root, file_dialog]) == OK)
+	if _scene_file_edit.text:
+		file_dialog.current_path = str2var(_scene_file_edit.text)
 	file_dialog.popup_centered()	
 
 func _scene_path_value_changed(path_value) -> void:
@@ -161,6 +177,8 @@ func _icon_file_load() -> void:
 	root.add_child(file_dialog)
 	assert(file_dialog.connect("file_selected", self, "_icon_path_value_changed") == OK)
 	assert(file_dialog.connect("popup_hide", self, "_on_popup_hide", [root, file_dialog]) == OK)
+	if _icon_file_edit.text:
+		file_dialog.current_path = str2var(_icon_file_edit.text)
 	file_dialog.popup_centered()	
 	
 func _icon_path_value_changed(path_value) -> void:
@@ -181,5 +199,5 @@ func _on_Button_pressed():
 
 
 func _on_AddPropButton_pressed():
-	add_property("","")
+	add_property("String","","")
 	

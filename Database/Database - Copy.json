@@ -51,25 +51,13 @@
         },
         {
             "itemName": "Ice",
-            "itemType": 2,            
+            "itemType": 0,            
             "itemIcon": "res://MiningMaterials/Textures/mat-ice.png"
         },
         {
             "itemName": "Gold",
             "itemType": 0,            
-            "itemIcon": "res://MiningMaterials/Textures/mat-gold.png",
-            "properties":[
-                {
-                    "name": "value",
-                    "type": "int",
-                    "value": 1000
-                },
-                {
-                    "name": "test_prop",
-                    "type": "bool",
-                    "value": false
-                }
-            ]
+            "itemIcon": "res://MiningMaterials/Textures/mat-gold.png"
         }
     ]
 }

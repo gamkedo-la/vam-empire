@@ -1,7 +1,8 @@
-[gd_scene load_steps=3 format=2]
+[gd_scene load_steps=4 format=2]
 
 [ext_resource path="res://addons/vam_inventory/ItemSmith.gd" type="Script" id=1]
 [ext_resource path="res://UI/Theme/darkred_theme.tres" type="Theme" id=2]
+[ext_resource path="res://icon.png" type="Texture" id=3]
 
 [node name="ItemSmith" type="Control"]
 anchor_right = 1.0
@@ -40,14 +41,14 @@ size_flags_horizontal = 3
 size_flags_vertical = 3
 
 [node name="Spacer" type="VBoxContainer" parent="BG/MainVB/MainHB"]
-margin_right = 205.0
+margin_right = 187.0
 margin_bottom = 540.0
 rect_min_size = Vector2( 0, 45 )
 size_flags_horizontal = 3
 
 [node name="ButtonVB" type="VBoxContainer" parent="BG/MainVB/MainHB"]
-margin_left = 211.0
-margin_right = 313.0
+margin_left = 193.0
+margin_right = 295.0
 margin_bottom = 540.0
 
 [node name="HBSpacer" type="HBoxContainer" parent="BG/MainVB/MainHB/ButtonVB"]
@@ -68,20 +69,20 @@ margin_bottom = 184.0
 text = "Clear"
 
 [node name="ItemsVB" type="VBoxContainer" parent="BG/MainVB/MainHB"]
-margin_left = 319.0
-margin_right = 524.0
+margin_left = 301.0
+margin_right = 489.0
 margin_bottom = 540.0
 size_flags_horizontal = 3
 size_flags_vertical = 3
 
 [node name="HBoxContainer" type="HBoxContainer" parent="BG/MainVB/MainHB/ItemsVB"]
-margin_right = 205.0
+margin_right = 188.0
 margin_bottom = 80.0
 rect_min_size = Vector2( 0, 80 )
 
 [node name="Items" type="GridContainer" parent="BG/MainVB/MainHB/ItemsVB"]
 margin_top = 86.0
-margin_right = 205.0
+margin_right = 188.0
 margin_bottom = 540.0
 size_flags_horizontal = 3
 size_flags_vertical = 3
@@ -91,25 +92,25 @@ __meta__ = {
 }
 
 [node name="InspectVB" type="VBoxContainer" parent="BG/MainVB/MainHB"]
-margin_left = 530.0
-margin_right = 749.0
+margin_left = 495.0
+margin_right = 766.0
 margin_bottom = 540.0
 size_flags_horizontal = 3
 size_flags_vertical = 3
 
 [node name="HBoxContainer2" type="HBoxContainer" parent="BG/MainVB/MainHB/InspectVB"]
-margin_right = 219.0
+margin_right = 271.0
 margin_bottom = 40.0
 rect_min_size = Vector2( 0, 40 )
 size_flags_horizontal = 3
 
 [node name="ItemEditLabelHB" type="HBoxContainer" parent="BG/MainVB/MainHB/InspectVB"]
 margin_top = 46.0
-margin_right = 219.0
+margin_right = 271.0
 margin_bottom = 72.0
 
 [node name="ItemEditLabel" type="Label" parent="BG/MainVB/MainHB/InspectVB/ItemEditLabelHB"]
-margin_right = 219.0
+margin_right = 271.0
 margin_bottom = 26.0
 size_flags_horizontal = 3
 text = "Item Editor"
@@ -117,27 +118,27 @@ align = 1
 
 [node name="ItemIconHB" type="HBoxContainer" parent="BG/MainVB/MainHB/InspectVB"]
 margin_top = 78.0
-margin_right = 219.0
-margin_bottom = 142.0
+margin_right = 271.0
+margin_bottom = 174.0
 rect_min_size = Vector2( 0, 64 )
 alignment = 1
 
 [node name="ItemNameLbl" type="Label" parent="BG/MainVB/MainHB/InspectVB/ItemIconHB"]
-margin_left = 81.0
-margin_top = 19.0
-margin_right = 131.0
-margin_bottom = 45.0
-text = "Name"
+margin_left = 78.0
+margin_top = 35.0
+margin_right = 90.0
+margin_bottom = 61.0
 
 [node name="ItemIconRect" type="TextureRect" parent="BG/MainVB/MainHB/InspectVB/ItemIconHB"]
-margin_left = 137.0
-margin_right = 137.0
-margin_bottom = 64.0
+margin_left = 96.0
+margin_right = 192.0
+margin_bottom = 96.0
+texture = ExtResource( 3 )
 
 [node name="SceneHB" type="HBoxContainer" parent="BG/MainVB/MainHB/InspectVB"]
-margin_top = 148.0
-margin_right = 219.0
-margin_bottom = 174.0
+margin_top = 180.0
+margin_right = 271.0
+margin_bottom = 206.0
 
 [node name="Label" type="Label" parent="BG/MainVB/MainHB/InspectVB/SceneHB"]
 margin_right = 77.0
@@ -154,20 +155,20 @@ text = "[_]"
 
 [node name="SceneFileLineEdit" type="LineEdit" parent="BG/MainVB/MainHB/InspectVB/SceneHB"]
 margin_left = 121.0
-margin_right = 187.0
+margin_right = 239.0
 margin_bottom = 26.0
 size_flags_horizontal = 3
 
 [node name="SceneLineClr" type="Button" parent="BG/MainVB/MainHB/InspectVB/SceneHB"]
-margin_left = 193.0
-margin_right = 219.0
+margin_left = 245.0
+margin_right = 271.0
 margin_bottom = 26.0
 text = "X"
 
 [node name="IconHB" type="HBoxContainer" parent="BG/MainVB/MainHB/InspectVB"]
-margin_top = 180.0
-margin_right = 219.0
-margin_bottom = 206.0
+margin_top = 212.0
+margin_right = 271.0
+margin_bottom = 238.0
 
 [node name="Label" type="Label" parent="BG/MainVB/MainHB/InspectVB/IconHB"]
 margin_right = 70.0
@@ -183,30 +184,86 @@ text = "[_]"
 
 [node name="IconFileLineEdit" type="LineEdit" parent="BG/MainVB/MainHB/InspectVB/IconHB"]
 margin_left = 114.0
-margin_right = 187.0
+margin_right = 239.0
 margin_bottom = 26.0
 size_flags_horizontal = 3
 
 [node name="IconLineClr" type="Button" parent="BG/MainVB/MainHB/InspectVB/IconHB"]
-margin_left = 193.0
-margin_right = 219.0
+margin_left = 245.0
+margin_right = 271.0
 margin_bottom = 26.0
 text = "X"
 
+[node name="TextureHB" type="HBoxContainer" parent="BG/MainVB/MainHB/InspectVB"]
+margin_top = 244.0
+margin_right = 271.0
+margin_bottom = 280.0
+
+[node name="Label" type="Label" parent="BG/MainVB/MainHB/InspectVB/TextureHB"]
+margin_top = 5.0
+margin_right = 87.0
+margin_bottom = 31.0
+rect_min_size = Vector2( 70, 0 )
+text = "Texture File"
+
+[node name="TextureEnable" type="CheckBox" parent="BG/MainVB/MainHB/InspectVB/TextureHB"]
+margin_left = 93.0
+margin_right = 129.0
+margin_bottom = 36.0
+
+[node name="TextureFileButton" type="Button" parent="BG/MainVB/MainHB/InspectVB/TextureHB"]
+margin_left = 135.0
+margin_right = 167.0
+margin_bottom = 36.0
+disabled = true
+text = "[_]"
+
+[node name="TextureFileLineEdit" type="LineEdit" parent="BG/MainVB/MainHB/InspectVB/TextureHB"]
+margin_left = 173.0
+margin_right = 239.0
+margin_bottom = 36.0
+size_flags_horizontal = 3
+editable = false
+
+[node name="TextureLineClr" type="Button" parent="BG/MainVB/MainHB/InspectVB/TextureHB"]
+margin_left = 245.0
+margin_right = 271.0
+margin_bottom = 36.0
+disabled = true
+text = "X"
+
+[node name="TypeHB" type="HBoxContainer" parent="BG/MainVB/MainHB/InspectVB"]
+margin_top = 286.0
+margin_right = 271.0
+margin_bottom = 316.0
+
+[node name="Label" type="Label" parent="BG/MainVB/MainHB/InspectVB/TypeHB"]
+margin_top = 2.0
+margin_right = 70.0
+margin_bottom = 28.0
+rect_min_size = Vector2( 70, 0 )
+text = "Type"
+
+[node name="TypeOption" type="OptionButton" parent="BG/MainVB/MainHB/InspectVB/TypeHB"]
+margin_left = 76.0
+margin_right = 271.0
+margin_bottom = 30.0
+size_flags_horizontal = 3
+
 [node name="Divider" type="HBoxContainer" parent="BG/MainVB/MainHB/InspectVB"]
-margin_top = 212.0
-margin_right = 219.0
-margin_bottom = 216.0
+margin_top = 322.0
+margin_right = 271.0
+margin_bottom = 326.0
 
 [node name="HSeparator" type="HSeparator" parent="BG/MainVB/MainHB/InspectVB/Divider"]
-margin_right = 219.0
+margin_right = 271.0
 margin_bottom = 4.0
 size_flags_horizontal = 3
 
 [node name="PropertiesLblHB" type="HBoxContainer" parent="BG/MainVB/MainHB/InspectVB"]
-margin_top = 222.0
-margin_right = 219.0
-margin_bottom = 248.0
+margin_top = 332.0
+margin_right = 271.0
+margin_bottom = 358.0
 
 [node name="Label" type="Label" parent="BG/MainVB/MainHB/InspectVB/PropertiesLblHB"]
 margin_right = 113.0
@@ -214,9 +271,9 @@ margin_bottom = 26.0
 text = "Item Properties"
 
 [node name="AddPropHB" type="HBoxContainer" parent="BG/MainVB/MainHB/InspectVB"]
-margin_top = 254.0
-margin_right = 219.0
-margin_bottom = 280.0
+margin_top = 364.0
+margin_right = 271.0
+margin_bottom = 390.0
 
 [node name="AddPropButton" type="Button" parent="BG/MainVB/MainHB/InspectVB/AddPropHB"]
 margin_right = 34.0
@@ -224,12 +281,12 @@ margin_bottom = 26.0
 text = "[+]"
 
 [node name="PropsVB" type="VBoxContainer" parent="BG/MainVB/MainHB/InspectVB"]
-margin_top = 286.0
-margin_right = 219.0
-margin_bottom = 286.0
+margin_top = 396.0
+margin_right = 271.0
+margin_bottom = 396.0
 
 [node name="InspectSpacer" type="VBoxContainer" parent="BG/MainVB/MainHB"]
-margin_left = 755.0
+margin_left = 772.0
 margin_right = 960.0
 margin_bottom = 540.0
 size_flags_horizontal = 3
