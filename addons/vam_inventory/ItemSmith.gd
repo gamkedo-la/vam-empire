@@ -150,6 +150,9 @@ func _load_items() -> void:
 			treeItem.set_editor(_editor)
 			if _items_grid:
 				_items_grid.add_child(treeItem)
+	if _commit_db_button:
+		if !Database.has_changed():
+			_commit_db_button.disabled = true
 
 
 func _save_item() -> void:
@@ -169,6 +172,8 @@ func _save_item() -> void:
 	
 	if Database.has_changed():
 		_commit_db_button.disabled = false
+	var staged_item = Database.get_selected_item()
+	staged_item.stage_item()
 	print_debug("Would save file: ", item_save)
 
 func _commit_db() -> void:
@@ -185,6 +190,10 @@ func _clear() -> void:
 		for item in _items_grid.get_children():
 			_items_grid.remove_child(item)
 	Database.emit_clear_selected_item()
+	Database.load_db()
+	if _commit_db_button:
+		if !Database.has_changed():
+			_commit_db_button.disabled = true
 	
 
 func _generate_items():

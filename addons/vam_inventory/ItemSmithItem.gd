@@ -15,6 +15,7 @@ export (Texture) var itemTexture
 export (String) var itemIcon
 onready var BG = $BG
 onready var BG_hover = $BG_hover
+onready var FG_staged = $FG_staged
 
 func set_editor(editor: EditorPlugin) -> void:
 	_editor = editor
@@ -79,3 +80,11 @@ func set_index(val):
 
 func get_index():
 	return _index
+
+func stage_item():
+	if FG_staged:
+		FG_staged.visible = true
+		
+func unstage_item():
+	if FG_staged:
+		FG_staged.visible = false

@@ -16,6 +16,9 @@ enabled_focus_mode = 1
 expand = true
 stretch_mode = 3
 script = ExtResource( 1 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
 
 [node name="BG" type="ColorRect" parent="."]
 visible = false
@@ -40,6 +43,19 @@ mouse_default_cursor_shape = 8
 size_flags_horizontal = 3
 size_flags_vertical = 3
 color = Color( 0.705882, 0.12549, 0.164706, 1 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="FG_staged" type="ColorRect" parent="."]
+visible = false
+anchor_right = 1.0
+anchor_bottom = 1.0
+mouse_filter = 2
+mouse_default_cursor_shape = 8
+size_flags_horizontal = 3
+size_flags_vertical = 3
+color = Color( 0.0784314, 0.627451, 0.180392, 0.431373 )
 __meta__ = {
 "_edit_use_anchors_": false
 }
