@@ -285,10 +285,36 @@ margin_top = 396.0
 margin_right = 271.0
 margin_bottom = 396.0
 
-[node name="InspectSpacer" type="VBoxContainer" parent="BG/MainVB/MainHB"]
+[node name="ItemActionsVB" type="VBoxContainer" parent="BG/MainVB/MainHB"]
 margin_left = 772.0
 margin_right = 960.0
 margin_bottom = 540.0
 size_flags_horizontal = 3
 size_flags_vertical = 3
+
+[node name="ItemActionHB" type="HBoxContainer" parent="BG/MainVB/MainHB/ItemActionsVB"]
+margin_right = 188.0
+margin_bottom = 26.0
+alignment = 1
+
+[node name="SaveItem" type="Button" parent="BG/MainVB/MainHB/ItemActionsVB/ItemActionHB"]
+margin_left = 50.0
+margin_right = 137.0
+margin_bottom = 26.0
+size_flags_horizontal = 9
+text = "Stage Item"
+
+[node name="CommitDatabaseHB" type="HBoxContainer" parent="BG/MainVB/MainHB/ItemActionsVB"]
+margin_top = 32.0
+margin_right = 188.0
+margin_bottom = 58.0
+alignment = 1
+
+[node name="CommitDB" type="Button" parent="BG/MainVB/MainHB/ItemActionsVB/CommitDatabaseHB"]
+margin_left = 31.0
+margin_right = 157.0
+margin_bottom = 26.0
+size_flags_horizontal = 9
+disabled = true
+text = "Commit Changes"
 [connection signal="pressed" from="BG/MainVB/MainHB/InspectVB/AddPropHB/AddPropButton" to="." method="_on_AddPropButton_pressed"]

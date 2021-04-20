@@ -17,7 +17,7 @@ func set_prop(type, property, value):
 	match type:
 		"String":
 			_prop_type.select(0)
-			_prop_val.text = var2str(String(value))
+			_prop_val.text = str(value)
 		"int":
 			_prop_type.select(1)
 			_prop_val.text = var2str(int(value))
@@ -33,7 +33,7 @@ func get_prop() -> Dictionary:
 	var prop_dict : Dictionary
 	prop_dict.type = _prop_type.get_item_text(_prop_type.get_selected_id())
 	prop_dict.name = _prop_name.text
-	prop_dict.value = _prop_val.text
+	prop_dict.value = str(_prop_val.text)
 	return prop_dict
 
 func _init_connections():

@@ -29,10 +29,14 @@ onready var _type_option = $BG/MainVB/MainHB/InspectVB/TypeHB/TypeOption as Opti
 onready var _props_vbox = $BG/MainVB/MainHB/InspectVB/PropsVB as VBoxContainer
 onready var _add_prop_button = $BG/MainVB/MainHB/InspectVB/AddPropHB/AddPropButton as Button
 
+onready var _save_item_button = $BG/MainVB/MainHB/ItemActionsVB/ItemActionHB/SaveItem as Button
+onready var _commit_db_button = $BG/MainVB/MainHB/ItemActionsVB/CommitDatabaseHB/CommitDB as Button
+
 
 export (bool) var regenerate = false setget _regen
 
 onready var itemsNode
+var selected_item
 var cur_scene
 var Itemdb
 
@@ -68,7 +72,8 @@ func set_selected_item(item):
 		print("HAS PROPERTIES")
 		for props in sel_item.properties:
 			print(var2str(props))			
-			add_property(props.type, var2str(props.name), var2str(props.value))
+			add_property(props.type, props.name, props.value)
+	selected_item = item
 
 func clear_selected_item() -> void:
 	clear_properties()
@@ -81,7 +86,7 @@ func add_property(p_type, property, value) -> void:
 		new_prop.set_prop(p_type, property, value)
 		
 		#test that it was set!
-		print(var2str(new_prop.get_prop()))
+		print(new_prop.get_prop())
 	
 		
 
@@ -114,6 +119,11 @@ func _init_connections() -> void:
 		assert(_icon_file_clr.connect("pressed", self, "_icon_file_clear") == OK)
 	if not _add_prop_button.is_connected("pressed", self, "_on_AddPropButton_pressed"):
 		assert(_add_prop_button.connect("pressed", self, "_on_AddPropButton_pressed") == OK)
+	if not _save_item_button.is_connected("pressed", self, "_save_item"):
+		assert(_save_item_button.connect("pressed", self, "_save_item") == OK)
+	if not _commit_db_button.is_connected("pressed", self, "_commit_db"):
+		assert(_commit_db_button.connect("pressed", self, "_commit_db") == OK)
+		
 
 func _regen(val):
 	regenerate = !regenerate	
@@ -140,7 +150,35 @@ func _load_items() -> void:
 			treeItem.set_editor(_editor)
 			if _items_grid:
 				_items_grid.add_child(treeItem)
-			
+
+
+func _save_item() -> void:
+#	var sel_item = Database.table.Items[item.get_index()]
+	var item_save = Database.table.Items[selected_item.get_index()]	
+	if _icon_file_edit:
+		item_save.itemIcon = str2var(_icon_file_edit.text)
+	if _item_name_lbl:
+		item_save.itemName = str(_item_name_lbl.text)	
+	if _type_option:
+		item_save.itemType = _type_option.get_selected_id()
+	if _props_vbox:		
+		if _props_vbox.get_child_count() > 0:
+			item_save.properties = []
+			for _prop in _props_vbox.get_children():
+				item_save.properties.append(_prop.get_prop())
+	
+	if Database.has_changed():
+		_commit_db_button.disabled = false
+	print_debug("Would save file: ", item_save)
+
+func _commit_db() -> void:
+	var saved = Database.save_db()
+	if saved:
+		_load_items()
+		if !Database.has_changed():
+			_commit_db_button.disabled = true
+	else:
+		printerr("Something went wrong saving Database")
 
 func _clear() -> void:
 	if _items_grid && _items_grid.get_child_count() > 0:
