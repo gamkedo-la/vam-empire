@@ -77,16 +77,16 @@
 			"itemUuid": "e953436f-0ac9-4a11-90b2-14da73ce32a6"
 		},
 		{
-			"itemName": null,
-			"itemType": null,
-			"itemIcon": "res://icon.png",
-			"itemUuid": "9492e473-009b-4faf-bd6f-813ff044c7d7"
+			"itemName": "Peridot",
+			"itemType": 0,
+			"itemIcon": "res://MiningMaterials/Textures/mat-peridot.png",
+			"itemUuid": "ae14dca8-35d6-4a30-ab35-266c415a5ce9"
 		},
 		{
-			"itemName": null,
+			"itemName": "Platinum",
 			"itemType": 0,
-			"itemIcon": "res://icon.png",
-			"itemUuid": "e953436f-0ac9-4a11-90b2-14da73ce32a6"
+			"itemIcon": "res://MiningMaterials/Textures/mat-platinum.png",
+			"itemUuid": "4fa1a793-846b-409a-820e-77c69ff3cb53"
 		}
 	]
 }

@@ -109,6 +109,10 @@ func clear_properties() -> void:
 		if _props_vbox.get_child_count() > 0:
 			for prop_child in _props_vbox.get_children():
 				_props_vbox.remove_child(prop_child)
+	if _item_name_lbl:
+		_item_name_lbl.text = ""
+	if _item_name_edit:
+		_item_name_edit.text = ""
 	if _icon_file_edit:
 		_icon_file_edit.text = ""
 	if _item_name_lbl:
@@ -151,7 +155,7 @@ func _new_item() -> void:
 	
 	for property in new_item.keys():
 		print("property: ", property)
-		new_item[property] = null
+		new_item[property] = ""
 	
 	new_item.itemUuid = uuid_util.v4()
 	new_item.itemIcon = default_icon_path
