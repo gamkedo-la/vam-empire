@@ -9,6 +9,7 @@ var selected = false as bool
 
 var _index = null setget set_index, get_index
 export (String) var itemName
+var itemUuid
 export (Database.ItemType) var itemType
 export (Array, int) var asteroids
 export (Texture) var itemTexture

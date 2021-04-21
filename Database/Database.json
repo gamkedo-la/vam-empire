@@ -41,17 +41,27 @@
 		{
 			"itemName": "Copper",
 			"itemType": 0,
-			"itemIcon": "res://MiningMaterials/Textures/mat-copper.png"
+			"itemIcon": "res://MiningMaterials/Textures/mat-copper.png",
+			"itemUuid": "4efd8d66-b38f-4b94-8326-2bc21799f888"
 		},
 		{
 			"itemName": "Iron",
 			"itemType": 0,
-			"itemIcon": "res://MiningMaterials/Textures/mat-iron.png"
+			"itemIcon": "res://MiningMaterials/Textures/mat-iron.png",
+			"properties": [
+				{
+					"type": "String",
+					"name": "",
+					"value": ""
+				}
+			],
+			"itemUuid": "d7a332ce-ea38-466e-9539-2ebb94eff566"
 		},
 		{
 			"itemName": "Ice",
 			"itemType": 0,
-			"itemIcon": "res://MiningMaterials/Textures/mat-ice.png"
+			"itemIcon": "res://MiningMaterials/Textures/mat-ice.png",
+			"itemUuid": "ad06b3ed-dfa6-41f7-ac75-468ed711de08"
 		},
 		{
 			"itemName": "Gold",
@@ -59,16 +69,24 @@
 			"itemIcon": "res://MiningMaterials/Textures/mat-gold.png",
 			"properties": [
 				{
-					"type": "int",
-					"name": "value",
-					"value": "1000"
-				},
-				{
-					"type": "bool",
-					"name": "test_prop",
-					"value": "true"
+					"type": "String",
+					"name": "test",
+					"value": "prop"
 				}
-			]
+			],
+			"itemUuid": "e953436f-0ac9-4a11-90b2-14da73ce32a6"
+		},
+		{
+			"itemName": null,
+			"itemType": null,
+			"itemIcon": "res://icon.png",
+			"itemUuid": "9492e473-009b-4faf-bd6f-813ff044c7d7"
+		},
+		{
+			"itemName": null,
+			"itemType": 0,
+			"itemIcon": "res://icon.png",
+			"itemUuid": "e953436f-0ac9-4a11-90b2-14da73ce32a6"
 		}
 	]
 }
