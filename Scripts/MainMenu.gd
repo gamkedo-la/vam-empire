@@ -218,24 +218,22 @@ func _on_CheckBox_toggled(button_pressed):
 
 
 func _on_NewPlayerPop_about_to_show():
-	#name_popup.rect_pivot_offset = name_popup.rect_size / 2
-	#name_popup.rect_position = get_viewport_rect().size / 2
 	var animation = get_node("MenuCanvas/Viz/NewPlayerPop/AnimationPlayer")
 	animation.play("Show")
 
 
 func _on_NewPlayerPop_popup_hide():
-	var animation = get_node("MenuCanvas/Viz/NewPlayerPop/AnimationPlayer")
-	animation.play("Hide")
+	#var animation = get_node("MenuCanvas/Viz/NewPlayerPop/AnimationPlayer")
+	#animation.play("Hide")
+	pass
 
 
 func _on_LoadAcceptDialog_about_to_show():
-	#load_accept_popup.rect_pivot_offset = load_accept_popup.rect_size / 2
-	#load_accept_popup.rect_position = get_viewport_rect().size / 2
 	var animation = get_node("MenuCanvas/Viz/LoadAcceptDialog/AnimationPlayer")
 	animation.play("Show")
 
 
 func _on_LoadAcceptDialog_popup_hide():
-	var animation = get_node("MenuCanvas/Viz/LoadAcceptDialog/AnimationPlayer")
-	animation.play("Hide")
+	#var animation = get_node("MenuCanvas/Viz/LoadAcceptDialog/AnimationPlayer")
+	#animation.play("Hide")
+	pass

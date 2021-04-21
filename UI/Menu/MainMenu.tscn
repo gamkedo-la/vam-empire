@@ -1226,7 +1226,7 @@ animations = [ {
 "speed": 5.0
 } ]
 
-[sub_resource type="Animation" id=302]
+[sub_resource type="Animation" id=296]
 resource_name = "Hide"
 length = 0.24
 step = 0.03
@@ -1263,7 +1263,7 @@ tracks/2/keys = {
 "values": [ false ]
 }
 
-[sub_resource type="Animation" id=303]
+[sub_resource type="Animation" id=297]
 resource_name = "Show"
 length = 0.51
 step = 0.03
@@ -1388,10 +1388,9 @@ tracks/1/keys = {
 "times": PoolRealArray( 0, 0.33, 0.51 )
 }
 
-[sub_resource type="Animation" id=296]
+[sub_resource type="Animation" id=302]
 
-[sub_resource type="Animation" id=297]
-resource_name = "Empire_Loop"
+[sub_resource type="Animation" id=303]
 length = 33.3333
 loop = true
 step = 0.0555556
@@ -1896,8 +1895,8 @@ rect_min_size = Vector2( 80, 0 )
 text = "Return"
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="MenuCanvas/Viz/OptionsContainer"]
-anims/Hide = SubResource( 302 )
-anims/Show = SubResource( 303 )
+anims/Hide = SubResource( 296 )
+anims/Show = SubResource( 297 )
 
 [node name="NewPlayerPop" type="WindowDialog" parent="MenuCanvas/Viz"]
 visible = true
@@ -1981,8 +1980,8 @@ anims/Show = SubResource( 301 )
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="MenuCanvas/Viz"]
 autoplay = "Empire_Loop"
-anims/Empire = SubResource( 296 )
-anims/Empire_Loop = SubResource( 297 )
+anims/Empire = SubResource( 302 )
+anims/Empire_Loop = SubResource( 303 )
 [connection signal="pressed" from="MenuCanvas/Viz/MainMenuVBox/InteractVB/NewHB/New" to="." method="_on_New_pressed"]
 [connection signal="pressed" from="MenuCanvas/Viz/MainMenuVBox/InteractVB/LoadHB2/Load" to="." method="_on_Load_pressed"]
 [connection signal="pressed" from="MenuCanvas/Viz/MainMenuVBox/InteractVB/OptionsHB3/Options" to="." method="_on_Options_pressed"]
