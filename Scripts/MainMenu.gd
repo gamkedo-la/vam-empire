@@ -81,7 +81,9 @@ func _process(_delta):
 func close_options():
 		if options.visible:
 			UserSettings.save()
-			options.visible = false
+			# options.visible = false
+			var animation = get_node("MenuCanvas/Viz/OptionsContainer/AnimationPlayer")
+			animation.play("Hide")
 			main_menu.visible = true		
 		elif get_tree().paused == true:
 			UserSettings.save()
@@ -116,7 +118,7 @@ func load_into_homebase():
 
 func _on_New_pressed():
 	#print("Loading new Scene...")
-	name_popup.popup()
+	name_popup.popup_centered()
 
 func _disable_new():
 	new_button.disabled = true
@@ -124,6 +126,8 @@ func _disable_new():
 func _on_Options_pressed():
 	main_menu.visible = false
 	options.visible = true
+	var animation = get_node("MenuCanvas/Viz/OptionsContainer/AnimationPlayer")
+	animation.play("Show")
 	
 
 
@@ -163,7 +167,7 @@ func _on_PNameStartButton_pressed():
 	load_into_homebase()
 
 func _on_Load_pressed():
-	load_accept_popup.popup()
+	load_accept_popup.popup_centered()
 
 func _on_LoadAcceptDialog_confirmed():
 	PlayerVars.load_save()
@@ -211,3 +215,27 @@ func _on_FastLoad_pressed():
 
 func _on_CheckBox_toggled(button_pressed):
 	Global.debug_mode = button_pressed
+
+
+func _on_NewPlayerPop_about_to_show():
+	#name_popup.rect_pivot_offset = name_popup.rect_size / 2
+	#name_popup.rect_position = get_viewport_rect().size / 2
+	var animation = get_node("MenuCanvas/Viz/NewPlayerPop/AnimationPlayer")
+	animation.play("Show")
+
+
+func _on_NewPlayerPop_popup_hide():
+	var animation = get_node("MenuCanvas/Viz/NewPlayerPop/AnimationPlayer")
+	animation.play("Hide")
+
+
+func _on_LoadAcceptDialog_about_to_show():
+	#load_accept_popup.rect_pivot_offset = load_accept_popup.rect_size / 2
+	#load_accept_popup.rect_position = get_viewport_rect().size / 2
+	var animation = get_node("MenuCanvas/Viz/LoadAcceptDialog/AnimationPlayer")
+	animation.play("Show")
+
+
+func _on_LoadAcceptDialog_popup_hide():
+	var animation = get_node("MenuCanvas/Viz/LoadAcceptDialog/AnimationPlayer")
+	animation.play("Hide")
