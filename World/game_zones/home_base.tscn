@@ -1,4 +1,4 @@
-[gd_scene load_steps=10 format=2]
+[gd_scene load_steps=11 format=2]
 
 [ext_resource path="res://Player/Textures/Shmup_Player_Ship_001.png" type="Texture" id=1]
 [ext_resource path="res://Scripts/HomeBase.gd" type="Script" id=2]
@@ -6,6 +6,7 @@
 [ext_resource path="res://World/common_scenes/ParallaxBackground2.tscn" type="PackedScene" id=4]
 [ext_resource path="res://Lights/Textures/light_orb.png" type="Texture" id=5]
 [ext_resource path="res://Lights/Scenes/RunwayLight.tscn" type="PackedScene" id=6]
+[ext_resource path="res://UI/Effects/Transition.tscn" type="PackedScene" id=7]
 
 [sub_resource type="StyleBoxFlat" id=1]
 bg_color = Color( 0, 0, 0, 0.878431 )
@@ -40,6 +41,8 @@ polygon = PoolVector2Array( -1.11475, 204.325, 0.0587769, 0.907562, -15.9002, 1.
 
 [node name="HomeBase" type="Node2D"]
 script = ExtResource( 2 )
+
+[node name="Transition" parent="." instance=ExtResource( 7 )]
 
 [node name="CanvasLayer" type="CanvasLayer" parent="."]
 
@@ -348,6 +351,7 @@ occluder = SubResource( 3 )
 [node name="LightingTween" type="Tween" parent="SceneLighting"]
 
 [node name="Tween" type="Tween" parent="."]
+[connection signal="can_exit" from="Transition" to="." method="_on_Transition_can_exit"]
 [connection signal="pressed" from="CanvasLayer/BaseOverlay/VBoxContainer/HB_GoMiningEasy/GoMiningEasy" to="." method="_on_GoMiningEasy_pressed"]
 [connection signal="pressed" from="CanvasLayer/BaseOverlay/VBoxContainer/HB_GoMiningEasy/GoMiningMed" to="." method="_on_GoMiningMed_pressed"]
 [connection signal="pressed" from="CanvasLayer/BaseOverlay/VBoxContainer/HB_GoMiningEasy/GoWorldProto" to="." method="_on_GoWorldProto_pressed"]

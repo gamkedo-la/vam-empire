@@ -26,6 +26,8 @@ onready var status_bars_opac_slider = $MenuCanvas/Viz/OptionsContainer/VBoxConta
 onready var mini_map_opac_slider = $MenuCanvas/Viz/OptionsContainer/VBoxContainer/TabContainer/HUD/VBoxContainer/MiniMapOpacHBox/mini_map_opac_slider
 onready var mini_map_style_option = $MenuCanvas/Viz/OptionsContainer/VBoxContainer/TabContainer/HUD/VBoxContainer/MiniMapStyleHBox/mini_map_style_optionbutton
 
+onready var transition = $Transition
+
 onready var menu_viz = $MenuCanvas/Viz
 var start_menu = false
 
@@ -164,7 +166,8 @@ func _on_TextEdit_text_changed():
 func _on_PNameStartButton_pressed():
 	PlayerVars.new(name_entry.text)
 	Global.pause_game(false)
-	load_into_homebase()
+	#load_into_homebase()
+	transition.transition_out()
 
 func _on_Load_pressed():
 	load_accept_popup.popup_centered()
@@ -172,7 +175,8 @@ func _on_Load_pressed():
 func _on_LoadAcceptDialog_confirmed():
 	PlayerVars.load_save()
 	Global.pause_game(false)
-	load_into_homebase()
+	#load_into_homebase()
+	transition.transition_out()
 
 
 func _on_ResetSettings_pressed():
@@ -237,3 +241,7 @@ func _on_LoadAcceptDialog_popup_hide():
 	#var animation = get_node("MenuCanvas/Viz/LoadAcceptDialog/AnimationPlayer")
 	#animation.play("Hide")
 	pass
+
+
+func _on_Transition_can_exit():
+	load_into_homebase()

@@ -17,6 +17,9 @@ onready var front_pos = $PlayerLeaveAnimation/FrontTakeoff
 onready var port_light = $SceneLighting/AirLock/PortLight
 onready var starboard_light = $SceneLighting/AirLock/StarboardLight
 onready var lighting_tween = $SceneLighting/LightingTween
+
+onready var transition = $Transition
+
 var glow_up = 4
 var glow_down = 0.5
 var glow_time = 2
@@ -24,7 +27,6 @@ var glow_time = 2
 var backing_up = true
 var leaving_to = null
 
-# Called when the node enters the scene tree for the first time.
 func _ready():
 	start_light_tweens()
 
@@ -58,7 +60,6 @@ func _on_GoWorldProto_pressed():
 func _on_GoMiningMed_pressed():
 	leaving_to = "res://World/game_zones/EasyZone_002.tscn"
 	take_off()
-	
 
 
 func _on_TakeoffTween_tween_completed(object, key):
@@ -66,8 +67,7 @@ func _on_TakeoffTween_tween_completed(object, key):
 		backing_up = false		
 		take_off()
 	else:
-		if leaving_to:
-			Global.goto_scene(leaving_to)
+		transition.transition_out()
 
 func _on_LightingTween_tween_completed(object, key):
 	if object.texture_scale - glow_down < 1:
@@ -75,3 +75,8 @@ func _on_LightingTween_tween_completed(object, key):
 	else:
 		lighting_tween.interpolate_property(object, "texture_scale", object.texture_scale, glow_down, glow_time, Tween.TRANS_CUBIC, Tween.EASE_IN_OUT)
 	lighting_tween.start()
+
+
+func _on_Transition_can_exit():
+	if leaving_to:
+		Global.goto_scene(leaving_to)
