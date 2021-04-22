@@ -1,7 +1,9 @@
-[gd_scene load_steps=5 format=2]
+[gd_scene load_steps=7 format=2]
 
 [ext_resource path="res://UI/Theme/darkred_theme.tres" type="Theme" id=1]
 [ext_resource path="res://Scripts/UI/Inventory.gd" type="Script" id=2]
+[ext_resource path="res://UI/Menu/Inventory/Slot.tscn" type="PackedScene" id=3]
+[ext_resource path="res://MiningMaterials/Textures/mat-vanadinite.png" type="Texture" id=4]
 
 [sub_resource type="InputEventAction" id=1]
 action = "ui_inventory"
@@ -44,21 +46,21 @@ __meta__ = {
 }
 
 [node name="Top" type="HBoxContainer" parent="Background/FrameVBox"]
-margin_right = 872.0
+margin_right = 1020.0
 margin_bottom = 26.0
 size_flags_horizontal = 3
 alignment = 1
 
 [node name="Label" type="Label" parent="Background/FrameVBox/Top"]
-margin_right = 840.0
+margin_right = 988.0
 margin_bottom = 26.0
 size_flags_horizontal = 3
 text = "Inventory"
 align = 1
 
 [node name="ExitInventory" type="Button" parent="Background/FrameVBox/Top"]
-margin_left = 846.0
-margin_right = 872.0
+margin_left = 994.0
+margin_right = 1020.0
 margin_bottom = 26.0
 focus_mode = 0
 size_flags_horizontal = 0
@@ -72,7 +74,7 @@ __meta__ = {
 
 [node name="Ship" type="HBoxContainer" parent="Background/FrameVBox"]
 margin_top = 32.0
-margin_right = 872.0
+margin_right = 1020.0
 margin_bottom = 196.0
 
 [node name="CategorySelect" type="VBoxContainer" parent="Background/FrameVBox/Ship"]
@@ -107,7 +109,1522 @@ text = "Systems"
 
 [node name="InventorySlots" type="VBoxContainer" parent="Background/FrameVBox/Ship"]
 margin_left = 230.0
-margin_right = 872.0
+margin_right = 1020.0
 margin_bottom = 164.0
 size_flags_horizontal = 3
+
+[node name="MasterInv" type="HBoxContainer" parent="Background/FrameVBox"]
+margin_top = 202.0
+margin_right = 1020.0
+margin_bottom = 462.0
+rect_min_size = Vector2( 864, 256 )
+
+[node name="GridContainer" type="GridContainer" parent="Background/FrameVBox/MasterInv"]
+margin_right = 868.0
+margin_bottom = 260.0
+rect_min_size = Vector2( 864, 256 )
+size_flags_horizontal = 3
+size_flags_vertical = 3
+columns = 23
+
+[node name="Slot" parent="Background/FrameVBox/MasterInv/GridContainer" instance=ExtResource( 3 )]
+
+[node name="TextureRect" type="TextureRect" parent="Background/FrameVBox/MasterInv/GridContainer/Slot"]
+margin_right = 32.0
+margin_bottom = 32.0
+rect_min_size = Vector2( 32, 32 )
+texture = ExtResource( 4 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Slot2" parent="Background/FrameVBox/MasterInv/GridContainer" instance=ExtResource( 3 )]
+margin_left = 38.0
+margin_right = 70.0
+
+[node name="TextureRect" type="TextureRect" parent="Background/FrameVBox/MasterInv/GridContainer/Slot2"]
+margin_right = 32.0
+margin_bottom = 32.0
+rect_min_size = Vector2( 32, 32 )
+texture = ExtResource( 4 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Slot3" parent="Background/FrameVBox/MasterInv/GridContainer" instance=ExtResource( 3 )]
+margin_left = 76.0
+margin_right = 108.0
+
+[node name="Slot4" parent="Background/FrameVBox/MasterInv/GridContainer" instance=ExtResource( 3 )]
+margin_left = 114.0
+margin_right = 146.0
+
+[node name="TextureRect" type="TextureRect" parent="Background/FrameVBox/MasterInv/GridContainer/Slot4"]
+margin_right = 32.0
+margin_bottom = 32.0
+rect_min_size = Vector2( 32, 32 )
+texture = ExtResource( 4 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Slot5" parent="Background/FrameVBox/MasterInv/GridContainer" instance=ExtResource( 3 )]
+margin_left = 152.0
+margin_right = 184.0
+
+[node name="Slot6" parent="Background/FrameVBox/MasterInv/GridContainer" instance=ExtResource( 3 )]
+margin_left = 190.0
+margin_right = 222.0
+
+[node name="Slot7" parent="Background/FrameVBox/MasterInv/GridContainer" instance=ExtResource( 3 )]
+margin_left = 228.0
+margin_right = 260.0
+
+[node name="TextureRect" type="TextureRect" parent="Background/FrameVBox/MasterInv/GridContainer/Slot7"]
+margin_right = 32.0
+margin_bottom = 32.0
+rect_min_size = Vector2( 32, 32 )
+texture = ExtResource( 4 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Slot8" parent="Background/FrameVBox/MasterInv/GridContainer" instance=ExtResource( 3 )]
+margin_left = 266.0
+margin_right = 298.0
+
+[node name="TextureRect" type="TextureRect" parent="Background/FrameVBox/MasterInv/GridContainer/Slot8"]
+margin_right = 32.0
+margin_bottom = 32.0
+rect_min_size = Vector2( 32, 32 )
+texture = ExtResource( 4 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Slot9" parent="Background/FrameVBox/MasterInv/GridContainer" instance=ExtResource( 3 )]
+margin_left = 304.0
+margin_right = 336.0
+
+[node name="Slot10" parent="Background/FrameVBox/MasterInv/GridContainer" instance=ExtResource( 3 )]
+margin_left = 342.0
+margin_right = 374.0
+
+[node name="TextureRect" type="TextureRect" parent="Background/FrameVBox/MasterInv/GridContainer/Slot10"]
+margin_right = 32.0
+margin_bottom = 32.0
+rect_min_size = Vector2( 32, 32 )
+texture = ExtResource( 4 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Slot11" parent="Background/FrameVBox/MasterInv/GridContainer" instance=ExtResource( 3 )]
+margin_left = 380.0
+margin_right = 412.0
+
+[node name="Slot12" parent="Background/FrameVBox/MasterInv/GridContainer" instance=ExtResource( 3 )]
+margin_left = 418.0
+margin_right = 450.0
+
+[node name="Slot13" parent="Background/FrameVBox/MasterInv/GridContainer" instance=ExtResource( 3 )]
+margin_left = 456.0
+margin_right = 488.0
+
+[node name="TextureRect" type="TextureRect" parent="Background/FrameVBox/MasterInv/GridContainer/Slot13"]
+margin_right = 32.0
+margin_bottom = 32.0
+rect_min_size = Vector2( 32, 32 )
+texture = ExtResource( 4 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Slot14" parent="Background/FrameVBox/MasterInv/GridContainer" instance=ExtResource( 3 )]
+margin_left = 494.0
+margin_right = 526.0
+
+[node name="TextureRect" type="TextureRect" parent="Background/FrameVBox/MasterInv/GridContainer/Slot14"]
+margin_right = 32.0
+margin_bottom = 32.0
+rect_min_size = Vector2( 32, 32 )
+texture = ExtResource( 4 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Slot15" parent="Background/FrameVBox/MasterInv/GridContainer" instance=ExtResource( 3 )]
+margin_left = 532.0
+margin_right = 564.0
+
+[node name="Slot16" parent="Background/FrameVBox/MasterInv/GridContainer" instance=ExtResource( 3 )]
+margin_left = 570.0
+margin_right = 602.0
+
+[node name="TextureRect" type="TextureRect" parent="Background/FrameVBox/MasterInv/GridContainer/Slot16"]
+margin_right = 32.0
+margin_bottom = 32.0
+rect_min_size = Vector2( 32, 32 )
+texture = ExtResource( 4 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Slot17" parent="Background/FrameVBox/MasterInv/GridContainer" instance=ExtResource( 3 )]
+margin_left = 608.0
+margin_right = 640.0
+
+[node name="Slot18" parent="Background/FrameVBox/MasterInv/GridContainer" instance=ExtResource( 3 )]
+margin_left = 646.0
+margin_right = 678.0
+
+[node name="Slot19" parent="Background/FrameVBox/MasterInv/GridContainer" instance=ExtResource( 3 )]
+margin_left = 684.0
+margin_right = 716.0
+
+[node name="TextureRect" type="TextureRect" parent="Background/FrameVBox/MasterInv/GridContainer/Slot19"]
+margin_right = 32.0
+margin_bottom = 32.0
+rect_min_size = Vector2( 32, 32 )
+texture = ExtResource( 4 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Slot20" parent="Background/FrameVBox/MasterInv/GridContainer" instance=ExtResource( 3 )]
+margin_left = 722.0
+margin_right = 754.0
+
+[node name="TextureRect" type="TextureRect" parent="Background/FrameVBox/MasterInv/GridContainer/Slot20"]
+margin_right = 32.0
+margin_bottom = 32.0
+rect_min_size = Vector2( 32, 32 )
+texture = ExtResource( 4 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Slot21" parent="Background/FrameVBox/MasterInv/GridContainer" instance=ExtResource( 3 )]
+margin_left = 760.0
+margin_right = 792.0
+
+[node name="Slot22" parent="Background/FrameVBox/MasterInv/GridContainer" instance=ExtResource( 3 )]
+margin_left = 798.0
+margin_right = 830.0
+
+[node name="TextureRect" type="TextureRect" parent="Background/FrameVBox/MasterInv/GridContainer/Slot22"]
+margin_right = 32.0
+margin_bottom = 32.0
+rect_min_size = Vector2( 32, 32 )
+texture = ExtResource( 4 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Slot23" parent="Background/FrameVBox/MasterInv/GridContainer" instance=ExtResource( 3 )]
+margin_left = 836.0
+margin_right = 868.0
+
+[node name="Slot24" parent="Background/FrameVBox/MasterInv/GridContainer" instance=ExtResource( 3 )]
+margin_top = 38.0
+margin_bottom = 70.0
+
+[node name="Slot25" parent="Background/FrameVBox/MasterInv/GridContainer" instance=ExtResource( 3 )]
+margin_left = 38.0
+margin_top = 38.0
+margin_right = 70.0
+margin_bottom = 70.0
+
+[node name="TextureRect" type="TextureRect" parent="Background/FrameVBox/MasterInv/GridContainer/Slot25"]
+margin_right = 32.0
+margin_bottom = 32.0
+rect_min_size = Vector2( 32, 32 )
+texture = ExtResource( 4 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Slot26" parent="Background/FrameVBox/MasterInv/GridContainer" instance=ExtResource( 3 )]
+margin_left = 76.0
+margin_top = 38.0
+margin_right = 108.0
+margin_bottom = 70.0
+
+[node name="TextureRect" type="TextureRect" parent="Background/FrameVBox/MasterInv/GridContainer/Slot26"]
+margin_right = 32.0
+margin_bottom = 32.0
+rect_min_size = Vector2( 32, 32 )
+texture = ExtResource( 4 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Slot27" parent="Background/FrameVBox/MasterInv/GridContainer" instance=ExtResource( 3 )]
+margin_left = 114.0
+margin_top = 38.0
+margin_right = 146.0
+margin_bottom = 70.0
+
+[node name="Slot28" parent="Background/FrameVBox/MasterInv/GridContainer" instance=ExtResource( 3 )]
+margin_left = 152.0
+margin_top = 38.0
+margin_right = 184.0
+margin_bottom = 70.0
+
+[node name="TextureRect" type="TextureRect" parent="Background/FrameVBox/MasterInv/GridContainer/Slot28"]
+margin_right = 32.0
+margin_bottom = 32.0
+rect_min_size = Vector2( 32, 32 )
+texture = ExtResource( 4 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Slot29" parent="Background/FrameVBox/MasterInv/GridContainer" instance=ExtResource( 3 )]
+margin_left = 190.0
+margin_top = 38.0
+margin_right = 222.0
+margin_bottom = 70.0
+
+[node name="Slot30" parent="Background/FrameVBox/MasterInv/GridContainer" instance=ExtResource( 3 )]
+margin_left = 228.0
+margin_top = 38.0
+margin_right = 260.0
+margin_bottom = 70.0
+
+[node name="Slot31" parent="Background/FrameVBox/MasterInv/GridContainer" instance=ExtResource( 3 )]
+margin_left = 266.0
+margin_top = 38.0
+margin_right = 298.0
+margin_bottom = 70.0
+
+[node name="TextureRect" type="TextureRect" parent="Background/FrameVBox/MasterInv/GridContainer/Slot31"]
+margin_right = 32.0
+margin_bottom = 32.0
+rect_min_size = Vector2( 32, 32 )
+texture = ExtResource( 4 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Slot32" parent="Background/FrameVBox/MasterInv/GridContainer" instance=ExtResource( 3 )]
+margin_left = 304.0
+margin_top = 38.0
+margin_right = 336.0
+margin_bottom = 70.0
+
+[node name="TextureRect" type="TextureRect" parent="Background/FrameVBox/MasterInv/GridContainer/Slot32"]
+margin_right = 32.0
+margin_bottom = 32.0
+rect_min_size = Vector2( 32, 32 )
+texture = ExtResource( 4 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Slot33" parent="Background/FrameVBox/MasterInv/GridContainer" instance=ExtResource( 3 )]
+margin_left = 342.0
+margin_top = 38.0
+margin_right = 374.0
+margin_bottom = 70.0
+
+[node name="Slot34" parent="Background/FrameVBox/MasterInv/GridContainer" instance=ExtResource( 3 )]
+margin_left = 380.0
+margin_top = 38.0
+margin_right = 412.0
+margin_bottom = 70.0
+
+[node name="TextureRect" type="TextureRect" parent="Background/FrameVBox/MasterInv/GridContainer/Slot34"]
+margin_right = 32.0
+margin_bottom = 32.0
+rect_min_size = Vector2( 32, 32 )
+texture = ExtResource( 4 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Slot35" parent="Background/FrameVBox/MasterInv/GridContainer" instance=ExtResource( 3 )]
+margin_left = 418.0
+margin_top = 38.0
+margin_right = 450.0
+margin_bottom = 70.0
+
+[node name="Slot36" parent="Background/FrameVBox/MasterInv/GridContainer" instance=ExtResource( 3 )]
+margin_left = 456.0
+margin_top = 38.0
+margin_right = 488.0
+margin_bottom = 70.0
+
+[node name="Slot37" parent="Background/FrameVBox/MasterInv/GridContainer" instance=ExtResource( 3 )]
+margin_left = 494.0
+margin_top = 38.0
+margin_right = 526.0
+margin_bottom = 70.0
+
+[node name="TextureRect" type="TextureRect" parent="Background/FrameVBox/MasterInv/GridContainer/Slot37"]
+margin_right = 32.0
+margin_bottom = 32.0
+rect_min_size = Vector2( 32, 32 )
+texture = ExtResource( 4 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Slot38" parent="Background/FrameVBox/MasterInv/GridContainer" instance=ExtResource( 3 )]
+margin_left = 532.0
+margin_top = 38.0
+margin_right = 564.0
+margin_bottom = 70.0
+
+[node name="TextureRect" type="TextureRect" parent="Background/FrameVBox/MasterInv/GridContainer/Slot38"]
+margin_right = 32.0
+margin_bottom = 32.0
+rect_min_size = Vector2( 32, 32 )
+texture = ExtResource( 4 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Slot39" parent="Background/FrameVBox/MasterInv/GridContainer" instance=ExtResource( 3 )]
+margin_left = 570.0
+margin_top = 38.0
+margin_right = 602.0
+margin_bottom = 70.0
+
+[node name="Slot40" parent="Background/FrameVBox/MasterInv/GridContainer" instance=ExtResource( 3 )]
+margin_left = 608.0
+margin_top = 38.0
+margin_right = 640.0
+margin_bottom = 70.0
+
+[node name="TextureRect" type="TextureRect" parent="Background/FrameVBox/MasterInv/GridContainer/Slot40"]
+margin_right = 32.0
+margin_bottom = 32.0
+rect_min_size = Vector2( 32, 32 )
+texture = ExtResource( 4 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Slot41" parent="Background/FrameVBox/MasterInv/GridContainer" instance=ExtResource( 3 )]
+margin_left = 646.0
+margin_top = 38.0
+margin_right = 678.0
+margin_bottom = 70.0
+
+[node name="Slot42" parent="Background/FrameVBox/MasterInv/GridContainer" instance=ExtResource( 3 )]
+margin_left = 684.0
+margin_top = 38.0
+margin_right = 716.0
+margin_bottom = 70.0
+
+[node name="Slot43" parent="Background/FrameVBox/MasterInv/GridContainer" instance=ExtResource( 3 )]
+margin_left = 722.0
+margin_top = 38.0
+margin_right = 754.0
+margin_bottom = 70.0
+
+[node name="TextureRect" type="TextureRect" parent="Background/FrameVBox/MasterInv/GridContainer/Slot43"]
+margin_right = 32.0
+margin_bottom = 32.0
+rect_min_size = Vector2( 32, 32 )
+texture = ExtResource( 4 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Slot44" parent="Background/FrameVBox/MasterInv/GridContainer" instance=ExtResource( 3 )]
+margin_left = 760.0
+margin_top = 38.0
+margin_right = 792.0
+margin_bottom = 70.0
+
+[node name="TextureRect" type="TextureRect" parent="Background/FrameVBox/MasterInv/GridContainer/Slot44"]
+margin_right = 32.0
+margin_bottom = 32.0
+rect_min_size = Vector2( 32, 32 )
+texture = ExtResource( 4 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Slot45" parent="Background/FrameVBox/MasterInv/GridContainer" instance=ExtResource( 3 )]
+margin_left = 798.0
+margin_top = 38.0
+margin_right = 830.0
+margin_bottom = 70.0
+
+[node name="Slot46" parent="Background/FrameVBox/MasterInv/GridContainer" instance=ExtResource( 3 )]
+margin_left = 836.0
+margin_top = 38.0
+margin_right = 868.0
+margin_bottom = 70.0
+
+[node name="TextureRect" type="TextureRect" parent="Background/FrameVBox/MasterInv/GridContainer/Slot46"]
+margin_right = 32.0
+margin_bottom = 32.0
+rect_min_size = Vector2( 32, 32 )
+texture = ExtResource( 4 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Slot47" parent="Background/FrameVBox/MasterInv/GridContainer" instance=ExtResource( 3 )]
+margin_top = 76.0
+margin_bottom = 108.0
+
+[node name="Slot48" parent="Background/FrameVBox/MasterInv/GridContainer" instance=ExtResource( 3 )]
+margin_left = 38.0
+margin_top = 76.0
+margin_right = 70.0
+margin_bottom = 108.0
+
+[node name="Slot49" parent="Background/FrameVBox/MasterInv/GridContainer" instance=ExtResource( 3 )]
+margin_left = 76.0
+margin_top = 76.0
+margin_right = 108.0
+margin_bottom = 108.0
+
+[node name="TextureRect" type="TextureRect" parent="Background/FrameVBox/MasterInv/GridContainer/Slot49"]
+margin_right = 32.0
+margin_bottom = 32.0
+rect_min_size = Vector2( 32, 32 )
+texture = ExtResource( 4 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Slot50" parent="Background/FrameVBox/MasterInv/GridContainer" instance=ExtResource( 3 )]
+margin_left = 114.0
+margin_top = 76.0
+margin_right = 146.0
+margin_bottom = 108.0
+
+[node name="TextureRect" type="TextureRect" parent="Background/FrameVBox/MasterInv/GridContainer/Slot50"]
+margin_right = 32.0
+margin_bottom = 32.0
+rect_min_size = Vector2( 32, 32 )
+texture = ExtResource( 4 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Slot51" parent="Background/FrameVBox/MasterInv/GridContainer" instance=ExtResource( 3 )]
+margin_left = 152.0
+margin_top = 76.0
+margin_right = 184.0
+margin_bottom = 108.0
+
+[node name="Slot52" parent="Background/FrameVBox/MasterInv/GridContainer" instance=ExtResource( 3 )]
+margin_left = 190.0
+margin_top = 76.0
+margin_right = 222.0
+margin_bottom = 108.0
+
+[node name="TextureRect" type="TextureRect" parent="Background/FrameVBox/MasterInv/GridContainer/Slot52"]
+margin_right = 32.0
+margin_bottom = 32.0
+rect_min_size = Vector2( 32, 32 )
+texture = ExtResource( 4 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Slot53" parent="Background/FrameVBox/MasterInv/GridContainer" instance=ExtResource( 3 )]
+margin_left = 228.0
+margin_top = 76.0
+margin_right = 260.0
+margin_bottom = 108.0
+
+[node name="Slot54" parent="Background/FrameVBox/MasterInv/GridContainer" instance=ExtResource( 3 )]
+margin_left = 266.0
+margin_top = 76.0
+margin_right = 298.0
+margin_bottom = 108.0
+
+[node name="Slot55" parent="Background/FrameVBox/MasterInv/GridContainer" instance=ExtResource( 3 )]
+margin_left = 304.0
+margin_top = 76.0
+margin_right = 336.0
+margin_bottom = 108.0
+
+[node name="TextureRect" type="TextureRect" parent="Background/FrameVBox/MasterInv/GridContainer/Slot55"]
+margin_right = 32.0
+margin_bottom = 32.0
+rect_min_size = Vector2( 32, 32 )
+texture = ExtResource( 4 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Slot56" parent="Background/FrameVBox/MasterInv/GridContainer" instance=ExtResource( 3 )]
+margin_left = 342.0
+margin_top = 76.0
+margin_right = 374.0
+margin_bottom = 108.0
+
+[node name="TextureRect" type="TextureRect" parent="Background/FrameVBox/MasterInv/GridContainer/Slot56"]
+margin_right = 32.0
+margin_bottom = 32.0
+rect_min_size = Vector2( 32, 32 )
+texture = ExtResource( 4 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Slot57" parent="Background/FrameVBox/MasterInv/GridContainer" instance=ExtResource( 3 )]
+margin_left = 380.0
+margin_top = 76.0
+margin_right = 412.0
+margin_bottom = 108.0
+
+[node name="Slot58" parent="Background/FrameVBox/MasterInv/GridContainer" instance=ExtResource( 3 )]
+margin_left = 418.0
+margin_top = 76.0
+margin_right = 450.0
+margin_bottom = 108.0
+
+[node name="TextureRect" type="TextureRect" parent="Background/FrameVBox/MasterInv/GridContainer/Slot58"]
+margin_right = 32.0
+margin_bottom = 32.0
+rect_min_size = Vector2( 32, 32 )
+texture = ExtResource( 4 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Slot59" parent="Background/FrameVBox/MasterInv/GridContainer" instance=ExtResource( 3 )]
+margin_left = 456.0
+margin_top = 76.0
+margin_right = 488.0
+margin_bottom = 108.0
+
+[node name="Slot60" parent="Background/FrameVBox/MasterInv/GridContainer" instance=ExtResource( 3 )]
+margin_left = 494.0
+margin_top = 76.0
+margin_right = 526.0
+margin_bottom = 108.0
+
+[node name="Slot61" parent="Background/FrameVBox/MasterInv/GridContainer" instance=ExtResource( 3 )]
+margin_left = 532.0
+margin_top = 76.0
+margin_right = 564.0
+margin_bottom = 108.0
+
+[node name="TextureRect" type="TextureRect" parent="Background/FrameVBox/MasterInv/GridContainer/Slot61"]
+margin_right = 32.0
+margin_bottom = 32.0
+rect_min_size = Vector2( 32, 32 )
+texture = ExtResource( 4 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Slot62" parent="Background/FrameVBox/MasterInv/GridContainer" instance=ExtResource( 3 )]
+margin_left = 570.0
+margin_top = 76.0
+margin_right = 602.0
+margin_bottom = 108.0
+
+[node name="TextureRect" type="TextureRect" parent="Background/FrameVBox/MasterInv/GridContainer/Slot62"]
+margin_right = 32.0
+margin_bottom = 32.0
+rect_min_size = Vector2( 32, 32 )
+texture = ExtResource( 4 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Slot63" parent="Background/FrameVBox/MasterInv/GridContainer" instance=ExtResource( 3 )]
+margin_left = 608.0
+margin_top = 76.0
+margin_right = 640.0
+margin_bottom = 108.0
+
+[node name="Slot64" parent="Background/FrameVBox/MasterInv/GridContainer" instance=ExtResource( 3 )]
+margin_left = 646.0
+margin_top = 76.0
+margin_right = 678.0
+margin_bottom = 108.0
+
+[node name="TextureRect" type="TextureRect" parent="Background/FrameVBox/MasterInv/GridContainer/Slot64"]
+margin_right = 32.0
+margin_bottom = 32.0
+rect_min_size = Vector2( 32, 32 )
+texture = ExtResource( 4 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Slot65" parent="Background/FrameVBox/MasterInv/GridContainer" instance=ExtResource( 3 )]
+margin_left = 684.0
+margin_top = 76.0
+margin_right = 716.0
+margin_bottom = 108.0
+
+[node name="Slot66" parent="Background/FrameVBox/MasterInv/GridContainer" instance=ExtResource( 3 )]
+margin_left = 722.0
+margin_top = 76.0
+margin_right = 754.0
+margin_bottom = 108.0
+
+[node name="Slot67" parent="Background/FrameVBox/MasterInv/GridContainer" instance=ExtResource( 3 )]
+margin_left = 760.0
+margin_top = 76.0
+margin_right = 792.0
+margin_bottom = 108.0
+
+[node name="TextureRect" type="TextureRect" parent="Background/FrameVBox/MasterInv/GridContainer/Slot67"]
+margin_right = 32.0
+margin_bottom = 32.0
+rect_min_size = Vector2( 32, 32 )
+texture = ExtResource( 4 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Slot68" parent="Background/FrameVBox/MasterInv/GridContainer" instance=ExtResource( 3 )]
+margin_left = 798.0
+margin_top = 76.0
+margin_right = 830.0
+margin_bottom = 108.0
+
+[node name="TextureRect" type="TextureRect" parent="Background/FrameVBox/MasterInv/GridContainer/Slot68"]
+margin_right = 32.0
+margin_bottom = 32.0
+rect_min_size = Vector2( 32, 32 )
+texture = ExtResource( 4 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Slot69" parent="Background/FrameVBox/MasterInv/GridContainer" instance=ExtResource( 3 )]
+margin_left = 836.0
+margin_top = 76.0
+margin_right = 868.0
+margin_bottom = 108.0
+
+[node name="Slot70" parent="Background/FrameVBox/MasterInv/GridContainer" instance=ExtResource( 3 )]
+margin_top = 114.0
+margin_bottom = 146.0
+
+[node name="TextureRect" type="TextureRect" parent="Background/FrameVBox/MasterInv/GridContainer/Slot70"]
+margin_right = 32.0
+margin_bottom = 32.0
+rect_min_size = Vector2( 32, 32 )
+texture = ExtResource( 4 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Slot71" parent="Background/FrameVBox/MasterInv/GridContainer" instance=ExtResource( 3 )]
+margin_left = 38.0
+margin_top = 114.0
+margin_right = 70.0
+margin_bottom = 146.0
+
+[node name="Slot72" parent="Background/FrameVBox/MasterInv/GridContainer" instance=ExtResource( 3 )]
+margin_left = 76.0
+margin_top = 114.0
+margin_right = 108.0
+margin_bottom = 146.0
+
+[node name="Slot73" parent="Background/FrameVBox/MasterInv/GridContainer" instance=ExtResource( 3 )]
+margin_left = 114.0
+margin_top = 114.0
+margin_right = 146.0
+margin_bottom = 146.0
+
+[node name="TextureRect" type="TextureRect" parent="Background/FrameVBox/MasterInv/GridContainer/Slot73"]
+margin_right = 32.0
+margin_bottom = 32.0
+rect_min_size = Vector2( 32, 32 )
+texture = ExtResource( 4 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Slot74" parent="Background/FrameVBox/MasterInv/GridContainer" instance=ExtResource( 3 )]
+margin_left = 152.0
+margin_top = 114.0
+margin_right = 184.0
+margin_bottom = 146.0
+
+[node name="TextureRect" type="TextureRect" parent="Background/FrameVBox/MasterInv/GridContainer/Slot74"]
+margin_right = 32.0
+margin_bottom = 32.0
+rect_min_size = Vector2( 32, 32 )
+texture = ExtResource( 4 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Slot75" parent="Background/FrameVBox/MasterInv/GridContainer" instance=ExtResource( 3 )]
+margin_left = 190.0
+margin_top = 114.0
+margin_right = 222.0
+margin_bottom = 146.0
+
+[node name="Slot76" parent="Background/FrameVBox/MasterInv/GridContainer" instance=ExtResource( 3 )]
+margin_left = 228.0
+margin_top = 114.0
+margin_right = 260.0
+margin_bottom = 146.0
+
+[node name="TextureRect" type="TextureRect" parent="Background/FrameVBox/MasterInv/GridContainer/Slot76"]
+margin_right = 32.0
+margin_bottom = 32.0
+rect_min_size = Vector2( 32, 32 )
+texture = ExtResource( 4 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Slot77" parent="Background/FrameVBox/MasterInv/GridContainer" instance=ExtResource( 3 )]
+margin_left = 266.0
+margin_top = 114.0
+margin_right = 298.0
+margin_bottom = 146.0
+
+[node name="Slot78" parent="Background/FrameVBox/MasterInv/GridContainer" instance=ExtResource( 3 )]
+margin_left = 304.0
+margin_top = 114.0
+margin_right = 336.0
+margin_bottom = 146.0
+
+[node name="Slot79" parent="Background/FrameVBox/MasterInv/GridContainer" instance=ExtResource( 3 )]
+margin_left = 342.0
+margin_top = 114.0
+margin_right = 374.0
+margin_bottom = 146.0
+
+[node name="TextureRect" type="TextureRect" parent="Background/FrameVBox/MasterInv/GridContainer/Slot79"]
+margin_right = 32.0
+margin_bottom = 32.0
+rect_min_size = Vector2( 32, 32 )
+texture = ExtResource( 4 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Slot80" parent="Background/FrameVBox/MasterInv/GridContainer" instance=ExtResource( 3 )]
+margin_left = 380.0
+margin_top = 114.0
+margin_right = 412.0
+margin_bottom = 146.0
+
+[node name="TextureRect" type="TextureRect" parent="Background/FrameVBox/MasterInv/GridContainer/Slot80"]
+margin_right = 32.0
+margin_bottom = 32.0
+rect_min_size = Vector2( 32, 32 )
+texture = ExtResource( 4 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Slot81" parent="Background/FrameVBox/MasterInv/GridContainer" instance=ExtResource( 3 )]
+margin_left = 418.0
+margin_top = 114.0
+margin_right = 450.0
+margin_bottom = 146.0
+
+[node name="Slot82" parent="Background/FrameVBox/MasterInv/GridContainer" instance=ExtResource( 3 )]
+margin_left = 456.0
+margin_top = 114.0
+margin_right = 488.0
+margin_bottom = 146.0
+
+[node name="TextureRect" type="TextureRect" parent="Background/FrameVBox/MasterInv/GridContainer/Slot82"]
+margin_right = 32.0
+margin_bottom = 32.0
+rect_min_size = Vector2( 32, 32 )
+texture = ExtResource( 4 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Slot83" parent="Background/FrameVBox/MasterInv/GridContainer" instance=ExtResource( 3 )]
+margin_left = 494.0
+margin_top = 114.0
+margin_right = 526.0
+margin_bottom = 146.0
+
+[node name="Slot84" parent="Background/FrameVBox/MasterInv/GridContainer" instance=ExtResource( 3 )]
+margin_left = 532.0
+margin_top = 114.0
+margin_right = 564.0
+margin_bottom = 146.0
+
+[node name="Slot85" parent="Background/FrameVBox/MasterInv/GridContainer" instance=ExtResource( 3 )]
+margin_left = 570.0
+margin_top = 114.0
+margin_right = 602.0
+margin_bottom = 146.0
+
+[node name="TextureRect" type="TextureRect" parent="Background/FrameVBox/MasterInv/GridContainer/Slot85"]
+margin_right = 32.0
+margin_bottom = 32.0
+rect_min_size = Vector2( 32, 32 )
+texture = ExtResource( 4 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Slot86" parent="Background/FrameVBox/MasterInv/GridContainer" instance=ExtResource( 3 )]
+margin_left = 608.0
+margin_top = 114.0
+margin_right = 640.0
+margin_bottom = 146.0
+
+[node name="TextureRect" type="TextureRect" parent="Background/FrameVBox/MasterInv/GridContainer/Slot86"]
+margin_right = 32.0
+margin_bottom = 32.0
+rect_min_size = Vector2( 32, 32 )
+texture = ExtResource( 4 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Slot87" parent="Background/FrameVBox/MasterInv/GridContainer" instance=ExtResource( 3 )]
+margin_left = 646.0
+margin_top = 114.0
+margin_right = 678.0
+margin_bottom = 146.0
+
+[node name="Slot88" parent="Background/FrameVBox/MasterInv/GridContainer" instance=ExtResource( 3 )]
+margin_left = 684.0
+margin_top = 114.0
+margin_right = 716.0
+margin_bottom = 146.0
+
+[node name="TextureRect" type="TextureRect" parent="Background/FrameVBox/MasterInv/GridContainer/Slot88"]
+margin_right = 32.0
+margin_bottom = 32.0
+rect_min_size = Vector2( 32, 32 )
+texture = ExtResource( 4 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Slot89" parent="Background/FrameVBox/MasterInv/GridContainer" instance=ExtResource( 3 )]
+margin_left = 722.0
+margin_top = 114.0
+margin_right = 754.0
+margin_bottom = 146.0
+
+[node name="Slot90" parent="Background/FrameVBox/MasterInv/GridContainer" instance=ExtResource( 3 )]
+margin_left = 760.0
+margin_top = 114.0
+margin_right = 792.0
+margin_bottom = 146.0
+
+[node name="Slot91" parent="Background/FrameVBox/MasterInv/GridContainer" instance=ExtResource( 3 )]
+margin_left = 798.0
+margin_top = 114.0
+margin_right = 830.0
+margin_bottom = 146.0
+
+[node name="TextureRect" type="TextureRect" parent="Background/FrameVBox/MasterInv/GridContainer/Slot91"]
+margin_right = 32.0
+margin_bottom = 32.0
+rect_min_size = Vector2( 32, 32 )
+texture = ExtResource( 4 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Slot92" parent="Background/FrameVBox/MasterInv/GridContainer" instance=ExtResource( 3 )]
+margin_left = 836.0
+margin_top = 114.0
+margin_right = 868.0
+margin_bottom = 146.0
+
+[node name="TextureRect" type="TextureRect" parent="Background/FrameVBox/MasterInv/GridContainer/Slot92"]
+margin_right = 32.0
+margin_bottom = 32.0
+rect_min_size = Vector2( 32, 32 )
+texture = ExtResource( 4 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Slot93" parent="Background/FrameVBox/MasterInv/GridContainer" instance=ExtResource( 3 )]
+margin_top = 152.0
+margin_bottom = 184.0
+
+[node name="Slot94" parent="Background/FrameVBox/MasterInv/GridContainer" instance=ExtResource( 3 )]
+margin_left = 38.0
+margin_top = 152.0
+margin_right = 70.0
+margin_bottom = 184.0
+
+[node name="TextureRect" type="TextureRect" parent="Background/FrameVBox/MasterInv/GridContainer/Slot94"]
+margin_right = 32.0
+margin_bottom = 32.0
+rect_min_size = Vector2( 32, 32 )
+texture = ExtResource( 4 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Slot95" parent="Background/FrameVBox/MasterInv/GridContainer" instance=ExtResource( 3 )]
+margin_left = 76.0
+margin_top = 152.0
+margin_right = 108.0
+margin_bottom = 184.0
+
+[node name="Slot96" parent="Background/FrameVBox/MasterInv/GridContainer" instance=ExtResource( 3 )]
+margin_left = 114.0
+margin_top = 152.0
+margin_right = 146.0
+margin_bottom = 184.0
+
+[node name="Slot97" parent="Background/FrameVBox/MasterInv/GridContainer" instance=ExtResource( 3 )]
+margin_left = 152.0
+margin_top = 152.0
+margin_right = 184.0
+margin_bottom = 184.0
+
+[node name="TextureRect" type="TextureRect" parent="Background/FrameVBox/MasterInv/GridContainer/Slot97"]
+margin_right = 32.0
+margin_bottom = 32.0
+rect_min_size = Vector2( 32, 32 )
+texture = ExtResource( 4 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Slot98" parent="Background/FrameVBox/MasterInv/GridContainer" instance=ExtResource( 3 )]
+margin_left = 190.0
+margin_top = 152.0
+margin_right = 222.0
+margin_bottom = 184.0
+
+[node name="TextureRect" type="TextureRect" parent="Background/FrameVBox/MasterInv/GridContainer/Slot98"]
+margin_right = 32.0
+margin_bottom = 32.0
+rect_min_size = Vector2( 32, 32 )
+texture = ExtResource( 4 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Slot99" parent="Background/FrameVBox/MasterInv/GridContainer" instance=ExtResource( 3 )]
+margin_left = 228.0
+margin_top = 152.0
+margin_right = 260.0
+margin_bottom = 184.0
+
+[node name="Slot100" parent="Background/FrameVBox/MasterInv/GridContainer" instance=ExtResource( 3 )]
+margin_left = 266.0
+margin_top = 152.0
+margin_right = 298.0
+margin_bottom = 184.0
+
+[node name="TextureRect" type="TextureRect" parent="Background/FrameVBox/MasterInv/GridContainer/Slot100"]
+margin_right = 32.0
+margin_bottom = 32.0
+rect_min_size = Vector2( 32, 32 )
+texture = ExtResource( 4 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Slot101" parent="Background/FrameVBox/MasterInv/GridContainer" instance=ExtResource( 3 )]
+margin_left = 304.0
+margin_top = 152.0
+margin_right = 336.0
+margin_bottom = 184.0
+
+[node name="Slot102" parent="Background/FrameVBox/MasterInv/GridContainer" instance=ExtResource( 3 )]
+margin_left = 342.0
+margin_top = 152.0
+margin_right = 374.0
+margin_bottom = 184.0
+
+[node name="Slot103" parent="Background/FrameVBox/MasterInv/GridContainer" instance=ExtResource( 3 )]
+margin_left = 380.0
+margin_top = 152.0
+margin_right = 412.0
+margin_bottom = 184.0
+
+[node name="TextureRect" type="TextureRect" parent="Background/FrameVBox/MasterInv/GridContainer/Slot103"]
+margin_right = 32.0
+margin_bottom = 32.0
+rect_min_size = Vector2( 32, 32 )
+texture = ExtResource( 4 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Slot104" parent="Background/FrameVBox/MasterInv/GridContainer" instance=ExtResource( 3 )]
+margin_left = 418.0
+margin_top = 152.0
+margin_right = 450.0
+margin_bottom = 184.0
+
+[node name="TextureRect" type="TextureRect" parent="Background/FrameVBox/MasterInv/GridContainer/Slot104"]
+margin_right = 32.0
+margin_bottom = 32.0
+rect_min_size = Vector2( 32, 32 )
+texture = ExtResource( 4 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Slot105" parent="Background/FrameVBox/MasterInv/GridContainer" instance=ExtResource( 3 )]
+margin_left = 456.0
+margin_top = 152.0
+margin_right = 488.0
+margin_bottom = 184.0
+
+[node name="Slot106" parent="Background/FrameVBox/MasterInv/GridContainer" instance=ExtResource( 3 )]
+margin_left = 494.0
+margin_top = 152.0
+margin_right = 526.0
+margin_bottom = 184.0
+
+[node name="TextureRect" type="TextureRect" parent="Background/FrameVBox/MasterInv/GridContainer/Slot106"]
+margin_right = 32.0
+margin_bottom = 32.0
+rect_min_size = Vector2( 32, 32 )
+texture = ExtResource( 4 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Slot107" parent="Background/FrameVBox/MasterInv/GridContainer" instance=ExtResource( 3 )]
+margin_left = 532.0
+margin_top = 152.0
+margin_right = 564.0
+margin_bottom = 184.0
+
+[node name="Slot108" parent="Background/FrameVBox/MasterInv/GridContainer" instance=ExtResource( 3 )]
+margin_left = 570.0
+margin_top = 152.0
+margin_right = 602.0
+margin_bottom = 184.0
+
+[node name="Slot109" parent="Background/FrameVBox/MasterInv/GridContainer" instance=ExtResource( 3 )]
+margin_left = 608.0
+margin_top = 152.0
+margin_right = 640.0
+margin_bottom = 184.0
+
+[node name="TextureRect" type="TextureRect" parent="Background/FrameVBox/MasterInv/GridContainer/Slot109"]
+margin_right = 32.0
+margin_bottom = 32.0
+rect_min_size = Vector2( 32, 32 )
+texture = ExtResource( 4 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Slot110" parent="Background/FrameVBox/MasterInv/GridContainer" instance=ExtResource( 3 )]
+margin_left = 646.0
+margin_top = 152.0
+margin_right = 678.0
+margin_bottom = 184.0
+
+[node name="TextureRect" type="TextureRect" parent="Background/FrameVBox/MasterInv/GridContainer/Slot110"]
+margin_right = 32.0
+margin_bottom = 32.0
+rect_min_size = Vector2( 32, 32 )
+texture = ExtResource( 4 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Slot111" parent="Background/FrameVBox/MasterInv/GridContainer" instance=ExtResource( 3 )]
+margin_left = 684.0
+margin_top = 152.0
+margin_right = 716.0
+margin_bottom = 184.0
+
+[node name="Slot112" parent="Background/FrameVBox/MasterInv/GridContainer" instance=ExtResource( 3 )]
+margin_left = 722.0
+margin_top = 152.0
+margin_right = 754.0
+margin_bottom = 184.0
+
+[node name="TextureRect" type="TextureRect" parent="Background/FrameVBox/MasterInv/GridContainer/Slot112"]
+margin_right = 32.0
+margin_bottom = 32.0
+rect_min_size = Vector2( 32, 32 )
+texture = ExtResource( 4 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Slot113" parent="Background/FrameVBox/MasterInv/GridContainer" instance=ExtResource( 3 )]
+margin_left = 760.0
+margin_top = 152.0
+margin_right = 792.0
+margin_bottom = 184.0
+
+[node name="Slot114" parent="Background/FrameVBox/MasterInv/GridContainer" instance=ExtResource( 3 )]
+margin_left = 798.0
+margin_top = 152.0
+margin_right = 830.0
+margin_bottom = 184.0
+
+[node name="Slot115" parent="Background/FrameVBox/MasterInv/GridContainer" instance=ExtResource( 3 )]
+margin_left = 836.0
+margin_top = 152.0
+margin_right = 868.0
+margin_bottom = 184.0
+
+[node name="TextureRect" type="TextureRect" parent="Background/FrameVBox/MasterInv/GridContainer/Slot115"]
+margin_right = 32.0
+margin_bottom = 32.0
+rect_min_size = Vector2( 32, 32 )
+texture = ExtResource( 4 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Slot116" parent="Background/FrameVBox/MasterInv/GridContainer" instance=ExtResource( 3 )]
+margin_top = 190.0
+margin_bottom = 222.0
+
+[node name="TextureRect" type="TextureRect" parent="Background/FrameVBox/MasterInv/GridContainer/Slot116"]
+margin_right = 32.0
+margin_bottom = 32.0
+rect_min_size = Vector2( 32, 32 )
+texture = ExtResource( 4 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Slot117" parent="Background/FrameVBox/MasterInv/GridContainer" instance=ExtResource( 3 )]
+margin_left = 38.0
+margin_top = 190.0
+margin_right = 70.0
+margin_bottom = 222.0
+
+[node name="Slot118" parent="Background/FrameVBox/MasterInv/GridContainer" instance=ExtResource( 3 )]
+margin_left = 76.0
+margin_top = 190.0
+margin_right = 108.0
+margin_bottom = 222.0
+
+[node name="TextureRect" type="TextureRect" parent="Background/FrameVBox/MasterInv/GridContainer/Slot118"]
+margin_right = 32.0
+margin_bottom = 32.0
+rect_min_size = Vector2( 32, 32 )
+texture = ExtResource( 4 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Slot119" parent="Background/FrameVBox/MasterInv/GridContainer" instance=ExtResource( 3 )]
+margin_left = 114.0
+margin_top = 190.0
+margin_right = 146.0
+margin_bottom = 222.0
+
+[node name="Slot120" parent="Background/FrameVBox/MasterInv/GridContainer" instance=ExtResource( 3 )]
+margin_left = 152.0
+margin_top = 190.0
+margin_right = 184.0
+margin_bottom = 222.0
+
+[node name="Slot121" parent="Background/FrameVBox/MasterInv/GridContainer" instance=ExtResource( 3 )]
+margin_left = 190.0
+margin_top = 190.0
+margin_right = 222.0
+margin_bottom = 222.0
+
+[node name="TextureRect" type="TextureRect" parent="Background/FrameVBox/MasterInv/GridContainer/Slot121"]
+margin_right = 32.0
+margin_bottom = 32.0
+rect_min_size = Vector2( 32, 32 )
+texture = ExtResource( 4 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Slot122" parent="Background/FrameVBox/MasterInv/GridContainer" instance=ExtResource( 3 )]
+margin_left = 228.0
+margin_top = 190.0
+margin_right = 260.0
+margin_bottom = 222.0
+
+[node name="TextureRect" type="TextureRect" parent="Background/FrameVBox/MasterInv/GridContainer/Slot122"]
+margin_right = 32.0
+margin_bottom = 32.0
+rect_min_size = Vector2( 32, 32 )
+texture = ExtResource( 4 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Slot123" parent="Background/FrameVBox/MasterInv/GridContainer" instance=ExtResource( 3 )]
+margin_left = 266.0
+margin_top = 190.0
+margin_right = 298.0
+margin_bottom = 222.0
+
+[node name="Slot124" parent="Background/FrameVBox/MasterInv/GridContainer" instance=ExtResource( 3 )]
+margin_left = 304.0
+margin_top = 190.0
+margin_right = 336.0
+margin_bottom = 222.0
+
+[node name="TextureRect" type="TextureRect" parent="Background/FrameVBox/MasterInv/GridContainer/Slot124"]
+margin_right = 32.0
+margin_bottom = 32.0
+rect_min_size = Vector2( 32, 32 )
+texture = ExtResource( 4 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Slot125" parent="Background/FrameVBox/MasterInv/GridContainer" instance=ExtResource( 3 )]
+margin_left = 342.0
+margin_top = 190.0
+margin_right = 374.0
+margin_bottom = 222.0
+
+[node name="Slot126" parent="Background/FrameVBox/MasterInv/GridContainer" instance=ExtResource( 3 )]
+margin_left = 380.0
+margin_top = 190.0
+margin_right = 412.0
+margin_bottom = 222.0
+
+[node name="Slot127" parent="Background/FrameVBox/MasterInv/GridContainer" instance=ExtResource( 3 )]
+margin_left = 418.0
+margin_top = 190.0
+margin_right = 450.0
+margin_bottom = 222.0
+
+[node name="TextureRect" type="TextureRect" parent="Background/FrameVBox/MasterInv/GridContainer/Slot127"]
+margin_right = 32.0
+margin_bottom = 32.0
+rect_min_size = Vector2( 32, 32 )
+texture = ExtResource( 4 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Slot128" parent="Background/FrameVBox/MasterInv/GridContainer" instance=ExtResource( 3 )]
+margin_left = 456.0
+margin_top = 190.0
+margin_right = 488.0
+margin_bottom = 222.0
+
+[node name="TextureRect" type="TextureRect" parent="Background/FrameVBox/MasterInv/GridContainer/Slot128"]
+margin_right = 32.0
+margin_bottom = 32.0
+rect_min_size = Vector2( 32, 32 )
+texture = ExtResource( 4 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Slot129" parent="Background/FrameVBox/MasterInv/GridContainer" instance=ExtResource( 3 )]
+margin_left = 494.0
+margin_top = 190.0
+margin_right = 526.0
+margin_bottom = 222.0
+
+[node name="Slot130" parent="Background/FrameVBox/MasterInv/GridContainer" instance=ExtResource( 3 )]
+margin_left = 532.0
+margin_top = 190.0
+margin_right = 564.0
+margin_bottom = 222.0
+
+[node name="TextureRect" type="TextureRect" parent="Background/FrameVBox/MasterInv/GridContainer/Slot130"]
+margin_right = 32.0
+margin_bottom = 32.0
+rect_min_size = Vector2( 32, 32 )
+texture = ExtResource( 4 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Slot131" parent="Background/FrameVBox/MasterInv/GridContainer" instance=ExtResource( 3 )]
+margin_left = 570.0
+margin_top = 190.0
+margin_right = 602.0
+margin_bottom = 222.0
+
+[node name="Slot132" parent="Background/FrameVBox/MasterInv/GridContainer" instance=ExtResource( 3 )]
+margin_left = 608.0
+margin_top = 190.0
+margin_right = 640.0
+margin_bottom = 222.0
+
+[node name="Slot133" parent="Background/FrameVBox/MasterInv/GridContainer" instance=ExtResource( 3 )]
+margin_left = 646.0
+margin_top = 190.0
+margin_right = 678.0
+margin_bottom = 222.0
+
+[node name="Slot134" parent="Background/FrameVBox/MasterInv/GridContainer" instance=ExtResource( 3 )]
+margin_left = 684.0
+margin_top = 190.0
+margin_right = 716.0
+margin_bottom = 222.0
+
+[node name="Slot135" parent="Background/FrameVBox/MasterInv/GridContainer" instance=ExtResource( 3 )]
+margin_left = 722.0
+margin_top = 190.0
+margin_right = 754.0
+margin_bottom = 222.0
+
+[node name="Slot136" parent="Background/FrameVBox/MasterInv/GridContainer" instance=ExtResource( 3 )]
+margin_left = 760.0
+margin_top = 190.0
+margin_right = 792.0
+margin_bottom = 222.0
+
+[node name="Slot137" parent="Background/FrameVBox/MasterInv/GridContainer" instance=ExtResource( 3 )]
+margin_left = 798.0
+margin_top = 190.0
+margin_right = 830.0
+margin_bottom = 222.0
+
+[node name="Slot138" parent="Background/FrameVBox/MasterInv/GridContainer" instance=ExtResource( 3 )]
+margin_left = 836.0
+margin_top = 190.0
+margin_right = 868.0
+margin_bottom = 222.0
+
+[node name="Slot139" parent="Background/FrameVBox/MasterInv/GridContainer" instance=ExtResource( 3 )]
+margin_top = 228.0
+margin_bottom = 260.0
+
+[node name="Slot140" parent="Background/FrameVBox/MasterInv/GridContainer" instance=ExtResource( 3 )]
+margin_left = 38.0
+margin_top = 228.0
+margin_right = 70.0
+margin_bottom = 260.0
+
+[node name="Slot141" parent="Background/FrameVBox/MasterInv/GridContainer" instance=ExtResource( 3 )]
+margin_left = 76.0
+margin_top = 228.0
+margin_right = 108.0
+margin_bottom = 260.0
+
+[node name="Slot142" parent="Background/FrameVBox/MasterInv/GridContainer" instance=ExtResource( 3 )]
+margin_left = 114.0
+margin_top = 228.0
+margin_right = 146.0
+margin_bottom = 260.0
+
+[node name="Slot143" parent="Background/FrameVBox/MasterInv/GridContainer" instance=ExtResource( 3 )]
+margin_left = 152.0
+margin_top = 228.0
+margin_right = 184.0
+margin_bottom = 260.0
+
+[node name="Slot144" parent="Background/FrameVBox/MasterInv/GridContainer" instance=ExtResource( 3 )]
+margin_left = 190.0
+margin_top = 228.0
+margin_right = 222.0
+margin_bottom = 260.0
+
+[node name="Slot145" parent="Background/FrameVBox/MasterInv/GridContainer" instance=ExtResource( 3 )]
+margin_left = 228.0
+margin_top = 228.0
+margin_right = 260.0
+margin_bottom = 260.0
+
+[node name="Slot146" parent="Background/FrameVBox/MasterInv/GridContainer" instance=ExtResource( 3 )]
+margin_left = 266.0
+margin_top = 228.0
+margin_right = 298.0
+margin_bottom = 260.0
+
+[node name="Slot147" parent="Background/FrameVBox/MasterInv/GridContainer" instance=ExtResource( 3 )]
+margin_left = 304.0
+margin_top = 228.0
+margin_right = 336.0
+margin_bottom = 260.0
+
+[node name="Slot148" parent="Background/FrameVBox/MasterInv/GridContainer" instance=ExtResource( 3 )]
+margin_left = 342.0
+margin_top = 228.0
+margin_right = 374.0
+margin_bottom = 260.0
+
+[node name="Slot149" parent="Background/FrameVBox/MasterInv/GridContainer" instance=ExtResource( 3 )]
+margin_left = 380.0
+margin_top = 228.0
+margin_right = 412.0
+margin_bottom = 260.0
+
+[node name="Slot150" parent="Background/FrameVBox/MasterInv/GridContainer" instance=ExtResource( 3 )]
+margin_left = 418.0
+margin_top = 228.0
+margin_right = 450.0
+margin_bottom = 260.0
+
+[node name="Slot151" parent="Background/FrameVBox/MasterInv/GridContainer" instance=ExtResource( 3 )]
+margin_left = 456.0
+margin_top = 228.0
+margin_right = 488.0
+margin_bottom = 260.0
+
+[node name="Slot152" parent="Background/FrameVBox/MasterInv/GridContainer" instance=ExtResource( 3 )]
+margin_left = 494.0
+margin_top = 228.0
+margin_right = 526.0
+margin_bottom = 260.0
+
+[node name="Slot153" parent="Background/FrameVBox/MasterInv/GridContainer" instance=ExtResource( 3 )]
+margin_left = 532.0
+margin_top = 228.0
+margin_right = 564.0
+margin_bottom = 260.0
+
+[node name="Slot154" parent="Background/FrameVBox/MasterInv/GridContainer" instance=ExtResource( 3 )]
+margin_left = 570.0
+margin_top = 228.0
+margin_right = 602.0
+margin_bottom = 260.0
+
+[node name="Slot155" parent="Background/FrameVBox/MasterInv/GridContainer" instance=ExtResource( 3 )]
+margin_left = 608.0
+margin_top = 228.0
+margin_right = 640.0
+margin_bottom = 260.0
+
+[node name="Slot156" parent="Background/FrameVBox/MasterInv/GridContainer" instance=ExtResource( 3 )]
+margin_left = 646.0
+margin_top = 228.0
+margin_right = 678.0
+margin_bottom = 260.0
+
+[node name="Slot157" parent="Background/FrameVBox/MasterInv/GridContainer" instance=ExtResource( 3 )]
+margin_left = 684.0
+margin_top = 228.0
+margin_right = 716.0
+margin_bottom = 260.0
+
+[node name="Slot158" parent="Background/FrameVBox/MasterInv/GridContainer" instance=ExtResource( 3 )]
+margin_left = 722.0
+margin_top = 228.0
+margin_right = 754.0
+margin_bottom = 260.0
+
+[node name="Slot159" parent="Background/FrameVBox/MasterInv/GridContainer" instance=ExtResource( 3 )]
+margin_left = 760.0
+margin_top = 228.0
+margin_right = 792.0
+margin_bottom = 260.0
+
+[node name="Slot160" parent="Background/FrameVBox/MasterInv/GridContainer" instance=ExtResource( 3 )]
+margin_left = 798.0
+margin_top = 228.0
+margin_right = 830.0
+margin_bottom = 260.0
+
+[node name="Slot161" parent="Background/FrameVBox/MasterInv/GridContainer" instance=ExtResource( 3 )]
+margin_left = 836.0
+margin_top = 228.0
+margin_right = 868.0
+margin_bottom = 260.0
+
 [connection signal="pressed" from="Background/FrameVBox/Top/ExitInventory" to="." method="_on_ExitInventory_pressed"]

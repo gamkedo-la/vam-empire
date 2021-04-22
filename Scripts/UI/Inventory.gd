@@ -1,8 +1,5 @@
 extends Control
 
-
-
-
 func _on_ExitInventory_pressed():
 	if self.visible:
 		self.visible = false
