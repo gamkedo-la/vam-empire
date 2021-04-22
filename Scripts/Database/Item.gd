@@ -1,4 +1,4 @@
-extends TextureRect
+extends Sprite
 
 var item_dict_name
 var index

@@ -3,10 +3,9 @@
 [ext_resource path="res://Scripts/Database/Item.gd" type="Script" id=1]
 [ext_resource path="res://Database/LootTrigger.tscn" type="PackedScene" id=2]
 
-[node name="Item" type="TextureRect"]
+[node name="Item" type="Sprite"]
 script = ExtResource( 1 )
-__meta__ = {
-"_edit_use_anchors_": false
-}
 
 [node name="LootTrigger" parent="." instance=ExtResource( 2 )]
+
+[editable path="LootTrigger"]
