@@ -19,10 +19,6 @@ config/name="V.A.M. Empire"
 run/main_scene="res://UI/Menu/StartMenu_Scene.tscn"
 config/icon="res://logo_only.png"
 
-[audio]
-
-output_latency.web=250
-
 [autoload]
 
 Global="*res://Scripts/Autoload/Global.gd"
@@ -152,6 +148,7 @@ ui_inventory={
 2d_physics/layer_2="player"
 2d_physics/layer_3="enemy_hitbox"
 2d_physics/layer_4="enemy_hurtbox"
+2d_physics/layer_5="loot"
 
 [physics]
 
