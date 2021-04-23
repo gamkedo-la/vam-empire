@@ -27,6 +27,7 @@ UserSettings="*res://Scripts/Autoload/UserSettings.gd"
 PlayerVars="*res://Scripts/Autoload/PlayerVars.gd"
 Effects="*res://Scripts/Autoload/Effects.gd"
 Music="*res://Music/Music.tscn"
+ItemSpawner="*res://Scripts/Autoload/ItemSpawner.gd"
 
 [display]
 

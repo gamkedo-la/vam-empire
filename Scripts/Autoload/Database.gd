@@ -11,6 +11,12 @@ enum ItemType {
 	CONSUMABLE,
 	WEAPON
 }
+enum AsteroidType {
+	POOR,
+	NORMAL,
+	RICH,
+	PRISTINE
+}
 var DATABASE = "res://Database/Database.json"
 
 var table
