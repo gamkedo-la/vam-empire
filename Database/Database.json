@@ -92,28 +92,28 @@
 					"value": "100"
 				}
 			],
-			"stackSize": 50
+			"stackSize": 4
 		},
 		{
 			"itemName": "Platinum",
 			"itemType": 0,
 			"itemIcon": "res://MiningMaterials/Textures/mat-platinum.png",
 			"itemUuid": "4fa1a793-846b-409a-820e-77c69ff3cb53",
-			"stackSize": 50
+			"stackSize": 4
 		},
 		{
 			"itemName": "Vanadinite",
 			"itemType": 0,
 			"itemIcon": "res://MiningMaterials/Textures/mat-vanadinite.png",
 			"itemUuid": "e9909275-97f2-4ce4-afc3-d22801a6bc24",
-			"stackSize": 100
+			"stackSize": 4
 		},
 		{
 			"itemName": "Silver",
 			"itemType": 0,
 			"itemIcon": "res://MiningMaterials/Textures/mat-silver.png",
 			"itemUuid": "4e2136e8-7e87-4635-9b91-36e68afb1c20",
-			"stackSize": 100
+			"stackSize": 20
 		}
 	]
 }

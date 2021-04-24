@@ -54,6 +54,8 @@ onready var mining_beam = preload("res://Bullets/Scenes/MiningLaserBeam.tscn")
 
 onready var char_sheet = $PlayerUICanvas/CharacterSheet
 
+onready var inventory = $PlayerUICanvas/Inventory
+
 onready var debug_select = $DebugDraw
 # End of Original Player.gd variables
 
@@ -248,3 +250,6 @@ func _target_change(val):
 		player_target = val
 	else:
 		player_target = null
+
+func get_ship_inventory():
+	return inventory

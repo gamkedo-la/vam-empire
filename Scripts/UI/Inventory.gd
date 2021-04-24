@@ -28,7 +28,7 @@ func insert_item(itemuuid):
 		# Does a slot with this item type already exist?
 		if master_slots[slot].current_item_uuid == item_data.itemUuid:			
 			if master_slots[slot].current_item_count < item_data.stackSize:
-				_increment_item(master_slots[slot], item_data)
+				_increment_item(master_slots[slot])
 				return
 		elif master_slots[slot].current_item_count <= 0:
 			_add_to_slot(master_slots[slot], item_data, newItem)
@@ -61,7 +61,7 @@ func _add_to_slot(slot, data, item):
 	slot.current_item_uuid = data.itemUuid
 	
 
-func _increment_item(slot, data):
+func _increment_item(slot):
 	slot.current_item_count += 1
 
 func _on_ExitInventory_pressed():
@@ -80,10 +80,8 @@ func _toggle_inventory():
 func _on_TestAdd_pressed():
 	var items = Database.table.Items
 	var rand_add = items[randi() % items.size()]
-	insert_item(rand_add.itemUuid)
-	
-
-
+	#insert_item(rand_add.itemUuid)
+	PlayerVars.pickup_item(rand_add.itemUuid)
 
 func _on_TestClear_pressed():
 	clear_inventory()

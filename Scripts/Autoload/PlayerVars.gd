@@ -73,7 +73,9 @@ func load_save():
 	# No save data, version didn't match, or corrupted save file all lead to making a new() config file
 	return false
 
-
+func pickup_item(uuid):
+	var inventory = player_node.get_ship_inventory()
+	inventory.insert_item(uuid)
 
 func old_load_save():
 	var file = File.new()
