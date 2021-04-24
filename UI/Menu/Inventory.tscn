@@ -122,6 +122,12 @@ margin_right = 125.0
 margin_bottom = 26.0
 text = "[+] Random Item"
 
+[node name="TestClear" type="Button" parent="Background/FrameVBox/Ship/DebugButtons"]
+margin_top = 32.0
+margin_right = 125.0
+margin_bottom = 58.0
+text = "Clear Inventory"
+
 [node name="MasterInv" type="HBoxContainer" parent="Background/FrameVBox"]
 margin_top = 202.0
 margin_right = 872.0
@@ -138,3 +144,4 @@ columns = 23
 
 [connection signal="pressed" from="Background/FrameVBox/Top/ExitInventory" to="." method="_on_ExitInventory_pressed"]
 [connection signal="pressed" from="Background/FrameVBox/Ship/DebugButtons/TestAdd" to="." method="_on_TestAdd_pressed"]
+[connection signal="pressed" from="Background/FrameVBox/Ship/DebugButtons/TestClear" to="." method="_on_TestClear_pressed"]

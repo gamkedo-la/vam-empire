@@ -16,6 +16,8 @@ func _process(_delta):
 
 func _free_asteroid():
 	emit_signal("removed", self)
+	if PlayerVars.get_target() == self:
+		PlayerVars.set_target(null)
 	queue_free()
 
 

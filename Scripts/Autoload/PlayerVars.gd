@@ -11,8 +11,7 @@ var player_node = null
 var player_defaults = {
 	"name": " ",
 	"cash": 10000,
-	"current_ship": "res://Ships/StarterShip.tscn"
-	
+	"current_ship": "res://Ships/StarterShip.tscn"	
 }
 
 var player = player_defaults

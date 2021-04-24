@@ -45,6 +45,14 @@ func initialize_slots():
 		newSlot.current_item_count = 0
 		newSlot.current_item_uuid = null
 
+func clear_inventory():
+	for slot in master_slots:
+		slot.remove_item()
+		slot.current_item = null
+		slot.current_item_uuid = null
+		slot.current_item_count = 0
+		
+
 func _add_to_slot(slot, data, item):
 	slot.add_child(item)
 	slot.current_item = item
@@ -69,3 +77,9 @@ func _on_TestAdd_pressed():
 	var items = Database.table.Items
 	var rand_add = items[randi() % items.size()]
 	insert_item(rand_add.itemUuid)
+	
+
+
+
+func _on_TestClear_pressed():
+	clear_inventory()

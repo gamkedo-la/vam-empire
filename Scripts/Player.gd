@@ -81,7 +81,7 @@ func _ready():
 
 	
 func _physics_process(delta):
-	var targ = player_target
+	var targ = PlayerVars.get_target()
 	if !player_target:
 		targ = get_global_mouse_position()
 		debug_select.visible = false
@@ -242,5 +242,9 @@ func fire_mining_lasers():
 func release_mining_lasers():
 	piloted_ship.release_mining_lasers()
 	
-func _target_change(val):	
-	player_target = val
+func _target_change(val):
+	print("_target_change: ", val)
+	if val:
+		player_target = val
+	else:
+		player_target = null

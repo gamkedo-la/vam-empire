@@ -42,7 +42,9 @@ func _impulse():
 
 func _free_asteroid():
 	emit_signal("removed", self)
-	queue_free()
+	if PlayerVars.get_target() == self:
+		PlayerVars.set_target(null)
+	#queue_free()
 
 
 func _on_HurtBox_area_entered(area):
@@ -54,7 +56,7 @@ func make_target(_viewport, event, _shape_idx):
 	if event is InputEventMouseButton and event.pressed and event.button_index == BUTTON_LEFT:
 #		var player = get_node("/root/World/Player")
 #		player.player_target = self
-		PlayerVars.player_node.player_target = self
+		PlayerVars.set_target(self)
 
 func register_target(targ):
 	target_orbit = targ
