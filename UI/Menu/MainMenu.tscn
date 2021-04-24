@@ -1985,6 +1985,7 @@ anims/Show = SubResource( 301 )
 autoplay = "Empire_Loop"
 anims/Empire = SubResource( 302 )
 anims/Empire_Loop = SubResource( 303 )
+
 [connection signal="can_exit" from="Transition" to="." method="_on_Transition_can_exit"]
 [connection signal="pressed" from="MenuCanvas/Viz/MainMenuVBox/InteractVB/NewHB/New" to="." method="_on_New_pressed"]
 [connection signal="pressed" from="MenuCanvas/Viz/MainMenuVBox/InteractVB/LoadHB2/Load" to="." method="_on_Load_pressed"]

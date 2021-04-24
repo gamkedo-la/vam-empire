@@ -1,6 +1,7 @@
-[gd_scene load_steps=2 format=2]
+[gd_scene load_steps=3 format=2]
 
 [ext_resource path="res://Scripts/UI/Inventory/InventoryItem.gd" type="Script" id=1]
+[ext_resource path="res://UI/Theme/darkred_theme.tres" type="Theme" id=2]
 
 [node name="InventoryItem" type="TextureButton"]
 anchor_right = 1.0
@@ -14,6 +15,7 @@ script = ExtResource( 1 )
 anchor_right = 1.0
 anchor_bottom = 1.0
 rect_min_size = Vector2( 16, 16 )
+theme = ExtResource( 2 )
 text = "0"
 align = 2
 valign = 2
