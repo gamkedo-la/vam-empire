@@ -11,8 +11,9 @@ var master_slots = []
 
 func _ready(): 	
 	initialize_slots()
-	
-
+func _process(_delta):
+	if Input.is_action_just_pressed("ui_inventory"):
+		_toggle_inventory()		
 
 func insert_item(itemuuid):
 	var item_data = Database.itemByUuid[itemuuid]
@@ -21,9 +22,9 @@ func insert_item(itemuuid):
 	if !item_data.has("stackSize"):
 		item_data.stackSize = 1
 	newItem.texture_normal = load(item_data.itemIcon)
-	print("master_slots: ", master_slots)
+	#print("master_slots: ", master_slots)
 	for slot in master_slots.size():
-		print("slot: ", slot)
+		#print("slot: ", slot)
 		# Does a slot with this item type already exist?
 		if master_slots[slot].current_item_uuid == item_data.itemUuid:			
 			if master_slots[slot].current_item_count < item_data.stackSize:
@@ -64,6 +65,9 @@ func _increment_item(slot, data):
 	slot.current_item_count += 1
 
 func _on_ExitInventory_pressed():
+	_toggle_inventory()
+	
+func _toggle_inventory():
 	if self.visible:
 		self.visible = false
 		Global.pause_game(false)

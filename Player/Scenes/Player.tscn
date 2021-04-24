@@ -1,4 +1,4 @@
-[gd_scene load_steps=8 format=2]
+[gd_scene load_steps=9 format=2]
 
 [ext_resource path="res://UI/HUD/Scenes/CharacterSheet.tscn" type="PackedScene" id=1]
 [ext_resource path="res://UI/HUD/Scenes/PlayerDebugMenu.tscn" type="PackedScene" id=2]
@@ -6,6 +6,7 @@
 [ext_resource path="res://Scripts/Player.gd" type="Script" id=4]
 [ext_resource path="res://Enemies/Textures/proto_enemy.png" type="Texture" id=5]
 [ext_resource path="res://Player/Scenes/HealingBot.tscn" type="PackedScene" id=6]
+[ext_resource path="res://UI/Menu/Inventory.tscn" type="PackedScene" id=7]
 
 [sub_resource type="CircleShape2D" id=1]
 radius = 16.5606
@@ -54,9 +55,12 @@ align = 1
 
 [node name="PlayerDebugMenu" parent="PlayerUICanvas" instance=ExtResource( 2 )]
 visible = false
+
+[node name="Inventory" parent="PlayerUICanvas" instance=ExtResource( 7 )]
+visible = false
+
 [connection signal="mouse_entered" from="PlayerUICanvas/CharacterSheet/TopBar" to="PlayerUICanvas/CharacterSheet" method="_on_TopBar_mouse_entered"]
 [connection signal="mouse_exited" from="PlayerUICanvas/CharacterSheet/TopBar" to="PlayerUICanvas/CharacterSheet" method="_on_TopBar_mouse_exited"]
 
 [editable path="PlayerUICanvas/CharacterSheet"]
-
 [editable path="PlayerUICanvas/CharacterSheet/TopBar"]
