@@ -14,6 +14,7 @@ export (Database.ItemType) var itemType
 export (Array, int) var asteroids
 export (Texture) var itemTexture
 export (String) var itemIcon
+export (int) var stackSize
 onready var BG = $BG
 onready var BG_hover = $BG_hover
 onready var FG_staged = $FG_staged

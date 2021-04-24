@@ -159,18 +159,18 @@ size_flags_horizontal = 3
 size_flags_vertical = 1
 align = 1
 
-[node name="SceneHB2" type="HBoxContainer" parent="BG/MainVB/MainHB/InspectVB"]
+[node name="NameHB" type="HBoxContainer" parent="BG/MainVB/MainHB/InspectVB"]
 margin_top = 212.0
 margin_right = 271.0
 margin_bottom = 238.0
 
-[node name="Label" type="Label" parent="BG/MainVB/MainHB/InspectVB/SceneHB2"]
+[node name="Label" type="Label" parent="BG/MainVB/MainHB/InspectVB/NameHB"]
 margin_right = 70.0
 margin_bottom = 26.0
 rect_min_size = Vector2( 70, 0 )
 text = "Name"
 
-[node name="NameLineEdit" type="LineEdit" parent="BG/MainVB/MainHB/InspectVB/SceneHB2"]
+[node name="NameLineEdit" type="LineEdit" parent="BG/MainVB/MainHB/InspectVB/NameHB"]
 margin_left = 76.0
 margin_right = 271.0
 margin_bottom = 26.0
@@ -294,10 +294,27 @@ text = "MINERAL"
 items = [ "MINERAL", null, false, 0, null, "AMMO", null, false, 1, null, "CONSUMABLE", null, false, 2, null, "WEAPON", null, false, 3, null, "MINERAL", null, false, 4, null, "AMMO", null, false, 5, null, "CONSUMABLE", null, false, 6, null, "WEAPON", null, false, 7, null ]
 selected = 0
 
-[node name="Divider" type="HBoxContainer" parent="BG/MainVB/MainHB/InspectVB"]
+[node name="StackHB" type="HBoxContainer" parent="BG/MainVB/MainHB/InspectVB"]
 margin_top = 386.0
 margin_right = 271.0
-margin_bottom = 390.0
+margin_bottom = 412.0
+
+[node name="Label" type="Label" parent="BG/MainVB/MainHB/InspectVB/StackHB"]
+margin_right = 75.0
+margin_bottom = 26.0
+rect_min_size = Vector2( 70, 0 )
+text = "Stack Size"
+
+[node name="StackSizeEdit" type="LineEdit" parent="BG/MainVB/MainHB/InspectVB/StackHB"]
+margin_left = 81.0
+margin_right = 271.0
+margin_bottom = 26.0
+size_flags_horizontal = 3
+
+[node name="Divider" type="HBoxContainer" parent="BG/MainVB/MainHB/InspectVB"]
+margin_top = 418.0
+margin_right = 271.0
+margin_bottom = 422.0
 
 [node name="HSeparator" type="HSeparator" parent="BG/MainVB/MainHB/InspectVB/Divider"]
 margin_right = 271.0
@@ -305,9 +322,9 @@ margin_bottom = 4.0
 size_flags_horizontal = 3
 
 [node name="PropertiesLblHB" type="HBoxContainer" parent="BG/MainVB/MainHB/InspectVB"]
-margin_top = 396.0
+margin_top = 428.0
 margin_right = 271.0
-margin_bottom = 422.0
+margin_bottom = 454.0
 
 [node name="Label" type="Label" parent="BG/MainVB/MainHB/InspectVB/PropertiesLblHB"]
 margin_right = 113.0
@@ -315,9 +332,9 @@ margin_bottom = 26.0
 text = "Item Properties"
 
 [node name="AddPropHB" type="HBoxContainer" parent="BG/MainVB/MainHB/InspectVB"]
-margin_top = 428.0
+margin_top = 460.0
 margin_right = 271.0
-margin_bottom = 454.0
+margin_bottom = 486.0
 
 [node name="AddPropButton" type="Button" parent="BG/MainVB/MainHB/InspectVB/AddPropHB"]
 margin_right = 34.0
@@ -325,9 +342,9 @@ margin_bottom = 26.0
 text = "[+]"
 
 [node name="PropsVB" type="VBoxContainer" parent="BG/MainVB/MainHB/InspectVB"]
-margin_top = 460.0
+margin_top = 492.0
 margin_right = 271.0
-margin_bottom = 460.0
+margin_bottom = 492.0
 
 [node name="ItemActionsVB" type="VBoxContainer" parent="BG/MainVB/MainHB"]
 margin_left = 772.0
@@ -361,4 +378,5 @@ margin_bottom = 26.0
 size_flags_horizontal = 9
 disabled = true
 text = "Commit Changes"
+
 [connection signal="pressed" from="BG/MainVB/MainHB/InspectVB/AddPropHB/AddPropButton" to="." method="_on_AddPropButton_pressed"]

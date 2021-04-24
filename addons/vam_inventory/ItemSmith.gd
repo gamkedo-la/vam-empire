@@ -19,6 +19,8 @@ onready var _new_item = $BG/MainVB/MainHB/ButtonVB/HBoxContainer/NewItem as Butt
 onready var _load_db = $BG/MainVB/MainHB/ButtonVB/LoadDB as Button
 onready var _clear = $BG/MainVB/MainHB/ButtonVB/Clear as Button
 
+onready var _item_name_edit = $BG/MainVB/MainHB/InspectVB/NameHB/NameLineEdit as LineEdit
+
 onready var _scene_file_load = $BG/MainVB/MainHB/InspectVB/SceneHB/SceneFileButton as Button
 onready var _scene_file_edit = $BG/MainVB/MainHB/InspectVB/SceneHB/SceneFileLineEdit as LineEdit
 onready var _scene_file_clr = $BG/MainVB/MainHB/InspectVB/SceneHB/SceneLineClr as Button
@@ -30,9 +32,9 @@ onready var _item_name_lbl = $BG/MainVB/MainHB/InspectVB/ItemIconHB/ItemNameLbl 
 onready var _item_icon_rect = $BG/MainVB/MainHB/InspectVB/ItemIconHB/ItemIconRect as TextureRect
 onready var _item_uuid_lbl = $BG/MainVB/MainHB/InspectVB/ItemUuid/ItemUuid as Label
 
-onready var _item_name_edit = $BG/MainVB/MainHB/InspectVB/SceneHB2/NameLineEdit as LineEdit
-
 onready var _type_option = $BG/MainVB/MainHB/InspectVB/TypeHB/TypeOption as OptionButton
+
+onready var _stack_size_edit = $BG/MainVB/MainHB/InspectVB/StackHB/StackSizeEdit as LineEdit
 
 onready var _props_vbox = $BG/MainVB/MainHB/InspectVB/PropsVB as VBoxContainer
 onready var _add_prop_button = $BG/MainVB/MainHB/InspectVB/AddPropHB/AddPropButton as Button
@@ -82,6 +84,8 @@ func set_selected_item(item):
 		_item_icon_rect.texture = load(sel_item.itemIcon)
 	if _type_option:
 		_type_option.select(sel_item.itemType)	
+	if _stack_size_edit:		
+		_stack_size_edit.text = var2str(int(sel_item.stackSize))
 	if sel_item.has("properties"):
 		print("HAS PROPERTIES")
 		for props in sel_item.properties:
@@ -160,6 +164,7 @@ func _new_item() -> void:
 	new_item.itemUuid = uuid_util.v4()
 	new_item.itemIcon = default_icon_path
 	new_item.itemType = 0
+	new_item.stackSize = 1
 	Database.table.Items.append(new_item)
 	Database.save_db()
 	_load_items()
@@ -191,6 +196,13 @@ func _load_items() -> void:
 				treeItem.itemType = var2str(int(item.itemType))
 			else:
 				treeItem.itemType = 0
+			
+			if item.has("stackSize"):
+				treeItem.stackSize = item.stackSize
+			else:
+				item.stackSize = 1
+				treeItem.stackSize = item.stackSize
+			
 			treeItem.itemIcon = var2str(item.itemIcon)
 			treeItem.itemTexture = load(item.itemIcon)
 			treeItem.texture_normal = load(item.itemIcon)
@@ -213,6 +225,8 @@ func _save_item() -> void:
 		item_save.itemName = str(_item_name_edit.text)
 	if _type_option:
 		item_save.itemType = _type_option.get_selected_id()
+	if _stack_size_edit:
+		item_save.stackSize = str2var(_stack_size_edit.text)
 	if _props_vbox:		
 		if _props_vbox.get_child_count() > 0:
 			item_save.properties = []

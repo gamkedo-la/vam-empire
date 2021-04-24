@@ -40,6 +40,10 @@
       - [**Objects in group mini_map**](#objects-in-group-mini_map)
       - [**Objects in group mini_map + always_on_map**](#objects-in-group-mini_map--always_on_map)
   - [**Reusable UI Elements**](#reusable-ui-elements)
+- [**Plugins**](#plugins)
+  - [**V.A.M. Item Smith and the Inventory Database**](#vam-item-smith-and-the-inventory-database)
+    - [**V.A.M. Item Smith Plugin Files**](#vam-item-smith-plugin-files)
+      - [**Functions of VAM Item Smith**](#functions-of-vam-item-smith)
 - [**Appendix A: Universal Godot Information**](#appendix-a-universal-godot-information)
   - [**Coming from Unity**](#coming-from-unity)
   - [**GDScript**](#gdscript)
@@ -333,6 +337,17 @@ This section will document some of the UI elements we may end up creating that c
 - [**DraggableBar.tscn**](UI/HUD/Scenes/DraggableBar.tscn) 
   - A simple `Panel` node that can be dropped onto any UI element that you would like to 'drag' around. It will drag whatever element it is *parented* to, so make sure to have it's Node Tree heirarchy setup correctly.
 
+<sub>[Back to Top](#)</sub>
+# **Plugins**
+## **V.A.M. Item Smith and the Inventory Database**
+
+While developing V.A.M. Empire, it became apparent very quickly that in order to manage the large number of potential items that would be added to the game to represent things such as mineral resources, ship pieces and parts, ammo, and other power ups it would be beneficial to have a tool to manage the JSON data where all of these pieces would be stored. Luckily, the process of writing a plugin in Godot is not all that different from writing the game itself.
+
+### **V.A.M. Item Smith Plugin Files**
+The plugin itself lives in the `res://addons/vam_inventory` folder and is Enabled/Disabled through the `Project Settings > Plugins` menu. The entry point into the Godot Editor is handled within the script [plugin.gd](addons/vam_inventory/plugin.gd). This script allows the [ItemSmith.tscn](addons/vam_inventory/ItemSmith.tscn) UI Scene to bolt itself directly into the editor. You can access it at any time by clicking on the `VAM Item Smith` tab in the editor.
+
+#### **Functions of VAM Item Smith**
+Currently, the Item Smith's primary purpose is to manage the list of item objects that exist as an array of Dictionary objects under `Database.tables.Items` at run time. Alternatively, all Items in that array can be referenced by UUIDv4 key using `Database.itemByUuid`, and once an item is instantiated into the game world, this Uuid Dictionary will likely be the easiest way to quickly reference the data you need.
 
 
 <sub>[Back to Top](#)</sub>
