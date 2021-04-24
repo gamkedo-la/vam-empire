@@ -41,10 +41,12 @@
       - [**Objects in group mini_map + always_on_map**](#objects-in-group-mini_map--always_on_map)
   - [**Reusable UI Elements**](#reusable-ui-elements)
 - [**Appendix A: Universal Godot Information**](#appendix-a-universal-godot-information)
+  - [**Coming from Unity**](#coming-from-unity)
   - [**GDScript**](#gdscript)
   - [**The Node Tree**](#the-node-tree)
     - [**Node Tree Best Practices**](#node-tree-best-practices)
   - [**Global Singletons/Autoload Scripts**](#global-singletonsautoload-scripts)
+  - [**Debugging and the Remote Scene Tree**](#debugging-and-the-remote-scene-tree)
   - [**Learning Resources**](#learning-resources)
     - [**Written Documentation/Resources**](#written-documentationresources)
     - [**Useful and Concise Youtube/Video Resources**](#useful-and-concise-youtubevideo-resources)
@@ -338,6 +340,10 @@ This section will document some of the UI elements we may end up creating that c
 
 This Appendix will serve as a place to gather useful information we all come across that will be useful for *all* future Godot projects regardless of genre, 2D vs. 3D, etc... but also not so general as to just be **Good Programming Practices**. Just the pieces and parts that make working in Godot easier and a more enjoyable experience for all.
 
+## **Coming from Unity**
+Many folks here at Hometeam who have worked in an engine extensively, have worked in Unity. Godot maintains the following article to help a little in finding the pieces and parts that are analogous. 
+
+[From Unity to Godot Engine](https://docs.godotengine.org/en/stable/getting_started/editor/unity_to_godot.html)
 ## **GDScript**
 
 - [Dictionaries](https://docs.godotengine.org/en/stable/classes/class_dictionary.html) are always passed by reference, so make sure to use `duplicate()` if you intend to pass values from something like a 'defaults' Dictionary, but do not want to alter that original Dictionary.  
@@ -352,6 +358,12 @@ This Appendix will serve as a place to gather useful information we all come acr
 ## **Global Singletons/Autoload Scripts**
 
 - Scripts loaded as part of the Autoload project settings can be referred to directly from any script in the project to save having to 'source out' a reference on the fly. I.e. if you want to know something about the player from PlayerVars autoload, simply reference it as `PlayerVars.`. Functions in these scripts can be called directly as well, such as a Global scene switcher function, `Global.goto_scene(scene_path)`.
+
+## **Debugging and the Remote Scene Tree**
+
+[Overview of Debugging in Godot](https://docs.godotengine.org/en/stable/tutorials/debug/overview_of_debugging_tools.html)
+
+Once familiar with the debugging tools, some members prefer to make things like the Remote Scene tree debugger load by default on every run etc... You can find the settings under the "Editor Settings/Debugger" to set the Remote Scene to load by default.
 
 ## **Learning Resources**
 ### **Written Documentation/Resources**
