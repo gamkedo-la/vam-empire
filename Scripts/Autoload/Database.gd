@@ -19,13 +19,17 @@ enum AsteroidType {
 }
 var DATABASE = "res://Database/Database.json"
 
-var table
+var table = null
+var itemByUuid = {}
 var _reference
 
 var selected_item setget emit_item_selected, get_selected_item
 
 func _init():
 	load_db()
+	if table:
+		for item in table.Items:
+			itemByUuid[item.itemUuid] = item
 	print_debug("DATABASE:")
 	print_debug(table)
 
