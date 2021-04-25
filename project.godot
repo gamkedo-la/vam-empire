@@ -16,6 +16,9 @@ _global_script_class_icons={
 
 config/name="V.A.M. Empire"
 run/main_scene="res://UI/Menu/StartMenu_Scene.tscn"
+boot_splash/image="res://splash.png"
+boot_splash/use_filter=false
+boot_splash/bg_color=Color( 0, 0, 0, 1 )
 config/icon="res://logo_only.png"
 
 [autoload]
