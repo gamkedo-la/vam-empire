@@ -13,34 +13,34 @@ var default_icon_path = "res://icon.png"
 var _editor: EditorPlugin
 
 
-onready var _items_grid = $BG/MainVB/MainHB/ItemsVB/Items as GridContainer
+onready var _items_grid = $Tabs/ItemDB/MainVB/MainHB/ItemsVB/Items as GridContainer
 
-onready var _new_item = $BG/MainVB/MainHB/ButtonVB/HBoxContainer/NewItem as Button
-onready var _load_db = $BG/MainVB/MainHB/ButtonVB/LoadDB as Button
-onready var _clear = $BG/MainVB/MainHB/ButtonVB/Clear as Button
+onready var _new_item = $Tabs/ItemDB/MainVB/MainHB/ButtonVB/HBoxContainer/NewItem as Button
+onready var _load_db = $Tabs/ItemDB/MainVB/MainHB/ButtonVB/LoadDB as Button
+onready var _clear = $Tabs/ItemDB/MainVB/MainHB/ButtonVB/Clear as Button
 
-onready var _item_name_edit = $BG/MainVB/MainHB/InspectVB/NameHB/NameLineEdit as LineEdit
+onready var _item_name_edit = $Tabs/ItemDB/MainVB/MainHB/InspectVB/NameHB/NameLineEdit as LineEdit
 
-onready var _scene_file_load = $BG/MainVB/MainHB/InspectVB/SceneHB/SceneFileButton as Button
-onready var _scene_file_edit = $BG/MainVB/MainHB/InspectVB/SceneHB/SceneFileLineEdit as LineEdit
-onready var _scene_file_clr = $BG/MainVB/MainHB/InspectVB/SceneHB/SceneLineClr as Button
-onready var _icon_file_load = $BG/MainVB/MainHB/InspectVB/IconHB/IconFileButton as Button
-onready var _icon_file_edit = $BG/MainVB/MainHB/InspectVB/IconHB/IconFileLineEdit as LineEdit
-onready var _icon_file_clr = $BG/MainVB/MainHB/InspectVB/IconHB/IconLineClr as Button
+onready var _scene_file_load = $Tabs/ItemDB/MainVB/MainHB/InspectVB/SceneHB/SceneFileButton as Button
+onready var _scene_file_edit = $Tabs/ItemDB/MainVB/MainHB/InspectVB/SceneHB/SceneFileLineEdit as LineEdit
+onready var _scene_file_clr = $Tabs/ItemDB/MainVB/MainHB/InspectVB/SceneHB/SceneLineClr as Button
+onready var _icon_file_load = $Tabs/ItemDB/MainVB/MainHB/InspectVB/IconHB/IconFileButton as Button
+onready var _icon_file_edit = $Tabs/ItemDB/MainVB/MainHB/InspectVB/IconHB/IconFileLineEdit as LineEdit
+onready var _icon_file_clr = $Tabs/ItemDB/MainVB/MainHB/InspectVB/IconHB/IconLineClr as Button
 
-onready var _item_name_lbl = $BG/MainVB/MainHB/InspectVB/ItemIconHB/ItemNameLbl as Label
-onready var _item_icon_rect = $BG/MainVB/MainHB/InspectVB/ItemIconHB/ItemIconRect as TextureRect
-onready var _item_uuid_lbl = $BG/MainVB/MainHB/InspectVB/ItemUuid/ItemUuid as Label
+onready var _item_name_lbl = $Tabs/ItemDB/MainVB/MainHB/InspectVB/ItemIconHB/ItemNameLbl as Label
+onready var _item_icon_rect = $Tabs/ItemDB/MainVB/MainHB/InspectVB/ItemIconHB/ItemIconRect as TextureRect
+onready var _item_uuid_lbl = $Tabs/ItemDB/MainVB/MainHB/InspectVB/ItemUuid/ItemUuid as Label
 
-onready var _type_option = $BG/MainVB/MainHB/InspectVB/TypeHB/TypeOption as OptionButton
+onready var _type_option = $Tabs/ItemDB/MainVB/MainHB/InspectVB/TypeHB/TypeOption as OptionButton
 
-onready var _stack_size_edit = $BG/MainVB/MainHB/InspectVB/StackHB/StackSizeEdit as LineEdit
+onready var _stack_size_edit = $Tabs/ItemDB/MainVB/MainHB/InspectVB/StackHB/StackSizeEdit as LineEdit
 
-onready var _props_vbox = $BG/MainVB/MainHB/InspectVB/PropsVB as VBoxContainer
-onready var _add_prop_button = $BG/MainVB/MainHB/InspectVB/AddPropHB/AddPropButton as Button
+onready var _props_vbox = $Tabs/ItemDB/MainVB/MainHB/InspectVB/PropsVB as VBoxContainer
+onready var _add_prop_button = $Tabs/ItemDB/MainVB/MainHB/InspectVB/AddPropHB/AddPropButton as Button
 
-onready var _save_item_button = $BG/MainVB/MainHB/ItemActionsVB/ItemActionHB/SaveItem as Button
-onready var _commit_db_button = $BG/MainVB/MainHB/ItemActionsVB/CommitDatabaseHB/CommitDB as Button
+onready var _save_item_button = $Tabs/ItemDB/MainVB/MainHB/ItemActionsVB/ItemActionHB/SaveItem as Button
+onready var _commit_db_button = $Tabs/ItemDB/MainVB/MainHB/ItemActionsVB/CommitDatabaseHB/CommitDB as Button
 
 
 export (bool) var regenerate = false setget _regen
