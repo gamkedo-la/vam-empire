@@ -9,8 +9,12 @@ export (int, 0, 161) var cargo_slots = 32
 
 var master_slots = []
 
-func _ready(): 	
+func _ready():
 	initialize_slots()
+	if PlayerVars.ship_inventory:
+		_reload_inventory()
+		
+
 func _process(_delta):
 	if Input.is_action_just_pressed("ui_inventory"):
 		_toggle_inventory()		
@@ -52,21 +56,36 @@ func clear_inventory():
 		slot.current_item = null
 		slot.current_item_uuid = null
 		slot.current_item_count = 0
-		
+	PlayerVars.clear_ship_inventory()
+	
 
 func _add_to_slot(slot, data, item):
 	slot.add_child(item)
 	slot.current_item = item
 	slot.current_item_count += 1
 	slot.current_item_uuid = data.itemUuid
+	PlayerVars.increment_ship_inventory(slot.current_item_uuid, 1)
 	
+
+func _reload_inventory():
+	# Offload inventory to a temp dict
+	var temp_inv = PlayerVars.ship_inventory.duplicate()
+	# Wipe ship inventory
+	PlayerVars.clear_ship_inventory()
+	# Reload it
+	for item in temp_inv:
+		for count in temp_inv[item]:
+			insert_item(item)
+
 
 func _increment_item(slot):
 	slot.current_item_count += 1
+	PlayerVars.increment_ship_inventory(slot.current_item_uuid, 1)
 
 func _on_ExitInventory_pressed():
 	_toggle_inventory()
-	
+
+
 func _toggle_inventory():
 	if self.visible:
 		self.visible = false
@@ -74,7 +93,6 @@ func _toggle_inventory():
 	else:
 		self.visible = true
 		Global.pause_game(true)
-
 
 
 func _on_TestAdd_pressed():

@@ -16,6 +16,8 @@ var player_defaults = {
 
 var player = player_defaults
 
+var ship_inventory = {}
+
 var target = null setget set_target, get_target
 
 func _ready():
@@ -76,6 +78,16 @@ func load_save():
 func pickup_item(uuid):
 	var inventory = player_node.get_ship_inventory()
 	inventory.insert_item(uuid)
+
+func increment_ship_inventory(uuid, cnt:int):
+	if ship_inventory.has(uuid):
+		ship_inventory[uuid] += cnt		
+	else:
+		ship_inventory[uuid] = cnt
+	#print_debug("PlayerVars.ship_inventory: ", ship_inventory)
+
+func clear_ship_inventory():
+	ship_inventory.clear()
 
 func old_load_save():
 	var file = File.new()

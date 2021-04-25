@@ -69,4 +69,5 @@ wait_time = 3.0
 [node name="AnimationPlayer" type="AnimationPlayer" parent="."]
 autoplay = "Show"
 anims/Show = SubResource( 1 )
+
 [connection signal="timeout" from="Timer" to="." method="_on_Timer_timeout"]

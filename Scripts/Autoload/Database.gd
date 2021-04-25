@@ -30,8 +30,8 @@ func _init():
 	if table:
 		for item in table.Items:
 			itemByUuid[item.itemUuid] = item
-	print_debug("DATABASE:")
-	print_debug(table)
+	#print_debug("DATABASE:")
+	#print_debug(table)
 
 
 
