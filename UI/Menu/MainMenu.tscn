@@ -1,4 +1,4 @@
-[gd_scene load_steps=331 format=2]
+[gd_scene load_steps=332 format=2]
 
 [ext_resource path="res://UI/Effects/Transition.tscn" type="PackedScene" id=1]
 [ext_resource path="res://Scripts/MainMenu.gd" type="Script" id=2]
@@ -17,6 +17,7 @@
 [ext_resource path="res://UI/Textures/load_button/load_button4.png" type="Texture" id=15]
 [ext_resource path="res://UI/Textures/new_button/new_button4.png" type="Texture" id=16]
 [ext_resource path="res://UI/Textures/animated_EMPIRE_inf.png" type="Texture" id=17]
+[ext_resource path="res://UI/Theme/darkred_theme.tres" type="Theme" id=18]
 [ext_resource path="res://UI/HUD/Textures/MiniMap/pixel_grid.png" type="Texture" id=19]
 [ext_resource path="res://UI/HUD/Textures/MiniMap/pixel_grid_dark.png" type="Texture" id=20]
 [ext_resource path="res://UI/HUD/Textures/MiniMap/pixel_grid_clear.png" type="Texture" id=21]
@@ -1431,6 +1432,7 @@ layer = 6
 
 [node name="Viz" type="Control" parent="MenuCanvas"]
 rect_pivot_offset = Vector2( 483, 268 )
+theme = ExtResource( 18 )
 __meta__ = {
 "_edit_use_anchors_": false
 }
@@ -1474,9 +1476,9 @@ frames = SubResource( 295 )
 animation = "InfLoop"
 
 [node name="InteractVB" type="VBoxContainer" parent="MenuCanvas/Viz/MainMenuVBox"]
-margin_top = 212.0
+margin_top = 214.0
 margin_right = 960.0
-margin_bottom = 345.0
+margin_bottom = 355.0
 alignment = 1
 
 [node name="NewHB" type="HBoxContainer" parent="MenuCanvas/Viz/MainMenuVBox/InteractVB"]
@@ -1497,9 +1499,9 @@ texture_hover = ExtResource( 6 )
 texture_disabled = ExtResource( 8 )
 
 [node name="LoadHB2" type="HBoxContainer" parent="MenuCanvas/Viz/MainMenuVBox/InteractVB"]
-margin_top = 36.0
+margin_top = 38.0
 margin_right = 960.0
-margin_bottom = 72.0
+margin_bottom = 74.0
 alignment = 1
 
 [node name="Load" type="TextureButton" parent="MenuCanvas/Viz/MainMenuVBox/InteractVB/LoadHB2"]
@@ -1516,9 +1518,9 @@ texture_hover = ExtResource( 14 )
 texture_disabled = ExtResource( 13 )
 
 [node name="OptionsHB3" type="HBoxContainer" parent="MenuCanvas/Viz/MainMenuVBox/InteractVB"]
-margin_top = 76.0
+margin_top = 80.0
 margin_right = 960.0
-margin_bottom = 109.0
+margin_bottom = 113.0
 alignment = 1
 
 [node name="Options" type="TextureButton" parent="MenuCanvas/Viz/MainMenuVBox/InteractVB/OptionsHB3"]
@@ -1533,15 +1535,15 @@ texture_pressed = ExtResource( 10 )
 texture_hover = ExtResource( 11 )
 
 [node name="FastLoad" type="HBoxContainer" parent="MenuCanvas/Viz/MainMenuVBox/InteractVB"]
-margin_top = 113.0
+margin_top = 119.0
 margin_right = 960.0
-margin_bottom = 133.0
+margin_bottom = 141.0
 alignment = 1
 
 [node name="FastLoad" type="Button" parent="MenuCanvas/Viz/MainMenuVBox/InteractVB/FastLoad"]
-margin_left = 381.0
-margin_right = 579.0
-margin_bottom = 20.0
+margin_left = 336.0
+margin_right = 624.0
+margin_bottom = 22.0
 text = "Express Load to EasyZone_01"
 
 [node name="OptionsContainer" type="HBoxContainer" parent="MenuCanvas/Viz"]
@@ -1554,49 +1556,51 @@ __meta__ = {
 }
 
 [node name="VBoxContainer" type="VBoxContainer" parent="MenuCanvas/Viz/OptionsContainer"]
-margin_left = 240.0
-margin_right = 720.0
+margin_left = 160.0
+margin_right = 800.0
 margin_bottom = 540.0
-rect_pivot_offset = Vector2( 236, 259 )
+rect_min_size = Vector2( 640, 540 )
+rect_pivot_offset = Vector2( 320, 270 )
 alignment = 1
 
 [node name="TabContainer" type="TabContainer" parent="MenuCanvas/Viz/OptionsContainer/VBoxContainer"]
-margin_top = 123.0
-margin_right = 480.0
-margin_bottom = 393.0
-rect_min_size = Vector2( 480, 270 )
+margin_top = 76.0
+margin_right = 640.0
+margin_bottom = 436.0
+rect_min_size = Vector2( 640, 360 )
 drag_to_rearrange_enabled = true
 
 [node name="Audio" type="PanelContainer" parent="MenuCanvas/Viz/OptionsContainer/VBoxContainer/TabContainer"]
 anchor_right = 1.0
 anchor_bottom = 1.0
-margin_left = 4.0
-margin_top = 32.0
-margin_right = -4.0
-margin_bottom = -4.0
+margin_left = 7.5
+margin_top = 31.5
+margin_right = -7.5
+margin_bottom = -7.5
 
 [node name="VBoxContainer" type="VBoxContainer" parent="MenuCanvas/Viz/OptionsContainer/VBoxContainer/TabContainer/Audio"]
-margin_left = 7.0
-margin_top = 7.0
-margin_right = 465.0
-margin_bottom = 227.0
+margin_left = 9.0
+margin_top = 6.0
+margin_right = 616.0
+margin_bottom = 315.0
 
 [node name="HBoxContainer" type="HBoxContainer" parent="MenuCanvas/Viz/OptionsContainer/VBoxContainer/TabContainer/Audio/VBoxContainer"]
-margin_right = 458.0
-margin_bottom = 16.0
+margin_right = 607.0
+margin_bottom = 24.0
 alignment = 1
 
-[node name="RichTextLabel" type="RichTextLabel" parent="MenuCanvas/Viz/OptionsContainer/VBoxContainer/TabContainer/Audio/VBoxContainer/HBoxContainer"]
-margin_left = 27.0
-margin_right = 307.0
-margin_bottom = 16.0
+[node name="RichTextLabel" type="Label" parent="MenuCanvas/Viz/OptionsContainer/VBoxContainer/TabContainer/Audio/VBoxContainer/HBoxContainer"]
+margin_left = 100.0
+margin_top = 1.0
+margin_right = 380.0
+margin_bottom = 23.0
 rect_min_size = Vector2( 280, 0 )
 text = "Master Volume"
 
 [node name="mast_volume_slider" type="HSlider" parent="MenuCanvas/Viz/OptionsContainer/VBoxContainer/TabContainer/Audio/VBoxContainer/HBoxContainer"]
-margin_left = 311.0
-margin_right = 431.0
-margin_bottom = 16.0
+margin_left = 386.0
+margin_right = 506.0
+margin_bottom = 24.0
 rect_min_size = Vector2( 120, 0 )
 min_value = 0.01
 max_value = 1.0
@@ -1604,22 +1608,23 @@ step = 0.05
 value = 0.05
 
 [node name="HBoxContainer2" type="HBoxContainer" parent="MenuCanvas/Viz/OptionsContainer/VBoxContainer/TabContainer/Audio/VBoxContainer"]
-margin_top = 20.0
-margin_right = 458.0
-margin_bottom = 36.0
+margin_top = 30.0
+margin_right = 607.0
+margin_bottom = 54.0
 alignment = 1
 
-[node name="RichTextLabel" type="RichTextLabel" parent="MenuCanvas/Viz/OptionsContainer/VBoxContainer/TabContainer/Audio/VBoxContainer/HBoxContainer2"]
-margin_left = 27.0
-margin_right = 307.0
-margin_bottom = 16.0
+[node name="RichTextLabel" type="Label" parent="MenuCanvas/Viz/OptionsContainer/VBoxContainer/TabContainer/Audio/VBoxContainer/HBoxContainer2"]
+margin_left = 100.0
+margin_top = 1.0
+margin_right = 380.0
+margin_bottom = 23.0
 rect_min_size = Vector2( 280, 0 )
 text = "Music Volume"
 
 [node name="music_volume_slider" type="HSlider" parent="MenuCanvas/Viz/OptionsContainer/VBoxContainer/TabContainer/Audio/VBoxContainer/HBoxContainer2"]
-margin_left = 311.0
-margin_right = 431.0
-margin_bottom = 16.0
+margin_left = 386.0
+margin_right = 506.0
+margin_bottom = 24.0
 rect_min_size = Vector2( 120, 0 )
 min_value = 0.01
 max_value = 1.0
@@ -1627,22 +1632,23 @@ step = 0.05
 value = 0.05
 
 [node name="HBoxContainer3" type="HBoxContainer" parent="MenuCanvas/Viz/OptionsContainer/VBoxContainer/TabContainer/Audio/VBoxContainer"]
-margin_top = 40.0
-margin_right = 458.0
-margin_bottom = 56.0
+margin_top = 60.0
+margin_right = 607.0
+margin_bottom = 84.0
 alignment = 1
 
-[node name="RichTextLabel" type="RichTextLabel" parent="MenuCanvas/Viz/OptionsContainer/VBoxContainer/TabContainer/Audio/VBoxContainer/HBoxContainer3"]
-margin_left = 27.0
-margin_right = 307.0
-margin_bottom = 16.0
+[node name="RichTextLabel" type="Label" parent="MenuCanvas/Viz/OptionsContainer/VBoxContainer/TabContainer/Audio/VBoxContainer/HBoxContainer3"]
+margin_left = 100.0
+margin_top = 1.0
+margin_right = 380.0
+margin_bottom = 23.0
 rect_min_size = Vector2( 280, 0 )
-text = "Sounf Effects Volume"
+text = "Sound Effects Volume"
 
 [node name="sound_effect_volume_slider" type="HSlider" parent="MenuCanvas/Viz/OptionsContainer/VBoxContainer/TabContainer/Audio/VBoxContainer/HBoxContainer3"]
-margin_left = 311.0
-margin_right = 431.0
-margin_bottom = 16.0
+margin_left = 386.0
+margin_right = 506.0
+margin_bottom = 24.0
 rect_min_size = Vector2( 120, 0 )
 min_value = 0.01
 max_value = 1.0
@@ -1650,58 +1656,61 @@ step = 0.05
 value = 0.05
 
 [node name="HBoxContainer4" type="HBoxContainer" parent="MenuCanvas/Viz/OptionsContainer/VBoxContainer/TabContainer/Audio/VBoxContainer"]
-margin_top = 60.0
-margin_right = 458.0
-margin_bottom = 76.0
+margin_top = 90.0
+margin_right = 607.0
+margin_bottom = 114.0
 alignment = 1
 
-[node name="RichTextLabel" type="RichTextLabel" parent="MenuCanvas/Viz/OptionsContainer/VBoxContainer/TabContainer/Audio/VBoxContainer/HBoxContainer4"]
-margin_left = 27.0
-margin_right = 307.0
-margin_bottom = 16.0
+[node name="RichTextLabel" type="Label" parent="MenuCanvas/Viz/OptionsContainer/VBoxContainer/TabContainer/Audio/VBoxContainer/HBoxContainer4"]
+margin_left = 100.0
+margin_top = 1.0
+margin_right = 380.0
+margin_bottom = 23.0
 rect_min_size = Vector2( 280, 0 )
 text = "Ambience"
 
 [node name="ambience_slider" type="HSlider" parent="MenuCanvas/Viz/OptionsContainer/VBoxContainer/TabContainer/Audio/VBoxContainer/HBoxContainer4"]
-margin_left = 311.0
-margin_right = 431.0
-margin_bottom = 16.0
+margin_left = 386.0
+margin_right = 506.0
+margin_bottom = 24.0
 rect_min_size = Vector2( 120, 0 )
 
 [node name="HBoxContainer5" type="HBoxContainer" parent="MenuCanvas/Viz/OptionsContainer/VBoxContainer/TabContainer/Audio/VBoxContainer"]
-margin_top = 80.0
-margin_right = 458.0
-margin_bottom = 96.0
+margin_top = 120.0
+margin_right = 607.0
+margin_bottom = 144.0
 alignment = 1
 
-[node name="RichTextLabel" type="RichTextLabel" parent="MenuCanvas/Viz/OptionsContainer/VBoxContainer/TabContainer/Audio/VBoxContainer/HBoxContainer5"]
-margin_left = 27.0
-margin_right = 307.0
-margin_bottom = 16.0
+[node name="RichTextLabel" type="Label" parent="MenuCanvas/Viz/OptionsContainer/VBoxContainer/TabContainer/Audio/VBoxContainer/HBoxContainer5"]
+margin_left = 100.0
+margin_top = 1.0
+margin_right = 380.0
+margin_bottom = 23.0
 rect_min_size = Vector2( 280, 0 )
 
 [node name="HSlider" type="HSlider" parent="MenuCanvas/Viz/OptionsContainer/VBoxContainer/TabContainer/Audio/VBoxContainer/HBoxContainer5"]
-margin_left = 311.0
-margin_right = 431.0
-margin_bottom = 16.0
+margin_left = 386.0
+margin_right = 506.0
+margin_bottom = 24.0
 rect_min_size = Vector2( 120, 0 )
 
 [node name="HBoxContainer6" type="HBoxContainer" parent="MenuCanvas/Viz/OptionsContainer/VBoxContainer/TabContainer/Audio/VBoxContainer"]
-margin_top = 100.0
-margin_right = 458.0
-margin_bottom = 116.0
+margin_top = 150.0
+margin_right = 607.0
+margin_bottom = 174.0
 alignment = 1
 
-[node name="RichTextLabel" type="RichTextLabel" parent="MenuCanvas/Viz/OptionsContainer/VBoxContainer/TabContainer/Audio/VBoxContainer/HBoxContainer6"]
-margin_left = 27.0
-margin_right = 307.0
-margin_bottom = 16.0
+[node name="RichTextLabel" type="Label" parent="MenuCanvas/Viz/OptionsContainer/VBoxContainer/TabContainer/Audio/VBoxContainer/HBoxContainer6"]
+margin_left = 100.0
+margin_top = 1.0
+margin_right = 380.0
+margin_bottom = 23.0
 rect_min_size = Vector2( 280, 0 )
 
 [node name="HSlider" type="HSlider" parent="MenuCanvas/Viz/OptionsContainer/VBoxContainer/TabContainer/Audio/VBoxContainer/HBoxContainer6"]
-margin_left = 311.0
-margin_right = 431.0
-margin_bottom = 16.0
+margin_left = 386.0
+margin_right = 506.0
+margin_bottom = 24.0
 rect_min_size = Vector2( 120, 0 )
 
 [node name="Graphics" type="PanelContainer" parent="MenuCanvas/Viz/OptionsContainer/VBoxContainer/TabContainer"]
@@ -1885,15 +1894,15 @@ margin_right = -4.0
 margin_bottom = -4.0
 
 [node name="HBoxContainer" type="HBoxContainer" parent="MenuCanvas/Viz/OptionsContainer/VBoxContainer"]
-margin_top = 397.0
-margin_right = 480.0
-margin_bottom = 417.0
+margin_top = 442.0
+margin_right = 640.0
+margin_bottom = 464.0
 alignment = 1
 
 [node name="ReturnFromOptions" type="Button" parent="MenuCanvas/Viz/OptionsContainer/VBoxContainer/HBoxContainer"]
-margin_left = 200.0
-margin_right = 280.0
-margin_bottom = 20.0
+margin_left = 280.0
+margin_right = 360.0
+margin_bottom = 22.0
 rect_min_size = Vector2( 80, 0 )
 text = "Return"
 
@@ -1902,13 +1911,12 @@ anims/Hide = SubResource( 296 )
 anims/Show = SubResource( 297 )
 
 [node name="NewPlayerPop" type="WindowDialog" parent="MenuCanvas/Viz"]
-visible = true
 anchor_left = 0.5
 anchor_top = 0.5
 anchor_right = 0.5
 anchor_bottom = 0.5
 rect_min_size = Vector2( 480, 120 )
-rect_pivot_offset = Vector2( 237, 50 )
+rect_pivot_offset = Vector2( 240, 60 )
 popup_exclusive = true
 __meta__ = {
 "_edit_use_anchors_": false
@@ -1924,39 +1932,38 @@ __meta__ = {
 }
 
 [node name="EntryHB" type="HBoxContainer" parent="MenuCanvas/Viz/NewPlayerPop/NewPlayerVB"]
-margin_top = 38.0
+margin_top = 35.0
 margin_right = 480.0
-margin_bottom = 58.0
+margin_bottom = 57.0
 alignment = 1
 __meta__ = {
 "_edit_use_anchors_": false
 }
 
 [node name="PlayerNameLbl" type="Label" parent="MenuCanvas/Viz/NewPlayerPop/NewPlayerVB/EntryHB"]
-margin_left = 57.0
-margin_top = 3.0
-margin_right = 138.0
-margin_bottom = 17.0
+margin_left = 36.0
+margin_right = 158.0
+margin_bottom = 22.0
 text = "Player Name"
 
 [node name="PlayerNameEdit" type="TextEdit" parent="MenuCanvas/Viz/NewPlayerPop/NewPlayerVB/EntryHB"]
-margin_left = 142.0
-margin_right = 422.0
-margin_bottom = 20.0
+margin_left = 164.0
+margin_right = 444.0
+margin_bottom = 22.0
 rect_min_size = Vector2( 280, 20 )
 text = "John Cry'ton"
 highlight_current_line = true
 
 [node name="StartHB" type="HBoxContainer" parent="MenuCanvas/Viz/NewPlayerPop/NewPlayerVB"]
-margin_top = 62.0
+margin_top = 63.0
 margin_right = 480.0
-margin_bottom = 82.0
+margin_bottom = 85.0
 alignment = 1
 
 [node name="PNameStartButton" type="Button" parent="MenuCanvas/Viz/NewPlayerPop/NewPlayerVB/StartHB"]
-margin_left = 217.0
-margin_right = 262.0
-margin_bottom = 20.0
+margin_left = 201.0
+margin_right = 279.0
+margin_bottom = 22.0
 text = "Start!"
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="MenuCanvas/Viz/NewPlayerPop"]
@@ -1969,8 +1976,10 @@ anchor_left = 0.5
 anchor_top = 0.5
 anchor_right = 0.5
 anchor_bottom = 0.5
-rect_min_size = Vector2( 294, 75 )
-rect_pivot_offset = Vector2( 147, 30 )
+margin_right = 458.0
+margin_bottom = 82.0
+rect_min_size = Vector2( 458, 82 )
+rect_pivot_offset = Vector2( 229, 41 )
 dialog_text = "You're about to load your most recent save!
 Would you like to continue?"
 __meta__ = {
