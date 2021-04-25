@@ -16,7 +16,11 @@ var player_defaults = {
 
 var player = player_defaults
 
+# Items currently stored on player ship
 var ship_inventory = {}
+
+# All items stored in player stash
+var master_inventory = {}
 
 var target = null setget set_target, get_target
 
@@ -24,6 +28,8 @@ func _ready():
 	pass # Replace with function body.
 
 func set_target(val):
+	if target:
+		target.unset_target()
 	target = val
 	emit_signal("target_change", target)
 

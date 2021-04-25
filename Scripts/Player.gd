@@ -56,7 +56,6 @@ onready var char_sheet = $PlayerUICanvas/CharacterSheet
 
 onready var inventory = $PlayerUICanvas/Inventory
 
-onready var debug_select = $DebugDraw
 # End of Original Player.gd variables
 
 
@@ -85,13 +84,10 @@ func _ready():
 func _physics_process(delta):
 	var targ = PlayerVars.get_target()
 	if !player_target:
-		targ = get_global_mouse_position()
-		debug_select.visible = false
+		targ = get_global_mouse_position()		
 	else:
 		targ = player_target.global_position
-		
-		debug_select.global_transform = player_target.global_transform
-		debug_select.visible = true
+
 
 	rotate_to_target(targ)
 	
