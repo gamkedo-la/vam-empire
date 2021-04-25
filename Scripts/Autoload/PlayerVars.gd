@@ -37,8 +37,11 @@ func new(name: String):
 
 func save():
 	var file = File.new()
+	var save = {}
+	save["player"] = player
+	save["ship_inventory"] = ship_inventory
 	file.open(FILE_NAME, File.WRITE)
-	file.store_string(to_json(player))
+	file.store_string(to_json(save))
 	file.close()
 	
 func load_save():
@@ -48,24 +51,32 @@ func load_save():
 		var data = parse_json(file.get_as_text())
 		file.close()
 		if typeof(data) == TYPE_DICTIONARY:
-			# Does the save file have all of the 'high level' dictionaries/keys i.e. Sound, Graphics, Difficulty?
+			# Temporary to upconvert 'player' only saves
 			if data.has_all(player_defaults.keys()):
+				var temp_data = {}
+				temp_data["player"] = data.duplicate(true)
+				temp_data["ship_inventory"] = {}
+				data.clear()
+				data = temp_data.duplicate()
+			# Does the save file have all of the 'high level' dictionaries/keys i.e. Sound, Graphics, Difficulty?
+			if data.player.has_all(player_defaults.keys()):
 				for key in player_defaults.keys():
 					# Is this key a nested dictionary? i.e Sound, Graphics, Difficulty
 					if typeof(player_defaults[key]) == TYPE_DICTIONARY:
-						if !data.has_all(player_defaults[key].keys()):
+						if !data.player.has_all(player_defaults[key].keys()):
 							for subkey in player_defaults[key].keys():
 								# If the Save File was missing any sub-keys, i.e. UserSettings.sound.music_volume, replace 
 								# that single setting with the user_default to avoid regenerating the entire config file from scratch
-								if !data[key].has(subkey):
+								if !data.player[key].has(subkey):
 									print_debug("Setting [", subkey,"] from System Defaults.")
-									data[key][subkey] = player_defaults[key][subkey]
+									data.player[key][subkey] = player_defaults[key][subkey]
 					else:
-						if !data.has(key):
+						if !data.player.has(key):
 							print_debug("Setting [", key,"] from System Defaults.")							
-							data[key] = key
+							data.player[key] = key
 
-				player = data
+				player = data.player
+				ship_inventory = data.ship_inventory
 				save()
 				return true
 		else:
