@@ -3,7 +3,7 @@ extends Node
 signal target_change
 
 # File saving/loading methodology adapted from https://gdscript.com/solutions/how-to-save-and-load-godot-game-data/
-var FILE_NAME  = "user://game-data.json"
+var FILE_NAME
 
 var player_node = null
 
@@ -25,7 +25,8 @@ var master_inventory = {}
 var target = null setget set_target, get_target
 
 func _ready():
-	pass # Replace with function body.
+	FILE_NAME = UserSettings.get_save_slot(UserSettings.current.save.current_slot)
+	print("Current Player Save: ", FILE_NAME)
 
 func set_target(val):
 	if target:
@@ -49,6 +50,19 @@ func save():
 	file.open(FILE_NAME, File.WRITE)
 	file.store_string(to_json(save))
 	file.close()
+
+func set_save_slot(slot):
+	UserSettings.set_current_slot(slot)
+	FILE_NAME = UserSettings.get_save_slot(slot)		
+
+	
+func get_save_summary(slot):
+	var remember_slot = UserSettings.current.save.current_slot
+	FILE_NAME = UserSettings.get_save_slot(slot)
+	load_save()
+	var summary = str(" Name: [color=red]", player.name, "[/color]\n Cash: [color=red]", player.cash, "[/color]")
+	return summary
+	
 	
 func load_save():
 	var file = File.new()	
@@ -119,10 +133,15 @@ func old_load_save():
 	else:
 		printerr("No saved data to load")
 
-func save_exists():
+func save_exists(slot):
+	var CHECK_SLOT = UserSettings.get_save_slot(slot)
 	var file = File.new()
-	if file.file_exists(FILE_NAME):
+	if file.file_exists(CHECK_SLOT):
 		return true
 	else:
 		return false
 
+func delete_save(slot):
+	var dir = Directory.new()
+	
+	dir.remove(UserSettings.get_save_slot(slot))

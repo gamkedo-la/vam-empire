@@ -95,6 +95,15 @@ func save_exists():
 	else:
 		return false
 
+func set_current_slot(slot):
+	current.save.current_slot = slot
+
+func get_save_slot(slot_arg):
+	var slot = int(slot_arg)
+	if slot >= 1 && slot <= current.save.save_slots:
+		var slot_name = "slot_" + str(slot)
+		return current.save[slot_name]
+
 func refresh_ui():
 	emit_signal("ui_refresh")
 

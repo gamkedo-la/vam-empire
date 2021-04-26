@@ -1481,6 +1481,7 @@ frames = SubResource( 295 )
 animation = "InfLoop"
 
 [node name="InteractVB" type="VBoxContainer" parent="MenuCanvas/Viz/MainMenuVBox"]
+visible = false
 margin_top = 214.0
 margin_right = 960.0
 margin_bottom = 394.0
@@ -1569,130 +1570,167 @@ margin_bottom = 22.0
 text = "Express Load to EasyZone_01"
 
 [node name="SaveSlots" type="VBoxContainer" parent="MenuCanvas/Viz/MainMenuVBox"]
-visible = false
-margin_top = 287.0
+margin_top = 214.0
 margin_right = 960.0
-margin_bottom = 569.0
+margin_bottom = 524.0
 alignment = 1
 
-[node name="SlotOne" type="HBoxContainer" parent="MenuCanvas/Viz/MainMenuVBox/SaveSlots"]
+[node name="Slot1" type="HBoxContainer" parent="MenuCanvas/Viz/MainMenuVBox/SaveSlots"]
 margin_right = 960.0
 margin_bottom = 90.0
 alignment = 1
 
-[node name="SlotLabel" type="Label" parent="MenuCanvas/Viz/MainMenuVBox/SaveSlots/SlotOne"]
-margin_left = 282.0
+[node name="SlotLabel" type="Label" parent="MenuCanvas/Viz/MainMenuVBox/SaveSlots/Slot1"]
+margin_left = 227.0
 margin_top = 34.0
-margin_right = 394.0
+margin_right = 319.0
 margin_bottom = 56.0
-text = "SAVE [ONE]"
+text = "SAVE [1]"
 
-[node name="LoadSlot1" type="Button" parent="MenuCanvas/Viz/MainMenuVBox/SaveSlots/SlotOne"]
-margin_left = 400.0
+[node name="LoadSlot1" type="Button" parent="MenuCanvas/Viz/MainMenuVBox/SaveSlots/Slot1"]
+margin_left = 325.0
 margin_top = 34.0
-margin_right = 458.0
+margin_right = 383.0
 margin_bottom = 56.0
+rect_min_size = Vector2( 58, 0 )
 size_flags_vertical = 4
 text = "LOAD"
 
-[node name="StartSlot1" type="Button" parent="MenuCanvas/Viz/MainMenuVBox/SaveSlots/SlotOne"]
-margin_left = 464.0
+[node name="StartSlot1" type="Button" parent="MenuCanvas/Viz/MainMenuVBox/SaveSlots/Slot1"]
+margin_left = 389.0
 margin_top = 34.0
-margin_right = 512.0
+margin_right = 437.0
 margin_bottom = 56.0
+rect_min_size = Vector2( 30, 0 )
 size_flags_vertical = 4
 text = "NEW"
 
-[node name="SlotDetails1" type="RichTextLabel" parent="MenuCanvas/Viz/MainMenuVBox/SaveSlots/SlotOne"]
-margin_left = 518.0
-margin_right = 678.0
+[node name="SlotDetails1" type="RichTextLabel" parent="MenuCanvas/Viz/MainMenuVBox/SaveSlots/Slot1"]
+margin_left = 443.0
+margin_right = 699.0
 margin_bottom = 90.0
-rect_min_size = Vector2( 160, 90 )
+rect_min_size = Vector2( 256, 90 )
 size_flags_vertical = 3
-text = "Name:
-Cash:
-Ship:"
+bbcode_enabled = true
 scroll_active = false
 
-[node name="SlotOne2" type="HBoxContainer" parent="MenuCanvas/Viz/MainMenuVBox/SaveSlots"]
+[node name="DelSlot1" type="Button" parent="MenuCanvas/Viz/MainMenuVBox/SaveSlots/Slot1"]
+margin_left = 705.0
+margin_top = 34.0
+margin_right = 733.0
+margin_bottom = 56.0
+size_flags_vertical = 4
+custom_colors/font_color = Color( 1, 0.0313726, 0.0313726, 1 )
+text = "X"
+
+[node name="Slot2" type="HBoxContainer" parent="MenuCanvas/Viz/MainMenuVBox/SaveSlots"]
 margin_top = 96.0
 margin_right = 960.0
 margin_bottom = 186.0
 alignment = 1
 
-[node name="SlotLabel" type="Label" parent="MenuCanvas/Viz/MainMenuVBox/SaveSlots/SlotOne2"]
-margin_left = 282.0
+[node name="SlotLabel" type="Label" parent="MenuCanvas/Viz/MainMenuVBox/SaveSlots/Slot2"]
+margin_left = 227.0
 margin_top = 34.0
-margin_right = 394.0
+margin_right = 319.0
 margin_bottom = 56.0
-text = "SAVE [TWO]"
+text = "SAVE [2]"
 
-[node name="LoadSlot2" type="Button" parent="MenuCanvas/Viz/MainMenuVBox/SaveSlots/SlotOne2"]
-margin_left = 400.0
+[node name="LoadSlot2" type="Button" parent="MenuCanvas/Viz/MainMenuVBox/SaveSlots/Slot2"]
+margin_left = 325.0
 margin_top = 34.0
-margin_right = 458.0
+margin_right = 383.0
 margin_bottom = 56.0
 size_flags_vertical = 4
 text = "LOAD"
 
-[node name="StartSlot2" type="Button" parent="MenuCanvas/Viz/MainMenuVBox/SaveSlots/SlotOne2"]
-margin_left = 464.0
+[node name="StartSlot2" type="Button" parent="MenuCanvas/Viz/MainMenuVBox/SaveSlots/Slot2"]
+margin_left = 389.0
 margin_top = 34.0
-margin_right = 512.0
+margin_right = 437.0
 margin_bottom = 56.0
+rect_min_size = Vector2( 30, 0 )
 size_flags_vertical = 4
 text = "NEW"
 
-[node name="SlotDetails2" type="RichTextLabel" parent="MenuCanvas/Viz/MainMenuVBox/SaveSlots/SlotOne2"]
-margin_left = 518.0
-margin_right = 678.0
+[node name="SlotDetails2" type="RichTextLabel" parent="MenuCanvas/Viz/MainMenuVBox/SaveSlots/Slot2"]
+margin_left = 443.0
+margin_right = 699.0
 margin_bottom = 90.0
-rect_min_size = Vector2( 160, 90 )
+rect_min_size = Vector2( 256, 90 )
 size_flags_vertical = 3
-text = "Name:
-Cash:
-Ship:"
+bbcode_enabled = true
 scroll_active = false
 
-[node name="SlotOne3" type="HBoxContainer" parent="MenuCanvas/Viz/MainMenuVBox/SaveSlots"]
+[node name="DelSlot2" type="Button" parent="MenuCanvas/Viz/MainMenuVBox/SaveSlots/Slot2"]
+margin_left = 705.0
+margin_top = 34.0
+margin_right = 733.0
+margin_bottom = 56.0
+size_flags_vertical = 4
+custom_colors/font_color = Color( 1, 0.0313726, 0.0313726, 1 )
+text = "X"
+
+[node name="Slot3" type="HBoxContainer" parent="MenuCanvas/Viz/MainMenuVBox/SaveSlots"]
 margin_top = 192.0
 margin_right = 960.0
 margin_bottom = 282.0
 alignment = 1
 
-[node name="SlotLabel" type="Label" parent="MenuCanvas/Viz/MainMenuVBox/SaveSlots/SlotOne3"]
-margin_left = 282.0
+[node name="SlotLabel" type="Label" parent="MenuCanvas/Viz/MainMenuVBox/SaveSlots/Slot3"]
+margin_left = 227.0
 margin_top = 34.0
-margin_right = 394.0
+margin_right = 319.0
 margin_bottom = 56.0
-text = "SAVE [ONE]"
+text = "SAVE [3]"
 
-[node name="LoadSlot3" type="Button" parent="MenuCanvas/Viz/MainMenuVBox/SaveSlots/SlotOne3"]
-margin_left = 400.0
+[node name="LoadSlot3" type="Button" parent="MenuCanvas/Viz/MainMenuVBox/SaveSlots/Slot3"]
+margin_left = 325.0
 margin_top = 34.0
-margin_right = 458.0
+margin_right = 383.0
 margin_bottom = 56.0
 size_flags_vertical = 4
 text = "LOAD"
 
-[node name="StartSlot3" type="Button" parent="MenuCanvas/Viz/MainMenuVBox/SaveSlots/SlotOne3"]
-margin_left = 464.0
+[node name="StartSlot3" type="Button" parent="MenuCanvas/Viz/MainMenuVBox/SaveSlots/Slot3"]
+margin_left = 389.0
 margin_top = 34.0
-margin_right = 512.0
+margin_right = 437.0
 margin_bottom = 56.0
+rect_min_size = Vector2( 30, 0 )
 size_flags_vertical = 4
 text = "NEW"
 
-[node name="SlotDetails3" type="RichTextLabel" parent="MenuCanvas/Viz/MainMenuVBox/SaveSlots/SlotOne3"]
-margin_left = 518.0
-margin_right = 678.0
+[node name="SlotDetails3" type="RichTextLabel" parent="MenuCanvas/Viz/MainMenuVBox/SaveSlots/Slot3"]
+margin_left = 443.0
+margin_right = 699.0
 margin_bottom = 90.0
-rect_min_size = Vector2( 160, 90 )
+rect_min_size = Vector2( 256, 90 )
 size_flags_vertical = 3
-text = "Name:
-Cash:
-Ship:"
+bbcode_enabled = true
 scroll_active = false
+
+[node name="DelSlot3" type="Button" parent="MenuCanvas/Viz/MainMenuVBox/SaveSlots/Slot3"]
+margin_left = 705.0
+margin_top = 34.0
+margin_right = 733.0
+margin_bottom = 56.0
+size_flags_vertical = 4
+custom_colors/font_color = Color( 1, 0.0313726, 0.0313726, 1 )
+text = "X"
+
+[node name="ReturnHB" type="HBoxContainer" parent="MenuCanvas/Viz/MainMenuVBox/SaveSlots"]
+margin_top = 288.0
+margin_right = 960.0
+margin_bottom = 310.0
+alignment = 1
+
+[node name="Return" type="Button" parent="MenuCanvas/Viz/MainMenuVBox/SaveSlots/ReturnHB"]
+margin_left = 441.0
+margin_right = 519.0
+margin_bottom = 22.0
+size_flags_vertical = 4
+text = "RETURN"
 
 [node name="OptionsContainer" type="HBoxContainer" parent="MenuCanvas/Viz"]
 visible = false
@@ -2143,10 +2181,21 @@ anims/Empire = SubResource( 302 )
 anims/Empire_Loop = SubResource( 303 )
 
 [connection signal="can_exit" from="Transition" to="." method="_on_Transition_can_exit"]
+[connection signal="pressed" from="MenuCanvas/Viz/MainMenuVBox/InteractVB/ContinueHB/Continue" to="." method="_on_Continue_pressed"]
 [connection signal="pressed" from="MenuCanvas/Viz/MainMenuVBox/InteractVB/NewHB/New" to="." method="_on_New_pressed"]
 [connection signal="pressed" from="MenuCanvas/Viz/MainMenuVBox/InteractVB/LoadHB2/Load" to="." method="_on_Load_pressed"]
 [connection signal="pressed" from="MenuCanvas/Viz/MainMenuVBox/InteractVB/OptionsHB3/Options" to="." method="_on_Options_pressed"]
 [connection signal="pressed" from="MenuCanvas/Viz/MainMenuVBox/InteractVB/FastLoad/FastLoad" to="." method="_on_FastLoad_pressed"]
+[connection signal="pressed" from="MenuCanvas/Viz/MainMenuVBox/SaveSlots/Slot1/LoadSlot1" to="." method="_on_LoadSlot1_pressed"]
+[connection signal="pressed" from="MenuCanvas/Viz/MainMenuVBox/SaveSlots/Slot1/StartSlot1" to="." method="_on_StartSlot1_pressed"]
+[connection signal="pressed" from="MenuCanvas/Viz/MainMenuVBox/SaveSlots/Slot1/DelSlot1" to="." method="_on_DelSlot1_pressed"]
+[connection signal="pressed" from="MenuCanvas/Viz/MainMenuVBox/SaveSlots/Slot2/LoadSlot2" to="." method="_on_LoadSlot2_pressed"]
+[connection signal="pressed" from="MenuCanvas/Viz/MainMenuVBox/SaveSlots/Slot2/StartSlot2" to="." method="_on_StartSlot2_pressed"]
+[connection signal="pressed" from="MenuCanvas/Viz/MainMenuVBox/SaveSlots/Slot2/DelSlot2" to="." method="_on_DelSlot2_pressed"]
+[connection signal="pressed" from="MenuCanvas/Viz/MainMenuVBox/SaveSlots/Slot3/LoadSlot3" to="." method="_on_LoadSlot3_pressed"]
+[connection signal="pressed" from="MenuCanvas/Viz/MainMenuVBox/SaveSlots/Slot3/StartSlot3" to="." method="_on_StartSlot3_pressed"]
+[connection signal="pressed" from="MenuCanvas/Viz/MainMenuVBox/SaveSlots/Slot3/DelSlot3" to="." method="_on_DelSlot3_pressed"]
+[connection signal="pressed" from="MenuCanvas/Viz/MainMenuVBox/SaveSlots/ReturnHB/Return" to="." method="_on_Return_pressed"]
 [connection signal="value_changed" from="MenuCanvas/Viz/OptionsContainer/VBoxContainer/TabContainer/Audio/VBoxContainer/HBoxContainer/mast_volume_slider" to="." method="_on_mast_volume_slider_value_changed"]
 [connection signal="value_changed" from="MenuCanvas/Viz/OptionsContainer/VBoxContainer/TabContainer/Audio/VBoxContainer/HBoxContainer2/music_volume_slider" to="." method="_on_music_volume_slider_value_changed"]
 [connection signal="value_changed" from="MenuCanvas/Viz/OptionsContainer/VBoxContainer/TabContainer/Audio/VBoxContainer/HBoxContainer3/sound_effect_volume_slider" to="." method="_on_sound_effect_volume_slider_value_changed"]

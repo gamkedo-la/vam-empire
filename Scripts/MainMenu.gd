@@ -5,10 +5,27 @@ onready var empire_logo = $MenuCanvas/Viz/MainMenuVBox/LogoBox/VamLogo/EmpireLog
 onready var ani_player = $MenuCanvas/Viz/AnimationPlayer
 
 onready var main_menu = $MenuCanvas/Viz/MainMenuVBox
+onready var main_menu_buttons = $MenuCanvas/Viz/MainMenuVBox/InteractVB
 onready var new_button = $MenuCanvas/Viz/MainMenuVBox/InteractVB/NewHB/New
 onready var load_button = $MenuCanvas/Viz/MainMenuVBox/InteractVB/LoadHB2/Load
+onready var continue_button = $MenuCanvas/Viz/MainMenuVBox/InteractVB/ContinueHB/Continue
 onready var load_accept_popup = $MenuCanvas/Viz/LoadAcceptDialog
+onready var save_slots_menu = $MenuCanvas/Viz/MainMenuVBox/SaveSlots
 onready var options = $MenuCanvas/Viz/OptionsContainer
+
+# Save Slots
+onready var load_slot_1 = $MenuCanvas/Viz/MainMenuVBox/SaveSlots/Slot1/LoadSlot1
+onready var start_slot_1 = $MenuCanvas/Viz/MainMenuVBox/SaveSlots/Slot1/StartSlot1
+onready var slot_details_1 = $MenuCanvas/Viz/MainMenuVBox/SaveSlots/Slot1/SlotDetails1
+onready var del_slot_1 = $MenuCanvas/Viz/MainMenuVBox/SaveSlots/Slot1/DelSlot1
+onready var load_slot_2 = $MenuCanvas/Viz/MainMenuVBox/SaveSlots/Slot2/LoadSlot2
+onready var start_slot_2 = $MenuCanvas/Viz/MainMenuVBox/SaveSlots/Slot2/StartSlot2
+onready var slot_details_2 = $MenuCanvas/Viz/MainMenuVBox/SaveSlots/Slot2/SlotDetails2
+onready var del_slot_2 = $MenuCanvas/Viz/MainMenuVBox/SaveSlots/Slot2/DelSlot2
+onready var load_slot_3 = $MenuCanvas/Viz/MainMenuVBox/SaveSlots/Slot3/LoadSlot3	
+onready var start_slot_3 = $MenuCanvas/Viz/MainMenuVBox/SaveSlots/Slot3/StartSlot3
+onready var slot_details_3 = $MenuCanvas/Viz/MainMenuVBox/SaveSlots/Slot3/SlotDetails3
+onready var del_slot_3 = $MenuCanvas/Viz/MainMenuVBox/SaveSlots/Slot3/DelSlot3
 
 # New Player Popup
 onready var name_popup = $MenuCanvas/Viz/NewPlayerPop
@@ -38,17 +55,21 @@ func _ready():
 	if get_parent().name == "StartMenu":
 		self.visible = true
 		start_menu = true
+		save_slots_menu.visible = false
+		main_menu_buttons.visible = true
 	else:
 		menu_viz.visible = false
 		start_menu = false
 				
-	if PlayerVars.save_exists():
+	if PlayerVars.save_exists(UserSettings.current.save.current_slot):
+		continue_button.visible = true
 		load_button.disabled = false
 	else:
+		continue_button.visible = false
 		load_button.disabled = true
 	#TODO: This is just a quick hack to get some placeholder menu music. Music should be handled in a persistent way to allow smooth transitions
 	ani_player.play("Empire_Loop")
-	
+	_setup_slot_buttons()
 	update_ui_settings()
 	update_volume()
 	
@@ -62,6 +83,9 @@ func _process(_delta):
 				menu_viz.visible = false
 				main_menu.visible = false
 				Global.pause_game(false)
+			elif save_slots_menu.visible:
+				save_slots_menu.visible = false
+				main_menu_buttons.visible = true
 			elif options.visible:
 				UserSettings.save()
 				options.visible = false
@@ -69,6 +93,7 @@ func _process(_delta):
 			else:
 				menu_viz.visible = true
 				main_menu.visible = true
+				save_slots_menu.visible = false
 				options.visible = false
 				Global.pause_game(true)
 	else:
@@ -76,9 +101,8 @@ func _process(_delta):
 			if options.visible:
 				UserSettings.save()
 				options.visible = false
-			
-			
-		
+			elif save_slots_menu.visible:
+				save_slots_menu.visible = false		
 
 func close_options():
 		if options.visible:
@@ -118,9 +142,43 @@ func update_ui_settings():
 func load_into_homebase():
 	Global.goto_scene("res://World/game_zones/home_base.tscn")	
 
+func _setup_slot_buttons():
+	load_slot_1.disabled = true
+	load_slot_2.disabled = true
+	load_slot_3.disabled = true
+	del_slot_1.disabled = true
+	del_slot_2.disabled = true
+	del_slot_3.disabled = true
+	
+	start_slot_1.disabled = false
+	slot_details_1.bbcode_text = ""
+	start_slot_2.disabled = false
+	slot_details_2.bbcode_text = ""
+	start_slot_3.disabled = false
+	slot_details_3.bbcode_text = ""
+	
+	if PlayerVars.save_exists(1):
+		load_slot_1.disabled = false
+		start_slot_1.disabled = true
+		del_slot_1.disabled = false
+		slot_details_1.bbcode_text = PlayerVars.get_save_summary(1)
+	if PlayerVars.save_exists(2):
+		load_slot_2.disabled = false
+		start_slot_2.disabled = true
+		del_slot_2.disabled = false
+		slot_details_2.bbcode_text = PlayerVars.get_save_summary(2)
+	if PlayerVars.save_exists(3):
+		load_slot_3.disabled = false
+		start_slot_3.disabled = true
+		del_slot_3.disabled = false
+		slot_details_3.bbcode_text = PlayerVars.get_save_summary(3)
+
 func _on_New_pressed():
+	main_menu_buttons.visible = false
+	save_slots_menu.visible = true
 	#print("Loading new Scene...")
-	name_popup.popup_centered()
+	
+	#name_popup.popup_centered()
 
 func _disable_new():
 	new_button.disabled = true
@@ -169,15 +227,19 @@ func _on_PNameStartButton_pressed():
 	#load_into_homebase()
 	transition.transition_out()
 
-func _on_Load_pressed():
+func _on_Continue_pressed():
 	load_accept_popup.popup_centered()
+
+func _on_Load_pressed():
+	main_menu_buttons.visible = false
+	save_slots_menu.visible = true
+
 
 func _on_LoadAcceptDialog_confirmed():
 	PlayerVars.load_save()
 	Global.pause_game(false)
 	#load_into_homebase()
 	transition.transition_out()
-
 
 func _on_ResetSettings_pressed():
 	print("RESETTING SETTINGS")
@@ -210,7 +272,7 @@ func _on_mini_map_opac_slider_value_changed(value):
 
 
 func _on_FastLoad_pressed():
-	if PlayerVars.save_exists():
+	if PlayerVars.save_exists(UserSettings.current.save.current_slot):
 		PlayerVars.load_save()
 	update_settings()
 	Global.pause_game(false)
@@ -224,6 +286,7 @@ func _on_CheckBox_toggled(button_pressed):
 func _on_NewPlayerPop_about_to_show():
 	var animation = get_node("MenuCanvas/Viz/NewPlayerPop/AnimationPlayer")
 	animation.play("Show")
+
 
 
 func _on_NewPlayerPop_popup_hide():
@@ -244,4 +307,59 @@ func _on_LoadAcceptDialog_popup_hide():
 
 
 func _on_Transition_can_exit():
+	main_menu_buttons.visible = true
+	save_slots_menu.visible = false
 	load_into_homebase()
+
+
+func _on_Return_pressed():
+	save_slots_menu.visible = false
+	main_menu_buttons.visible = true
+	
+
+
+func _on_LoadSlot1_pressed():
+	PlayerVars.set_save_slot(1)
+	PlayerVars.load_save()
+	Global.pause_game(false)	
+	transition.transition_out()
+
+func _on_LoadSlot2_pressed():
+	PlayerVars.set_save_slot(2)
+	PlayerVars.load_save()
+	Global.pause_game(false)	
+	transition.transition_out()
+
+func _on_LoadSlot3_pressed():
+	PlayerVars.set_save_slot(3)
+	PlayerVars.load_save()
+	Global.pause_game(false)	
+	transition.transition_out()
+
+func _new_character():
+	name_popup.popup_centered()
+
+func _on_StartSlot1_pressed():
+	PlayerVars.set_save_slot(1)
+	_new_character()
+
+func _on_StartSlot2_pressed():
+	PlayerVars.set_save_slot(2)
+	_new_character()
+
+func _on_StartSlot3_pressed():
+	PlayerVars.set_save_slot(3)
+	_new_character()
+
+
+func _on_DelSlot1_pressed():
+	PlayerVars.delete_save(1)
+	_setup_slot_buttons()
+
+func _on_DelSlot2_pressed():
+	PlayerVars.delete_save(2)
+	_setup_slot_buttons()
+
+func _on_DelSlot3_pressed():
+	PlayerVars.delete_save(3)
+	_setup_slot_buttons()
