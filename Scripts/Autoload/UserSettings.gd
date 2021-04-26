@@ -39,10 +39,13 @@ func _ready():
 
 func new():
 	print_debug("Loading Factory Default [User Settings]")
-	current.clear()
-	var temp_save = current.save.duplicate(true)
-	current = user_defaults.duplicate()
-	current.save = temp_save
+	var temp_save
+	if current.save:
+		temp_save = current.save.duplicate(true)
+	current.clear()	
+	current = user_defaults.duplicate(true)
+	if temp_save:
+		current.save = temp_save
 	save()
 
 func save():
