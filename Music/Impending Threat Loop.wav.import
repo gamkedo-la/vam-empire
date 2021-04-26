@@ -1,0 +1,21 @@
+[remap]
+
+importer="wav"
+type="AudioStreamSample"
+path="res://.import/Impending Threat Loop.wav-a474a73e3b84edb87e7661598811bfea.sample"
+
+[deps]
+
+source_file="res://Music/Impending Threat Loop.wav"
+dest_files=[ "res://.import/Impending Threat Loop.wav-a474a73e3b84edb87e7661598811bfea.sample" ]
+
+[params]
+
+force/8_bit=false
+force/mono=false
+force/max_rate=false
+force/max_rate_hz=44100
+edit/trim=false
+edit/normalize=false
+edit/loop=false
+compress/mode=0
