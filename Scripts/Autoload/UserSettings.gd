@@ -4,7 +4,6 @@ signal ui_refresh
 
 var FILE_NAME = "user://user-settings.json"
 
-
 var user_defaults = {
 	sound = {
 	"master_volume": .8,
@@ -16,6 +15,13 @@ var user_defaults = {
 	"shipHUD_opacity": 1,	
 	"mini_map_grid_opacity": 0.25,
 	"mini_map_style": 0
+	},
+	save = {
+	"save_slots": 3,
+	"current_slot": 1,
+	"slot_1": "user://game-data.json",
+	"slot_2": "user://game-data2.json",
+	"slot_3": "user://game-data3.json"
 	}
 }
 
@@ -34,13 +40,15 @@ func _ready():
 func new():
 	print_debug("Loading Factory Default [User Settings]")
 	current.clear()
-	current = user_defaults.duplicate()	
+	var temp_save = current.save.duplicate(true)
+	current = user_defaults.duplicate()
+	current.save = temp_save
 	save()
 
 func save():
 	var file = File.new()
 	file.open(FILE_NAME, File.WRITE)
-	file.store_string(to_json(current))
+	file.store_string(JSON.print(current, "\t"))	
 	file.close()
 
 func load_save():
