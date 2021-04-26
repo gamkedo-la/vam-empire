@@ -27,6 +27,8 @@ input_pickable = true
 mass = 750.0
 script = ExtResource( 2 )
 health = 20000
+highlight_width_start = 0.1
+highlight_width_end = 1.2
 
 [node name="Sprite" type="Sprite" parent="."]
 material = ExtResource( 4 )
@@ -62,7 +64,10 @@ position = Vector2( 0.0990906, -0.099102 )
 z_index = -1
 occluder = SubResource( 6 )
 
+[node name="HighlightTween" type="Tween" parent="."]
+
 [connection signal="input_event" from="." to="." method="_on_Asteroid002_input_event"]
 [connection signal="area_entered" from="HurtBox" to="." method="_on_HurtBox_area_entered"]
+[connection signal="tween_completed" from="HighlightTween" to="." method="_on_HighlightTween_tween_completed"]
 
 [editable path="HurtBox"]

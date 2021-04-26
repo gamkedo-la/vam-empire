@@ -5,7 +5,12 @@ signal removed
 
 export var health = 200
 
+export (float, 0.1, 10.0) var highlight_width_start = 1.0
+export (float, 1.0, 20.0) var highlight_width_end = 2.0
+export (float, 0.5, 5) var highlight_pulse_speed = 0.5
+
 onready var sprite = $Sprite
+onready var targ_tween = $HighlightTween
 
 func _ready():
 	add_to_group("mini_map")
@@ -43,6 +48,7 @@ func _on_Asteroid003_input_event(viewport, event, shape_idx):
 	make_target(viewport, event, shape_idx)
 
 func unset_target():
+	targ_tween.stop_all()
 	if sprite.material.get_shader_param("width") > 0.0:
 		sprite.material.set_shader_param("width", 0.0)
 
@@ -50,4 +56,39 @@ func make_target(_viewport, event, _shape_idx):
 	if event is InputEventMouseButton and event.pressed and event.button_index == BUTTON_LEFT:
 		PlayerVars.set_target(self)
 		sprite.material.set_shader_param("width", 1.0)
+		targ_tween.interpolate_property(sprite.material,
+									"shader_param/width",
+									highlight_width_start, highlight_width_end, highlight_pulse_speed,
+									Tween.TRANS_SINE, Tween.EASE_IN_OUT)
 		
+		targ_tween.interpolate_property(sprite.material,
+									"shader_param/outline_color",
+									sprite.material.get_shader_param("color_one"),sprite.material.get_shader_param("color_two"), highlight_pulse_speed*2,
+									Tween.TRANS_SINE, Tween.EASE_IN_OUT, 1)
+		targ_tween.start()
+
+func _on_HighlightTween_tween_completed(object, key):
+#	print("object: ", object, "key: ", key)
+	if key == ":shader_param/width":
+		var cur_width = sprite.material.get_shader_param("width")
+		var targ_width = highlight_width_end
+		if cur_width > (highlight_width_start + .1):
+			targ_width = highlight_width_start
+		targ_tween.interpolate_property(sprite.material,
+							"shader_param/width",
+							cur_width, targ_width, highlight_pulse_speed,
+							Tween.TRANS_SINE, Tween.EASE_IN_OUT)
+		targ_tween.start()
+	if key == ":shader_param/outline_color":
+		var cur_color = sprite.material.get_shader_param("outline_color")
+		var targ_color = sprite.material.get_shader_param("color_two")
+		if cur_color == targ_color:
+			targ_color = sprite.material.get_shader_param("color_one")
+		targ_tween.interpolate_property(sprite.material,
+							"shader_param/outline_color",
+							cur_color,targ_color, highlight_pulse_speed*2,
+							Tween.TRANS_SINE, Tween.EASE_IN_OUT)
+		targ_tween.start()
+
+
+

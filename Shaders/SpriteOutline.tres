@@ -5,6 +5,8 @@ code = "shader_type canvas_item;
 
 uniform float width : hint_range(0.0, 30.0);
 uniform vec4 outline_color : hint_color;
+uniform vec4 color_one : hint_color;
+uniform vec4 color_two : hint_color;
 uniform sampler2D textureName;
 uniform vec2 textureName_size;
 
@@ -30,4 +32,6 @@ resource_local_to_scene = true
 shader = SubResource( 1 )
 shader_param/width = 0.0
 shader_param/outline_color = Color( 0.141176, 0.623529, 0.870588, 1 )
+shader_param/color_one = Color( 0.141176, 0.623529, 0.870588, 1 )
+shader_param/color_two = Color( 0.408943, 0.705518, 0.857422, 1 )
 shader_param/textureName_size = Vector2( 0, 0 )
