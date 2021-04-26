@@ -1,4 +1,4 @@
-[gd_scene load_steps=332 format=2]
+[gd_scene load_steps=335 format=2]
 
 [ext_resource path="res://UI/Effects/Transition.tscn" type="PackedScene" id=1]
 [ext_resource path="res://Scripts/MainMenu.gd" type="Script" id=2]
@@ -28,6 +28,9 @@
 [ext_resource path="res://UI/HUD/Textures/MiniMap/pixel_grid_dull_black..png" type="Texture" id=26]
 [ext_resource path="res://UI/HUD/Textures/MiniMap/pixel_grid_inverted.png" type="Texture" id=27]
 [ext_resource path="res://UI/HUD/Textures/MiniMap/pixel_grid_deep_purple..png" type="Texture" id=28]
+[ext_resource path="res://UI/Textures/continue_button/continue_button_press.png" type="Texture" id=29]
+[ext_resource path="res://UI/Textures/continue_button/continue_button_hover.png" type="Texture" id=30]
+[ext_resource path="res://UI/Textures/continue_button/continue_button.png" type="Texture" id=31]
 
 [sub_resource type="AtlasTexture" id=1]
 atlas = ExtResource( 4 )
@@ -1431,6 +1434,8 @@ script = ExtResource( 2 )
 layer = 6
 
 [node name="Viz" type="Control" parent="MenuCanvas"]
+anchor_right = 1.0
+anchor_bottom = 1.0
 rect_pivot_offset = Vector2( 483, 268 )
 theme = ExtResource( 18 )
 __meta__ = {
@@ -1478,12 +1483,29 @@ animation = "InfLoop"
 [node name="InteractVB" type="VBoxContainer" parent="MenuCanvas/Viz/MainMenuVBox"]
 margin_top = 214.0
 margin_right = 960.0
-margin_bottom = 355.0
+margin_bottom = 394.0
 alignment = 1
 
-[node name="NewHB" type="HBoxContainer" parent="MenuCanvas/Viz/MainMenuVBox/InteractVB"]
+[node name="ContinueHB" type="HBoxContainer" parent="MenuCanvas/Viz/MainMenuVBox/InteractVB"]
 margin_right = 960.0
-margin_bottom = 32.0
+margin_bottom = 33.0
+alignment = 1
+
+[node name="Continue" type="TextureButton" parent="MenuCanvas/Viz/MainMenuVBox/InteractVB/ContinueHB"]
+margin_left = 365.0
+margin_right = 594.0
+margin_bottom = 33.0
+shortcut_in_tooltip = false
+action_mode = 0
+keep_pressed_outside = true
+texture_normal = ExtResource( 31 )
+texture_pressed = ExtResource( 29 )
+texture_hover = ExtResource( 30 )
+
+[node name="NewHB" type="HBoxContainer" parent="MenuCanvas/Viz/MainMenuVBox/InteractVB"]
+margin_top = 39.0
+margin_right = 960.0
+margin_bottom = 71.0
 alignment = 1
 
 [node name="New" type="TextureButton" parent="MenuCanvas/Viz/MainMenuVBox/InteractVB/NewHB"]
@@ -1499,9 +1521,9 @@ texture_hover = ExtResource( 6 )
 texture_disabled = ExtResource( 8 )
 
 [node name="LoadHB2" type="HBoxContainer" parent="MenuCanvas/Viz/MainMenuVBox/InteractVB"]
-margin_top = 38.0
+margin_top = 77.0
 margin_right = 960.0
-margin_bottom = 74.0
+margin_bottom = 113.0
 alignment = 1
 
 [node name="Load" type="TextureButton" parent="MenuCanvas/Viz/MainMenuVBox/InteractVB/LoadHB2"]
@@ -1518,9 +1540,9 @@ texture_hover = ExtResource( 14 )
 texture_disabled = ExtResource( 13 )
 
 [node name="OptionsHB3" type="HBoxContainer" parent="MenuCanvas/Viz/MainMenuVBox/InteractVB"]
-margin_top = 80.0
+margin_top = 119.0
 margin_right = 960.0
-margin_bottom = 113.0
+margin_bottom = 152.0
 alignment = 1
 
 [node name="Options" type="TextureButton" parent="MenuCanvas/Viz/MainMenuVBox/InteractVB/OptionsHB3"]
@@ -1535,9 +1557,9 @@ texture_pressed = ExtResource( 10 )
 texture_hover = ExtResource( 11 )
 
 [node name="FastLoad" type="HBoxContainer" parent="MenuCanvas/Viz/MainMenuVBox/InteractVB"]
-margin_top = 119.0
+margin_top = 158.0
 margin_right = 960.0
-margin_bottom = 141.0
+margin_bottom = 180.0
 alignment = 1
 
 [node name="FastLoad" type="Button" parent="MenuCanvas/Viz/MainMenuVBox/InteractVB/FastLoad"]
@@ -1545,6 +1567,132 @@ margin_left = 336.0
 margin_right = 624.0
 margin_bottom = 22.0
 text = "Express Load to EasyZone_01"
+
+[node name="SaveSlots" type="VBoxContainer" parent="MenuCanvas/Viz/MainMenuVBox"]
+visible = false
+margin_top = 287.0
+margin_right = 960.0
+margin_bottom = 569.0
+alignment = 1
+
+[node name="SlotOne" type="HBoxContainer" parent="MenuCanvas/Viz/MainMenuVBox/SaveSlots"]
+margin_right = 960.0
+margin_bottom = 90.0
+alignment = 1
+
+[node name="SlotLabel" type="Label" parent="MenuCanvas/Viz/MainMenuVBox/SaveSlots/SlotOne"]
+margin_left = 282.0
+margin_top = 34.0
+margin_right = 394.0
+margin_bottom = 56.0
+text = "SAVE [ONE]"
+
+[node name="LoadSlot1" type="Button" parent="MenuCanvas/Viz/MainMenuVBox/SaveSlots/SlotOne"]
+margin_left = 400.0
+margin_top = 34.0
+margin_right = 458.0
+margin_bottom = 56.0
+size_flags_vertical = 4
+text = "LOAD"
+
+[node name="StartSlot1" type="Button" parent="MenuCanvas/Viz/MainMenuVBox/SaveSlots/SlotOne"]
+margin_left = 464.0
+margin_top = 34.0
+margin_right = 512.0
+margin_bottom = 56.0
+size_flags_vertical = 4
+text = "NEW"
+
+[node name="SlotDetails1" type="RichTextLabel" parent="MenuCanvas/Viz/MainMenuVBox/SaveSlots/SlotOne"]
+margin_left = 518.0
+margin_right = 678.0
+margin_bottom = 90.0
+rect_min_size = Vector2( 160, 90 )
+size_flags_vertical = 3
+text = "Name:
+Cash:
+Ship:"
+scroll_active = false
+
+[node name="SlotOne2" type="HBoxContainer" parent="MenuCanvas/Viz/MainMenuVBox/SaveSlots"]
+margin_top = 96.0
+margin_right = 960.0
+margin_bottom = 186.0
+alignment = 1
+
+[node name="SlotLabel" type="Label" parent="MenuCanvas/Viz/MainMenuVBox/SaveSlots/SlotOne2"]
+margin_left = 282.0
+margin_top = 34.0
+margin_right = 394.0
+margin_bottom = 56.0
+text = "SAVE [TWO]"
+
+[node name="LoadSlot2" type="Button" parent="MenuCanvas/Viz/MainMenuVBox/SaveSlots/SlotOne2"]
+margin_left = 400.0
+margin_top = 34.0
+margin_right = 458.0
+margin_bottom = 56.0
+size_flags_vertical = 4
+text = "LOAD"
+
+[node name="StartSlot2" type="Button" parent="MenuCanvas/Viz/MainMenuVBox/SaveSlots/SlotOne2"]
+margin_left = 464.0
+margin_top = 34.0
+margin_right = 512.0
+margin_bottom = 56.0
+size_flags_vertical = 4
+text = "NEW"
+
+[node name="SlotDetails2" type="RichTextLabel" parent="MenuCanvas/Viz/MainMenuVBox/SaveSlots/SlotOne2"]
+margin_left = 518.0
+margin_right = 678.0
+margin_bottom = 90.0
+rect_min_size = Vector2( 160, 90 )
+size_flags_vertical = 3
+text = "Name:
+Cash:
+Ship:"
+scroll_active = false
+
+[node name="SlotOne3" type="HBoxContainer" parent="MenuCanvas/Viz/MainMenuVBox/SaveSlots"]
+margin_top = 192.0
+margin_right = 960.0
+margin_bottom = 282.0
+alignment = 1
+
+[node name="SlotLabel" type="Label" parent="MenuCanvas/Viz/MainMenuVBox/SaveSlots/SlotOne3"]
+margin_left = 282.0
+margin_top = 34.0
+margin_right = 394.0
+margin_bottom = 56.0
+text = "SAVE [ONE]"
+
+[node name="LoadSlot3" type="Button" parent="MenuCanvas/Viz/MainMenuVBox/SaveSlots/SlotOne3"]
+margin_left = 400.0
+margin_top = 34.0
+margin_right = 458.0
+margin_bottom = 56.0
+size_flags_vertical = 4
+text = "LOAD"
+
+[node name="StartSlot3" type="Button" parent="MenuCanvas/Viz/MainMenuVBox/SaveSlots/SlotOne3"]
+margin_left = 464.0
+margin_top = 34.0
+margin_right = 512.0
+margin_bottom = 56.0
+size_flags_vertical = 4
+text = "NEW"
+
+[node name="SlotDetails3" type="RichTextLabel" parent="MenuCanvas/Viz/MainMenuVBox/SaveSlots/SlotOne3"]
+margin_left = 518.0
+margin_right = 678.0
+margin_bottom = 90.0
+rect_min_size = Vector2( 160, 90 )
+size_flags_vertical = 3
+text = "Name:
+Cash:
+Ship:"
+scroll_active = false
 
 [node name="OptionsContainer" type="HBoxContainer" parent="MenuCanvas/Viz"]
 visible = false
@@ -1717,10 +1865,10 @@ rect_min_size = Vector2( 120, 0 )
 visible = false
 anchor_right = 1.0
 anchor_bottom = 1.0
-margin_left = 4.0
-margin_top = 32.0
-margin_right = -4.0
-margin_bottom = -4.0
+margin_left = 7.5
+margin_top = 31.5
+margin_right = -7.5
+margin_bottom = -7.5
 
 [node name="VBoxContainer" type="VBoxContainer" parent="MenuCanvas/Viz/OptionsContainer/VBoxContainer/TabContainer/Graphics"]
 margin_left = 7.0
@@ -1732,10 +1880,10 @@ margin_bottom = 227.0
 visible = false
 anchor_right = 1.0
 anchor_bottom = 1.0
-margin_left = 4.0
-margin_top = 32.0
-margin_right = -4.0
-margin_bottom = -4.0
+margin_left = 7.5
+margin_top = 31.5
+margin_right = -7.5
+margin_bottom = -7.5
 
 [node name="VBoxContainer" type="VBoxContainer" parent="MenuCanvas/Viz/OptionsContainer/VBoxContainer/TabContainer/HUD"]
 margin_left = 7.0
@@ -1833,19 +1981,19 @@ __meta__ = {
 visible = false
 anchor_right = 1.0
 anchor_bottom = 1.0
-margin_left = 4.0
-margin_top = 32.0
-margin_right = -4.0
-margin_bottom = -4.0
+margin_left = 7.5
+margin_top = 31.5
+margin_right = -7.5
+margin_bottom = -7.5
 
 [node name="System" type="PanelContainer" parent="MenuCanvas/Viz/OptionsContainer/VBoxContainer/TabContainer"]
 visible = false
 anchor_right = 1.0
 anchor_bottom = 1.0
-margin_left = 4.0
-margin_top = 32.0
-margin_right = -4.0
-margin_bottom = -4.0
+margin_left = 7.5
+margin_top = 31.5
+margin_right = -7.5
+margin_bottom = -7.5
 
 [node name="VBoxContainer" type="VBoxContainer" parent="MenuCanvas/Viz/OptionsContainer/VBoxContainer/TabContainer/System"]
 margin_left = 7.0
@@ -1888,10 +2036,10 @@ text = "Reset to Default Settings"
 visible = false
 anchor_right = 1.0
 anchor_bottom = 1.0
-margin_left = 4.0
-margin_top = 32.0
-margin_right = -4.0
-margin_bottom = -4.0
+margin_left = 7.5
+margin_top = 31.5
+margin_right = -7.5
+margin_bottom = -7.5
 
 [node name="HBoxContainer" type="HBoxContainer" parent="MenuCanvas/Viz/OptionsContainer/VBoxContainer"]
 margin_top = 442.0
@@ -1971,7 +2119,6 @@ anims/Hide = SubResource( 298 )
 anims/Show = SubResource( 299 )
 
 [node name="LoadAcceptDialog" type="AcceptDialog" parent="MenuCanvas/Viz"]
-visible = true
 anchor_left = 0.5
 anchor_top = 0.5
 anchor_right = 0.5
