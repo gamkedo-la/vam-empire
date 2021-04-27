@@ -6,7 +6,6 @@ func set_text(text, color, scale):
 	
 	label.modulate = color
 	label.text = str(text)
-	print(text)
 	container.scale.x = scale
 	container.scale.y = scale
 
