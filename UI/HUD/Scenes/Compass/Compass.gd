@@ -8,7 +8,6 @@ export(Vector2) var NorthPosition = Vector2.ZERO  # The compass points at this p
 export(float) var WiggleRange := 0.05
 export(float) var WiggleDelaySecondsRange := 0.5
 
-var PlayerPosition = Vector2.ZERO
 var Wiggle = 0;
 
 # onready var my_label = get_node("MyLabel") 
@@ -23,9 +22,7 @@ func _ready():
 	rng.randomize()
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
-func _process(_delta):
-	PlayerPosition = Global.player_position
-	
+func _process(_delta):	
 	# Randomize a tiny bit so the needle has some juice
 	if(WiggleTimer.is_stopped()) :
 		Wiggle = rng.randf_range(-WiggleRange, WiggleRange)
@@ -34,7 +31,5 @@ func _process(_delta):
 	# Do some math to recalculate the Pointer orientation
 	Needle.rotation = Global.player_position.angle_to_point(NorthPosition) - 1.570796 + Wiggle
 	
-# Not sure what I've done wrong declaring these param
-#func SetNorthPosition(Position2D northPosition):
-func SetNorthPosition(northPosition):
+func SetNorthPosition(northPosition: Vector2) -> void:
 	NorthPosition = northPosition
