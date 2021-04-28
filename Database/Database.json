@@ -114,6 +114,13 @@
 			"itemIcon": "res://MiningMaterials/Textures/mat-silver.png",
 			"itemUuid": "4e2136e8-7e87-4635-9b91-36e68afb1c20",
 			"stackSize": 20
-		}
+		},
+        {
+            "itemName": "Diamond",
+            "itemType": 0,
+            "itemIcon": "res://MiningMaterials/Textures/mat-diamond.png",
+            "itemUuid": "b343b543-44a2-4a94-82b6-72a5d843f8f6",
+            "stackSize": 4
+        }
 	]
 }
