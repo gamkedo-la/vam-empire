@@ -80,6 +80,8 @@ func _ready():
 	
 	healingMaxEnergy = healingEnergy
 
+func _process(delta):
+	Global.player_position = position
 	
 func _physics_process(delta):
 	var targ = PlayerVars.get_target()
