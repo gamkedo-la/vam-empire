@@ -24,9 +24,4 @@ texture = ExtResource( 1 )
 position = Vector2( 6, 0 )
 
 [node name="MuzzleFlash" parent="WeaponAnchor/WeaponSprite/BarrelTip" instance=ExtResource( 4 )]
-start_delay = 0.0
 off_duration = 0.5
-min_value_inset = 0.0
-max_value_inset = 5.0
-min_value_glow = 0.0
-max_value_glow = 3.0

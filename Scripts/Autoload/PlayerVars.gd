@@ -53,7 +53,7 @@ func save():
 
 func set_save_slot(slot):
 	UserSettings.set_current_slot(slot)
-	FILE_NAME = UserSettings.get_save_slot(slot)		
+	FILE_NAME = UserSettings.get_save_slot(slot)
 
 	
 func get_save_summary(slot):
@@ -61,6 +61,8 @@ func get_save_summary(slot):
 	FILE_NAME = UserSettings.get_save_slot(slot)
 	load_save()
 	var summary = str(" Name: [color=red]", player.name, "[/color]\n Cash: [color=red]", player.cash, "[/color]")
+	FILE_NAME = UserSettings.get_save_slot(remember_slot)
+	load_save()
 	return summary
 	
 	
