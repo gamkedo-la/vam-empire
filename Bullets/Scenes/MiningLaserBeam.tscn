@@ -5,7 +5,7 @@
 [ext_resource path="res://Bullets/Textures/MiningLaserBeamReadyAnimation-Sheet.png" type="Texture" id=3]
 [ext_resource path="res://Lights/Textures/light_orb.png" type="Texture" id=4]
 
-[sub_resource type="Animation" id=2]
+[sub_resource type="Animation" id=1]
 resource_name = "fireLaser"
 length = 0.7
 loop = true
@@ -22,7 +22,7 @@ tracks/0/keys = {
 "values": [ 2, 2, 3, 4, 5, 6, 7 ]
 }
 
-[sub_resource type="Animation" id=3]
+[sub_resource type="Animation" id=2]
 resource_name = "keepFiringLaser"
 length = 0.6
 loop = true
@@ -39,11 +39,11 @@ tracks/0/keys = {
 "values": [ 7, 7, 6, 7, 7, 7 ]
 }
 
-[sub_resource type="CapsuleShape2D" id=4]
+[sub_resource type="CapsuleShape2D" id=3]
 radius = 1.37497
 height = 2.33333
 
-[sub_resource type="CapsuleShape2D" id=5]
+[sub_resource type="CapsuleShape2D" id=4]
 radius = 1.54164
 height = 4.24999
 
@@ -58,21 +58,21 @@ script = ExtResource( 2 )
 position = Vector2( -1.08456, -25.0282 )
 texture = ExtResource( 3 )
 hframes = 8
-frame = 6
+frame = 2
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="."]
 playback_speed = 2.0
-anims/fireLaser = SubResource( 2 )
-anims/keepFiringLaser = SubResource( 3 )
+anims/fireLaser = SubResource( 1 )
+anims/keepFiringLaser = SubResource( 2 )
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
-shape = SubResource( 4 )
+shape = SubResource( 3 )
 
 [node name="HurtBox" parent="." instance=ExtResource( 1 )]
 collision_mask = 8
 
 [node name="CollisionShape2D" parent="HurtBox" index="0"]
-shape = SubResource( 5 )
+shape = SubResource( 4 )
 
 [node name="Light2D" type="Light2D" parent="."]
 position = Vector2( 2.10223, 0.560598 )

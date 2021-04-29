@@ -86,7 +86,8 @@ func fire_mining_laser():
 	if !Global.hold_fire:
 		mining_beam = beam.instance()
 		root_node.add_child(mining_beam)
-	elif mining_beam:
+	
+	if mining_beam:
 		mining_beam.global_position = barrel_tip.global_position
 		mining_beam.global_rotation = barrel_tip.global_rotation + PI/2	
 	
