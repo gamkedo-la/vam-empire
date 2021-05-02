@@ -59,7 +59,7 @@ func _ready():
 	
 	
 	
-func fire(parent_velocity):
+func fire(parent_velocity: Vector2):
 	if primed:
 		# TODO: Add more variety here that will come from the weapon characteristics that can be set in editor
 		# TODO: Improve the entire process of 'firing' projectiles to feel better and look better in game
@@ -105,7 +105,7 @@ func set_fire_rate(val):
 func get_fire_rate():
 	return fire_rate
 
-func _fire_projectile(parent_velocity):
+func _fire_projectile(parent_velocity: Vector2) -> void:	
 	var rnd_impulse = rng.randf_range(0.8, 2.0)
 	var proj = projectile.instance()
 	root_node.add_child(proj)

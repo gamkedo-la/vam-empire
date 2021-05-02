@@ -44,7 +44,7 @@ func equip_weapon(ordnance, mount):
 	ordnance.global_position = mount.global_position
 	weapons.append(ordnance)
 	
-func fire_weapons(parent_velocity):
+func fire_weapons(parent_velocity: Vector2):
 	var fired = false
 	for weapon in weapons:
 		fired = weapon.fire(parent_velocity)

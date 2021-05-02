@@ -3,7 +3,7 @@ signal removed
 onready var ai = $AI
 
 # Variables that should come from piloted ship
-var rotation_speed = 0.01
+var rotation_speed = 0.025
 
 export var ship_file = preload("res://Ships/Templates/M_Destroyers/DestroyerTemplate01.tscn")
 onready var ship_node = $PilotedShip

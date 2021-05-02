@@ -3,6 +3,7 @@ signal state_changed(new_state)
 
 onready var player_detect_area = $PlayerDetect
 var actor = null
+var actor_velocity = Vector2.ZERO
 var player: Player = null
 var ship: Ship = null
 
@@ -28,7 +29,8 @@ func _physics_process(delta: float) -> void:
 			if player != null and ship != null:
 				#actor.rotation = actor.global_position.direction_to(player.global_position)
 				actor.rotate_toward(player.global_position)
-				pass
+				if abs(actor.global_position.angle_to(player.global_position)) < 0.1:
+					ship.fire_weapons(actor_velocity)
 			else:
 				print("In engage state but no player/ship")
 		_:
