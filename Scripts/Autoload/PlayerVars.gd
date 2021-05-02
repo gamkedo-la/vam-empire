@@ -5,7 +5,7 @@ signal target_change
 # File saving/loading methodology adapted from https://gdscript.com/solutions/how-to-save-and-load-godot-game-data/
 var FILE_NAME
 
-var player_node = null
+var player_node: Player = null
 
 # For instantiating a new player file
 var player_defaults = {

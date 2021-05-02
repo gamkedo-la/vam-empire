@@ -1,5 +1,5 @@
 extends KinematicBody2D
-
+class_name Player
 # The player and the ship will be 2 separte scenes combined modularly
 
 # Original Player.gd variables, some of which may break off into PlayerVars.gd (for easier global access) and some may

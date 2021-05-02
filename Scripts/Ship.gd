@@ -1,4 +1,5 @@
 extends Node2D
+class_name Ship
 
 enum hpClass {SMALL, MEDIUM, LARGE, XLARGE}
 export (String) var ship_name
