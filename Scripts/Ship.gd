@@ -35,7 +35,7 @@ func _ready():
 		thrust_exhaust.emitting = true
 	
 
-func equip_weapon(ordnance, mount):
+func equip_weapon(ordnance: Weapon, mount: Position2D):
 	print(ordnance.name)
 	#var newWeapon = ordnance.instance()
 	#Global.reparent(ordnance, mount)	

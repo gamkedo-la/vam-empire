@@ -52,6 +52,7 @@
   - [**Global Singletons/Autoload Scripts**](#global-singletonsautoload-scripts)
   - [**Debugging and the Remote Scene Tree**](#debugging-and-the-remote-scene-tree)
   - [**Learning Resources**](#learning-resources)
+    - [**HomeTeam Produced Content**](#hometeam-produced-content)
     - [**Written Documentation/Resources**](#written-documentationresources)
     - [**Useful and Concise Youtube/Video Resources**](#useful-and-concise-youtubevideo-resources)
 - [Appendix X: Original Thoughts on Design by Kyle Black](#appendix-x-original-thoughts-on-design-by-kyle-black)
@@ -381,6 +382,9 @@ Many folks here at Hometeam who have worked in an engine extensively, have worke
 Once familiar with the debugging tools, some members prefer to make things like the Remote Scene tree debugger load by default on every run etc... You can find the settings under the "Editor Settings/Debugger" to set the Remote Scene to load by default.
 
 ## **Learning Resources**
+### **HomeTeam Produced Content**
+- Kyle Black - Godot Trainer
+  - [GDScript Quick Tip: Static Typing](https://www.youtube.com/watch?v=yMr7Tr-UG18)
 ### **Written Documentation/Resources**
 - The DOC: https://docs.godotengine.org/en/stable/
 

@@ -36,11 +36,11 @@ func _physics_process(delta: float) -> void:
 		_:
 			printerr("Error: Found a state for enemy that should not exist", self)
 
-func initialize(actor, ship: Ship):
-	self.actor = actor
-	self.ship = ship
+func initialize(newActor, newShip: Ship):
+	self.actor = newActor
+	self.ship = newShip
 
-func set_state(new_state: int):
+func set_state(new_state: int) -> void:
 	if new_state == current_state:
 		return
 		
