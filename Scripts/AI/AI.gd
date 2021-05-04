@@ -77,7 +77,7 @@ func move(delta: float):
 	if target:
 		thrust_vector.x = 1.0
 		thrust_vector.x -= clamp(abs(actor.global_position.angle_to(target.global_position)), 0.0, 1.0)
-	thrust_vector = thrust_vector.rotated(global_rotation)
+	thrust_vector = thrust_vector.rotated(actor.global_rotation)
 	thrust_vector = thrust_vector.normalized()
 	
 	if thrust_vector != Vector2.ZERO:		
