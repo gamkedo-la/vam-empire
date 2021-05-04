@@ -35,12 +35,17 @@ var engage_speed = 2
 # Time to wait to return to patrolling/stop chasing a just lost target
 onready var patrol_timer = Timer.new()
 var patrol_wait = 3
+var patrol_target: Vector2 = Vector2.ZERO
+export (float, 1.0, 9000.0) var patrol_range = 2000
+var patrol_reached: bool = true
 # Time to wait to return to origin position after chasing a target to a new area
 onready var origin_timer = Timer.new()
 var origin_wait = 45
 
+onready var rng = RandomNumberGenerator.new()
 
 func _ready() -> void:
+	rng.randomize()
 	set_state(State.PATROL)
 	
 
@@ -66,17 +71,17 @@ func initialize(newActor: KinematicBody2D, newShip: Ship, newTeam: String):
 
 func set_state(new_state: int) -> void:
 	if new_state == current_state:
-		return
-		
+		return		
 	current_state = new_state
 	emit_signal("state_changed", current_state)
 
 func move(delta: float):
-	var thrust_vector = Vector2.ZERO
-	var strafe_vector = Vector2.ZERO
+	var thrust_vector = Vector2.ZERO	
 	if target:
 		thrust_vector.x = 1.0
 		thrust_vector.x -= clamp(abs(actor.global_position.angle_to(target.global_position)), 0.0, 1.0)
+	if current_state == State.PATROL:
+		thrust_vector.x = 0.2
 	thrust_vector = thrust_vector.rotated(actor.global_rotation)
 	thrust_vector = thrust_vector.normalized()
 	
@@ -102,7 +107,17 @@ func _install_state_timers():
 	origin_timer.wait_time = origin_wait
 
 func _patrol():
-	pass
+	if patrol_target.distance_to(actor.global_position) < 10:
+		patrol_reached = true
+	if !patrol_reached:
+		actor.rotate_toward(patrol_target)		
+	else:
+		var random_x = rng.randf_range(-patrol_range, patrol_range)
+		var random_y = rng.randf_range(-patrol_range, patrol_range)
+		patrol_target = Vector2(random_x, random_y) + origin
+		patrol_reached = false
+		
+	
 
 
 
@@ -124,6 +139,7 @@ func _on_TargetDetect_body_entered(body: Node) -> void:
 	print_debug("Target detected by: ", self, "in group", actor_team, " target: ", body)
 	set_state(State.ENGAGE)
 	target = body
+	
 
 func _on_TargetLeash_body_exited(body):
 	if target && body == target:
