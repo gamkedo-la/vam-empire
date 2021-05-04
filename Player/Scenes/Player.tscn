@@ -10,6 +10,7 @@
 radius = 16.5606
 
 [node name="Player" type="KinematicBody2D" groups=[
+"friendly",
 "player",
 ]]
 collision_layer = 2

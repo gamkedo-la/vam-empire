@@ -103,9 +103,10 @@ func move_state(delta):
 	var strafe_vector = Vector2.ZERO
 	
 	thrust_vector.x = Input.get_action_strength("ui_up") - Input.get_action_strength("ui_down")
-	strafe_vector.y = Input.get_action_strength("ui_right") - Input.get_action_strength("ui_left")
+	strafe_vector.y = Input.get_action_strength("ui_right") - Input.get_action_strength("ui_left")	
 	thrust_vector = thrust_vector.rotated(global_rotation)
 	thrust_vector = thrust_vector.normalized()
+	
 	strafe_vector = strafe_vector.rotated(global_rotation)
 	strafe_vector = strafe_vector.normalized()
 
