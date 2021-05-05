@@ -10,6 +10,11 @@ config_version=4
 
 _global_script_classes=[ {
 "base": "KinematicBody2D",
+"class": "Actor",
+"language": "GDScript",
+"path": "res://Scripts/AI/Actor.gd"
+}, {
+"base": "KinematicBody2D",
 "class": "Player",
 "language": "GDScript",
 "path": "res://Scripts/Player.gd"
@@ -25,6 +30,7 @@ _global_script_classes=[ {
 "path": "res://Scripts/Weapon.gd"
 } ]
 _global_script_class_icons={
+"Actor": "",
 "Player": "",
 "Ship": "",
 "Weapon": ""
@@ -170,6 +176,7 @@ ui_inventory={
 2d_physics/layer_3="enemy_hitbox"
 2d_physics/layer_4="enemy_hurtbox"
 2d_physics/layer_5="loot"
+2d_physics/layer_6="obstacles"
 
 [physics]
 

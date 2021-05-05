@@ -16,7 +16,47 @@ ship_file = ExtResource( 3 )
 position = Vector2( -760.133, -624.215 )
 ship_file = ExtResource( 3 )
 
-[node name="Vampire" parent="." index="2" instance=ExtResource( 2 )]
+[node name="Friendly2" parent="." index="2" instance=ExtResource( 2 )]
+position = Vector2( -760.133, -624.215 )
+ship_file = ExtResource( 3 )
+
+[node name="Friendly3" parent="." index="3" instance=ExtResource( 2 )]
+position = Vector2( -760.133, -624.215 )
+ship_file = ExtResource( 3 )
+
+[node name="Friendly4" parent="." index="4" instance=ExtResource( 2 )]
+position = Vector2( -760.133, -624.215 )
+ship_file = ExtResource( 3 )
+
+[node name="Friendly5" parent="." index="5" instance=ExtResource( 2 )]
+position = Vector2( -760.133, -624.215 )
+ship_file = ExtResource( 3 )
+
+[node name="Friendly6" parent="." index="6" instance=ExtResource( 2 )]
+position = Vector2( 2739.92, -320.558 )
+ship_file = ExtResource( 3 )
+
+[node name="Friendly7" parent="." index="7" instance=ExtResource( 2 )]
+position = Vector2( 2739.92, -320.558 )
+ship_file = ExtResource( 3 )
+
+[node name="Friendly8" parent="." index="8" instance=ExtResource( 2 )]
+position = Vector2( 2739.92, -320.558 )
+ship_file = ExtResource( 3 )
+
+[node name="Friendly9" parent="." index="9" instance=ExtResource( 2 )]
+position = Vector2( 2739.92, -320.558 )
+ship_file = ExtResource( 3 )
+
+[node name="Friendly10" parent="." index="10" instance=ExtResource( 2 )]
+position = Vector2( 2739.92, -320.558 )
+ship_file = ExtResource( 3 )
+
+[node name="Friendly11" parent="." index="11" instance=ExtResource( 2 )]
+position = Vector2( 2739.92, -320.558 )
+ship_file = ExtResource( 3 )
+
+[node name="Vampire" parent="." index="12" instance=ExtResource( 2 )]
 position = Vector2( 1039.52, -451.801 )
 actor_team = 2
 ship_file = ExtResource( 4 )
