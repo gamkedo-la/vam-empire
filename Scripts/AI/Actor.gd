@@ -46,13 +46,14 @@ var velocity: Vector2 = Vector2.ZERO
 # Context-Base Steering Variables borrowing and adapting from concepts found @
 # https://kidscancode.org/godot_recipes/ai/context_map/
 export var steer_force = 0.1
-export var look_ahead = 100
-export var num_rays = 8
+export var look_ahead = 300
+export var num_rays = 64
 
 # context arrays
 var ray_directions = []
 var interest = []
 var danger = []
+var danger_pos = []
 
 var chosen_dir: Vector2 = Vector2.ZERO
 var acceleration: Vector2 = Vector2.ZERO
@@ -124,17 +125,22 @@ func set_interest() -> void:
 	var path_direction = get_path_direction()
 	for i in num_rays:
 		var d = ray_directions[i].dot(path_direction)
-		interest[i] = max(0, d)
+		interest[i] = max(1, d)
 
 func set_danger() -> void:
 	# Cast rays to find danger directions
-
+	danger_pos = []
 	var space_state = get_world_2d().direct_space_state
 	for i in num_rays:
-		var result = space_state.intersect_ray(position,
-				position + ray_directions[i].rotated(rotation) * look_ahead,
+		var result = space_state.intersect_ray(global_position,
+				ray_directions[i].rotated(-global_rotation) * look_ahead,
 				[self])
-		danger[i] = 1.0 if result else 0.0
+		if result:
+			danger[i] = 1.0
+			danger_pos.append(result.position)
+		else:
+			danger[i] = 0.0
+		
 
 func choose_direction() -> void:
 	# Eliminate interest in slots with danger
@@ -165,7 +171,9 @@ func _draw():
 			if interest[i]:
 				draw_line(transform.x, ray_directions[i] * interest[i], Color.green)
 			if danger[i]:
-				draw_line(transform.x, ray_directions[i] * danger[i], Color.red)
+				draw_line(transform.x, ray_directions[i] * look_ahead, Color.red)
+		for hit in danger_pos:
+			draw_circle((hit - global_position).rotated(-global_rotation), 5, Color.aqua)
 		if ai.target != null:
 			draw_line(transform.x, to_local(ai.target.global_position), Color.red)
 #	draw_line(actor.position, patrol_target, Color.yellow)

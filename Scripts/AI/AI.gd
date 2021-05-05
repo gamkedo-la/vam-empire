@@ -29,7 +29,7 @@ var engage_speed = 2
 onready var patrol_timer = Timer.new()
 var patrol_wait = 3
 var patrol_target: Vector2 = Vector2.ZERO
-export (float, 1.0, 9000.0) var patrol_range = 2000
+export (float, 1.0, 9000.0) var patrol_range = 200
 var patrol_reached: bool = true
 # Time to wait to return to origin position after chasing a target to a new area
 onready var origin_timer = Timer.new()
