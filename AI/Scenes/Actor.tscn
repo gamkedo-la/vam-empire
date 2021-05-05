@@ -10,13 +10,13 @@
 radius = 196.714
 
 [sub_resource type="CircleShape2D" id=2]
-radius = 2000.0
+radius = 400.0
 
 [node name="Actor" type="KinematicBody2D" groups=[
 "mini_map",
 ]]
-collision_layer = 13
-collision_mask = 0
+collision_layer = 12
+collision_mask = 51
 script = ExtResource( 1 )
 
 [node name="Sprite" type="Sprite" parent="."]

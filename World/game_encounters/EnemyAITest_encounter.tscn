@@ -57,7 +57,7 @@ position = Vector2( 2739.92, -320.558 )
 ship_file = ExtResource( 3 )
 
 [node name="Vampire" parent="." index="12" instance=ExtResource( 2 )]
-position = Vector2( 1039.52, -451.801 )
+position = Vector2( 503.584, 96.82 )
 actor_team = 2
 ship_file = ExtResource( 4 )
 

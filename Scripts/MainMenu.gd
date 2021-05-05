@@ -43,6 +43,9 @@ onready var status_bars_opac_slider = $MenuCanvas/Viz/OptionsContainer/VBoxConta
 onready var mini_map_opac_slider = $MenuCanvas/Viz/OptionsContainer/VBoxContainer/TabContainer/HUD/VBoxContainer/MiniMapOpacHBox/mini_map_opac_slider
 onready var mini_map_style_option = $MenuCanvas/Viz/OptionsContainer/VBoxContainer/TabContainer/HUD/VBoxContainer/MiniMapStyleHBox/mini_map_style_optionbutton
 
+# System Panel
+onready var contxt_steering_draw_toggle = $MenuCanvas/Viz/OptionsContainer/VBoxContainer/TabContainer/System/VBoxContainer/DebugModeHBox/ContextSteeringToggle
+
 onready var transition = $Transition
 
 onready var menu_viz = $MenuCanvas/Viz
@@ -136,6 +139,7 @@ func update_ui_settings():
 		mini_map_style_option.selected = UserSettings.current.ui.mini_map_style
 	for textOpt in mini_map_style_option.get_item_count():
 		UserSettings.mini_map_textures.push_back(mini_map_style_option.get_item_icon(textOpt))
+	contxt_steering_draw_toggle.pressed = UserSettings.current.system.show_context_steering	
 	UserSettings.refresh_ui()
 	
 	
@@ -278,11 +282,6 @@ func _on_FastLoad_pressed():
 	Global.pause_game(false)
 	Global.goto_scene("res://World/game_zones/EasyZone_001.tscn")
 
-
-func _on_CheckBox_toggled(button_pressed):
-	Global.debug_mode = button_pressed
-
-
 func _on_NewPlayerPop_about_to_show():
 	var animation = get_node("MenuCanvas/Viz/NewPlayerPop/AnimationPlayer")
 	animation.play("Show")
@@ -363,3 +362,7 @@ func _on_DelSlot2_pressed():
 func _on_DelSlot3_pressed():
 	PlayerVars.delete_save(3)
 	_setup_slot_buttons()
+
+func _on_ContextSteeringToggle_toggled(button_pressed):
+	UserSettings.current.system.show_context_steering = button_pressed
+	

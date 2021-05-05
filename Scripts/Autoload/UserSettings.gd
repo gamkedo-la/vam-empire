@@ -22,6 +22,9 @@ var user_defaults = {
 	"slot_1": "user://game-data.json",
 	"slot_2": "user://game-data2.json",
 	"slot_3": "user://game-data3.json"
+	},
+	system = {
+		"show_context_steering": false
 	}
 }
 

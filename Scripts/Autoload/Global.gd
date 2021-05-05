@@ -18,7 +18,7 @@ export var day = true
 func _ready():
 	var root = get_tree().get_root()
 	current_scene = root.get_child(root.get_child_count() - 1)
-
+	
 	_populate_hangars()
 	
 func goto_scene(path):
