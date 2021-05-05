@@ -1342,6 +1342,30 @@ tracks/8/keys = {
 "update": 0,
 "values": [ Vector2( 336, 300 ), Vector2( 336, 300 ), Vector2( 336, 0 ) ]
 }
+tracks/9/type = "value"
+tracks/9/path = NodePath("../LogoBox/VamLogo:rect_position")
+tracks/9/interp = 1
+tracks/9/loop_wrap = true
+tracks/9/imported = false
+tracks/9/enabled = true
+tracks/9/keys = {
+"times": PoolRealArray( 0, 1, 1.2 ),
+"transitions": PoolRealArray( 1, 1, 1 ),
+"update": 0,
+"values": [ Vector2( 311, -200 ), Vector2( 311, -200 ), Vector2( 311, 0 ) ]
+}
+tracks/10/type = "value"
+tracks/10/path = NodePath("../LogoBox/VamLogo/Control:rect_position")
+tracks/10/interp = 1
+tracks/10/loop_wrap = true
+tracks/10/imported = false
+tracks/10/enabled = true
+tracks/10/keys = {
+"times": PoolRealArray( 0, 1.1, 1.2 ),
+"transitions": PoolRealArray( 1, 1, 1 ),
+"update": 0,
+"values": [ Vector2( 800, 153.978 ), Vector2( 800, 153.978 ), Vector2( 106.356, 153.978 ) ]
+}
 
 [sub_resource type="Animation" id=297]
 length = 0.24
