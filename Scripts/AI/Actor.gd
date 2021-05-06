@@ -46,7 +46,7 @@ var velocity: Vector2 = Vector2.ZERO
 # Context-Base Steering Variables borrowing and adapting from concepts found @
 # https://kidscancode.org/godot_recipes/ai/context_map/
 export var steer_force = 0.1
-export var look_ahead = 300
+export var look_ahead = 250
 export var num_rays = 64
 
 # context arrays
@@ -91,7 +91,7 @@ func move(delta: float):
 	set_danger()
 	choose_direction()
 	
-	var arrive_pct = clamp(ai.journey_percent, 0.05, .8)	
+	var arrive_pct = clamp(ai.journey_percent, 0, .8)	
 	var desired_velocity = chosen_dir.rotated(rotation) * (MAX_SPEED * arrive_pct)
 	velocity = velocity.linear_interpolate(desired_velocity, steer_force)
 	#rotation = lerp_angle(rotation, velocity.angle(), ROT_SPEED)
@@ -133,7 +133,7 @@ func set_danger() -> void:
 	var space_state = get_world_2d().direct_space_state
 	for i in num_rays:
 		var result = space_state.intersect_ray(global_position,
-				ray_directions[i].rotated(-global_rotation) * look_ahead,
+				global_position + ray_directions[i].rotated(global_rotation) * look_ahead,
 				[self])
 		if result:
 			danger[i] = 1.0

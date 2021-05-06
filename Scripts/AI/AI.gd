@@ -29,7 +29,7 @@ var engage_speed = 2
 onready var patrol_timer = Timer.new()
 var patrol_wait = 3
 var patrol_target: Vector2 = Vector2.ZERO
-export (float, 1.0, 9000.0) var patrol_range = 200
+export (float, 1.0, 9000.0) var patrol_range = 2000
 var patrol_reached: bool = true
 # Time to wait to return to origin position after chasing a target to a new area
 onready var origin_timer = Timer.new()
@@ -92,7 +92,7 @@ func _patrol():
 func _engage():
 	if target != null and ship != null:
 		#actor.rotation = actor.global_position.direction_to(target.global_position)
-		journey_percent = clamp(actor.global_position.distance_to(target.global_position) / journey_distance, 0.2, 1.0)
+		journey_percent = clamp(actor.global_position.distance_to(target.global_position) / journey_distance, 0, 1.0)
 		#actor.rotate_toward(target.global_position)
 		if abs(actor.global_position.angle_to(target.global_position)) < 0.2:
 			ship.fire_weapons(actor_velocity)
