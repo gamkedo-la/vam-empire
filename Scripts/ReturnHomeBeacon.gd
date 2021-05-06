@@ -29,8 +29,7 @@ func _ready():
 func _process(_delta):
 	if !return_timer.is_stopped():
 		timer_text.text = str("%.1f" % (return_timer.time_left))
-	
-
+	Global.home_beacon_position = position
 
 func begin_return_countdown():
 	return_timer.start(return_time)

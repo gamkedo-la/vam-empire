@@ -3,9 +3,9 @@
 [ext_resource path="res://UI/HUD/Scenes/Compass/Compass.gd" type="Script" id=1]
 [ext_resource path="res://UI/HUD/Scenes/Compass/CompassNeedle.png" type="Texture" id=2]
 
-[node name="CenterContainer" type="CenterContainer"]
-margin_right = 108.0
-margin_bottom = 102.0
+[node name="Compass" type="CenterContainer"]
+margin_right = 100.0
+margin_bottom = 100.0
 grow_horizontal = 2
 grow_vertical = 2
 script = ExtResource( 1 )
@@ -14,7 +14,9 @@ __meta__ = {
 }
 
 [node name="Needle" type="Sprite" parent="."]
+scale = Vector2( 0.5, 0.5 )
 texture = ExtResource( 2 )
+centered = false
 
 [node name="WiggleTimer" type="Timer" parent="."]
 pause_mode = 2

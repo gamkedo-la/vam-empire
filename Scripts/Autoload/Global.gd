@@ -13,6 +13,7 @@ var game_live = false
 var hold_fire = false setget set_hold_fire
 var debug_mode = false
 var player_position := Vector2.ZERO
+var home_beacon_position := Vector2.ZERO
 export var day = true
 
 func _ready():
