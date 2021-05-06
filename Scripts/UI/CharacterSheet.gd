@@ -1,23 +1,26 @@
 extends Panel
 var player_node
+var isVisable = false
 
 onready var statbox = load("res://UI/HUD/Scenes/StatHBox.tscn")
+onready var animator = $AnimationPlayer
 onready var char_vbox = $CharVBox
 onready var char_topbar_lbl = $TopBar/Label
 
 func _ready():
 	# Start Hidden
-	self.visible = false
 	player_node = get_parent().get_parent()
 	char_topbar_lbl.text = "Character: " + PlayerVars.player.name
 	
 
 func _process(_delta):
 	if Input.is_action_just_pressed("ui_charpanel"):
-		if !self.visible:
-			self.visible = true
+		if !isVisable:
+			isVisable = true
+			animator.play("Show")
 		else:
-			self.visible = false
+			isVisable = false
+			animator.play("Hide")
 			# in case the mouse was over the panel when it closes
 			Global.set_hold_fire(false)
 			
