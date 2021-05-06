@@ -1342,6 +1342,30 @@ tracks/8/keys = {
 "update": 0,
 "values": [ Vector2( 336, 300 ), Vector2( 336, 300 ), Vector2( 336, 0 ) ]
 }
+tracks/9/type = "value"
+tracks/9/path = NodePath("../LogoBox/VamLogo:rect_position")
+tracks/9/interp = 1
+tracks/9/loop_wrap = true
+tracks/9/imported = false
+tracks/9/enabled = true
+tracks/9/keys = {
+"times": PoolRealArray( 0, 1, 1.2 ),
+"transitions": PoolRealArray( 1, 1, 1 ),
+"update": 0,
+"values": [ Vector2( 311, -200 ), Vector2( 311, -200 ), Vector2( 311, 0 ) ]
+}
+tracks/10/type = "value"
+tracks/10/path = NodePath("../LogoBox/VamLogo/Control:rect_position")
+tracks/10/interp = 1
+tracks/10/loop_wrap = true
+tracks/10/imported = false
+tracks/10/enabled = true
+tracks/10/keys = {
+"times": PoolRealArray( 0, 1.1, 1.2 ),
+"transitions": PoolRealArray( 1, 1, 1 ),
+"update": 0,
+"values": [ Vector2( 800, 153.978 ), Vector2( 800, 153.978 ), Vector2( 106.356, 153.978 ) ]
+}
 
 [sub_resource type="Animation" id=297]
 length = 0.24
@@ -1506,7 +1530,7 @@ length = 33.3333
 loop = true
 step = 0.0555556
 tracks/0/type = "value"
-tracks/0/path = NodePath("MainMenuVBox/LogoBox/VamLogo/EmpireLogo:animation")
+tracks/0/path = NodePath("MainMenuVBox/LogoBox/VamLogo/Control/EmpireLogo:animation")
 tracks/0/interp = 1
 tracks/0/loop_wrap = true
 tracks/0/imported = false
@@ -1518,7 +1542,7 @@ tracks/0/keys = {
 "values": [ "Longer", "Longer", "InfLoop", "InfLoop" ]
 }
 tracks/1/type = "value"
-tracks/1/path = NodePath("MainMenuVBox/LogoBox/VamLogo/EmpireLogo:playing")
+tracks/1/path = NodePath("MainMenuVBox/LogoBox/VamLogo/Control/EmpireLogo:playing")
 tracks/1/interp = 1
 tracks/1/loop_wrap = true
 tracks/1/imported = false
@@ -1580,9 +1604,18 @@ margin_bottom = 208.0
 texture = ExtResource( 3 )
 stretch_mode = 6
 
-[node name="EmpireLogo" type="AnimatedSprite" parent="MenuCanvas/Viz/MainMenuVBox/LogoBox/VamLogo"]
+[node name="Control" type="Control" parent="MenuCanvas/Viz/MainMenuVBox/LogoBox/VamLogo"]
+margin_left = 106.356
+margin_top = 153.978
+margin_right = 146.356
+margin_bottom = 193.978
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="EmpireLogo" type="AnimatedSprite" parent="MenuCanvas/Viz/MainMenuVBox/LogoBox/VamLogo/Control"]
 show_behind_parent = true
-position = Vector2( 221, 170 )
+position = Vector2( 114.644, 16.0221 )
 frames = SubResource( 295 )
 animation = "InfLoop"
 
@@ -2274,6 +2307,7 @@ anchor_bottom = 0.5
 margin_right = 458.0
 margin_bottom = 82.0
 rect_min_size = Vector2( 458, 82 )
+rect_scale = Vector2( 1e-05, 1e-05 )
 rect_pivot_offset = Vector2( 229, 41 )
 dialog_text = "You're about to load your most recent save!
 Would you like to continue?"
