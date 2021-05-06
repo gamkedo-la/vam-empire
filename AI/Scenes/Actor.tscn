@@ -18,6 +18,8 @@ radius = 400.0
 collision_layer = 33
 collision_mask = 39
 script = ExtResource( 1 )
+steer_force = 0.05
+num_rays = 8
 
 [node name="Sprite" type="Sprite" parent="."]
 texture = ExtResource( 5 )

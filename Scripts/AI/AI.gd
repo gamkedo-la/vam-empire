@@ -66,6 +66,13 @@ func set_state(new_state: int) -> void:
 	current_state = new_state
 	emit_signal("state_changed", current_state)
 
+func get_current_target() -> Vector2:	
+	if target:
+		return to_local(target.global_position)
+	elif patrol_target:
+		return to_local(patrol_target)
+	else:
+		return Vector2.ZERO
 
 func _install_state_timers():
 	add_child(engage_timer)

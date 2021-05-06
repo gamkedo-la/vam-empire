@@ -63,7 +63,7 @@ actor_team = 1
 ship_file = ExtResource( 3 )
 
 [node name="Vampire3" parent="." index="12" instance=ExtResource( 2 )]
-position = Vector2( -493.376, -1128.48 )
+position = Vector2( -500.095, -1135.2 )
 collision_mask = 63
 actor_team = 2
 ship_file = ExtResource( 3 )

@@ -122,7 +122,7 @@ func rotate_toward(location: Vector2):
 
 func set_interest() -> void:
 	# Set interest in each slot based on world direction	
-	var path_direction = get_path_direction()
+	var path_direction: Vector2 = ai.get_current_target()
 	for i in num_rays:
 		var d = ray_directions[i].dot(path_direction)
 		interest[i] = max(1, d)
@@ -155,13 +155,7 @@ func choose_direction() -> void:
 		chosen_dir += ray_directions[i] * interest[i]
 	chosen_dir = chosen_dir.normalized()
 
-func get_path_direction():
-	if ai.target:
-		return to_local(ai.target.global_position)
-	elif ai.patrol_target:
-		return to_local(ai.patrol_target)
-	else:
-		return Vector2.ZERO
+
 		
 
 func _draw():
