@@ -23,6 +23,7 @@
   - [**Player Scene**](#player-scene)
     - [**HealBot**](#healbot)
     - [**Player Menus**](#player-menus)
+    - [**Inventory**](#inventory)
       - [**CharacterSheet**](#charactersheet)
       - [**PlayerDebugMenu**](#playerdebugmenu)
     - [**ModularPlayer Ship Controller**](#modularplayer-ship-controller)
@@ -58,7 +59,7 @@
 - [Appendix X: Original Thoughts on Design by Kyle Black](#appendix-x-original-thoughts-on-design-by-kyle-black)
   - [Notes on Ship Design](#notes-on-ship-design)
     - [Ship Flight Feel](#ship-flight-feel)
-    - [Inventory](#inventory)
+    - [Inventory](#inventory-1)
     - [Hardpoint and Equipment Management](#hardpoint-and-equipment-management)
     - [Modular Ship](#modular-ship)
       - [Character Sheet Example](#character-sheet-example)
@@ -213,7 +214,16 @@ No matter what ship the player is piloting, their trusty companion `Heal Bot` wi
 
 ### **Player Menus**
 The PlayerUICanvas is a node parented under the Player controller scene that will be used to hold useful UI elements that are directly tied to the player, the player's currently piloted ship etc..
+
+### **Inventory**
+Scene: [Inventory.tscn](UI/Menu/Inventory.tscn)
+Script: [Inventory.gd](Scripts/UI/Inventory.gd)
+
+The Inventory is a current WIP... Will add more as features coalesce!
 #### **CharacterSheet**
+Scene: [CharacterSheet.tscn](UI/HUD/Scenes/CharacterSheet.tscn)
+Script: [CharacterSheet.gd](Scripts/UI/CharacterSheet.gd)
+
 Press `C` to bring up the Character Sheet menu.
 
 The Character Sheet UI element will work as a place to display character stats, current influencing effects of power ups, and other pertinent information such as other progression elements we add to the game specifically focused on the player.
@@ -221,6 +231,9 @@ The Character Sheet UI element will work as a place to display character stats, 
 Currently, the Character Sheet dynamically populates all of the Piloted Ship's variables such as Acceleration, Max Speed, Mass, Hull Health etc... but will continue to be formatted and refined over time.
 
 #### **PlayerDebugMenu**
+Scene: [PlayerDebugMenu.tscn](UI/HUD/Scenes/PlayerDebugMenu.tscn)
+Script: [PlayerDebugMenu.gd](Scripts/UI/PlayerDebugMenu.gd)
+
 Press `F4` to bring up the Player Debug Menu.
 
 The Player Debug Menu will act as a place to put important information and tools that will be helpful to programmers as well as designers as we develop and playtest V.A.M. Empire. 
