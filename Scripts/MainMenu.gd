@@ -1,7 +1,7 @@
 extends Node2D
 
 onready var vam_logo = $MenuCanvas/Viz/MainMenuVBox/LogoBox/VamLogo
-onready var empire_logo = $MenuCanvas/Viz/MainMenuVBox/LogoBox/VamLogo/EmpireLogo
+onready var empire_logo = $MenuCanvas/Viz/MainMenuVBox/LogoBox/VamLogo/Control/EmpireLogo
 onready var ani_player = $MenuCanvas/Viz/AnimationPlayer
 
 onready var main_menu = $MenuCanvas/Viz/MainMenuVBox
@@ -314,8 +314,6 @@ func _on_Transition_can_exit():
 func _on_Return_pressed():
 	save_slots_menu.visible = false
 	main_menu_buttons.visible = true
-	
-
 
 func _on_LoadSlot1_pressed():
 	PlayerVars.set_save_slot(1)
