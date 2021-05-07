@@ -33,6 +33,10 @@
 - [**Weapon Specifications**](#weapon-specifications)
   - [**Weapon Scene Template**](#weapon-scene-template)
     - [**Packed Weapons Scene**](#packed-weapons-scene)
+- [**NPC AI**](#npc-ai)
+  - [**Actors**](#actors)
+    - [**AI**](#ai)
+      - [**Steering**](#steering)
 - [**UI**](#ui)
   - [**Player HUD**](#player-hud)
     - [**HUD.tscn**](#hudtscn)
@@ -319,6 +323,43 @@ A standard Weapon scene will contain the following:
 Like the Ships Packed Scene, Weapons will be organized much the same way with size classifications of Small, Medium, Large, XLarge. As of 04-08-2021, the Weapon Packed Scene looks like the following:
 
 ![Packed Weapons Scene](.gdignore/DesignDoc/images/packweapscene_fig.png)
+<sub>[Back to Top](#)</sub>
+# **NPC AI**
+
+## **Actors**
+Scene: [Actor.tscn](AI/Scenes/Actor.tscn)
+Script: [Actor.gd](Scripts/AI/Actor.gd)
+
+The Actor scene serves as the base Kinematic2D body which pilots NPC ships.
+
+An Actor can be part of several teams, which will partially decide it's role and behavior in the world.
+
+**Teams**
+- Friendly
+  - Friendly NPC Ships that can be mining, shipping, protecting areas
+- Pirate
+  - Human NPCs who tend to come after the player more often when they are carrying a lot of valuables
+- Vampire
+  - Most often seen at night, ships piloted by Vampires of the V.A.M. Empire
+
+**Squadrons**
+NPC Ships can be placed into squadrons, and this will inform their AI behaviors and cause them to behave as a cohesive unit.
+
+### **AI**
+Script: [AI.gd](Scripts/AI/AI.gd)
+
+The AIController class is a subnode of the Actor scene that primarily serves the function of maintaining the behavior states of the Actor.
+**States**
+- PATROL
+  - The actor will cycle through positions within a set radius, patrolling.
+- ENGAGE
+  - The actor is engaged with a 'target' which will become its primary focus until it has killed its target or the target escapes the 'Leash' Area2D under the AI node.
+- *More States Coming Here*
+#### **Steering**
+The Steering subclass of the Actor handles the Context-Based obstacle avoidance and actual physical flight behavior of the NPC AI.
+
+*Document Steering Behavior and it's configurables here*
+
 
 <sub>[Back to Top](#)</sub>
 # **UI**
