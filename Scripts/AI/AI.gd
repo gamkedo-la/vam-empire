@@ -14,6 +14,8 @@ var origin: Vector2 = Vector2.ZERO
 var journey_distance: float = 0.0
 var journey_percent: float = 0.0
 
+
+
 enum State {
 	PATROL,
 	ENGAGE
@@ -31,6 +33,10 @@ var patrol_wait = 3
 var patrol_target: Vector2 = Vector2.ZERO
 export (float, 1.0, 9000.0) var patrol_range = 2000
 var patrol_reached: bool = true
+var num_patrol_points: int = 20
+var current_patrol_point: int = 0
+var patrol_points = []
+
 # Time to wait to return to origin position after chasing a target to a new area
 onready var origin_timer = Timer.new()
 var origin_wait = 45
@@ -39,6 +45,7 @@ onready var rng = RandomNumberGenerator.new()
 
 func _ready() -> void:
 	rng.randomize()
+	_generate_patrol_points()
 	set_state(State.PATROL)
 
 func _physics_process(delta: float) -> void:
@@ -92,9 +99,23 @@ func _patrol():
 		var random_x = rng.randf_range(-patrol_range, patrol_range)
 		var random_y = rng.randf_range(-patrol_range, patrol_range)
 		patrol_target = Vector2(random_x, random_y) + origin
+#		current_patrol_point += 1
+#		if current_patrol_point > (num_patrol_points - 1):
+#			current_patrol_point = 0
+#		patrol_target = patrol_points[current_patrol_point]
 		journey_distance = actor.global_position.distance_to(patrol_target)
 		patrol_reached = false
 		
+func _generate_patrol_points() -> void:
+	# Generate patrol points in a 360deg circle at random distances (1-range) from the origin, choose clockwise vs counter-clockwise randomly
+	var dir = rng.randi_range(0,1)
+	var clock_dir = [-1,1]	
+	var rot = rng.randf_range(0, 359)
+	for i in num_patrol_points:
+		var angle = (i * 2 * PI / num_patrol_points) * clock_dir[dir]
+		patrol_points.append((origin + (Vector2.RIGHT.rotated(angle) * rng.randf_range(1.0, patrol_range)).rotated(rot)))
+		
+
 
 func _engage():
 	if target != null and ship != null:

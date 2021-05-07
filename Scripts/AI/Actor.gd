@@ -47,7 +47,7 @@ var velocity: Vector2 = Vector2.ZERO
 # https://kidscancode.org/godot_recipes/ai/context_map/
 export var steer_force = 0.1
 export var look_ahead = 250
-export var num_rays = 64
+export var num_rays = 16
 
 # context arrays
 var ray_directions = []
@@ -57,7 +57,7 @@ var danger_pos = []
 
 var chosen_dir: Vector2 = Vector2.ZERO
 var acceleration: Vector2 = Vector2.ZERO
-
+var steer_time: float = 1.0
 
 
 var piloted_ship = null
@@ -86,12 +86,12 @@ func _physics_process(delta: float):
 
 	move(delta)
 
-func move(delta: float):
+func move(delta: float):	
 	set_interest()
-	set_danger()
+	if steer_time > 0.1:
+		set_danger()	
 	choose_direction()
-	
-	var arrive_pct = clamp(ai.journey_percent, 0, .8)	
+	var arrive_pct = clamp(ai.journey_percent, 0.4, 0.8)	
 	var desired_velocity = chosen_dir.rotated(rotation) * (MAX_SPEED * arrive_pct)
 	velocity = velocity.linear_interpolate(desired_velocity, steer_force)
 	#rotation = lerp_angle(rotation, velocity.angle(), ROT_SPEED)
@@ -136,7 +136,7 @@ func set_danger() -> void:
 				global_position + ray_directions[i].rotated(global_rotation) * look_ahead,
 				[self])
 		if result:
-			danger[i] = 1.0
+			danger[i] = global_position.distance_to(result.position) / look_ahead
 			danger_pos.append(result.position)
 		else:
 			danger[i] = 0.0
@@ -147,7 +147,7 @@ func choose_direction() -> void:
 
 	for i in num_rays:
 		if danger[i] > 0.0:
-			interest[i] = 0.0
+			interest[i] *= clamp(danger[i], 0.0, 1.0)
 	# Choose direction based on remaining interest
 
 	chosen_dir = Vector2.ZERO
@@ -165,7 +165,7 @@ func _draw():
 			if interest[i]:
 				draw_line(transform.x, ray_directions[i] * interest[i], Color.green)
 			if danger[i]:
-				draw_line(transform.x, ray_directions[i] * look_ahead, Color.red)
+				draw_line(ray_directions[i] * interest[i], ray_directions[i] * (danger[i] * look_ahead), Color.red)
 		for hit in danger_pos:
 			draw_circle((hit - global_position).rotated(-global_rotation), 5, Color.aqua)
 		if ai.target != null:
