@@ -1,0 +1,21 @@
+[remap]
+
+importer="wav"
+type="AudioStreamSample"
+path="res://.import/Projectile_Firing_SFX_03.wav-b9d268a489811794e4ffcdcb9736c731.sample"
+
+[deps]
+
+source_file="res://Sounds/Projectile_Firing_SFX_03.wav"
+dest_files=[ "res://.import/Projectile_Firing_SFX_03.wav-b9d268a489811794e4ffcdcb9736c731.sample" ]
+
+[params]
+
+force/8_bit=false
+force/mono=false
+force/max_rate=false
+force/max_rate_hz=44100
+edit/trim=false
+edit/normalize=false
+edit/loop=false
+compress/mode=0
