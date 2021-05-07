@@ -1,7 +1,9 @@
 extends Node2D
+class_name AIController
 signal state_changed(new_state)
 
 onready var target_detect_area = $TargetDetect
+onready var steering: Node2D = $Steering
 
 # Actor Variables
 var actor: Actor = null
@@ -66,6 +68,7 @@ func initialize(newActor: Actor, newShip: Ship, newTeam: String):
 	self.actor_team = newTeam
 	origin = actor.position
 	_install_state_timers()
+	steering.initialize(newActor, newShip, newTeam, self)
 
 func set_state(new_state: int) -> void:
 	if new_state == current_state:

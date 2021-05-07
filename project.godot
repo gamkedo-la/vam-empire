@@ -9,10 +9,20 @@
 config_version=4
 
 _global_script_classes=[ {
+"base": "Node2D",
+"class": "AIController",
+"language": "GDScript",
+"path": "res://Scripts/AI/AI.gd"
+}, {
 "base": "KinematicBody2D",
 "class": "Actor",
 "language": "GDScript",
 "path": "res://Scripts/AI/Actor.gd"
+}, {
+"base": "Node2D",
+"class": "ActorSteering",
+"language": "GDScript",
+"path": "res://Scripts/AI/Steering.gd"
 }, {
 "base": "KinematicBody2D",
 "class": "Player",
@@ -30,7 +40,9 @@ _global_script_classes=[ {
 "path": "res://Scripts/Weapon.gd"
 } ]
 _global_script_class_icons={
+"AIController": "",
 "Actor": "",
+"ActorSteering": "",
 "Player": "",
 "Ship": "",
 "Weapon": ""
