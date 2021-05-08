@@ -76,5 +76,12 @@ func _on_DreadnoughtSelect_item_selected(index):
 	player_node.pilot_ship_from_pack(newShip[0].duplicate())
 
 
+# Take Damage Debug
+func _on_TakeDamage10_pressed():
+	player_node.take_damage(10)
 
+func _on_TakeDamage25_pressed():
+	player_node.take_damage(25)
 
+func _on_TakeDamage50_pressed():
+	player_node.take_damage(50)

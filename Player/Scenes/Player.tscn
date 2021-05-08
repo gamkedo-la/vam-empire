@@ -65,6 +65,9 @@ shape = SubResource( 1 )
 
 [node name="HealingBot" parent="." instance=ExtResource( 6 )]
 
+[node name="EnergyRecoveryDelayTimer" type="Timer" parent="."]
+one_shot = true
+
 [node name="PlayerUICanvas" type="CanvasLayer" parent="."]
 
 [node name="CharacterSheet" parent="PlayerUICanvas" instance=ExtResource( 1 )]
@@ -88,6 +91,7 @@ visible = false
 [node name="Inventory" parent="PlayerUICanvas" instance=ExtResource( 7 )]
 visible = false
 
+[connection signal="timeout" from="EnergyRecoveryDelayTimer" to="." method="_on_EnergyRecoveryDelayTimer_timeout"]
 [connection signal="mouse_entered" from="PlayerUICanvas/CharacterSheet/TopBar" to="PlayerUICanvas/CharacterSheet" method="_on_TopBar_mouse_entered"]
 [connection signal="mouse_exited" from="PlayerUICanvas/CharacterSheet/TopBar" to="PlayerUICanvas/CharacterSheet" method="_on_TopBar_mouse_exited"]
 [connection signal="animation_finished" from="PlayerUICanvas/CharacterSheet/AnimationPlayer" to="PlayerUICanvas/CharacterSheet" method="_on_AnimationPlayer_animation_finished"]

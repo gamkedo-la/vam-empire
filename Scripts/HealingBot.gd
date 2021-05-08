@@ -1,16 +1,10 @@
 extends Sprite
 
-
-
+export var heal_amount_per_s = 60.0
+export var heal_energy_cost_per_s = 60.0
 
 #Parent needs to have:
-#healingEnergy
-#healingEnergyRecoveryPerTimeUnit
-#healingMaxEnergy
-#hullHealth
-#hullMaxHealth
-#shieldHealth
-#shieldMaxHealth
+#heal(amount, energy_cost) function
 
 onready var parentNode = get_parent() 
 var isHealing = false
@@ -18,12 +12,10 @@ var isHealing = false
 func _ready():
 	self.visible = false
 
-
-# Called every frame. 'delta' is the elapsed time since the previous frame.
-func _process(_delta):
+func _physics_process(_delta):
 	if(Input.is_key_pressed(KEY_H)):
 		isHealing = true
-		heal_parent()
+		heal_parent(heal_amount_per_s * _delta, heal_energy_cost_per_s * _delta)
 		self.visible = true
 	else:
 		isHealing = false
@@ -31,17 +23,12 @@ func _process(_delta):
 
 
 func _on_HealingTimer_timeout():
-	if(!isHealing):
-		parentNode.healingEnergy = min(parentNode.healingEnergy + parentNode.healingEnergyRecoveryPerTimeUnit, parentNode.healingMaxEnergy)
-		#print("Healing Energy : ", parentNode.healingEnergy)
+	pass
+	# Moved this logic to the player script, but this could come in handy down the line
+	# if(!isHealing):
+	# 	parentNode.healingEnergy = min(parentNode.healingEnergy + parentNode.healingEnergyRecoveryPerTimeUnit, parentNode.healingMaxEnergy)
+	# 	#print("Healing Energy : ", parentNode.healingEnergy)
 
-func heal_parent():
-	if(parentNode.healingEnergy > 0):
-		if(parentNode.hullHealth < parentNode.hullMaxHealth):
-			parentNode.hullHealth = min(parentNode.hullHealth + 1, parentNode.hullMaxHealth)
-			parentNode.healingEnergy-=1
-		elif (parentNode.shieldHealth < parentNode.shieldMaxHealth):
-			parentNode.shieldHealth = min(parentNode.shieldHealth + 1, parentNode.shieldMaxHealth)
-			parentNode.healingEnergy-=1
-	print("Heal: ", parentNode.hullHealth)
-	print("Shield: ", parentNode.shieldHealth)
+func heal_parent(amount, energy_cost):
+	parentNode.heal(amount, energy_cost)
+

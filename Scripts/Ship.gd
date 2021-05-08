@@ -13,6 +13,8 @@ export var ROT_ACCEL = deg2rad(0)
 export (float, 0, 400) var shieldHealth = 200
 export (float, 0, 600) var hullHealth = 250
 export (float, 0, 150) var energyReserve = 100
+export (float, 0, 150) var energyRecoverPerS = 60
+export (float, 0, 5) var energyRecoveryDelayS = 0.5
 
 export (Array, hpClass) var hardpoint_size
 export (Array, int) var equipped_weapon_index

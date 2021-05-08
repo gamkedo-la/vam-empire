@@ -1,6 +1,16 @@
 extends Node
 
 signal target_change
+signal shield_health_changed(val, change_amount)
+signal shield_max_health_changed(val, change_amount)
+
+signal hull_health_changed(val, change_amount)
+signal hull_max_health_changed(val, change_amount)
+
+signal energy_reserve_changed(val, change_amount)
+signal energy_max_reserve_changed(val, change_amount)
+
+signal player_died
 
 # File saving/loading methodology adapted from https://gdscript.com/solutions/how-to-save-and-load-godot-game-data/
 var FILE_NAME
@@ -24,6 +34,16 @@ var master_inventory = {}
 
 var target = null setget set_target, get_target
 
+# Variables originally kept in Player.gd
+var shield_health = 0 setget set_shield_health
+var hull_health = 0 setget set_hull_health
+var energy_reserve = 0 setget set_energy_reserve
+var shield_max_health = 0 setget set_shield_max_health
+var hull_max_health = 0 setget set_hull_max_health
+var energy_max_reserve = 0 setget set_energy_max_reserve
+var energy_recovery_per_s = 0 setget set_energy_recovery_per_s
+var energy_recovery_delay_s = 0 setget set_energy_recovery_delay
+
 func _ready():
 	FILE_NAME = UserSettings.get_save_slot(UserSettings.current.save.current_slot)
 	print("Current Player Save: ", FILE_NAME)
@@ -36,6 +56,52 @@ func set_target(val):
 
 func get_target():
 	return target
+
+func set_shield_health(val):
+	var previous_val = shield_health
+	shield_health = val
+	shield_health = clamp(shield_health, 0, shield_max_health)
+	emit_signal("shield_health_changed", shield_health, shield_health - previous_val)
+	
+func set_hull_health(val):
+	var previous_val = hull_health
+	hull_health = val
+	hull_health = clamp(hull_health, 0, hull_max_health)
+	if hull_health <= 0:
+		print_debug("Player died...")
+		emit_signal("player_died")
+	
+	emit_signal("hull_health_changed", hull_health, hull_health - previous_val)
+	
+func set_energy_reserve(val):
+	var previous_val = energy_reserve
+	energy_reserve = val
+	energy_reserve = clamp(energy_reserve, 0, energy_max_reserve)
+	emit_signal("energy_reserve_changed", energy_reserve, energy_reserve - previous_val)
+	
+func set_shield_max_health(val):
+	var previous_val = shield_max_health
+	shield_max_health = val
+	self.shield_health = min(shield_health, shield_max_health)
+	emit_signal("shield_max_health_changed", shield_max_health, shield_max_health - previous_val)
+	
+func set_hull_max_health(val):
+	var previous_val = hull_max_health
+	hull_max_health = val
+	self.hull_health = min(hull_health, hull_max_health)
+	emit_signal("hull_max_health_changed", shield_max_health, shield_max_health - previous_val)
+
+func set_energy_max_reserve(val):
+	var previous_val = energy_max_reserve
+	energy_max_reserve = val
+	self.energy_reserve = min(energy_reserve, energy_max_reserve)
+	emit_signal("energy_max_reserve_changed", energy_max_reserve, energy_max_reserve - previous_val)
+
+func set_energy_recovery_per_s(val):
+	energy_recovery_per_s = val
+
+func set_energy_recovery_delay(val):
+	energy_recovery_delay_s = val
 
 func new(name: String):
 	player = player_defaults.duplicate()
@@ -147,3 +213,19 @@ func delete_save(slot):
 	var dir = Directory.new()
 	
 	dir.remove(UserSettings.get_save_slot(slot))
+
+# Subtract health from either hull or shield by given amount. Negative value indicates healing
+func take_damage(amount):
+	if amount == 0:
+		return
+
+	# We should update shield health when shields are up and we're taking damage, or hull is full and we're healing
+	var update_shield = false
+	if (amount > 0 && shield_health > 0) || (amount < 0 && hull_health == hull_max_health):
+		update_shield = true
+
+	if update_shield:
+		self.shield_health -= amount
+	else:
+		self.hull_health -= amount
+
