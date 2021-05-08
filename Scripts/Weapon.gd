@@ -68,7 +68,7 @@ var mining_beam
 var rng = RandomNumberGenerator.new()
 var fire_timer
 var primed = true
-onready var weap_sound = $WeaponSound
+var weap_sound = null
 
 func _init():	
 	property_list_changed_notify()

@@ -113,6 +113,7 @@ func pause_game():
 	save_slots_menu.visible = false
 	options.visible = false
 	Global.pause_game(true)
+	
 func close_save_menu():
 	save_slots_menu.visible = false
 	main_menu.visible = false
