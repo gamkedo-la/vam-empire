@@ -82,12 +82,16 @@ func _process(_delta):
 		if Input.is_action_just_pressed("ui_esc"):
 			if PlayerVars.get_target():
 				PlayerVars.set_target(null)
-			elif menu_viz.visible && !options.visible:
+			elif menu_viz.visible && !options.visible && !save_slots_menu.visible:
 				menu_viz.visible = false
 				main_menu.visible = false
+				main_menu_buttons.visible = true
 				Global.pause_game(false)
 			elif save_slots_menu.visible:
 				save_slots_menu.visible = false
+				main_menu.visible = false
+				# quick toggle to reset transforms
+				main_menu.visible = true
 				main_menu_buttons.visible = true
 			elif options.visible:
 				UserSettings.save()
@@ -96,6 +100,7 @@ func _process(_delta):
 			else:
 				menu_viz.visible = true
 				main_menu.visible = true
+				main_menu_buttons.visible = true
 				save_slots_menu.visible = false
 				options.visible = false
 				Global.pause_game(true)
@@ -104,8 +109,14 @@ func _process(_delta):
 			if options.visible:
 				UserSettings.save()
 				options.visible = false
+				main_menu.visible = true
+				main_menu_buttons.visible = true
 			elif save_slots_menu.visible:
-				save_slots_menu.visible = false		
+				save_slots_menu.visible = false
+				main_menu.visible = false
+				# quick toggle to reset transforms
+				main_menu.visible = true
+				main_menu_buttons.visible = true
 
 func close_options():
 		if options.visible:
