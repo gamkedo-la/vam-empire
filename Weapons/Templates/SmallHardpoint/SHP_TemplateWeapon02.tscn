@@ -1,17 +1,13 @@
-[gd_scene load_steps=5 format=2]
+[gd_scene load_steps=4 format=2]
 
 [ext_resource path="res://Weapons/Textures/Small_Weapon_02_Template.png" type="Texture" id=1]
-[ext_resource path="res://Bullets/Scenes/BasicBullet.tscn" type="PackedScene" id=2]
 [ext_resource path="res://Scripts/Weapon.gd" type="Script" id=3]
 [ext_resource path="res://Lights/Scenes/MuzzleFlash.tscn" type="PackedScene" id=4]
 
 [node name="SHP_TemplateWeapon02" type="Node2D"]
 script = ExtResource( 3 )
-weap_name = "Template Cannon"
-projectile = ExtResource( 2 )
-anchor_path = NodePath("WeaponAnchor")
-barrel_tip_path = NodePath("WeaponAnchor/WeaponSprite/BarrelTip")
-fire_rate = 100.0
+weapon/weap_type = 0
+weapon/projectile = null
 
 [node name="WeaponAnchor" type="Position2D" parent="."]
 position = Vector2( -3.00339, 0 )

@@ -3,6 +3,4 @@
 [ext_resource path="res://Weapons/Templates/SmallHardpoint/SHP_TemplateWeapon01.tscn" type="PackedScene" id=1]
 
 [node name="SHP_TemplateWeapon01_FullUpgrade" instance=ExtResource( 1 )]
-anchor_path = NodePath("../SHP_TemplateWeapon01_FullUpgrade/WeaponAnchor")
-barrel_tip_path = NodePath("../SHP_TemplateWeapon01_FullUpgrade/WeaponAnchor/WeaponSprite/BarrelTip")
 fire_rate = 10000.0

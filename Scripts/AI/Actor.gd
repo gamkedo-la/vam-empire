@@ -20,6 +20,9 @@ export (Team) var actor_team
 export (Squadron) var squadron_status
 
 var team_group = null
+
+export (Array, NodePath) var squadron_members  ## Pick members if this Actor is a Squad Leader
+
 # Loaded from Ship
 var ACCELERATION: int = 0
 var MAX_SPEED: int = 0

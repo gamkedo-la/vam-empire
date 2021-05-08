@@ -36,7 +36,7 @@
 - [**NPC AI**](#npc-ai)
   - [**Actors**](#actors)
     - [**AI**](#ai)
-      - [**Steering**](#steering)
+    - [**Steering**](#steering)
 - [**UI**](#ui)
   - [**Player HUD**](#player-hud)
     - [**HUD.tscn**](#hudtscn)
@@ -183,7 +183,7 @@ The "Zone" is the top level container scene, which will be inherited from a Temp
 `Encounters` are friendly, neutral or hostile encounters with game elements that are under control of some form of game logic or AI that is more complex than simply determining layout and position. Examples of things that would fit as an `Encounter` would be:
 - A lone friendly mining vessel buzzing rocks within a vicinity.
 - A lane of space freighters caravaning to a destination.
-- A band of space pirate NPCs that may aggro the player
+- A squadron of space pirate NPCs that may aggro the player
 - V.A.M. vampire units flying in a formation at night
 - A mini-boss stalking the player 
 - A travelling merchant vessel
@@ -355,7 +355,7 @@ The AIController class is a subnode of the Actor scene that primarily serves the
 - ENGAGE
   - The actor is engaged with a 'target' which will become its primary focus until it has killed its target or the target escapes the 'Leash' Area2D under the AI node.
 - *More States Coming Here*
-#### **Steering**
+### **Steering**
 The Steering subclass of the Actor handles the Context-Based obstacle avoidance and actual physical flight behavior of the NPC AI.
 
 *Document Steering Behavior and it's configurables here*

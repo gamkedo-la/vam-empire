@@ -52,12 +52,12 @@ func fire_weapons(parent_velocity: Vector2):
 		
 func fire_mining_lasers():
 	for weapon in weapons:
-		if weapon.type == weapon.WeapTypes.MINING_LASER:
+		if weapon.weap_type == weapon.WeaponType.MINING_LASER:
 			weapon.fire_mining_laser()
 
 func release_mining_lasers():
 	for weapon in weapons:
-		if weapon.type == weapon.WeapTypes.MINING_LASER:
+		if weapon.weap_type == weapon.WeaponType.MINING_LASER:
 			weapon.release_mining_laser()
 		
 func animate_thrusters(t_vec):

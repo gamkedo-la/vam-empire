@@ -1,0 +1,43 @@
+[gd_scene load_steps=4 format=2]
+
+[ext_resource path="res://Weapons/Textures/Small_Weapon_01_Template.png" type="Texture" id=2]
+[ext_resource path="res://Lights/Scenes/MuzzleFlash.tscn" type="PackedScene" id=4]
+[ext_resource path="res://Scripts/Weapon.gd" type="Script" id=5]
+
+[node name="Weapon" type="Node2D"]
+script = ExtResource( 5 )
+fire_rate = 0.0
+weapon/weap_type = 0
+weapon/projectile = null
+
+[node name="WeaponAnchor" type="Position2D" parent="."]
+position = Vector2( -3.00339, 0 )
+__meta__ = {
+"_gizmo_extents_": 5.0
+}
+
+[node name="WeaponSprite" type="Sprite" parent="WeaponAnchor"]
+position = Vector2( 3.00339, 0 )
+texture = ExtResource( 2 )
+
+[node name="BarrelTip" type="Position2D" parent="WeaponAnchor/WeaponSprite"]
+position = Vector2( 5, 0 )
+__meta__ = {
+"_gizmo_extents_": 2.0
+}
+
+[node name="MuzzleFlash" parent="WeaponAnchor/WeaponSprite/BarrelTip" instance=ExtResource( 4 )]
+off_duration = 0.5
+
+[node name="WeaponSound" type="AudioStreamPlayer2D" parent="."]
+bus = "SFX"
+
+[node name="README" type="Node" parent="."]
+__meta__ = {
+"_editor_description_": "This is the MASTER Weapon class for *all* Weapons in V.A.M. Empire.
+
+To make a new Weapon, instance this scene (res://Weapons/Templates/Weapon.tscn) into a slot in the Weapon Collection (res://Weapons/PackedWeapons.tscn)
+
+For more info, refer to the hopefully ( ;-) ) up to date information at:
+https://github.com/gamkedo-la/vam-empire#weapon-specifications"
+}
