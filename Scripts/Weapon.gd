@@ -60,9 +60,9 @@ onready var root_node = get_tree().get_root()
 var sfxFire: AudioStreamRandomPitch = null
 
 onready var weapon_sprite = $WeaponAnchor/WeaponSprite
-onready var muzzle_flash = $WeaponAnchor/WeaponSprite/BarrelTip/MuzzleFlash
+var muzzle_flash = null
 onready var anchor = $WeaponAnchor
-onready var barrel_tip = $WeaponAnchor/WeaponSprite/BarrelTip
+var barrel_tip = null
 var mining_beam
 
 var rng = RandomNumberGenerator.new()
@@ -80,12 +80,12 @@ func _ready():
 	# Other scenes are 'safe' because they are called in game from Ship.gd
 	if not Engine.editor_hint:
 	# Import the anchor and barrel tip Position2D objects actual "nodes" from the NodePath added in the editor so they can be used	
+		muzzle_flash = get_node_or_null("WeaponAnchor/WeaponSprite/BarrelTip/MuzzleFlash")
+		barrel_tip = get_node_or_null("WeaponAnchor/WeaponSprite/BarrelTip")
+		weap_sound = get_node_or_null("WeaponSound")
 		fire_timer = Timer.new()
 		add_child(fire_timer)
 		fire_timer.autostart = true
-		print_debug(self," fire_rate",fire_rate)
-#		if fire_rate <= 0:
-#			fire_rate = 50
 		fire_timer.wait_time = 100/fire_rate
 		fire_timer.connect("timeout", self, "_reprime")	
 		sfxFire = AudioStreamRandomPitch.new()
