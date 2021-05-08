@@ -78,55 +78,58 @@ func _ready():
 	
 	
 func _process(_delta):
+	check_inputs()
+
+func check_inputs():
 	if !start_menu:
 		if Input.is_action_just_pressed("ui_esc"):
 			if PlayerVars.get_target():
 				PlayerVars.set_target(null)
 			elif menu_viz.visible && !options.visible && !save_slots_menu.visible:
-				menu_viz.visible = false
-				main_menu.visible = false
-				main_menu_buttons.visible = true
-				Global.pause_game(false)
+				unpause_game()
 			elif save_slots_menu.visible:
-				save_slots_menu.visible = false
-				main_menu.visible = false
-				# quick toggle to reset transforms
-				main_menu.visible = true
-				main_menu_buttons.visible = true
+				close_save_menu()
 			elif options.visible:
-				UserSettings.save()
-				options.visible = false
-				main_menu.visible = true
+				close_options()
 			else:
-				menu_viz.visible = true
-				main_menu.visible = true
-				main_menu_buttons.visible = true
-				save_slots_menu.visible = false
-				options.visible = false
-				Global.pause_game(true)
+				pause_game()
 	else:
 		if Input.is_action_just_pressed("ui_esc"):
 			if options.visible:
-				UserSettings.save()
-				options.visible = false
-				main_menu.visible = true
-				main_menu_buttons.visible = true
+				close_options()
 			elif save_slots_menu.visible:
-				save_slots_menu.visible = false
-				main_menu.visible = false
-				# quick toggle to reset transforms
-				main_menu.visible = true
-				main_menu_buttons.visible = true
+				close_save_menu()
+
+func unpause_game():
+	menu_viz.visible = false
+	main_menu.visible = false
+	main_menu_buttons.visible = true
+	Global.pause_game(false)
+
+func pause_game():
+	menu_viz.visible = true
+	main_menu.visible = true
+	main_menu_buttons.visible = true
+	save_slots_menu.visible = false
+	options.visible = false
+	Global.pause_game(true)
+func close_save_menu():
+	save_slots_menu.visible = false
+	main_menu.visible = false
+	# quick toggle to reset transforms
+	main_menu.visible = true
+	main_menu_buttons.visible = true
 
 func close_options():
-		if options.visible:
-			UserSettings.save()
-			# options.visible = false
-			var animation = get_node("MenuCanvas/Viz/OptionsContainer/AnimationPlayer")
-			animation.play("Hide")
-			main_menu.visible = true		
-		elif get_tree().paused == true:
-			UserSettings.save()
+	if options.visible:
+		UserSettings.save()
+		# options.visible = false
+		var animation = get_node("MenuCanvas/Viz/OptionsContainer/AnimationPlayer")
+		animation.play("Hide")
+		main_menu.visible = true
+		main_menu_buttons.visible = true	
+	elif get_tree().paused == true:
+		UserSettings.save()
 			
 
 func update_settings():
@@ -323,8 +326,7 @@ func _on_Transition_can_exit():
 
 
 func _on_Return_pressed():
-	save_slots_menu.visible = false
-	main_menu_buttons.visible = true
+	close_save_menu()
 
 func _on_LoadSlot1_pressed():
 	PlayerVars.set_save_slot(1)
