@@ -1,9 +1,10 @@
-[gd_scene load_steps=7 format=2]
+[gd_scene load_steps=11 format=2]
 
 [ext_resource path="res://Lights/Textures/light_orb.png" type="Texture" id=1]
 [ext_resource path="res://Lights/Textures/headlight_001.png" type="Texture" id=2]
 [ext_resource path="res://Player/Textures/Shmup_Player_Ship_001.png" type="Texture" id=3]
 [ext_resource path="res://Scripts/Ship.gd" type="Script" id=4]
+[ext_resource path="res://Scripts/Effects/Trail.gd" type="Script" id=5]
 
 [sub_resource type="CapsuleShape2D" id=1]
 radius = 2.14236
@@ -11,6 +12,16 @@ height = 1.4316
 
 [sub_resource type="Curve" id=2]
 _data = [ Vector2( 0, 1 ), 0.0, 0.0, 0, 0, Vector2( 0.546332, 0.0122699 ), 0.0, 0.0, 0, 0 ]
+
+[sub_resource type="Curve" id=3]
+_data = [ Vector2( 0, 0.985227 ), 0.0, 0.0, 0, 0, Vector2( 0.943128, 0.0124999 ), 0.0, 0.0, 0, 0 ]
+
+[sub_resource type="Curve" id=5]
+_data = [ Vector2( 0, 0 ), -0.180992, 0.0, 0, 0, Vector2( 1, 1 ), 0.0, 0.034326, 0, 0 ]
+
+[sub_resource type="Gradient" id=4]
+offsets = PoolRealArray( 0, 0.595, 1 )
+colors = PoolColorArray( 1, 1, 1, 0, 1, 1, 1, 0.27451, 1, 1, 1, 0.27451 )
 
 [node name="StarterShip" type="Node2D"]
 script = ExtResource( 4 )
@@ -97,17 +108,68 @@ shadow_enabled = true
 shadow_item_cull_mask = -2147483647
 
 [node name="ParticleEffect" type="CPUParticles2D" parent="Thrusters/SternThruster01"]
+visible = false
 show_behind_parent = true
 position = Vector2( -12.0453, 0.223221 )
 scale = Vector2( 1.25624, 0.104634 )
 amount = 50
-local_coords = false
+lifetime = 0.12
+speed_scale = 1.14
 texture = ExtResource( 1 )
+emission_shape = 2
+emission_rect_extents = Vector2( 0.274, 0.867 )
 direction = Vector2( -1, 0 )
 spread = 0.0
 gravity = Vector2( 0, 0 )
 initial_velocity = 250.0
 initial_velocity_random = 0.18
-scale_amount = 0.15
+scale_amount = 0.7
 scale_amount_curve = SubResource( 2 )
 color = Color( 0, 0.635294, 1, 1 )
+
+[node name="ThrusterEffect" type="CPUParticles2D" parent="Thrusters/SternThruster01"]
+modulate = Color( 0.309804, 0.537255, 0.827451, 1 )
+position = Vector2( -9.27031, 0 )
+z_index = -8
+amount = 72
+texture = ExtResource( 1 )
+direction = Vector2( -1, 0 )
+spread = 0.0
+gravity = Vector2( 0, 0 )
+initial_velocity = 30.35
+initial_velocity_random = 0.78
+angular_velocity = -424.29
+scale_amount = 0.16
+scale_amount_curve = SubResource( 3 )
+
+[node name="Tail Trail" type="Node2D" parent="."]
+visible = false
+position = Vector2( -9.00543, 0 )
+
+[node name="Line2D" type="Line2D" parent="Tail Trail"]
+visible = false
+z_index = -90
+width = 8.0
+width_curve = SubResource( 5 )
+gradient = SubResource( 4 )
+script = ExtResource( 5 )
+
+[node name="Wing Trail 1" type="Node2D" parent="."]
+position = Vector2( -7.41624, -6.62164 )
+
+[node name="Line2D" type="Line2D" parent="Wing Trail 1"]
+z_index = -90
+width = 4.0
+width_curve = SubResource( 5 )
+gradient = SubResource( 4 )
+script = ExtResource( 5 )
+
+[node name="Wing Trail 2" type="Node2D" parent="."]
+position = Vector2( -7.416, 6.622 )
+
+[node name="Line2D" type="Line2D" parent="Wing Trail 2"]
+z_index = -90
+width = 4.0
+width_curve = SubResource( 5 )
+gradient = SubResource( 4 )
+script = ExtResource( 5 )

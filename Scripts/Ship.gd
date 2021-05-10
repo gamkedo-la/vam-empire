@@ -66,8 +66,10 @@ func animate_thrusters(t_vec):
 	for T in thrusters.get_children():
 		var thrust_light = T.get_node_or_null("LightEffect")		
 		var thrust_exhaust = T.get_node_or_null("ParticleEffect")		
+		var thruster_effect = T.get_node_or_null("ThrusterEffect")		
 		thrust_light.set_energy(t_vec.length()* 10)
 		thrust_exhaust.initial_velocity = t_vec.length()*100
+		thruster_effect.scale.x = t_vec.length()*1
 	
 	pass
 
