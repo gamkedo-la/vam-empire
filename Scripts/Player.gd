@@ -87,7 +87,8 @@ func move_state(delta):
 	var thrust_vector = Vector2.ZERO
 	var strafe_vector = Vector2.ZERO
 	
-	thrust_vector.x = Input.get_action_strength("ui_up") - Input.get_action_strength("ui_down")
+	thrust_vector.x = Input.get_action_strength("ui_up") 
+	strafe_vector.x = -Input.get_action_strength("ui_down")
 	strafe_vector.y = Input.get_action_strength("ui_right") - Input.get_action_strength("ui_left")	
 	thrust_vector = thrust_vector.rotated(global_rotation)
 	thrust_vector = thrust_vector.normalized()
@@ -98,13 +99,13 @@ func move_state(delta):
 	if thrust_vector != Vector2.ZERO:		
 		velocity = velocity.move_toward(thrust_vector * MAX_SPEED, ACCELERATION * delta)
 	else:
-		#velocity = velocity.move_toward(Vector2.ZERO, FRICTION * delta)	
+		velocity = velocity.move_toward(Vector2.ZERO, FRICTION * delta)	
 		pass
 		
 	if strafe_vector != Vector2.ZERO:		
-		strafe_velocity = strafe_velocity.move_toward(strafe_vector * MAX_SPEED/3, ACCELERATION/3 * delta)
+		strafe_velocity = strafe_velocity.move_toward(strafe_vector * MAX_SPEED/3, ACCELERATION/1.5 * delta)
 	else:
-		#strafe_velocity = strafe_velocity.move_toward(Vector2.ZERO, FRICTION * delta)	
+		strafe_velocity = strafe_velocity.move_toward(Vector2.ZERO, FRICTION * delta)	
 		pass
 	
 	piloted_ship.animate_thrusters(thrust_vector)
