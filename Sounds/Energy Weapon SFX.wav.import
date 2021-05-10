@@ -1,0 +1,21 @@
+[remap]
+
+importer="wav"
+type="AudioStreamSample"
+path="res://.import/Energy Weapon SFX.wav-97ae930a9b7826fe7d72d08464d715e5.sample"
+
+[deps]
+
+source_file="res://Sounds/Energy Weapon SFX.wav"
+dest_files=[ "res://.import/Energy Weapon SFX.wav-97ae930a9b7826fe7d72d08464d715e5.sample" ]
+
+[params]
+
+force/8_bit=false
+force/mono=false
+force/max_rate=false
+force/max_rate_hz=44100
+edit/trim=false
+edit/normalize=false
+edit/loop=false
+compress/mode=0
