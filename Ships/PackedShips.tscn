@@ -1,4 +1,4 @@
-[gd_scene load_steps=7 format=2]
+[gd_scene load_steps=8 format=2]
 
 [ext_resource path="res://Ships/StarterShip.tscn" type="PackedScene" id=1]
 [ext_resource path="res://Ships/Templates/Sm_Frigates/FrigateTemplate01_Tri.tscn" type="PackedScene" id=2]
@@ -6,6 +6,7 @@
 [ext_resource path="res://Ships/Templates/L_Corvettes/CorvetteTemplate01.tscn" type="PackedScene" id=4]
 [ext_resource path="res://Ships/Templates/M_Destroyers/DestroyerTemplate01.tscn" type="PackedScene" id=5]
 [ext_resource path="res://Ships/StarterShip_FastGun.tscn" type="PackedScene" id=6]
+[ext_resource path="res://Enemies/Scenes/Small/Impaler.tscn" type="PackedScene" id=7]
 
 [node name="PackedShips" type="Node2D"]
 
@@ -23,7 +24,42 @@
 
 [node name="StarterShip_FastGun" parent="Frigates/2" instance=ExtResource( 6 )]
 
+[node name="3" type="Node2D" parent="Frigates"]
+
+[node name="CorvetteTemplate01" parent="Frigates/3" instance=ExtResource( 7 )]
+
+[node name="4" type="Node2D" parent="Frigates"]
+
+[node name="Sound01" parent="Frigates/4" instance=ExtResource( 1 )]
+ship_name = "Sound01"
+equipped_weapon_index = [ 4, 4 ]
+
+[node name="5" type="Node2D" parent="Frigates"]
+
+[node name="Sound02" parent="Frigates/5" instance=ExtResource( 1 )]
+ship_name = "Sound02"
+equipped_weapon_index = [ 5, 5 ]
+
+[node name="6" type="Node2D" parent="Frigates"]
+
+[node name="Sound03" parent="Frigates/6" instance=ExtResource( 1 )]
+ship_name = "Sound03"
+equipped_weapon_index = [ 6, 6 ]
+
+[node name="7" type="Node2D" parent="Frigates"]
+
+[node name="Sound04" parent="Frigates/7" instance=ExtResource( 1 )]
+ship_name = "Sound04"
+equipped_weapon_index = [ 7, 7 ]
+
+[node name="8" type="Node2D" parent="Frigates"]
+
+[node name="Sound05" parent="Frigates/8" instance=ExtResource( 1 )]
+ship_name = "Sound05"
+equipped_weapon_index = [ 8, 8 ]
+
 [node name="Destroyers" type="Node2D" parent="."]
+visible = false
 
 [node name="0" type="Node2D" parent="Destroyers"]
 
@@ -34,6 +70,7 @@
 [node name="DestroyerTemplate01" parent="Destroyers/1" instance=ExtResource( 5 )]
 
 [node name="Corvettes" type="Node2D" parent="."]
+visible = false
 
 [node name="0" type="Node2D" parent="Corvettes"]
 
@@ -44,6 +81,7 @@
 [node name="CorvetteTemplate01" parent="Corvettes/1" instance=ExtResource( 4 )]
 
 [node name="Dreadnoughts" type="Node2D" parent="."]
+visible = false
 
 [node name="0" type="Node2D" parent="Dreadnoughts"]
 

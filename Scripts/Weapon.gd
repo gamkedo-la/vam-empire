@@ -49,12 +49,12 @@ enum MountTypes {
 export (MountTypes) var mount
 
 var projectile: PackedScene
-export (ProjectileSounds) var projectile_sound
+var projectile_sound: int
 
 var beam: PackedScene
-export (BeamSounds) var beam_sound
+var beam_sound: int
 
-export (float, 50.0, 10000.0) var fire_rate = 50 setget set_fire_rate, get_fire_rate
+var fire_rate = 50 setget set_fire_rate, get_fire_rate
 onready var root_node = get_tree().get_root()
 
 var sfxFire: AudioStreamRandomPitch = null
@@ -176,8 +176,14 @@ func _get(property): # overridden
 		return weap_type
 	if property == "weapon/projectile":
 		return projectile
+	if property == "weapon/projectile_sound":
+		return projectile_sound
 	if property == "weapon/beam":
 		return beam
+	if property == "weapon/beam_sound":
+		return beam_sound
+	if property == "weapon/fire_rate":
+		return fire_rate
 		
 
 func _set(property, value): # overridden
@@ -186,8 +192,14 @@ func _set(property, value): # overridden
 		property_list_changed_notify()
 	if property == "weapon/projectile":
 		projectile = value
+	if property == "weapon/projectilve_sound":
+		projectile_sound = value
 	if property == "weapon/beam":
 		beam = value
+	if property == "weapon/beam_sound":
+		beam_sound = value
+	if property == "weapon/fire_rate":
+		fire_rate = value
 	return true
 
 
@@ -201,27 +213,24 @@ func _set(property, value): # overridden
 # call once when node selected. Added to ordinary export
 func _get_property_list():	# overridden function
 	var property_list = []
-	property_list.append({
-		"name": "weapon/weap_type",
-		"type": 2,
-		"hint": 3,
-		"hint_string": "Phys_Projectile:0,Energy_Projectile:1,Laser:2,Mining_Laser:3,Mining_Drill:4,Drone_Bay:5",
-		"usage": 8199,
-	})
+	# List the weapon type choice no matter what. This is the 'primary driver and must be listed this way.
+	# As an "export", weap_type can't trigger the property_list_change_notify(), that I have found yet! It would be nice if it *could*.
+	property_list.append({"name": "weapon/weap_type","type": 2,"hint": 3,
+	"hint_string": "Phys_Projectile:0,Energy_Projectile:1,Laser:2,Mining_Laser:3,Mining_Drill:4,Drone_Bay:5","usage": 8199,})
+	
+	# Projectile only features
 	if weap_type == WeaponType.PHYS_PROJECTILE || weap_type == WeaponType.ENERGY_PROJECTILE:
-		property_list.append({
-		"name": "weapon/projectile",
-		"type": 17,
-		"usage": 8199,
-		"hint": 17,
-		"hint_string": "PackedScene",
-		})
+		property_list.append({"name": "weapon/projectile","type": 17,"usage": 8199,"hint": 17,"hint_string": "PackedScene",})
+		property_list.append({"name":"weapon/projectile_sound","hint":3,
+		"hint_string":"Projectile 01:0,Projectile 02:1,Projectile 03:2,Projectile 04:3,Projectile 05:4,Random:5","type":2,"usage":8199,})
+
+	# Laser only features
 	if weap_type == WeaponType.LASER:
-		property_list.append({
-		"name": "weapon/beam",
-		"type": 17,
-		"usage": 8199,
-		"hint": 17,
-		"hint_string": "PackedScene",
-		})	
+		property_list.append({"name": "weapon/beam","type": 17,"usage": 8199,"hint": 17,"hint_string": "PackedScene",})
+		
+	# Features common to Phys/Eneryg Proj and Lasers
+	if weap_type == WeaponType.PHYS_PROJECTILE || weap_type == WeaponType.ENERGY_PROJECTILE || weap_type == WeaponType.LASER:
+		property_list.append({"name":"weapon/fire_rate","hint":1,"hint_string":"50,10000", "type":3, "usage":8199,})
+		property_list.append({"name":"weapon/beam_sound","hint":3,
+		"hint_string":"Beam 01:0,Beam 02:1,Beam 03:2,Beam 04:3,Beam 05:4,Random:5","type":2,"usage":8199,})
 	return property_list

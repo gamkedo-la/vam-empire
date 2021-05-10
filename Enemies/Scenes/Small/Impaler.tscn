@@ -5,7 +5,7 @@
 [ext_resource path="res://Lights/Textures/headlight_001.png" type="Texture" id=3]
 [ext_resource path="res://Enemies/Textures/Small/impaler_sprite.png" type="Texture" id=4]
 
-[sub_resource type="CircleShape2D" id=3]
+[sub_resource type="CircleShape2D" id=1]
 radius = 14.816
 
 [sub_resource type="Curve" id=2]
@@ -20,20 +20,19 @@ equipped_weapon_index = [ 1, 1, 1, 1 ]
 [node name="ShipSprite" type="Sprite" parent="."]
 texture = ExtResource( 4 )
 
-[node name="Hull" type="Area2D" parent="."]
-
-[node name="HullCollision" type="CollisionShape2D" parent="Hull" groups=[
+[node name="HullCollision" type="CollisionShape2D" parent="." groups=[
 "HullCollider",
 ]]
 position = Vector2( -1.30551, 0.329258 )
 rotation = 1.5708
-shape = SubResource( 3 )
+shape = SubResource( 1 )
+
+[node name="Hull" type="Area2D" parent="."]
 
 [node name="Hardpoints" type="Node2D" parent="."]
 
 [node name="PortHp01" type="Position2D" parent="Hardpoints"]
 position = Vector2( 10.8954, -3.5863 )
-rotation = 3.14159
 
 [node name="StarboardHp01" type="Position2D" parent="Hardpoints"]
 position = Vector2( 10.7505, 4.5577 )

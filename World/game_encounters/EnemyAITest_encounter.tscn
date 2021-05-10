@@ -1,8 +1,9 @@
-[gd_scene load_steps=4 format=2]
+[gd_scene load_steps=5 format=2]
 
 [ext_resource path="res://World/game_encounters/Templates/EncounterTemplate.tscn" type="PackedScene" id=1]
 [ext_resource path="res://AI/Scenes/Actor.tscn" type="PackedScene" id=2]
 [ext_resource path="res://Ships/StarterShip.tscn" type="PackedScene" id=3]
+[ext_resource path="res://Enemies/Scenes/Small/Impaler.tscn" type="PackedScene" id=4]
 
 [node name="EnemyAITest_encounter" instance=ExtResource( 1 )]
 
@@ -61,19 +62,19 @@ actor_team = 1
 ship_file = ExtResource( 3 )
 
 [node name="Vampire" parent="." index="11" instance=ExtResource( 2 )]
-position = Vector2( 30.6807, -366.395 )
+position = Vector2( 115.342, -2220.48 )
 collision_mask = 63
 actor_team = 2
-ship_file = ExtResource( 3 )
+ship_file = ExtResource( 4 )
 
 [node name="Vampire2" parent="." index="12" instance=ExtResource( 2 )]
-position = Vector2( 276.051, 765.756 )
+position = Vector2( -714.34, -2144.28 )
 collision_mask = 63
 actor_team = 2
-ship_file = ExtResource( 3 )
+ship_file = ExtResource( 4 )
 
 [node name="Vampire3" parent="." index="13" instance=ExtResource( 2 )]
-position = Vector2( -1156.24, -263.535 )
+position = Vector2( 843.43, -2203.55 )
 collision_mask = 63
 actor_team = 2
-ship_file = ExtResource( 3 )
+ship_file = ExtResource( 4 )

@@ -1,10 +1,11 @@
-[gd_scene load_steps=6 format=2]
+[gd_scene load_steps=7 format=2]
 
 [ext_resource path="res://Weapons/Templates/SmallHardpoint/SHP_TemplateWeapon01.tscn" type="PackedScene" id=1]
 [ext_resource path="res://Weapons/Templates/SmallHardpoint/SHP_TemplateWeapon02.tscn" type="PackedScene" id=2]
 [ext_resource path="res://Weapons/Templates/SmallHardpoint/SHP_TemplateMiningLaser01.tscn" type="PackedScene" id=3]
 [ext_resource path="res://Weapons/Scenes/Small/SHP_TemplateWeapon01_FullUpgrade.tscn" type="PackedScene" id=4]
 [ext_resource path="res://Bullets/Scenes/BasicBullet.tscn" type="PackedScene" id=5]
+[ext_resource path="res://Weapons/Templates/Weapon.tscn" type="PackedScene" id=6]
 
 [node name="PackedWeapons" type="Node2D"]
 
@@ -39,13 +40,46 @@ weapon/projectile = ExtResource( 5 )
 
 [node name="4" type="Node2D" parent="Small"]
 
+[node name="SHP_TemplateSound01" parent="Small/4" instance=ExtResource( 1 )]
+weap_name = "SHP_TemplateWeapon01"
+fire_rate = 500.0
+weapon/projectile = ExtResource( 5 )
+
 [node name="5" type="Node2D" parent="Small"]
+
+[node name="SHP_TemplateSound02" parent="Small/5" instance=ExtResource( 1 )]
+weap_name = "SHP_TemplateWeapon01"
+projectile_sound = 1
+fire_rate = 500.0
+weapon/projectile = ExtResource( 5 )
 
 [node name="6" type="Node2D" parent="Small"]
 
+[node name="SHP_TemplateSound03" parent="Small/6" instance=ExtResource( 1 )]
+weap_name = "SHP_TemplateWeapon01"
+projectile_sound = 2
+fire_rate = 500.0
+weapon/projectile = ExtResource( 5 )
+
 [node name="7" type="Node2D" parent="Small"]
 
+[node name="SHP_TemplateSound04" parent="Small/7" instance=ExtResource( 1 )]
+weap_name = "SHP_TemplateWeapon01"
+projectile_sound = 3
+fire_rate = 500.0
+weapon/projectile = ExtResource( 5 )
+
 [node name="8" type="Node2D" parent="Small"]
+
+[node name="SHP_TemplateSound05" parent="Small/8" instance=ExtResource( 1 )]
+weap_name = "SHP_TemplateWeapon01"
+projectile_sound = 4
+fire_rate = 500.0
+weapon/projectile = ExtResource( 5 )
+
+[node name="9" type="Node2D" parent="Small"]
+
+[node name="Weapon" parent="Small/9" instance=ExtResource( 6 )]
 
 [node name="Medium" type="Node2D" parent="."]
 

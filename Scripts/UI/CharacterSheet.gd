@@ -15,11 +15,11 @@ func _ready():
 
 func _process(_delta):
 	if Input.is_action_just_pressed("ui_charpanel"):
-		if !isVisable:
-			isVisable = true
+		if !self.visible:
+			self.visible = true
 			animator.play("Show")
 		else:
-			isVisable = false
+			self.visible = false
 			animator.play("Hide")
 			# in case the mouse was over the panel when it closes
 			Global.set_hold_fire(false)

@@ -6,9 +6,11 @@
 
 [node name="Weapon" type="Node2D"]
 script = ExtResource( 5 )
-fire_rate = 0.0
 weapon/weap_type = 0
 weapon/projectile = null
+weapon/projectile_sound = 0
+weapon/fire_rate = 50.0
+weapon/beam_sound = 0
 
 [node name="WeaponAnchor" type="Position2D" parent="."]
 position = Vector2( -3.00339, 0 )
