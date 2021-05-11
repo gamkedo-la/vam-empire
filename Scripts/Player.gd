@@ -45,7 +45,7 @@ onready var inventory = $PlayerUICanvas/Inventory
 onready var vector_grid = $PlayerUICanvas/VectorGrid/Grid
 onready var vec_indicator = $PlayerUICanvas/VectorGrid/Grid/VecIndicator
 onready var velo_indicator = $PlayerUICanvas/VectorGrid/Grid/VeloIndicator
-onready var strafe_indicator = $PlayerUICanvas/VectorGrid/Grid/StrafeIndicator
+onready var retro_indicator = $PlayerUICanvas/VectorGrid/Grid/RetroIndicator
 onready var vel_label = $PlayerUICanvas/VectorGrid/Grid/VelLabel
 
 # End of Original Player.gd variables
@@ -92,7 +92,7 @@ func _physics_process(delta):
 func move_state(delta):
 	var thrust_vector = Vector2.ZERO
 	var strafe_vector = Vector2.ZERO
-	
+	var retro_vector = Vector2.ZERO
 	thrust_vector.x = Input.get_action_strength("ui_up") 
 	strafe_vector.x = -Input.get_action_strength("ui_down")
 	strafe_vector.y = Input.get_action_strength("ui_right") - Input.get_action_strength("ui_left")	
@@ -103,42 +103,67 @@ func move_state(delta):
 	thrust_vector = thrust_vector.normalized()
 	
 	strafe_vector = strafe_vector.rotated(global_rotation)
-	strafe_vector = strafe_vector.normalized()
+	strafe_vector = strafe_vector.normalized() * .3
 	
+	thrust_vector += strafe_vector
+#	retro_vector.x = velocity.x/MAX_SPEED
+#	retro_vector.y = velocity.y/MAX_SPEED
+#	retro_vector = retro_vector.rotated(PI)
+	if velocity.length() > 1:
+		retro_vector = velocity.rotated(PI)
+	var retro_heading = retro_vector.rotated(-global_rotation)
+	
+	
+	retro_vector = retro_vector.normalized()
+
+	var fa_brake = retro_vector
+	#experimentation
+#	retro_vector = retro_vector.rotated(global_rotation)
+#	retro_vector.x = -retro_vector.x
 	if thrust_vector != Vector2.ZERO:		
 		velocity = velocity.move_toward(thrust_vector * MAX_SPEED, ACCELERATION * delta)
-	else:
-		velocity = velocity.move_toward(Vector2.ZERO, FRICTION * delta)	
+	# Ship is facing with primary thruster 'retro', so we get the full force of braking power
+	elif retro_heading.x/MAX_SPEED > 0:
+		#velocity = velocity.move_toward(Vector2.ZERO, FRICTION * delta)			
+		fa_brake.y *= .3
+		velocity = velocity.move_toward(fa_brake * MAX_SPEED, ACCELERATION * delta)
 		#strafe_vector.x = -velocity.normalized().x
-		pass
+	# Use RCS Thrusters to slow down ship
+	else:
+		fa_brake *= .3
+		velocity = velocity.move_toward(fa_brake * MAX_SPEED/3, ACCELERATION/3 * delta)
+		
 		
 #	if strafe_vector == Vector2.ZERO:
 #		strafe_vector = -velocity.normalized()
 	
 
-	if strafe_vector != Vector2.ZERO:		
-		strafe_velocity = strafe_velocity.move_toward(strafe_vector * MAX_SPEED/3, ACCELERATION/1.5 * delta)
-	else:
-		strafe_velocity = strafe_velocity.move_toward(Vector2.ZERO, FRICTION * delta)		
-		pass
+#	if strafe_vector != Vector2.ZERO:		
+#		strafe_velocity = strafe_velocity.move_toward(strafe_vector * MAX_SPEED/3, ACCELERATION/1.5 * delta)
+#	else:
+#		strafe_velocity = strafe_velocity.move_toward(Vector2.ZERO, FRICTION * delta)		
+#		pass
 	#velocity += strafe_velocity
 	piloted_ship.animate_thrusters(thrust_vector)
-	move()
-	strafe()
+	if retro_heading.x/MAX_SPEED > 0.1:
+		print_debug("retro_heading:", retro_heading)
+		piloted_ship.animate_thrusters(retro_heading.normalized())
 	
-	var scaled_velo = Vector2.ZERO
-	var scaled_strafe = Vector2.ZERO
+	move()
+#	strafe()
+	
+	var scaled_velo = Vector2.ZERO	
 	scaled_velo.x = stepify(velocity.x/MAX_SPEED,0.01)
 	scaled_velo.y = stepify(velocity.y/MAX_SPEED,0.01)
-	scaled_strafe.x = stepify(strafe_velocity.x/MAX_SPEED,0.01)
-	scaled_strafe.y = stepify(strafe_velocity.y/MAX_SPEED,0.01)
+#	retro_vector.x = stepify(-velocity.x/MAX_SPEED,0.01)
+#	retro_vector.y = stepify(-velocity.y/MAX_SPEED,0.01)
 	vel_label.text = str("Vel: (",stepify(velocity.x,0.01),",",stepify(velocity.y,0.01),")"," Scaled: (",scaled_velo.x,",",scaled_velo.y,")")
 	scaled_velo = scaled_velo.rotated(-global_rotation)
-	scaled_strafe = scaled_strafe.rotated(-global_rotation)
+	retro_vector = retro_vector.rotated(-global_rotation).normalized()
 	velo_indicator.rect_position.x = (scaled_velo.y * 50) + 50
 	velo_indicator.rect_position.y = (-scaled_velo.x * 50) + 50
-	strafe_indicator.rect_position.x = (scaled_strafe.y * 50) + 50
-	strafe_indicator.rect_position.y = (-scaled_strafe.x * 50) + 50
+	retro_indicator.rect_position.x = (retro_vector.y * 50) + 50
+	retro_indicator.rect_position.y = (-retro_vector.x * 50) + 50
 	
 	
 	if Input.is_action_pressed("attack"):
