@@ -58,6 +58,11 @@ equipped_weapon_index = [ 7, 7 ]
 ship_name = "Sound05"
 equipped_weapon_index = [ 8, 8 ]
 
+[node name="9" type="Node2D" parent="Frigates"]
+
+[node name="AllMissiles" parent="Frigates/9" instance=ExtResource( 2 )]
+equipped_weapon_index = [ 10, 10, 10 ]
+
 [node name="Destroyers" type="Node2D" parent="."]
 visible = false
 

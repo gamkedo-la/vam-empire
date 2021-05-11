@@ -1,0 +1,71 @@
+[gd_scene load_steps=5 format=2]
+
+[ext_resource path="res://Bullets/Scenes/BasicBullet.tscn" type="PackedScene" id=1]
+[ext_resource path="res://Bullets/Textures/BasicMissile.png" type="Texture" id=2]
+
+[sub_resource type="Animation" id=1]
+resource_name = "Travel"
+length = 1.6
+loop = true
+tracks/0/type = "value"
+tracks/0/path = NodePath("Sprite:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 0.2, 0.4, 0.6, 0.8, 1, 1.2, 1.4 ),
+"transitions": PoolRealArray( 1, 1, 1, 1, 1, 1, 1, 1 ),
+"update": 1,
+"values": [ 1, 2, 3, 4, 1, 2, 3, 4 ]
+}
+tracks/1/type = "value"
+tracks/1/path = NodePath("Light2D:energy")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/keys = {
+"times": PoolRealArray( 0, 0.8 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 0,
+"values": [ 1.0, 0.9 ]
+}
+
+[sub_resource type="CapsuleShape2D" id=2]
+radius = 2.789
+height = 8.916
+
+[node name="BasicBullet" instance=ExtResource( 1 )]
+position = Vector2( 0, 0 )
+
+[node name="Sprite" parent="." index="0"]
+texture = ExtResource( 2 )
+hframes = 5
+vframes = 1
+
+[node name="AnimationPlayer" parent="." index="1"]
+autoplay = "Travel"
+anims/Travel = SubResource( 1 )
+
+[node name="CollisionShape2D" parent="." index="2"]
+visible = false
+position = Vector2( 1, 0 )
+rotation = 1.5708
+shape = SubResource( 2 )
+
+[node name="HurtBox" parent="." index="3"]
+visible = false
+position = Vector2( 1, 0 )
+
+[node name="CollisionShape2D" parent="HurtBox" index="0"]
+rotation = 1.5708
+shape = SubResource( 2 )
+
+[node name="Light2D" parent="." index="4"]
+position = Vector2( -2.32967, 0.279792 )
+rotation = -1.57079
+scale = Vector2( 0.101748, 0.176474 )
+energy = 0.947558
+
+[editable path="HurtBox"]

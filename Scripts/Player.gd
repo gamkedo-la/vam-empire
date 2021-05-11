@@ -161,7 +161,8 @@ func take_damage(amount):
 	PlayerVars.take_damage(amount)
 
 func heal(amount, energy_cost):
-	if (PlayerVars.energy_reserve >= energy_cost):
+	# Don't let player heal if not enough energy or full on shields
+	if (PlayerVars.energy_reserve >= energy_cost && PlayerVars.shield_health < PlayerVars.shield_max_health):
 		take_damage(-amount) # Woah man, a heal is just like, negative damage
 		PlayerVars.energy_reserve -= energy_cost
 	

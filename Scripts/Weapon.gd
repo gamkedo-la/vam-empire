@@ -50,6 +50,8 @@ export (MountTypes) var mount
 
 var projectile: PackedScene
 var projectile_sound: int
+var use_constant_projectile_speed: bool
+var constant_projectile_speed: float
 
 var beam: PackedScene
 var beam_sound: int
@@ -143,15 +145,17 @@ func get_fire_rate():
 	return fire_rate
 
 func _fire_projectile(parent_velocity: Vector2) -> void:	
-	var rnd_impulse = rng.randf_range(0.8, 2.0)
 	var proj = projectile.instance()
 	root_node.add_child(proj)
 	proj.global_position = barrel_tip.global_position
 	proj.global_rotation = barrel_tip.global_rotation	
 	var dir = Vector2(1, 0).rotated(barrel_tip.global_rotation)
-	rnd_impulse = rng.randf_range(0.8, 2.0) * clamp(parent_velocity.length()/100, 1, 5)
+	var impulse = rng.randf_range(0.8, 2.0) * clamp(parent_velocity.length()/100, 1, 5)
+	if (use_constant_projectile_speed):
+		impulse = constant_projectile_speed
+
 	proj.linear_velocity = parent_velocity
-	proj.launchBullet(rnd_impulse, dir)
+	proj.launchBullet(impulse, dir)
 	primed = false	
 	if weap_sound:		
 		weap_sound.play(0.1)
@@ -178,13 +182,16 @@ func _get(property): # overridden
 		return projectile
 	if property == "weapon/projectile_sound":
 		return projectile_sound
+	if property == "weapon/use_constant_projectile_speed":
+		return use_constant_projectile_speed
+	if property == "weapon/constant_projectile_speed":
+		return constant_projectile_speed
 	if property == "weapon/beam":
 		return beam
 	if property == "weapon/beam_sound":
 		return beam_sound
 	if property == "weapon/fire_rate":
 		return fire_rate
-		
 
 func _set(property, value): # overridden
 	if property == "weapon/weap_type":
@@ -194,6 +201,11 @@ func _set(property, value): # overridden
 		projectile = value
 	if property == "weapon/projectilve_sound":
 		projectile_sound = value
+	if property == "weapon/use_constant_projectile_speed":
+		use_constant_projectile_speed = value
+		property_list_changed_notify()
+	if property == "weapon/constant_projectile_speed":
+		constant_projectile_speed = value
 	if property == "weapon/beam":
 		beam = value
 	if property == "weapon/beam_sound":
@@ -223,6 +235,9 @@ func _get_property_list():	# overridden function
 		property_list.append({"name": "weapon/projectile","type": 17,"usage": 8199,"hint": 17,"hint_string": "PackedScene",})
 		property_list.append({"name":"weapon/projectile_sound","hint":3,
 		"hint_string":"Projectile 01:0,Projectile 02:1,Projectile 03:2,Projectile 04:3,Projectile 05:4,Random:5","type":2,"usage":8199,})
+		property_list.append({"name": "weapon/use_constant_projectile_speed", "type": 1, "usage": 8199, "hint": 0})
+		if use_constant_projectile_speed:
+			property_list.append({"name": "weapon/constant_projectile_speed", "type": 3, "usage": 8199})
 
 	# Laser only features
 	if weap_type == WeaponType.LASER:
