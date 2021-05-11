@@ -146,7 +146,7 @@ func move_state(delta):
 	#velocity += strafe_velocity
 	piloted_ship.animate_thrusters(thrust_vector)
 	if retro_heading.x/MAX_SPEED > 0.1:
-		print_debug("retro_heading:", retro_heading)
+		#print_debug("retro_heading:", retro_heading)
 		piloted_ship.animate_thrusters(retro_heading.normalized())
 	
 	move()
