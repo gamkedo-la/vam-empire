@@ -16,10 +16,10 @@ _data = [ Vector2( 0, 1 ), 0.0, 0.0, 0, 0, Vector2( 0.546332, 0.0122699 ), 0.0, 
 [sub_resource type="Curve" id=3]
 _data = [ Vector2( 0, 0.985227 ), 0.0, 0.0, 0, 0, Vector2( 0.943128, 0.0124999 ), 0.0, 0.0, 0, 0 ]
 
-[sub_resource type="Curve" id=5]
+[sub_resource type="Curve" id=4]
 _data = [ Vector2( 0, 0 ), -0.180992, 0.0, 0, 0, Vector2( 1, 1 ), 0.0, 0.034326, 0, 0 ]
 
-[sub_resource type="Gradient" id=4]
+[sub_resource type="Gradient" id=5]
 offsets = PoolRealArray( 0, 0.595, 1 )
 colors = PoolColorArray( 1, 1, 1, 0, 1, 1, 1, 0.27451, 1, 1, 1, 0.27451 )
 
@@ -150,8 +150,8 @@ position = Vector2( -9.00543, 0 )
 visible = false
 z_index = -90
 width = 8.0
-width_curve = SubResource( 5 )
-gradient = SubResource( 4 )
+width_curve = SubResource( 4 )
+gradient = SubResource( 5 )
 script = ExtResource( 5 )
 
 [node name="Wing Trail 1" type="Node2D" parent="."]
@@ -160,8 +160,8 @@ position = Vector2( -7.41624, -6.62164 )
 [node name="Line2D" type="Line2D" parent="Wing Trail 1"]
 z_index = -90
 width = 4.0
-width_curve = SubResource( 5 )
-gradient = SubResource( 4 )
+width_curve = SubResource( 4 )
+gradient = SubResource( 5 )
 script = ExtResource( 5 )
 
 [node name="Wing Trail 2" type="Node2D" parent="."]
@@ -170,6 +170,6 @@ position = Vector2( -7.416, 6.622 )
 [node name="Line2D" type="Line2D" parent="Wing Trail 2"]
 z_index = -90
 width = 4.0
-width_curve = SubResource( 5 )
-gradient = SubResource( 4 )
+width_curve = SubResource( 4 )
+gradient = SubResource( 5 )
 script = ExtResource( 5 )

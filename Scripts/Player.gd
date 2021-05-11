@@ -42,6 +42,12 @@ onready var char_sheet = $PlayerUICanvas/CharacterSheet
 
 onready var inventory = $PlayerUICanvas/Inventory
 
+onready var vector_grid = $PlayerUICanvas/VectorGrid/Grid
+onready var vec_indicator = $PlayerUICanvas/VectorGrid/Grid/VecIndicator
+onready var velo_indicator = $PlayerUICanvas/VectorGrid/Grid/VeloIndicator
+onready var strafe_indicator = $PlayerUICanvas/VectorGrid/Grid/StrafeIndicator
+onready var vel_label = $PlayerUICanvas/VectorGrid/Grid/VelLabel
+
 # End of Original Player.gd variables
 
 # Node to mount an instanced ship scene
@@ -90,6 +96,9 @@ func move_state(delta):
 	thrust_vector.x = Input.get_action_strength("ui_up") 
 	strafe_vector.x = -Input.get_action_strength("ui_down")
 	strafe_vector.y = Input.get_action_strength("ui_right") - Input.get_action_strength("ui_left")	
+	
+	vec_indicator.rect_position.x = (strafe_vector.y * 50) + 50
+	vec_indicator.rect_position.y = (strafe_vector.x * 50) + 50
 	thrust_vector = thrust_vector.rotated(global_rotation)
 	thrust_vector = thrust_vector.normalized()
 	
@@ -100,17 +109,37 @@ func move_state(delta):
 		velocity = velocity.move_toward(thrust_vector * MAX_SPEED, ACCELERATION * delta)
 	else:
 		velocity = velocity.move_toward(Vector2.ZERO, FRICTION * delta)	
+		#strafe_vector.x = -velocity.normalized().x
 		pass
 		
+#	if strafe_vector == Vector2.ZERO:
+#		strafe_vector = -velocity.normalized()
+	
+
 	if strafe_vector != Vector2.ZERO:		
 		strafe_velocity = strafe_velocity.move_toward(strafe_vector * MAX_SPEED/3, ACCELERATION/1.5 * delta)
 	else:
-		strafe_velocity = strafe_velocity.move_toward(Vector2.ZERO, FRICTION * delta)	
+		strafe_velocity = strafe_velocity.move_toward(Vector2.ZERO, FRICTION * delta)		
 		pass
-	
+	#velocity += strafe_velocity
 	piloted_ship.animate_thrusters(thrust_vector)
 	move()
 	strafe()
+	
+	var scaled_velo = Vector2.ZERO
+	var scaled_strafe = Vector2.ZERO
+	scaled_velo.x = stepify(velocity.x/MAX_SPEED,0.01)
+	scaled_velo.y = stepify(velocity.y/MAX_SPEED,0.01)
+	scaled_strafe.x = stepify(strafe_velocity.x/MAX_SPEED,0.01)
+	scaled_strafe.y = stepify(strafe_velocity.y/MAX_SPEED,0.01)
+	vel_label.text = str("Vel: (",stepify(velocity.x,0.01),",",stepify(velocity.y,0.01),")"," Scaled: (",scaled_velo.x,",",scaled_velo.y,")")
+	scaled_velo = scaled_velo.rotated(-global_rotation)
+	scaled_strafe = scaled_strafe.rotated(-global_rotation)
+	velo_indicator.rect_position.x = (scaled_velo.y * 50) + 50
+	velo_indicator.rect_position.y = (-scaled_velo.x * 50) + 50
+	strafe_indicator.rect_position.x = (scaled_strafe.y * 50) + 50
+	strafe_indicator.rect_position.y = (-scaled_strafe.x * 50) + 50
+	
 	
 	if Input.is_action_pressed("attack"):
 		if !Global.hold_fire:

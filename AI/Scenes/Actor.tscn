@@ -44,6 +44,8 @@ shape = SubResource( 2 )
 
 [node name="Steering" type="Node2D" parent="AI"]
 script = ExtResource( 6 )
+steer_force = 0.5
+num_rays = 64
 
 [connection signal="body_entered" from="AI/TargetDetect" to="AI" method="_on_TargetDetect_body_entered"]
 [connection signal="body_exited" from="AI/TargetLeash" to="AI" method="_on_TargetLeash_body_exited"]
