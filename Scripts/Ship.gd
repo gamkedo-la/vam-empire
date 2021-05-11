@@ -24,6 +24,7 @@ onready var hardpoints = $Hardpoints
 onready var thrusters = $Thrusters
 
 var weapons = []
+var thrust_length = 0.0
 
 func _ready():
 	for HPoint in hardpoints.get_children():
@@ -69,7 +70,17 @@ func animate_thrusters(t_vec):
 		var thruster_effect = T.get_node_or_null("ThrusterEffect")		
 		thrust_light.set_energy(t_vec.length()* 10)
 		thrust_exhaust.initial_velocity = t_vec.length()*100
-		thruster_effect.scale.x = t_vec.length()*1
+		print(t_vec.length())
+		if t_vec.length() > 0:
+			thrust_length += 0.02
+			if thrust_length > 1:
+				thrust_length = 1
+		else:
+			thrust_length -= 0.0185
+			if thrust_length < 0:
+				thrust_length = 0
+			
+		thruster_effect.scale.x = thrust_length
 	
 	pass
 
