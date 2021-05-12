@@ -93,6 +93,10 @@ func move_state(delta):
 	var thrust_vector = Vector2.ZERO
 	var strafe_vector = Vector2.ZERO
 	var retro_vector = Vector2.ZERO
+	var fa_hold_on: bool = false
+	if Input.is_action_pressed("fa_hold"):
+		fa_hold_on = true
+		
 	thrust_vector.x = Input.get_action_strength("ui_up") 
 	strafe_vector.x = -Input.get_action_strength("ui_down")
 	strafe_vector.y = Input.get_action_strength("ui_right") - Input.get_action_strength("ui_left")	
@@ -124,15 +128,17 @@ func move_state(delta):
 		velocity = velocity.move_toward(thrust_vector * MAX_SPEED, ACCELERATION * delta)
 	# Ship is facing with primary thruster 'retro', so we get the full force of braking power
 	elif retro_heading.x/MAX_SPEED > 0:
-		#velocity = velocity.move_toward(Vector2.ZERO, FRICTION * delta)			
-		fa_brake.y *= .3
-		velocity = velocity.move_toward(fa_brake * MAX_SPEED, ACCELERATION * delta)
-		#strafe_vector.x = -velocity.normalized().x
+		if !fa_hold_on:
+			#velocity = velocity.move_toward(Vector2.ZERO, FRICTION * delta)			
+			fa_brake.y *= .3
+			velocity = velocity.move_toward(fa_brake * MAX_SPEED, ACCELERATION * delta)
+			#strafe_vector.x = -velocity.normalized().x
 	# Use RCS Thrusters to slow down ship
 	else:
-		fa_brake *= .3
-		velocity = velocity.move_toward(fa_brake * MAX_SPEED/3, ACCELERATION/3 * delta)
-		
+		if !fa_hold_on:
+			fa_brake *= .3
+			velocity = velocity.move_toward(fa_brake * MAX_SPEED/3, ACCELERATION/3 * delta)
+			
 		
 #	if strafe_vector == Vector2.ZERO:
 #		strafe_vector = -velocity.normalized()
@@ -145,9 +151,10 @@ func move_state(delta):
 #		pass
 	#velocity += strafe_velocity
 	piloted_ship.animate_thrusters(thrust_vector)
-	if retro_heading.x/MAX_SPEED > 0.1:
-		#print_debug("retro_heading:", retro_heading)
-		piloted_ship.animate_thrusters(retro_heading.normalized())
+	if !fa_hold_on:
+		if retro_heading.x/MAX_SPEED > 0.1:
+			#print_debug("retro_heading:", retro_heading)
+			piloted_ship.animate_thrusters(retro_heading.normalized())
 	
 	move()
 #	strafe()
