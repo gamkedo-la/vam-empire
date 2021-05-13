@@ -45,21 +45,21 @@ __meta__ = {
 
 [node name="Top" type="HBoxContainer" parent="Background/FrameVBox"]
 margin_right = 872.0
-margin_bottom = 26.0
+margin_bottom = 22.0
 size_flags_horizontal = 3
 alignment = 1
 
 [node name="Label" type="Label" parent="Background/FrameVBox/Top"]
-margin_right = 840.0
-margin_bottom = 26.0
+margin_right = 838.0
+margin_bottom = 22.0
 size_flags_horizontal = 3
 text = "Inventory"
 align = 1
 
 [node name="ExitInventory" type="Button" parent="Background/FrameVBox/Top"]
-margin_left = 846.0
+margin_left = 844.0
 margin_right = 872.0
-margin_bottom = 26.0
+margin_bottom = 22.0
 focus_mode = 0
 size_flags_horizontal = 0
 enabled_focus_mode = 0
@@ -71,9 +71,9 @@ __meta__ = {
 }
 
 [node name="Ship" type="HBoxContainer" parent="Background/FrameVBox"]
-margin_top = 32.0
+margin_top = 28.0
 margin_right = 872.0
-margin_bottom = 196.0
+margin_bottom = 192.0
 
 [node name="CategorySelect" type="VBoxContainer" parent="Background/FrameVBox/Ship"]
 margin_right = 224.0
@@ -82,56 +82,76 @@ rect_min_size = Vector2( 224, 164 )
 
 [node name="HardpointsHB" type="HBoxContainer" parent="Background/FrameVBox/Ship/CategorySelect"]
 margin_right = 224.0
-margin_bottom = 26.0
+margin_bottom = 22.0
 size_flags_horizontal = 3
 
 [node name="hardpoints_tab" type="Button" parent="Background/FrameVBox/Ship/CategorySelect/HardpointsHB"]
 margin_right = 224.0
-margin_bottom = 26.0
+margin_bottom = 22.0
 size_flags_horizontal = 3
 size_flags_vertical = 0
 text = "Hardpoints"
 
 [node name="SystemsHB" type="HBoxContainer" parent="Background/FrameVBox/Ship/CategorySelect"]
-margin_top = 32.0
+margin_top = 28.0
 margin_right = 224.0
-margin_bottom = 58.0
+margin_bottom = 50.0
 size_flags_horizontal = 3
 
 [node name="systems_tab" type="Button" parent="Background/FrameVBox/Ship/CategorySelect/SystemsHB"]
 margin_right = 224.0
-margin_bottom = 26.0
+margin_bottom = 22.0
 size_flags_horizontal = 3
 size_flags_vertical = 0
 text = "Systems"
 
-[node name="InventorySlots" type="VBoxContainer" parent="Background/FrameVBox/Ship"]
+[node name="ShipHB" type="HBoxContainer" parent="Background/FrameVBox/Ship"]
 margin_left = 230.0
-margin_right = 741.0
+margin_right = 330.0
+margin_bottom = 164.0
+rect_min_size = Vector2( 100, 100 )
+alignment = 1
+
+[node name="ShipVB" type="VBoxContainer" parent="Background/FrameVBox/Ship/ShipHB"]
+margin_left = 50.0
+margin_right = 50.0
+margin_bottom = 164.0
+alignment = 1
+
+[node name="ShipMount" type="Control" parent="Background/FrameVBox/Ship/ShipHB/ShipVB"]
+margin_top = 82.0
+margin_bottom = 82.0
+
+[node name="InventorySlots" type="VBoxContainer" parent="Background/FrameVBox/Ship"]
+margin_left = 336.0
+margin_right = 698.0
 margin_bottom = 164.0
 size_flags_horizontal = 3
 
+[node name="HardPoints" type="GridContainer" parent="Background/FrameVBox/Ship/InventorySlots"]
+margin_right = 362.0
+
 [node name="DebugButtons" type="VBoxContainer" parent="Background/FrameVBox/Ship"]
-margin_left = 747.0
+margin_left = 704.0
 margin_right = 872.0
 margin_bottom = 164.0
 rect_min_size = Vector2( 64, 0 )
 
 [node name="TestAdd" type="Button" parent="Background/FrameVBox/Ship/DebugButtons"]
-margin_right = 125.0
-margin_bottom = 26.0
+margin_right = 168.0
+margin_bottom = 22.0
 text = "[+] Random Item"
 
 [node name="TestClear" type="Button" parent="Background/FrameVBox/Ship/DebugButtons"]
-margin_top = 32.0
-margin_right = 125.0
-margin_bottom = 58.0
+margin_top = 28.0
+margin_right = 168.0
+margin_bottom = 50.0
 text = "Clear Inventory"
 
 [node name="MasterInv" type="HBoxContainer" parent="Background/FrameVBox"]
-margin_top = 202.0
+margin_top = 198.0
 margin_right = 872.0
-margin_bottom = 458.0
+margin_bottom = 454.0
 rect_min_size = Vector2( 864, 256 )
 
 [node name="GridContainer" type="GridContainer" parent="Background/FrameVBox/MasterInv"]

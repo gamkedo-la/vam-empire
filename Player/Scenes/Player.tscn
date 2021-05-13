@@ -97,6 +97,7 @@ visible = false
 visible = false
 
 [node name="VectorGrid" type="AspectRatioContainer" parent="PlayerUICanvas"]
+visible = false
 anchor_left = 0.5
 anchor_top = 0.957
 anchor_right = 0.5

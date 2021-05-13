@@ -79,8 +79,8 @@ func animate_thrusters(t_vec):
 			thrust_length -= 0.0185
 			if thrust_length < 0:
 				thrust_length = 0
-			
-		thruster_effect.scale.x = thrust_length
+		if thruster_effect:
+			thruster_effect.scale.x = thrust_length
 	
 	pass
 

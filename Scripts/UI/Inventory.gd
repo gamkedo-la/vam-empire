@@ -4,7 +4,8 @@ onready var cargo_slot = preload("res://UI/Menu/Inventory/Slot.tscn")
 onready var inv_item = preload("res://UI/Menu/Inventory/InventoryItem.tscn")
 
 onready var cargo_grid = $Background/FrameVBox/MasterInv/GridContainer
-
+onready var ship_mount: Control = $Background/FrameVBox/Ship/ShipHB/ShipVB/ShipMount
+var ship_copy: Ship = null
 export (int, 0, 161) var cargo_slots = 32
 
 var master_slots = []
@@ -93,6 +94,13 @@ func _toggle_inventory():
 	else:
 		self.visible = true
 		Global.pause_game(true)
+		if ship_mount.get_child_count() > 0:
+			for child in ship_mount.get_children():
+				ship_mount.remove_child(child)
+		if PlayerVars.player_node.piloted_ship != null:
+			ship_copy = PlayerVars.player_node.piloted_ship.duplicate()
+			ship_mount.add_child(ship_copy)
+			
 
 
 func _on_TestAdd_pressed():
