@@ -2236,6 +2236,7 @@ anims/Hide = SubResource( 297 )
 anims/Show = SubResource( 298 )
 
 [node name="NewPlayerPop" type="WindowDialog" parent="MenuCanvas/Viz"]
+visible = true
 anchor_left = 0.5
 anchor_top = 0.5
 anchor_right = 0.5
@@ -2271,13 +2272,13 @@ margin_right = 158.0
 margin_bottom = 22.0
 text = "Player Name"
 
-[node name="PlayerNameEdit" type="TextEdit" parent="MenuCanvas/Viz/NewPlayerPop/NewPlayerVB/EntryHB"]
+[node name="PlayerNameEdit" type="LineEdit" parent="MenuCanvas/Viz/NewPlayerPop/NewPlayerVB/EntryHB"]
 margin_left = 164.0
 margin_right = 444.0
 margin_bottom = 22.0
 rect_min_size = Vector2( 280, 20 )
-text = "John Cry'ton"
-highlight_current_line = true
+clear_button_enabled = true
+placeholder_text = "John Cry'ton"
 
 [node name="StartHB" type="HBoxContainer" parent="MenuCanvas/Viz/NewPlayerPop/NewPlayerVB"]
 margin_top = 63.0
@@ -2350,6 +2351,7 @@ anims/Empire_Loop = SubResource( 304 )
 [connection signal="about_to_show" from="MenuCanvas/Viz/NewPlayerPop" to="." method="_on_NewPlayerPop_about_to_show"]
 [connection signal="popup_hide" from="MenuCanvas/Viz/NewPlayerPop" to="." method="_on_NewPlayerPop_popup_hide"]
 [connection signal="text_changed" from="MenuCanvas/Viz/NewPlayerPop/NewPlayerVB/EntryHB/PlayerNameEdit" to="." method="_on_TextEdit_text_changed"]
+[connection signal="text_entered" from="MenuCanvas/Viz/NewPlayerPop/NewPlayerVB/EntryHB/PlayerNameEdit" to="." method="_on_PlayerNameEdit_text_entered"]
 [connection signal="pressed" from="MenuCanvas/Viz/NewPlayerPop/NewPlayerVB/StartHB/PNameStartButton" to="." method="_on_PNameStartButton_pressed"]
 [connection signal="about_to_show" from="MenuCanvas/Viz/LoadAcceptDialog" to="." method="_on_LoadAcceptDialog_about_to_show"]
 [connection signal="confirmed" from="MenuCanvas/Viz/LoadAcceptDialog" to="." method="_on_LoadAcceptDialog_confirmed"]

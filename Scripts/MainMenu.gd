@@ -377,4 +377,9 @@ func _on_DelSlot3_pressed():
 
 func _on_ContextSteeringToggle_toggled(button_pressed):
 	UserSettings.current.system.show_context_steering = button_pressed
-	
+
+func _on_PlayerNameEdit_text_entered(new_text):
+	PlayerVars.new(name_entry.text)
+	Global.pause_game(false)
+	#load_into_homebase()
+	transition.transition_out()
