@@ -2350,7 +2350,7 @@ anims/Empire_Loop = SubResource( 304 )
 [connection signal="pressed" from="MenuCanvas/Viz/OptionsContainer/VBoxContainer/HBoxContainer/ReturnFromOptions" to="." method="_on_ReturnFromOptions_pressed"]
 [connection signal="about_to_show" from="MenuCanvas/Viz/NewPlayerPop" to="." method="_on_NewPlayerPop_about_to_show"]
 [connection signal="popup_hide" from="MenuCanvas/Viz/NewPlayerPop" to="." method="_on_NewPlayerPop_popup_hide"]
-[connection signal="text_changed" from="MenuCanvas/Viz/NewPlayerPop/NewPlayerVB/EntryHB/PlayerNameEdit" to="." method="_on_TextEdit_text_changed"]
+[connection signal="text_changed" from="MenuCanvas/Viz/NewPlayerPop/NewPlayerVB/EntryHB/PlayerNameEdit" to="." method="_on_PlayerNameEdit_text_changed"]
 [connection signal="text_entered" from="MenuCanvas/Viz/NewPlayerPop/NewPlayerVB/EntryHB/PlayerNameEdit" to="." method="_on_PlayerNameEdit_text_entered"]
 [connection signal="pressed" from="MenuCanvas/Viz/NewPlayerPop/NewPlayerVB/StartHB/PNameStartButton" to="." method="_on_PNameStartButton_pressed"]
 [connection signal="about_to_show" from="MenuCanvas/Viz/LoadAcceptDialog" to="." method="_on_LoadAcceptDialog_about_to_show"]

@@ -236,10 +236,6 @@ func _on_DayToggle_toggled(button_pressed):
 	else:
 		Global.day = false
 
-func _on_TextEdit_text_changed():
-	name_start_button.disabled = false
-
-
 func _on_PNameStartButton_pressed():
 	PlayerVars.new(name_entry.text)
 	Global.pause_game(false)
@@ -379,7 +375,15 @@ func _on_ContextSteeringToggle_toggled(button_pressed):
 	UserSettings.current.system.show_context_steering = button_pressed
 
 func _on_PlayerNameEdit_text_entered(new_text):
-	PlayerVars.new(name_entry.text)
-	Global.pause_game(false)
-	#load_into_homebase()
-	transition.transition_out()
+	if new_text != "":
+		PlayerVars.new(name_entry.text)
+		Global.pause_game(false)
+		#load_into_homebase()
+		transition.transition_out()
+
+
+func _on_PlayerNameEdit_text_changed(new_text):
+	if new_text == "":
+		name_start_button.disabled = true
+	else:
+		name_start_button.disabled = false
