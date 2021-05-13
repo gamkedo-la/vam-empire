@@ -211,23 +211,24 @@ func _on_Options_pressed():
 
 
 func _on_mast_volume_slider_value_changed(value):
-	print("Master Volume: ", value)
+	#print("Master Volume: ", value)
 	UserSettings.current.sound.master_volume = value
 	update_volume()
 
 func _on_music_volume_slider_value_changed(value):
-	print("Music Volume: ", value)
+	#print("Music Volume: ", value)
 	UserSettings.current.sound.music_volume = value
 	update_volume()	
 
 
 func _on_sound_effect_volume_slider_value_changed(value):
-	print("Sound Effect Volume:", value)
+	#print("Sound Effect Volume:", value)
 	UserSettings.current.sound.effects_volume = value
 	update_volume()
 
 func _on_ambience_slider_value_changed(value):
-	print("Ambience Volume", value)
+	#print("Ambience Volume", value)
+	pass
 
 
 func _on_DayToggle_toggled(button_pressed):

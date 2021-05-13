@@ -50,7 +50,7 @@ func _deferred_goto_scene(path):
 	
 	current_scene.free()
 	
-	print("Loading level...", path)
+	#print("Loading level...", path)
 	var s = load(path)
 	
 	current_scene = s.instance()

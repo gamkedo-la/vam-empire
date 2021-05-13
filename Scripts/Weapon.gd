@@ -132,7 +132,7 @@ func fire_mining_laser():
 		mining_beam.global_rotation = barrel_tip.global_rotation + PI/2	
 	
 func release_mining_laser():
-	print("Releasing mining laser")
+	#print("Releasing mining laser")
 	if mining_beam:
 		mining_beam.free_laser_beam()
 	

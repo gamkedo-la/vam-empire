@@ -134,7 +134,7 @@ func _on_TargetDetect_body_entered(body: Node) -> void:
 	if body.is_in_group(actor_team):
 		return
 		
-	print_debug("Target detected by: ", self, "in group", actor_team, " target: ", body)
+	#print_debug("Target detected by: ", self, "in group", actor_team, " target: ", body)
 	set_state(State.ENGAGE)
 	target = body
 	journey_distance = actor.global_position.distance_to(target.global_position)

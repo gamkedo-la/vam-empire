@@ -291,7 +291,7 @@ func pilot_ship(ship):
 	piloted_ship = ship_load.instance()
 	ship_node.add_child(piloted_ship)
 	var test = piloted_ship.get_node_or_null("HullCollision")
-	print_debug("TEST: ", test)
+	#print_debug("TEST: ", test)
 	Global.reparent(piloted_ship.get_node_or_null("HullCollision"), self)
 	instantiate_ship_variables()
 
@@ -305,7 +305,7 @@ func release_mining_lasers():
 	piloted_ship.release_mining_lasers()
 
 func _target_change(val):
-	print("_target_change: ", val)
+	#print("_target_change: ", val)
 	if val:
 		player_target = val
 	else:

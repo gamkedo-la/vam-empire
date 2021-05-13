@@ -48,7 +48,7 @@ func _process(_delta):
 	if Input.is_action_pressed("minimap_zoom_out"):		
 		self.zoom += 0.1
 		
-		print_debug("zoom", zoom)
+		#print_debug("zoom", zoom)
 	if !_initialized && PlayerVars.player_node:
 		_initialize()
 	if !PlayerVars.player_node:

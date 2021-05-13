@@ -39,11 +39,11 @@ func _ready():
 	
 
 func equip_weapon(ordnance: Weapon, mount: Position2D):
-	print(ordnance.name)
+	#print_debug(ordnance.name)
 	#var newWeapon = ordnance.instance()
 	#Global.reparent(ordnance, mount)	
 	mount.add_child(ordnance)
-	print("Mount children count: ", mount.get_child_count())
+	#print_debug("Mount children count: ", mount.get_child_count())
 	ordnance.global_position = mount.global_position
 	weapons.append(ordnance)
 	
@@ -70,7 +70,7 @@ func animate_thrusters(t_vec):
 		var thruster_effect = T.get_node_or_null("ThrusterEffect")		
 		thrust_light.set_energy(t_vec.length()* 10)
 		thrust_exhaust.initial_velocity = t_vec.length()*100
-		print(t_vec.length())
+		#print_debug(t_vec.length())
 		if t_vec.length() > 0:
 			thrust_length += 0.02
 			if thrust_length > 1:

@@ -58,7 +58,7 @@ func _on_ReturnTimer_timeout():
 
 func _on_ReturnHomeBeacon_area_entered(area):
 	var ar_parent = area.get_parent()
-	print_debug(ar_parent)
+	#print_debug(ar_parent)
 	begin_return_countdown()
 
 func _on_ReturnHomeBeacon_area_exited(_area):

@@ -34,7 +34,7 @@ func _ready():
 		new_roid.global_position = new_postarg.global_position
 		new_roid.global_rotation = new_postarg.global_rotation
 		asteroid_agents.append(new_followagent)
-	print(asteroid_agents.size())
+	#print(asteroid_agents.size())
 #
 #func _process(delta):
 #	for roid in asteroid_agents:
