@@ -26,8 +26,21 @@ margin_top = -60.0
 margin_right = 240.0
 margin_bottom = 60.0
 
+[node name="EntryHB" parent="MainMenu/MenuCanvas/Viz/NewPlayerPop/NewPlayerVB" index="0"]
+margin_top = 28.0
+margin_bottom = 64.0
+
+[node name="PlayerNameLbl" parent="MainMenu/MenuCanvas/Viz/NewPlayerPop/NewPlayerVB/EntryHB" index="0"]
+margin_top = 7.0
+margin_bottom = 29.0
+
 [node name="PlayerNameEdit" parent="MainMenu/MenuCanvas/Viz/NewPlayerPop/NewPlayerVB/EntryHB" index="1"]
+margin_bottom = 36.0
 text = "Johny Cry'ton"
+
+[node name="StartHB" parent="MainMenu/MenuCanvas/Viz/NewPlayerPop/NewPlayerVB" index="1"]
+margin_top = 70.0
+margin_bottom = 92.0
 
 [node name="LoadAcceptDialog" parent="MainMenu/MenuCanvas/Viz" index="4"]
 margin_left = -147.0
