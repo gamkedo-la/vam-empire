@@ -101,8 +101,9 @@ func move_state(delta):
 	strafe_vector.x = -Input.get_action_strength("ui_down")
 	strafe_vector.y = Input.get_action_strength("ui_right") - Input.get_action_strength("ui_left")	
 	
-	vec_indicator.rect_position.x = (strafe_vector.y * 50) + 50
-	vec_indicator.rect_position.y = (strafe_vector.x * 50) + 50
+	#FM:TODO: Determine if these are still required
+#	vec_indicator.rect_position.x = (strafe_vector.y * 50) + 50
+#	vec_indicator.rect_position.y = (strafe_vector.x * 50) + 50
 	thrust_vector = thrust_vector.rotated(global_rotation)
 	thrust_vector = thrust_vector.normalized()
 	
@@ -164,13 +165,15 @@ func move_state(delta):
 	scaled_velo.y = stepify(velocity.y/MAX_SPEED,0.01)
 #	retro_vector.x = stepify(-velocity.x/MAX_SPEED,0.01)
 #	retro_vector.y = stepify(-velocity.y/MAX_SPEED,0.01)
-	vel_label.text = str("Vel: (",stepify(velocity.x,0.01),",",stepify(velocity.y,0.01),")"," Scaled: (",scaled_velo.x,",",scaled_velo.y,")")
+#   vel_label.text = str("Vel: (",stepify(velocity.x,0.01),",",stepify(velocity.y,0.01),")"," Scaled: (",scaled_velo.x,",",scaled_velo.y,")")
 	scaled_velo = scaled_velo.rotated(-global_rotation)
 	retro_vector = retro_vector.rotated(-global_rotation).normalized()
-	velo_indicator.rect_position.x = (scaled_velo.y * 50) + 50
-	velo_indicator.rect_position.y = (-scaled_velo.x * 50) + 50
-	retro_indicator.rect_position.x = (retro_vector.y * 50) + 50
-	retro_indicator.rect_position.y = (-retro_vector.x * 50) + 50
+	
+	#FM:TODO: Determine if these are still required
+#	velo_indicator.rect_position.x = (scaled_velo.y * 50) + 50
+#	velo_indicator.rect_position.y = (-scaled_velo.x * 50) + 50
+#	retro_indicator.rect_position.x = (retro_vector.y * 50) + 50
+#	retro_indicator.rect_position.y = (-retro_vector.x * 50) + 50
 	
 	
 	if Input.is_action_pressed("attack"):
