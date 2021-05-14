@@ -64,15 +64,36 @@ __meta__ = {
 "_edit_use_anchors_": false
 }
 
-[node name="Spacer" type="HBoxContainer" parent="CanvasLayer/BaseOverlay/VBoxContainer"]
+[node name="Spacer2" type="HBoxContainer" parent="CanvasLayer/BaseOverlay/VBoxContainer"]
 margin_right = 960.0
-margin_bottom = 60.0
-rect_min_size = Vector2( 0, 60 )
+margin_bottom = 30.0
+rect_min_size = Vector2( 0, 30 )
+alignment = 1
+
+[node name="Spacer" type="HBoxContainer" parent="CanvasLayer/BaseOverlay/VBoxContainer"]
+margin_top = 36.0
+margin_right = 960.0
+margin_bottom = 66.0
+rect_min_size = Vector2( 0, 30 )
+alignment = 1
+
+[node name="Trello" type="LinkButton" parent="CanvasLayer/BaseOverlay/VBoxContainer/Spacer"]
+margin_left = 417.0
+margin_right = 477.0
+margin_bottom = 30.0
+text = "Trello"
+
+[node name="README" type="LinkButton" parent="CanvasLayer/BaseOverlay/VBoxContainer/Spacer"]
+margin_left = 483.0
+margin_right = 543.0
+margin_bottom = 30.0
+focus_mode = 2
+text = "README"
 
 [node name="WelcomeSign" type="HBoxContainer" parent="CanvasLayer/BaseOverlay/VBoxContainer"]
-margin_top = 66.0
+margin_top = 72.0
 margin_right = 960.0
-margin_bottom = 386.0
+margin_bottom = 392.0
 rect_min_size = Vector2( 320, 0 )
 alignment = 1
 
@@ -86,9 +107,25 @@ scroll_horizontal_enabled = false
 
 [node name="Label" type="Label" parent="CanvasLayer/BaseOverlay/VBoxContainer/WelcomeSign/ScrollContainer"]
 margin_right = 475.0
-margin_bottom = 638.0
+margin_bottom = 1156.0
 rect_min_size = Vector2( 475, 0 )
-text = "[Home Base DevLog #001: 04-04-2021]
+text = "Supported Godot Version: [3.3]! Make sure your Godot Editor is up to date!
+
+[Home Base DevLog #002: 05-14-2021]
+So the Home Base Dev Log hasn't turned out to be where we've put our primary information, but that's ok as it was just an experiement! 
+
+That said, for the time being while we still find other bigger game-related purposes for the home base here (crafting, upgrades, quest givers, and anything else we dream up) it still may server as a nice place to drop a note or two. Most notably today, we've added the current supported release of Godot as we did find an issue where 3.2.3 was no longer fully compatible with the project. We're now committing to 3.3 for the remainder of the project to avoid additional upgrades causing hiccups.
+
+If you are a new member, the best sources for project specifc information can be found in the following places:
+
+On-going tasks: Trello https://trello.com/b/XcQmS3nu/vam-empire
+
+Project Doc/Overview/README: https://github.com/gamkedo-la/vam-empire#vam-empire-game-info
+
+... and lastly always make sure to drop in the project Discord #team-godot-vam-empire channel to check in and ask any questions!!
+
+
+[Home Base DevLog #001: 04-04-2021]
 
 Hi! Welcome to the HTGD Lighthouse project \"V.A.M. Empire\"!
 
@@ -104,9 +141,9 @@ Thanks again for being here, and drop a message in the Discord channel if you ha
 autowrap = true
 
 [node name="HB_GoMiningEasy" type="HBoxContainer" parent="CanvasLayer/BaseOverlay/VBoxContainer"]
-margin_top = 392.0
+margin_top = 398.0
 margin_right = 960.0
-margin_bottom = 436.0
+margin_bottom = 442.0
 alignment = 1
 
 [node name="GoMiningEasy" type="Button" parent="CanvasLayer/BaseOverlay/VBoxContainer/HB_GoMiningEasy"]
@@ -355,6 +392,8 @@ occluder = SubResource( 3 )
 [node name="Tween" type="Tween" parent="."]
 
 [connection signal="can_exit" from="Transition" to="." method="_on_Transition_can_exit"]
+[connection signal="pressed" from="CanvasLayer/BaseOverlay/VBoxContainer/Spacer/Trello" to="." method="_on_Trello_pressed"]
+[connection signal="pressed" from="CanvasLayer/BaseOverlay/VBoxContainer/Spacer/README" to="." method="_on_README_pressed"]
 [connection signal="pressed" from="CanvasLayer/BaseOverlay/VBoxContainer/HB_GoMiningEasy/GoMiningEasy" to="." method="_on_GoMiningEasy_pressed"]
 [connection signal="pressed" from="CanvasLayer/BaseOverlay/VBoxContainer/HB_GoMiningEasy/GoMiningMed" to="." method="_on_GoMiningMed_pressed"]
 [connection signal="pressed" from="CanvasLayer/BaseOverlay/VBoxContainer/HB_GoMiningEasy/GoWorldProto" to="." method="_on_GoWorldProto_pressed"]

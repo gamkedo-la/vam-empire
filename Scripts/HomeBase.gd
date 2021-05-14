@@ -80,3 +80,9 @@ func _on_LightingTween_tween_completed(object, key):
 func _on_Transition_can_exit():
 	if leaving_to:
 		Global.goto_scene(leaving_to)
+
+func _on_Trello_pressed():
+	OS.shell_open("https://trello.com/b/XcQmS3nu/vam-empire")
+
+func _on_README_pressed():
+	OS.shell_open("https://github.com/gamkedo-la/vam-empire#vam-empire-game-info")
