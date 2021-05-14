@@ -52,6 +52,9 @@ margin_bottom = 2.5
 rect_min_size = Vector2( 3, 3 )
 texture = ExtResource( 2 )
 stretch_mode = 4
+__meta__ = {
+"_edit_use_anchors_": false
+}
 
 [node name="VeloIndicator" type="TextureRect" parent="Grid"]
 anchor_left = 0.5

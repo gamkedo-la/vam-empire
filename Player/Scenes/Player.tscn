@@ -1,8 +1,7 @@
-[gd_scene load_steps=10 format=2]
+[gd_scene load_steps=9 format=2]
 
 [ext_resource path="res://UI/HUD/Scenes/CharacterSheet.tscn" type="PackedScene" id=1]
 [ext_resource path="res://UI/HUD/Scenes/PlayerDebugMenu.tscn" type="PackedScene" id=2]
-[ext_resource path="res://UI/HUD/Scenes/VectorGrid.tscn" type="PackedScene" id=3]
 [ext_resource path="res://Scripts/Player.gd" type="Script" id=4]
 [ext_resource path="res://Player/Scenes/HealingBot.tscn" type="PackedScene" id=6]
 [ext_resource path="res://UI/Menu/Inventory.tscn" type="PackedScene" id=7]
@@ -92,8 +91,6 @@ visible = false
 
 [node name="Inventory" parent="PlayerUICanvas" instance=ExtResource( 7 )]
 visible = false
-
-[node name="VectorGrid" parent="PlayerUICanvas" instance=ExtResource( 3 )]
 
 [connection signal="timeout" from="EnergyRecoveryDelayTimer" to="." method="_on_EnergyRecoveryDelayTimer_timeout"]
 [connection signal="mouse_entered" from="PlayerUICanvas/CharacterSheet/TopBar" to="PlayerUICanvas/CharacterSheet" method="_on_TopBar_mouse_entered"]
