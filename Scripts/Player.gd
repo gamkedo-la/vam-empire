@@ -102,8 +102,8 @@ func move_state(delta):
 	strafe_vector.y = Input.get_action_strength("ui_right") - Input.get_action_strength("ui_left")	
 	
 	#FM:TODO: Determine if these are still required
-#	vec_indicator.rect_position.x = (strafe_vector.y * 50) + 50
-#	vec_indicator.rect_position.y = (strafe_vector.x * 50) + 50
+	vec_indicator.rect_position.x = (strafe_vector.y * 50) + 50
+	vec_indicator.rect_position.y = (strafe_vector.x * 50) + 50
 	thrust_vector = thrust_vector.rotated(global_rotation)
 	thrust_vector = thrust_vector.normalized()
 	
@@ -111,13 +111,10 @@ func move_state(delta):
 	strafe_vector = strafe_vector.normalized() * .3
 	
 	thrust_vector += strafe_vector
-#	retro_vector.x = velocity.x/MAX_SPEED
-#	retro_vector.y = velocity.y/MAX_SPEED
-#	retro_vector = retro_vector.rotated(PI)
+
 	if velocity.length() > 1:
 		retro_vector = velocity.rotated(PI)
-	var retro_heading = retro_vector.rotated(-global_rotation)
-	
+	var retro_heading = retro_vector.rotated(-global_rotation)	
 	
 	retro_vector = retro_vector.normalized()
 
@@ -139,18 +136,7 @@ func move_state(delta):
 		if !fa_hold_on:
 			fa_brake *= .3
 			velocity = velocity.move_toward(fa_brake * MAX_SPEED/3, ACCELERATION/3 * delta)
-			
-		
-#	if strafe_vector == Vector2.ZERO:
-#		strafe_vector = -velocity.normalized()
-	
 
-#	if strafe_vector != Vector2.ZERO:		
-#		strafe_velocity = strafe_velocity.move_toward(strafe_vector * MAX_SPEED/3, ACCELERATION/1.5 * delta)
-#	else:
-#		strafe_velocity = strafe_velocity.move_toward(Vector2.ZERO, FRICTION * delta)		
-#		pass
-	#velocity += strafe_velocity
 	piloted_ship.animate_thrusters(thrust_vector)
 	if !fa_hold_on:
 		if retro_heading.x/MAX_SPEED > 0.1:
@@ -163,17 +149,16 @@ func move_state(delta):
 	var scaled_velo = Vector2.ZERO	
 	scaled_velo.x = stepify(velocity.x/MAX_SPEED,0.01)
 	scaled_velo.y = stepify(velocity.y/MAX_SPEED,0.01)
-#	retro_vector.x = stepify(-velocity.x/MAX_SPEED,0.01)
-#	retro_vector.y = stepify(-velocity.y/MAX_SPEED,0.01)
-#   vel_label.text = str("Vel: (",stepify(velocity.x,0.01),",",stepify(velocity.y,0.01),")"," Scaled: (",scaled_velo.x,",",scaled_velo.y,")")
+
+	vel_label.text = str("Vel: (",stepify(velocity.x,0.01),",",stepify(velocity.y,0.01),")"," Scaled: (",scaled_velo.x,",",scaled_velo.y,")")
 	scaled_velo = scaled_velo.rotated(-global_rotation)
 	retro_vector = retro_vector.rotated(-global_rotation).normalized()
 	
 	#FM:TODO: Determine if these are still required
-#	velo_indicator.rect_position.x = (scaled_velo.y * 50) + 50
-#	velo_indicator.rect_position.y = (-scaled_velo.x * 50) + 50
-#	retro_indicator.rect_position.x = (retro_vector.y * 50) + 50
-#	retro_indicator.rect_position.y = (-retro_vector.x * 50) + 50
+	velo_indicator.rect_position.x = (scaled_velo.y * 50) + 50
+	velo_indicator.rect_position.y = (-scaled_velo.x * 50) + 50
+	retro_indicator.rect_position.x = (retro_vector.y * 50) + 50
+	retro_indicator.rect_position.y = (-retro_vector.x * 50) + 50
 	
 	
 	if Input.is_action_pressed("attack"):

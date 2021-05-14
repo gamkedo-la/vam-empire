@@ -1,0 +1,94 @@
+[gd_scene load_steps=5 format=2]
+
+[ext_resource path="res://Player/Textures/Shmup_Player_Ship_001.png" type="Texture" id=1]
+[ext_resource path="res://UI/Textures/VecIndicator.png" type="Texture" id=2]
+[ext_resource path="res://UI/Textures/VeloIndicator.png" type="Texture" id=3]
+[ext_resource path="res://UI/Textures/VectorGrid.png" type="Texture" id=4]
+
+[node name="VectorGrid" type="AspectRatioContainer"]
+anchor_left = 0.5
+anchor_top = 0.957
+anchor_right = 0.5
+anchor_bottom = 0.957
+margin_left = -50.5
+margin_top = -101.0
+margin_right = 50.5
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Grid" type="TextureRect" parent="."]
+margin_right = 101.0
+margin_bottom = 101.0
+texture = ExtResource( 4 )
+
+[node name="TextureRect" type="TextureRect" parent="Grid"]
+self_modulate = Color( 1, 1, 1, 0.337255 )
+show_behind_parent = true
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+margin_left = -16.0
+margin_top = -16.0
+margin_right = 16.0
+margin_bottom = 16.0
+rect_rotation = -90.0
+rect_pivot_offset = Vector2( 16, 16 )
+texture = ExtResource( 1 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="VecIndicator" type="TextureRect" parent="Grid"]
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+margin_left = -0.5
+margin_top = -0.5
+margin_right = 2.5
+margin_bottom = 2.5
+rect_min_size = Vector2( 3, 3 )
+texture = ExtResource( 2 )
+stretch_mode = 4
+
+[node name="VeloIndicator" type="TextureRect" parent="Grid"]
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+margin_left = -0.5
+margin_top = -0.5
+rect_min_size = Vector2( 3, 3 )
+texture = ExtResource( 3 )
+stretch_mode = 3
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="RetroIndicator" type="TextureRect" parent="Grid"]
+self_modulate = Color( 0.933333, 1, 0, 1 )
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+margin_left = -0.5
+margin_top = -0.5
+rect_min_size = Vector2( 3, 3 )
+texture = ExtResource( 3 )
+stretch_mode = 3
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="VelLabel" type="Label" parent="Grid"]
+margin_left = 1.98206
+margin_top = 96.1276
+margin_right = 57.9821
+margin_bottom = 116.128
+rect_scale = Vector2( 0.5, 0.5 )
+text = "Vel: (0,0)"
+__meta__ = {
+"_edit_use_anchors_": false
+}

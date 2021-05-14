@@ -1,14 +1,11 @@
-[gd_scene load_steps=13 format=2]
+[gd_scene load_steps=10 format=2]
 
 [ext_resource path="res://UI/HUD/Scenes/CharacterSheet.tscn" type="PackedScene" id=1]
 [ext_resource path="res://UI/HUD/Scenes/PlayerDebugMenu.tscn" type="PackedScene" id=2]
-[ext_resource path="res://UI/Textures/VectorGrid.png" type="Texture" id=3]
+[ext_resource path="res://UI/HUD/Scenes/VectorGrid.tscn" type="PackedScene" id=3]
 [ext_resource path="res://Scripts/Player.gd" type="Script" id=4]
-[ext_resource path="res://Player/Textures/Shmup_Player_Ship_001.png" type="Texture" id=5]
 [ext_resource path="res://Player/Scenes/HealingBot.tscn" type="PackedScene" id=6]
 [ext_resource path="res://UI/Menu/Inventory.tscn" type="PackedScene" id=7]
-[ext_resource path="res://UI/Textures/VeloIndicator.png" type="Texture" id=8]
-[ext_resource path="res://UI/Textures/VecIndicator.png" type="Texture" id=9]
 
 [sub_resource type="CircleShape2D" id=1]
 radius = 16.5606
@@ -96,94 +93,7 @@ visible = false
 [node name="Inventory" parent="PlayerUICanvas" instance=ExtResource( 7 )]
 visible = false
 
-[node name="VectorGrid" type="AspectRatioContainer" parent="PlayerUICanvas"]
-visible = false
-anchor_left = 0.5
-anchor_top = 0.957
-anchor_right = 0.5
-anchor_bottom = 0.957
-margin_left = -50.5
-margin_top = -101.0
-margin_right = 50.5
-__meta__ = {
-"_edit_use_anchors_": false
-}
-
-[node name="Grid" type="TextureRect" parent="PlayerUICanvas/VectorGrid"]
-margin_right = 101.0
-margin_bottom = 101.0
-texture = ExtResource( 3 )
-
-[node name="TextureRect" type="TextureRect" parent="PlayerUICanvas/VectorGrid/Grid"]
-self_modulate = Color( 1, 1, 1, 0.337255 )
-show_behind_parent = true
-anchor_left = 0.5
-anchor_top = 0.5
-anchor_right = 0.5
-anchor_bottom = 0.5
-margin_left = -16.0
-margin_top = -16.0
-margin_right = 16.0
-margin_bottom = 16.0
-rect_rotation = -90.0
-rect_pivot_offset = Vector2( 16, 16 )
-texture = ExtResource( 5 )
-__meta__ = {
-"_edit_use_anchors_": false
-}
-
-[node name="VecIndicator" type="TextureRect" parent="PlayerUICanvas/VectorGrid/Grid"]
-anchor_left = 0.5
-anchor_top = 0.5
-anchor_right = 0.5
-anchor_bottom = 0.5
-margin_left = -0.5
-margin_top = -0.5
-margin_right = 2.5
-margin_bottom = 2.5
-rect_min_size = Vector2( 3, 3 )
-texture = ExtResource( 9 )
-stretch_mode = 4
-
-[node name="VeloIndicator" type="TextureRect" parent="PlayerUICanvas/VectorGrid/Grid"]
-anchor_left = 0.5
-anchor_top = 0.5
-anchor_right = 0.5
-anchor_bottom = 0.5
-margin_left = -0.5
-margin_top = -0.5
-rect_min_size = Vector2( 3, 3 )
-texture = ExtResource( 8 )
-stretch_mode = 3
-__meta__ = {
-"_edit_use_anchors_": false
-}
-
-[node name="RetroIndicator" type="TextureRect" parent="PlayerUICanvas/VectorGrid/Grid"]
-self_modulate = Color( 0.933333, 1, 0, 1 )
-anchor_left = 0.5
-anchor_top = 0.5
-anchor_right = 0.5
-anchor_bottom = 0.5
-margin_left = -0.5
-margin_top = -0.5
-rect_min_size = Vector2( 3, 3 )
-texture = ExtResource( 8 )
-stretch_mode = 3
-__meta__ = {
-"_edit_use_anchors_": false
-}
-
-[node name="VelLabel" type="Label" parent="PlayerUICanvas/VectorGrid/Grid"]
-margin_left = 1.98206
-margin_top = 96.1276
-margin_right = 57.9821
-margin_bottom = 116.128
-rect_scale = Vector2( 0.5, 0.5 )
-text = "Vel: (0,0)"
-__meta__ = {
-"_edit_use_anchors_": false
-}
+[node name="VectorGrid" parent="PlayerUICanvas" instance=ExtResource( 3 )]
 
 [connection signal="timeout" from="EnergyRecoveryDelayTimer" to="." method="_on_EnergyRecoveryDelayTimer_timeout"]
 [connection signal="mouse_entered" from="PlayerUICanvas/CharacterSheet/TopBar" to="PlayerUICanvas/CharacterSheet" method="_on_TopBar_mouse_entered"]
