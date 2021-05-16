@@ -18,14 +18,20 @@ onready var load_slot_1 = $MenuCanvas/Viz/MainMenuVBox/SaveSlots/Slot1/LoadSlot1
 onready var start_slot_1 = $MenuCanvas/Viz/MainMenuVBox/SaveSlots/Slot1/StartSlot1
 onready var slot_details_1 = $MenuCanvas/Viz/MainMenuVBox/SaveSlots/Slot1/SlotDetails1
 onready var del_slot_1 = $MenuCanvas/Viz/MainMenuVBox/SaveSlots/Slot1/DelSlot1
+onready var confirm_del_label_1 = $MenuCanvas/Viz/MainMenuVBox/SaveSlots/Slot1/ConfirmDelLabel1
+onready var confirm_del_slot_1 = $MenuCanvas/Viz/MainMenuVBox/SaveSlots/Slot1/ConfirmDelSlot1
 onready var load_slot_2 = $MenuCanvas/Viz/MainMenuVBox/SaveSlots/Slot2/LoadSlot2
 onready var start_slot_2 = $MenuCanvas/Viz/MainMenuVBox/SaveSlots/Slot2/StartSlot2
 onready var slot_details_2 = $MenuCanvas/Viz/MainMenuVBox/SaveSlots/Slot2/SlotDetails2
 onready var del_slot_2 = $MenuCanvas/Viz/MainMenuVBox/SaveSlots/Slot2/DelSlot2
+onready var confirm_del_label_2 = $MenuCanvas/Viz/MainMenuVBox/SaveSlots/Slot2/ConfirmDelLabel2
+onready var confirm_del_slot_2 = $MenuCanvas/Viz/MainMenuVBox/SaveSlots/Slot2/ConfirmDelSlot2
 onready var load_slot_3 = $MenuCanvas/Viz/MainMenuVBox/SaveSlots/Slot3/LoadSlot3	
 onready var start_slot_3 = $MenuCanvas/Viz/MainMenuVBox/SaveSlots/Slot3/StartSlot3
 onready var slot_details_3 = $MenuCanvas/Viz/MainMenuVBox/SaveSlots/Slot3/SlotDetails3
 onready var del_slot_3 = $MenuCanvas/Viz/MainMenuVBox/SaveSlots/Slot3/DelSlot3
+onready var confirm_del_label_3 = $MenuCanvas/Viz/MainMenuVBox/SaveSlots/Slot3/ConfirmDelLabel3
+onready var confirm_del_slot_3 = $MenuCanvas/Viz/MainMenuVBox/SaveSlots/Slot3/ConfirmDelSlot3
 
 # New Player Popup
 onready var name_popup = $MenuCanvas/Viz/NewPlayerPop
@@ -166,8 +172,18 @@ func _setup_slot_buttons():
 	load_slot_2.disabled = true
 	load_slot_3.disabled = true
 	del_slot_1.disabled = true
+	confirm_del_slot_1.disabled = true
+	confirm_del_label_1.visible = false
+	confirm_del_slot_1.visible = false
 	del_slot_2.disabled = true
+	del_slot_2.disabled = true
+	confirm_del_slot_2.disabled = true
+	confirm_del_label_2.visible = false
+	confirm_del_slot_2.visible = false
 	del_slot_3.disabled = true
+	confirm_del_slot_3.disabled = true
+	confirm_del_label_3.visible = false
+	confirm_del_slot_3.visible = false
 	
 	start_slot_1.disabled = false
 	slot_details_1.bbcode_text = ""
@@ -359,17 +375,61 @@ func _on_StartSlot3_pressed():
 	PlayerVars.set_save_slot(3)
 	_new_character()
 
-
 func _on_DelSlot1_pressed():
-	PlayerVars.delete_save(1)
-	_setup_slot_buttons()
+	load_slot_1.visible = false
+	start_slot_1.visible = false
+	slot_details_1.visible = false
+	del_slot_1.visible = false
+	confirm_del_label_1.visible = true
+	confirm_del_slot_1.visible = true
+	confirm_del_slot_1.disabled = false
 
 func _on_DelSlot2_pressed():
-	PlayerVars.delete_save(2)
-	_setup_slot_buttons()
+	load_slot_2.visible = false
+	start_slot_2.visible = false
+	slot_details_2.visible = false
+	del_slot_2.visible = false
+	confirm_del_label_2.visible = true
+	confirm_del_slot_2.visible = true
+	confirm_del_slot_2.disabled = false
 
 func _on_DelSlot3_pressed():
+	load_slot_3.visible = false
+	start_slot_3.visible = false
+	slot_details_3.visible = false
+	del_slot_3.visible = false
+	confirm_del_label_3.visible = true
+	confirm_del_slot_3.visible = true
+	confirm_del_slot_3.disabled = false
+	
+func _on_ConfirmDelSlot1_pressed():
+	PlayerVars.delete_save(1)
+	load_slot_1.visible = true
+	start_slot_1.visible = true
+	slot_details_1.visible = true
+	del_slot_1.visible = true
+	confirm_del_label_1.visible = false
+	confirm_del_slot_1.visible = false
+	_setup_slot_buttons()
+	
+func _on_ConfirmDelSlot2_pressed():
+	PlayerVars.delete_save(2)
+	load_slot_2.visible = true
+	start_slot_2.visible = true
+	slot_details_2.visible = true
+	del_slot_2.visible = true
+	confirm_del_label_2.visible = false
+	confirm_del_slot_2.visible = false
+	_setup_slot_buttons()
+
+func _on_ConfirmDelSlot3_pressed():
 	PlayerVars.delete_save(3)
+	load_slot_3.visible = true
+	start_slot_3.visible = true
+	slot_details_3.visible = true
+	del_slot_3.visible = true
+	confirm_del_label_3.visible = false
+	confirm_del_slot_3.visible = false
 	_setup_slot_buttons()
 
 func _on_ContextSteeringToggle_toggled(button_pressed):
@@ -381,7 +441,6 @@ func _on_PlayerNameEdit_text_entered(new_text):
 		Global.pause_game(false)
 		#load_into_homebase()
 		transition.transition_out()
-
 
 func _on_PlayerNameEdit_text_changed(new_text):
 	if new_text == "":
