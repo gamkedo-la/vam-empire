@@ -1,7 +1,8 @@
-[gd_scene load_steps=5 format=2]
+[gd_scene load_steps=6 format=2]
 
 [ext_resource path="res://UI/Theme/darkred_theme.tres" type="Theme" id=1]
 [ext_resource path="res://Scripts/UI/Inventory.gd" type="Script" id=2]
+[ext_resource path="res://UI/Menu/Inventory/BackDrop.tscn" type="PackedScene" id=3]
 
 [sub_resource type="InputEventAction" id=1]
 action = "ui_inventory"
@@ -113,14 +114,20 @@ rect_min_size = Vector2( 100, 100 )
 alignment = 1
 
 [node name="ShipVB" type="VBoxContainer" parent="Background/FrameVBox/Ship/ShipHB"]
-margin_left = 50.0
-margin_right = 50.0
+margin_right = 100.0
 margin_bottom = 164.0
-alignment = 1
+rect_min_size = Vector2( 100, 100 )
 
-[node name="ShipMount" type="Control" parent="Background/FrameVBox/Ship/ShipHB/ShipVB"]
-margin_top = 82.0
-margin_bottom = 82.0
+[node name="BackDrop" parent="Background/FrameVBox/Ship/ShipHB/ShipVB" instance=ExtResource( 3 )]
+margin_top = 0.0
+margin_right = 100.0
+margin_bottom = 100.0
+
+[node name="ShipMount" type="Control" parent="Background/FrameVBox/Ship/ShipHB/ShipVB/BackDrop"]
+margin_left = 50.0
+margin_top = 50.0
+margin_right = 150.0
+margin_bottom = 50.0
 
 [node name="InventorySlots" type="VBoxContainer" parent="Background/FrameVBox/Ship"]
 margin_left = 336.0

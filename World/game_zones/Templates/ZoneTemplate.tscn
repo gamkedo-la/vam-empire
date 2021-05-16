@@ -17,9 +17,6 @@
 [node name="MainMenu" parent="." instance=ExtResource( 8 )]
 visible = false
 
-[node name="EmpireLogo" parent="MainMenu/MenuCanvas/Viz/MainMenuVBox/LogoBox/VamLogo" index="0"]
-frame = 110
-
 [node name="CanvasLayer" type="CanvasLayer" parent="."]
 
 [node name="HUD" parent="CanvasLayer" instance=ExtResource( 7 )]
@@ -95,13 +92,10 @@ position = Vector2( 323.434, 297.635 )
 [node name="PointsOfInterest" type="Node2D" parent="Zone"]
 
 [editable path="MainMenu"]
-
 [editable path="CanvasLayer/HUD"]
-
 [editable path="TimeOfDay"]
-
 [editable path="ReturnHomeBeacon"]
-
 [editable path="Player"]
-
+[editable path="Player/PlayerUICanvas/CharacterSheet"]
+[editable path="Player/PlayerUICanvas/CharacterSheet/TopBar"]
 [editable path="ParallaxBackground2"]

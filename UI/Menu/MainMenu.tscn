@@ -1931,8 +1931,7 @@ margin_right = 506.0
 margin_bottom = 24.0
 rect_min_size = Vector2( 120, 0 )
 max_value = 1.0
-step = 0.05
-value = 0.05
+step = 0.005
 
 [node name="HBoxContainer2" type="HBoxContainer" parent="MenuCanvas/Viz/OptionsContainer/VBoxContainer/TabContainer/Audio/VBoxContainer"]
 margin_top = 30.0
@@ -1954,8 +1953,7 @@ margin_right = 506.0
 margin_bottom = 24.0
 rect_min_size = Vector2( 120, 0 )
 max_value = 1.0
-step = 0.05
-value = 0.05
+step = 0.005
 
 [node name="HBoxContainer3" type="HBoxContainer" parent="MenuCanvas/Viz/OptionsContainer/VBoxContainer/TabContainer/Audio/VBoxContainer"]
 margin_top = 60.0
@@ -1977,8 +1975,7 @@ margin_right = 506.0
 margin_bottom = 24.0
 rect_min_size = Vector2( 120, 0 )
 max_value = 1.0
-step = 0.05
-value = 0.05
+step = 0.005
 
 [node name="HBoxContainer4" type="HBoxContainer" parent="MenuCanvas/Viz/OptionsContainer/VBoxContainer/TabContainer/Audio/VBoxContainer"]
 margin_top = 90.0
@@ -1999,6 +1996,8 @@ margin_left = 386.0
 margin_right = 506.0
 margin_bottom = 24.0
 rect_min_size = Vector2( 120, 0 )
+max_value = 1.0
+step = 0.005
 
 [node name="HBoxContainer5" type="HBoxContainer" parent="MenuCanvas/Viz/OptionsContainer/VBoxContainer/TabContainer/Audio/VBoxContainer"]
 margin_top = 120.0
