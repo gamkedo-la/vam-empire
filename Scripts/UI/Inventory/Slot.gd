@@ -1,5 +1,14 @@
 extends TextureRect
 
+enum SlotType {
+	CARGO,
+	WEAPON,
+	SHIP,
+	THRUSTER
+}
+
+var slot_type: int = 0
+
 var current_item = null
 var current_item_uuid = null
 var current_item_count : int = 0 setget _set_item_count

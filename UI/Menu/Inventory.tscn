@@ -137,6 +137,11 @@ size_flags_horizontal = 3
 
 [node name="HardPoints" type="GridContainer" parent="Background/FrameVBox/Ship/InventorySlots"]
 margin_right = 362.0
+margin_bottom = 164.0
+rect_min_size = Vector2( 320, 96 )
+size_flags_horizontal = 3
+size_flags_vertical = 3
+columns = 10
 
 [node name="DebugButtons" type="VBoxContainer" parent="Background/FrameVBox/Ship"]
 margin_left = 704.0

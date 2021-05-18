@@ -16,10 +16,6 @@ script = ExtResource( 3 )
 [node name="Control" parent="MainMenu/MenuCanvas/Viz/MainMenuVBox/LogoBox/VamLogo" index="0"]
 show_behind_parent = true
 
-[node name="SaveSlots" parent="MainMenu/MenuCanvas/Viz/MainMenuVBox" index="2"]
-margin_top = 400.0
-margin_bottom = 710.0
-
 [node name="NewPlayerPop" parent="MainMenu/MenuCanvas/Viz" index="3"]
 margin_left = -240.0
 margin_top = -60.0
