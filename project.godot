@@ -24,6 +24,11 @@ _global_script_classes=[ {
 "language": "GDScript",
 "path": "res://Scripts/AI/Steering.gd"
 }, {
+"base": "Control",
+"class": "Inventory",
+"language": "GDScript",
+"path": "res://Scripts/UI/Inventory.gd"
+}, {
 "base": "TextureButton",
 "class": "InventoryItem",
 "language": "GDScript",
@@ -48,6 +53,7 @@ _global_script_class_icons={
 "AIController": "",
 "Actor": "",
 "ActorSteering": "",
+"Inventory": "",
 "InventoryItem": "",
 "Player": "",
 "Ship": "",

@@ -1,4 +1,5 @@
 extends Control
+class_name Inventory
 
 onready var cargo_slot = preload("res://UI/Menu/Inventory/Slot.tscn")
 onready var inv_item = preload("res://UI/Menu/Inventory/InventoryItem.tscn")
@@ -14,16 +15,25 @@ export (int, 0, 161) var cargo_slots = 32
 var master_slots = []
 var hardpoint_slots = []
 
+var inventory_open: bool = false
+var held_item = null
+
 func _ready():
 	initialize_slots()
 	if PlayerVars.ship_inventory:
 		_reload_inventory()
 	initialize_hardpoints()
-	
 
-func _process(_delta):
+func _process(_delta) -> void:
 	if Input.is_action_just_pressed("ui_inventory"):
-		_toggle_inventory()		
+		_toggle_inventory()
+
+func _input(event):
+	if inventory_open:
+		if event is InputEventMouseMotion:
+			if held_item != null && held_item.picked:
+				held_item.rect_global_position = Vector2(event.position.x, event.position.y)
+
 
 func insert_item(itemuuid):
 	var item_data = Database.itemByUuid[itemuuid]
@@ -46,6 +56,9 @@ func insert_item(itemuuid):
 		else:
 			pass			
 
+func pickup_item(item:InventoryItem) -> void:
+	item.picked = true
+	held_item = item
 
 func initialize_slots():
 	for child in cargo_grid.get_children():
@@ -81,12 +94,13 @@ func initialize_hardpoints() -> void:
 			newSlot.current_item = null
 			if hp_slot.get_child_count() > 0:
 				var mountedWeapon: Weapon = hp_slot.get_child(0)
-				var newWeapon:InventoryItem = inv_item.instance()
+				var newWeapon = inv_item.instance()
 				newWeapon.item_type = newWeapon.ItemType.WEAPON
 				newWeapon.texture_normal = mountedWeapon.weapon_sprite.texture
 				newWeapon.show_label = false
 				newWeapon.rect_min_size = Vector2(32,32)
 				newWeapon.expand = true
+				newWeapon.initialize_item(self, newSlot)
 				#newWeapon.hardpoint_slot = hp_slot????
 				newSlot.add_child(newWeapon)
 				
@@ -119,24 +133,32 @@ func _on_ExitInventory_pressed():
 
 
 func _toggle_inventory():
-	if self.visible:
+	if self.visible && inventory_open:
+		if held_item:
+			held_item.picked = false
+			held_item.parent_slot.add_child(held_item)
+			held_item.rect_global_position = Vector2.ZERO
+			held_item = null
 		self.visible = false
 		Global.pause_game(false)
+		inventory_open = false
 	else:
-		self.visible = true
-		Global.pause_game(true)
-		if ship_mount.get_child_count() > 0:
-			for child in ship_mount.get_children():
-				ship_mount.remove_child(child)
-		if PlayerVars.player_node:
-			if PlayerVars.player_node.piloted_ship != null:
-				ship_copy = PlayerVars.player_node.piloted_ship.duplicate()
+		if !inventory_open:
+			self.visible = true
+			inventory_open = true
+			Global.pause_game(true)
+			if ship_mount.get_child_count() > 0:
+				for child in ship_mount.get_children():
+					ship_mount.remove_child(child)
+			if PlayerVars.player_node:
+				if PlayerVars.player_node.piloted_ship != null:
+					ship_copy = PlayerVars.player_node.piloted_ship.duplicate()
+					ship_mount.add_child(ship_copy)
+					initialize_hardpoints()
+			else:
+				var new_ship = Global.ship_hangar[0][0].duplicate(true)
+				ship_copy = new_ship[0].duplicate()
 				ship_mount.add_child(ship_copy)
-				initialize_hardpoints()
-		else:
-			var new_ship = Global.ship_hangar[0][0].duplicate(true)
-			ship_copy = new_ship[0].duplicate()
-			ship_mount.add_child(ship_copy)
 			
 
 
