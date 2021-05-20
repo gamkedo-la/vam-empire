@@ -1,0 +1,30 @@
+Inventory Design
+
+Pieces of the inventory and their purpose
+
+- Inventory
+	- Visually Organize Slots and Buttons
+	- Display Ship Paperdoll
+	- Manage PlayerVars.* representation of inventory to be saved
+
+- Slots
+	- Occupied/Free
+		- If Occupied use InventoryItem to determine behavior (I.e. Can stack, swap held item with stored item etc..)
+	- Mouse Input on Slots (Get rid of input on items themselves... So Items can likely become simple TextureRects, make Slots Buttons)
+	
+- Items
+	- Item Type [ Cargo, Weapon, etc ]
+	- Item Uuid (Ties back into the Database as well as makes grouping for stacking easier)
+	- Item Count
+	- Stack Size
+	
+- Paperdoll
+	- Display Current ship with an animated background
+	- Equipped Weapons organized as "Items" in Slots
+	- Equipped Thrusters organized as "Items" in Slots
+	- Equipped Ship Modules organized as "Items" in Slots
+	- Ship "Items" can be rearranged or moved into Inventory
+	- Hovering over "Item" should highlight part on ship if it exists visually (Weapons, Thrusters)
+	
+
+
