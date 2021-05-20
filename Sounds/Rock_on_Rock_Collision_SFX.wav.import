@@ -1,0 +1,21 @@
+[remap]
+
+importer="wav"
+type="AudioStreamSample"
+path="res://.import/Rock_on_Rock_Collision_SFX.wav-1240646e5a3b8df57517bb550ee480d3.sample"
+
+[deps]
+
+source_file="res://Sounds/Rock_on_Rock_Collision_SFX.wav"
+dest_files=[ "res://.import/Rock_on_Rock_Collision_SFX.wav-1240646e5a3b8df57517bb550ee480d3.sample" ]
+
+[params]
+
+force/8_bit=false
+force/mono=false
+force/max_rate=false
+force/max_rate_hz=44100
+edit/trim=false
+edit/normalize=false
+edit/loop=false
+compress/mode=0
