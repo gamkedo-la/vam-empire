@@ -176,7 +176,7 @@ func load_save():
 
 func pickup_item(uuid):
 	var inventory = player_node.get_ship_inventory()
-	inventory.insert_item(uuid)
+	inventory.insert_item_by_uuid(uuid)
 
 func increment_ship_inventory(uuid, cnt:int):
 	if ship_inventory.has(uuid):

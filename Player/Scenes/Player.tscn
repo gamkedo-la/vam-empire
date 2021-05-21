@@ -94,6 +94,7 @@ visible = false
 visible = false
 
 [node name="VectorGrid" parent="PlayerUICanvas" instance=ExtResource( 3 )]
+visible = false
 
 [connection signal="timeout" from="EnergyRecoveryDelayTimer" to="." method="_on_EnergyRecoveryDelayTimer_timeout"]
 [connection signal="mouse_entered" from="PlayerUICanvas/CharacterSheet/TopBar" to="PlayerUICanvas/CharacterSheet" method="_on_TopBar_mouse_entered"]

@@ -29,10 +29,15 @@ _global_script_classes=[ {
 "language": "GDScript",
 "path": "res://Scripts/UI/Inventory.gd"
 }, {
-"base": "TextureButton",
+"base": "TextureRect",
 "class": "InventoryItem",
 "language": "GDScript",
 "path": "res://Scripts/UI/Inventory/InventoryItem.gd"
+}, {
+"base": "TextureButton",
+"class": "InventorySlot",
+"language": "GDScript",
+"path": "res://Scripts/UI/Inventory/Slot.gd"
 }, {
 "base": "KinematicBody2D",
 "class": "Player",
@@ -55,6 +60,7 @@ _global_script_class_icons={
 "ActorSteering": "",
 "Inventory": "",
 "InventoryItem": "",
+"InventorySlot": "",
 "Player": "",
 "Ship": "",
 "Weapon": ""
@@ -213,8 +219,8 @@ fa_hold={
 
 [rendering]
 
-quality/2d/use_pixel_snap=true
+2d/snapping/use_gpu_pixel_snap=true
 vram_compression/import_etc=true
 vram_compression/import_etc2=false
 environment/default_environment="res://default_env.tres"
-2d/snapping/use_gpu_pixel_snap=true
+quality/2d/use_pixel_snap=true

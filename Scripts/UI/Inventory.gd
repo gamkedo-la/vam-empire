@@ -17,6 +17,7 @@ var hardpoint_slots = []
 
 var inventory_open: bool = false
 var held_item = null
+var prev_slot = null
 
 func _ready():
 	initialize_slots()
@@ -30,25 +31,32 @@ func _process(_delta) -> void:
 
 func _input(event):
 	if inventory_open:
-		if event is InputEventMouseMotion:
+		if event is InputEventMouseMotion && held_item != null:
 			if held_item != null && held_item.picked:
 				held_item.rect_global_position = Vector2(event.position.x, event.position.y)
 
 
-func insert_item(itemuuid):
+func insert_item_by_uuid(itemuuid):
 	var item_data = Database.itemByUuid[itemuuid]
 	#print(item_data)
 	var newItem = inv_item.instance()
 	if !item_data.has("stackSize"):
-		item_data.stackSize = 1
-	newItem.texture_normal = load(item_data.itemIcon)
+		item_data.stackSize = 1	
+	for key in item_data.keys():
+		newItem.item_data[key] = item_data[key]
+	
+	print_debug(newItem.item_data)
+	newItem.texture = load(item_data.itemIcon)
 	#print("master_slots: ", master_slots)
+	
+	# NEED TO REWRITE THIS WHOLE THING... ITEMS CARRY ALL THE DATA, SLOTS NEED TO BE "DUMB"
 	for slot in master_slots.size():
 		#print("slot: ", slot)
 		# Does a slot with this item type already exist?
 		if master_slots[slot].current_item_uuid == item_data.itemUuid:			
 			if master_slots[slot].current_item_count < item_data.stackSize:
 				_increment_item(master_slots[slot])
+				newItem.queue_free()
 				return
 		elif master_slots[slot].current_item_count <= 0:
 			_add_to_slot(master_slots[slot], item_data, newItem)
@@ -56,28 +64,25 @@ func insert_item(itemuuid):
 		else:
 			pass			
 
-func pickup_item(item:InventoryItem) -> void:
-	item.picked = true
-	held_item = item
+func hold_item(_item:InventoryItem, _prev_slot) -> void:
+	_item.picked = true
+	held_item = _item
+	prev_slot = _prev_slot	
+	Global.reparent(held_item, self)
 
 func initialize_slots():
 	for child in cargo_grid.get_children():
 		cargo_grid.remove_child(child)
 	for slot in cargo_slots:
 		var newSlot = cargo_slot.instance()
+		newSlot.init_slot(self, 0)
 		cargo_grid.add_child(newSlot)
 		master_slots.append(newSlot)
-		newSlot.slot_type = newSlot.SlotType.CARGO
-		newSlot.current_item = null
-		newSlot.current_item_count = 0
-		newSlot.current_item_uuid = null
+
 
 func clear_inventory():
 	for slot in master_slots:
 		slot.remove_item()
-		slot.current_item = null
-		slot.current_item_uuid = null
-		slot.current_item_count = 0
 	PlayerVars.clear_ship_inventory()
 
 func initialize_hardpoints() -> void:
@@ -96,7 +101,7 @@ func initialize_hardpoints() -> void:
 				var mountedWeapon: Weapon = hp_slot.get_child(0)
 				var newWeapon = inv_item.instance()
 				newWeapon.item_type = newWeapon.ItemType.WEAPON
-				newWeapon.texture_normal = mountedWeapon.weapon_sprite.texture
+				newWeapon.texture = mountedWeapon.weapon_sprite.texture
 				newWeapon.show_label = false
 				newWeapon.rect_min_size = Vector2(32,32)
 				newWeapon.expand = true
@@ -121,7 +126,7 @@ func _reload_inventory():
 	# Reload it
 	for item in temp_inv:
 		for count in temp_inv[item]:
-			insert_item(item)
+			insert_item_by_uuid(item)
 
 
 func _increment_item(slot):
@@ -136,8 +141,8 @@ func _toggle_inventory():
 	if self.visible && inventory_open:
 		if held_item:
 			held_item.picked = false
-			held_item.parent_slot.add_child(held_item)
-			held_item.rect_global_position = Vector2.ZERO
+			#held_item.parent_slot.add_child(held_item)
+			prev_slot.insert_item(held_item)
 			held_item = null
 		self.visible = false
 		Global.pause_game(false)
