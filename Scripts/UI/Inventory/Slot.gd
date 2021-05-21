@@ -14,17 +14,13 @@ var slot_type: int = 0
 var inventory = null
 var occupied: bool = false
 var current_item = null
-var current_item_uuid = null
-var current_item_count : int = 0 setget _set_item_count
-var stack_size = 1
+
 
 
 func init_slot(_inv, _type: int) -> void:
 	inventory = _inv
 	slot_type = _type
 	current_item = null
-	current_item_uuid = null
-	current_item_count = 0
 	occupied = false
 	_init_connections()
 
@@ -48,18 +44,10 @@ func insert_item(_item: InventoryItem) -> bool:
 			_item.queue_free()
 			return true
 	return false		
-	
-
-
-
-
-func _set_item_count(val):
-	current_item_count = val
-	if current_item:
-		current_item.set_count(val)
 
 func _clear_slot() -> void:
 	occupied = false
+	current_item = null
 
 # Harsh Clear, Only to WIPE Inventory
 func remove_item():
@@ -67,7 +55,6 @@ func remove_item():
 		child.queue_free()
 	init_slot(inventory, slot_type)
 
-	
 func _init_connections() -> void:
 	if not self.is_connected("mouse_entered", self, "_on_mouse_entered"):
 		assert(self.connect("mouse_entered", self, "_on_mouse_entered") == OK)
@@ -85,10 +72,17 @@ func _on_mouse_exited() -> void:
 		current_item.unhighlight_item()
 
 func _on_slot_pressed() -> void:
-	if occupied:
-		inventory.hold_item(current_item, self)
-		_clear_slot()
-		
-	if inventory.held_item && !occupied:
-		insert_item(inventory.held_item)
+	if inventory.held_item == null:
+		if occupied:
+			inventory.hold_item(current_item, self)
+			occupied = false
+			current_item = null		
+		else:
+			insert_item(inventory.held_item)
+			inventory.held_item = null
+	else:
+		var inserted: bool = insert_item(inventory.held_item)
+		if inserted:
+			inventory.held_item.picked = false
+			inventory.held_item = null
 

@@ -32,7 +32,7 @@ func _process(_delta) -> void:
 
 func _input(event):
 	if inventory_open:
-		if event is InputEventMouseMotion && held_item != null:
+		if event is InputEventMouseMotion:
 			if held_item != null && held_item.picked:
 				held_item.rect_global_position = Vector2(event.position.x, event.position.y)
 

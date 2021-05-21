@@ -64,7 +64,7 @@ func enable_label():
 		count_label.visible = true
 
 func highlight_item() -> void:
-	self.material.set_shader_param("width", 0.2)
+	self.material.set_shader_param("width", 1.0)
 	pass
 	
 func unhighlight_item() -> void:
