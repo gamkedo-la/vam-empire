@@ -31,16 +31,19 @@ func insert_item(_item: InventoryItem) -> bool:
 		current_item.rect_position = Vector2.ZERO
 		current_item.initialize_item(inventory, self)
 		occupied = true
+		inventory.play_cargo_pickup()
 		return true
 	elif _item.item_data["itemUuid"] == current_item.item_data["itemUuid"]:
 		print_debug("Item Matched on slot: ", self)
 		var remainder = current_item.increment(_item.count)
 		if remainder > 0:
 			# Return item decremented by what ever fit into the stack
+			inventory.play_cargo_pickup(0.4)
 			_item.count = remainder
 			return false
 		else:
 			# No remainder, so can clear this item knowing we've added it's value to the 'stack'
+			inventory.play_cargo_pickup()
 			_item.queue_free()
 			return true
 	return false		
@@ -74,12 +77,14 @@ func _on_mouse_exited() -> void:
 func _on_slot_pressed() -> void:
 	if inventory.held_item == null:
 		if occupied:
+			# Play a soft 'pickup' sound
 			inventory.hold_item(current_item, self)
+			inventory.play_cargo_pickup()
 			occupied = false
 			current_item = null		
 		else:
-			insert_item(inventory.held_item)
-			inventory.held_item = null
+			# Play a simple/soft sound... like a soft bump against empty metal
+			pass
 	else:
 		var inserted: bool = insert_item(inventory.held_item)
 		if inserted:

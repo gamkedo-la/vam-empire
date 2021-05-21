@@ -10,6 +10,10 @@ onready var ship_mount: Control = $Background/FrameVBox/Ship/ShipHB/ShipVB/BackD
 
 onready var hardpoint_grid = $Background/FrameVBox/Ship/InventorySlots/HardPoints
 
+onready var inv_efx = $InventoryEfx
+var rocks_pickup: AudioStreamRandomPitch = null
+var pickup_rocks_sfx = "res://Sounds/Inventory/set_rocks_in_inv.wav"
+
 var ship_copy: Ship = null
 export (int, 0, 161) var cargo_slots = 32
 
@@ -25,6 +29,10 @@ func _ready():
 	if PlayerVars.ship_inventory:
 		_reload_inventory()
 	initialize_hardpoints()
+	rocks_pickup = AudioStreamRandomPitch.new()
+	rocks_pickup.audio_stream = load(pickup_rocks_sfx)
+	rocks_pickup.random_pitch = 1.3
+	inv_efx.stream = rocks_pickup
 
 func _process(_delta) -> void:
 	if Input.is_action_just_pressed("ui_inventory"):
@@ -74,6 +82,8 @@ func initialize_slots():
 		cargo_grid.add_child(newSlot)
 		master_slots.append(newSlot)
 
+func play_cargo_pickup(time = 0.0):
+	inv_efx.play()
 
 func clear_inventory():
 	for slot in master_slots:

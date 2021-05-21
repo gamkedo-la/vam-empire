@@ -33,7 +33,7 @@ func initialize_item(_inv, _slot) -> void:
 	picked = false
 	count_label = get_node_or_null("ItemCountLabel")
 	count_label.text = str(count)
-	print_debug("item data for item:", self, " ", item_data)
+	#print_debug("item data for item:", self, " ", item_data)
 	if item_data.has("stackSize"):
 		stack_size = item_data.stackSize
 	else:
