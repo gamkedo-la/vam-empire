@@ -1,5 +1,6 @@
-extends TextureRect
 class_name InventoryItem
+extends TextureRect
+
 
 enum ItemType {
 	CARGO,
@@ -12,9 +13,9 @@ var item_type: int = 0
 
 var item_data = {}
 
-var current_stack_size: int = 0
-var current_item_count : int = 0 setget set_count
-var current_item_uuid = null
+var stack_size: int = 0
+var count : int = 0 setget set_count
+var item_uuid = null
 
 var show_label: bool = true
 var count_label: Label = null
@@ -22,22 +23,36 @@ var parent_inventory = null
 var parent_slot = null
 var picked: bool = false
 
-func _ready():
-	item_data = {}
-	count_label = get_node_or_null("ItemCountLabel")
+func _ready():	
 	if !show_label:
 		disable_label()	
-	pass
 
 func initialize_item(_inv, _slot) -> void:
 	parent_inventory = _inv
 	parent_slot = _slot
 	picked = false
+	count_label = get_node_or_null("ItemCountLabel")
+	count_label.text = str(count)
+	print_debug("item data for item:", self, " ", item_data)
+	if item_data.has("stackSize"):
+		stack_size = item_data.stackSize
+	else:
+		stack_size = 1
 	self.material.set_shader_param("textureName_size", self.texture.get_size())
 
 func set_count(val):
-	current_item_count = val
-	count_label.text = str(val)
+	count = val
+	if count_label:
+		count_label.text = str(val)
+
+func increment(val) -> int:
+	if count + val <= stack_size:
+		set_count(count + val)
+	else:
+		var remainder = val - (stack_size - count)
+		set_count(stack_size)
+		return remainder
+	return 0
 
 
 func disable_label():

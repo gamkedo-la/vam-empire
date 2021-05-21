@@ -1,5 +1,6 @@
-extends Control
 class_name Inventory
+extends Control
+
 
 onready var cargo_slot = preload("res://UI/Menu/Inventory/Slot.tscn")
 onready var inv_item = preload("res://UI/Menu/Inventory/InventoryItem.tscn")
@@ -36,33 +37,26 @@ func _input(event):
 				held_item.rect_global_position = Vector2(event.position.x, event.position.y)
 
 
-func insert_item_by_uuid(itemuuid):
+# This function mostly exists to spawn test items from the DB
+func insert_item_by_uuid(itemuuid) -> void:
 	var item_data = Database.itemByUuid[itemuuid]
 	#print(item_data)
 	var newItem = inv_item.instance()
 	if !item_data.has("stackSize"):
 		item_data.stackSize = 1	
+	newItem.set_count(1)
 	for key in item_data.keys():
 		newItem.item_data[key] = item_data[key]
 	
-	print_debug(newItem.item_data)
+#	print_debug(newItem.item_data)
 	newItem.texture = load(item_data.itemIcon)
+	self.add_child(newItem)
 	#print("master_slots: ", master_slots)
-	
-	# NEED TO REWRITE THIS WHOLE THING... ITEMS CARRY ALL THE DATA, SLOTS NEED TO BE "DUMB"
 	for slot in master_slots.size():
-		#print("slot: ", slot)
-		# Does a slot with this item type already exist?
-		if master_slots[slot].current_item_uuid == item_data.itemUuid:			
-			if master_slots[slot].current_item_count < item_data.stackSize:
-				_increment_item(master_slots[slot])
-				newItem.queue_free()
-				return
-		elif master_slots[slot].current_item_count <= 0:
-			_add_to_slot(master_slots[slot], item_data, newItem)
+		var inserted_item: bool = master_slots[slot].insert_item(newItem)
+		if inserted_item == true:
 			return
-		else:
-			pass			
+
 
 func hold_item(_item:InventoryItem, _prev_slot) -> void:
 	_item.picked = true
