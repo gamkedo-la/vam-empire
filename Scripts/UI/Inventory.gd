@@ -63,6 +63,7 @@ func hold_item(_item:InventoryItem, _prev_slot) -> void:
 	held_item = _item
 	prev_slot = _prev_slot	
 	Global.reparent(held_item, self)
+	held_item.rect_global_position = get_global_mouse_position()
 
 func initialize_slots():
 	for child in cargo_grid.get_children():
