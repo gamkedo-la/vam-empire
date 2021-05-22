@@ -55,6 +55,7 @@ func _on_Tween_tween_all_completed():
 
 func _on_ReturnTimer_timeout():
 #	PlayerVars.transfer_ship_to_base()
+	self.visible = false
 	PlayerVars.emit_signal("mission_complete")
 #	Global.goto_scene(home_base)	
 

@@ -43,7 +43,7 @@
 			"itemType": 0,
 			"itemIcon": "res://MiningMaterials/Textures/mat-copper.png",
 			"itemUuid": "4efd8d66-b38f-4b94-8326-2bc21799f888",
-			"stackSize": 20
+			"stackSize": 999
 		},
 		{
 			"itemName": "Iron",
@@ -57,14 +57,14 @@
 				}
 			],
 			"itemUuid": "d7a332ce-ea38-466e-9539-2ebb94eff566",
-			"stackSize": 20
+			"stackSize": 999
 		},
 		{
 			"itemName": "Ice",
 			"itemType": 0,
 			"itemIcon": "res://MiningMaterials/Textures/mat-ice.png",
 			"itemUuid": "ad06b3ed-dfa6-41f7-ac75-468ed711de08",
-			"stackSize": 20
+			"stackSize": 999
 		},
 		{
 			"itemName": "Gold",
@@ -78,7 +78,7 @@
 				}
 			],
 			"itemUuid": "e953436f-0ac9-4a11-90b2-14da73ce32a6",
-			"stackSize": 20
+			"stackSize": 999
 		},
 		{
 			"itemName": "Peridot",
@@ -92,35 +92,35 @@
 					"value": "100"
 				}
 			],
-			"stackSize": 4
+			"stackSize": 999
 		},
 		{
 			"itemName": "Platinum",
 			"itemType": 0,
 			"itemIcon": "res://MiningMaterials/Textures/mat-platinum.png",
 			"itemUuid": "4fa1a793-846b-409a-820e-77c69ff3cb53",
-			"stackSize": 4
+			"stackSize": 999
 		},
 		{
 			"itemName": "Vanadinite",
 			"itemType": 0,
 			"itemIcon": "res://MiningMaterials/Textures/mat-vanadinite.png",
 			"itemUuid": "e9909275-97f2-4ce4-afc3-d22801a6bc24",
-			"stackSize": 4
+			"stackSize": 999
 		},
 		{
 			"itemName": "Silver",
 			"itemType": 0,
 			"itemIcon": "res://MiningMaterials/Textures/mat-silver.png",
 			"itemUuid": "4e2136e8-7e87-4635-9b91-36e68afb1c20",
-			"stackSize": 20
+			"stackSize": 999
 		},
-        {
-            "itemName": "Diamond",
-            "itemType": 0,
-            "itemIcon": "res://MiningMaterials/Textures/mat-diamond.png",
-            "itemUuid": "b343b543-44a2-4a94-82b6-72a5d843f8f6",
-            "stackSize": 4
-        }
+		{
+			"itemName": "Diamond",
+			"itemType": 0,
+			"itemIcon": "res://MiningMaterials/Textures/mat-diamond.png",
+			"itemUuid": "b343b543-44a2-4a94-82b6-72a5d843f8f6",
+			"stackSize": 999
+		}
 	]
 }

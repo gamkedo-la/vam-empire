@@ -5,6 +5,11 @@ onready var item_box = preload("res://UI/Menu/EndMissionScreen/ItemDisplayHB.tsc
 onready var ship_scroll = $MarginContainer/MainHB/ShipInventory/ItemScrollBox
 onready var master_scroll = $MarginContainer/MainHB/MasterInventory/ItemScrollBox
 
+onready var tally_sound = $TallySound
+onready var tally_sound_file = "res://Sounds/EndMission/item_tally.wav"
+var tally_sfx:AudioStreamRandomPitch  = null
+
+
 onready var return_button = $MarginContainer/MainHB/KillStats/VBoxContainer/ReturnButton
 
 var ship_boxes = {}
@@ -16,6 +21,12 @@ var return_timeout = 15
 var current_uuid = null
 
 func _ready() -> void:
+	# Sfx 
+	tally_sfx = AudioStreamRandomPitch.new()
+	tally_sfx.audio_stream = load(tally_sound_file)
+	tally_sfx.random_pitch = 1.0	
+	tally_sound.stream = tally_sfx
+			
 	return_button.visible = false
 	PlayerVars.load_save()
 	Global.pause_game(true)
@@ -61,13 +72,15 @@ func _transfer_items() -> void:
 	for uuid in PlayerVars.ship_inventory.keys():
 		current_uuid = uuid
 		count_speed = 0.1		
+		tally_sound.pitch_scale = 0.3
 		while PlayerVars.ship_inventory[uuid] > 0:
-			if count_speed > 0.0001:
+			if count_speed > 0.00001:
 				yield(get_tree().create_timer(count_speed), "timeout")
 				_transfer_item(1)
 			else:
 				_transfer_item(PlayerVars.ship_inventory[uuid])
-			count_speed *= 0.9
+			count_speed *= 0.95
+			tally_sound.pitch_scale = clamp(tally_sound.pitch_scale + .01, 0.1, 5.0)
 	PlayerVars.save()
 	_start_home_base_countdown()
 	
@@ -76,6 +89,7 @@ func _transfer_item(val) -> void:
 	PlayerVars.increment_master_inventory(current_uuid,val)
 	ship_boxes[current_uuid].decrement(val)
 	master_boxes[current_uuid].increment(val)
+	tally_sound.play()
 
 func _start_home_base_countdown() -> void:
 	return_timer.start()
