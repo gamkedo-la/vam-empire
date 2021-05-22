@@ -4,7 +4,7 @@ extends Control
 onready var item_box = preload("res://UI/Menu/EndMissionScreen/ItemDisplayHB.tscn")
 onready var ship_scroll = $MarginContainer/MainHB/ShipInventory/ItemScrollBox
 onready var master_scroll = $MarginContainer/MainHB/MasterInventory/ItemScrollBox
-
+onready var main_tween: Tween = $MainTween
 onready var tally_sound = $TallySound
 onready var tally_sound_file = "res://Sounds/EndMission/item_tally.wav"
 var tally_sfx:AudioStreamRandomPitch  = null
@@ -19,6 +19,7 @@ onready var return_timer = Timer.new()
 var interval = 2
 var return_timeout = 15
 var current_uuid = null
+var tween_scale = Vector2(0.05, 0.05)
 
 func _ready() -> void:
 	# Sfx 
@@ -40,6 +41,12 @@ func _ready() -> void:
 	timer.wait_time = interval
 	timer.connect("timeout", self, "_transfer_items")
 	timer.start()
+	
+	main_tween.interpolate_property(self, "rect_rotation", self.rect_rotation, 1, 5, Tween.TRANS_BACK, Tween.EASE_IN_OUT)
+	main_tween.interpolate_property(self, "rect_position:x", self.rect_position.x, self.rect_position.x + 5, 1.5, Tween.TRANS_SINE, Tween.EASE_IN_OUT)
+	main_tween.interpolate_property(self, "rect_position:y", self.rect_position.y, self.rect_position.y - 5, 2, Tween.TRANS_SINE, Tween.EASE_IN_OUT)
+	main_tween.interpolate_property(self, "rect_scale", self.rect_scale, self.rect_scale + tween_scale, 0.5, Tween.TRANS_SINE, Tween.EASE_IN)
+	main_tween.start()
 	
 	
 	
@@ -111,3 +118,17 @@ func _on_ReturnButton_focus_entered():
 
 func _on_ReturnButton_mouse_entered():
 	_stop_home_base_countdown()
+
+
+func _on_MainTween_tween_completed(object, key):
+	print_debug(key)
+	if key == ":rect_rotation":
+		main_tween.interpolate_property(self, "rect_rotation", self.rect_rotation, -self.rect_rotation, 5, Tween.TRANS_BACK, Tween.EASE_IN_OUT)
+	if key == ":rect_scale":
+		tween_scale = -tween_scale
+		main_tween.interpolate_property(self, "rect_scale", self.rect_scale, self.rect_scale + tween_scale, 0.5, Tween.TRANS_SINE, Tween.EASE_IN_OUT)
+	if key == ":rect_position:x":
+		main_tween.interpolate_property(self, "rect_position:x", self.rect_position.x, -self.rect_position.x, 3, Tween.TRANS_SINE, Tween.EASE_IN_OUT)
+	if key == ":rect_position:y":
+		main_tween.interpolate_property(self, "rect_position:y", self.rect_position.y, -self.rect_position.y, 3.25, Tween.TRANS_SINE, Tween.EASE_IN_OUT)
+	main_tween.start()

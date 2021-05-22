@@ -7,6 +7,9 @@
 pause_mode = 2
 anchor_right = 1.0
 anchor_bottom = 1.0
+rect_pivot_offset = Vector2( 480, 270 )
+focus_next = NodePath("MarginContainer/MainHB/KillStats/VBoxContainer/ReturnButton")
+focus_mode = 2
 script = ExtResource( 2 )
 __meta__ = {
 "_edit_use_anchors_": false
@@ -133,6 +136,9 @@ text = "Return to Base"
 
 [node name="TallySound" type="AudioStreamPlayer2D" parent="."]
 
+[node name="MainTween" type="Tween" parent="."]
+
 [connection signal="focus_entered" from="MarginContainer/MainHB/KillStats/VBoxContainer/ReturnButton" to="." method="_on_ReturnButton_focus_entered"]
 [connection signal="mouse_entered" from="MarginContainer/MainHB/KillStats/VBoxContainer/ReturnButton" to="." method="_on_ReturnButton_mouse_entered"]
 [connection signal="pressed" from="MarginContainer/MainHB/KillStats/VBoxContainer/ReturnButton" to="." method="_on_ReturnButton_pressed"]
+[connection signal="tween_completed" from="MainTween" to="." method="_on_MainTween_tween_completed"]

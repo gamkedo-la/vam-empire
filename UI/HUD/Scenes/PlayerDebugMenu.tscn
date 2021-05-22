@@ -37,7 +37,8 @@ __meta__ = {
 
 [node name="TabContainer" type="TabContainer" parent="DebugOptsVBox"]
 margin_right = 390.0
-margin_bottom = 343.0
+margin_bottom = 300.0
+rect_min_size = Vector2( 390, 300 )
 size_flags_horizontal = 3
 size_flags_vertical = 3
 theme = ExtResource( 3 )
