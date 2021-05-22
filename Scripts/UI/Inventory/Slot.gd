@@ -34,7 +34,7 @@ func insert_item(_item: InventoryItem) -> bool:
 		inventory.play_cargo_pickup()
 		return true
 	elif _item.item_data["itemUuid"] == current_item.item_data["itemUuid"]:
-		print_debug("Item Matched on slot: ", self)
+#		print_debug("Item Matched on slot: ", self)
 		var remainder = current_item.increment(_item.count)
 		if remainder > 0:
 			# Return item decremented by what ever fit into the stack

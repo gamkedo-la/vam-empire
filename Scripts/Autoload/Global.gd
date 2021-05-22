@@ -4,6 +4,7 @@ extends Node
 var current_scene = null
 var in_game_menu = null
 var main_menu_scene = load("res://UI/Menu/MainMenu.tscn")
+var home_base = "res://World/game_zones/home_base.tscn"
 var packed_ships = load("res://Ships/PackedShips.tscn")
 var ship_hangar = []
 var packed_weapons = load("res://Weapons/PackedWeapons.tscn")

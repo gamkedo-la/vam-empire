@@ -4,6 +4,7 @@
 [ext_resource path="res://Scripts/UI/EndMissionScreen.gd" type="Script" id=2]
 
 [node name="EndMissionScreen" type="Control"]
+pause_mode = 2
 anchor_right = 1.0
 anchor_bottom = 1.0
 script = ExtResource( 2 )
@@ -33,14 +34,14 @@ __meta__ = {
 margin_left = 45.0
 margin_top = 45.0
 margin_right = 915.0
-margin_bottom = 521.0
+margin_bottom = 495.0
 size_flags_horizontal = 3
 size_flags_vertical = 3
 alignment = 1
 
 [node name="ShipInventory" type="VBoxContainer" parent="MarginContainer/MainHB"]
 margin_right = 287.0
-margin_bottom = 476.0
+margin_bottom = 450.0
 size_flags_horizontal = 3
 size_flags_vertical = 3
 
@@ -66,7 +67,7 @@ margin_bottom = 26.0
 [node name="MasterInventory" type="VBoxContainer" parent="MarginContainer/MainHB"]
 margin_left = 291.0
 margin_right = 578.0
-margin_bottom = 476.0
+margin_bottom = 450.0
 rect_min_size = Vector2( 0, 450 )
 size_flags_horizontal = 3
 size_flags_vertical = 3
@@ -93,7 +94,7 @@ margin_bottom = 26.0
 [node name="KillStats" type="VBoxContainer" parent="MarginContainer/MainHB"]
 margin_left = 582.0
 margin_right = 870.0
-margin_bottom = 476.0
+margin_bottom = 450.0
 size_flags_horizontal = 3
 size_flags_vertical = 3
 
@@ -105,3 +106,24 @@ size_flags_horizontal = 4
 theme = ExtResource( 1 )
 text = "Kill Stats"
 align = 1
+
+[node name="VBoxContainer" type="VBoxContainer" parent="MarginContainer/MainHB/KillStats"]
+margin_top = 26.0
+margin_right = 288.0
+margin_bottom = 450.0
+size_flags_vertical = 3
+alignment = 2
+
+[node name="ReturnButton" type="Button" parent="MarginContainer/MainHB/KillStats/VBoxContainer"]
+visible = false
+margin_left = 91.0
+margin_top = 404.0
+margin_right = 197.0
+margin_bottom = 424.0
+size_flags_horizontal = 4
+size_flags_vertical = 4
+text = "Return to Base"
+
+[connection signal="focus_entered" from="MarginContainer/MainHB/KillStats/VBoxContainer/ReturnButton" to="." method="_on_ReturnButton_focus_entered"]
+[connection signal="mouse_entered" from="MarginContainer/MainHB/KillStats/VBoxContainer/ReturnButton" to="." method="_on_ReturnButton_mouse_entered"]
+[connection signal="pressed" from="MarginContainer/MainHB/KillStats/VBoxContainer/ReturnButton" to="." method="_on_ReturnButton_pressed"]

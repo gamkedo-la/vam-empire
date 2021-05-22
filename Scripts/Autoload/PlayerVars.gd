@@ -10,6 +10,8 @@ signal hull_max_health_changed(val, change_amount)
 signal energy_reserve_changed(val, change_amount)
 signal energy_max_reserve_changed(val, change_amount)
 
+signal mission_complete
+
 signal item_transfer(uuid)
 
 signal player_died

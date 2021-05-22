@@ -2,7 +2,7 @@ extends Area2D
 # signal required to be a mininmap object. Emit this signal before freeing this object
 signal removed
 
-var home_base = "res://World/game_zones/home_base.tscn"
+
 onready var tween = $Tween
 onready var beacon_sign = $BeaconSign
 onready var beacon_light = $BeaconSign/BeaconLight
@@ -54,8 +54,9 @@ func _on_Tween_tween_all_completed():
 		tween.start()
 
 func _on_ReturnTimer_timeout():
-	PlayerVars.transfer_ship_to_base()
-	Global.goto_scene(home_base)	
+#	PlayerVars.transfer_ship_to_base()
+	PlayerVars.emit_signal("mission_complete")
+#	Global.goto_scene(home_base)	
 
 func _on_ReturnHomeBeacon_area_entered(area):
 	var ar_parent = area.get_parent()

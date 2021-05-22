@@ -38,6 +38,10 @@ onready var base_bullet = preload("res://Bullets/Scenes/BasicBullet.tscn")
 #provisional
 onready var mining_beam = preload("res://Bullets/Scenes/MiningLaserBeam.tscn")
 
+onready var end_mission_screen = preload("res://UI/Menu/EndMissionScreen.tscn")
+
+onready var player_canvas = $PlayerUICanvas
+
 onready var char_sheet = $PlayerUICanvas/CharacterSheet
 
 onready var inventory = $PlayerUICanvas/Inventory
@@ -66,6 +70,7 @@ func _ready():
 	PlayerVars.player_node = self
 	PlayerVars.connect("target_change", self, "_target_change")
 	PlayerVars.connect("energy_reserve_changed", self, "_on_energy_reserve_changed")
+	PlayerVars.connect("mission_complete", self, "_end_mission_screen")
 
 	rng.randomize()
 
@@ -222,6 +227,11 @@ func _on_energy_reserve_changed(_val, change_amount):
 
 func _on_EnergyRecoveryDelayTimer_timeout():
 	can_recover_energy = true
+
+func _end_mission_screen() -> void:
+	var newEndMissionScreen = end_mission_screen.instance()
+	player_canvas.add_child(newEndMissionScreen)
+
 
 func load_hardpoints():
 	# Simplified until we have actual weapons to mount.  We'll just 'fire' from the hardpoint for now
