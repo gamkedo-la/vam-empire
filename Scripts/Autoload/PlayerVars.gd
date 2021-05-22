@@ -170,10 +170,12 @@ func load_save():
 						if !data.player.has(key):
 							print_debug("Setting [", key,"] from System Defaults.")							
 							data.player[key] = key
-
+				
 				player = data.player
-				ship_inventory = data.ship_inventory
-				master_inventory = data.master_inventory
+				
+				# Backwards compatibility for post-player-only and pre-inventory saves
+				ship_inventory = data.ship_inventory if data.has("ship_inventory") else {}
+				master_inventory = data.master_dictionary if data.has("master_dictionary") else {}
 				save()
 				return true
 		else:
