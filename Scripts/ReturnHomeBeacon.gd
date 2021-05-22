@@ -54,6 +54,7 @@ func _on_Tween_tween_all_completed():
 		tween.start()
 
 func _on_ReturnTimer_timeout():
+	PlayerVars.transfer_ship_to_base()
 	Global.goto_scene(home_base)	
 
 func _on_ReturnHomeBeacon_area_entered(area):

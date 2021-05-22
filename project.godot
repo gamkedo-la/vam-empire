@@ -25,6 +25,16 @@ _global_script_classes=[ {
 "path": "res://Scripts/AI/Steering.gd"
 }, {
 "base": "Control",
+"class": "EndScreen",
+"language": "GDScript",
+"path": "res://Scripts/UI/EndMissionScreen.gd"
+}, {
+"base": "HBoxContainer",
+"class": "EndScreenItemBox",
+"language": "GDScript",
+"path": "res://Scripts/UI/EndMissionScreen/ItemDisplayHB.gd"
+}, {
+"base": "Control",
 "class": "Inventory",
 "language": "GDScript",
 "path": "res://Scripts/UI/Inventory.gd"
@@ -58,6 +68,8 @@ _global_script_class_icons={
 "AIController": "",
 "Actor": "",
 "ActorSteering": "",
+"EndScreen": "",
+"EndScreenItemBox": "",
 "Inventory": "",
 "InventoryItem": "",
 "InventorySlot": "",

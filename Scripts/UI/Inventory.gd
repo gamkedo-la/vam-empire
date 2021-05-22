@@ -63,6 +63,8 @@ func insert_item_by_uuid(itemuuid) -> void:
 	for slot in master_slots.size():
 		var inserted_item: bool = master_slots[slot].insert_item(newItem)
 		if inserted_item == true:
+			PlayerVars.increment_ship_inventory(newItem.item_data.itemUuid,1)
+			PlayerVars.save()
 			return
 
 
@@ -89,6 +91,8 @@ func clear_inventory():
 	for slot in master_slots:
 		slot.remove_item()
 	PlayerVars.clear_ship_inventory()
+
+
 
 func initialize_hardpoints() -> void:
 	if ship_copy:

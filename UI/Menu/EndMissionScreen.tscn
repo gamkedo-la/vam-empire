@@ -1,0 +1,107 @@
+[gd_scene load_steps=3 format=2]
+
+[ext_resource path="res://UI/Theme/darkred_theme.tres" type="Theme" id=1]
+[ext_resource path="res://Scripts/UI/EndMissionScreen.gd" type="Script" id=2]
+
+[node name="EndMissionScreen" type="Control"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+script = ExtResource( 2 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="MarginContainer" type="MarginContainer" parent="."]
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+margin_left = -480.0
+margin_top = -270.0
+margin_right = 480.0
+margin_bottom = 270.0
+rect_min_size = Vector2( 960, 540 )
+custom_constants/margin_right = 45
+custom_constants/margin_top = 45
+custom_constants/margin_left = 45
+custom_constants/margin_bottom = 45
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="MainHB" type="HBoxContainer" parent="MarginContainer"]
+margin_left = 45.0
+margin_top = 45.0
+margin_right = 915.0
+margin_bottom = 521.0
+size_flags_horizontal = 3
+size_flags_vertical = 3
+alignment = 1
+
+[node name="ShipInventory" type="VBoxContainer" parent="MarginContainer/MainHB"]
+margin_right = 287.0
+margin_bottom = 476.0
+size_flags_horizontal = 3
+size_flags_vertical = 3
+
+[node name="Title" type="HBoxContainer" parent="MarginContainer/MainHB/ShipInventory"]
+margin_right = 287.0
+margin_bottom = 22.0
+alignment = 1
+
+[node name="Label" type="Label" parent="MarginContainer/MainHB/ShipInventory/Title"]
+margin_left = 67.0
+margin_right = 219.0
+margin_bottom = 22.0
+size_flags_horizontal = 4
+theme = ExtResource( 1 )
+text = "Gathered Items"
+align = 1
+
+[node name="ItemScrollBox" type="VBoxContainer" parent="MarginContainer/MainHB/ShipInventory"]
+margin_top = 26.0
+margin_right = 287.0
+margin_bottom = 26.0
+
+[node name="MasterInventory" type="VBoxContainer" parent="MarginContainer/MainHB"]
+margin_left = 291.0
+margin_right = 578.0
+margin_bottom = 476.0
+rect_min_size = Vector2( 0, 450 )
+size_flags_horizontal = 3
+size_flags_vertical = 3
+
+[node name="Title" type="HBoxContainer" parent="MarginContainer/MainHB/MasterInventory"]
+margin_right = 287.0
+margin_bottom = 22.0
+alignment = 1
+
+[node name="Label" type="Label" parent="MarginContainer/MainHB/MasterInventory/Title"]
+margin_left = 67.0
+margin_right = 219.0
+margin_bottom = 22.0
+size_flags_horizontal = 4
+theme = ExtResource( 1 )
+text = "Base Inventory"
+align = 1
+
+[node name="ItemScrollBox" type="VBoxContainer" parent="MarginContainer/MainHB/MasterInventory"]
+margin_top = 26.0
+margin_right = 287.0
+margin_bottom = 26.0
+
+[node name="KillStats" type="VBoxContainer" parent="MarginContainer/MainHB"]
+margin_left = 582.0
+margin_right = 870.0
+margin_bottom = 476.0
+size_flags_horizontal = 3
+size_flags_vertical = 3
+
+[node name="Label" type="Label" parent="MarginContainer/MainHB/KillStats"]
+margin_left = 88.0
+margin_right = 200.0
+margin_bottom = 22.0
+size_flags_horizontal = 4
+theme = ExtResource( 1 )
+text = "Kill Stats"
+align = 1

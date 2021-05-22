@@ -10,6 +10,8 @@ signal hull_max_health_changed(val, change_amount)
 signal energy_reserve_changed(val, change_amount)
 signal energy_max_reserve_changed(val, change_amount)
 
+signal item_transfer(uuid)
+
 signal player_died
 
 # File saving/loading methodology adapted from https://gdscript.com/solutions/how-to-save-and-load-godot-game-data/
@@ -109,10 +111,13 @@ func new(name: String):
 	save()
 
 func save():
+#	print_debug("Saving Player Save...")
 	var file = File.new()
 	var save = {}
 	save["player"] = player
 	save["ship_inventory"] = ship_inventory
+	save["master_inventory"] = master_inventory
+#	print_debug("Save file...: ", save)
 	file.open(FILE_NAME, File.WRITE)
 	file.store_string(to_json(save))
 	file.close()
@@ -144,6 +149,7 @@ func load_save():
 				var temp_data = {}
 				temp_data["player"] = data.duplicate(true)
 				temp_data["ship_inventory"] = {}
+				temp_data["master_inventory"] = {}
 				data.clear()
 				data = temp_data.duplicate()
 			# Does the save file have all of the 'high level' dictionaries/keys i.e. Sound, Graphics, Difficulty?
@@ -165,6 +171,7 @@ func load_save():
 
 				player = data.player
 				ship_inventory = data.ship_inventory
+				master_inventory = data.master_inventory
 				save()
 				return true
 		else:
@@ -180,10 +187,27 @@ func pickup_item(uuid):
 
 func increment_ship_inventory(uuid, cnt:int):
 	if ship_inventory.has(uuid):
-		ship_inventory[uuid] += cnt		
+		ship_inventory[uuid] += cnt
 	else:
 		ship_inventory[uuid] = cnt
 	#print_debug("PlayerVars.ship_inventory: ", ship_inventory)
+
+func increment_master_inventory(uuid, cnt:int):
+	if master_inventory.has(uuid):
+		master_inventory[uuid] += cnt
+	else:
+		master_inventory[uuid] = cnt
+
+func transfer_ship_to_base() -> void:
+	for inv_key in ship_inventory.keys():
+		var ship_item_cnt = ship_inventory[inv_key]
+		while ship_inventory[inv_key] > 0:
+			increment_ship_inventory(inv_key, -1)
+			increment_master_inventory(inv_key, 1)
+			
+			emit_signal("item_transfer", inv_key)
+	ship_inventory.clear()
+	save()
 
 func clear_ship_inventory():
 	ship_inventory.clear()

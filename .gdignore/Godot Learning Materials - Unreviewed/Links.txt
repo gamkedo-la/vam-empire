@@ -1,0 +1,4 @@
+
+
+Saving Data using Nested Dictionaries (We're doing this already, but I like to review other implementations to see if there are ways to improve!)
+https://www.reddit.com/r/godot/comments/nhgtxm/saving_data_using_nested_dictionaries/?utm_source=share&utm_medium=web2x&context=3
