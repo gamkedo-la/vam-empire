@@ -175,7 +175,7 @@ func load_save():
 				
 				# Backwards compatibility for post-player-only and pre-inventory saves
 				ship_inventory = data.ship_inventory if data.has("ship_inventory") else {}
-				master_inventory = data.master_dictionary if data.has("master_dictionary") else {}
+				master_inventory = data.master_inventory if data.has("master_inventory") else {}
 				save()
 				return true
 		else:
