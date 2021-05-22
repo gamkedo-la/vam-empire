@@ -3,10 +3,10 @@ extends Panel
 var player_node
 
 onready var debug_vbox = $DebugOptsVBox
-onready var frigate_list = $DebugOptsVBox/HBoxContainer/FrigateSelect
-onready var destroyer_list = $DebugOptsVBox/HBoxContainer2/DestroyerSelect
-onready var corvette_list = $DebugOptsVBox/HBoxContainer3/CorvetteSelect
-onready var dreadnought_list = $DebugOptsVBox/HBoxContainer4/DreadnoughtSelect
+onready var frigate_list = $DebugOptsVBox/TabContainer/Ships/VBoxContainer/FrigatesHB/FrigateSelect
+onready var destroyer_list = $DebugOptsVBox/TabContainer/Ships/VBoxContainer/DestroyersHB/DestroyerSelect
+onready var corvette_list = $DebugOptsVBox/TabContainer/Ships/VBoxContainer/CorvettesHB/CorvetteSelect
+onready var dreadnought_list = $DebugOptsVBox/TabContainer/Ships/VBoxContainer/HBoxContainer4/DreadnoughtSelect
 var ships
 var ship_inv = []
 
@@ -27,6 +27,7 @@ func _ready():
 	temp_hangar = Global.ship_hangar[3].duplicate()
 	for Ship in temp_hangar:		
 		dreadnought_list.add_item(Ship[0].ship_name)
+	PlayerVars.connect("mission_complete", self, "_mission_complete")
 		
 
 func _process(_delta):
@@ -38,7 +39,9 @@ func _process(_delta):
 			# in case the mouse was over the panel when it closes
 			Global.set_hold_fire(false)
 
-
+func _mission_complete() -> void:
+	self.visible = false
+	Global.set_hold_fire(false)
 
 func _on_PlayerDebugMenu_mouse_entered():
 	Global.set_hold_fire(true)
@@ -85,3 +88,7 @@ func _on_TakeDamage25_pressed():
 
 func _on_TakeDamage50_pressed():
 	player_node.take_damage(50)
+
+
+func _on_SuccessMission2_pressed():
+	PlayerVars.emit_signal("mission_complete")
