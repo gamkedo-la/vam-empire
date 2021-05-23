@@ -1,0 +1,32 @@
+{
+    "mission_types": {
+        "GLOBAL": 0,
+        "ENCOUNTER": 1,
+        "PROGRESSION": 2
+    },
+    "objective_types": {
+        "ITEM": 0,
+        "COMBAT": 1,
+        "ENCOUNTER": 2
+    },
+    "missions": {
+        "mining_001": {
+            "name": "Mining Expeditiion",
+            "mission_type": "0",
+            "objectives": [
+                {
+                    "type": 0,
+                    "count": 50,
+                    "uuid": "4efd8d66-b38f-4b94-8326-2bc21799f888"
+                }
+            ],
+            "desc": "Head out into the belt on your first mining expedition! On this first trip you'll be hunting down Copper Ore which can be found on many different asteroids in the belt.",
+            "rewards": [
+                {
+                    "cash": 10000
+                }
+            ],
+            "note": "Easy starter mission for the player to collect 50 Copper Ore"
+        }
+    }
+}
