@@ -4,6 +4,11 @@ extends Control
 onready var item_box = preload("res://UI/Menu/EndMissionScreen/ItemDisplayHB.tscn")
 onready var ship_scroll = $MarginContainer/MainHB/ShipInventory/ItemScrollBox
 onready var master_scroll = $MarginContainer/MainHB/MasterInventory/ItemScrollBox
+onready var main_tween: Tween = $MainTween
+onready var tally_sound = $TallySound
+onready var tally_sound_file = "res://Sounds/EndMission/item_tally.wav"
+var tally_sfx:AudioStreamRandomPitch  = null
+
 
 onready var return_button = $MarginContainer/MainHB/KillStats/VBoxContainer/ReturnButton
 
@@ -14,8 +19,15 @@ onready var return_timer = Timer.new()
 var interval = 2
 var return_timeout = 15
 var current_uuid = null
+var tween_scale = Vector2(0.05, 0.05)
 
 func _ready() -> void:
+	# Sfx 
+	tally_sfx = AudioStreamRandomPitch.new()
+	tally_sfx.audio_stream = load(tally_sound_file)
+	tally_sfx.random_pitch = 1.0	
+	tally_sound.stream = tally_sfx
+			
 	return_button.visible = false
 	PlayerVars.load_save()
 	Global.pause_game(true)
@@ -29,6 +41,12 @@ func _ready() -> void:
 	timer.wait_time = interval
 	timer.connect("timeout", self, "_transfer_items")
 	timer.start()
+	
+	main_tween.interpolate_property(self, "rect_rotation", self.rect_rotation, 1, 5, Tween.TRANS_BACK, Tween.EASE_IN_OUT)
+	main_tween.interpolate_property(self, "rect_position:x", self.rect_position.x, self.rect_position.x + 5, 1.5, Tween.TRANS_SINE, Tween.EASE_IN_OUT)
+	main_tween.interpolate_property(self, "rect_position:y", self.rect_position.y, self.rect_position.y - 5, 2, Tween.TRANS_SINE, Tween.EASE_IN_OUT)
+	main_tween.interpolate_property(self, "rect_scale", self.rect_scale, self.rect_scale + tween_scale, 0.5, Tween.TRANS_SINE, Tween.EASE_IN)
+	main_tween.start()
 	
 	
 	
@@ -61,13 +79,15 @@ func _transfer_items() -> void:
 	for uuid in PlayerVars.ship_inventory.keys():
 		current_uuid = uuid
 		count_speed = 0.1		
+		tally_sound.pitch_scale = 0.3
 		while PlayerVars.ship_inventory[uuid] > 0:
-			if count_speed > 0.0001:
+			if count_speed > 0.00001:
 				yield(get_tree().create_timer(count_speed), "timeout")
 				_transfer_item(1)
 			else:
 				_transfer_item(PlayerVars.ship_inventory[uuid])
-			count_speed *= 0.9
+			count_speed *= 0.95
+			tally_sound.pitch_scale = clamp(tally_sound.pitch_scale + .01, 0.1, 5.0)
 	PlayerVars.save()
 	_start_home_base_countdown()
 	
@@ -76,6 +96,7 @@ func _transfer_item(val) -> void:
 	PlayerVars.increment_master_inventory(current_uuid,val)
 	ship_boxes[current_uuid].decrement(val)
 	master_boxes[current_uuid].increment(val)
+	tally_sound.play()
 
 func _start_home_base_countdown() -> void:
 	return_timer.start()
@@ -97,3 +118,17 @@ func _on_ReturnButton_focus_entered():
 
 func _on_ReturnButton_mouse_entered():
 	_stop_home_base_countdown()
+
+
+func _on_MainTween_tween_completed(object, key):
+	print_debug(key)
+	if key == ":rect_rotation":
+		main_tween.interpolate_property(self, "rect_rotation", self.rect_rotation, -self.rect_rotation, 5, Tween.TRANS_BACK, Tween.EASE_IN_OUT)
+	if key == ":rect_scale":
+		tween_scale = -tween_scale
+		main_tween.interpolate_property(self, "rect_scale", self.rect_scale, self.rect_scale + tween_scale, 0.5, Tween.TRANS_SINE, Tween.EASE_IN_OUT)
+	if key == ":rect_position:x":
+		main_tween.interpolate_property(self, "rect_position:x", self.rect_position.x, -self.rect_position.x, 3, Tween.TRANS_SINE, Tween.EASE_IN_OUT)
+	if key == ":rect_position:y":
+		main_tween.interpolate_property(self, "rect_position:y", self.rect_position.y, -self.rect_position.y, 3.25, Tween.TRANS_SINE, Tween.EASE_IN_OUT)
+	main_tween.start()

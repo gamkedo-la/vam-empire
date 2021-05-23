@@ -20,13 +20,16 @@
     - [**Encounters**](#encounters)
     - [**Points of Interest**](#points-of-interest)
     - [**Making a new Zone or Scene Element**](#making-a-new-zone-or-scene-element)
-  - [**Player Scene**](#player-scene)
-    - [**HealBot**](#healbot)
-    - [**Player Menus**](#player-menus)
-    - [**Inventory**](#inventory)
-      - [**CharacterSheet**](#charactersheet)
-      - [**PlayerDebugMenu**](#playerdebugmenu)
-    - [**ModularPlayer Ship Controller**](#modularplayer-ship-controller)
+- [**Mission System**](#mission-system)
+  - [**Parts of a Mission JSON object**](#parts-of-a-mission-json-object)
+  - [*Working Mission JSON Example**](#working-mission-json-example)
+- [**Player Scene**](#player-scene)
+  - [**HealBot**](#healbot)
+  - [**Player Menus**](#player-menus)
+  - [**Inventory**](#inventory)
+    - [**CharacterSheet**](#charactersheet)
+    - [**PlayerDebugMenu**](#playerdebugmenu)
+  - [**ModularPlayer Ship Controller**](#modularplayer-ship-controller)
 - [**Ship Specifications**](#ship-specifications)
   - [**Ship Scene Template**](#ship-scene-template)
     - [**Packed Ship Scene**](#packed-ship-scene)
@@ -211,20 +214,82 @@ For an example, let's say you are interested in starting work on a new `Area` or
 
 Once you have a test `Zone`, you can repeat the process to create inherited `Areas`, `Encounters` or `Points of Interest` from the templates listed above, so that your scene parts will be ready to be incorporated into the primary game once you've got it working and looking the way you want!
 
-## **Player Scene**
+# **Mission System**
 
-### **HealBot**
+Missions in VAM Empire are JSON objects stored in [Missions.json](Database/Missions.json) that contain the information required for the Mission System to track the Mission in the Player Mission Log (Stored as a Dictionary in PlayerVars) and spawn any necessary encounters into the game world relating to the mission.
+
+## **Parts of a Mission JSON object**
+
+- **Mission ID**
+  - The Unique Identifier to track this mission with.
+- **Mission Name**
+  - The name of the mission that will appear in game in menus and on the Player's Mission HUD
+- **Scene File**
+  - The path to the .tscn file of the encounter, point of interest or other sub-scene component that will be spawned into the game world to allow the player to complete the mission.
+- **Spawn Distance**
+  - The radius from the initial Player spawn point to spawn the Scene that relates to the quest. 
+- **Mission Type**
+  - **Global**: Can be completed in the 'general' game world, and does not require a specific scene file. An exmple of a Global mission would be something like "Retrieve 10 Copper Ore and bring it back to base." or "Hunt down and destroy 5 Enemy Pirates"
+  - **Encounter**: This mission ties to a specific encounter *.tscn file (designated in the Scene File field), and it's completion will be set by a condition that can be triggered within that encounter.
+- **Objectives**
+  - Objectives are the resources or goals of the mission required to be complete before returning to base and completing the mission for rewards. Item based objectives will have a count requirement, combat objectives will have a kill count, and Encounter designed objectives can be updated from the encounter .tscn itself.
+- **Prerequisites**
+  - A Dictionary of Mission ID that must exist in the Player Mission Complete file before they will become available for the player to take them on. 
+  - *Note*: As a way to work around non-Mission based Pre-requisites, and avoid over-complicating things, Unique Mission ID tags can be created for other Pre-Requisistes and stored in the same fashion. I.e. If a mission should not be available to a player until they have a Dreadnought class ship, the purchase of that ship could be set to also check for and insert the Pre-Req Mission ID into the Player save file.
+- **Mission Description**
+  - Any exposition, special instructions on how to complete the encounter, etc.. should all be placed in the description field. This is the detailed field that will the player will read when selecting the mission, as well as reviewing it in their Mission Log.
+- **Designer Notes**
+  - This will be a meta field where we can put any of our comments for ourselves or future mission designers. This field will not be used in game in any way other than potentially displayed in debug menus.
+
+## *Working Mission JSON Example**
+```
+{
+    "mission_types": {
+        "GLOBAL": 0,
+        "ENCOUNTER": 1,
+        "PROGRESSION": 2
+    },
+    "objective_types": {
+        "ITEM": 0,
+        "COMBAT": 1,
+        "ENCOUNTER": 2
+    },
+    "missions": {
+        "mining_001": {
+            "name": "Mining Expeditiion",
+            "mission_type": "0",
+            "objectives": [
+                {
+                    "type": 0,
+                    "count": 50,
+                    "uuid": "4efd8d66-b38f-4b94-8326-2bc21799f888"
+                }
+            ],
+            "desc": "Head out into the belt on your first mining expedition! On this first trip you'll be hunting down Copper Ore which can be found on many different asteroids in the belt.",
+            "rewards": [
+                {
+                    "cash": 10000
+                }
+            ],
+            "note": "Easy mission for the player to collect 50 Copper Ore"
+        }
+    }
+}
+```
+# **Player Scene**
+
+## **HealBot**
 No matter what ship the player is piloting, their trusty companion `Heal Bot` will follow along. At current moment, Heal Bot's primary function is to heal the player when pressing `H`, but these functions may expand!
 
-### **Player Menus**
+## **Player Menus**
 The PlayerUICanvas is a node parented under the Player controller scene that will be used to hold useful UI elements that are directly tied to the player, the player's currently piloted ship etc..
 
-### **Inventory**
+## **Inventory**
 Scene: [Inventory.tscn](UI/Menu/Inventory.tscn)
 Script: [Inventory.gd](Scripts/UI/Inventory.gd)
 
 The Inventory is a current WIP... Will add more as features coalesce!
-#### **CharacterSheet**
+### **CharacterSheet**
 Scene: [CharacterSheet.tscn](UI/HUD/Scenes/CharacterSheet.tscn)
 Script: [CharacterSheet.gd](Scripts/UI/CharacterSheet.gd)
 
@@ -234,7 +299,7 @@ The Character Sheet UI element will work as a place to display character stats, 
 
 Currently, the Character Sheet dynamically populates all of the Piloted Ship's variables such as Acceleration, Max Speed, Mass, Hull Health etc... but will continue to be formatted and refined over time.
 
-#### **PlayerDebugMenu**
+### **PlayerDebugMenu**
 Scene: [PlayerDebugMenu.tscn](UI/HUD/Scenes/PlayerDebugMenu.tscn)
 Script: [PlayerDebugMenu.gd](Scripts/UI/PlayerDebugMenu.gd)
 
@@ -243,7 +308,7 @@ Press `F4` to bring up the Player Debug Menu.
 The Player Debug Menu will act as a place to put important information and tools that will be helpful to programmers as well as designers as we develop and playtest V.A.M. Empire. 
 
 Currently, this menu has (1) function which allows the player to select a ship (sourced from the [Packed Ships Scene](Ships/PackedShips.tscn)) and instantly 'swap' to that ship. The debug menu itself is holding a copy of the scene that it 'dupes' the ship from, and then calls the [Player.gd](Scripts/Player.gd) function `pilot_ship_from_pack(ship)` to perform the switch.
-### **ModularPlayer Ship Controller**
+## **ModularPlayer Ship Controller**
 - The player controller scene [Player.tscn](./Player/Scenes/Player.tscn) will load ships at the PilotedShip Node2D.
 - The KinematicBody2D node <b>Player</b> starts with no Collision2D. The instanced Ship will have a CollisionShape2D named HullCollision which will be reparented to ModularPlayer at runtime.
 

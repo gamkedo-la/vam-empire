@@ -35,84 +35,122 @@ __meta__ = {
 "_edit_use_anchors_": false
 }
 
-[node name="HBoxContainer" type="HBoxContainer" parent="DebugOptsVBox"]
+[node name="TabContainer" type="TabContainer" parent="DebugOptsVBox"]
 margin_right = 390.0
-margin_bottom = 30.0
+margin_bottom = 300.0
+rect_min_size = Vector2( 390, 300 )
+size_flags_horizontal = 3
+size_flags_vertical = 3
+theme = ExtResource( 3 )
 
-[node name="ShipLabel" type="Label" parent="DebugOptsVBox/HBoxContainer"]
+[node name="Ships" type="PanelContainer" parent="DebugOptsVBox/TabContainer"]
+visible = false
+anchor_right = 1.0
+anchor_bottom = 1.0
+margin_left = 9.0
+margin_top = 28.0
+margin_right = -9.0
+margin_bottom = -6.0
+theme = ExtResource( 3 )
+
+[node name="VBoxContainer" type="VBoxContainer" parent="DebugOptsVBox/TabContainer/Ships"]
+margin_left = 9.0
+margin_top = 6.0
+margin_right = 363.0
+margin_bottom = 303.0
+
+[node name="FrigatesHB" type="HBoxContainer" parent="DebugOptsVBox/TabContainer/Ships/VBoxContainer"]
+margin_right = 354.0
+margin_bottom = 30.0
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="ShipLabel" type="Label" parent="DebugOptsVBox/TabContainer/Ships/VBoxContainer/FrigatesHB"]
 margin_top = 4.0
 margin_right = 102.0
 margin_bottom = 26.0
 text = "Frigates:"
 
-[node name="FrigateSelect" type="OptionButton" parent="DebugOptsVBox/HBoxContainer"]
+[node name="FrigateSelect" type="OptionButton" parent="DebugOptsVBox/TabContainer/Ships/VBoxContainer/FrigatesHB"]
 margin_left = 108.0
 margin_right = 228.0
 margin_bottom = 30.0
 rect_min_size = Vector2( 120, 0 )
 
-[node name="HBoxContainer2" type="HBoxContainer" parent="DebugOptsVBox"]
+[node name="DestroyersHB" type="HBoxContainer" parent="DebugOptsVBox/TabContainer/Ships/VBoxContainer"]
 margin_top = 36.0
-margin_right = 390.0
+margin_right = 354.0
 margin_bottom = 66.0
 
-[node name="ShipLabel" type="Label" parent="DebugOptsVBox/HBoxContainer2"]
+[node name="ShipLabel" type="Label" parent="DebugOptsVBox/TabContainer/Ships/VBoxContainer/DestroyersHB"]
 margin_top = 4.0
 margin_right = 122.0
 margin_bottom = 26.0
 text = "Destroyers:"
 
-[node name="DestroyerSelect" type="OptionButton" parent="DebugOptsVBox/HBoxContainer2"]
+[node name="DestroyerSelect" type="OptionButton" parent="DebugOptsVBox/TabContainer/Ships/VBoxContainer/DestroyersHB"]
 margin_left = 128.0
 margin_right = 248.0
 margin_bottom = 30.0
 rect_min_size = Vector2( 120, 0 )
 
-[node name="HBoxContainer3" type="HBoxContainer" parent="DebugOptsVBox"]
+[node name="CorvettesHB" type="HBoxContainer" parent="DebugOptsVBox/TabContainer/Ships/VBoxContainer"]
 margin_top = 72.0
-margin_right = 390.0
+margin_right = 354.0
 margin_bottom = 102.0
 
-[node name="ShipLabel" type="Label" parent="DebugOptsVBox/HBoxContainer3"]
+[node name="ShipLabel" type="Label" parent="DebugOptsVBox/TabContainer/Ships/VBoxContainer/CorvettesHB"]
 margin_top = 4.0
 margin_right = 112.0
 margin_bottom = 26.0
 text = "Corvettes:"
 
-[node name="CorvetteSelect" type="OptionButton" parent="DebugOptsVBox/HBoxContainer3"]
+[node name="CorvetteSelect" type="OptionButton" parent="DebugOptsVBox/TabContainer/Ships/VBoxContainer/CorvettesHB"]
 margin_left = 118.0
 margin_right = 238.0
 margin_bottom = 30.0
 rect_min_size = Vector2( 120, 0 )
 
-[node name="HBoxContainer4" type="HBoxContainer" parent="DebugOptsVBox"]
+[node name="HBoxContainer4" type="HBoxContainer" parent="DebugOptsVBox/TabContainer/Ships/VBoxContainer"]
 margin_top = 108.0
-margin_right = 390.0
+margin_right = 354.0
 margin_bottom = 138.0
 
-[node name="ShipLabel" type="Label" parent="DebugOptsVBox/HBoxContainer4"]
+[node name="ShipLabel" type="Label" parent="DebugOptsVBox/TabContainer/Ships/VBoxContainer/HBoxContainer4"]
 margin_top = 4.0
 margin_right = 142.0
 margin_bottom = 26.0
 text = "Dreadnoughts:"
 
-[node name="DreadnoughtSelect" type="OptionButton" parent="DebugOptsVBox/HBoxContainer4"]
+[node name="DreadnoughtSelect" type="OptionButton" parent="DebugOptsVBox/TabContainer/Ships/VBoxContainer/HBoxContainer4"]
 margin_left = 148.0
 margin_right = 268.0
 margin_bottom = 30.0
 rect_min_size = Vector2( 120, 0 )
 
-[node name="HBoxContainer5" type="HBoxContainer" parent="DebugOptsVBox"]
-margin_top = 144.0
-margin_right = 390.0
-margin_bottom = 166.0
+[node name="Damage" type="PanelContainer" parent="DebugOptsVBox/TabContainer"]
+visible = false
+anchor_right = 1.0
+anchor_bottom = 1.0
+margin_left = 9.0
+margin_top = 28.0
+margin_right = -9.0
+margin_bottom = -6.0
 
-[node name="Take Damage" type="Label" parent="DebugOptsVBox/HBoxContainer5"]
+[node name="HBoxContainer5" type="HBoxContainer" parent="DebugOptsVBox/TabContainer/Damage"]
+margin_left = 9.0
+margin_top = 6.0
+margin_right = 363.0
+margin_bottom = 28.0
+size_flags_vertical = 0
+
+[node name="Take Damage" type="Label" parent="DebugOptsVBox/TabContainer/Damage/HBoxContainer5"]
 margin_right = 132.0
 margin_bottom = 22.0
 text = "Take Damage:"
 
-[node name="TakeDamage10" type="Button" parent="DebugOptsVBox/HBoxContainer5"]
+[node name="TakeDamage10" type="Button" parent="DebugOptsVBox/TabContainer/Damage/HBoxContainer5"]
 margin_left = 138.0
 margin_right = 176.0
 margin_bottom = 22.0
@@ -121,7 +159,7 @@ __meta__ = {
 "_edit_use_anchors_": false
 }
 
-[node name="TakeDamage25" type="Button" parent="DebugOptsVBox/HBoxContainer5"]
+[node name="TakeDamage25" type="Button" parent="DebugOptsVBox/TabContainer/Damage/HBoxContainer5"]
 margin_left = 182.0
 margin_right = 220.0
 margin_bottom = 22.0
@@ -130,7 +168,7 @@ __meta__ = {
 "_edit_use_anchors_": false
 }
 
-[node name="TakeDamage50" type="Button" parent="DebugOptsVBox/HBoxContainer5"]
+[node name="TakeDamage50" type="Button" parent="DebugOptsVBox/TabContainer/Damage/HBoxContainer5"]
 margin_left = 226.0
 margin_right = 264.0
 margin_bottom = 22.0
@@ -139,24 +177,54 @@ __meta__ = {
 "_edit_use_anchors_": false
 }
 
+[node name="GameState" type="PanelContainer" parent="DebugOptsVBox/TabContainer"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+margin_left = 9.0
+margin_top = 28.0
+margin_right = -9.0
+margin_bottom = -6.0
+
+[node name="StateHB" type="HBoxContainer" parent="DebugOptsVBox/TabContainer/GameState"]
+margin_left = 9.0
+margin_top = 6.0
+margin_right = 363.0
+margin_bottom = 28.0
+size_flags_vertical = 0
+
+[node name="SuccessMission" type="Label" parent="DebugOptsVBox/TabContainer/GameState/StateHB"]
+margin_right = 232.0
+margin_bottom = 22.0
+text = "End Mission (Success):"
+
+[node name="SuccessMission2" type="Button" parent="DebugOptsVBox/TabContainer/GameState/StateHB"]
+margin_left = 238.0
+margin_right = 266.0
+margin_bottom = 22.0
+text = "X"
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
 [connection signal="mouse_entered" from="." to="." method="_on_PlayerDebugMenu_mouse_entered"]
 [connection signal="mouse_exited" from="." to="." method="_on_PlayerDebugMenu_mouse_exited"]
 [connection signal="mouse_entered" from="TopBar" to="." method="_on_TopBar_mouse_entered"]
 [connection signal="mouse_exited" from="TopBar" to="." method="_on_TopBar_mouse_exited"]
-[connection signal="item_selected" from="DebugOptsVBox/HBoxContainer/FrigateSelect" to="." method="_on_ShipSelect_item_selected"]
-[connection signal="mouse_entered" from="DebugOptsVBox/HBoxContainer/FrigateSelect" to="." method="_on_ShipSelect_mouse_entered"]
-[connection signal="mouse_exited" from="DebugOptsVBox/HBoxContainer/FrigateSelect" to="." method="_on_ShipSelect_mouse_exited"]
-[connection signal="item_selected" from="DebugOptsVBox/HBoxContainer2/DestroyerSelect" to="." method="_on_DestroyerSelect_item_selected"]
-[connection signal="mouse_entered" from="DebugOptsVBox/HBoxContainer2/DestroyerSelect" to="." method="_on_ShipSelect_mouse_entered"]
-[connection signal="mouse_exited" from="DebugOptsVBox/HBoxContainer2/DestroyerSelect" to="." method="_on_ShipSelect_mouse_exited"]
-[connection signal="item_selected" from="DebugOptsVBox/HBoxContainer3/CorvetteSelect" to="." method="_on_CorvetteSelect_item_selected"]
-[connection signal="mouse_entered" from="DebugOptsVBox/HBoxContainer3/CorvetteSelect" to="." method="_on_ShipSelect_mouse_entered"]
-[connection signal="mouse_exited" from="DebugOptsVBox/HBoxContainer3/CorvetteSelect" to="." method="_on_ShipSelect_mouse_exited"]
-[connection signal="item_selected" from="DebugOptsVBox/HBoxContainer4/DreadnoughtSelect" to="." method="_on_DreadnoughtSelect_item_selected"]
-[connection signal="mouse_entered" from="DebugOptsVBox/HBoxContainer4/DreadnoughtSelect" to="." method="_on_ShipSelect_mouse_entered"]
-[connection signal="mouse_exited" from="DebugOptsVBox/HBoxContainer4/DreadnoughtSelect" to="." method="_on_ShipSelect_mouse_exited"]
-[connection signal="pressed" from="DebugOptsVBox/HBoxContainer5/TakeDamage10" to="." method="_on_TakeDamage10_pressed"]
-[connection signal="pressed" from="DebugOptsVBox/HBoxContainer5/TakeDamage25" to="." method="_on_TakeDamage25_pressed"]
-[connection signal="pressed" from="DebugOptsVBox/HBoxContainer5/TakeDamage50" to="." method="_on_TakeDamage50_pressed"]
+[connection signal="item_selected" from="DebugOptsVBox/TabContainer/Ships/VBoxContainer/FrigatesHB/FrigateSelect" to="." method="_on_ShipSelect_item_selected"]
+[connection signal="mouse_entered" from="DebugOptsVBox/TabContainer/Ships/VBoxContainer/FrigatesHB/FrigateSelect" to="." method="_on_ShipSelect_mouse_entered"]
+[connection signal="mouse_exited" from="DebugOptsVBox/TabContainer/Ships/VBoxContainer/FrigatesHB/FrigateSelect" to="." method="_on_ShipSelect_mouse_exited"]
+[connection signal="item_selected" from="DebugOptsVBox/TabContainer/Ships/VBoxContainer/DestroyersHB/DestroyerSelect" to="." method="_on_DestroyerSelect_item_selected"]
+[connection signal="mouse_entered" from="DebugOptsVBox/TabContainer/Ships/VBoxContainer/DestroyersHB/DestroyerSelect" to="." method="_on_ShipSelect_mouse_entered"]
+[connection signal="mouse_exited" from="DebugOptsVBox/TabContainer/Ships/VBoxContainer/DestroyersHB/DestroyerSelect" to="." method="_on_ShipSelect_mouse_exited"]
+[connection signal="item_selected" from="DebugOptsVBox/TabContainer/Ships/VBoxContainer/CorvettesHB/CorvetteSelect" to="." method="_on_CorvetteSelect_item_selected"]
+[connection signal="mouse_entered" from="DebugOptsVBox/TabContainer/Ships/VBoxContainer/CorvettesHB/CorvetteSelect" to="." method="_on_ShipSelect_mouse_entered"]
+[connection signal="mouse_exited" from="DebugOptsVBox/TabContainer/Ships/VBoxContainer/CorvettesHB/CorvetteSelect" to="." method="_on_ShipSelect_mouse_exited"]
+[connection signal="item_selected" from="DebugOptsVBox/TabContainer/Ships/VBoxContainer/HBoxContainer4/DreadnoughtSelect" to="." method="_on_DreadnoughtSelect_item_selected"]
+[connection signal="mouse_entered" from="DebugOptsVBox/TabContainer/Ships/VBoxContainer/HBoxContainer4/DreadnoughtSelect" to="." method="_on_ShipSelect_mouse_entered"]
+[connection signal="mouse_exited" from="DebugOptsVBox/TabContainer/Ships/VBoxContainer/HBoxContainer4/DreadnoughtSelect" to="." method="_on_ShipSelect_mouse_exited"]
+[connection signal="pressed" from="DebugOptsVBox/TabContainer/Damage/HBoxContainer5/TakeDamage10" to="." method="_on_TakeDamage10_pressed"]
+[connection signal="pressed" from="DebugOptsVBox/TabContainer/Damage/HBoxContainer5/TakeDamage25" to="." method="_on_TakeDamage25_pressed"]
+[connection signal="pressed" from="DebugOptsVBox/TabContainer/Damage/HBoxContainer5/TakeDamage50" to="." method="_on_TakeDamage50_pressed"]
+[connection signal="pressed" from="DebugOptsVBox/TabContainer/GameState/StateHB/SuccessMission2" to="." method="_on_SuccessMission2_pressed"]
 
 [editable path="TopBar"]

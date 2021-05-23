@@ -43,6 +43,7 @@ onready var end_mission_screen = preload("res://UI/Menu/EndMissionScreen.tscn")
 onready var player_canvas = $PlayerUICanvas
 
 onready var char_sheet = $PlayerUICanvas/CharacterSheet
+onready var debug_menu = $PlayerUICanvas/PlayerDebugMenu
 
 onready var inventory = $PlayerUICanvas/Inventory
 
@@ -290,6 +291,16 @@ func fire_mining_lasers():
 
 func release_mining_lasers():
 	piloted_ship.release_mining_lasers()
+
+# Useful for End Mission
+func _hide_all_overlays():
+	char_sheet.visible = false
+	inventory.visisble = false
+	vector_grid.visible = false
+	debug_menu.visible = false
+	
+	
+	pass
 
 func _target_change(val):
 	#print("_target_change: ", val)

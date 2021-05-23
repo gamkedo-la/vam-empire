@@ -21,7 +21,9 @@ func _ready():
 	PlayerVars.connect("shield_max_health_changed", self, "_on_PlayerVars_stat_change", [null])	
 
 	PlayerVars.connect("energy_reserve_changed", self, "_on_PlayerVars_stat_change", [null])	
-	PlayerVars.connect("energy_max_reserve_changed", self, "_on_PlayerVars_stat_change", [null])	
+	PlayerVars.connect("energy_max_reserve_changed", self, "_on_PlayerVars_stat_change", [null])
+	
+	PlayerVars.connect("mission_complete", self, "_mission_complete")
 	
 		
 func _on_PlayerVars_stat_change(_amount, change_amount, animation_player):
@@ -38,3 +40,6 @@ func _refresh_settings():
 	hullHealthBar.self_modulate.a = UserSettings.current.ui.shipHUD_opacity
 	energyReserveBar.self_modulate.a = UserSettings.current.ui.shipHUD_opacity
 	currencyText.self_modulate.a = UserSettings.current.ui.shipHUD_opacity
+
+func _mission_complete() -> void:
+	self.visible = false

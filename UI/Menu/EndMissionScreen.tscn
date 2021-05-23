@@ -7,6 +7,9 @@
 pause_mode = 2
 anchor_right = 1.0
 anchor_bottom = 1.0
+rect_pivot_offset = Vector2( 480, 270 )
+focus_next = NodePath("MarginContainer/MainHB/KillStats/VBoxContainer/ReturnButton")
+focus_mode = 2
 script = ExtResource( 2 )
 __meta__ = {
 "_edit_use_anchors_": false
@@ -29,6 +32,13 @@ custom_constants/margin_bottom = 45
 __meta__ = {
 "_edit_use_anchors_": false
 }
+
+[node name="ColorRect" type="ColorRect" parent="MarginContainer"]
+margin_left = 45.0
+margin_top = 45.0
+margin_right = 915.0
+margin_bottom = 495.0
+color = Color( 0.47451, 0.227451, 0.501961, 0.290196 )
 
 [node name="MainHB" type="HBoxContainer" parent="MarginContainer"]
 margin_left = 45.0
@@ -124,6 +134,11 @@ size_flags_horizontal = 4
 size_flags_vertical = 4
 text = "Return to Base"
 
+[node name="TallySound" type="AudioStreamPlayer2D" parent="."]
+
+[node name="MainTween" type="Tween" parent="."]
+
 [connection signal="focus_entered" from="MarginContainer/MainHB/KillStats/VBoxContainer/ReturnButton" to="." method="_on_ReturnButton_focus_entered"]
 [connection signal="mouse_entered" from="MarginContainer/MainHB/KillStats/VBoxContainer/ReturnButton" to="." method="_on_ReturnButton_mouse_entered"]
 [connection signal="pressed" from="MarginContainer/MainHB/KillStats/VBoxContainer/ReturnButton" to="." method="_on_ReturnButton_pressed"]
+[connection signal="tween_completed" from="MainTween" to="." method="_on_MainTween_tween_completed"]

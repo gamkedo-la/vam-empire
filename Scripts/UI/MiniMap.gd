@@ -19,6 +19,7 @@ func _ready():
 	UserSettings.connect("ui_refresh", self, "_refresh_settings")
 	_refresh_settings()
 	zoomtimer.connect("timeout", self, "_hide_zoom_lbl")	
+	PlayerVars.connect("mission_complete", self, "_mission_complete")
 
 func _initialize():
 	player_marker.position = pixel_grid.rect_size/2
@@ -109,3 +110,6 @@ func _on_MiniMap_gui_input(event):
 			self.zoom += 0.5
 		if event.button_index == BUTTON_WHEEL_DOWN:
 			self.zoom -= 0.5
+			
+func _mission_complete() -> void:
+	self.visible = false
