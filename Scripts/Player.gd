@@ -71,7 +71,8 @@ func _ready():
 	PlayerVars.connect("target_change", self, "_target_change")
 	PlayerVars.connect("energy_reserve_changed", self, "_on_energy_reserve_changed")
 	PlayerVars.connect("mission_complete", self, "_end_mission_screen")
-
+	# Let the char sheet know about updated values
+	char_sheet.update_values()
 	rng.randomize()
 
 func _process(_delta):
@@ -239,31 +240,22 @@ func load_hardpoints():
 
 func instantiate_ship_variables():
 	ACCELERATION = piloted_ship.ACCELERATION
-	char_sheet.add_sheetStat("Acceleration", ACCELERATION)
 	MAX_SPEED = piloted_ship.MAX_SPEED
-	char_sheet.add_sheetStat("Max Speed", MAX_SPEED)
 	FRICTION = piloted_ship.FRICTION
-	char_sheet.add_sheetStat("Friction", FRICTION)
 	MASS = piloted_ship.MASS
-	char_sheet.add_sheetStat("Mass", MASS) 
 	ROT_SPEED = piloted_ship.ROT_SPEED
-	char_sheet.add_sheetStat("Rotation Speed", ROT_SPEED)
 	ROT_ACCEL = piloted_ship.ROT_ACCEL
-	char_sheet.add_sheetStat("Rotation Acceleration", ROT_ACCEL)
 	
 	# TODO: move setting char sheet variables to a PlayerVars.connect() signal hookup
 	# order matters! need to set max_* values before regular values. the setters clamp the stat values by the max values
 	PlayerVars.shield_max_health = piloted_ship.shieldHealth
 	PlayerVars.shield_health = piloted_ship.shieldHealth
-	char_sheet.add_sheetStat("Shield Health", piloted_ship.shieldHealth)
 	PlayerVars.hull_max_health = piloted_ship.hullHealth
 	PlayerVars.hull_health = piloted_ship.hullHealth
-	char_sheet.add_sheetStat("Hull Health", piloted_ship.hullHealth)
 	PlayerVars.energy_max_reserve = piloted_ship.energyReserve
 	PlayerVars.energy_reserve = piloted_ship.energyReserve
 	PlayerVars.energy_recovery_per_s = piloted_ship.energyRecoverPerS
 	PlayerVars.energy_recovery_delay_s = piloted_ship.energyRecoveryDelayS
-	char_sheet.add_sheetStat("Energy Reserve", piloted_ship.energyReserve)
 
 func pilot_ship_from_pack(ship):
 	var hull_colliders =  self.get_tree().get_nodes_in_group("HullCollider")

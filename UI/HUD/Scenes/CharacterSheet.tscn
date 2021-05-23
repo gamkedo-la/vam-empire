@@ -1,35 +1,424 @@
-[gd_scene load_steps=4 format=2]
+[gd_scene load_steps=9 format=2]
 
 [ext_resource path="res://Scripts/UI/CharacterSheet.gd" type="Script" id=1]
 [ext_resource path="res://UI/HUD/Scenes/DraggableBar.tscn" type="PackedScene" id=2]
 [ext_resource path="res://UI/Theme/darkred_theme.tres" type="Theme" id=3]
+[ext_resource path="res://UI/HUD/PanelContainerStyle.tres" type="StyleBox" id=4]
+[ext_resource path="res://UI/HUD/Textures/CharacterPortraits/Portrait1X.png" type="Texture" id=5]
 
-[node name="CharacterSheet" type="Panel"]
+[sub_resource type="StyleBoxFlat" id=1]
+bg_color = Color( 0.0784314, 0.0627451, 0.0745098, 1 )
+corner_radius_top_left = 20
+corner_radius_top_right = 20
+corner_radius_bottom_right = 10
+corner_radius_bottom_left = 10
+
+[sub_resource type="Animation" id=2]
+resource_name = "Hide"
+length = 0.3
+tracks/0/type = "bezier"
+tracks/0/path = NodePath(".:rect_position:x")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"points": PoolRealArray( 0, -0.25, 0, 0.25, 0, 0, -0.25, 0, 0.25, 0 ),
+"times": PoolRealArray( 0, 0.3 )
+}
+tracks/1/type = "bezier"
+tracks/1/path = NodePath(".:rect_position:y")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/keys = {
+"points": PoolRealArray( 0, -0.25, 0, 0.25, 0, -430, -0.25, 0, 0.25, 0 ),
+"times": PoolRealArray( 0, 0.3 )
+}
+tracks/2/type = "value"
+tracks/2/path = NodePath(".:visible")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/keys = {
+"times": PoolRealArray( 0.3 ),
+"transitions": PoolRealArray( 1 ),
+"update": 1,
+"values": [ false ]
+}
+
+[sub_resource type="Animation" id=3]
+resource_name = "Show"
+tracks/0/type = "bezier"
+tracks/0/path = NodePath(".:rect_position:y")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"points": PoolRealArray( -430, -0.25, 0, 0.25, 0, 30, -0.25, 0, 0.25, 0, -10, -0.25, 0, 0.25, 0, 0, -0.25, 0, 0.25, 0 ),
+"times": PoolRealArray( 0, 0.3, 0.6, 0.9 )
+}
+
+[node name="CharacterSheet" type="PanelContainer"]
+visible = false
 self_modulate = Color( 0.588235, 0.588235, 0.588235, 1 )
-margin_right = 384.0
-margin_bottom = 405.0
-rect_min_size = Vector2( 384, 405 )
+margin_top = -430.0
+margin_right = 606.0
+margin_bottom = -150.0
+size_flags_horizontal = 3
+size_flags_vertical = 4
 theme = ExtResource( 3 )
+custom_styles/panel = SubResource( 1 )
 script = ExtResource( 1 )
 __meta__ = {
 "_edit_use_anchors_": false
 }
 
-[node name="TopBar" parent="." instance=ExtResource( 2 )]
-margin_right = 384.0
-margin_bottom = 30.0
-rect_min_size = Vector2( 384, 30 )
-
-[node name="CharVBox" type="VBoxContainer" parent="."]
-anchor_top = 0.216
-anchor_right = 1.0
-anchor_bottom = 1.0
-margin_top = -26.0
+[node name="MainVBoxContainer" type="VBoxContainer" parent="."]
+margin_right = 606.0
+margin_bottom = 280.0
+size_flags_horizontal = 3
+size_flags_vertical = 7
 __meta__ = {
 "_edit_use_anchors_": false
 }
 
+[node name="TopBar" parent="MainVBoxContainer" instance=ExtResource( 2 )]
+margin_right = 606.0
+margin_bottom = 30.0
+rect_min_size = Vector2( 384, 30 )
+
+[node name="Label" parent="MainVBoxContainer/TopBar" index="0"]
+anchor_top = 0.5
+anchor_bottom = 0.5
+margin_left = -76.0
+margin_top = -18.5
+margin_right = 76.0
+margin_bottom = 18.5
+grow_horizontal = 2
+grow_vertical = 2
+size_flags_horizontal = 7
+text = "Miner's License"
+align = 1
+valign = 1
+
+[node name="PortraitAndShipHBoxContainer" type="HBoxContainer" parent="MainVBoxContainer"]
+margin_top = 36.0
+margin_right = 606.0
+margin_bottom = 140.0
+custom_constants/separation = 15
+alignment = 1
+
+[node name="MarginContainer" type="MarginContainer" parent="MainVBoxContainer/PortraitAndShipHBoxContainer"]
+margin_left = 58.0
+margin_right = 282.0
+margin_bottom = 104.0
+size_flags_horizontal = 0
+custom_constants/margin_top = 8
+custom_constants/margin_left = 12
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="PortraitContainer" type="VBoxContainer" parent="MainVBoxContainer/PortraitAndShipHBoxContainer/MarginContainer"]
+margin_left = 12.0
+margin_top = 8.0
+margin_right = 224.0
+margin_bottom = 104.0
+size_flags_horizontal = 0
+size_flags_vertical = 7
+theme = ExtResource( 3 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Buffer" type="MarginContainer" parent="MainVBoxContainer/PortraitAndShipHBoxContainer/MarginContainer/PortraitContainer"]
+margin_right = 212.0
+margin_bottom = 68.0
+custom_constants/margin_right = 72
+custom_constants/margin_left = 72
+
+[node name="PanelContainer" type="PanelContainer" parent="MainVBoxContainer/PortraitAndShipHBoxContainer/MarginContainer/PortraitContainer/Buffer"]
+margin_left = 72.0
+margin_right = 76.0
+margin_bottom = 4.0
+size_flags_horizontal = 0
+size_flags_vertical = 0
+custom_styles/panel = ExtResource( 4 )
+
+[node name="Portrait" type="TextureRect" parent="MainVBoxContainer/PortraitAndShipHBoxContainer/MarginContainer/PortraitContainer/Buffer/PanelContainer"]
+margin_left = 2.0
+margin_top = 2.0
+margin_right = 66.0
+margin_bottom = 66.0
+texture = ExtResource( 5 )
+stretch_mode = 6
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="NameLabel" type="Label" parent="MainVBoxContainer/PortraitAndShipHBoxContainer/MarginContainer/PortraitContainer"]
+margin_top = 74.0
+margin_right = 212.0
+margin_bottom = 96.0
+size_flags_horizontal = 3
+size_flags_vertical = 0
+text = "ABCDEFGHIJKLMNOPQRST"
+align = 1
+
+[node name="VBoxContainer" type="VBoxContainer" parent="MainVBoxContainer/PortraitAndShipHBoxContainer"]
+margin_left = 297.0
+margin_right = 547.0
+margin_bottom = 104.0
+alignment = 1
+
+[node name="ShipNameHBox" type="HBoxContainer" parent="MainVBoxContainer/PortraitAndShipHBoxContainer/VBoxContainer"]
+margin_top = 27.0
+margin_right = 250.0
+margin_bottom = 49.0
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="ShipNameLabel" type="Label" parent="MainVBoxContainer/PortraitAndShipHBoxContainer/VBoxContainer/ShipNameHBox"]
+margin_right = 112.0
+margin_bottom = 22.0
+text = "Ship Name:"
+
+[node name="Ship" type="Label" parent="MainVBoxContainer/PortraitAndShipHBoxContainer/VBoxContainer/ShipNameHBox"]
+margin_left = 118.0
+margin_right = 250.0
+margin_bottom = 22.0
+size_flags_horizontal = 11
+text = "Starter Ship"
+align = 2
+
+[node name="ShipClassHBox" type="HBoxContainer" parent="MainVBoxContainer/PortraitAndShipHBoxContainer/VBoxContainer"]
+margin_top = 55.0
+margin_right = 250.0
+margin_bottom = 77.0
+alignment = 1
+
+[node name="ShipClassLabel" type="Label" parent="MainVBoxContainer/PortraitAndShipHBoxContainer/VBoxContainer/ShipClassHBox"]
+margin_right = 122.0
+margin_bottom = 22.0
+text = "Ship Class:"
+
+[node name="Label" type="Label" parent="MainVBoxContainer/PortraitAndShipHBoxContainer/VBoxContainer/ShipClassHBox"]
+margin_left = 128.0
+margin_right = 250.0
+margin_bottom = 22.0
+size_flags_horizontal = 11
+text = "Frigate"
+align = 2
+
+[node name="StatsHBox" type="HBoxContainer" parent="MainVBoxContainer"]
+margin_top = 146.0
+margin_right = 606.0
+margin_bottom = 280.0
+alignment = 1
+
+[node name="LeftColumn" type="VBoxContainer" parent="MainVBoxContainer/StatsHBox"]
+margin_right = 260.0
+margin_bottom = 134.0
+
+[node name="HullHBox" type="HBoxContainer" parent="MainVBoxContainer/StatsHBox/LeftColumn"]
+margin_right = 260.0
+margin_bottom = 22.0
+
+[node name="HullLabel" type="Label" parent="MainVBoxContainer/StatsHBox/LeftColumn/HullHBox"]
+margin_right = 152.0
+margin_bottom = 22.0
+text = "Hull Strength:"
+
+[node name="Label" type="Label" parent="MainVBoxContainer/StatsHBox/LeftColumn/HullHBox"]
+margin_left = 158.0
+margin_right = 260.0
+margin_bottom = 22.0
+size_flags_horizontal = 7
+custom_colors/font_color = Color( 0.705882, 0.12549, 0.164706, 1 )
+text = "100/100"
+align = 2
+
+[node name="ShieldHBox" type="HBoxContainer" parent="MainVBoxContainer/StatsHBox/LeftColumn"]
+margin_top = 28.0
+margin_right = 260.0
+margin_bottom = 50.0
+
+[node name="ShieldLabel" type="Label" parent="MainVBoxContainer/StatsHBox/LeftColumn/ShieldHBox"]
+margin_right = 172.0
+margin_bottom = 22.0
+text = "Shield Strength:"
+
+[node name="Label" type="Label" parent="MainVBoxContainer/StatsHBox/LeftColumn/ShieldHBox"]
+margin_left = 178.0
+margin_right = 260.0
+margin_bottom = 22.0
+size_flags_horizontal = 7
+custom_colors/font_color = Color( 0.156863, 0.360784, 0.768627, 1 )
+text = "100/100"
+align = 2
+
+[node name="AccelerationHBox" type="HBoxContainer" parent="MainVBoxContainer/StatsHBox/LeftColumn"]
+margin_top = 56.0
+margin_right = 260.0
+margin_bottom = 78.0
+
+[node name="AccelerationLabel" type="Label" parent="MainVBoxContainer/StatsHBox/LeftColumn/AccelerationHBox"]
+margin_right = 142.0
+margin_bottom = 22.0
+text = "Acceleration:"
+
+[node name="Label" type="Label" parent="MainVBoxContainer/StatsHBox/LeftColumn/AccelerationHBox"]
+margin_left = 148.0
+margin_right = 260.0
+margin_bottom = 22.0
+size_flags_horizontal = 7
+text = "500 m/s^2"
+align = 2
+
+[node name="MaxSpeedHBox" type="HBoxContainer" parent="MainVBoxContainer/StatsHBox/LeftColumn"]
+margin_top = 84.0
+margin_right = 260.0
+margin_bottom = 106.0
+
+[node name="MaxSpeedLabel" type="Label" parent="MainVBoxContainer/StatsHBox/LeftColumn/MaxSpeedHBox"]
+margin_right = 112.0
+margin_bottom = 22.0
+text = "Max Speed:"
+
+[node name="Label" type="Label" parent="MainVBoxContainer/StatsHBox/LeftColumn/MaxSpeedHBox"]
+margin_left = 118.0
+margin_right = 260.0
+margin_bottom = 22.0
+size_flags_horizontal = 7
+text = "4000 m/s"
+align = 2
+
+[node name="RotationSpeedHBox" type="HBoxContainer" parent="MainVBoxContainer/StatsHBox/LeftColumn"]
+margin_top = 112.0
+margin_right = 260.0
+margin_bottom = 134.0
+
+[node name="RotationSpeedLabel" type="Label" parent="MainVBoxContainer/StatsHBox/LeftColumn/RotationSpeedHBox"]
+margin_right = 162.0
+margin_bottom = 22.0
+text = "Rotation Speed:"
+
+[node name="Label" type="Label" parent="MainVBoxContainer/StatsHBox/LeftColumn/RotationSpeedHBox"]
+margin_left = 168.0
+margin_right = 260.0
+margin_bottom = 22.0
+size_flags_horizontal = 7
+text = "4000 m/s"
+align = 2
+
+[node name="RightColumn" type="VBoxContainer" parent="MainVBoxContainer/StatsHBox"]
+margin_left = 266.0
+margin_right = 606.0
+margin_bottom = 134.0
+
+[node name="EnergyHBox" type="HBoxContainer" parent="MainVBoxContainer/StatsHBox/RightColumn"]
+margin_right = 340.0
+margin_bottom = 22.0
+
+[node name="EnergyLabel" type="Label" parent="MainVBoxContainer/StatsHBox/RightColumn/EnergyHBox"]
+margin_right = 172.0
+margin_bottom = 22.0
+text = "Energy Reserves:"
+
+[node name="Label" type="Label" parent="MainVBoxContainer/StatsHBox/RightColumn/EnergyHBox"]
+margin_left = 178.0
+margin_right = 340.0
+margin_bottom = 22.0
+size_flags_horizontal = 7
+custom_colors/font_color = Color( 0.0784314, 0.627451, 0.180392, 1 )
+text = "3.00/100.00 KWh"
+align = 2
+
+[node name="EnergyRecoveryHBox" type="HBoxContainer" parent="MainVBoxContainer/StatsHBox/RightColumn"]
+margin_top = 28.0
+margin_right = 340.0
+margin_bottom = 50.0
+
+[node name="EnergyLabel" type="Label" parent="MainVBoxContainer/StatsHBox/RightColumn/EnergyRecoveryHBox"]
+margin_right = 172.0
+margin_bottom = 22.0
+text = "Energy Recovery:"
+
+[node name="Label" type="Label" parent="MainVBoxContainer/StatsHBox/RightColumn/EnergyRecoveryHBox"]
+margin_left = 178.0
+margin_right = 340.0
+margin_bottom = 22.0
+size_flags_horizontal = 7
+custom_colors/font_color = Color( 0.0784314, 0.627451, 0.180392, 1 )
+text = "100/s"
+align = 2
+
+[node name="FrictionHBox" type="HBoxContainer" parent="MainVBoxContainer/StatsHBox/RightColumn"]
+margin_top = 56.0
+margin_right = 340.0
+margin_bottom = 78.0
+
+[node name="FrictionLabel" type="Label" parent="MainVBoxContainer/StatsHBox/RightColumn/FrictionHBox"]
+margin_right = 102.0
+margin_bottom = 22.0
+text = "Friction:"
+
+[node name="Label" type="Label" parent="MainVBoxContainer/StatsHBox/RightColumn/FrictionHBox"]
+margin_left = 108.0
+margin_right = 340.0
+margin_bottom = 22.0
+size_flags_horizontal = 7
+text = "400 m/s^2"
+align = 2
+
+[node name="MassHBox" type="HBoxContainer" parent="MainVBoxContainer/StatsHBox/RightColumn"]
+margin_top = 84.0
+margin_right = 340.0
+margin_bottom = 106.0
+
+[node name="MassLabel" type="Label" parent="MainVBoxContainer/StatsHBox/RightColumn/MassHBox"]
+margin_right = 62.0
+margin_bottom = 22.0
+text = "Mass:"
+
+[node name="Label" type="Label" parent="MainVBoxContainer/StatsHBox/RightColumn/MassHBox"]
+margin_left = 68.0
+margin_right = 340.0
+margin_bottom = 22.0
+size_flags_horizontal = 7
+text = "3000 Tons"
+align = 2
+
+[node name="HardpointsHBox" type="HBoxContainer" parent="MainVBoxContainer/StatsHBox/RightColumn"]
+margin_top = 112.0
+margin_right = 340.0
+margin_bottom = 134.0
+
+[node name="HardpointsLabel" type="Label" parent="MainVBoxContainer/StatsHBox/RightColumn/HardpointsHBox"]
+margin_right = 122.0
+margin_bottom = 22.0
+text = "Hardpoints:"
+
+[node name="Label" type="Label" parent="MainVBoxContainer/StatsHBox/RightColumn/HardpointsHBox"]
+margin_left = 128.0
+margin_right = 340.0
+margin_bottom = 22.0
+size_flags_horizontal = 7
+text = "3"
+align = 2
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+anims/Hide = SubResource( 2 )
+anims/Show = SubResource( 3 )
+
 [connection signal="mouse_entered" from="." to="." method="_on_CharacterSheet_mouse_entered"]
 [connection signal="mouse_exited" from="." to="." method="_on_CharacterSheet_mouse_exited"]
+[connection signal="mouse_entered" from="MainVBoxContainer/TopBar" to="." method="_on_TopBar_mouse_entered"]
+[connection signal="mouse_exited" from="MainVBoxContainer/TopBar" to="." method="_on_TopBar_mouse_exited"]
 
-[editable path="TopBar"]
+[editable path="MainVBoxContainer/TopBar"]

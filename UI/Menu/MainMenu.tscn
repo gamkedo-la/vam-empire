@@ -2329,6 +2329,7 @@ margin_left = 164.0
 margin_right = 444.0
 margin_bottom = 22.0
 rect_min_size = Vector2( 280, 20 )
+max_length = 20
 clear_button_enabled = true
 placeholder_text = "John Cry'ton"
 

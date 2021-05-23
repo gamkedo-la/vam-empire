@@ -61,11 +61,15 @@ func set_target(val):
 func get_target():
 	return target
 
+func emit_signal_if_value_changed(signal_name, value, change_amount):
+	if change_amount != 0:
+		emit_signal(signal_name, value, change_amount)
+
 func set_shield_health(val):
 	var previous_val = shield_health
 	shield_health = val
 	shield_health = clamp(shield_health, 0, shield_max_health)
-	emit_signal("shield_health_changed", shield_health, shield_health - previous_val)
+	emit_signal_if_value_changed("shield_health_changed", shield_health, shield_health - previous_val)
 	
 func set_hull_health(val):
 	var previous_val = hull_health
@@ -75,31 +79,31 @@ func set_hull_health(val):
 		print_debug("Player died...")
 		emit_signal("player_died")
 	
-	emit_signal("hull_health_changed", hull_health, hull_health - previous_val)
+	emit_signal_if_value_changed("hull_health_changed", hull_health, hull_health - previous_val)
 	
 func set_energy_reserve(val):
 	var previous_val = energy_reserve
 	energy_reserve = val
 	energy_reserve = clamp(energy_reserve, 0, energy_max_reserve)
-	emit_signal("energy_reserve_changed", energy_reserve, energy_reserve - previous_val)
+	emit_signal_if_value_changed("energy_reserve_changed", energy_reserve, energy_reserve - previous_val)
 	
 func set_shield_max_health(val):
 	var previous_val = shield_max_health
 	shield_max_health = val
 	self.shield_health = min(shield_health, shield_max_health)
-	emit_signal("shield_max_health_changed", shield_max_health, shield_max_health - previous_val)
+	emit_signal_if_value_changed("shield_max_health_changed", shield_max_health, shield_max_health - previous_val)
 	
 func set_hull_max_health(val):
 	var previous_val = hull_max_health
 	hull_max_health = val
 	self.hull_health = min(hull_health, hull_max_health)
-	emit_signal("hull_max_health_changed", shield_max_health, shield_max_health - previous_val)
+	emit_signal_if_value_changed("hull_max_health_changed", shield_max_health, shield_max_health - previous_val)
 
 func set_energy_max_reserve(val):
 	var previous_val = energy_max_reserve
 	energy_max_reserve = val
 	self.energy_reserve = min(energy_reserve, energy_max_reserve)
-	emit_signal("energy_max_reserve_changed", energy_max_reserve, energy_max_reserve - previous_val)
+	emit_signal_if_value_changed("energy_max_reserve_changed", energy_max_reserve, energy_max_reserve - previous_val)
 
 func set_energy_recovery_per_s(val):
 	energy_recovery_per_s = val
