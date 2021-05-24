@@ -1,4 +1,5 @@
 extends Node2D
+signal removed
 
 onready var sprite: Sprite = $Sprite
 onready var mineral_dust: Particles2D = $MineralDust
@@ -19,6 +20,7 @@ func _ready() -> void:
 func pickup() -> void:
 	PlayerVars.pickup_item(item_uuid)
 	sprite.visible = false
+	emit_signal("removed", self)
 	mineral_dust.set_emitting(false)
 	despawn_timer.start()
 	

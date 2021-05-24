@@ -15,8 +15,8 @@ angular_velocity = 360.0
 angular_velocity_random = 0.67
 orbit_velocity = 1.0
 orbit_velocity_random = 1.0
-radial_accel = 100.0
-radial_accel_random = 0.16
+radial_accel = 29.36
+radial_accel_random = 0.88
 angle = 1.0
 scale = 0.01
 scale_random = 0.03
@@ -24,7 +24,9 @@ color = Color( 1, 1, 1, 0.443137 )
 
 [sub_resource type="CircleShape2D" id=2]
 
-[node name="MineralDrop" type="Node2D"]
+[node name="MineralDrop" type="Node2D" groups=[
+"mini_map",
+]]
 position = Vector2( 480, 270 )
 script = ExtResource( 3 )
 
@@ -43,6 +45,7 @@ scale = Vector2( 0.25, 0.25 )
 texture = ExtResource( 2 )
 
 [node name="PickupTrigger" type="Area2D" parent="."]
+visible = false
 collision_layer = 16
 collision_mask = 0
 
