@@ -20,7 +20,7 @@ func load_image_from_db() -> void:
 	img.lock()
 	particle_color = img.get_pixel(16,16)
 	img.unlock()
-	print_debug("Color: ", particle_color, "Image: ", item_data.itemIcon)
+#	print_debug("Color: ", particle_color, "Image: ", item_data.itemIcon)
 
 func _generate_particles() -> void:
 	var proc_mat = mineral_dust.process_material.duplicate(true)
