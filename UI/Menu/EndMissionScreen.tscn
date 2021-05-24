@@ -135,6 +135,7 @@ size_flags_vertical = 4
 text = "Return to Base"
 
 [node name="TallySound" type="AudioStreamPlayer2D" parent="."]
+bus = "SFX"
 
 [node name="MainTween" type="Tween" parent="."]
 

@@ -31,7 +31,7 @@ script = ExtResource( 3 )
 [node name="MineralDust" type="Particles2D" parent="."]
 amount = 32
 lifetime = 2.0
-preprocess = 1.5
+preprocess = 5.0
 speed_scale = 0.13
 explosiveness = 0.44
 randomness = 1.0
