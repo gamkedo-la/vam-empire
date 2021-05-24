@@ -15,8 +15,8 @@ func load_image_from_db() -> void:
 	var _items = Database.table.Items	
 	var item_data = _items[randi() % _items.size()]
 	var img = Image.new()
-	img.load(item_data.itemIcon)
 	sprite.texture = load(item_data.itemIcon)
+	img = sprite.texture.get_data()
 	img.lock()
 	particle_color = img.get_pixel(16,16)
 	img.unlock()
