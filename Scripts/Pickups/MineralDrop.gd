@@ -2,19 +2,32 @@ extends Node2D
 
 onready var sprite: Sprite = $Sprite
 onready var mineral_dust: Particles2D = $MineralDust
+var item_uuid
 
+var despawn_timer
 var particle_color: Color
 
 func _ready() -> void:
-	
-	load_image_from_db()
+	despawn_timer = Timer.new()
+	add_child(despawn_timer)
+	despawn_timer.wait_time = 12
+	despawn_timer.connect("timeout", self, "_release_item")
+	load_item_from_db()
 	_generate_particles()
 	_set_particle_color()
+
+func pickup() -> void:
+	PlayerVars.pickup_item(item_uuid)
+	sprite.visible = false
+	mineral_dust.set_emitting(false)
+	despawn_timer.start()
 	
-func load_image_from_db() -> void:
+
+func load_item_from_db() -> void:
 	var _items = Database.table.Items	
 	var item_data = _items[randi() % _items.size()]
 	var img = Image.new()
+	item_uuid = item_data.itemUuid
 	sprite.texture = load(item_data.itemIcon)
 	img = sprite.texture.get_data()
 	img.lock()
@@ -28,8 +41,6 @@ func _generate_particles() -> void:
 	
 func _set_particle_color() -> void:
 	mineral_dust.process_material.color = particle_color
-	pass
 
-
-#	var items = Database.table.Items
-#	return items[randi() % items.size()]
+func _release_item() -> void:
+	call_deferred("queue_free")

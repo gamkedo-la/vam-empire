@@ -220,3 +220,1515 @@ position = Vector2( 726.817, 376.299 )
 
 [node name="MineralDrop72" parent="." index="71" instance=ExtResource( 2 )]
 position = Vector2( 805.218, 377.006 )
+
+[node name="MineralDrop73" parent="." index="72" instance=ExtResource( 2 )]
+position = Vector2( 95.3773, 41.5089 )
+
+[node name="MineralDrop74" parent="." index="73" instance=ExtResource( 2 )]
+position = Vector2( 160.358, 40.8026 )
+
+[node name="MineralDrop75" parent="." index="74" instance=ExtResource( 2 )]
+position = Vector2( 238.758, 41.5089 )
+
+[node name="MineralDrop76" parent="." index="75" instance=ExtResource( 2 )]
+position = Vector2( 295.263, 42.9215 )
+
+[node name="MineralDrop77" parent="." index="76" instance=ExtResource( 2 )]
+position = Vector2( 360.243, 42.2152 )
+
+[node name="MineralDrop78" parent="." index="77" instance=ExtResource( 2 )]
+position = Vector2( 438.643, 42.9215 )
+
+[node name="MineralDrop79" parent="." index="78" instance=ExtResource( 2 )]
+position = Vector2( 495.148, 43.6278 )
+
+[node name="MineralDrop80" parent="." index="79" instance=ExtResource( 2 )]
+position = Vector2( 560.128, 42.9215 )
+
+[node name="MineralDrop81" parent="." index="80" instance=ExtResource( 2 )]
+position = Vector2( 638.529, 43.6278 )
+
+[node name="MineralDrop82" parent="." index="81" instance=ExtResource( 2 )]
+position = Vector2( 695.033, 45.0405 )
+
+[node name="MineralDrop83" parent="." index="82" instance=ExtResource( 2 )]
+position = Vector2( 760.014, 44.3342 )
+
+[node name="MineralDrop84" parent="." index="83" instance=ExtResource( 2 )]
+position = Vector2( 838.414, 45.0405 )
+
+[node name="MineralDrop85" parent="." index="84" instance=ExtResource( 2 )]
+position = Vector2( 96.79, 110.727 )
+
+[node name="MineralDrop86" parent="." index="85" instance=ExtResource( 2 )]
+position = Vector2( 161.77, 110.021 )
+
+[node name="MineralDrop87" parent="." index="86" instance=ExtResource( 2 )]
+position = Vector2( 240.171, 110.727 )
+
+[node name="MineralDrop88" parent="." index="87" instance=ExtResource( 2 )]
+position = Vector2( 296.675, 112.14 )
+
+[node name="MineralDrop89" parent="." index="88" instance=ExtResource( 2 )]
+position = Vector2( 361.656, 111.434 )
+
+[node name="MineralDrop90" parent="." index="89" instance=ExtResource( 2 )]
+position = Vector2( 440.056, 112.14 )
+
+[node name="MineralDrop91" parent="." index="90" instance=ExtResource( 2 )]
+position = Vector2( 496.561, 112.846 )
+
+[node name="MineralDrop92" parent="." index="91" instance=ExtResource( 2 )]
+position = Vector2( 561.541, 112.14 )
+
+[node name="MineralDrop93" parent="." index="92" instance=ExtResource( 2 )]
+position = Vector2( 639.941, 112.846 )
+
+[node name="MineralDrop94" parent="." index="93" instance=ExtResource( 2 )]
+position = Vector2( 696.446, 114.259 )
+
+[node name="MineralDrop95" parent="." index="94" instance=ExtResource( 2 )]
+position = Vector2( 761.427, 113.552 )
+
+[node name="MineralDrop96" parent="." index="95" instance=ExtResource( 2 )]
+position = Vector2( 839.827, 114.259 )
+
+[node name="MineralDrop97" parent="." index="96" instance=ExtResource( 2 )]
+position = Vector2( 94.671, 172.176 )
+
+[node name="MineralDrop98" parent="." index="97" instance=ExtResource( 2 )]
+position = Vector2( 159.651, 171.47 )
+
+[node name="MineralDrop99" parent="." index="98" instance=ExtResource( 2 )]
+position = Vector2( 238.052, 172.176 )
+
+[node name="MineralDrop100" parent="." index="99" instance=ExtResource( 2 )]
+position = Vector2( 294.556, 173.589 )
+
+[node name="MineralDrop101" parent="." index="100" instance=ExtResource( 2 )]
+position = Vector2( 359.537, 172.882 )
+
+[node name="MineralDrop102" parent="." index="101" instance=ExtResource( 2 )]
+position = Vector2( 437.937, 173.589 )
+
+[node name="MineralDrop103" parent="." index="102" instance=ExtResource( 2 )]
+position = Vector2( 494.442, 174.295 )
+
+[node name="MineralDrop104" parent="." index="103" instance=ExtResource( 2 )]
+position = Vector2( 559.422, 173.589 )
+
+[node name="MineralDrop105" parent="." index="104" instance=ExtResource( 2 )]
+position = Vector2( 637.822, 174.295 )
+
+[node name="MineralDrop106" parent="." index="105" instance=ExtResource( 2 )]
+position = Vector2( 694.327, 175.708 )
+
+[node name="MineralDrop107" parent="." index="106" instance=ExtResource( 2 )]
+position = Vector2( 759.308, 175.001 )
+
+[node name="MineralDrop108" parent="." index="107" instance=ExtResource( 2 )]
+position = Vector2( 837.708, 175.708 )
+
+[node name="MineralDrop109" parent="." index="108" instance=ExtResource( 2 )]
+position = Vector2( 96.0837, 241.394 )
+
+[node name="MineralDrop110" parent="." index="109" instance=ExtResource( 2 )]
+position = Vector2( 161.064, 240.688 )
+
+[node name="MineralDrop111" parent="." index="110" instance=ExtResource( 2 )]
+position = Vector2( 239.464, 241.394 )
+
+[node name="MineralDrop112" parent="." index="111" instance=ExtResource( 2 )]
+position = Vector2( 295.969, 242.807 )
+
+[node name="MineralDrop113" parent="." index="112" instance=ExtResource( 2 )]
+position = Vector2( 360.949, 242.101 )
+
+[node name="MineralDrop114" parent="." index="113" instance=ExtResource( 2 )]
+position = Vector2( 439.35, 242.807 )
+
+[node name="MineralDrop115" parent="." index="114" instance=ExtResource( 2 )]
+position = Vector2( 495.854, 243.513 )
+
+[node name="MineralDrop116" parent="." index="115" instance=ExtResource( 2 )]
+position = Vector2( 560.835, 242.807 )
+
+[node name="MineralDrop117" parent="." index="116" instance=ExtResource( 2 )]
+position = Vector2( 639.235, 243.513 )
+
+[node name="MineralDrop118" parent="." index="117" instance=ExtResource( 2 )]
+position = Vector2( 695.74, 244.926 )
+
+[node name="MineralDrop119" parent="." index="118" instance=ExtResource( 2 )]
+position = Vector2( 760.72, 244.22 )
+
+[node name="MineralDrop120" parent="." index="119" instance=ExtResource( 2 )]
+position = Vector2( 839.12, 244.926 )
+
+[node name="MineralDrop121" parent="." index="120" instance=ExtResource( 2 )]
+position = Vector2( 95.3773, 304.256 )
+
+[node name="MineralDrop122" parent="." index="121" instance=ExtResource( 2 )]
+position = Vector2( 160.358, 303.549 )
+
+[node name="MineralDrop123" parent="." index="122" instance=ExtResource( 2 )]
+position = Vector2( 238.758, 304.256 )
+
+[node name="MineralDrop124" parent="." index="123" instance=ExtResource( 2 )]
+position = Vector2( 295.263, 305.668 )
+
+[node name="MineralDrop125" parent="." index="124" instance=ExtResource( 2 )]
+position = Vector2( 360.243, 304.962 )
+
+[node name="MineralDrop126" parent="." index="125" instance=ExtResource( 2 )]
+position = Vector2( 438.643, 305.668 )
+
+[node name="MineralDrop127" parent="." index="126" instance=ExtResource( 2 )]
+position = Vector2( 495.148, 306.375 )
+
+[node name="MineralDrop128" parent="." index="127" instance=ExtResource( 2 )]
+position = Vector2( 560.128, 305.668 )
+
+[node name="MineralDrop129" parent="." index="128" instance=ExtResource( 2 )]
+position = Vector2( 638.529, 306.375 )
+
+[node name="MineralDrop130" parent="." index="129" instance=ExtResource( 2 )]
+position = Vector2( 695.033, 307.787 )
+
+[node name="MineralDrop131" parent="." index="130" instance=ExtResource( 2 )]
+position = Vector2( 760.014, 307.081 )
+
+[node name="MineralDrop132" parent="." index="131" instance=ExtResource( 2 )]
+position = Vector2( 838.414, 307.787 )
+
+[node name="MineralDrop133" parent="." index="132" instance=ExtResource( 2 )]
+position = Vector2( 96.79, 373.474 )
+
+[node name="MineralDrop134" parent="." index="133" instance=ExtResource( 2 )]
+position = Vector2( 161.77, 372.768 )
+
+[node name="MineralDrop135" parent="." index="134" instance=ExtResource( 2 )]
+position = Vector2( 240.171, 373.474 )
+
+[node name="MineralDrop136" parent="." index="135" instance=ExtResource( 2 )]
+position = Vector2( 296.675, 374.887 )
+
+[node name="MineralDrop137" parent="." index="136" instance=ExtResource( 2 )]
+position = Vector2( 361.656, 374.18 )
+
+[node name="MineralDrop138" parent="." index="137" instance=ExtResource( 2 )]
+position = Vector2( 440.056, 374.887 )
+
+[node name="MineralDrop139" parent="." index="138" instance=ExtResource( 2 )]
+position = Vector2( 496.561, 375.593 )
+
+[node name="MineralDrop140" parent="." index="139" instance=ExtResource( 2 )]
+position = Vector2( 561.541, 374.887 )
+
+[node name="MineralDrop141" parent="." index="140" instance=ExtResource( 2 )]
+position = Vector2( 639.941, 375.593 )
+
+[node name="MineralDrop142" parent="." index="141" instance=ExtResource( 2 )]
+position = Vector2( 696.446, 377.006 )
+
+[node name="MineralDrop143" parent="." index="142" instance=ExtResource( 2 )]
+position = Vector2( 761.427, 376.299 )
+
+[node name="MineralDrop144" parent="." index="143" instance=ExtResource( 2 )]
+position = Vector2( 839.827, 377.006 )
+
+[node name="MineralDrop145" parent="." index="144" instance=ExtResource( 2 )]
+position = Vector2( 61.4745, 11.1376 )
+
+[node name="MineralDrop146" parent="." index="145" instance=ExtResource( 2 )]
+position = Vector2( 126.455, 10.4313 )
+
+[node name="MineralDrop147" parent="." index="146" instance=ExtResource( 2 )]
+position = Vector2( 204.855, 11.1376 )
+
+[node name="MineralDrop148" parent="." index="147" instance=ExtResource( 2 )]
+position = Vector2( 261.36, 12.5503 )
+
+[node name="MineralDrop149" parent="." index="148" instance=ExtResource( 2 )]
+position = Vector2( 326.34, 11.844 )
+
+[node name="MineralDrop150" parent="." index="149" instance=ExtResource( 2 )]
+position = Vector2( 404.741, 12.5503 )
+
+[node name="MineralDrop151" parent="." index="150" instance=ExtResource( 2 )]
+position = Vector2( 461.245, 13.2566 )
+
+[node name="MineralDrop152" parent="." index="151" instance=ExtResource( 2 )]
+position = Vector2( 526.226, 12.5503 )
+
+[node name="MineralDrop153" parent="." index="152" instance=ExtResource( 2 )]
+position = Vector2( 604.626, 13.2566 )
+
+[node name="MineralDrop154" parent="." index="153" instance=ExtResource( 2 )]
+position = Vector2( 661.131, 14.6692 )
+
+[node name="MineralDrop155" parent="." index="154" instance=ExtResource( 2 )]
+position = Vector2( 726.111, 13.9629 )
+
+[node name="MineralDrop156" parent="." index="155" instance=ExtResource( 2 )]
+position = Vector2( 804.511, 14.6692 )
+
+[node name="MineralDrop157" parent="." index="156" instance=ExtResource( 2 )]
+position = Vector2( 62.8871, 80.3559 )
+
+[node name="MineralDrop158" parent="." index="157" instance=ExtResource( 2 )]
+position = Vector2( 127.868, 79.6496 )
+
+[node name="MineralDrop159" parent="." index="158" instance=ExtResource( 2 )]
+position = Vector2( 206.268, 80.3559 )
+
+[node name="MineralDrop160" parent="." index="159" instance=ExtResource( 2 )]
+position = Vector2( 262.773, 81.7685 )
+
+[node name="MineralDrop161" parent="." index="160" instance=ExtResource( 2 )]
+position = Vector2( 327.753, 81.0622 )
+
+[node name="MineralDrop162" parent="." index="161" instance=ExtResource( 2 )]
+position = Vector2( 406.153, 81.7685 )
+
+[node name="MineralDrop163" parent="." index="162" instance=ExtResource( 2 )]
+position = Vector2( 462.658, 82.4748 )
+
+[node name="MineralDrop164" parent="." index="163" instance=ExtResource( 2 )]
+position = Vector2( 527.638, 81.7685 )
+
+[node name="MineralDrop165" parent="." index="164" instance=ExtResource( 2 )]
+position = Vector2( 606.039, 82.4748 )
+
+[node name="MineralDrop166" parent="." index="165" instance=ExtResource( 2 )]
+position = Vector2( 662.543, 83.8875 )
+
+[node name="MineralDrop167" parent="." index="166" instance=ExtResource( 2 )]
+position = Vector2( 727.524, 83.1812 )
+
+[node name="MineralDrop168" parent="." index="167" instance=ExtResource( 2 )]
+position = Vector2( 805.924, 83.8875 )
+
+[node name="MineralDrop169" parent="." index="168" instance=ExtResource( 2 )]
+position = Vector2( 60.7682, 141.805 )
+
+[node name="MineralDrop170" parent="." index="169" instance=ExtResource( 2 )]
+position = Vector2( 125.749, 141.098 )
+
+[node name="MineralDrop171" parent="." index="170" instance=ExtResource( 2 )]
+position = Vector2( 204.149, 141.805 )
+
+[node name="MineralDrop172" parent="." index="171" instance=ExtResource( 2 )]
+position = Vector2( 260.654, 143.217 )
+
+[node name="MineralDrop173" parent="." index="172" instance=ExtResource( 2 )]
+position = Vector2( 325.634, 142.511 )
+
+[node name="MineralDrop174" parent="." index="173" instance=ExtResource( 2 )]
+position = Vector2( 404.034, 143.217 )
+
+[node name="MineralDrop175" parent="." index="174" instance=ExtResource( 2 )]
+position = Vector2( 460.539, 143.924 )
+
+[node name="MineralDrop176" parent="." index="175" instance=ExtResource( 2 )]
+position = Vector2( 525.519, 143.217 )
+
+[node name="MineralDrop177" parent="." index="176" instance=ExtResource( 2 )]
+position = Vector2( 603.92, 143.924 )
+
+[node name="MineralDrop178" parent="." index="177" instance=ExtResource( 2 )]
+position = Vector2( 660.424, 145.336 )
+
+[node name="MineralDrop179" parent="." index="178" instance=ExtResource( 2 )]
+position = Vector2( 725.405, 144.63 )
+
+[node name="MineralDrop180" parent="." index="179" instance=ExtResource( 2 )]
+position = Vector2( 803.805, 145.336 )
+
+[node name="MineralDrop181" parent="." index="180" instance=ExtResource( 2 )]
+position = Vector2( 62.1808, 211.023 )
+
+[node name="MineralDrop182" parent="." index="181" instance=ExtResource( 2 )]
+position = Vector2( 127.161, 210.317 )
+
+[node name="MineralDrop183" parent="." index="182" instance=ExtResource( 2 )]
+position = Vector2( 205.562, 211.023 )
+
+[node name="MineralDrop184" parent="." index="183" instance=ExtResource( 2 )]
+position = Vector2( 262.066, 212.436 )
+
+[node name="MineralDrop185" parent="." index="184" instance=ExtResource( 2 )]
+position = Vector2( 327.047, 211.729 )
+
+[node name="MineralDrop186" parent="." index="185" instance=ExtResource( 2 )]
+position = Vector2( 405.447, 212.436 )
+
+[node name="MineralDrop187" parent="." index="186" instance=ExtResource( 2 )]
+position = Vector2( 461.952, 213.142 )
+
+[node name="MineralDrop188" parent="." index="187" instance=ExtResource( 2 )]
+position = Vector2( 526.932, 212.436 )
+
+[node name="MineralDrop189" parent="." index="188" instance=ExtResource( 2 )]
+position = Vector2( 605.332, 213.142 )
+
+[node name="MineralDrop190" parent="." index="189" instance=ExtResource( 2 )]
+position = Vector2( 661.837, 214.555 )
+
+[node name="MineralDrop191" parent="." index="190" instance=ExtResource( 2 )]
+position = Vector2( 726.817, 213.848 )
+
+[node name="MineralDrop192" parent="." index="191" instance=ExtResource( 2 )]
+position = Vector2( 805.218, 214.555 )
+
+[node name="MineralDrop193" parent="." index="192" instance=ExtResource( 2 )]
+position = Vector2( 61.4745, 273.885 )
+
+[node name="MineralDrop194" parent="." index="193" instance=ExtResource( 2 )]
+position = Vector2( 126.455, 273.178 )
+
+[node name="MineralDrop195" parent="." index="194" instance=ExtResource( 2 )]
+position = Vector2( 204.855, 273.885 )
+
+[node name="MineralDrop196" parent="." index="195" instance=ExtResource( 2 )]
+position = Vector2( 261.36, 275.297 )
+
+[node name="MineralDrop197" parent="." index="196" instance=ExtResource( 2 )]
+position = Vector2( 326.34, 274.591 )
+
+[node name="MineralDrop198" parent="." index="197" instance=ExtResource( 2 )]
+position = Vector2( 404.741, 275.297 )
+
+[node name="MineralDrop199" parent="." index="198" instance=ExtResource( 2 )]
+position = Vector2( 461.245, 276.003 )
+
+[node name="MineralDrop200" parent="." index="199" instance=ExtResource( 2 )]
+position = Vector2( 526.226, 275.297 )
+
+[node name="MineralDrop201" parent="." index="200" instance=ExtResource( 2 )]
+position = Vector2( 604.626, 276.003 )
+
+[node name="MineralDrop202" parent="." index="201" instance=ExtResource( 2 )]
+position = Vector2( 661.131, 277.416 )
+
+[node name="MineralDrop203" parent="." index="202" instance=ExtResource( 2 )]
+position = Vector2( 726.111, 276.71 )
+
+[node name="MineralDrop204" parent="." index="203" instance=ExtResource( 2 )]
+position = Vector2( 804.511, 277.416 )
+
+[node name="MineralDrop205" parent="." index="204" instance=ExtResource( 2 )]
+position = Vector2( 62.8871, 343.103 )
+
+[node name="MineralDrop206" parent="." index="205" instance=ExtResource( 2 )]
+position = Vector2( 127.868, 342.396 )
+
+[node name="MineralDrop207" parent="." index="206" instance=ExtResource( 2 )]
+position = Vector2( 206.268, 343.103 )
+
+[node name="MineralDrop208" parent="." index="207" instance=ExtResource( 2 )]
+position = Vector2( 262.773, 344.515 )
+
+[node name="MineralDrop209" parent="." index="208" instance=ExtResource( 2 )]
+position = Vector2( 327.753, 343.809 )
+
+[node name="MineralDrop210" parent="." index="209" instance=ExtResource( 2 )]
+position = Vector2( 406.153, 344.515 )
+
+[node name="MineralDrop211" parent="." index="210" instance=ExtResource( 2 )]
+position = Vector2( 462.658, 345.222 )
+
+[node name="MineralDrop212" parent="." index="211" instance=ExtResource( 2 )]
+position = Vector2( 527.638, 344.515 )
+
+[node name="MineralDrop213" parent="." index="212" instance=ExtResource( 2 )]
+position = Vector2( 606.039, 345.222 )
+
+[node name="MineralDrop214" parent="." index="213" instance=ExtResource( 2 )]
+position = Vector2( 662.543, 346.634 )
+
+[node name="MineralDrop215" parent="." index="214" instance=ExtResource( 2 )]
+position = Vector2( 727.524, 345.928 )
+
+[node name="MineralDrop216" parent="." index="215" instance=ExtResource( 2 )]
+position = Vector2( 805.924, 346.634 )
+
+[node name="MineralDrop217" parent="." index="216" instance=ExtResource( 2 )]
+position = Vector2( 96.0836, 11.1376 )
+
+[node name="MineralDrop218" parent="." index="217" instance=ExtResource( 2 )]
+position = Vector2( 161.064, 10.4313 )
+
+[node name="MineralDrop219" parent="." index="218" instance=ExtResource( 2 )]
+position = Vector2( 239.464, 11.1376 )
+
+[node name="MineralDrop220" parent="." index="219" instance=ExtResource( 2 )]
+position = Vector2( 295.969, 12.5503 )
+
+[node name="MineralDrop221" parent="." index="220" instance=ExtResource( 2 )]
+position = Vector2( 360.949, 11.844 )
+
+[node name="MineralDrop222" parent="." index="221" instance=ExtResource( 2 )]
+position = Vector2( 439.35, 12.5503 )
+
+[node name="MineralDrop223" parent="." index="222" instance=ExtResource( 2 )]
+position = Vector2( 495.854, 13.2566 )
+
+[node name="MineralDrop224" parent="." index="223" instance=ExtResource( 2 )]
+position = Vector2( 560.835, 12.5503 )
+
+[node name="MineralDrop225" parent="." index="224" instance=ExtResource( 2 )]
+position = Vector2( 639.235, 13.2566 )
+
+[node name="MineralDrop226" parent="." index="225" instance=ExtResource( 2 )]
+position = Vector2( 695.74, 14.6692 )
+
+[node name="MineralDrop227" parent="." index="226" instance=ExtResource( 2 )]
+position = Vector2( 760.72, 13.9629 )
+
+[node name="MineralDrop228" parent="." index="227" instance=ExtResource( 2 )]
+position = Vector2( 839.12, 14.6692 )
+
+[node name="MineralDrop229" parent="." index="228" instance=ExtResource( 2 )]
+position = Vector2( 97.4963, 80.3559 )
+
+[node name="MineralDrop230" parent="." index="229" instance=ExtResource( 2 )]
+position = Vector2( 162.477, 79.6496 )
+
+[node name="MineralDrop231" parent="." index="230" instance=ExtResource( 2 )]
+position = Vector2( 240.877, 80.3559 )
+
+[node name="MineralDrop232" parent="." index="231" instance=ExtResource( 2 )]
+position = Vector2( 297.382, 81.7685 )
+
+[node name="MineralDrop233" parent="." index="232" instance=ExtResource( 2 )]
+position = Vector2( 362.362, 81.0622 )
+
+[node name="MineralDrop234" parent="." index="233" instance=ExtResource( 2 )]
+position = Vector2( 440.762, 81.7685 )
+
+[node name="MineralDrop235" parent="." index="234" instance=ExtResource( 2 )]
+position = Vector2( 497.267, 82.4748 )
+
+[node name="MineralDrop236" parent="." index="235" instance=ExtResource( 2 )]
+position = Vector2( 562.247, 81.7685 )
+
+[node name="MineralDrop237" parent="." index="236" instance=ExtResource( 2 )]
+position = Vector2( 640.648, 82.4748 )
+
+[node name="MineralDrop238" parent="." index="237" instance=ExtResource( 2 )]
+position = Vector2( 697.152, 83.8875 )
+
+[node name="MineralDrop239" parent="." index="238" instance=ExtResource( 2 )]
+position = Vector2( 762.133, 83.1812 )
+
+[node name="MineralDrop240" parent="." index="239" instance=ExtResource( 2 )]
+position = Vector2( 840.533, 83.8875 )
+
+[node name="MineralDrop241" parent="." index="240" instance=ExtResource( 2 )]
+position = Vector2( 95.3773, 141.805 )
+
+[node name="MineralDrop242" parent="." index="241" instance=ExtResource( 2 )]
+position = Vector2( 160.358, 141.098 )
+
+[node name="MineralDrop243" parent="." index="242" instance=ExtResource( 2 )]
+position = Vector2( 238.758, 141.805 )
+
+[node name="MineralDrop244" parent="." index="243" instance=ExtResource( 2 )]
+position = Vector2( 295.263, 143.217 )
+
+[node name="MineralDrop245" parent="." index="244" instance=ExtResource( 2 )]
+position = Vector2( 360.243, 142.511 )
+
+[node name="MineralDrop246" parent="." index="245" instance=ExtResource( 2 )]
+position = Vector2( 438.643, 143.217 )
+
+[node name="MineralDrop247" parent="." index="246" instance=ExtResource( 2 )]
+position = Vector2( 495.148, 143.924 )
+
+[node name="MineralDrop248" parent="." index="247" instance=ExtResource( 2 )]
+position = Vector2( 560.128, 143.217 )
+
+[node name="MineralDrop249" parent="." index="248" instance=ExtResource( 2 )]
+position = Vector2( 638.529, 143.924 )
+
+[node name="MineralDrop250" parent="." index="249" instance=ExtResource( 2 )]
+position = Vector2( 695.033, 145.336 )
+
+[node name="MineralDrop251" parent="." index="250" instance=ExtResource( 2 )]
+position = Vector2( 760.014, 144.63 )
+
+[node name="MineralDrop252" parent="." index="251" instance=ExtResource( 2 )]
+position = Vector2( 838.414, 145.336 )
+
+[node name="MineralDrop253" parent="." index="252" instance=ExtResource( 2 )]
+position = Vector2( 96.79, 211.023 )
+
+[node name="MineralDrop254" parent="." index="253" instance=ExtResource( 2 )]
+position = Vector2( 161.77, 210.317 )
+
+[node name="MineralDrop255" parent="." index="254" instance=ExtResource( 2 )]
+position = Vector2( 240.171, 211.023 )
+
+[node name="MineralDrop256" parent="." index="255" instance=ExtResource( 2 )]
+position = Vector2( 296.675, 212.436 )
+
+[node name="MineralDrop257" parent="." index="256" instance=ExtResource( 2 )]
+position = Vector2( 361.656, 211.729 )
+
+[node name="MineralDrop258" parent="." index="257" instance=ExtResource( 2 )]
+position = Vector2( 440.056, 212.436 )
+
+[node name="MineralDrop259" parent="." index="258" instance=ExtResource( 2 )]
+position = Vector2( 496.561, 213.142 )
+
+[node name="MineralDrop260" parent="." index="259" instance=ExtResource( 2 )]
+position = Vector2( 561.541, 212.436 )
+
+[node name="MineralDrop261" parent="." index="260" instance=ExtResource( 2 )]
+position = Vector2( 639.941, 213.142 )
+
+[node name="MineralDrop262" parent="." index="261" instance=ExtResource( 2 )]
+position = Vector2( 696.446, 214.555 )
+
+[node name="MineralDrop263" parent="." index="262" instance=ExtResource( 2 )]
+position = Vector2( 761.427, 213.848 )
+
+[node name="MineralDrop264" parent="." index="263" instance=ExtResource( 2 )]
+position = Vector2( 839.827, 214.555 )
+
+[node name="MineralDrop265" parent="." index="264" instance=ExtResource( 2 )]
+position = Vector2( 96.0836, 273.885 )
+
+[node name="MineralDrop266" parent="." index="265" instance=ExtResource( 2 )]
+position = Vector2( 161.064, 273.178 )
+
+[node name="MineralDrop267" parent="." index="266" instance=ExtResource( 2 )]
+position = Vector2( 239.464, 273.885 )
+
+[node name="MineralDrop268" parent="." index="267" instance=ExtResource( 2 )]
+position = Vector2( 295.969, 275.297 )
+
+[node name="MineralDrop269" parent="." index="268" instance=ExtResource( 2 )]
+position = Vector2( 360.949, 274.591 )
+
+[node name="MineralDrop270" parent="." index="269" instance=ExtResource( 2 )]
+position = Vector2( 439.35, 275.297 )
+
+[node name="MineralDrop271" parent="." index="270" instance=ExtResource( 2 )]
+position = Vector2( 495.854, 276.003 )
+
+[node name="MineralDrop272" parent="." index="271" instance=ExtResource( 2 )]
+position = Vector2( 560.835, 275.297 )
+
+[node name="MineralDrop273" parent="." index="272" instance=ExtResource( 2 )]
+position = Vector2( 639.235, 276.003 )
+
+[node name="MineralDrop274" parent="." index="273" instance=ExtResource( 2 )]
+position = Vector2( 695.74, 277.416 )
+
+[node name="MineralDrop275" parent="." index="274" instance=ExtResource( 2 )]
+position = Vector2( 760.72, 276.71 )
+
+[node name="MineralDrop276" parent="." index="275" instance=ExtResource( 2 )]
+position = Vector2( 839.12, 277.416 )
+
+[node name="MineralDrop277" parent="." index="276" instance=ExtResource( 2 )]
+position = Vector2( 97.4963, 343.103 )
+
+[node name="MineralDrop278" parent="." index="277" instance=ExtResource( 2 )]
+position = Vector2( 162.477, 342.396 )
+
+[node name="MineralDrop279" parent="." index="278" instance=ExtResource( 2 )]
+position = Vector2( 240.877, 343.103 )
+
+[node name="MineralDrop280" parent="." index="279" instance=ExtResource( 2 )]
+position = Vector2( 297.382, 344.515 )
+
+[node name="MineralDrop281" parent="." index="280" instance=ExtResource( 2 )]
+position = Vector2( 362.362, 343.809 )
+
+[node name="MineralDrop282" parent="." index="281" instance=ExtResource( 2 )]
+position = Vector2( 440.762, 344.515 )
+
+[node name="MineralDrop283" parent="." index="282" instance=ExtResource( 2 )]
+position = Vector2( 497.267, 345.222 )
+
+[node name="MineralDrop284" parent="." index="283" instance=ExtResource( 2 )]
+position = Vector2( 562.247, 344.515 )
+
+[node name="MineralDrop285" parent="." index="284" instance=ExtResource( 2 )]
+position = Vector2( 640.648, 345.222 )
+
+[node name="MineralDrop286" parent="." index="285" instance=ExtResource( 2 )]
+position = Vector2( 697.152, 346.634 )
+
+[node name="MineralDrop287" parent="." index="286" instance=ExtResource( 2 )]
+position = Vector2( 762.133, 345.928 )
+
+[node name="MineralDrop288" parent="." index="287" instance=ExtResource( 2 )]
+position = Vector2( 840.533, 346.634 )
+
+[node name="MineralDrop289" parent="." index="288" instance=ExtResource( 2 )]
+position = Vector2( 478.197, 228.681 )
+
+[node name="MineralDrop290" parent="." index="289" instance=ExtResource( 2 )]
+position = Vector2( 543.177, 227.974 )
+
+[node name="MineralDrop291" parent="." index="290" instance=ExtResource( 2 )]
+position = Vector2( 621.577, 228.681 )
+
+[node name="MineralDrop292" parent="." index="291" instance=ExtResource( 2 )]
+position = Vector2( 678.082, 230.093 )
+
+[node name="MineralDrop293" parent="." index="292" instance=ExtResource( 2 )]
+position = Vector2( 743.062, 229.387 )
+
+[node name="MineralDrop294" parent="." index="293" instance=ExtResource( 2 )]
+position = Vector2( 821.463, 230.093 )
+
+[node name="MineralDrop295" parent="." index="294" instance=ExtResource( 2 )]
+position = Vector2( 877.967, 230.8 )
+
+[node name="MineralDrop296" parent="." index="295" instance=ExtResource( 2 )]
+position = Vector2( 942.948, 230.093 )
+
+[node name="MineralDrop297" parent="." index="296" instance=ExtResource( 2 )]
+position = Vector2( 1021.35, 230.8 )
+
+[node name="MineralDrop298" parent="." index="297" instance=ExtResource( 2 )]
+position = Vector2( 1077.85, 232.212 )
+
+[node name="MineralDrop299" parent="." index="298" instance=ExtResource( 2 )]
+position = Vector2( 1142.83, 231.506 )
+
+[node name="MineralDrop300" parent="." index="299" instance=ExtResource( 2 )]
+position = Vector2( 1221.23, 232.212 )
+
+[node name="MineralDrop301" parent="." index="300" instance=ExtResource( 2 )]
+position = Vector2( 479.609, 297.899 )
+
+[node name="MineralDrop302" parent="." index="301" instance=ExtResource( 2 )]
+position = Vector2( 544.59, 297.193 )
+
+[node name="MineralDrop303" parent="." index="302" instance=ExtResource( 2 )]
+position = Vector2( 622.99, 297.899 )
+
+[node name="MineralDrop304" parent="." index="303" instance=ExtResource( 2 )]
+position = Vector2( 679.495, 299.312 )
+
+[node name="MineralDrop305" parent="." index="304" instance=ExtResource( 2 )]
+position = Vector2( 744.475, 298.605 )
+
+[node name="MineralDrop306" parent="." index="305" instance=ExtResource( 2 )]
+position = Vector2( 822.875, 299.312 )
+
+[node name="MineralDrop307" parent="." index="306" instance=ExtResource( 2 )]
+position = Vector2( 879.38, 300.018 )
+
+[node name="MineralDrop308" parent="." index="307" instance=ExtResource( 2 )]
+position = Vector2( 944.36, 299.312 )
+
+[node name="MineralDrop309" parent="." index="308" instance=ExtResource( 2 )]
+position = Vector2( 1022.76, 300.018 )
+
+[node name="MineralDrop310" parent="." index="309" instance=ExtResource( 2 )]
+position = Vector2( 1079.27, 301.431 )
+
+[node name="MineralDrop311" parent="." index="310" instance=ExtResource( 2 )]
+position = Vector2( 1144.25, 300.724 )
+
+[node name="MineralDrop312" parent="." index="311" instance=ExtResource( 2 )]
+position = Vector2( 1222.65, 301.431 )
+
+[node name="MineralDrop313" parent="." index="312" instance=ExtResource( 2 )]
+position = Vector2( 477.49, 359.348 )
+
+[node name="MineralDrop314" parent="." index="313" instance=ExtResource( 2 )]
+position = Vector2( 542.471, 358.642 )
+
+[node name="MineralDrop315" parent="." index="314" instance=ExtResource( 2 )]
+position = Vector2( 620.871, 359.348 )
+
+[node name="MineralDrop316" parent="." index="315" instance=ExtResource( 2 )]
+position = Vector2( 677.376, 360.76 )
+
+[node name="MineralDrop317" parent="." index="316" instance=ExtResource( 2 )]
+position = Vector2( 742.356, 360.054 )
+
+[node name="MineralDrop318" parent="." index="317" instance=ExtResource( 2 )]
+position = Vector2( 820.756, 360.76 )
+
+[node name="MineralDrop319" parent="." index="318" instance=ExtResource( 2 )]
+position = Vector2( 877.261, 361.467 )
+
+[node name="MineralDrop320" parent="." index="319" instance=ExtResource( 2 )]
+position = Vector2( 942.242, 360.76 )
+
+[node name="MineralDrop321" parent="." index="320" instance=ExtResource( 2 )]
+position = Vector2( 1020.64, 361.467 )
+
+[node name="MineralDrop322" parent="." index="321" instance=ExtResource( 2 )]
+position = Vector2( 1077.15, 362.879 )
+
+[node name="MineralDrop323" parent="." index="322" instance=ExtResource( 2 )]
+position = Vector2( 1142.13, 362.173 )
+
+[node name="MineralDrop324" parent="." index="323" instance=ExtResource( 2 )]
+position = Vector2( 1220.53, 362.879 )
+
+[node name="MineralDrop325" parent="." index="324" instance=ExtResource( 2 )]
+position = Vector2( 478.903, 428.566 )
+
+[node name="MineralDrop326" parent="." index="325" instance=ExtResource( 2 )]
+position = Vector2( 543.883, 427.86 )
+
+[node name="MineralDrop327" parent="." index="326" instance=ExtResource( 2 )]
+position = Vector2( 622.284, 428.566 )
+
+[node name="MineralDrop328" parent="." index="327" instance=ExtResource( 2 )]
+position = Vector2( 678.788, 429.979 )
+
+[node name="MineralDrop329" parent="." index="328" instance=ExtResource( 2 )]
+position = Vector2( 743.769, 429.272 )
+
+[node name="MineralDrop330" parent="." index="329" instance=ExtResource( 2 )]
+position = Vector2( 822.169, 429.979 )
+
+[node name="MineralDrop331" parent="." index="330" instance=ExtResource( 2 )]
+position = Vector2( 878.674, 430.685 )
+
+[node name="MineralDrop332" parent="." index="331" instance=ExtResource( 2 )]
+position = Vector2( 943.654, 429.979 )
+
+[node name="MineralDrop333" parent="." index="332" instance=ExtResource( 2 )]
+position = Vector2( 1022.05, 430.685 )
+
+[node name="MineralDrop334" parent="." index="333" instance=ExtResource( 2 )]
+position = Vector2( 1078.56, 432.098 )
+
+[node name="MineralDrop335" parent="." index="334" instance=ExtResource( 2 )]
+position = Vector2( 1143.54, 431.391 )
+
+[node name="MineralDrop336" parent="." index="335" instance=ExtResource( 2 )]
+position = Vector2( 1221.94, 432.098 )
+
+[node name="MineralDrop337" parent="." index="336" instance=ExtResource( 2 )]
+position = Vector2( 478.197, 491.428 )
+
+[node name="MineralDrop338" parent="." index="337" instance=ExtResource( 2 )]
+position = Vector2( 543.177, 490.721 )
+
+[node name="MineralDrop339" parent="." index="338" instance=ExtResource( 2 )]
+position = Vector2( 621.577, 491.428 )
+
+[node name="MineralDrop340" parent="." index="339" instance=ExtResource( 2 )]
+position = Vector2( 678.082, 492.84 )
+
+[node name="MineralDrop341" parent="." index="340" instance=ExtResource( 2 )]
+position = Vector2( 743.062, 492.134 )
+
+[node name="MineralDrop342" parent="." index="341" instance=ExtResource( 2 )]
+position = Vector2( 821.463, 492.84 )
+
+[node name="MineralDrop343" parent="." index="342" instance=ExtResource( 2 )]
+position = Vector2( 877.967, 493.547 )
+
+[node name="MineralDrop344" parent="." index="343" instance=ExtResource( 2 )]
+position = Vector2( 942.948, 492.84 )
+
+[node name="MineralDrop345" parent="." index="344" instance=ExtResource( 2 )]
+position = Vector2( 1021.35, 493.547 )
+
+[node name="MineralDrop346" parent="." index="345" instance=ExtResource( 2 )]
+position = Vector2( 1077.85, 494.959 )
+
+[node name="MineralDrop347" parent="." index="346" instance=ExtResource( 2 )]
+position = Vector2( 1142.83, 494.253 )
+
+[node name="MineralDrop348" parent="." index="347" instance=ExtResource( 2 )]
+position = Vector2( 1221.23, 494.959 )
+
+[node name="MineralDrop349" parent="." index="348" instance=ExtResource( 2 )]
+position = Vector2( 479.609, 560.646 )
+
+[node name="MineralDrop350" parent="." index="349" instance=ExtResource( 2 )]
+position = Vector2( 544.59, 559.94 )
+
+[node name="MineralDrop351" parent="." index="350" instance=ExtResource( 2 )]
+position = Vector2( 622.99, 560.646 )
+
+[node name="MineralDrop352" parent="." index="351" instance=ExtResource( 2 )]
+position = Vector2( 679.495, 562.059 )
+
+[node name="MineralDrop353" parent="." index="352" instance=ExtResource( 2 )]
+position = Vector2( 744.475, 561.352 )
+
+[node name="MineralDrop354" parent="." index="353" instance=ExtResource( 2 )]
+position = Vector2( 822.875, 562.059 )
+
+[node name="MineralDrop355" parent="." index="354" instance=ExtResource( 2 )]
+position = Vector2( 879.38, 562.765 )
+
+[node name="MineralDrop356" parent="." index="355" instance=ExtResource( 2 )]
+position = Vector2( 944.36, 562.059 )
+
+[node name="MineralDrop357" parent="." index="356" instance=ExtResource( 2 )]
+position = Vector2( 1022.76, 562.765 )
+
+[node name="MineralDrop358" parent="." index="357" instance=ExtResource( 2 )]
+position = Vector2( 1079.27, 564.177 )
+
+[node name="MineralDrop359" parent="." index="358" instance=ExtResource( 2 )]
+position = Vector2( 1144.25, 563.471 )
+
+[node name="MineralDrop360" parent="." index="359" instance=ExtResource( 2 )]
+position = Vector2( 1222.65, 564.177 )
+
+[node name="MineralDrop361" parent="." index="360" instance=ExtResource( 2 )]
+position = Vector2( 512.806, 228.681 )
+
+[node name="MineralDrop362" parent="." index="361" instance=ExtResource( 2 )]
+position = Vector2( 577.786, 227.974 )
+
+[node name="MineralDrop363" parent="." index="362" instance=ExtResource( 2 )]
+position = Vector2( 656.186, 228.681 )
+
+[node name="MineralDrop364" parent="." index="363" instance=ExtResource( 2 )]
+position = Vector2( 712.691, 230.093 )
+
+[node name="MineralDrop365" parent="." index="364" instance=ExtResource( 2 )]
+position = Vector2( 777.672, 229.387 )
+
+[node name="MineralDrop366" parent="." index="365" instance=ExtResource( 2 )]
+position = Vector2( 856.072, 230.093 )
+
+[node name="MineralDrop367" parent="." index="366" instance=ExtResource( 2 )]
+position = Vector2( 912.577, 230.8 )
+
+[node name="MineralDrop368" parent="." index="367" instance=ExtResource( 2 )]
+position = Vector2( 977.557, 230.093 )
+
+[node name="MineralDrop369" parent="." index="368" instance=ExtResource( 2 )]
+position = Vector2( 1055.96, 230.8 )
+
+[node name="MineralDrop370" parent="." index="369" instance=ExtResource( 2 )]
+position = Vector2( 1112.46, 232.212 )
+
+[node name="MineralDrop371" parent="." index="370" instance=ExtResource( 2 )]
+position = Vector2( 1177.44, 231.506 )
+
+[node name="MineralDrop372" parent="." index="371" instance=ExtResource( 2 )]
+position = Vector2( 1255.84, 232.212 )
+
+[node name="MineralDrop373" parent="." index="372" instance=ExtResource( 2 )]
+position = Vector2( 514.218, 297.899 )
+
+[node name="MineralDrop374" parent="." index="373" instance=ExtResource( 2 )]
+position = Vector2( 579.199, 297.193 )
+
+[node name="MineralDrop375" parent="." index="374" instance=ExtResource( 2 )]
+position = Vector2( 657.599, 297.899 )
+
+[node name="MineralDrop376" parent="." index="375" instance=ExtResource( 2 )]
+position = Vector2( 714.104, 299.312 )
+
+[node name="MineralDrop377" parent="." index="376" instance=ExtResource( 2 )]
+position = Vector2( 779.084, 298.605 )
+
+[node name="MineralDrop378" parent="." index="377" instance=ExtResource( 2 )]
+position = Vector2( 857.484, 299.312 )
+
+[node name="MineralDrop379" parent="." index="378" instance=ExtResource( 2 )]
+position = Vector2( 913.989, 300.018 )
+
+[node name="MineralDrop380" parent="." index="379" instance=ExtResource( 2 )]
+position = Vector2( 978.97, 299.312 )
+
+[node name="MineralDrop381" parent="." index="380" instance=ExtResource( 2 )]
+position = Vector2( 1057.37, 300.018 )
+
+[node name="MineralDrop382" parent="." index="381" instance=ExtResource( 2 )]
+position = Vector2( 1113.87, 301.431 )
+
+[node name="MineralDrop383" parent="." index="382" instance=ExtResource( 2 )]
+position = Vector2( 1178.85, 300.724 )
+
+[node name="MineralDrop384" parent="." index="383" instance=ExtResource( 2 )]
+position = Vector2( 1257.26, 301.431 )
+
+[node name="MineralDrop385" parent="." index="384" instance=ExtResource( 2 )]
+position = Vector2( 512.099, 359.348 )
+
+[node name="MineralDrop386" parent="." index="385" instance=ExtResource( 2 )]
+position = Vector2( 577.08, 358.642 )
+
+[node name="MineralDrop387" parent="." index="386" instance=ExtResource( 2 )]
+position = Vector2( 655.48, 359.348 )
+
+[node name="MineralDrop388" parent="." index="387" instance=ExtResource( 2 )]
+position = Vector2( 711.985, 360.76 )
+
+[node name="MineralDrop389" parent="." index="388" instance=ExtResource( 2 )]
+position = Vector2( 776.965, 360.054 )
+
+[node name="MineralDrop390" parent="." index="389" instance=ExtResource( 2 )]
+position = Vector2( 855.366, 360.76 )
+
+[node name="MineralDrop391" parent="." index="390" instance=ExtResource( 2 )]
+position = Vector2( 911.87, 361.467 )
+
+[node name="MineralDrop392" parent="." index="391" instance=ExtResource( 2 )]
+position = Vector2( 976.851, 360.76 )
+
+[node name="MineralDrop393" parent="." index="392" instance=ExtResource( 2 )]
+position = Vector2( 1055.25, 361.467 )
+
+[node name="MineralDrop394" parent="." index="393" instance=ExtResource( 2 )]
+position = Vector2( 1111.76, 362.879 )
+
+[node name="MineralDrop395" parent="." index="394" instance=ExtResource( 2 )]
+position = Vector2( 1176.74, 362.173 )
+
+[node name="MineralDrop396" parent="." index="395" instance=ExtResource( 2 )]
+position = Vector2( 1255.14, 362.879 )
+
+[node name="MineralDrop397" parent="." index="396" instance=ExtResource( 2 )]
+position = Vector2( 513.512, 428.566 )
+
+[node name="MineralDrop398" parent="." index="397" instance=ExtResource( 2 )]
+position = Vector2( 578.493, 427.86 )
+
+[node name="MineralDrop399" parent="." index="398" instance=ExtResource( 2 )]
+position = Vector2( 656.893, 428.566 )
+
+[node name="MineralDrop400" parent="." index="399" instance=ExtResource( 2 )]
+position = Vector2( 713.398, 429.979 )
+
+[node name="MineralDrop401" parent="." index="400" instance=ExtResource( 2 )]
+position = Vector2( 778.378, 429.272 )
+
+[node name="MineralDrop402" parent="." index="401" instance=ExtResource( 2 )]
+position = Vector2( 856.778, 429.979 )
+
+[node name="MineralDrop403" parent="." index="402" instance=ExtResource( 2 )]
+position = Vector2( 913.283, 430.685 )
+
+[node name="MineralDrop404" parent="." index="403" instance=ExtResource( 2 )]
+position = Vector2( 978.263, 429.979 )
+
+[node name="MineralDrop405" parent="." index="404" instance=ExtResource( 2 )]
+position = Vector2( 1056.66, 430.685 )
+
+[node name="MineralDrop406" parent="." index="405" instance=ExtResource( 2 )]
+position = Vector2( 1113.17, 432.098 )
+
+[node name="MineralDrop407" parent="." index="406" instance=ExtResource( 2 )]
+position = Vector2( 1178.15, 431.391 )
+
+[node name="MineralDrop408" parent="." index="407" instance=ExtResource( 2 )]
+position = Vector2( 1256.55, 432.098 )
+
+[node name="MineralDrop409" parent="." index="408" instance=ExtResource( 2 )]
+position = Vector2( 512.806, 491.428 )
+
+[node name="MineralDrop410" parent="." index="409" instance=ExtResource( 2 )]
+position = Vector2( 577.786, 490.721 )
+
+[node name="MineralDrop411" parent="." index="410" instance=ExtResource( 2 )]
+position = Vector2( 656.186, 491.428 )
+
+[node name="MineralDrop412" parent="." index="411" instance=ExtResource( 2 )]
+position = Vector2( 712.691, 492.84 )
+
+[node name="MineralDrop413" parent="." index="412" instance=ExtResource( 2 )]
+position = Vector2( 777.672, 492.134 )
+
+[node name="MineralDrop414" parent="." index="413" instance=ExtResource( 2 )]
+position = Vector2( 856.072, 492.84 )
+
+[node name="MineralDrop415" parent="." index="414" instance=ExtResource( 2 )]
+position = Vector2( 912.577, 493.547 )
+
+[node name="MineralDrop416" parent="." index="415" instance=ExtResource( 2 )]
+position = Vector2( 977.557, 492.84 )
+
+[node name="MineralDrop417" parent="." index="416" instance=ExtResource( 2 )]
+position = Vector2( 1055.96, 493.547 )
+
+[node name="MineralDrop418" parent="." index="417" instance=ExtResource( 2 )]
+position = Vector2( 1112.46, 494.959 )
+
+[node name="MineralDrop419" parent="." index="418" instance=ExtResource( 2 )]
+position = Vector2( 1177.44, 494.253 )
+
+[node name="MineralDrop420" parent="." index="419" instance=ExtResource( 2 )]
+position = Vector2( 1255.84, 494.959 )
+
+[node name="MineralDrop421" parent="." index="420" instance=ExtResource( 2 )]
+position = Vector2( 514.218, 560.646 )
+
+[node name="MineralDrop422" parent="." index="421" instance=ExtResource( 2 )]
+position = Vector2( 579.199, 559.94 )
+
+[node name="MineralDrop423" parent="." index="422" instance=ExtResource( 2 )]
+position = Vector2( 657.599, 560.646 )
+
+[node name="MineralDrop424" parent="." index="423" instance=ExtResource( 2 )]
+position = Vector2( 714.104, 562.059 )
+
+[node name="MineralDrop425" parent="." index="424" instance=ExtResource( 2 )]
+position = Vector2( 779.084, 561.352 )
+
+[node name="MineralDrop426" parent="." index="425" instance=ExtResource( 2 )]
+position = Vector2( 857.484, 562.059 )
+
+[node name="MineralDrop427" parent="." index="426" instance=ExtResource( 2 )]
+position = Vector2( 913.989, 562.765 )
+
+[node name="MineralDrop428" parent="." index="427" instance=ExtResource( 2 )]
+position = Vector2( 978.97, 562.059 )
+
+[node name="MineralDrop429" parent="." index="428" instance=ExtResource( 2 )]
+position = Vector2( 1057.37, 562.765 )
+
+[node name="MineralDrop430" parent="." index="429" instance=ExtResource( 2 )]
+position = Vector2( 1113.87, 564.177 )
+
+[node name="MineralDrop431" parent="." index="430" instance=ExtResource( 2 )]
+position = Vector2( 1178.85, 563.471 )
+
+[node name="MineralDrop432" parent="." index="431" instance=ExtResource( 2 )]
+position = Vector2( 1257.26, 564.177 )
+
+[node name="MineralDrop433" parent="." index="432" instance=ExtResource( 2 )]
+position = Vector2( 478.903, 198.309 )
+
+[node name="MineralDrop434" parent="." index="433" instance=ExtResource( 2 )]
+position = Vector2( 543.883, 197.603 )
+
+[node name="MineralDrop435" parent="." index="434" instance=ExtResource( 2 )]
+position = Vector2( 622.284, 198.309 )
+
+[node name="MineralDrop436" parent="." index="435" instance=ExtResource( 2 )]
+position = Vector2( 678.788, 199.722 )
+
+[node name="MineralDrop437" parent="." index="436" instance=ExtResource( 2 )]
+position = Vector2( 743.769, 199.016 )
+
+[node name="MineralDrop438" parent="." index="437" instance=ExtResource( 2 )]
+position = Vector2( 822.169, 199.722 )
+
+[node name="MineralDrop439" parent="." index="438" instance=ExtResource( 2 )]
+position = Vector2( 878.674, 200.428 )
+
+[node name="MineralDrop440" parent="." index="439" instance=ExtResource( 2 )]
+position = Vector2( 943.654, 199.722 )
+
+[node name="MineralDrop441" parent="." index="440" instance=ExtResource( 2 )]
+position = Vector2( 1022.05, 200.428 )
+
+[node name="MineralDrop442" parent="." index="441" instance=ExtResource( 2 )]
+position = Vector2( 1078.56, 201.841 )
+
+[node name="MineralDrop443" parent="." index="442" instance=ExtResource( 2 )]
+position = Vector2( 1143.54, 201.135 )
+
+[node name="MineralDrop444" parent="." index="443" instance=ExtResource( 2 )]
+position = Vector2( 1221.94, 201.841 )
+
+[node name="MineralDrop445" parent="." index="444" instance=ExtResource( 2 )]
+position = Vector2( 480.316, 267.528 )
+
+[node name="MineralDrop446" parent="." index="445" instance=ExtResource( 2 )]
+position = Vector2( 545.296, 266.821 )
+
+[node name="MineralDrop447" parent="." index="446" instance=ExtResource( 2 )]
+position = Vector2( 623.696, 267.528 )
+
+[node name="MineralDrop448" parent="." index="447" instance=ExtResource( 2 )]
+position = Vector2( 680.201, 268.94 )
+
+[node name="MineralDrop449" parent="." index="448" instance=ExtResource( 2 )]
+position = Vector2( 745.181, 268.234 )
+
+[node name="MineralDrop450" parent="." index="449" instance=ExtResource( 2 )]
+position = Vector2( 823.582, 268.94 )
+
+[node name="MineralDrop451" parent="." index="450" instance=ExtResource( 2 )]
+position = Vector2( 880.086, 269.647 )
+
+[node name="MineralDrop452" parent="." index="451" instance=ExtResource( 2 )]
+position = Vector2( 945.067, 268.94 )
+
+[node name="MineralDrop453" parent="." index="452" instance=ExtResource( 2 )]
+position = Vector2( 1023.47, 269.647 )
+
+[node name="MineralDrop454" parent="." index="453" instance=ExtResource( 2 )]
+position = Vector2( 1079.97, 271.059 )
+
+[node name="MineralDrop455" parent="." index="454" instance=ExtResource( 2 )]
+position = Vector2( 1144.95, 270.353 )
+
+[node name="MineralDrop456" parent="." index="455" instance=ExtResource( 2 )]
+position = Vector2( 1223.35, 271.059 )
+
+[node name="MineralDrop457" parent="." index="456" instance=ExtResource( 2 )]
+position = Vector2( 478.197, 328.977 )
+
+[node name="MineralDrop458" parent="." index="457" instance=ExtResource( 2 )]
+position = Vector2( 543.177, 328.27 )
+
+[node name="MineralDrop459" parent="." index="458" instance=ExtResource( 2 )]
+position = Vector2( 621.577, 328.977 )
+
+[node name="MineralDrop460" parent="." index="459" instance=ExtResource( 2 )]
+position = Vector2( 678.082, 330.389 )
+
+[node name="MineralDrop461" parent="." index="460" instance=ExtResource( 2 )]
+position = Vector2( 743.062, 329.683 )
+
+[node name="MineralDrop462" parent="." index="461" instance=ExtResource( 2 )]
+position = Vector2( 821.463, 330.389 )
+
+[node name="MineralDrop463" parent="." index="462" instance=ExtResource( 2 )]
+position = Vector2( 877.967, 331.095 )
+
+[node name="MineralDrop464" parent="." index="463" instance=ExtResource( 2 )]
+position = Vector2( 942.948, 330.389 )
+
+[node name="MineralDrop465" parent="." index="464" instance=ExtResource( 2 )]
+position = Vector2( 1021.35, 331.095 )
+
+[node name="MineralDrop466" parent="." index="465" instance=ExtResource( 2 )]
+position = Vector2( 1077.85, 332.508 )
+
+[node name="MineralDrop467" parent="." index="466" instance=ExtResource( 2 )]
+position = Vector2( 1142.83, 331.802 )
+
+[node name="MineralDrop468" parent="." index="467" instance=ExtResource( 2 )]
+position = Vector2( 1221.23, 332.508 )
+
+[node name="MineralDrop469" parent="." index="468" instance=ExtResource( 2 )]
+position = Vector2( 479.609, 398.195 )
+
+[node name="MineralDrop470" parent="." index="469" instance=ExtResource( 2 )]
+position = Vector2( 544.59, 397.489 )
+
+[node name="MineralDrop471" parent="." index="470" instance=ExtResource( 2 )]
+position = Vector2( 622.99, 398.195 )
+
+[node name="MineralDrop472" parent="." index="471" instance=ExtResource( 2 )]
+position = Vector2( 679.495, 399.607 )
+
+[node name="MineralDrop473" parent="." index="472" instance=ExtResource( 2 )]
+position = Vector2( 744.475, 398.901 )
+
+[node name="MineralDrop474" parent="." index="473" instance=ExtResource( 2 )]
+position = Vector2( 822.875, 399.607 )
+
+[node name="MineralDrop475" parent="." index="474" instance=ExtResource( 2 )]
+position = Vector2( 879.38, 400.314 )
+
+[node name="MineralDrop476" parent="." index="475" instance=ExtResource( 2 )]
+position = Vector2( 944.36, 399.607 )
+
+[node name="MineralDrop477" parent="." index="476" instance=ExtResource( 2 )]
+position = Vector2( 1022.76, 400.314 )
+
+[node name="MineralDrop478" parent="." index="477" instance=ExtResource( 2 )]
+position = Vector2( 1079.27, 401.726 )
+
+[node name="MineralDrop479" parent="." index="478" instance=ExtResource( 2 )]
+position = Vector2( 1144.25, 401.02 )
+
+[node name="MineralDrop480" parent="." index="479" instance=ExtResource( 2 )]
+position = Vector2( 1222.65, 401.726 )
+
+[node name="MineralDrop481" parent="." index="480" instance=ExtResource( 2 )]
+position = Vector2( 478.903, 461.056 )
+
+[node name="MineralDrop482" parent="." index="481" instance=ExtResource( 2 )]
+position = Vector2( 543.883, 460.35 )
+
+[node name="MineralDrop483" parent="." index="482" instance=ExtResource( 2 )]
+position = Vector2( 622.284, 461.056 )
+
+[node name="MineralDrop484" parent="." index="483" instance=ExtResource( 2 )]
+position = Vector2( 678.788, 462.469 )
+
+[node name="MineralDrop485" parent="." index="484" instance=ExtResource( 2 )]
+position = Vector2( 743.769, 461.763 )
+
+[node name="MineralDrop486" parent="." index="485" instance=ExtResource( 2 )]
+position = Vector2( 822.169, 462.469 )
+
+[node name="MineralDrop487" parent="." index="486" instance=ExtResource( 2 )]
+position = Vector2( 878.674, 463.175 )
+
+[node name="MineralDrop488" parent="." index="487" instance=ExtResource( 2 )]
+position = Vector2( 943.654, 462.469 )
+
+[node name="MineralDrop489" parent="." index="488" instance=ExtResource( 2 )]
+position = Vector2( 1022.05, 463.175 )
+
+[node name="MineralDrop490" parent="." index="489" instance=ExtResource( 2 )]
+position = Vector2( 1078.56, 464.588 )
+
+[node name="MineralDrop491" parent="." index="490" instance=ExtResource( 2 )]
+position = Vector2( 1143.54, 463.882 )
+
+[node name="MineralDrop492" parent="." index="491" instance=ExtResource( 2 )]
+position = Vector2( 1221.94, 464.588 )
+
+[node name="MineralDrop493" parent="." index="492" instance=ExtResource( 2 )]
+position = Vector2( 480.316, 530.275 )
+
+[node name="MineralDrop494" parent="." index="493" instance=ExtResource( 2 )]
+position = Vector2( 545.296, 529.568 )
+
+[node name="MineralDrop495" parent="." index="494" instance=ExtResource( 2 )]
+position = Vector2( 623.696, 530.275 )
+
+[node name="MineralDrop496" parent="." index="495" instance=ExtResource( 2 )]
+position = Vector2( 680.201, 531.687 )
+
+[node name="MineralDrop497" parent="." index="496" instance=ExtResource( 2 )]
+position = Vector2( 745.181, 530.981 )
+
+[node name="MineralDrop498" parent="." index="497" instance=ExtResource( 2 )]
+position = Vector2( 823.582, 531.687 )
+
+[node name="MineralDrop499" parent="." index="498" instance=ExtResource( 2 )]
+position = Vector2( 880.086, 532.394 )
+
+[node name="MineralDrop500" parent="." index="499" instance=ExtResource( 2 )]
+position = Vector2( 945.067, 531.687 )
+
+[node name="MineralDrop501" parent="." index="500" instance=ExtResource( 2 )]
+position = Vector2( 1023.47, 532.394 )
+
+[node name="MineralDrop502" parent="." index="501" instance=ExtResource( 2 )]
+position = Vector2( 1079.97, 533.806 )
+
+[node name="MineralDrop503" parent="." index="502" instance=ExtResource( 2 )]
+position = Vector2( 1144.95, 533.1 )
+
+[node name="MineralDrop504" parent="." index="503" instance=ExtResource( 2 )]
+position = Vector2( 1223.35, 533.806 )
+
+[node name="MineralDrop505" parent="." index="504" instance=ExtResource( 2 )]
+position = Vector2( 513.512, 198.309 )
+
+[node name="MineralDrop506" parent="." index="505" instance=ExtResource( 2 )]
+position = Vector2( 578.492, 197.603 )
+
+[node name="MineralDrop507" parent="." index="506" instance=ExtResource( 2 )]
+position = Vector2( 656.893, 198.309 )
+
+[node name="MineralDrop508" parent="." index="507" instance=ExtResource( 2 )]
+position = Vector2( 713.397, 199.722 )
+
+[node name="MineralDrop509" parent="." index="508" instance=ExtResource( 2 )]
+position = Vector2( 778.378, 199.016 )
+
+[node name="MineralDrop510" parent="." index="509" instance=ExtResource( 2 )]
+position = Vector2( 856.778, 199.722 )
+
+[node name="MineralDrop511" parent="." index="510" instance=ExtResource( 2 )]
+position = Vector2( 913.283, 200.428 )
+
+[node name="MineralDrop512" parent="." index="511" instance=ExtResource( 2 )]
+position = Vector2( 978.263, 199.722 )
+
+[node name="MineralDrop513" parent="." index="512" instance=ExtResource( 2 )]
+position = Vector2( 1056.66, 200.428 )
+
+[node name="MineralDrop514" parent="." index="513" instance=ExtResource( 2 )]
+position = Vector2( 1113.17, 201.841 )
+
+[node name="MineralDrop515" parent="." index="514" instance=ExtResource( 2 )]
+position = Vector2( 1178.15, 201.135 )
+
+[node name="MineralDrop516" parent="." index="515" instance=ExtResource( 2 )]
+position = Vector2( 1256.55, 201.841 )
+
+[node name="MineralDrop517" parent="." index="516" instance=ExtResource( 2 )]
+position = Vector2( 514.925, 267.528 )
+
+[node name="MineralDrop518" parent="." index="517" instance=ExtResource( 2 )]
+position = Vector2( 579.905, 266.821 )
+
+[node name="MineralDrop519" parent="." index="518" instance=ExtResource( 2 )]
+position = Vector2( 658.305, 267.528 )
+
+[node name="MineralDrop520" parent="." index="519" instance=ExtResource( 2 )]
+position = Vector2( 714.81, 268.94 )
+
+[node name="MineralDrop521" parent="." index="520" instance=ExtResource( 2 )]
+position = Vector2( 779.791, 268.234 )
+
+[node name="MineralDrop522" parent="." index="521" instance=ExtResource( 2 )]
+position = Vector2( 858.191, 268.94 )
+
+[node name="MineralDrop523" parent="." index="522" instance=ExtResource( 2 )]
+position = Vector2( 914.695, 269.647 )
+
+[node name="MineralDrop524" parent="." index="523" instance=ExtResource( 2 )]
+position = Vector2( 979.676, 268.94 )
+
+[node name="MineralDrop525" parent="." index="524" instance=ExtResource( 2 )]
+position = Vector2( 1058.08, 269.647 )
+
+[node name="MineralDrop526" parent="." index="525" instance=ExtResource( 2 )]
+position = Vector2( 1114.58, 271.059 )
+
+[node name="MineralDrop527" parent="." index="526" instance=ExtResource( 2 )]
+position = Vector2( 1179.56, 270.353 )
+
+[node name="MineralDrop528" parent="." index="527" instance=ExtResource( 2 )]
+position = Vector2( 1257.96, 271.059 )
+
+[node name="MineralDrop529" parent="." index="528" instance=ExtResource( 2 )]
+position = Vector2( 512.806, 328.977 )
+
+[node name="MineralDrop530" parent="." index="529" instance=ExtResource( 2 )]
+position = Vector2( 577.786, 328.27 )
+
+[node name="MineralDrop531" parent="." index="530" instance=ExtResource( 2 )]
+position = Vector2( 656.186, 328.977 )
+
+[node name="MineralDrop532" parent="." index="531" instance=ExtResource( 2 )]
+position = Vector2( 712.691, 330.389 )
+
+[node name="MineralDrop533" parent="." index="532" instance=ExtResource( 2 )]
+position = Vector2( 777.672, 329.683 )
+
+[node name="MineralDrop534" parent="." index="533" instance=ExtResource( 2 )]
+position = Vector2( 856.072, 330.389 )
+
+[node name="MineralDrop535" parent="." index="534" instance=ExtResource( 2 )]
+position = Vector2( 912.577, 331.095 )
+
+[node name="MineralDrop536" parent="." index="535" instance=ExtResource( 2 )]
+position = Vector2( 977.557, 330.389 )
+
+[node name="MineralDrop537" parent="." index="536" instance=ExtResource( 2 )]
+position = Vector2( 1055.96, 331.095 )
+
+[node name="MineralDrop538" parent="." index="537" instance=ExtResource( 2 )]
+position = Vector2( 1112.46, 332.508 )
+
+[node name="MineralDrop539" parent="." index="538" instance=ExtResource( 2 )]
+position = Vector2( 1177.44, 331.802 )
+
+[node name="MineralDrop540" parent="." index="539" instance=ExtResource( 2 )]
+position = Vector2( 1255.84, 332.508 )
+
+[node name="MineralDrop541" parent="." index="540" instance=ExtResource( 2 )]
+position = Vector2( 514.218, 398.195 )
+
+[node name="MineralDrop542" parent="." index="541" instance=ExtResource( 2 )]
+position = Vector2( 579.199, 397.489 )
+
+[node name="MineralDrop543" parent="." index="542" instance=ExtResource( 2 )]
+position = Vector2( 657.599, 398.195 )
+
+[node name="MineralDrop544" parent="." index="543" instance=ExtResource( 2 )]
+position = Vector2( 714.104, 399.607 )
+
+[node name="MineralDrop545" parent="." index="544" instance=ExtResource( 2 )]
+position = Vector2( 779.084, 398.901 )
+
+[node name="MineralDrop546" parent="." index="545" instance=ExtResource( 2 )]
+position = Vector2( 857.484, 399.607 )
+
+[node name="MineralDrop547" parent="." index="546" instance=ExtResource( 2 )]
+position = Vector2( 913.989, 400.314 )
+
+[node name="MineralDrop548" parent="." index="547" instance=ExtResource( 2 )]
+position = Vector2( 978.97, 399.607 )
+
+[node name="MineralDrop549" parent="." index="548" instance=ExtResource( 2 )]
+position = Vector2( 1057.37, 400.314 )
+
+[node name="MineralDrop550" parent="." index="549" instance=ExtResource( 2 )]
+position = Vector2( 1113.87, 401.726 )
+
+[node name="MineralDrop551" parent="." index="550" instance=ExtResource( 2 )]
+position = Vector2( 1178.85, 401.02 )
+
+[node name="MineralDrop552" parent="." index="551" instance=ExtResource( 2 )]
+position = Vector2( 1257.26, 401.726 )
+
+[node name="MineralDrop553" parent="." index="552" instance=ExtResource( 2 )]
+position = Vector2( 513.512, 461.056 )
+
+[node name="MineralDrop554" parent="." index="553" instance=ExtResource( 2 )]
+position = Vector2( 578.492, 460.35 )
+
+[node name="MineralDrop555" parent="." index="554" instance=ExtResource( 2 )]
+position = Vector2( 656.893, 461.056 )
+
+[node name="MineralDrop556" parent="." index="555" instance=ExtResource( 2 )]
+position = Vector2( 713.397, 462.469 )
+
+[node name="MineralDrop557" parent="." index="556" instance=ExtResource( 2 )]
+position = Vector2( 778.378, 461.763 )
+
+[node name="MineralDrop558" parent="." index="557" instance=ExtResource( 2 )]
+position = Vector2( 856.778, 462.469 )
+
+[node name="MineralDrop559" parent="." index="558" instance=ExtResource( 2 )]
+position = Vector2( 913.283, 463.175 )
+
+[node name="MineralDrop560" parent="." index="559" instance=ExtResource( 2 )]
+position = Vector2( 978.263, 462.469 )
+
+[node name="MineralDrop561" parent="." index="560" instance=ExtResource( 2 )]
+position = Vector2( 1056.66, 463.175 )
+
+[node name="MineralDrop562" parent="." index="561" instance=ExtResource( 2 )]
+position = Vector2( 1113.17, 464.588 )
+
+[node name="MineralDrop563" parent="." index="562" instance=ExtResource( 2 )]
+position = Vector2( 1178.15, 463.882 )
+
+[node name="MineralDrop564" parent="." index="563" instance=ExtResource( 2 )]
+position = Vector2( 1256.55, 464.588 )
+
+[node name="MineralDrop565" parent="." index="564" instance=ExtResource( 2 )]
+position = Vector2( 514.925, 530.275 )
+
+[node name="MineralDrop566" parent="." index="565" instance=ExtResource( 2 )]
+position = Vector2( 579.905, 529.568 )
+
+[node name="MineralDrop567" parent="." index="566" instance=ExtResource( 2 )]
+position = Vector2( 658.305, 530.275 )
+
+[node name="MineralDrop568" parent="." index="567" instance=ExtResource( 2 )]
+position = Vector2( 714.81, 531.687 )
+
+[node name="MineralDrop569" parent="." index="568" instance=ExtResource( 2 )]
+position = Vector2( 779.791, 530.981 )
+
+[node name="MineralDrop570" parent="." index="569" instance=ExtResource( 2 )]
+position = Vector2( 858.191, 531.687 )
+
+[node name="MineralDrop571" parent="." index="570" instance=ExtResource( 2 )]
+position = Vector2( 914.695, 532.394 )
+
+[node name="MineralDrop572" parent="." index="571" instance=ExtResource( 2 )]
+position = Vector2( 979.676, 531.687 )
+
+[node name="MineralDrop573" parent="." index="572" instance=ExtResource( 2 )]
+position = Vector2( 1058.08, 532.394 )
+
+[node name="MineralDrop574" parent="." index="573" instance=ExtResource( 2 )]
+position = Vector2( 1114.58, 533.806 )
+
+[node name="MineralDrop575" parent="." index="574" instance=ExtResource( 2 )]
+position = Vector2( 1179.56, 533.1 )
+
+[node name="MineralDrop576" parent="." index="575" instance=ExtResource( 2 )]
+position = Vector2( 1257.96, 533.806 )

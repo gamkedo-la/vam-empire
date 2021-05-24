@@ -311,3 +311,8 @@ func _target_change(val):
 
 func get_ship_inventory():
 	return inventory
+
+
+func _on_Trigger_area_entered(area):
+	print_debug(area, "detected by Player")
+	area.get_parent().pickup()
