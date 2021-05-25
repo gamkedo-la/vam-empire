@@ -41,16 +41,18 @@ tracks/0/keys = {
 
 [sub_resource type="CapsuleShape2D" id=3]
 radius = 1.37497
-height = 2.33333
+height = 47.5834
 
 [sub_resource type="CapsuleShape2D" id=4]
 radius = 3.88844
 height = 48.4971
 
-[node name="MiningLaserBeam" type="RigidBody2D"]
+[node name="MiningLaserBeam" type="RigidBody2D" groups=[
+"can_mine",
+]]
 position = Vector2( 0, -2 )
-collision_layer = 8
-collision_mask = 0
+collision_layer = 0
+collision_mask = 8
 mass = 0.25
 script = ExtResource( 2 )
 
@@ -66,9 +68,11 @@ anims/fireLaser = SubResource( 1 )
 anims/keepFiringLaser = SubResource( 2 )
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2( -1.16667, -33.3333 )
 shape = SubResource( 3 )
 
 [node name="HurtBox" parent="." instance=ExtResource( 1 )]
+collision_layer = 8
 collision_mask = 8
 
 [node name="CollisionShape2D" parent="HurtBox" index="0"]
@@ -83,6 +87,7 @@ color = Color( 1, 0.501961, 0, 1 )
 shadow_enabled = true
 
 [node name="DamageTickTimer" type="Timer" parent="."]
+
 [connection signal="timeout" from="DamageTickTimer" to="." method="_on_DamageTickTimer_timeout"]
 
 [editable path="HurtBox"]

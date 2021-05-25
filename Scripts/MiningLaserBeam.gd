@@ -1,5 +1,7 @@
 extends RigidBody2D
 
+signal disengage
+
 const MaxDistance = 800
 const MaxSeconds = 1
 const ImpulseMag = 550
@@ -31,7 +33,15 @@ func disable_collision():
 	hurtBox.set_deferred("monitorable", false)
 	
 func free_laser_beam():
-	queue_free()
+	visible = false
+	emit_signal("disengage", self)
+	damageTickTimer.wait_time = 1.0
+	damageTickTimer.connect("timeout", self, "_free_beam")
+	damageTickTimer.start()
+	
+	
+func _free_beam() -> void:
+	call_deferred("queue_free")
 
 # e.g. when temporary laser disabling is over
 func _on_DamageTickTimer_timeout():

@@ -240,11 +240,11 @@ func _get_property_list():	# overridden function
 			property_list.append({"name": "weapon/constant_projectile_speed", "type": 3, "usage": 8199})
 
 	# Laser only features
-	if weap_type == WeaponType.LASER:
+	if weap_type == WeaponType.LASER || weap_type == WeaponType.MINING_LASER:
 		property_list.append({"name": "weapon/beam","type": 17,"usage": 8199,"hint": 17,"hint_string": "PackedScene",})
 		
 	# Features common to Phys/Eneryg Proj and Lasers
-	if weap_type == WeaponType.PHYS_PROJECTILE || weap_type == WeaponType.ENERGY_PROJECTILE || weap_type == WeaponType.LASER:
+	if weap_type == WeaponType.PHYS_PROJECTILE || weap_type == WeaponType.ENERGY_PROJECTILE || weap_type == WeaponType.LASER || weap_type == WeaponType.MINING_LASER:
 		property_list.append({"name":"weapon/fire_rate","hint":1,"hint_string":"50,10000", "type":3, "usage":8199,})
 		property_list.append({"name":"weapon/beam_sound","hint":3,
 		"hint_string":"Beam 01:0,Beam 02:1,Beam 03:2,Beam 04:3,Beam 05:4,Random:5","type":2,"usage":8199,})

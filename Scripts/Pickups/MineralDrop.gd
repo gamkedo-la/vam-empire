@@ -1,4 +1,4 @@
-extends Node2D
+extends RigidBody2D
 signal removed
 
 onready var sprite: Sprite = $Sprite
