@@ -1,10 +1,11 @@
-[gd_scene load_steps=16 format=2]
+[gd_scene load_steps=17 format=2]
 
 [ext_resource path="res://Lights/Textures/light_orb.png" type="Texture" id=1]
 [ext_resource path="res://Lights/Textures/headlight_001.png" type="Texture" id=2]
 [ext_resource path="res://Player/Textures/Shmup_Player_Ship_001.png" type="Texture" id=3]
 [ext_resource path="res://Scripts/Ship.gd" type="Script" id=4]
 [ext_resource path="res://Scripts/Effects/Trail.gd" type="Script" id=5]
+[ext_resource path="res://Scripts/RCSThrusters.gd" type="Script" id=6]
 
 [sub_resource type="CapsuleShape2D" id=1]
 radius = 2.14236
@@ -20,24 +21,24 @@ _data = [ Vector2( 0, 1 ), 0.0, 0.0, 0, 0, Vector2( 1, 0 ), 0.0, 0.0, 0, 0 ]
 offsets = PoolRealArray( 0, 0.632979, 1 )
 colors = PoolColorArray( 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 0 )
 
-[sub_resource type="Curve" id=9]
+[sub_resource type="Curve" id=5]
 _data = [ Vector2( 0, 1 ), 0.0, 0.0, 0, 0, Vector2( 1, 0 ), 0.0, 0.0, 0, 0 ]
 
-[sub_resource type="Gradient" id=10]
+[sub_resource type="Gradient" id=6]
 offsets = PoolRealArray( 0, 0.414894, 1 )
 colors = PoolColorArray( 0.995117, 1, 0, 1, 0.992676, 0.27908, 0.00387764, 1, 0.245198, 0.627854, 0.996361, 0.686275 )
 
-[sub_resource type="Curve" id=5]
+[sub_resource type="Curve" id=7]
 _data = [ Vector2( 0, 0.3 ), 0.0, 1.12284, 0, 0, Vector2( 1, 1 ), 0.0, 0.0, 0, 0 ]
 
-[sub_resource type="Gradient" id=6]
+[sub_resource type="Gradient" id=8]
 offsets = PoolRealArray( 0, 0.148936, 1 )
 colors = PoolColorArray( 1, 1, 1, 1, 1, 1, 1, 1, 0.2, 0.227451, 0.309804, 0 )
 
-[sub_resource type="Curve" id=7]
+[sub_resource type="Curve" id=9]
 _data = [ Vector2( 0, 0 ), -0.180992, 0.0, 0, 0, Vector2( 1, 1 ), 0.0, 0.034326, 0, 0 ]
 
-[sub_resource type="Gradient" id=8]
+[sub_resource type="Gradient" id=10]
 offsets = PoolRealArray( 0, 0.595, 1 )
 colors = PoolColorArray( 1, 1, 1, 0, 1, 1, 1, 0.27451, 1, 1, 1, 0.27451 )
 
@@ -161,16 +162,18 @@ scale_amount = 0.16
 scale_amount_curve = SubResource( 3 )
 color_ramp = SubResource( 4 )
 
-[node name="RCS Thrusters" type="Node2D" parent="."]
+[node name="RCSThrusters" type="Node2D" parent="."]
+position = Vector2( 2.31507, 0 )
+script = ExtResource( 6 )
 
-[node name="Breakes" type="Node2D" parent="RCS Thrusters"]
-
-[node name="FireType" type="Node2D" parent="RCS Thrusters/Breakes"]
+[node name="Breakes" type="Node2D" parent="RCSThrusters"]
 visible = false
 
-[node name="LeftRCS" type="CPUParticles2D" parent="RCS Thrusters/Breakes/FireType"]
+[node name="FireType" type="Node2D" parent="RCSThrusters/Breakes"]
+
+[node name="LeftRCS" type="CPUParticles2D" parent="RCSThrusters/Breakes/FireType"]
 light_mask = 0
-position = Vector2( 2.4, -5.2 )
+position = Vector2( -0.967382, -5.2 )
 rotation = -3.14159
 z_index = -20
 amount = 124
@@ -183,12 +186,12 @@ initial_velocity = 48.21
 initial_velocity_random = 0.21
 angular_velocity = -424.29
 scale_amount = 0.07
-scale_amount_curve = SubResource( 9 )
-color_ramp = SubResource( 10 )
+scale_amount_curve = SubResource( 5 )
+color_ramp = SubResource( 6 )
 
-[node name="TightRCS" type="CPUParticles2D" parent="RCS Thrusters/Breakes/FireType"]
+[node name="TightRCS" type="CPUParticles2D" parent="RCSThrusters/Breakes/FireType"]
 light_mask = 0
-position = Vector2( 2.4, 5.2 )
+position = Vector2( -0.967382, 5.2 )
 rotation = -3.14159
 z_index = -20
 amount = 124
@@ -201,13 +204,13 @@ initial_velocity = 48.21
 initial_velocity_random = 0.21
 angular_velocity = -424.29
 scale_amount = 0.07
-scale_amount_curve = SubResource( 9 )
-color_ramp = SubResource( 10 )
+scale_amount_curve = SubResource( 5 )
+color_ramp = SubResource( 6 )
 
-[node name="GassType" type="Node2D" parent="RCS Thrusters/Breakes"]
+[node name="GassType" type="Node2D" parent="RCSThrusters/Breakes"]
 visible = false
 
-[node name="LeftRCS" type="CPUParticles2D" parent="RCS Thrusters/Breakes/GassType"]
+[node name="LeftRCS" type="CPUParticles2D" parent="RCSThrusters/Breakes/GassType"]
 light_mask = 0
 position = Vector2( 0.771, -5.4 )
 rotation = -3.14159
@@ -223,10 +226,10 @@ initial_velocity_random = 0.68
 angular_velocity = -424.29
 radial_accel = 23.21
 scale_amount = 0.07
-scale_amount_curve = SubResource( 5 )
-color_ramp = SubResource( 6 )
+scale_amount_curve = SubResource( 7 )
+color_ramp = SubResource( 8 )
 
-[node name="RightRCS" type="CPUParticles2D" parent="RCS Thrusters/Breakes/GassType"]
+[node name="RightRCS" type="CPUParticles2D" parent="RCSThrusters/Breakes/GassType"]
 light_mask = 0
 position = Vector2( 0.718, 5.4 )
 rotation = -3.14159
@@ -242,8 +245,94 @@ initial_velocity_random = 0.68
 angular_velocity = -424.29
 radial_accel = 23.21
 scale_amount = 0.07
-scale_amount_curve = SubResource( 5 )
-color_ramp = SubResource( 6 )
+scale_amount_curve = SubResource( 7 )
+color_ramp = SubResource( 8 )
+
+[node name="Right" type="Node2D" parent="RCSThrusters"]
+visible = false
+
+[node name="LeftRCS" type="CPUParticles2D" parent="RCSThrusters/Right"]
+light_mask = 0
+position = Vector2( -0.351, -8 )
+rotation = 1.5708
+scale = Vector2( 0.7, 0.7 )
+z_index = -20
+amount = 180
+lifetime = 0.28
+texture = ExtResource( 1 )
+direction = Vector2( -1, 0 )
+spread = 21.89
+gravity = Vector2( 0, 0 )
+initial_velocity = 57.14
+initial_velocity_random = 0.68
+angular_velocity = -424.29
+radial_accel = 23.21
+scale_amount = 0.07
+scale_amount_curve = SubResource( 7 )
+color_ramp = SubResource( 8 )
+
+[node name="RightRCS" type="CPUParticles2D" parent="RCSThrusters/Right"]
+light_mask = 0
+position = Vector2( -9.73491, 9.1883 )
+rotation = -1.5708
+scale = Vector2( 0.7, 0.7 )
+z_index = -20
+amount = 180
+lifetime = 0.28
+texture = ExtResource( 1 )
+direction = Vector2( -1, 0 )
+spread = 21.89
+gravity = Vector2( 0, 0 )
+initial_velocity = 57.14
+initial_velocity_random = 0.68
+angular_velocity = -424.29
+radial_accel = 23.21
+scale_amount = 0.07
+scale_amount_curve = SubResource( 7 )
+color_ramp = SubResource( 8 )
+
+[node name="Left" type="Node2D" parent="RCSThrusters"]
+visible = false
+
+[node name="LeftRCS" type="CPUParticles2D" parent="RCSThrusters/Left"]
+light_mask = 0
+position = Vector2( -9.79068, -9.10962 )
+rotation = 1.5708
+scale = Vector2( 0.7, 0.7 )
+z_index = -20
+amount = 180
+lifetime = 0.28
+texture = ExtResource( 1 )
+direction = Vector2( -1, 0 )
+spread = 21.89
+gravity = Vector2( 0, 0 )
+initial_velocity = 57.14
+initial_velocity_random = 0.68
+angular_velocity = -424.29
+radial_accel = 23.21
+scale_amount = 0.07
+scale_amount_curve = SubResource( 7 )
+color_ramp = SubResource( 8 )
+
+[node name="RightRCS" type="CPUParticles2D" parent="RCSThrusters/Left"]
+light_mask = 0
+position = Vector2( -0.351, 8.07438 )
+rotation = -1.5708
+scale = Vector2( 0.7, 0.7 )
+z_index = -20
+amount = 180
+lifetime = 0.28
+texture = ExtResource( 1 )
+direction = Vector2( -1, 0 )
+spread = 21.89
+gravity = Vector2( 0, 0 )
+initial_velocity = 57.14
+initial_velocity_random = 0.68
+angular_velocity = -424.29
+radial_accel = 23.21
+scale_amount = 0.07
+scale_amount_curve = SubResource( 7 )
+color_ramp = SubResource( 8 )
 
 [node name="Tail Trail" type="Node2D" parent="."]
 visible = false
@@ -253,8 +342,8 @@ position = Vector2( -9.00543, 0 )
 visible = false
 z_index = -90
 width = 8.0
-width_curve = SubResource( 7 )
-gradient = SubResource( 8 )
+width_curve = SubResource( 9 )
+gradient = SubResource( 10 )
 script = ExtResource( 5 )
 
 [node name="Wing Trail 1" type="Node2D" parent="."]
@@ -263,8 +352,8 @@ position = Vector2( -7.41624, -6.62164 )
 [node name="Line2D" type="Line2D" parent="Wing Trail 1"]
 z_index = -90
 width = 4.0
-width_curve = SubResource( 7 )
-gradient = SubResource( 8 )
+width_curve = SubResource( 9 )
+gradient = SubResource( 10 )
 script = ExtResource( 5 )
 
 [node name="Wing Trail 2" type="Node2D" parent="."]
@@ -273,6 +362,6 @@ position = Vector2( -7.416, 6.622 )
 [node name="Line2D" type="Line2D" parent="Wing Trail 2"]
 z_index = -90
 width = 4.0
-width_curve = SubResource( 7 )
-gradient = SubResource( 8 )
+width_curve = SubResource( 9 )
+gradient = SubResource( 10 )
 script = ExtResource( 5 )
