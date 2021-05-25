@@ -33,15 +33,6 @@ func _free_asteroid():
 		PlayerVars.set_target(null)
 	queue_free()
 
-func _remove_mine_spawner(miner) -> void:
-	print_debug("DESPAWNING MINE EFFECT")
-	if miner in miners:
-		print_debug("Miners REMOVE -> ", miners, " ", miner)
-		for mine in miners:
-			miners[mine].call_deferred("queue_free")
-			miners.erase(mine)
-
-
 func _on_HurtBox_area_entered(area):	
 	var hitParent = area.get_parent()
 	if !hitParent.is_in_group("can_mine"):
@@ -49,8 +40,7 @@ func _on_HurtBox_area_entered(area):
 		Effects.show_dmg_text(hitParent.global_position, hitParent.Damage)
 		hitParent.hit_something()
 	else:	
-		var laser = area.get_parent()
-		print_debug("We minin' bois")		
+		var laser = area.get_parent()		
 		var newMine = mine_spawner.instance()
 		laser.connect("disengage", newMine, "_remove_mine_spawner")		
 		get_tree().get_root().add_child(newMine)
@@ -109,19 +99,3 @@ func _on_HighlightTween_tween_completed(object, key):
 							cur_color,targ_color, highlight_pulse_speed*2,
 							Tween.TRANS_SINE, Tween.EASE_IN_OUT)
 		targ_tween.start()
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
