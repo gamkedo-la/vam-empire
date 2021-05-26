@@ -57,13 +57,10 @@ func _rcs_front(toggle: bool, strength: float) -> void:
 		rcs_front.stop()
 	pass
 
-func _player_rock_collision(location: Vector2, strength: float) -> void:
-	print_debug("BOOM", location, strength)
+func _player_rock_collision(location: Vector2, strength: float) -> void:	
 	rock_coll_sfx.global_position = location
-	rock_coll_sfx.volume_db = linear2db(clamp(strength, 0.0, 1.2))
-	rock_coll_sfx.play()
-	
-	pass
+	rock_coll_sfx.volume_db = linear2db(clamp(strength, 0.1, 1.2))	
+	rock_coll_sfx.play()	
 
 func _charge_shield(toggle: bool) -> void:
 	if toggle:

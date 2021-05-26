@@ -193,23 +193,25 @@ func move():
 	var pre_vel = velocity
 	velocity = move_and_slide(velocity, m_s_up, m_s_sos, m_s_maxsli, m_s_fma, false)
 	var took_dmg = false
+	
 	for index in get_slide_count():
+#		print_debug("slide_count()", get_slide_count())
 		var collision = get_slide_collision(index)
 		#if collision.collider.get_parent().is_in_group("asteroids"):
-		if collision.collider.is_in_group("asteroids"):
-			collision.collider.apply_impulse(velocity, -collision.normal * (velocity * MASS))
+		if collision.collider.is_in_group("asteroids") && !took_dmg:
+#			collision.collider.apply_impulse(velocity, -collision.normal * (velocity * MASS))
 #			var damage = velocity.length()/20			
 			var damage  = clamp(((pre_vel.length() - velocity.length())/MAX_SPEED) * PlayerVars.shield_max_health, 
 									0.0, PlayerVars.shield_max_health)
 			if !took_dmg:
 				PlayerVars.take_damage(damage)
 				took_dmg = true
-			var snd_strength = clamp(damage/PlayerVars.shield_max_health, 0.0, 1.0)
-			if PlayerVars.shield_health > 0:
-				snd_strength /= 4
-			else:
-				snd_strength *= 1.5
-			Effects.emit_signal("PlayerRockCollision", collision.position, snd_strength)
+				var snd_strength = clamp(damage/PlayerVars.shield_max_health, 0.0, 1.0)
+				if PlayerVars.shield_health > 0:
+					snd_strength /= 4
+				else:
+					snd_strength *= 1.5
+				Effects.emit_signal("PlayerRockCollision", collision.position, snd_strength)
 			
 
 func strafe():
