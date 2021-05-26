@@ -87,17 +87,17 @@ func animate_thrusters(t_vec) -> void:
 	
 	pass
 
-func animate_rcs(thrust: int) -> void:
-	if rcs_thrusters:
+func animate_rcs(thrust: float) -> void:
+	if rcs_thrusters:		
 		rcs_thrusters.do_break(thrust)
 
-func rotate_rcs(thrust: int):
-	if thrust == 1:
-		rcs_thrusters.bank_right(1)
-		rcs_thrusters.bank_left(0)
-	elif thrust == -1:
-		rcs_thrusters.bank_right(0)
-		rcs_thrusters.bank_left(1)
+func rotate_rcs(thrust: float):
+	if thrust > 0.1:
+		rcs_thrusters.bank_right(thrust)
+#		rcs_thrusters.bank_left(0)
+	elif thrust < -0.1:
+#		rcs_thrusters.bank_right(0)
+		rcs_thrusters.bank_left(thrust)
 	else:
 		rcs_thrusters.bank_right(0)
 		rcs_thrusters.bank_left(0)

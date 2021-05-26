@@ -1,5 +1,9 @@
 extends Node
 
+signal RCSLeft
+signal RCSRight
+signal RCSFront
+
 var floating_text = load("res://UI/Effects/FloatingText.tscn")
 
 func show_dmg_text(position, amount):

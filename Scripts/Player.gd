@@ -157,7 +157,7 @@ func move_state(delta):
 			piloted_ship.animate_thrusters(retro_heading.normalized())
 	
 	if rcs_braking:
-		piloted_ship.animate_rcs(1)
+		piloted_ship.animate_rcs(velocity.length()/MAX_SPEED)
 	else:
 		piloted_ship.animate_rcs(0)
 	
@@ -214,10 +214,11 @@ func rotate_to_target(target):
 	var rcs_amount = 0
 	if self.get_angle_to(target) > ROT_SPEED:
 		self.rotation += ROT_SPEED + ROT_ACCEL
-		rcs_amount = 1
+		rcs_amount = (ROT_SPEED + ROT_ACCEL)/(ROT_SPEED+.05)
+		
 	else:
 		self.rotation -= ROT_SPEED + ROT_ACCEL
-		rcs_amount = -1
+		rcs_amount = (ROT_SPEED + ROT_ACCEL)/(ROT_SPEED+.05)
 		
 	if abs(self.get_angle_to(target)) < ROT_SPEED * 1.1:
 		self.look_at(target)
@@ -226,8 +227,7 @@ func rotate_to_target(target):
 		ROT_ACCEL += deg2rad(.05)
 	
 	if rad2deg(ROT_ACCEL) < .15:
-		rcs_amount = 0
-		
+		rcs_amount = 0	
 	piloted_ship.rotate_rcs(rcs_amount)
 
 func take_damage(amount):

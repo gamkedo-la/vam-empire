@@ -1,0 +1,21 @@
+[remap]
+
+importer="wav"
+type="AudioStreamSample"
+path="res://.import/rcs_short.wav-6efea39be6bb56332176dbdcc46c8294.sample"
+
+[deps]
+
+source_file="res://Sounds/RCS/rcs_short.wav"
+dest_files=[ "res://.import/rcs_short.wav-6efea39be6bb56332176dbdcc46c8294.sample" ]
+
+[params]
+
+force/8_bit=false
+force/mono=false
+force/max_rate=false
+force/max_rate_hz=44100
+edit/trim=false
+edit/normalize=false
+edit/loop=false
+compress/mode=0
