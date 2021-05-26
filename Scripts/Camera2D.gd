@@ -5,17 +5,25 @@ onready var tween = $Tween
 onready var rcs_left = $RCSLeft
 onready var rcs_right = $RCSRight
 onready var rcs_front = $RCSFront
+onready var rock_coll_sfx = $RockCollisionSfx
+
+onready var shield_pivot = $ShieldChargePivot
+onready var shield_tween = $ShieldChargePivot/ShieldTween
+onready var shield_sfx = $ShieldChargePivot/ShieldChargeSfx
+
 var rcs_left_timer
 var rcs_right_timer
 var rcs_front_timer
-
 
 func _ready():
 	
 	Effects.connect("RCSLeft", self, "_rcs_left")
 	Effects.connect("RCSRight", self, "_rcs_right")
 	Effects.connect("RCSFront", self, "_rcs_front")
-	
+	Effects.connect("PlayerRockCollision", self, "_player_rock_collision")
+	Effects.connect("ChargeShield", self, "_charge_shield")
+	shield_tween.interpolate_property(shield_pivot, "rotation_degrees", shield_pivot.rotation_degrees, 360, 1, Tween.TRANS_SINE, Tween.EASE_IN_OUT)
+	shield_tween.start()
 
 func _physics_process(_delta):
 	position = player.position
@@ -48,5 +56,22 @@ func _rcs_front(toggle: bool, strength: float) -> void:
 	else:
 		rcs_front.stop()
 	pass
+
+func _player_rock_collision(location: Vector2, strength: float) -> void:
+	print_debug("BOOM", location, strength)
+	rock_coll_sfx.global_position = location
+	rock_coll_sfx.volume_db = linear2db(clamp(strength, 0.0, 1.2))
+	rock_coll_sfx.play()
 	
+	pass
+
+func _charge_shield(toggle: bool) -> void:
+	if toggle:
+		if !shield_sfx.playing:
+			shield_sfx.play()
+	else:
+		if shield_sfx.playing:
+			shield_sfx.stop()
+	
+		
 	

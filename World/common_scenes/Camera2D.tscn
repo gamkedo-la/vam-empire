@@ -1,6 +1,15 @@
-[gd_scene load_steps=2 format=2]
+[gd_scene load_steps=7 format=2]
 
 [ext_resource path="res://Scripts/Camera2D.gd" type="Script" id=1]
+[ext_resource path="res://Sounds/RCS/rcs_loopable.wav" type="AudioStream" id=2]
+[ext_resource path="res://Sounds/Collisions/Metal_on_Rock_Collision_SFX.wav" type="AudioStream" id=3]
+[ext_resource path="res://Sounds/Shield Up Charge SFX.wav" type="AudioStream" id=4]
+
+[sub_resource type="AudioStreamRandomPitch" id=1]
+audio_stream = ExtResource( 3 )
+
+[sub_resource type="AudioStreamRandomPitch" id=2]
+audio_stream = ExtResource( 4 )
 
 [node name="Camera2D" type="Camera2D"]
 current = true
@@ -11,3 +20,41 @@ drag_margin_bottom = 0.4
 script = ExtResource( 1 )
 
 [node name="Tween" type="Tween" parent="."]
+
+[node name="RCSLeft" type="AudioStreamPlayer2D" parent="."]
+position = Vector2( -470.807, 0.370239 )
+stream = ExtResource( 2 )
+pitch_scale = 1.1
+attenuation = 1.68179
+bus = "Ship SFX"
+
+[node name="RCSRight" type="AudioStreamPlayer2D" parent="."]
+position = Vector2( 482.379, -2.09003 )
+stream = ExtResource( 2 )
+pitch_scale = 0.97
+attenuation = 1.68179
+bus = "Ship SFX"
+
+[node name="RCSFront" type="AudioStreamPlayer2D" parent="."]
+position = Vector2( 1.50568, -500.595 )
+stream = ExtResource( 2 )
+pitch_scale = 0.95
+attenuation = 1.68179
+bus = "Ship SFX"
+
+[node name="RockCollisionSfx" type="AudioStreamPlayer2D" parent="."]
+stream = SubResource( 1 )
+bus = "Ship SFX"
+
+[node name="ShieldChargePivot" type="Position2D" parent="."]
+
+[node name="ShieldChargeSfx" type="AudioStreamPlayer2D" parent="ShieldChargePivot"]
+position = Vector2( 4.58105, -497.032 )
+stream = SubResource( 2 )
+volume_db = -10.0
+attenuation = 0.133972
+bus = "Ship SFX"
+
+[node name="ShieldTween" type="Tween" parent="ShieldChargePivot"]
+repeat = true
+playback/repeat = true

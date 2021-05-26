@@ -9,7 +9,7 @@ var originalPos = Vector2.ZERO
 
 onready var animPlayer = $AnimationPlayer
 onready var sprite = $Sprite
-
+var lifetime = 0
 
 func launchBullet(rnd_impulse, direction):
 	originalPos = self.position	
@@ -17,11 +17,12 @@ func launchBullet(rnd_impulse, direction):
 	apply_central_impulse(direction * (ImpulseMag * rnd_impulse))
 	
 
-func _physics_process(_delta):
+func _physics_process(delta):
+	lifetime += delta
 	var distanceTravelled = self.position.distance_to(originalPos)
 	if distanceTravelled > 0:
 		sprite.visible = true;
-	if distanceTravelled > MaxDistance:
+	if distanceTravelled > MaxDistance || lifetime > 5:
 		queue_free()
 		
 func hit_something():

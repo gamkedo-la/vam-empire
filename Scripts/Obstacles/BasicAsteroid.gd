@@ -12,6 +12,7 @@ export (float, 0.5, 5) var highlight_pulse_speed = 0.5
 onready var sprite = $Sprite
 onready var targ_tween = $HighlightTween
 onready var hurt_box = $HurtBox
+var coll_efx: AudioStreamPlayer2D
 onready var mine_spawner = preload("res://Pickups/MineSpawner.tscn")
 var miners = {}
 
@@ -20,6 +21,7 @@ func _ready():
 	sprite.material.set_shader_param("textureName_size", sprite.texture.get_size())
 	angular_velocity = rand_range(-8.0, 8.0)
 	angular_damp = 0.0
+	coll_efx = get_node_or_null("CollisionEfx")
 
 func _process(_delta):
 	if health < 0:
@@ -35,6 +37,7 @@ func _free_asteroid():
 
 func _on_HurtBox_area_entered(area):	
 	var hitParent = area.get_parent()
+	print_debug(hitParent)
 	if !hitParent.is_in_group("can_mine"):
 		health -= hitParent.Damage		
 		Effects.show_dmg_text(hitParent.global_position, hitParent.Damage)
@@ -47,6 +50,12 @@ func _on_HurtBox_area_entered(area):
 		newMine.laser = laser
 		newMine.global_position = self.global_position.linear_interpolate(area.global_position, .25)
 
+func _on_MedAsteroid01_body_shape_entered(body_id, body, body_shape, local_shape):	
+	print_debug(body)
+	if body.is_in_group("player"):
+		print_debug("Hit the player!")
+		
+	pass # Replace with function body.
 
 func _on_Asteroid001_input_event(viewport, event, shape_idx):
 	make_target(viewport, event, shape_idx)
@@ -99,3 +108,9 @@ func _on_HighlightTween_tween_completed(object, key):
 							cur_color,targ_color, highlight_pulse_speed*2,
 							Tween.TRANS_SINE, Tween.EASE_IN_OUT)
 		targ_tween.start()
+
+
+
+
+
+

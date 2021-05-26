@@ -3,6 +3,8 @@ extends Node
 signal RCSLeft
 signal RCSRight
 signal RCSFront
+signal PlayerRockCollision
+signal ChargeShield
 
 var floating_text = load("res://UI/Effects/FloatingText.tscn")
 

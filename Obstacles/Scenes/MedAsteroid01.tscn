@@ -21,10 +21,14 @@ polygon = PoolVector2Array( -14.508, 22.1402, -20.0386, 13.8897, -24.9524, 7.478
 polygon = PoolVector2Array( -11.0631, 22.8654, 2.6272, 27.036, 18.1308, 21.5961, 24.6587, 11.5324, 24.9307, -5.51254, 12.0563, -20.7442, 0.541908, -25.912, -12.4231, -24.0987, -24.9348, -10.0458, -24.3908, 7.9058 )
 
 [node name="MedAsteroid01" type="RigidBody2D" groups=[
+"asteroids",
 "mini_map",
 ]]
 input_pickable = true
+collision_layer = 9
+collision_mask = 7
 mass = 750.0
+contact_monitor = true
 script = ExtResource( 2 )
 health = 20000
 highlight_width_start = 0.1
@@ -67,6 +71,9 @@ occluder = SubResource( 4 )
 
 [node name="HighlightTween" type="Tween" parent="."]
 
+[node name="CollisionEfx" type="AudioStreamPlayer2D" parent="."]
+
+[connection signal="body_shape_entered" from="." to="." method="_on_MedAsteroid01_body_shape_entered"]
 [connection signal="input_event" from="." to="." method="_on_Asteroid002_input_event"]
 [connection signal="area_entered" from="HurtBox" to="." method="_on_HurtBox_area_entered"]
 [connection signal="tween_completed" from="HighlightTween" to="." method="_on_HighlightTween_tween_completed"]

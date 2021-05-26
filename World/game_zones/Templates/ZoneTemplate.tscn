@@ -1,4 +1,4 @@
-[gd_scene load_steps=11 format=2]
+[gd_scene load_steps=12 format=2]
 
 [ext_resource path="res://World/common_scenes/ParallaxBackground2.tscn" type="PackedScene" id=1]
 [ext_resource path="res://World/common_scenes/TimeOfDay.tscn" type="PackedScene" id=2]
@@ -10,6 +10,7 @@
 [ext_resource path="res://UI/Menu/MainMenu.tscn" type="PackedScene" id=8]
 [ext_resource path="res://UI/Effects/Transition.tscn" type="PackedScene" id=9]
 [ext_resource path="res://Sounds/RCS/rcs_loopable.wav" type="AudioStream" id=10]
+[ext_resource path="res://Sounds/Collisions/Metal_on_Rock_Collision_SFX.wav" type="AudioStream" id=11]
 
 [node name="World" type="Node2D"]
 
@@ -132,6 +133,10 @@ position = Vector2( 1.50568, -500.595 )
 stream = ExtResource( 10 )
 pitch_scale = 0.95
 attenuation = 1.68179
+bus = "Ship SFX"
+
+[node name="RockCollisionSfx" type="AudioStreamPlayer2D" parent="Camera2D"]
+stream = ExtResource( 11 )
 bus = "Ship SFX"
 
 [node name="ReturnHomeBeacon" parent="." instance=ExtResource( 3 )]

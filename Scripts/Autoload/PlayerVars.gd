@@ -257,7 +257,10 @@ func take_damage(amount):
 		update_shield = true
 
 	if update_shield:
+		var pre_shield = self.shield_health
 		self.shield_health -= amount
+		if shield_health > pre_shield:
+			Effects.emit_signal("ChargeShield", true)
 	else:
 		self.hull_health -= amount
 
