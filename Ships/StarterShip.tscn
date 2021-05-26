@@ -22,25 +22,25 @@ offsets = PoolRealArray( 0, 0.632979, 1 )
 colors = PoolColorArray( 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 0 )
 
 [sub_resource type="Curve" id=5]
-_data = [ Vector2( 0, 1 ), 0.0, 0.0, 0, 0, Vector2( 1, 0 ), 0.0, 0.0, 0, 0 ]
-
-[sub_resource type="Gradient" id=6]
-offsets = PoolRealArray( 0, 0.414894, 1 )
-colors = PoolColorArray( 0.995117, 1, 0, 1, 0.992676, 0.27908, 0.00387764, 1, 0.245198, 0.627854, 0.996361, 0.686275 )
-
-[sub_resource type="Curve" id=7]
 _data = [ Vector2( 0, 0.3 ), 0.0, 1.12284, 0, 0, Vector2( 1, 1 ), 0.0, 0.0, 0, 0 ]
 
-[sub_resource type="Gradient" id=8]
+[sub_resource type="Gradient" id=6]
 offsets = PoolRealArray( 0, 0.148936, 1 )
 colors = PoolColorArray( 1, 1, 1, 1, 1, 1, 1, 1, 0.2, 0.227451, 0.309804, 0 )
 
-[sub_resource type="Curve" id=9]
+[sub_resource type="Curve" id=7]
 _data = [ Vector2( 0, 0 ), -0.180992, 0.0, 0, 0, Vector2( 1, 1 ), 0.0, 0.034326, 0, 0 ]
 
-[sub_resource type="Gradient" id=10]
+[sub_resource type="Gradient" id=8]
 offsets = PoolRealArray( 0, 0.595, 1 )
 colors = PoolColorArray( 1, 1, 1, 0, 1, 1, 1, 0.27451, 1, 1, 1, 0.27451 )
+
+[sub_resource type="Curve" id=9]
+_data = [ Vector2( 0, 1 ), 0.0, 0.0, 0, 0, Vector2( 1, 0 ), 0.0, 0.0, 0, 0 ]
+
+[sub_resource type="Gradient" id=10]
+offsets = PoolRealArray( 0, 0.414894, 1 )
+colors = PoolColorArray( 0.995117, 1, 0, 1, 0.992676, 0.27908, 0.00387764, 1, 0.245198, 0.627854, 0.996361, 0.686275 )
 
 [node name="StarterShip" type="Node2D"]
 script = ExtResource( 4 )

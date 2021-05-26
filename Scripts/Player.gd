@@ -126,9 +126,11 @@ func move_state(delta):
 	retro_vector = retro_vector.normalized()
 
 	var fa_brake = retro_vector
-
+	var rcs_braking: bool = false
+	var rcs_strength: int = 0
 	if thrust_vector != Vector2.ZERO:		
 		velocity = velocity.move_toward(thrust_vector * MAX_SPEED, ACCELERATION * delta)
+		
 	# Ship is facing with primary thruster 'retro', so we get the full force of braking power
 	elif retro_heading.x/MAX_SPEED > 0:
 		if !fa_hold_on:
@@ -140,13 +142,24 @@ func move_state(delta):
 	else:
 		if !fa_hold_on:
 			fa_brake *= .3
+			var pre_vel = velocity
+			
 			velocity = velocity.move_toward(fa_brake * MAX_SPEED/3, ACCELERATION/3 * delta)
+			var vel_diff = velocity - pre_vel
+			if vel_diff.length() > 0:
+				rcs_braking = true
+				
 
 	piloted_ship.animate_thrusters(thrust_vector)
 	if !fa_hold_on:
 		if retro_heading.x/MAX_SPEED > 0.1:
 			#print_debug("retro_heading:", retro_heading)
 			piloted_ship.animate_thrusters(retro_heading.normalized())
+	
+	if rcs_braking:
+		piloted_ship.animate_rcs(1)
+	else:
+		piloted_ship.animate_rcs(0)
 	
 	move()
 #	strafe()
@@ -198,16 +211,24 @@ func attack_animation_finished():
 	state = MOVE
 
 func rotate_to_target(target):
+	var rcs_amount = 0
 	if self.get_angle_to(target) > ROT_SPEED:
 		self.rotation += ROT_SPEED + ROT_ACCEL
+		rcs_amount = 1
 	else:
 		self.rotation -= ROT_SPEED + ROT_ACCEL
+		rcs_amount = -1
 		
 	if abs(self.get_angle_to(target)) < ROT_SPEED * 1.1:
 		self.look_at(target)
 		ROT_ACCEL = deg2rad(0)
 	else:
 		ROT_ACCEL += deg2rad(.05)
+	
+	if rad2deg(ROT_ACCEL) < .15:
+		rcs_amount = 0
+		
+	piloted_ship.rotate_rcs(rcs_amount)
 
 func take_damage(amount):
 	# Passthrough to PlayerVars, maybe we'll add animation triggers here down the line

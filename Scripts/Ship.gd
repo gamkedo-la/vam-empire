@@ -22,6 +22,7 @@ export (Array, int) var equipped_weapon_index
 onready var hardpoints = $Hardpoints
 
 onready var thrusters = $Thrusters
+var rcs_thrusters
 
 var weapons = []
 var thrust_length = 0.0
@@ -36,6 +37,8 @@ func _ready():
 	for T in thrusters.get_children():
 		var thrust_exhaust = T.get_node_or_null("ParticleEffect")
 		thrust_exhaust.emitting = true
+	rcs_thrusters = self.get_node_or_null("RCSThrusters")
+	
 	
 
 func equip_weapon(ordnance: Weapon, mount: Position2D):
@@ -63,7 +66,7 @@ func release_mining_lasers():
 		if weapon.weap_type == weapon.WeaponType.MINING_LASER:
 			weapon.release_mining_laser()
 		
-func animate_thrusters(t_vec):
+func animate_thrusters(t_vec) -> void:
 	for T in thrusters.get_children():
 		var thrust_light = T.get_node_or_null("LightEffect")		
 		var thrust_exhaust = T.get_node_or_null("ParticleEffect")		
@@ -84,4 +87,19 @@ func animate_thrusters(t_vec):
 	
 	pass
 
+func animate_rcs(thrust: int) -> void:
+	if rcs_thrusters:
+		rcs_thrusters.do_break(thrust)
+
+func rotate_rcs(thrust: int):
+	if thrust == 1:
+		rcs_thrusters.bank_right(1)
+		rcs_thrusters.bank_left(0)
+	elif thrust == -1:
+		rcs_thrusters.bank_right(0)
+		rcs_thrusters.bank_left(1)
+	else:
+		rcs_thrusters.bank_right(0)
+		rcs_thrusters.bank_left(0)
+	
 
