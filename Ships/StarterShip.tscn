@@ -1,4 +1,4 @@
-[gd_scene load_steps=17 format=2]
+[gd_scene load_steps=18 format=2]
 
 [ext_resource path="res://Lights/Textures/light_orb.png" type="Texture" id=1]
 [ext_resource path="res://Lights/Textures/headlight_001.png" type="Texture" id=2]
@@ -6,6 +6,7 @@
 [ext_resource path="res://Scripts/Ship.gd" type="Script" id=4]
 [ext_resource path="res://Scripts/Effects/Trail.gd" type="Script" id=5]
 [ext_resource path="res://Scripts/RCSThrusters.gd" type="Script" id=6]
+[ext_resource path="res://Ships/Visuals/Wing Trail.tscn" type="PackedScene" id=7]
 
 [sub_resource type="CapsuleShape2D" id=1]
 radius = 2.14236
@@ -346,22 +347,7 @@ width_curve = SubResource( 9 )
 gradient = SubResource( 10 )
 script = ExtResource( 5 )
 
-[node name="Wing Trail 1" type="Node2D" parent="."]
-position = Vector2( -7.41624, -6.62164 )
+[node name="Wing Trail 1" parent="." instance=ExtResource( 7 )]
 
-[node name="Line2D" type="Line2D" parent="Wing Trail 1"]
-z_index = -90
-width = 4.0
-width_curve = SubResource( 9 )
-gradient = SubResource( 10 )
-script = ExtResource( 5 )
-
-[node name="Wing Trail 2" type="Node2D" parent="."]
-position = Vector2( -7.416, 6.622 )
-
-[node name="Line2D" type="Line2D" parent="Wing Trail 2"]
-z_index = -90
-width = 4.0
-width_curve = SubResource( 9 )
-gradient = SubResource( 10 )
-script = ExtResource( 5 )
+[node name="Wing Trail 2" parent="." instance=ExtResource( 7 )]
+position = Vector2( -7.41624, 6.5228 )
