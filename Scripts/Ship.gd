@@ -92,14 +92,14 @@ func animate_rcs(thrust: float) -> void:
 		rcs_thrusters.do_break(thrust)
 
 func rotate_rcs(thrust: float):
-	if thrust > 0.1:
-		rcs_thrusters.bank_right(thrust)
-#		rcs_thrusters.bank_left(0)
-	elif thrust < -0.1:
-#		rcs_thrusters.bank_right(0)
-		rcs_thrusters.bank_left(thrust)
-	else:
-		rcs_thrusters.bank_right(0)
-		rcs_thrusters.bank_left(0)
-	
+	if rcs_thrusters:
+		if thrust > 0.1:
+			rcs_thrusters.bank_right(thrust)
+	#		rcs_thrusters.bank_left(0)
+		elif thrust < -0.1:
+	#		rcs_thrusters.bank_right(0)
+			rcs_thrusters.bank_left(thrust)
+		else:
+			rcs_thrusters.bank_right(0)
+			rcs_thrusters.bank_left(0)
 
