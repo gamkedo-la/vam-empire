@@ -23,11 +23,16 @@ __meta__ = {
 "_edit_use_anchors_": false
 }
 
-[node name="TopBar" parent="." instance=ExtResource( 1 )]
-margin_right = 480.0
+[node name="TopBar" parent="Panel" instance=ExtResource( 1 )]
+self_modulate = Color( 1, 1, 1, 0 )
+margin_left = 9.0
+margin_top = 6.0
+margin_right = 471.0
+margin_bottom = 26.0
+size_flags_horizontal = 3
 size_flags_vertical = 0
 
-[node name="Label" parent="TopBar" index="0"]
+[node name="Label" parent="Panel/TopBar" index="0"]
 margin_left = 0.0
 margin_right = 0.0
 margin_bottom = 0.0
@@ -37,4 +42,4 @@ size_flags_horizontal = 0
 text = "Missions"
 align = 1
 
-[editable path="TopBar"]
+[editable path="Panel/TopBar"]
