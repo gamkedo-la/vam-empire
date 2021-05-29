@@ -26,6 +26,7 @@ color = Color( 1, 1, 1, 0.443137 )
 
 [node name="MineralDrop" type="RigidBody2D" groups=[
 "mini_map",
+"pickup",
 ]]
 position = Vector2( 480, 270 )
 collision_layer = 0

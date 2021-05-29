@@ -146,6 +146,16 @@ position = Vector2( 323.434, 297.635 )
 
 [node name="ParallaxBackground2" parent="." instance=ExtResource( 1 )]
 
+[node name="3DBG" parent="ParallaxBackground2" index="2"]
+motion_mirroring = Vector2( 0, 0 )
+
+[node name="Texture3D" parent="ParallaxBackground2/3DBG" index="0"]
+texture = null
+flip_v = true
+
+[node name="Scene3D" parent="ParallaxBackground2/3DBG" index="1"]
+transparent_bg = true
+
 [node name="Zone" type="Node2D" parent="."]
 
 [node name="Areas" type="Node2D" parent="Zone"]

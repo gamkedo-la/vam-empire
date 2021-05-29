@@ -1,8 +1,10 @@
-[gd_scene load_steps=4 format=2]
+[gd_scene load_steps=6 format=2]
 
 [ext_resource path="res://World/background_textures/StarField_Midlayer.png" type="Texture" id=1]
 [ext_resource path="res://World/background_textures/StarField.png" type="Texture" id=2]
 [ext_resource path="res://World/background_textures/StarField_Foreground.png" type="Texture" id=3]
+[ext_resource path="res://World/background_textures/3DBackgrounds/Planet.tscn" type="PackedScene" id=4]
+[ext_resource path="res://Scripts/Backgrounds/3DBackground.gd" type="Script" id=5]
 
 [node name="ParallaxBackground2" type="ParallaxBackground"]
 
@@ -23,6 +25,19 @@ motion_mirroring = Vector2( 960, 1280 )
 texture = ExtResource( 1 )
 centered = false
 flip_h = true
+
+[node name="3DBG" type="ParallaxLayer" parent="."]
+visible = false
+motion_scale = Vector2( 0.012, 0.012 )
+motion_mirroring = Vector2( 960, 1280 )
+script = ExtResource( 5 )
+
+[node name="Texture3D" type="Sprite" parent="3DBG"]
+texture = ExtResource( 1 )
+centered = false
+flip_h = true
+
+[node name="Scene3D" parent="3DBG" instance=ExtResource( 4 )]
 
 [node name="AsteroidDebris" type="ParallaxLayer" parent="."]
 motion_scale = Vector2( 0.35, 0.35 )

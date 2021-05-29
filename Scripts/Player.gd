@@ -350,4 +350,5 @@ func get_ship_inventory():
 
 func _on_Trigger_area_entered(area):
 	#print_debug(area, "detected by Player")
-	area.get_parent().pickup()
+	if area.get_parent().is_in_group("pickup"):
+		area.get_parent().pickup()

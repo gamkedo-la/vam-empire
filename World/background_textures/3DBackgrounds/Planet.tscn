@@ -1,0 +1,22 @@
+[gd_scene load_steps=2 format=2]
+
+[sub_resource type="SpatialMaterial" id=1]
+flags_transparent = true
+
+[node name="PlanetScene" type="Viewport"]
+size = Vector2( 960, 540 )
+
+[node name="Camera" type="Camera" parent="."]
+transform = Transform( 1, 0, 0, 0, 0.961132, 0.27609, 0, -0.27609, 0.961132, 0.464823, 2.86856, 24.8858 )
+
+[node name="Spatial" type="Spatial" parent="."]
+
+[node name="CSGSphere" type="CSGSphere" parent="Spatial"]
+transform = Transform( 3, 0, 0, 0, 3, 0, 0, 0, 3, 0, 0, 0 )
+
+[node name="CSGTorus" type="CSGTorus" parent="Spatial"]
+transform = Transform( 4, 0, 0, 0, 0.024, 0, 0, 0, 4, 0, 0, 0 )
+outer_radius = 5.621
+sides = 20
+ring_sides = 20
+material = SubResource( 1 )
