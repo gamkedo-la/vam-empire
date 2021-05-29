@@ -30,61 +30,76 @@ __meta__ = {
 }
 
 [node name="VBLeft" type="VBoxContainer" parent="Panel/HBMain"]
-margin_right = 188.0
+margin_right = 152.0
 margin_bottom = 528.0
 rect_min_size = Vector2( 152, 500 )
 
 [node name="HBSpacer" type="HBoxContainer" parent="Panel/HBMain/VBLeft"]
-margin_right = 188.0
+margin_right = 152.0
 margin_bottom = 20.0
 rect_min_size = Vector2( 0, 20 )
 
 [node name="MissionsScroll" type="ScrollContainer" parent="Panel/HBMain/VBLeft"]
 margin_top = 26.0
-margin_right = 188.0
+margin_right = 152.0
 margin_bottom = 506.0
 rect_min_size = Vector2( 0, 480 )
 theme = ExtResource( 2 )
 scroll_horizontal_enabled = false
 
 [node name="VBMissions" type="VBoxContainer" parent="Panel/HBMain/VBLeft/MissionsScroll"]
-margin_right = 188.0
+margin_right = 152.0
 margin_bottom = 480.0
 size_flags_horizontal = 3
 size_flags_vertical = 3
 
 [node name="mine_001" parent="Panel/HBMain/VBLeft/MissionsScroll/VBMissions" instance=ExtResource( 3 )]
-margin_right = 188.0
+margin_right = 152.0
 action_mode = 0
 text = "Mining Run"
 mission_name = "Mining Run"
 mission_id = "mine_001"
 mission_summary = "Head out into the asteroid field and come back when you've successfully gathered 10 copper ore!"
-mission_status = 3
+mission_status = 2
 
 [node name="combat_001" parent="Panel/HBMain/VBLeft/MissionsScroll/VBMissions" instance=ExtResource( 3 )]
+visible = false
 margin_top = 28.0
 margin_right = 188.0
 margin_bottom = 50.0
 text = "Earn Your Stripes"
 mission_name = "Earn Your Stripes"
 mission_id = "combat_001"
+mission_summary = "Some pirates have been causing trouble in the area. We have a handsome reward for you if you can take at least 3 of them out!"
+mission_status = 0
 pre_req_missions = [ NodePath("../mine_001") ]
 
+[node name="combat_002" parent="Panel/HBMain/VBLeft/MissionsScroll/VBMissions" instance=ExtResource( 3 )]
+visible = false
+margin_top = 28.0
+margin_right = 188.0
+margin_bottom = 50.0
+text = "Earn Your Stripes"
+mission_name = "Second Combat"
+mission_id = "combat_002"
+mission_summary = "The pirates are back, and this time they are stronger!"
+mission_status = 0
+pre_req_missions = [ NodePath("../combat_001") ]
+
 [node name="VBRight" type="VBoxContainer" parent="Panel/HBMain"]
-margin_left = 194.0
+margin_left = 158.0
 margin_right = 462.0
 margin_bottom = 528.0
 size_flags_horizontal = 3
 
 [node name="HBSpacer" type="HBoxContainer" parent="Panel/HBMain/VBRight"]
-margin_right = 268.0
+margin_right = 304.0
 margin_bottom = 20.0
 rect_min_size = Vector2( 0, 20 )
 
 [node name="ScrollContainer" type="ScrollContainer" parent="Panel/HBMain/VBRight"]
 margin_top = 26.0
-margin_right = 268.0
+margin_right = 304.0
 margin_bottom = 528.0
 size_flags_vertical = 3
 theme = ExtResource( 2 )
@@ -177,6 +192,16 @@ margin_right = 78.0
 margin_bottom = 22.0
 text = "Accept"
 
+[node name="HBDebug" type="HBoxContainer" parent="Panel/HBMain/VBRight/ScrollContainer/VBInfo"]
+margin_top = 448.0
+margin_right = 230.0
+margin_bottom = 470.0
+
+[node name="DebugComplete" type="Button" parent="Panel/HBMain/VBRight/ScrollContainer/VBInfo/HBDebug"]
+margin_right = 168.0
+margin_bottom = 22.0
+text = "Debug: Complete"
+
 [node name="TopBar" parent="Panel" instance=ExtResource( 1 )]
 self_modulate = Color( 1, 1, 1, 0 )
 margin_left = 9.0
@@ -195,5 +220,7 @@ rect_pivot_offset = Vector2( 46, 0 )
 size_flags_horizontal = 0
 text = "Missions"
 align = 1
+
+[connection signal="pressed" from="Panel/HBMain/VBRight/ScrollContainer/VBInfo/HBDebug/DebugComplete" to="." method="_on_DebugComplete_pressed"]
 
 [editable path="Panel/TopBar"]

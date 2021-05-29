@@ -37,3 +37,16 @@ func _init_connections() -> void:
 func _mission_pressed() -> void:
 	print_debug("Mission ", mission_id, " pressed.")
 	emit_signal("mission_selected", mission_id)
+
+func check_preqs() -> void:
+	var unlock = true
+	if mission_status == Status.LOCKED:
+		for preq in pre_req_missions:
+			print_debug("preq: ",preq)
+			var preq_mission = get_node_or_null(preq)
+			print_debug("preq_mission: ", preq_mission)
+			if !preq_mission.mission_status == Status.COMPLETE:
+				unlock = false
+		if unlock:
+			mission_status = Status.UNLOCKED
+		
