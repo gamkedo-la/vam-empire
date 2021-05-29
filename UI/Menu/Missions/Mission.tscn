@@ -1,6 +1,6 @@
 [gd_scene load_steps=2 format=2]
 
-[ext_resource path="res://UI/Menu/Missions/Mission.gd" type="Script" id=1]
+[ext_resource path="res://Scripts/UI/Missions/Mission.gd" type="Script" id=1]
 
 [node name="Mission" type="Button"]
 margin_right = 142.0

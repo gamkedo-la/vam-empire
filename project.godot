@@ -49,10 +49,15 @@ _global_script_classes=[ {
 "language": "GDScript",
 "path": "res://Scripts/UI/Inventory/Slot.gd"
 }, {
-"base": "Button",
+"base": "Reference",
 "class": "Mission",
 "language": "GDScript",
-"path": "res://UI/Menu/Missions/Mission.gd"
+"path": "res://Scripts/UI/Missions/Mission.gd"
+}, {
+"base": "MarginContainer",
+"class": "MissionBoard",
+"language": "GDScript",
+"path": "res://Scripts/UI/Missions/MissionBoard.gd"
 }, {
 "base": "KinematicBody2D",
 "class": "Player",
@@ -79,6 +84,7 @@ _global_script_class_icons={
 "InventoryItem": "",
 "InventorySlot": "",
 "Mission": "",
+"MissionBoard": "",
 "Player": "",
 "Ship": "",
 "Weapon": ""
