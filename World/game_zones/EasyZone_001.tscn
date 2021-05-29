@@ -8,6 +8,9 @@
 
 [node name="World" instance=ExtResource( 1 )]
 
+[node name="Sprite" parent="ParallaxBackground2/StarFieldBlack" index="0"]
+visible = true
+
 [node name="Area_AsteroidField001" parent="Zone/Areas" index="0" instance=ExtResource( 2 )]
 
 [node name="Area_AsteroidField002" parent="Zone/Areas" index="1" instance=ExtResource( 2 )]
@@ -26,7 +29,6 @@ position = Vector2( 53.7568, 900.423 )
 
 [editable path="MainMenu"]
 [editable path="CanvasLayer/HUD"]
-[editable path="TimeOfDay"]
 [editable path="ReturnHomeBeacon"]
 [editable path="Player"]
 [editable path="Player/PlayerUICanvas/CharacterSheet"]

@@ -1,22 +1,117 @@
-[gd_scene load_steps=2 format=2]
+[gd_scene load_steps=7 format=2]
 
-[sub_resource type="SpatialMaterial" id=1]
+[ext_resource path="res://Scripts/Backgrounds/QuickSunAnimation.gd" type="Script" id=1]
+[ext_resource path="res://Lights/Textures/light_orb.png" type="Texture" id=2]
+
+[sub_resource type="Environment" id=6]
+dof_blur_far_enabled = true
+dof_blur_far_distance = 106.37
+dof_blur_far_amount = 0.05
+dof_blur_far_quality = 2
+
+[sub_resource type="SpatialMaterial" id=5]
+params_specular_mode = 4
+albedo_color = Color( 0.129412, 0, 0.0666667, 1 )
+
+[sub_resource type="SpatialMaterial" id=4]
 flags_transparent = true
+albedo_color = Color( 1, 1, 1, 0.0980392 )
+albedo_texture = ExtResource( 2 )
+
+[sub_resource type="SpatialMaterial" id=7]
+flags_transparent = true
+albedo_color = Color( 0.227451, 0.14902, 0.00392157, 0.435294 )
+albedo_texture = ExtResource( 2 )
 
 [node name="PlanetScene" type="Viewport"]
-size = Vector2( 960, 540 )
+size = Vector2( 1920, 1080 )
+size_override_stretch = true
+transparent_bg = true
+hdr = false
+
+[node name="WorldEnvironment" type="WorldEnvironment" parent="."]
+environment = SubResource( 6 )
 
 [node name="Camera" type="Camera" parent="."]
-transform = Transform( 1, 0, 0, 0, 0.961132, 0.27609, 0, -0.27609, 0.961132, 0.464823, 2.86856, 24.8858 )
+transform = Transform( 0.990251, -0.000265039, -0.139294, 0.0439911, 0.949414, 0.31093, 0.132165, -0.314026, 0.94017, -13.6717, 0.796496, 18.0996 )
+fov = 90.0
 
 [node name="Spatial" type="Spatial" parent="."]
 
 [node name="CSGSphere" type="CSGSphere" parent="Spatial"]
-transform = Transform( 3, 0, 0, 0, 3, 0, 0, 0, 3, 0, 0, 0 )
+calculate_tangents = false
+radius = 6.0
+radial_segments = 24
+rings = 12
+material = SubResource( 5 )
 
 [node name="CSGTorus" type="CSGTorus" parent="Spatial"]
-transform = Transform( 4, 0, 0, 0, 0.024, 0, 0, 0, 4, 0, 0, 0 )
-outer_radius = 5.621
-sides = 20
-ring_sides = 20
-material = SubResource( 1 )
+transform = Transform( 4, 0, 0, 0, 0.1, 0, 0, 0, 4, 0, 0, 0 )
+cast_shadow = 0
+calculate_tangents = false
+inner_radius = 1.684
+outer_radius = 1.9
+sides = 64
+ring_sides = 64
+smooth_faces = false
+material = SubResource( 4 )
+
+[node name="CSGTorus2" type="CSGTorus" parent="Spatial"]
+transform = Transform( 4, 0, 0, 0, 0.1, 0, 0, 0, 4, 0, 0, 0 )
+cast_shadow = 0
+calculate_tangents = false
+inner_radius = 1.95
+outer_radius = 2.3
+sides = 64
+ring_sides = 64
+smooth_faces = false
+material = SubResource( 7 )
+
+[node name="CSGTorus3" type="CSGTorus" parent="Spatial"]
+transform = Transform( 4, 0, 0, 0, 0.1, 0, 0, 0, 4, 0, 0, 0 )
+cast_shadow = 0
+calculate_tangents = false
+inner_radius = 2.4
+outer_radius = 3.7
+sides = 64
+ring_sides = 64
+smooth_faces = false
+material = SubResource( 4 )
+
+[node name="CSGTorus4" type="CSGTorus" parent="Spatial"]
+transform = Transform( 4, 0, 0, 0, 0.1, 0, 0, 0, 4, 0, 0, 0 )
+cast_shadow = 0
+calculate_tangents = false
+inner_radius = 4.2
+outer_radius = 4.6
+sides = 64
+ring_sides = 64
+smooth_faces = false
+material = SubResource( 4 )
+
+[node name="CSGTorus5" type="CSGTorus" parent="Spatial"]
+transform = Transform( 4, 0, 0, 0, 0.1, 0, 0, 0, 4, 0, 0, 0 )
+cast_shadow = 0
+calculate_tangents = false
+inner_radius = 4.65
+outer_radius = 8.0
+sides = 64
+ring_sides = 64
+smooth_faces = false
+material = SubResource( 4 )
+
+[node name="DirectionalLight" type="DirectionalLight" parent="Spatial"]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 191.948 )
+light_color = Color( 1, 0.87451, 0.87451, 1 )
+light_energy = 0.5
+light_indirect_energy = 0.0
+light_specular = 0.0
+light_bake_mode = 2
+shadow_enabled = true
+script = ExtResource( 1 )
+
+[node name="Position3D" type="Position3D" parent="Spatial"]
+visible = false
+
+[node name="OmniLight" type="OmniLight" parent="Spatial/Position3D"]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 120 )
