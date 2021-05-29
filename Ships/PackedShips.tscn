@@ -1,4 +1,4 @@
-[gd_scene load_steps=8 format=2]
+[gd_scene load_steps=9 format=2]
 
 [ext_resource path="res://Ships/StarterShip.tscn" type="PackedScene" id=1]
 [ext_resource path="res://Ships/Templates/Sm_Frigates/FrigateTemplate01_Tri.tscn" type="PackedScene" id=2]
@@ -7,6 +7,7 @@
 [ext_resource path="res://Ships/Templates/M_Destroyers/DestroyerTemplate01.tscn" type="PackedScene" id=5]
 [ext_resource path="res://Ships/StarterShip_FastGun.tscn" type="PackedScene" id=6]
 [ext_resource path="res://Enemies/Scenes/Small/Impaler.tscn" type="PackedScene" id=7]
+[ext_resource path="res://Ships/Mantis.tscn" type="PackedScene" id=8]
 
 [node name="PackedShips" type="Node2D"]
 
@@ -62,6 +63,10 @@ equipped_weapon_index = [ 8, 8 ]
 
 [node name="AllMissiles" parent="Frigates/9" instance=ExtResource( 2 )]
 equipped_weapon_index = [ 10, 10, 10 ]
+
+[node name="10" type="Node2D" parent="Frigates"]
+
+[node name="Mantis" parent="Frigates/10" instance=ExtResource( 8 )]
 
 [node name="Destroyers" type="Node2D" parent="."]
 visible = false

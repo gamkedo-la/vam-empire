@@ -232,7 +232,7 @@ func rotate_to_target(target):
 		
 	else:
 		self.rotation -= ROT_SPEED + ROT_ACCEL
-		rcs_amount = (ROT_SPEED + ROT_ACCEL)/(ROT_SPEED+.05)
+		rcs_amount = -((ROT_SPEED + ROT_ACCEL)/(ROT_SPEED+.05))
 		
 	if abs(self.get_angle_to(target)) < ROT_SPEED * 1.1:
 		self.look_at(target)
@@ -240,7 +240,7 @@ func rotate_to_target(target):
 	else:
 		ROT_ACCEL += deg2rad(.05)
 	
-	if rad2deg(ROT_ACCEL) < .15:
+	if abs(rad2deg(ROT_ACCEL)) < .15:
 		rcs_amount = 0	
 	piloted_ship.rotate_rcs(rcs_amount)
 

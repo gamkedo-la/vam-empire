@@ -98,7 +98,7 @@ func rotate_rcs(thrust: float):
 	#		rcs_thrusters.bank_left(0)
 		elif thrust < -0.1:
 	#		rcs_thrusters.bank_right(0)
-			rcs_thrusters.bank_left(thrust)
+			rcs_thrusters.bank_left(-thrust)
 		else:
 			rcs_thrusters.bank_right(0)
 			rcs_thrusters.bank_left(0)
