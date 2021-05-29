@@ -59,6 +59,7 @@ action_mode = 0
 text = "Mining Run"
 mission_name = "Mining Run"
 mission_id = "mine_001"
+mission_summary = "Head out into the asteroid field and come back when you've successfully gathered 10 copper ore!"
 mission_status = 3
 
 [node name="combat_001" parent="Panel/HBMain/VBLeft/MissionsScroll/VBMissions" instance=ExtResource( 3 )]
@@ -114,13 +115,13 @@ margin_right = 230.0
 margin_bottom = 50.0
 
 [node name="StatusLabel" type="Label" parent="Panel/HBMain/VBRight/ScrollContainer/VBInfo/HBStatus"]
-margin_right = 62.0
+margin_right = 82.0
 margin_bottom = 22.0
-text = "Name:"
+text = "Status:"
 
 [node name="Status" type="Label" parent="Panel/HBMain/VBRight/ScrollContainer/VBInfo/HBStatus"]
-margin_left = 68.0
-margin_right = 180.0
+margin_left = 88.0
+margin_right = 200.0
 margin_bottom = 22.0
 text = "Incomplete"
 

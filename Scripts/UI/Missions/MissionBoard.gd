@@ -26,4 +26,5 @@ func _mission_selected(miss_id:String) -> void:
 	selected_mission = mission_list.get_node_or_null(miss_id)
 	name_label.text = str(selected_mission.mission_name)
 	status_label.text = str(selected_mission.mission_status)
+	summary_label.text = str(selected_mission.mission_summary)
 	print(miss_id)

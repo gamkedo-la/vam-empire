@@ -15,6 +15,8 @@ export (String) var mission_name = ""
 # Unique Mission Identifier to be tracked in the Player Save as being In Progress or Complete
 export (String) var mission_id = ""
 
+export (String) var mission_summary = ""
+
 export (Status) var mission_status
 
 export (Array, NodePath) var pre_req_missions

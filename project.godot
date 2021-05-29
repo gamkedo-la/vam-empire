@@ -49,7 +49,7 @@ _global_script_classes=[ {
 "language": "GDScript",
 "path": "res://Scripts/UI/Inventory/Slot.gd"
 }, {
-"base": "Reference",
+"base": "Button",
 "class": "Mission",
 "language": "GDScript",
 "path": "res://Scripts/UI/Missions/Mission.gd"
