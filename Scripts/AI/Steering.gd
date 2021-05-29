@@ -60,7 +60,8 @@ func move(delta: float):
 	velocity = velocity.linear_interpolate(desired_velocity, steer_force)
 	#rotation = lerp_angle(rotation, velocity.angle(), ROT_SPEED)
 	actor.rotation = velocity.angle()
-	actor.move_and_collide(velocity * delta)
+#	actor.move_and_collide(velocity * delta)
+	velocity = actor.move_and_slide(velocity, m_s_up, m_s_sos, m_s_maxsli, m_s_fma, false)
 	update()
 
 func initialize(newActor: Actor, newShip: Ship, newTeam: String, newAI: AIController):

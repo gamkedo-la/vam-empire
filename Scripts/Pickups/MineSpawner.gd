@@ -6,8 +6,16 @@ onready var rng = RandomNumberGenerator.new()
 var laser = null
 var despawn_timer
 var spawn_timer
+
+var max_life
+
 func _ready() -> void:
 	rng.randomize()
+	max_life = Timer.new()
+	max_life.wait_time = 40
+	max_life.connect("timeout", self, "_despawn")
+	add_child(max_life)
+	max_life.start()
 	despawn_timer = Timer.new()
 	despawn_timer.wait_time = 10
 	despawn_timer.connect("timeout", self, "_despawn")

@@ -49,6 +49,16 @@ _global_script_classes=[ {
 "language": "GDScript",
 "path": "res://Scripts/UI/Inventory/Slot.gd"
 }, {
+"base": "Button",
+"class": "Mission",
+"language": "GDScript",
+"path": "res://Scripts/UI/Missions/Mission.gd"
+}, {
+"base": "MarginContainer",
+"class": "MissionBoard",
+"language": "GDScript",
+"path": "res://Scripts/UI/Missions/MissionBoard.gd"
+}, {
 "base": "KinematicBody2D",
 "class": "Player",
 "language": "GDScript",
@@ -73,6 +83,8 @@ _global_script_class_icons={
 "Inventory": "",
 "InventoryItem": "",
 "InventorySlot": "",
+"Mission": "",
+"MissionBoard": "",
 "Player": "",
 "Ship": "",
 "Weapon": ""
@@ -106,7 +118,7 @@ window/stretch/aspect="keep"
 
 [editor_plugins]
 
-enabled=PoolStringArray( "res://addons/vam_inventory/plugin.cfg" )
+enabled=PoolStringArray(  )
 
 [importer_defaults]
 
@@ -231,8 +243,8 @@ fa_hold={
 
 [rendering]
 
-2d/snapping/use_gpu_pixel_snap=true
+quality/2d/use_pixel_snap=true
 vram_compression/import_etc=true
 vram_compression/import_etc2=false
 environment/default_environment="res://default_env.tres"
-quality/2d/use_pixel_snap=true
+2d/snapping/use_gpu_pixel_snap=true
