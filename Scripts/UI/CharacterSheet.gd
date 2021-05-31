@@ -47,7 +47,7 @@ func update_values():
 	set_label_text(energy_recovery_label, "%.2f KWh/s" % [PlayerVars.energy_recovery_per_s])
 	
 	var _player = PlayerVars.player_node
-	if _player != null:
+	if _player is Player:
 		set_label_text(acceleration_label, "%.2f m/s^2" % [_player.ACCELERATION])
 		set_label_text(max_speed_label, "%.2f m/s" % [_player.MAX_SPEED])
 		set_label_text(rotation_speed_label, "%.2f deg/s" % [_player.ROT_SPEED])
