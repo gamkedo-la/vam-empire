@@ -8,15 +8,25 @@ extends Node2D
 
 onready var starfield = $ParallaxBackground2
 onready var base_overlay = $CanvasLayer/BaseOverlay
+onready var airlock_overlay = $CanvasLayer/BaseOverlay/VBoxContainer
 onready var animator = $CanvasLayer/BaseOverlay/VBoxContainer/AnimationPlayer
 onready var player_ship = $PlayerLeaveAnimation/PlayerPlaceholder
 onready var takeoff_tween = $PlayerLeaveAnimation/TakeoffTween
 onready var rear_pos = $PlayerLeaveAnimation/RearTakeoff
 onready var front_pos = $PlayerLeaveAnimation/FrontTakeoff
 
+onready var camera_front: Position2D= $FrontBase
+onready var camera_rear: Position2D = $RearBase
+
+onready var embark_button: Button = $CanvasLayer/BaseOverlay/BaseBottomMenu/Buttons/Embark
+
+onready var base_camera = $Camera2D
+
 onready var port_light = $SceneLighting/AirLock/PortLight
 onready var starboard_light = $SceneLighting/AirLock/StarboardLight
 onready var lighting_tween = $SceneLighting/LightingTween
+
+onready var cam_tween = $CamTween
 
 onready var transition = $Transition
 
@@ -46,6 +56,19 @@ func take_off():
 	else: 
 		takeoff_tween.interpolate_property(player_ship, "position", player_ship.position, front_pos.position, 1, Tween.TRANS_EXPO, Tween.EASE_IN)
 	takeoff_tween.start()
+	
+func _hide_airlock_overlay() -> void:
+	airlock_overlay.visible = false
+	embark_button.visible = true
+	
+func _show_airlock_overlay() -> void:
+	airlock_overlay.visible = true
+	embark_button.visible = false
+
+func _camera_pan(loc:Position2D) -> void:
+	cam_tween.interpolate_property(base_camera, "position", base_camera.position, loc.position, 3, Tween.TRANS_BACK, Tween.EASE_IN_OUT)
+	cam_tween.start()
+	
 	
 
 func _on_GoMiningEasy_pressed():
@@ -86,3 +109,12 @@ func _on_Trello_pressed():
 
 func _on_README_pressed():
 	OS.shell_open("https://github.com/gamkedo-la/vam-empire#vam-empire-game-info")
+
+
+func _on_Missions_pressed():
+	_hide_airlock_overlay()
+	_camera_pan(camera_rear)
+
+func _on_Embark_pressed():
+	_show_airlock_overlay()
+	_camera_pan(camera_front)
