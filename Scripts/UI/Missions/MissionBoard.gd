@@ -7,7 +7,7 @@ signal mission_complete
 onready var mission_list: VBoxContainer = $Panel/HBMain/VBLeft/MissionsScroll/VBMissions
 
 var missions = {}
-var status = ["Locked", "Unlocked", "Incomplete", "Complete"]
+var status = ["Locked", "Unlocked", "Accepted", "Complete"]
 var selected_mission: Mission = null
 
 onready var name_label: Label = $Panel/HBMain/VBRight/ScrollContainer/VBInfo/HBName/Name
@@ -21,12 +21,14 @@ func _ready() -> void:
 	for mission in mission_list.get_children():
 		if mission is Mission:
 			mission.connect("mission_selected", self, "_mission_selected")
-			if PlayerVars.mission_state.has(mission):
-				mission.status = PlayerVars.mission_state[mission].status 
+			if PlayerVars.mission_state.has(mission.mission_id):
+				mission.status = PlayerVars.mission_state[mission.mission_id].status 
 			if mission.status == Mission.Status.LOCKED:
 				mission.visible = false
+			else:
+				mission.visible = true
 			pass
-	pass
+	check_all_prereqs()
 	
 
 func _mission_selected(miss_id:String) -> void:
@@ -54,14 +56,16 @@ func _on_DebugComplete_pressed():
 	if selected_mission is Mission:
 		print_debug(selected_mission.m_name)
 		selected_mission.status = Mission.Status.COMPLETE
+		PlayerVars.complete_mission(selected_mission)
 	check_all_prereqs()
 
 
 func _on_Accept_pressed():
-	if selected_mission.status == Mission.Status.UNLOCKED:
-		selected_mission.status = Mission.Status.ACCEPTED
-		if selected_mission.objectives.size() > 0:			
-			PlayerVars.accept_mission(selected_mission)
-			
-			
-	
+	var success = false
+	if selected_mission.status == Mission.Status.UNLOCKED:		
+		if selected_mission.objectives.size() > 0:
+			selected_mission.status = Mission.Status.ACCEPTED
+			success = PlayerVars.accept_mission(selected_mission)
+
+	if !success:
+		print_debug("Something wrong with Aceepting Mission: [", selected_mission.mission_id,"] Make sure the mission has objectives!")

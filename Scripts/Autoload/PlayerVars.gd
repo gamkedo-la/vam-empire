@@ -269,12 +269,19 @@ func take_damage(amount):
 	else:
 		self.hull_health -= amount
 
-func accept_mission(miss:Mission) -> void:
-	mission_state[miss.mission_id] = miss.objectives
+func accept_mission(miss:Mission) -> bool:
+	mission_state[miss.mission_id] = {}	
+	mission_state[miss.mission_id]["status"] = miss.status
+	mission_state[miss.mission_id]["objectives"] = miss.objectives
 	
 	print_debug(mission_state)
-	for objective in mission_state[miss.mission_id]:
+	for objective in mission_state[miss.mission_id]["objectives"]:
 		objective["complete"] = 0
 		print_debug("objective: ", objective) 
 	print_debug(mission_state)
+	save()
+	return true
+	
+func complete_mission(miss:Mission) -> void:
+	mission_state[miss.mission_id].status = Mission.Status.COMPLETE
 	save()

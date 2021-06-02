@@ -74,6 +74,10 @@ text = "Earn Your Stripes"
 m_name = "Earn Your Stripes"
 mission_id = "combat_001"
 summary = "Pirates have been harassing our miners and holding back our operations. Get out there and try and take out at least 3 of them, and we'll give you a handsome reward pilot!"
+objectives = [ {
+"pirate": 3,
+"type": "kill"
+} ]
 pre_req_missions = [ NodePath("../mine_001") ]
 
 [node name="combat_002" parent="Panel/HBMain/VBLeft/MissionsScroll/VBMissions" instance=ExtResource( 3 )]
@@ -186,17 +190,18 @@ text = "reward"
 [node name="HBButtons" type="HBoxContainer" parent="Panel/HBMain/VBRight/ScrollContainer/VBInfo"]
 margin_top = 420.0
 margin_right = 230.0
-margin_bottom = 442.0
+margin_bottom = 420.0
 
 [node name="Accept" type="Button" parent="Panel/HBMain/VBRight/ScrollContainer/VBInfo/HBButtons"]
+visible = false
 margin_right = 78.0
 margin_bottom = 22.0
 text = "Accept"
 
 [node name="HBDebug" type="HBoxContainer" parent="Panel/HBMain/VBRight/ScrollContainer/VBInfo"]
-margin_top = 448.0
+margin_top = 426.0
 margin_right = 230.0
-margin_bottom = 470.0
+margin_bottom = 448.0
 
 [node name="DebugComplete" type="Button" parent="Panel/HBMain/VBRight/ScrollContainer/VBInfo/HBDebug"]
 margin_right = 168.0
