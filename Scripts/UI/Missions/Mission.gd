@@ -7,26 +7,28 @@ signal mission_selected
 enum Status {
 	LOCKED,
 	UNLOCKED,
-	INPROGRESS,
+	ACCEPTED,
 	COMPLETE
 }
 
-export (String) var mission_name = ""
+export (String) var m_name = ""
 # Unique Mission Identifier to be tracked in the Player Save as being In Progress or Complete
 export (String) var mission_id = ""
 
-export (String) var mission_summary = ""
+export (String, MULTILINE) var summary = ""
 
-export (Status) var mission_status
+export (Status) var status
+
+export (Array, Dictionary) var objectives
 
 export (Array, NodePath) var pre_req_missions
 
 func _ready() -> void:
-	self.text = mission_name
+	self.text = m_name
 	self.name = mission_id
-	if pre_req_missions.size() <= 0 && mission_status == Status.LOCKED:
-		mission_status = Status.UNLOCKED
-	if mission_status == Status.LOCKED:
+	if pre_req_missions.size() <= 0 && status == Status.LOCKED:
+		status = Status.UNLOCKED
+	if status == Status.LOCKED:
 		self.visible = false
 	_init_connections()
 	
@@ -40,13 +42,13 @@ func _mission_pressed() -> void:
 
 func check_preqs() -> void:
 	var unlock = true
-	if mission_status == Status.LOCKED:
+	if status == Status.LOCKED:
 		for preq in pre_req_missions:
 			print_debug("preq: ",preq)
 			var preq_mission = get_node_or_null(preq)
 			print_debug("preq_mission: ", preq_mission)
-			if !preq_mission.mission_status == Status.COMPLETE:
+			if !preq_mission.status == Status.COMPLETE:
 				unlock = false
 		if unlock:
-			mission_status = Status.UNLOCKED
+			status = Status.UNLOCKED
 		

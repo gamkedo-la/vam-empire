@@ -25,11 +25,12 @@ __meta__ = {
 }
 
 [node name="ItemDB" type="Panel" parent="Tabs"]
-visible = false
 anchor_right = 1.0
 anchor_bottom = 1.0
-margin_right = -8.0
-margin_bottom = -36.0
+margin_left = 9.0
+margin_top = 28.0
+margin_right = -9.0
+margin_bottom = -6.0
 size_flags_horizontal = 3
 size_flags_vertical = 3
 __meta__ = {
@@ -46,65 +47,65 @@ __meta__ = {
 }
 
 [node name="MainHB" type="HBoxContainer" parent="Tabs/ItemDB/MainVB"]
-margin_right = 1912.0
-margin_bottom = 1044.0
+margin_right = 1902.0
+margin_bottom = 1046.0
 size_flags_horizontal = 3
 size_flags_vertical = 3
 
 [node name="Spacer" type="VBoxContainer" parent="Tabs/ItemDB/MainVB/MainHB"]
-margin_right = 450.0
-margin_bottom = 1044.0
+margin_right = 435.0
+margin_bottom = 1046.0
 rect_min_size = Vector2( 0, 45 )
 size_flags_horizontal = 3
 
 [node name="ButtonVB" type="VBoxContainer" parent="Tabs/ItemDB/MainVB/MainHB"]
-margin_left = 454.0
-margin_right = 550.0
-margin_bottom = 1044.0
+margin_left = 441.0
+margin_right = 579.0
+margin_bottom = 1046.0
 
 [node name="HBoxContainer" type="HBoxContainer" parent="Tabs/ItemDB/MainVB/MainHB/ButtonVB"]
-margin_right = 96.0
-margin_bottom = 20.0
+margin_right = 138.0
+margin_bottom = 22.0
 
 [node name="NewItem" type="Button" parent="Tabs/ItemDB/MainVB/MainHB/ButtonVB/HBoxContainer"]
-margin_right = 95.0
-margin_bottom = 20.0
+margin_right = 138.0
+margin_bottom = 22.0
 text = "[+] New Item"
 
 [node name="HBSpacer" type="HBoxContainer" parent="Tabs/ItemDB/MainVB/MainHB/ButtonVB"]
-margin_top = 24.0
-margin_right = 96.0
-margin_bottom = 144.0
+margin_top = 28.0
+margin_right = 138.0
+margin_bottom = 148.0
 rect_min_size = Vector2( 0, 120 )
 
 [node name="LoadDB" type="Button" parent="Tabs/ItemDB/MainVB/MainHB/ButtonVB"]
-margin_top = 148.0
-margin_right = 96.0
-margin_bottom = 168.0
+margin_top = 154.0
+margin_right = 138.0
+margin_bottom = 176.0
 text = "Load ItemDB"
 
 [node name="Clear" type="Button" parent="Tabs/ItemDB/MainVB/MainHB/ButtonVB"]
-margin_top = 172.0
-margin_right = 96.0
-margin_bottom = 192.0
+margin_top = 182.0
+margin_right = 138.0
+margin_bottom = 204.0
 text = "Clear"
 
 [node name="ItemsVB" type="VBoxContainer" parent="Tabs/ItemDB/MainVB/MainHB"]
-margin_left = 554.0
-margin_right = 1004.0
-margin_bottom = 1044.0
+margin_left = 585.0
+margin_right = 1020.0
+margin_bottom = 1046.0
 size_flags_horizontal = 3
 size_flags_vertical = 3
 
 [node name="HBoxContainer" type="HBoxContainer" parent="Tabs/ItemDB/MainVB/MainHB/ItemsVB"]
-margin_right = 450.0
+margin_right = 435.0
 margin_bottom = 80.0
 rect_min_size = Vector2( 0, 80 )
 
 [node name="Items" type="GridContainer" parent="Tabs/ItemDB/MainVB/MainHB/ItemsVB"]
-margin_top = 84.0
-margin_right = 450.0
-margin_bottom = 1044.0
+margin_top = 86.0
+margin_right = 435.0
+margin_bottom = 1046.0
 size_flags_horizontal = 3
 size_flags_vertical = 3
 columns = 15
@@ -113,294 +114,293 @@ __meta__ = {
 }
 
 [node name="InspectVB" type="VBoxContainer" parent="Tabs/ItemDB/MainVB/MainHB"]
-margin_left = 1008.0
-margin_right = 1458.0
-margin_bottom = 1044.0
+margin_left = 1026.0
+margin_right = 1461.0
+margin_bottom = 1046.0
 size_flags_horizontal = 3
 size_flags_vertical = 3
 
 [node name="HBoxContainer2" type="HBoxContainer" parent="Tabs/ItemDB/MainVB/MainHB/InspectVB"]
-margin_right = 450.0
+margin_right = 435.0
 margin_bottom = 40.0
 rect_min_size = Vector2( 0, 40 )
 size_flags_horizontal = 3
 
 [node name="ItemEditLabelHB" type="HBoxContainer" parent="Tabs/ItemDB/MainVB/MainHB/InspectVB"]
-margin_top = 44.0
-margin_right = 450.0
-margin_bottom = 58.0
+margin_top = 46.0
+margin_right = 435.0
+margin_bottom = 68.0
 
 [node name="ItemEditLabel" type="Label" parent="Tabs/ItemDB/MainVB/MainHB/InspectVB/ItemEditLabelHB"]
-margin_right = 450.0
-margin_bottom = 14.0
+margin_right = 435.0
+margin_bottom = 22.0
 size_flags_horizontal = 3
 text = "Item Editor"
 align = 1
 
 [node name="ItemIconHB" type="HBoxContainer" parent="Tabs/ItemDB/MainVB/MainHB/InspectVB"]
-margin_top = 62.0
-margin_right = 450.0
-margin_bottom = 158.0
+margin_top = 74.0
+margin_right = 435.0
+margin_bottom = 138.0
 rect_min_size = Vector2( 0, 64 )
 alignment = 1
 
 [node name="ItemNameLbl" type="Label" parent="Tabs/ItemDB/MainVB/MainHB/InspectVB/ItemIconHB"]
-margin_left = 175.0
-margin_top = 41.0
-margin_right = 175.0
-margin_bottom = 55.0
+margin_left = 162.0
+margin_top = 21.0
+margin_right = 234.0
+margin_bottom = 43.0
 
 [node name="ItemIconRect" type="TextureRect" parent="Tabs/ItemDB/MainVB/MainHB/InspectVB/ItemIconHB"]
-margin_left = 179.0
-margin_right = 275.0
-margin_bottom = 96.0
+margin_left = 240.0
+margin_right = 272.0
+margin_bottom = 64.0
 texture = ExtResource( 3 )
 
 [node name="ItemUuid" type="HBoxContainer" parent="Tabs/ItemDB/MainVB/MainHB/InspectVB"]
-margin_top = 162.0
-margin_right = 450.0
-margin_bottom = 176.0
+margin_top = 144.0
+margin_right = 435.0
+margin_bottom = 166.0
 size_flags_horizontal = 3
 alignment = 1
 
-[node name="ItemUuid" type="Label" parent="Tabs/ItemDB/MainVB/MainHB/InspectVB/ItemUuid"]
-margin_right = 450.0
-margin_bottom = 14.0
+[node name="ItemUuid" type="LineEdit" parent="Tabs/ItemDB/MainVB/MainHB/InspectVB/ItemUuid"]
+margin_right = 435.0
+margin_bottom = 22.0
 size_flags_horizontal = 3
-size_flags_vertical = 1
+text = "4efd8d66-b38f-4b94-8326-2bc21799f888"
 align = 1
+editable = false
 
 [node name="NameHB" type="HBoxContainer" parent="Tabs/ItemDB/MainVB/MainHB/InspectVB"]
-margin_top = 180.0
-margin_right = 450.0
-margin_bottom = 204.0
+margin_top = 172.0
+margin_right = 435.0
+margin_bottom = 194.0
 
 [node name="Label" type="Label" parent="Tabs/ItemDB/MainVB/MainHB/InspectVB/NameHB"]
-margin_top = 5.0
 margin_right = 70.0
-margin_bottom = 19.0
+margin_bottom = 22.0
 rect_min_size = Vector2( 70, 0 )
 text = "Name"
 
 [node name="NameLineEdit" type="LineEdit" parent="Tabs/ItemDB/MainVB/MainHB/InspectVB/NameHB"]
-margin_left = 74.0
-margin_right = 450.0
-margin_bottom = 24.0
+margin_left = 76.0
+margin_right = 435.0
+margin_bottom = 22.0
 size_flags_horizontal = 3
 
 [node name="SceneHB" type="HBoxContainer" parent="Tabs/ItemDB/MainVB/MainHB/InspectVB"]
-margin_top = 208.0
-margin_right = 450.0
-margin_bottom = 232.0
+margin_top = 200.0
+margin_right = 435.0
+margin_bottom = 222.0
 
 [node name="Label" type="Label" parent="Tabs/ItemDB/MainVB/MainHB/InspectVB/SceneHB"]
-margin_top = 5.0
-margin_right = 70.0
-margin_bottom = 19.0
+margin_right = 112.0
+margin_bottom = 22.0
 rect_min_size = Vector2( 70, 0 )
 text = "Scene File"
 
 [node name="SceneFileButton" type="Button" parent="Tabs/ItemDB/MainVB/MainHB/InspectVB/SceneHB"]
-margin_left = 74.0
-margin_right = 100.0
-margin_bottom = 24.0
+margin_left = 118.0
+margin_right = 166.0
+margin_bottom = 22.0
 hint_tooltip = "Select the .tscn file associated with the item. This would be the object to be instantiated if the object were in space free floating, attached to a ship, etc..."
 text = "[_]"
 
 [node name="SceneFileLineEdit" type="LineEdit" parent="Tabs/ItemDB/MainVB/MainHB/InspectVB/SceneHB"]
-margin_left = 104.0
-margin_right = 426.0
-margin_bottom = 24.0
+margin_left = 172.0
+margin_right = 401.0
+margin_bottom = 22.0
 size_flags_horizontal = 3
 
 [node name="SceneLineClr" type="Button" parent="Tabs/ItemDB/MainVB/MainHB/InspectVB/SceneHB"]
-margin_left = 430.0
-margin_right = 450.0
-margin_bottom = 24.0
+margin_left = 407.0
+margin_right = 435.0
+margin_bottom = 22.0
 text = "X"
 
 [node name="IconHB" type="HBoxContainer" parent="Tabs/ItemDB/MainVB/MainHB/InspectVB"]
-margin_top = 236.0
-margin_right = 450.0
-margin_bottom = 260.0
+margin_top = 228.0
+margin_right = 435.0
+margin_bottom = 250.0
 
 [node name="Label" type="Label" parent="Tabs/ItemDB/MainVB/MainHB/InspectVB/IconHB"]
-margin_top = 5.0
-margin_right = 70.0
-margin_bottom = 19.0
+margin_right = 102.0
+margin_bottom = 22.0
 rect_min_size = Vector2( 70, 0 )
 text = "Icon File"
 
 [node name="IconFileButton" type="Button" parent="Tabs/ItemDB/MainVB/MainHB/InspectVB/IconHB"]
-margin_left = 74.0
-margin_right = 100.0
-margin_bottom = 24.0
+margin_left = 108.0
+margin_right = 156.0
+margin_bottom = 22.0
 text = "[_]"
 
 [node name="IconFileLineEdit" type="LineEdit" parent="Tabs/ItemDB/MainVB/MainHB/InspectVB/IconHB"]
-margin_left = 104.0
-margin_right = 426.0
-margin_bottom = 24.0
+margin_left = 162.0
+margin_right = 401.0
+margin_bottom = 22.0
 size_flags_horizontal = 3
 
 [node name="IconLineClr" type="Button" parent="Tabs/ItemDB/MainVB/MainHB/InspectVB/IconHB"]
-margin_left = 430.0
-margin_right = 450.0
-margin_bottom = 24.0
+margin_left = 407.0
+margin_right = 435.0
+margin_bottom = 22.0
 text = "X"
 
 [node name="TextureHB" type="HBoxContainer" parent="Tabs/ItemDB/MainVB/MainHB/InspectVB"]
-margin_top = 264.0
-margin_right = 450.0
-margin_bottom = 288.0
+margin_top = 256.0
+margin_right = 435.0
+margin_bottom = 292.0
 
 [node name="Label" type="Label" parent="Tabs/ItemDB/MainVB/MainHB/InspectVB/TextureHB"]
-margin_top = 5.0
-margin_right = 75.0
-margin_bottom = 19.0
+margin_top = 7.0
+margin_right = 132.0
+margin_bottom = 29.0
 rect_min_size = Vector2( 70, 0 )
 text = "Texture File"
 
 [node name="TextureEnable" type="CheckBox" parent="Tabs/ItemDB/MainVB/MainHB/InspectVB/TextureHB"]
-margin_left = 79.0
-margin_right = 103.0
-margin_bottom = 24.0
+margin_left = 138.0
+margin_right = 174.0
+margin_bottom = 36.0
 
 [node name="TextureFileButton" type="Button" parent="Tabs/ItemDB/MainVB/MainHB/InspectVB/TextureHB"]
-margin_left = 107.0
-margin_right = 133.0
-margin_bottom = 24.0
+margin_left = 180.0
+margin_right = 228.0
+margin_bottom = 36.0
 disabled = true
 text = "[_]"
 
 [node name="TextureFileLineEdit" type="LineEdit" parent="Tabs/ItemDB/MainVB/MainHB/InspectVB/TextureHB"]
-margin_left = 137.0
-margin_right = 426.0
-margin_bottom = 24.0
+margin_left = 234.0
+margin_right = 401.0
+margin_bottom = 36.0
 size_flags_horizontal = 3
 editable = false
 
 [node name="TextureLineClr" type="Button" parent="Tabs/ItemDB/MainVB/MainHB/InspectVB/TextureHB"]
-margin_left = 430.0
-margin_right = 450.0
-margin_bottom = 24.0
+margin_left = 407.0
+margin_right = 435.0
+margin_bottom = 36.0
 disabled = true
 text = "X"
 
 [node name="TypeHB" type="HBoxContainer" parent="Tabs/ItemDB/MainVB/MainHB/InspectVB"]
-margin_top = 292.0
-margin_right = 450.0
-margin_bottom = 312.0
+margin_top = 298.0
+margin_right = 435.0
+margin_bottom = 328.0
 
 [node name="Label" type="Label" parent="Tabs/ItemDB/MainVB/MainHB/InspectVB/TypeHB"]
-margin_top = 3.0
+margin_top = 4.0
 margin_right = 70.0
-margin_bottom = 17.0
+margin_bottom = 26.0
 rect_min_size = Vector2( 70, 0 )
 text = "Type"
 
 [node name="TypeOption" type="OptionButton" parent="Tabs/ItemDB/MainVB/MainHB/InspectVB/TypeHB"]
-margin_left = 74.0
-margin_right = 450.0
-margin_bottom = 20.0
+margin_left = 76.0
+margin_right = 435.0
+margin_bottom = 30.0
 size_flags_horizontal = 3
 text = "MINERAL"
 items = [ "MINERAL", null, false, 0, null, "AMMO", null, false, 1, null, "CONSUMABLE", null, false, 2, null, "WEAPON", null, false, 3, null, "MINERAL", null, false, 4, null, "AMMO", null, false, 5, null, "CONSUMABLE", null, false, 6, null, "WEAPON", null, false, 7, null ]
 selected = 0
 
 [node name="StackHB" type="HBoxContainer" parent="Tabs/ItemDB/MainVB/MainHB/InspectVB"]
-margin_top = 316.0
-margin_right = 450.0
-margin_bottom = 340.0
+margin_top = 334.0
+margin_right = 435.0
+margin_bottom = 356.0
 
 [node name="Label" type="Label" parent="Tabs/ItemDB/MainVB/MainHB/InspectVB/StackHB"]
-margin_top = 5.0
-margin_right = 70.0
-margin_bottom = 19.0
+margin_right = 112.0
+margin_bottom = 22.0
 rect_min_size = Vector2( 70, 0 )
 text = "Stack Size"
 
 [node name="StackSizeEdit" type="LineEdit" parent="Tabs/ItemDB/MainVB/MainHB/InspectVB/StackHB"]
-margin_left = 74.0
-margin_right = 450.0
-margin_bottom = 24.0
+margin_left = 118.0
+margin_right = 435.0
+margin_bottom = 22.0
 size_flags_horizontal = 3
+text = "999"
 
 [node name="Divider" type="HBoxContainer" parent="Tabs/ItemDB/MainVB/MainHB/InspectVB"]
-margin_top = 344.0
-margin_right = 450.0
-margin_bottom = 348.0
+margin_top = 362.0
+margin_right = 435.0
+margin_bottom = 366.0
 
 [node name="HSeparator" type="HSeparator" parent="Tabs/ItemDB/MainVB/MainHB/InspectVB/Divider"]
-margin_right = 450.0
+margin_right = 435.0
 margin_bottom = 4.0
 size_flags_horizontal = 3
 
 [node name="PropertiesLblHB" type="HBoxContainer" parent="Tabs/ItemDB/MainVB/MainHB/InspectVB"]
-margin_top = 352.0
-margin_right = 450.0
-margin_bottom = 366.0
+margin_top = 372.0
+margin_right = 435.0
+margin_bottom = 394.0
 
 [node name="Label" type="Label" parent="Tabs/ItemDB/MainVB/MainHB/InspectVB/PropertiesLblHB"]
-margin_right = 101.0
-margin_bottom = 14.0
+margin_right = 162.0
+margin_bottom = 22.0
 text = "Item Properties"
 
 [node name="AddPropHB" type="HBoxContainer" parent="Tabs/ItemDB/MainVB/MainHB/InspectVB"]
-margin_top = 370.0
-margin_right = 450.0
-margin_bottom = 390.0
+margin_top = 400.0
+margin_right = 435.0
+margin_bottom = 422.0
 
 [node name="AddPropButton" type="Button" parent="Tabs/ItemDB/MainVB/MainHB/InspectVB/AddPropHB"]
-margin_right = 28.0
-margin_bottom = 20.0
+margin_right = 48.0
+margin_bottom = 22.0
 text = "[+]"
 
 [node name="PropsVB" type="VBoxContainer" parent="Tabs/ItemDB/MainVB/MainHB/InspectVB"]
-margin_top = 394.0
-margin_right = 450.0
-margin_bottom = 394.0
+margin_top = 428.0
+margin_right = 435.0
+margin_bottom = 428.0
 
 [node name="ItemActionsVB" type="VBoxContainer" parent="Tabs/ItemDB/MainVB/MainHB"]
-margin_left = 1462.0
-margin_right = 1912.0
-margin_bottom = 1044.0
+margin_left = 1467.0
+margin_right = 1902.0
+margin_bottom = 1046.0
 size_flags_horizontal = 3
 size_flags_vertical = 3
 
 [node name="ItemActionHB" type="HBoxContainer" parent="Tabs/ItemDB/MainVB/MainHB/ItemActionsVB"]
-margin_right = 450.0
-margin_bottom = 20.0
+margin_right = 435.0
+margin_bottom = 22.0
 alignment = 1
 
 [node name="SaveItem" type="Button" parent="Tabs/ItemDB/MainVB/MainHB/ItemActionsVB/ItemActionHB"]
-margin_left = 184.0
-margin_right = 265.0
-margin_bottom = 20.0
+margin_left = 158.0
+margin_right = 276.0
+margin_bottom = 22.0
 size_flags_horizontal = 9
 text = "Stage Item"
 
 [node name="CommitDatabaseHB" type="HBoxContainer" parent="Tabs/ItemDB/MainVB/MainHB/ItemActionsVB"]
-margin_top = 24.0
-margin_right = 450.0
-margin_bottom = 44.0
+margin_top = 28.0
+margin_right = 435.0
+margin_bottom = 50.0
 alignment = 1
 
 [node name="CommitDB" type="Button" parent="Tabs/ItemDB/MainVB/MainHB/ItemActionsVB/CommitDatabaseHB"]
-margin_left = 165.0
-margin_right = 285.0
-margin_bottom = 20.0
+margin_left = 138.0
+margin_right = 296.0
+margin_bottom = 22.0
 size_flags_horizontal = 9
 disabled = true
 text = "Commit Changes"
 
 [node name="ShipDB" type="Panel" parent="Tabs"]
+visible = false
 anchor_right = 1.0
 anchor_bottom = 1.0
-margin_left = 7.5
-margin_top = 37.5
-margin_right = -7.5
-margin_bottom = -7.5
+margin_left = 9.0
+margin_top = 28.0
+margin_right = -9.0
+margin_bottom = -6.0
 size_flags_horizontal = 3
 size_flags_vertical = 3
 __meta__ = {
@@ -672,7 +672,7 @@ margin_left = 82.0
 margin_right = 574.0
 margin_bottom = 30.0
 size_flags_horizontal = 3
-text = "FRIGATE"
+text = "MINERAL"
 items = [ "MINERAL", null, false, 0, null, "AMMO", null, false, 1, null, "CONSUMABLE", null, false, 2, null, "WEAPON", null, false, 3, null, "MINERAL", null, false, 4, null, "AMMO", null, false, 5, null, "CONSUMABLE", null, false, 6, null, "WEAPON", null, false, 7, null ]
 selected = 0
 

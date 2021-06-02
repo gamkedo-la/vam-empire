@@ -57,10 +57,13 @@ size_flags_vertical = 3
 margin_right = 152.0
 action_mode = 0
 text = "Mining Run"
-mission_name = "Mining Run"
+m_name = "Mining Run"
 mission_id = "mine_001"
-mission_summary = "Head out into the asteroid field and come back when you've successfully gathered 10 copper ore!"
-mission_status = 2
+summary = "Head out and collect 10 Copper Ore!"
+objectives = [ {
+"4efd8d66-b38f-4b94-8326-2bc21799f888": 10,
+"type": "item"
+} ]
 
 [node name="combat_001" parent="Panel/HBMain/VBLeft/MissionsScroll/VBMissions" instance=ExtResource( 3 )]
 visible = false
@@ -68,10 +71,9 @@ margin_top = 28.0
 margin_right = 188.0
 margin_bottom = 50.0
 text = "Earn Your Stripes"
-mission_name = "Earn Your Stripes"
+m_name = "Earn Your Stripes"
 mission_id = "combat_001"
-mission_summary = "Some pirates have been causing trouble in the area. We have a handsome reward for you if you can take at least 3 of them out!"
-mission_status = 0
+summary = "Pirates have been harassing our miners and holding back our operations. Get out there and try and take out at least 3 of them, and we'll give you a handsome reward pilot!"
 pre_req_missions = [ NodePath("../mine_001") ]
 
 [node name="combat_002" parent="Panel/HBMain/VBLeft/MissionsScroll/VBMissions" instance=ExtResource( 3 )]
@@ -80,10 +82,9 @@ margin_top = 28.0
 margin_right = 188.0
 margin_bottom = 50.0
 text = "Second Combat"
-mission_name = "Second Combat"
+m_name = "More Combat"
 mission_id = "combat_002"
-mission_summary = "The pirates are back, and this time they are stronger!"
-mission_status = 0
+summary = "This time pirates have been going after one of our larger operations, rescue the miners and bring back their ore payload."
 pre_req_missions = [ NodePath("../combat_001") ]
 
 [node name="VBRight" type="VBoxContainer" parent="Panel/HBMain"]
@@ -221,6 +222,7 @@ size_flags_horizontal = 0
 text = "Missions"
 align = 1
 
+[connection signal="pressed" from="Panel/HBMain/VBRight/ScrollContainer/VBInfo/HBButtons/Accept" to="." method="_on_Accept_pressed"]
 [connection signal="pressed" from="Panel/HBMain/VBRight/ScrollContainer/VBInfo/HBDebug/DebugComplete" to="." method="_on_DebugComplete_pressed"]
 
 [editable path="Panel/TopBar"]

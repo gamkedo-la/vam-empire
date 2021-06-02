@@ -18,6 +18,8 @@ onready var front_pos = $PlayerLeaveAnimation/FrontTakeoff
 onready var camera_front: Position2D= $FrontBase
 onready var camera_rear: Position2D = $RearBase
 
+onready var mission_board = $CanvasLayer/MissionBoard
+
 onready var embark_button: Button = $CanvasLayer/BaseOverlay/BaseBottomMenu/Buttons/Embark
 
 onready var base_camera = $Camera2D
@@ -64,6 +66,12 @@ func _hide_airlock_overlay() -> void:
 func _show_airlock_overlay() -> void:
 	airlock_overlay.visible = true
 	embark_button.visible = false
+
+func _hide_menu_overlays() -> void:
+	mission_board.visible = false
+
+func _show_mission_overlay() -> void:
+	mission_board.visible = true
 
 func _camera_pan(loc:Position2D) -> void:
 	cam_tween.interpolate_property(base_camera, "position", base_camera.position, loc.position, 3, Tween.TRANS_BACK, Tween.EASE_IN_OUT)
@@ -113,8 +121,10 @@ func _on_README_pressed():
 
 func _on_Missions_pressed():
 	_hide_airlock_overlay()
+	_show_mission_overlay()
 	_camera_pan(camera_rear)
 
 func _on_Embark_pressed():
+	_hide_menu_overlays()
 	_show_airlock_overlay()
 	_camera_pan(camera_front)
