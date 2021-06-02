@@ -12,6 +12,9 @@ script = ExtResource( 3 )
 [node name="Sprite" parent="MainMenuParallax/StarFieldBlack" index="0"]
 visible = true
 
+[node name="3DBG" parent="MainMenuParallax" index="1"]
+visible = false
+
 [node name="Tween" type="Tween" parent="."]
 
 [node name="MainMenu" parent="." instance=ExtResource( 1 )]

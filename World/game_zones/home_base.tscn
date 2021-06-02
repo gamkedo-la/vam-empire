@@ -236,6 +236,12 @@ position = Vector2( 1004.77, 282.815 )
 
 [node name="ParallaxBackground2" parent="." instance=ExtResource( 4 )]
 
+[node name="Sprite" parent="ParallaxBackground2/StarFieldBlack" index="0"]
+visible = true
+
+[node name="3DBG" parent="ParallaxBackground2" index="1"]
+visible = false
+
 [node name="CanvasModulate" type="CanvasModulate" parent="."]
 color = Color( 0.545098, 0.545098, 0.545098, 1 )
 
