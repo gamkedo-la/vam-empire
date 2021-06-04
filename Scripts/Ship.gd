@@ -55,6 +55,9 @@ func fire_weapons(parent_velocity: Vector2):
 	for weapon in weapons:
 		fired = weapon.fire(parent_velocity)
 		# TODO: add conditional checking and remove weapons that don't fire for efficiency
+
+func fire_bomb():
+	pass
 		
 func fire_mining_lasers():
 	for weapon in weapons:

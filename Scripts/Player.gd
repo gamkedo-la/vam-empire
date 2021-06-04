@@ -188,6 +188,10 @@ func move_state(delta):
 		if !Global.hold_fire:
 			fire_attached_weapons()
 	
+	if Input.is_action_pressed("attack_bomb"):
+		if !Global.hold_fire:
+			fire_attached_bomb()
+	
 	if Input.is_action_pressed("mining"):
 		fire_mining_lasers()
 		Global.hold_fire = true
@@ -332,6 +336,9 @@ func fire_mining_lasers():
 
 func release_mining_lasers():
 	piloted_ship.release_mining_lasers()
+
+func fire_attached_bomb():
+	piloted_ship.fire_bomb()
 
 # Useful for End Mission
 func _hide_all_overlays():
