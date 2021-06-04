@@ -9,6 +9,8 @@ var missions = {}
 var status = ["Locked", "Unlocked", "Accepted", "Complete"]
 var sel_miss: Mission = null
 
+var mission_debug: bool = true
+
 onready var name_label: Label = $Panel/HBMain/VBRight/ScrollContainer/VBInfo/HBName/Name
 onready var status_label: Label = $Panel/HBMain/VBRight/ScrollContainer/VBInfo/HBStatus/Status
 onready var complete_icon: TextureRect = $Panel/HBMain/VBRight/ScrollContainer/VBInfo/HBCompletion/CompleteIcon
@@ -19,18 +21,24 @@ onready var debug_complete: Button = $Panel/HBMain/VBRight/ScrollContainer/VBInf
 
 
 func _ready() -> void:
+	_init_board()
+
+func _init_board() -> void:
 	for mission in mission_list.get_children():
 		if mission is Mission:
 			mission.connect("mission_selected", self, "_mission_selected")
+			mission.status = mission.initial_status
 			if PlayerVars.mission_state.has(mission.mission_id):
-				mission.status = PlayerVars.mission_state[mission.mission_id].status 				
+				mission.status = PlayerVars.mission_state[mission.mission_id].status
 			if mission.status == Mission.Status.LOCKED:
 				mission.visible = false
 			else:
 				mission.visible = true
 			pass
-			mission.set_triggers()
+			mission.set_triggers()			
 	check_all_prereqs()
+	_mission_selected(mission_list.get_child(0).mission_id)
+	
 	
 	
 func _process(_delta):
@@ -42,6 +50,7 @@ func _process(_delta):
 	
 
 func _mission_selected(miss_id:String) -> void:
+	$Panel/HBMain/VBRight/ScrollContainer/VBInfo/HBDebug.visible = false
 	sel_miss = mission_list.get_node_or_null(miss_id)
 	name_label.text = str(sel_miss.m_name)
 	status_label.text = str(status[sel_miss.status])
@@ -51,10 +60,14 @@ func _mission_selected(miss_id:String) -> void:
 	else:
 		accept_button.visible = false
 	
-	if sel_miss.status == Mission.Status.ACCEPTED:
+	if sel_miss.status >= Mission.Status.ACCEPTED:
+		if mission_debug:
+			$Panel/HBMain/VBRight/ScrollContainer/VBInfo/HBDebug.visible = true
 		if sel_miss.mission_type == Mission.MissionType.ITEM:
 			complete_icon.texture = load(Database.itemByUuid[sel_miss.item_uuid].itemIcon)
-			complete_text.text = str(sel_miss.completed,"/",sel_miss.item_goal)
+		elif sel_miss.mission_type == Mission.MissionType.KILL:
+			complete_icon.texture = null
+		complete_text.text = str(sel_miss.completed,"/",sel_miss.item_goal)
 	print(miss_id)
 
 func check_all_prereqs() -> void:
@@ -73,10 +86,12 @@ func _toggle_viz() -> void:
 func _on_DebugComplete_pressed():
 	
 	if sel_miss is Mission:
-		print_debug(sel_miss.m_name)
-		sel_miss.status = Mission.Status.COMPLETE
-		PlayerVars.complete_mission(sel_miss)
+		if sel_miss.status == Mission.Status.ACCEPTED:
+			print_debug(sel_miss.m_name)
+			sel_miss.status = Mission.Status.COMPLETE
+			PlayerVars.complete_mission(sel_miss)
 	check_all_prereqs()
+	_mission_selected(sel_miss.mission_id)
 
 
 func _on_Accept_pressed():
@@ -88,3 +103,9 @@ func _on_Accept_pressed():
 	if !success:
 		print_debug("Something wrong with Aceepting Mission: [", sel_miss.mission_id,"] Make sure the mission has objectives!")
 	_mission_selected(sel_miss.mission_id)
+
+
+func _on_ResetAll_pressed():
+	PlayerVars.mission_state = {}
+	_init_board()
+	

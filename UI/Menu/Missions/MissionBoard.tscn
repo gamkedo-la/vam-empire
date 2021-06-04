@@ -61,6 +61,7 @@ m_name = "Mining Run"
 mission_id = "mine_001"
 summary = "Head out and collect 10 Copper Ore!"
 status = 1
+initial_status = 1
 item_uuid = "4efd8d66-b38f-4b94-8326-2bc21799f888"
 item_goal = 10
 
@@ -121,12 +122,12 @@ size_flags_vertical = 3
 theme = ExtResource( 2 )
 
 [node name="VBInfo" type="VBoxContainer" parent="Panel/HBMain/VBRight/ScrollContainer"]
-margin_right = 230.0
+margin_right = 282.0
 margin_bottom = 502.0
 size_flags_vertical = 3
 
 [node name="HBName" type="HBoxContainer" parent="Panel/HBMain/VBRight/ScrollContainer/VBInfo"]
-margin_right = 230.0
+margin_right = 282.0
 margin_bottom = 22.0
 
 [node name="NameLabel" type="Label" parent="Panel/HBMain/VBRight/ScrollContainer/VBInfo/HBName"]
@@ -142,7 +143,7 @@ text = "Mission Name"
 
 [node name="HBStatus" type="HBoxContainer" parent="Panel/HBMain/VBRight/ScrollContainer/VBInfo"]
 margin_top = 28.0
-margin_right = 230.0
+margin_right = 282.0
 margin_bottom = 50.0
 
 [node name="StatusLabel" type="Label" parent="Panel/HBMain/VBRight/ScrollContainer/VBInfo/HBStatus"]
@@ -158,7 +159,7 @@ text = "Incomplete"
 
 [node name="HBCompletion" type="HBoxContainer" parent="Panel/HBMain/VBRight/ScrollContainer/VBInfo"]
 margin_top = 56.0
-margin_right = 230.0
+margin_right = 282.0
 margin_bottom = 78.0
 
 [node name="CompleteIcon" type="TextureRect" parent="Panel/HBMain/VBRight/ScrollContainer/VBInfo/HBCompletion"]
@@ -172,7 +173,7 @@ text = "0/0"
 
 [node name="HBName2" type="HBoxContainer" parent="Panel/HBMain/VBRight/ScrollContainer/VBInfo"]
 margin_top = 84.0
-margin_right = 230.0
+margin_right = 282.0
 margin_bottom = 106.0
 
 [node name="SummaryLabel" type="Label" parent="Panel/HBMain/VBRight/ScrollContainer/VBInfo/HBName2"]
@@ -182,13 +183,13 @@ text = "Summary"
 
 [node name="HBName3" type="HBoxContainer" parent="Panel/HBMain/VBRight/ScrollContainer/VBInfo"]
 margin_top = 112.0
-margin_right = 230.0
-margin_bottom = 414.0
+margin_right = 282.0
+margin_bottom = 386.0
 size_flags_horizontal = 3
 
 [node name="Summary" type="Label" parent="Panel/HBMain/VBRight/ScrollContainer/VBInfo/HBName3"]
-margin_right = 230.0
-margin_bottom = 302.0
+margin_right = 282.0
+margin_bottom = 274.0
 rect_min_size = Vector2( 230, 0 )
 size_flags_horizontal = 3
 text = "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Pellentesque mollis nunc nec dolor accumsan, sit amet bibendum enim congue. Mauris quis ante sit amet lorem fermentum tempor id at sapien.
@@ -197,9 +198,9 @@ Lorem ipsum dolor sit amet, consectetur adipiscing elit. Pellentesque mollis nun
 autowrap = true
 
 [node name="HBReward" type="HBoxContainer" parent="Panel/HBMain/VBRight/ScrollContainer/VBInfo"]
-margin_top = 420.0
-margin_right = 230.0
-margin_bottom = 442.0
+margin_top = 392.0
+margin_right = 282.0
+margin_bottom = 414.0
 
 [node name="RewardLabel" type="Label" parent="Panel/HBMain/VBRight/ScrollContainer/VBInfo/HBReward"]
 margin_right = 82.0
@@ -213,9 +214,9 @@ margin_bottom = 22.0
 text = "reward"
 
 [node name="HBButtons" type="HBoxContainer" parent="Panel/HBMain/VBRight/ScrollContainer/VBInfo"]
-margin_top = 448.0
-margin_right = 230.0
-margin_bottom = 448.0
+margin_top = 420.0
+margin_right = 282.0
+margin_bottom = 420.0
 
 [node name="Accept" type="Button" parent="Panel/HBMain/VBRight/ScrollContainer/VBInfo/HBButtons"]
 visible = false
@@ -224,14 +225,20 @@ margin_bottom = 22.0
 text = "Accept"
 
 [node name="HBDebug" type="HBoxContainer" parent="Panel/HBMain/VBRight/ScrollContainer/VBInfo"]
-margin_top = 454.0
-margin_right = 230.0
-margin_bottom = 476.0
+margin_top = 426.0
+margin_right = 282.0
+margin_bottom = 448.0
 
 [node name="DebugComplete" type="Button" parent="Panel/HBMain/VBRight/ScrollContainer/VBInfo/HBDebug"]
 margin_right = 168.0
 margin_bottom = 22.0
 text = "Debug: Complete"
+
+[node name="ResetAll" type="Button" parent="Panel/HBMain/VBRight/ScrollContainer/VBInfo/HBDebug"]
+margin_left = 174.0
+margin_right = 282.0
+margin_bottom = 22.0
+text = "RESET ALL"
 
 [node name="TopBar" parent="Panel" instance=ExtResource( 1 )]
 self_modulate = Color( 1, 1, 1, 0 )
@@ -254,5 +261,6 @@ align = 1
 
 [connection signal="pressed" from="Panel/HBMain/VBRight/ScrollContainer/VBInfo/HBButtons/Accept" to="." method="_on_Accept_pressed"]
 [connection signal="pressed" from="Panel/HBMain/VBRight/ScrollContainer/VBInfo/HBDebug/DebugComplete" to="." method="_on_DebugComplete_pressed"]
+[connection signal="pressed" from="Panel/HBMain/VBRight/ScrollContainer/VBInfo/HBDebug/ResetAll" to="." method="_on_ResetAll_pressed"]
 
 [editable path="Panel/TopBar"]

@@ -23,6 +23,7 @@ export (String) var mission_id = ""
 export (String, MULTILINE) var summary = ""
 
 export (Status) var status
+export (Status) var initial_status
 
 export (MissionType) var mission_type
 export (String) var item_uuid
