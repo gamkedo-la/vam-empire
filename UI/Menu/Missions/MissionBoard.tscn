@@ -64,6 +64,20 @@ status = 1
 item_uuid = "4efd8d66-b38f-4b94-8326-2bc21799f888"
 item_goal = 10
 
+[node name="mine_002" parent="Panel/HBMain/VBLeft/MissionsScroll/VBMissions" instance=ExtResource( 3 )]
+visible = false
+margin_top = 28.0
+margin_right = 152.0
+margin_bottom = 50.0
+action_mode = 0
+text = "Mining Run"
+m_name = "Mining Run 2"
+mission_id = "mine_002"
+summary = "Head out and collect 10 Iron Ore!"
+item_uuid = "d7a332ce-ea38-466e-9539-2ebb94eff566"
+item_goal = 10
+pre_req_missions = [ NodePath("../mine_001"), NodePath("../combat_001") ]
+
 [node name="combat_001" parent="Panel/HBMain/VBLeft/MissionsScroll/VBMissions" instance=ExtResource( 3 )]
 visible = false
 margin_top = 28.0

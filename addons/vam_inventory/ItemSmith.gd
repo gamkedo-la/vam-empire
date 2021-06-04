@@ -30,7 +30,7 @@ onready var _icon_file_clr = $Tabs/ItemDB/MainVB/MainHB/InspectVB/IconHB/IconLin
 
 onready var _item_name_lbl = $Tabs/ItemDB/MainVB/MainHB/InspectVB/ItemIconHB/ItemNameLbl as Label
 onready var _item_icon_rect = $Tabs/ItemDB/MainVB/MainHB/InspectVB/ItemIconHB/ItemIconRect as TextureRect
-onready var _item_uuid_lbl = $Tabs/ItemDB/MainVB/MainHB/InspectVB/ItemUuid/ItemUuid as Label
+onready var _item_uuid_lbl = $Tabs/ItemDB/MainVB/MainHB/InspectVB/ItemUuid/ItemUuid as LineEdit
 
 onready var _type_option = $Tabs/ItemDB/MainVB/MainHB/InspectVB/TypeHB/TypeOption as OptionButton
 
