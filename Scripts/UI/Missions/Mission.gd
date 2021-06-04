@@ -11,6 +11,11 @@ enum Status {
 	COMPLETE
 }
 
+enum MissionType {
+	ITEM,
+	KILL
+}
+
 export (String) var m_name = ""
 # Unique Mission Identifier to be tracked in the Player Save as being In Progress or Complete
 export (String) var mission_id = ""
@@ -19,7 +24,10 @@ export (String, MULTILINE) var summary = ""
 
 export (Status) var status
 
-export (Array, Dictionary) var objectives
+export (MissionType) var mission_type
+export (String) var item_uuid
+export (int) var item_goal
+export (int) var completed = 0
 
 export (Array, NodePath) var pre_req_missions
 
@@ -39,6 +47,9 @@ func _init_connections() -> void:
 func _mission_pressed() -> void:
 	print_debug("Mission ", mission_id, " pressed.")
 	emit_signal("mission_selected", mission_id)
+func set_triggers() -> void:
+	if mission_type == MissionType.ITEM:
+		PlayerVars.connect("picked_up", self, "_check_item_mission")
 
 func check_preqs() -> void:
 	var unlock = true
@@ -51,4 +62,12 @@ func check_preqs() -> void:
 				unlock = false
 		if unlock:
 			status = Status.UNLOCKED
+		
+func _check_item_mission(uuid:String, cnt: int) -> void:
+	if item_uuid == uuid && completed < item_goal:
+		if completed + cnt <= item_goal:
+			completed += cnt
+		else:
+			completed = item_goal
+		PlayerVars.mission_state[mission_id].completed = completed
 		

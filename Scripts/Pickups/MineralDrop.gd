@@ -8,6 +8,8 @@ var item_uuid
 var despawn_timer
 var particle_color: Color
 
+var count: int = 1
+
 func _ready() -> void:
 	despawn_timer = Timer.new()
 	add_child(despawn_timer)
@@ -18,7 +20,7 @@ func _ready() -> void:
 	_set_particle_color()
 
 func pickup() -> void:
-	PlayerVars.pickup_item(item_uuid)
+	PlayerVars.pickup_item(item_uuid, count)
 	sprite.visible = false
 	emit_signal("removed", self)
 	mineral_dust.set_emitting(false)

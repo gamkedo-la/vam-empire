@@ -10,6 +10,7 @@ signal hull_max_health_changed(val, change_amount)
 signal energy_reserve_changed(val, change_amount)
 signal energy_max_reserve_changed(val, change_amount)
 
+signal picked_up
 signal mission_complete
 
 signal item_transfer(uuid)
@@ -128,7 +129,8 @@ func save():
 	save["mission_state"] = mission_state
 #	print_debug("Save file...: ", save)
 	file.open(FILE_NAME, File.WRITE)
-	file.store_string(to_json(save))
+	file.store_string(JSON.print(save, "\t"))
+	#file.store_string(to_json(save))
 	file.close()
 
 func set_save_slot(slot):
@@ -194,9 +196,11 @@ func load_save():
 	# No save data, version didn't match, or corrupted save file all lead to making a new() config file
 	return false
 
-func pickup_item(uuid):
+func pickup_item(uuid: String, cnt: int):
 	var inventory = player_node.get_ship_inventory()
 	inventory.insert_item_by_uuid(uuid)
+	emit_signal("picked_up", uuid, cnt)
+#	_increment_item_objective(uuid, cnt)
 
 func increment_ship_inventory(uuid, cnt:int):
 	if ship_inventory.has(uuid):
@@ -210,6 +214,18 @@ func increment_master_inventory(uuid, cnt:int):
 		master_inventory[uuid] += cnt
 	else:
 		master_inventory[uuid] = cnt
+
+func _increment_item_objective(uuid: String, cnt: int) -> void:
+	if mission_state.size() > 0:
+		for mission in mission_state:
+			print_debug(mission)
+			if mission_state[mission].objectives.size() > 0:
+				for objective in mission_state[mission].objectives:
+					if objective.type == "item":
+						if objective.has(uuid):
+							if objective.complete < objective[uuid]:
+								objective.complete += cnt
+						print_debug(objective)
 
 func transfer_ship_to_base() -> void:
 	for inv_key in ship_inventory.keys():
@@ -272,13 +288,14 @@ func take_damage(amount):
 func accept_mission(miss:Mission) -> bool:
 	mission_state[miss.mission_id] = {}	
 	mission_state[miss.mission_id]["status"] = miss.status
-	mission_state[miss.mission_id]["objectives"] = miss.objectives
+#	mission_state[miss.mission_id]["objectives"] = miss.objectives
+	mission_state[miss.mission_id]["completed"] = miss.completed
 	
-	print_debug(mission_state)
-	for objective in mission_state[miss.mission_id]["objectives"]:
-		objective["complete"] = 0
-		print_debug("objective: ", objective) 
-	print_debug(mission_state)
+#	print_debug(mission_state)
+#	for objective in mission_state[miss.mission_id]["objectives"]:
+#		objective["complete"] = 0
+#		print_debug("objective: ", objective) 
+#	print_debug(mission_state)
 	save()
 	return true
 	

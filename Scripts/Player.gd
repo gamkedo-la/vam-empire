@@ -44,6 +44,7 @@ onready var player_canvas = $PlayerUICanvas
 
 onready var char_sheet = $PlayerUICanvas/CharacterSheet
 onready var debug_menu = $PlayerUICanvas/PlayerDebugMenu
+onready var mission_menu = $PlayerUICanvas/MissionBoard
 
 onready var inventory = $PlayerUICanvas/Inventory
 
@@ -67,6 +68,7 @@ var can_recover_energy = true
 
 func _ready():
 	#TODO: pilot_ship_from_pack and change variables in PlayerVars to ShipClass/Index 
+	_set_menus_viz(false)
 	pilot_ship(PlayerVars.player.current_ship)	
 	PlayerVars.player_node = self
 	PlayerVars.connect("target_change", self, "_target_change")
@@ -75,6 +77,10 @@ func _ready():
 	# Let the char sheet know about updated values
 	char_sheet.update_values()
 	rng.randomize()
+
+func _set_menus_viz(viz:bool) -> void:
+	mission_menu.visible = viz
+	debug_menu.visible = viz
 
 func _process(_delta):
 	Global.player_position = position

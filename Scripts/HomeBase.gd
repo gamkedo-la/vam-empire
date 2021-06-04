@@ -41,6 +41,7 @@ var leaving_to = null
 
 func _ready():
 	start_light_tweens()
+	Global.game_live = false
 
 func _process(_delta):
 	starfield.scroll_offset.x += 10

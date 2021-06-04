@@ -180,7 +180,7 @@ func _on_TestAdd_pressed():
 	var items = Database.table.Items
 	var rand_add = items[randi() % items.size()]
 	#insert_item(rand_add.itemUuid)
-	PlayerVars.pickup_item(rand_add.itemUuid)
+	PlayerVars.pickup_item(rand_add.itemUuid, 1)
 
 func _on_TestClear_pressed():
 	clear_inventory()
