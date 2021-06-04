@@ -108,7 +108,7 @@ margin_left = 160.0
 margin_right = 800.0
 margin_bottom = 20.0
 rect_min_size = Vector2( 640, 20 )
-text = "Press: 'C' for Character Screen, 'F4' for Debug Menu, 'Esc' to bring up Pause Menu"
+text = "Press: 'C':Miner's License, 'F4':Debug Menu, 'I':Inventory, 'J :Missions, 'Esc': Pause Menu"
 
 [node name="Camera2D" parent="." instance=ExtResource( 6 )]
 
