@@ -53,7 +53,8 @@ func _mission_pressed() -> void:
 	emit_signal("mission_selected", mission_id)
 func set_triggers() -> void:
 	if mission_type == MissionType.ITEM:
-		PlayerVars.connect("picked_up", self, "_check_item_mission")
+		if not PlayerVars.is_connected("picked_up", self, "_check_item_mission"):
+			assert(PlayerVars.connect("picked_up", self, "_check_item_mission") == OK)
 
 func check_preqs() -> void:
 	var unlock = true

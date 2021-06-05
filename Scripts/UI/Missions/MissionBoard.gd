@@ -31,7 +31,8 @@ func _ready() -> void:
 func _init_board() -> void:
 	for mission in mission_list.get_children():
 		if mission is Mission:
-			mission.connect("mission_selected", self, "_mission_selected")
+			if not mission.is_connected("mission_selected", self, "_mission_selected"):
+				assert(mission.connect("mission_selected", self, "_mission_selected") == OK)
 			mission.status = mission.initial_status
 			if PlayerVars.mission_state.has(mission.mission_id):
 				mission.status = PlayerVars.mission_state[mission.mission_id].status
