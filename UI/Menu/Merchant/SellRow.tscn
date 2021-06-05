@@ -1,0 +1,138 @@
+[gd_scene load_steps=3 format=2]
+
+[ext_resource path="res://UI/Theme/Merchant Panel/ButtonStyle.tres" type="StyleBox" id=1]
+[ext_resource path="res://MiningMaterials/Textures/mat-copper.png" type="Texture" id=2]
+
+[node name="SellRow" type="HBoxContainer"]
+margin_right = 416.0
+margin_bottom = 32.0
+custom_constants/separation = 24
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="HBoxContainer" type="HBoxContainer" parent="."]
+margin_right = 109.0
+margin_bottom = 32.0
+
+[node name="SellItemIcon" type="TextureRect" parent="HBoxContainer"]
+margin_right = 32.0
+margin_bottom = 32.0
+size_flags_horizontal = 5
+size_flags_vertical = 5
+texture = ExtResource( 2 )
+stretch_mode = 6
+
+[node name="SellItemName" type="Label" parent="HBoxContainer"]
+margin_left = 36.0
+margin_top = 9.0
+margin_right = 81.0
+margin_bottom = 23.0
+text = "Copper"
+align = 1
+
+[node name="SellItemPriceLabel" type="Label" parent="HBoxContainer"]
+margin_left = 85.0
+margin_top = 9.0
+margin_right = 109.0
+margin_bottom = 23.0
+custom_colors/font_color = Color( 0.34902, 0.756863, 0.207843, 1 )
+text = "$50"
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="HBoxContainer2" type="HBoxContainer" parent="."]
+margin_left = 133.0
+margin_right = 279.0
+margin_bottom = 32.0
+alignment = 2
+
+[node name="InventoryItemQuantity" type="Label" parent="HBoxContainer2"]
+margin_top = 9.0
+margin_right = 16.0
+margin_bottom = 23.0
+size_flags_horizontal = 4
+text = "32"
+
+[node name="None" type="Button" parent="HBoxContainer2"]
+margin_left = 20.0
+margin_top = 6.0
+margin_right = 40.0
+margin_bottom = 26.0
+size_flags_horizontal = 4
+size_flags_vertical = 4
+custom_styles/hover = ExtResource( 1 )
+custom_styles/pressed = ExtResource( 1 )
+custom_styles/focus = ExtResource( 1 )
+custom_styles/disabled = ExtResource( 1 )
+custom_styles/normal = ExtResource( 1 )
+text = "<<"
+
+[node name="Less" type="Button" parent="HBoxContainer2"]
+margin_left = 44.0
+margin_top = 6.0
+margin_right = 56.0
+margin_bottom = 26.0
+size_flags_vertical = 4
+custom_styles/hover = ExtResource( 1 )
+custom_styles/pressed = ExtResource( 1 )
+custom_styles/focus = ExtResource( 1 )
+custom_styles/disabled = ExtResource( 1 )
+custom_styles/normal = ExtResource( 1 )
+text = "<"
+align = 0
+
+[node name="SellQuantity" type="LineEdit" parent="HBoxContainer2"]
+margin_left = 60.0
+margin_top = 4.0
+margin_right = 86.0
+margin_bottom = 28.0
+size_flags_horizontal = 4
+size_flags_vertical = 4
+custom_constants/minimum_spaces = 4
+text = "0"
+align = 2
+max_length = 4
+
+[node name="More" type="Button" parent="HBoxContainer2"]
+margin_left = 90.0
+margin_top = 6.0
+margin_right = 102.0
+margin_bottom = 26.0
+size_flags_horizontal = 4
+size_flags_vertical = 4
+custom_styles/hover = ExtResource( 1 )
+custom_styles/pressed = ExtResource( 1 )
+custom_styles/focus = ExtResource( 1 )
+custom_styles/disabled = ExtResource( 1 )
+custom_styles/normal = ExtResource( 1 )
+text = ">"
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="All" type="Button" parent="HBoxContainer2"]
+margin_left = 106.0
+margin_top = 6.0
+margin_right = 126.0
+margin_bottom = 26.0
+size_flags_vertical = 4
+custom_styles/hover = ExtResource( 1 )
+custom_styles/pressed = ExtResource( 1 )
+custom_styles/focus = ExtResource( 1 )
+custom_styles/disabled = ExtResource( 1 )
+custom_styles/normal = ExtResource( 1 )
+text = ">>"
+align = 0
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Profit" type="Label" parent="HBoxContainer2"]
+margin_left = 130.0
+margin_top = 9.0
+margin_right = 146.0
+margin_bottom = 23.0
+text = "$0"
+align = 2
