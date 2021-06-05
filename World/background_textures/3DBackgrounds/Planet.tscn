@@ -1,24 +1,26 @@
-[gd_scene load_steps=7 format=2]
+[gd_scene load_steps=8 format=2]
 
 [ext_resource path="res://Scripts/Backgrounds/QuickSunAnimation.gd" type="Script" id=1]
 [ext_resource path="res://Lights/Textures/light_orb.png" type="Texture" id=2]
+[ext_resource path="res://Materials/planetmap.png" type="Texture" id=3]
 
-[sub_resource type="Environment" id=6]
+[sub_resource type="Environment" id=1]
 dof_blur_far_enabled = true
 dof_blur_far_distance = 106.37
 dof_blur_far_amount = 0.05
 dof_blur_far_quality = 2
 
-[sub_resource type="SpatialMaterial" id=5]
+[sub_resource type="SpatialMaterial" id=2]
 params_specular_mode = 4
-albedo_color = Color( 0.129412, 0, 0.0666667, 1 )
+albedo_color = Color( 0.509804, 0.0666667, 0.0666667, 1 )
+albedo_texture = ExtResource( 3 )
 
-[sub_resource type="SpatialMaterial" id=4]
+[sub_resource type="SpatialMaterial" id=3]
 flags_transparent = true
 albedo_color = Color( 1, 1, 1, 0.0980392 )
 albedo_texture = ExtResource( 2 )
 
-[sub_resource type="SpatialMaterial" id=7]
+[sub_resource type="SpatialMaterial" id=4]
 flags_transparent = true
 albedo_color = Color( 0.227451, 0.14902, 0.00392157, 0.435294 )
 albedo_texture = ExtResource( 2 )
@@ -30,7 +32,7 @@ transparent_bg = true
 hdr = false
 
 [node name="WorldEnvironment" type="WorldEnvironment" parent="."]
-environment = SubResource( 6 )
+environment = SubResource( 1 )
 
 [node name="Camera" type="Camera" parent="."]
 transform = Transform( 0.990251, -0.000265039, -0.139294, 0.0439911, 0.949414, 0.31093, 0.132165, -0.314026, 0.94017, -13.6717, 0.796496, 18.0996 )
@@ -43,7 +45,7 @@ calculate_tangents = false
 radius = 6.0
 radial_segments = 24
 rings = 12
-material = SubResource( 5 )
+material = SubResource( 2 )
 
 [node name="CSGTorus" type="CSGTorus" parent="Spatial"]
 transform = Transform( 4, 0, 0, 0, 0.1, 0, 0, 0, 4, 0, 0, 0 )
@@ -54,7 +56,7 @@ outer_radius = 1.9
 sides = 64
 ring_sides = 64
 smooth_faces = false
-material = SubResource( 4 )
+material = SubResource( 3 )
 
 [node name="CSGTorus2" type="CSGTorus" parent="Spatial"]
 transform = Transform( 4, 0, 0, 0, 0.1, 0, 0, 0, 4, 0, 0, 0 )
@@ -65,7 +67,7 @@ outer_radius = 2.3
 sides = 64
 ring_sides = 64
 smooth_faces = false
-material = SubResource( 7 )
+material = SubResource( 4 )
 
 [node name="CSGTorus3" type="CSGTorus" parent="Spatial"]
 transform = Transform( 4, 0, 0, 0, 0.1, 0, 0, 0, 4, 0, 0, 0 )
@@ -76,7 +78,7 @@ outer_radius = 3.7
 sides = 64
 ring_sides = 64
 smooth_faces = false
-material = SubResource( 4 )
+material = SubResource( 3 )
 
 [node name="CSGTorus4" type="CSGTorus" parent="Spatial"]
 transform = Transform( 4, 0, 0, 0, 0.1, 0, 0, 0, 4, 0, 0, 0 )
@@ -87,7 +89,7 @@ outer_radius = 4.6
 sides = 64
 ring_sides = 64
 smooth_faces = false
-material = SubResource( 4 )
+material = SubResource( 3 )
 
 [node name="CSGTorus5" type="CSGTorus" parent="Spatial"]
 transform = Transform( 4, 0, 0, 0, 0.1, 0, 0, 0, 4, 0, 0, 0 )
@@ -98,7 +100,7 @@ outer_radius = 8.0
 sides = 64
 ring_sides = 64
 smooth_faces = false
-material = SubResource( 4 )
+material = SubResource( 3 )
 
 [node name="DirectionalLight" type="DirectionalLight" parent="Spatial"]
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 191.948 )
