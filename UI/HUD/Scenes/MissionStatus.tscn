@@ -1,0 +1,26 @@
+[gd_scene load_steps=2 format=2]
+
+[ext_resource path="res://Scripts/UI/Missions/HUD/MissionStatus.gd" type="Script" id=2]
+
+[node name="MissionStatus" type="MarginContainer"]
+modulate = Color( 1, 1, 1, 0.627451 )
+anchor_left = 0.82
+anchor_top = 0.27
+anchor_right = 0.84
+anchor_bottom = 0.916
+margin_left = -40.0
+margin_top = -20.0
+margin_right = 152.8
+margin_bottom = 31.16
+rect_min_size = Vector2( 212, 400 )
+script = ExtResource( 2 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Missions" type="VBoxContainer" parent="."]
+margin_right = 212.0
+margin_bottom = 400.0
+rect_min_size = Vector2( 212, 400 )
+size_flags_horizontal = 3
+size_flags_vertical = 3

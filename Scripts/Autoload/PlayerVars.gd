@@ -11,6 +11,7 @@ signal energy_reserve_changed(val, change_amount)
 signal energy_max_reserve_changed(val, change_amount)
 
 signal picked_up
+signal mission_updated
 signal mission_complete
 
 signal item_transfer(uuid)
@@ -288,7 +289,12 @@ func take_damage(amount):
 func accept_mission(miss:Mission) -> bool:
 	mission_state[miss.mission_id] = {}	
 	mission_state[miss.mission_id]["status"] = miss.status
+	if miss.mission_type == Mission.MissionType.ITEM:
+		mission_state[miss.mission_id]["goal"] = miss.item_goal
+	elif miss.mission_type == Mission.MissionType.KILL:
+		mission_state[miss.mission_id]["goal"] = miss.kill_goal
 	mission_state[miss.mission_id]["completed"] = miss.completed
+	mission_state[miss.mission_id]["name"] = miss.m_name
 
 	save()
 	return true

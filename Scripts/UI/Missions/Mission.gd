@@ -84,4 +84,5 @@ func _check_item_mission(uuid:String, cnt: int) -> void:
 			completed = item_goal
 		PlayerVars.mission_state[mission_id].completed = completed
 		PlayerVars.save()
+		PlayerVars.emit_signal("mission_updated")
 		

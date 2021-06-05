@@ -1,0 +1,33 @@
+[gd_scene load_steps=2 format=2]
+
+[ext_resource path="res://Scripts/UI/Missions/HUD/MissStatSingle.gd" type="Script" id=1]
+
+[node name="MissStat" type="VBoxContainer"]
+margin_right = 212.0
+margin_bottom = 32.0
+script = ExtResource( 1 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="MissTitle" type="HBoxContainer" parent="."]
+margin_right = 212.0
+margin_bottom = 14.0
+
+[node name="Label" type="Label" parent="MissTitle"]
+self_modulate = Color( 1, 0.988235, 0.25098, 1 )
+margin_right = 92.0
+margin_bottom = 14.0
+text = "Mission Name"
+
+[node name="MissStatus" type="HBoxContainer" parent="."]
+margin_top = 18.0
+margin_right = 212.0
+margin_bottom = 32.0
+alignment = 2
+
+[node name="Completed" type="Label" parent="MissStatus"]
+margin_left = 183.0
+margin_right = 212.0
+margin_bottom = 14.0
+text = "0/10"
