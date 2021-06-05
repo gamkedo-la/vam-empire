@@ -1,0 +1,34 @@
+[remap]
+
+importer="texture"
+type="StreamTexture"
+path="res://.import/complete_star2.png-53dc2fcbef9bef88187f4e6af9a7dd6f.stex"
+metadata={
+"vram_texture": false
+}
+
+[deps]
+
+source_file="res://UI/Menu/Missions/complete_star2.png"
+dest_files=[ "res://.import/complete_star2.png-53dc2fcbef9bef88187f4e6af9a7dd6f.stex" ]
+
+[params]
+
+compress/mode=0
+compress/lossy_quality=0.7
+compress/hdr_mode=0
+compress/bptc_ldr=0
+compress/normal_map=0
+flags/repeat=0
+flags/filter=false
+flags/mipmaps=false
+flags/anisotropic=false
+flags/srgb=2
+process/fix_alpha_border=true
+process/premult_alpha=false
+process/HDR_as_SRGB=false
+process/invert_color=false
+stream=false
+size_limit=0
+detect_3d=false
+svg/scale=1.0

@@ -89,6 +89,7 @@ m_name = "Earn Your Stripes"
 mission_id = "combat_001"
 summary = "Pirates have been harassing our miners and holding back our operations. Get out there and try and take out at least 3 of them, and we'll give you a handsome reward pilot!"
 mission_type = 1
+kill_goal = 3
 pre_req_missions = [ NodePath("../mine_001") ]
 
 [node name="combat_002" parent="Panel/HBMain/VBLeft/MissionsScroll/VBMissions" instance=ExtResource( 3 )]
@@ -101,6 +102,7 @@ m_name = "More Combat"
 mission_id = "combat_002"
 summary = "This time pirates have been going after one of our larger operations, rescue the miners and bring back their ore payload."
 mission_type = 1
+kill_goal = 5
 pre_req_missions = [ NodePath("../combat_001") ]
 
 [node name="VBRight" type="VBoxContainer" parent="Panel/HBMain"]
@@ -224,6 +226,12 @@ margin_right = 78.0
 margin_bottom = 22.0
 text = "Accept"
 
+[node name="Complete" type="Button" parent="Panel/HBMain/VBRight/ScrollContainer/VBInfo/HBButtons"]
+visible = false
+margin_right = 78.0
+margin_bottom = 22.0
+text = "Complete"
+
 [node name="HBDebug" type="HBoxContainer" parent="Panel/HBMain/VBRight/ScrollContainer/VBInfo"]
 margin_top = 426.0
 margin_right = 282.0
@@ -260,6 +268,7 @@ text = "Missions"
 align = 1
 
 [connection signal="pressed" from="Panel/HBMain/VBRight/ScrollContainer/VBInfo/HBButtons/Accept" to="." method="_on_Accept_pressed"]
+[connection signal="pressed" from="Panel/HBMain/VBRight/ScrollContainer/VBInfo/HBButtons/Complete" to="." method="_on_Complete_pressed"]
 [connection signal="pressed" from="Panel/HBMain/VBRight/ScrollContainer/VBInfo/HBDebug/DebugComplete" to="." method="_on_DebugComplete_pressed"]
 [connection signal="pressed" from="Panel/HBMain/VBRight/ScrollContainer/VBInfo/HBDebug/ResetAll" to="." method="_on_ResetAll_pressed"]
 

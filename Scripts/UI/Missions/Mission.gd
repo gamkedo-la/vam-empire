@@ -28,7 +28,10 @@ export (Status) var initial_status
 export (MissionType) var mission_type
 export (String) var item_uuid
 export (int) var item_goal
+export (int) var kill_goal
 export (int) var completed = 0
+
+var completable: bool = false
 
 export (Array, NodePath) var pre_req_missions
 
@@ -63,7 +66,16 @@ func check_preqs() -> void:
 				unlock = false
 		if unlock:
 			status = Status.UNLOCKED
-		
+			
+func check_completable() -> void:
+	if status != Status.COMPLETE:
+		if mission_type == MissionType.ITEM:
+			if item_goal <= completed:
+				completable = true
+			elif item_goal == MissionType.KILL:
+				if kill_goal <= completed:
+					completable = true
+
 func _check_item_mission(uuid:String, cnt: int) -> void:
 	if item_uuid == uuid && completed < item_goal:
 		if completed + cnt <= item_goal:
@@ -71,4 +83,5 @@ func _check_item_mission(uuid:String, cnt: int) -> void:
 		else:
 			completed = item_goal
 		PlayerVars.mission_state[mission_id].completed = completed
+		PlayerVars.save()
 		

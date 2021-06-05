@@ -38,7 +38,8 @@ func _despawn() -> void:
 func _spawn_mineral_chance() -> void:
 	var chance = rng.randi() % 200
 	if chance > 150:
-		var newMineral = mineral_drop.instance()
+		var newMineral: MineralDrop = mineral_drop.instance()
+		newMineral.item_uuid = "4efd8d66-b38f-4b94-8326-2bc21799f888"
 		get_tree().get_root().add_child(newMineral)
 		newMineral.global_position = self.global_position
 		var vecx = rng.randf_range(-1,1)

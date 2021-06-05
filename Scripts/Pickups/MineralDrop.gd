@@ -1,9 +1,10 @@
+class_name MineralDrop
 extends RigidBody2D
 signal removed
 
 onready var sprite: Sprite = $Sprite
 onready var mineral_dust: Particles2D = $MineralDust
-var item_uuid
+var item_uuid: String = ""
 
 var despawn_timer
 var particle_color: Color
@@ -15,7 +16,11 @@ func _ready() -> void:
 	add_child(despawn_timer)
 	despawn_timer.wait_time = 12
 	despawn_timer.connect("timeout", self, "_release_item")
-	load_item_from_db()
+	if item_uuid != "":
+		init_mineral(item_uuid)
+
+func init_mineral(uuid:String) -> void:
+	load_item_from_db(uuid)
 	_generate_particles()
 	_set_particle_color()
 
@@ -27,11 +32,12 @@ func pickup() -> void:
 	despawn_timer.start()
 	
 
-func load_item_from_db() -> void:
-	var _items = Database.table.Items	
-	var item_data = _items[randi() % _items.size()]
+func load_item_from_db(uuid: String) -> void:	
+	var item_data = Database.itemByUuid[uuid]
+	print_debug(item_data)
 	var img = Image.new()
 	item_uuid = item_data.itemUuid
+	print_debug(item_data.itemIcon)
 	sprite.texture = load(item_data.itemIcon)
 	img = sprite.texture.get_data()
 	img.lock()

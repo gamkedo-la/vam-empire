@@ -288,14 +288,8 @@ func take_damage(amount):
 func accept_mission(miss:Mission) -> bool:
 	mission_state[miss.mission_id] = {}	
 	mission_state[miss.mission_id]["status"] = miss.status
-#	mission_state[miss.mission_id]["objectives"] = miss.objectives
 	mission_state[miss.mission_id]["completed"] = miss.completed
-	
-#	print_debug(mission_state)
-#	for objective in mission_state[miss.mission_id]["objectives"]:
-#		objective["complete"] = 0
-#		print_debug("objective: ", objective) 
-#	print_debug(mission_state)
+
 	save()
 	return true
 	
