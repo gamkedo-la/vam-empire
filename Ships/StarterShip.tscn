@@ -1,4 +1,4 @@
-[gd_scene load_steps=14 format=2]
+[gd_scene load_steps=15 format=2]
 
 [ext_resource path="res://Lights/Textures/light_orb.png" type="Texture" id=1]
 [ext_resource path="res://Lights/Textures/headlight_001.png" type="Texture" id=2]
@@ -7,6 +7,7 @@
 [ext_resource path="res://Scripts/Effects/Trail.gd" type="Script" id=5]
 [ext_resource path="res://Ships/Visuals/RCSThrusters.tscn" type="PackedScene" id=6]
 [ext_resource path="res://Ships/Visuals/Wing Trail.tscn" type="PackedScene" id=7]
+[ext_resource path="res://Player/Textures/Shmup_Player_Ship_001_n.png" type="Texture" id=8]
 
 [sub_resource type="CapsuleShape2D" id=1]
 radius = 2.14236
@@ -22,10 +23,10 @@ _data = [ Vector2( 0, 1 ), 0.0, 0.0, 0, 0, Vector2( 1, 0 ), 0.0, 0.0, 0, 0 ]
 offsets = PoolRealArray( 0, 0.632979, 1 )
 colors = PoolColorArray( 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 0 )
 
-[sub_resource type="Curve" id=9]
+[sub_resource type="Curve" id=5]
 _data = [ Vector2( 0, 1 ), 0.0, 0.0, 0, 0, Vector2( 1, 0 ), 0.0, 0.0, 0, 0 ]
 
-[sub_resource type="Gradient" id=10]
+[sub_resource type="Gradient" id=6]
 offsets = PoolRealArray( 0, 0.414894, 1 )
 colors = PoolColorArray( 0.995117, 1, 0, 1, 0.992676, 0.27908, 0.00387764, 1, 0.245198, 0.627854, 0.996361, 0.686275 )
 
@@ -39,6 +40,7 @@ equipped_weapon_index = [ 0, 2 ]
 
 [node name="ShipSprite" type="Sprite" parent="."]
 texture = ExtResource( 3 )
+normal_map = ExtResource( 8 )
 
 [node name="HullCollision" type="CollisionShape2D" parent="." groups=[
 "HullCollider",
@@ -63,10 +65,10 @@ rotation = 1.309
 scale = Vector2( 2.82201, 5.89535 )
 texture = ExtResource( 2 )
 texture_scale = 3.0
-color = Color( 0.890196, 0.854902, 0.776471, 0.513726 )
-energy = 0.5
+color = Color( 0.890196, 0.854902, 0.776471, 1 )
 range_height = 2048.0
 shadow_enabled = true
+shadow_color = Color( 0, 0, 0, 1 )
 
 [node name="StarboardSpotlight01" type="Light2D" parent="Lights"]
 position = Vector2( 5.68465, 6.65998 )
@@ -74,10 +76,10 @@ rotation = 1.8326
 scale = Vector2( 2.57066, 5.83863 )
 texture = ExtResource( 2 )
 texture_scale = 3.0
-color = Color( 0.890196, 0.854902, 0.776471, 0.513726 )
-energy = 0.5
+color = Color( 0.890196, 0.854902, 0.776471, 1 )
 range_height = 2048.0
 shadow_enabled = true
+shadow_color = Color( 0, 0, 0, 1 )
 
 [node name="PlayerIllumination" type="Light2D" parent="Lights"]
 visible = false
@@ -159,8 +161,8 @@ position = Vector2( -9.00543, 0 )
 visible = false
 z_index = -90
 width = 8.0
-width_curve = SubResource( 9 )
-gradient = SubResource( 10 )
+width_curve = SubResource( 5 )
+gradient = SubResource( 6 )
 script = ExtResource( 5 )
 
 [node name="Wing Trail 1" parent="." instance=ExtResource( 7 )]

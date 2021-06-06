@@ -1,9 +1,10 @@
-[gd_scene load_steps=7 format=2]
+[gd_scene load_steps=8 format=2]
 
 [ext_resource path="res://Lights/Textures/light_orb.png" type="Texture" id=1]
 [ext_resource path="res://Scripts/Ship.gd" type="Script" id=2]
 [ext_resource path="res://Lights/Textures/headlight_001.png" type="Texture" id=3]
 [ext_resource path="res://Enemies/Textures/Small/impaler_sprite.png" type="Texture" id=4]
+[ext_resource path="res://Enemies/Textures/Small/impaler_sprite_n.png" type="Texture" id=5]
 
 [sub_resource type="CircleShape2D" id=1]
 radius = 14.816
@@ -19,6 +20,7 @@ equipped_weapon_index = [ 1, 1, 1, 1 ]
 
 [node name="ShipSprite" type="Sprite" parent="."]
 texture = ExtResource( 4 )
+normal_map = ExtResource( 5 )
 
 [node name="HullCollision" type="CollisionShape2D" parent="." groups=[
 "HullCollider",

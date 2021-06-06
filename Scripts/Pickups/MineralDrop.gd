@@ -4,7 +4,7 @@ signal removed
 
 onready var sprite: Sprite = $Sprite
 onready var mineral_dust: Particles2D = $MineralDust
-var item_uuid: String = ""
+var item_uuid: String = "4efd8d66-b38f-4b94-8326-2bc21799f888"
 
 var despawn_timer
 var particle_color: Color
