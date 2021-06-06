@@ -3,7 +3,7 @@
 [ext_resource path="res://Scripts/UI/CharacterSheet.gd" type="Script" id=1]
 [ext_resource path="res://UI/HUD/Scenes/DraggableBar.tscn" type="PackedScene" id=2]
 [ext_resource path="res://UI/Theme/darkred_theme.tres" type="Theme" id=3]
-[ext_resource path="res://UI/HUD/PanelContainerStyle.tres" type="StyleBox" id=4]
+[ext_resource path="res://UI/Theme/PanelContainerStyle.tres" type="StyleBox" id=4]
 [ext_resource path="res://UI/HUD/Textures/CharacterPortraits/Portrait1X.png" type="Texture" id=5]
 
 [sub_resource type="StyleBoxFlat" id=1]
