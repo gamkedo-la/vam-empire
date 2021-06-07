@@ -127,7 +127,7 @@ window/stretch/aspect="keep"
 
 [editor_plugins]
 
-enabled=PoolStringArray( "res://addons/vam_inventory/plugin.cfg" )
+enabled=PoolStringArray(  )
 
 [importer_defaults]
 
