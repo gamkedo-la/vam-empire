@@ -34,10 +34,10 @@ func pickup() -> void:
 
 func load_item_from_db(uuid: String) -> void:	
 	var item_data = Database.itemByUuid[uuid]
-	print_debug(item_data)
+	#print_debug(item_data)
 	var img = Image.new()
 	item_uuid = item_data.itemUuid
-	print_debug(item_data.itemIcon)
+	#print_debug(item_data.itemIcon)
 	sprite.texture = load(item_data.itemIcon)
 	img = sprite.texture.get_data()
 	img.lock()
