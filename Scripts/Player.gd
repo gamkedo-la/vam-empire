@@ -63,6 +63,9 @@ var hardpoints = null
 var hull_hitbox = null
 var piloted_ship = null
 
+var team_group: String = "friendly"
+
+
 onready var energy_recovery_delay_timer = $EnergyRecoveryDelayTimer
 var can_recover_energy = true
 
@@ -322,6 +325,7 @@ func pilot_ship_from_pack(ship):
 func pilot_ship(ship):		
 	var ship_load = load(ship)
 	piloted_ship = ship_load.instance()
+	piloted_ship.set_owner(self)
 	ship_node.add_child(piloted_ship)
 	var test = piloted_ship.get_node_or_null("HullCollision")
 	#print_debug("TEST: ", test)
@@ -365,3 +369,13 @@ func _on_Trigger_area_entered(area):
 	#print_debug(area, "detected by Player")
 	if area.get_parent().is_in_group("pickup"):
 		area.get_parent().pickup()
+
+func _on_HitBox_area_entered(area):
+	var hitParent = area.get_parent()	
+	if hitParent.is_in_group("projectile"):
+		if !hitParent.owner_ref.team_group == team_group:
+			take_damage(hitParent.Damage)
+			Effects.show_dmg_text(hitParent.global_position, hitParent.Damage)
+			hitParent.hit_something()
+
+

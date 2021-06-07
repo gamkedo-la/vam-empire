@@ -27,6 +27,8 @@ var rcs_thrusters
 var weapons = []
 var thrust_length = 0.0
 
+var owner_ref = null
+
 func _ready():
 	for HPoint in hardpoints.get_children():
 		var HPidx = HPoint.get_index()
@@ -39,7 +41,8 @@ func _ready():
 		thrust_exhaust.emitting = true
 	rcs_thrusters = self.get_node_or_null("RCSThrusters")
 	
-	
+func set_owner(ref) -> void:
+	owner_ref = ref
 
 func equip_weapon(ordnance: Weapon, mount: Position2D):
 	#print_debug(ordnance.name)
@@ -49,6 +52,8 @@ func equip_weapon(ordnance: Weapon, mount: Position2D):
 	#print_debug("Mount children count: ", mount.get_child_count())
 	ordnance.global_position = mount.global_position
 	weapons.append(ordnance)
+	if owner_ref:
+		ordnance.set_owner(owner_ref)
 	
 func fire_weapons(parent_velocity: Vector2):
 	var fired = false

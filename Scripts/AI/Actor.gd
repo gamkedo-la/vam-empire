@@ -3,7 +3,7 @@ class_name Actor
 signal removed
 onready var ai = $AI
 
-onready var hurt_box = $HurtBox
+onready var hit_box = $HitBox
 
 # Team Variables
 enum Team {
@@ -70,6 +70,7 @@ func _ready() -> void:
 
 func pilot_ship_from_file(ship) -> void:
 	piloted_ship = ship.instance()
+	piloted_ship.set_owner(self)
 	ship_node.add_child(piloted_ship)	
 	var hull = piloted_ship.get_node_or_null("HullCollision")
 	Global.reparent(hull, self)
@@ -105,6 +106,7 @@ func take_damage(amount):
 	else:
 		self.hullHealth -= amount
 	
+	# TODO: Play animations/explosions, random loot drop chances, pay-out bounties to player if a Pirate/Vampire
 	if hullHealth <= 0:
 		emit_signal("removed", self)
 		call_deferred("queue_free")
@@ -122,13 +124,13 @@ func _set_team() -> void:
 
 func _init_collision() -> void:
 	if actor_team == Team.PIRATE || Team.VAMPIRE:
-		hurt_box.set_collision_layer_bit(3, true)
+		hit_box.set_collision_layer_bit(2, true)
 		
-func _on_HurtBox_area_entered(area):
-	var hitParent = area.get_parent()
-	print_debug(hitParent)
-	if !hitParent.is_in_group("can_mine"):
-		take_damage(hitParent.Damage)
-		Effects.show_dmg_text(hitParent.global_position, hitParent.Damage)
-		hitParent.hit_something()
+func _on_HitBox_area_entered(area):
+	var hitParent = area.get_parent()	
+	if hitParent.is_in_group("projectile"):
+		if !hitParent.owner_ref.team_group == team_group:
+			take_damage(hitParent.Damage)
+			Effects.show_dmg_text(hitParent.global_position, hitParent.Damage)
+			hitParent.hit_something()
 	pass

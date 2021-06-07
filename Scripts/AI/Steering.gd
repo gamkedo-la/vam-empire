@@ -55,7 +55,7 @@ func move(delta: float):
 	choose_direction()
 	
 	
-	var arrive_pct = clamp(ai.journey_percent, 0.4, 0.8)	
+	var arrive_pct = clamp(ai.journey_percent, 0.01, 0.8)	
 	var desired_velocity = chosen_dir.rotated(actor.rotation) * (actor.MAX_SPEED * arrive_pct)
 	velocity = velocity.linear_interpolate(desired_velocity, steer_force)
 	#rotation = lerp_angle(rotation, velocity.angle(), ROT_SPEED)

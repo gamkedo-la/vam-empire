@@ -52,15 +52,15 @@ script = ExtResource( 6 )
 steer_force = 0.5
 num_rays = 64
 
-[node name="HurtBox" parent="." instance=ExtResource( 7 )]
+[node name="HitBox" parent="." instance=ExtResource( 7 )]
 
-[node name="CollisionShape2D" parent="HurtBox" index="0"]
+[node name="CollisionShape2D" parent="HitBox" index="0"]
 shape = SubResource( 3 )
 
 [connection signal="body_entered" from="AI/TargetDetect" to="AI" method="_on_TargetDetect_body_entered"]
 [connection signal="body_exited" from="AI/TargetLeash" to="AI" method="_on_TargetLeash_body_exited"]
-[connection signal="area_entered" from="HurtBox" to="." method="_on_HurtBox_area_entered"]
+[connection signal="area_entered" from="HitBox" to="." method="_on_HitBox_area_entered"]
 
 [editable path="AI/TargetDetect"]
 [editable path="AI/TargetLeash"]
-[editable path="HurtBox"]
+[editable path="HitBox"]

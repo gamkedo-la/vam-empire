@@ -72,6 +72,8 @@ var fire_timer
 var primed = true
 var weap_sound = null
 
+var owner_ref = null
+
 func _init():	
 	property_list_changed_notify()
 
@@ -96,7 +98,8 @@ func _ready():
 		if weap_sound:		
 			weap_sound.stream = sfxFire
 	
-	
+func set_owner(ref) -> void:
+	owner_ref = ref
 	
 func fire(parent_velocity: Vector2):
 	if primed:
@@ -155,7 +158,7 @@ func _fire_projectile(parent_velocity: Vector2) -> void:
 		impulse = constant_projectile_speed
 
 	proj.linear_velocity = parent_velocity
-	proj.launchBullet(impulse, dir)
+	proj.launchBullet(impulse, dir, owner_ref)
 	primed = false	
 	if weap_sound:		
 		weap_sound.play(0.1)
