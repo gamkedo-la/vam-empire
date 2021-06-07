@@ -3,6 +3,8 @@ class_name Actor
 signal removed
 onready var ai = $AI
 
+onready var hurt_box = $HurtBox
+
 # Team Variables
 enum Team {
 	FRIENDLY,
@@ -53,7 +55,7 @@ var velocity: Vector2 = Vector2.ZERO
 
 var piloted_ship = null
 # Called when the node enters the scene tree for the first time.
-func _ready():
+func _ready() -> void:
 	
 	pilot_ship_from_file(ship_file)
 	instantiate_ship_variables()
@@ -64,14 +66,15 @@ func _ready():
 	if team_group:
 		self.add_to_group(team_group)
 	ai.initialize(self, piloted_ship, team_group)
+	_init_collision()
 
-func pilot_ship_from_file(ship):
+func pilot_ship_from_file(ship) -> void:
 	piloted_ship = ship.instance()
 	ship_node.add_child(piloted_ship)	
 	var hull = piloted_ship.get_node_or_null("HullCollision")
 	Global.reparent(hull, self)
 
-func instantiate_ship_variables():
+func instantiate_ship_variables() -> void:
 	ACCELERATION = piloted_ship.ACCELERATION	
 	MAX_SPEED = piloted_ship.MAX_SPEED	
 	FRICTION = piloted_ship.FRICTION	
@@ -82,11 +85,31 @@ func instantiate_ship_variables():
 	hullHealth = piloted_ship.hullHealth	
 	energyReserve = piloted_ship.energyReserve	
 
-func rotate_toward(location: Vector2):
+func rotate_toward(location: Vector2) -> void:
 	global_rotation = lerp_angle(global_rotation, global_position.direction_to(location).angle(), ROT_SPEED)
 
+func take_damage(amount):
+	if amount == 0:
+		return
 
-func _set_team():
+	# We should update shield health when shields are up and we're taking damage, or hull is full and we're healing
+	var update_shield = false
+	if (amount > 0 && shieldHealth > 0) || (amount < 0 && hullHealth == hullMaxHealth):
+		update_shield = true
+
+	if update_shield:
+		var pre_shield = self.shieldHealth
+		self.shieldHealth -= amount
+		if shieldHealth > pre_shield:
+			Effects.emit_signal("ChargeShield", true)
+	else:
+		self.hullHealth -= amount
+	
+	if hullHealth <= 0:
+		emit_signal("removed", self)
+		call_deferred("queue_free")
+
+func _set_team() -> void:
 	match actor_team:
 		Team.FRIENDLY:
 			team_group = "friendly"
@@ -96,3 +119,16 @@ func _set_team():
 			team_group = "vampire"
 		_:
 			printerr("Unknown Team for Actor ", self)
+
+func _init_collision() -> void:
+	if actor_team == Team.PIRATE || Team.VAMPIRE:
+		hurt_box.set_collision_layer_bit(3, true)
+		
+func _on_HurtBox_area_entered(area):
+	var hitParent = area.get_parent()
+	print_debug(hitParent)
+	if !hitParent.is_in_group("can_mine"):
+		take_damage(hitParent.Damage)
+		Effects.show_dmg_text(hitParent.global_position, hitParent.Damage)
+		hitParent.hit_something()
+	pass
