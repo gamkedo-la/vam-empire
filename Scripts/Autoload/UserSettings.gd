@@ -16,6 +16,9 @@ var user_defaults = {
 	"mini_map_grid_opacity": 0.25,
 	"mini_map_style": 0
 	},
+	difficulty = {
+		"difficulty_level": 0
+	},
 	save = {
 	"save_slots": 3,
 	"current_slot": 1,
