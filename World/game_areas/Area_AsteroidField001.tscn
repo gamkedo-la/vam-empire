@@ -157,6 +157,7 @@ position = Vector2( 4154.55, -6255.02 )
 
 [node name="MedAsteroid23" parent="MedAsteroids" index="22" instance=ExtResource( 2 )]
 position = Vector2( 2838.63, -7468.64 )
+
 [connection signal="area_entered" from="ReturnHomeBeacon" to="ReturnHomeBeacon" method="_on_ReturnHomeBeacon_area_entered"]
 [connection signal="area_exited" from="ReturnHomeBeacon" to="ReturnHomeBeacon" method="_on_ReturnHomeBeacon_area_exited"]
 [connection signal="tween_all_completed" from="ReturnHomeBeacon/Tween" to="ReturnHomeBeacon" method="_on_Tween_tween_all_completed"]
