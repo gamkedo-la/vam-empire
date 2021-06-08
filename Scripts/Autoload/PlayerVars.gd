@@ -270,7 +270,7 @@ func delete_save(slot):
 
 # Subtract health from either hull or shield by given amount. Negative value indicates healing
 func take_damage(amount, position):
-	if amount <= 1:
+	if amount <= 1 && amount >= -1:
 		return
 
 	# We should update shield health when shields are up and we're taking damage, or hull is full and we're healing
