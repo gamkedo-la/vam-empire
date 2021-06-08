@@ -84,6 +84,8 @@ func _ready():
 	_setup_slot_buttons()
 	update_ui_settings()
 	update_volume()
+	close_options()
+	close_save_menu()
 	
 	
 func _process(_delta):

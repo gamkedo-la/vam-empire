@@ -1220,15 +1220,15 @@ animations = [ {
 "name": "InfLoop",
 "speed": 18.0
 }, {
-"frames": [ SubResource( 163 ), SubResource( 164 ), SubResource( 165 ), SubResource( 166 ), SubResource( 167 ), SubResource( 168 ), SubResource( 169 ), SubResource( 170 ), SubResource( 171 ), SubResource( 172 ), SubResource( 173 ), SubResource( 174 ), SubResource( 175 ), SubResource( 176 ), SubResource( 177 ), SubResource( 178 ), SubResource( 179 ), SubResource( 180 ), SubResource( 181 ), SubResource( 182 ), SubResource( 183 ), SubResource( 184 ), SubResource( 185 ), SubResource( 186 ), SubResource( 187 ), SubResource( 188 ), SubResource( 189 ), SubResource( 190 ), SubResource( 191 ), SubResource( 192 ), SubResource( 193 ), SubResource( 194 ), SubResource( 195 ), SubResource( 196 ), SubResource( 197 ), SubResource( 198 ), SubResource( 199 ), SubResource( 200 ), SubResource( 201 ), SubResource( 202 ), SubResource( 203 ), SubResource( 204 ), SubResource( 205 ), SubResource( 206 ), SubResource( 207 ), SubResource( 208 ), SubResource( 209 ), SubResource( 210 ), SubResource( 211 ), SubResource( 212 ), SubResource( 213 ), SubResource( 214 ), SubResource( 215 ), SubResource( 216 ), SubResource( 217 ), SubResource( 218 ), SubResource( 219 ), SubResource( 220 ), SubResource( 221 ), SubResource( 222 ), SubResource( 223 ), SubResource( 224 ), SubResource( 225 ), SubResource( 226 ), SubResource( 227 ), SubResource( 228 ), SubResource( 229 ), SubResource( 230 ), SubResource( 231 ), SubResource( 232 ), SubResource( 233 ), SubResource( 234 ), SubResource( 235 ), SubResource( 236 ), SubResource( 237 ), SubResource( 238 ), SubResource( 239 ), SubResource( 240 ), SubResource( 241 ), SubResource( 242 ), SubResource( 243 ), SubResource( 244 ), SubResource( 245 ), SubResource( 246 ), SubResource( 247 ), SubResource( 248 ), SubResource( 249 ), SubResource( 250 ), SubResource( 251 ), SubResource( 252 ), SubResource( 253 ), SubResource( 254 ), SubResource( 255 ), SubResource( 256 ), SubResource( 257 ), SubResource( 258 ), SubResource( 259 ), SubResource( 260 ), SubResource( 261 ), SubResource( 262 ), SubResource( 263 ), SubResource( 264 ), SubResource( 265 ), SubResource( 266 ), SubResource( 267 ), SubResource( 268 ), SubResource( 269 ), SubResource( 270 ), SubResource( 271 ), SubResource( 272 ), SubResource( 273 ), SubResource( 274 ), SubResource( 275 ), SubResource( 276 ), SubResource( 277 ), SubResource( 278 ), SubResource( 279 ), SubResource( 280 ), SubResource( 281 ), SubResource( 282 ), SubResource( 283 ), SubResource( 284 ), SubResource( 285 ), SubResource( 286 ), SubResource( 287 ), SubResource( 288 ), SubResource( 289 ), SubResource( 290 ), SubResource( 291 ), SubResource( 292 ), SubResource( 293 ), SubResource( 294 ) ],
-"loop": true,
-"name": "Longer",
-"speed": 18.0
-}, {
 "frames": [  ],
 "loop": true,
 "name": "inf_test",
 "speed": 5.0
+}, {
+"frames": [ SubResource( 163 ), SubResource( 164 ), SubResource( 165 ), SubResource( 166 ), SubResource( 167 ), SubResource( 168 ), SubResource( 169 ), SubResource( 170 ), SubResource( 171 ), SubResource( 172 ), SubResource( 173 ), SubResource( 174 ), SubResource( 175 ), SubResource( 176 ), SubResource( 177 ), SubResource( 178 ), SubResource( 179 ), SubResource( 180 ), SubResource( 181 ), SubResource( 182 ), SubResource( 183 ), SubResource( 184 ), SubResource( 185 ), SubResource( 186 ), SubResource( 187 ), SubResource( 188 ), SubResource( 189 ), SubResource( 190 ), SubResource( 191 ), SubResource( 192 ), SubResource( 193 ), SubResource( 194 ), SubResource( 195 ), SubResource( 196 ), SubResource( 197 ), SubResource( 198 ), SubResource( 199 ), SubResource( 200 ), SubResource( 201 ), SubResource( 202 ), SubResource( 203 ), SubResource( 204 ), SubResource( 205 ), SubResource( 206 ), SubResource( 207 ), SubResource( 208 ), SubResource( 209 ), SubResource( 210 ), SubResource( 211 ), SubResource( 212 ), SubResource( 213 ), SubResource( 214 ), SubResource( 215 ), SubResource( 216 ), SubResource( 217 ), SubResource( 218 ), SubResource( 219 ), SubResource( 220 ), SubResource( 221 ), SubResource( 222 ), SubResource( 223 ), SubResource( 224 ), SubResource( 225 ), SubResource( 226 ), SubResource( 227 ), SubResource( 228 ), SubResource( 229 ), SubResource( 230 ), SubResource( 231 ), SubResource( 232 ), SubResource( 233 ), SubResource( 234 ), SubResource( 235 ), SubResource( 236 ), SubResource( 237 ), SubResource( 238 ), SubResource( 239 ), SubResource( 240 ), SubResource( 241 ), SubResource( 242 ), SubResource( 243 ), SubResource( 244 ), SubResource( 245 ), SubResource( 246 ), SubResource( 247 ), SubResource( 248 ), SubResource( 249 ), SubResource( 250 ), SubResource( 251 ), SubResource( 252 ), SubResource( 253 ), SubResource( 254 ), SubResource( 255 ), SubResource( 256 ), SubResource( 257 ), SubResource( 258 ), SubResource( 259 ), SubResource( 260 ), SubResource( 261 ), SubResource( 262 ), SubResource( 263 ), SubResource( 264 ), SubResource( 265 ), SubResource( 266 ), SubResource( 267 ), SubResource( 268 ), SubResource( 269 ), SubResource( 270 ), SubResource( 271 ), SubResource( 272 ), SubResource( 273 ), SubResource( 274 ), SubResource( 275 ), SubResource( 276 ), SubResource( 277 ), SubResource( 278 ), SubResource( 279 ), SubResource( 280 ), SubResource( 281 ), SubResource( 282 ), SubResource( 283 ), SubResource( 284 ), SubResource( 285 ), SubResource( 286 ), SubResource( 287 ), SubResource( 288 ), SubResource( 289 ), SubResource( 290 ), SubResource( 291 ), SubResource( 292 ), SubResource( 293 ), SubResource( 294 ) ],
+"loop": true,
+"name": "Longer",
+"speed": 18.0
 } ]
 
 [sub_resource type="Animation" id=296]
@@ -1367,7 +1367,7 @@ tracks/10/keys = {
 "values": [ Vector2( 800, 153.978 ), Vector2( 800, 153.978 ), Vector2( 106.356, 153.978 ) ]
 }
 
-[sub_resource type="Theme" id=305]
+[sub_resource type="Theme" id=297]
 PopupMenu/colors/font_color = Color( 0.88, 0.88, 0.88, 1 )
 PopupMenu/colors/font_color_accel = Color( 0.7, 0.7, 0.7, 0.8 )
 PopupMenu/colors/font_color_disabled = Color( 0.4, 0.4, 0.4, 0.8 )
@@ -1388,7 +1388,7 @@ PopupMenu/styles/panel = null
 PopupMenu/styles/panel_disabled = null
 PopupMenu/styles/separator = null
 
-[sub_resource type="Animation" id=297]
+[sub_resource type="Animation" id=298]
 length = 0.24
 step = 0.03
 tracks/0/type = "bezier"
@@ -1424,7 +1424,7 @@ tracks/2/keys = {
 "values": [ false ]
 }
 
-[sub_resource type="Animation" id=298]
+[sub_resource type="Animation" id=299]
 length = 0.51
 step = 0.03
 tracks/0/type = "bezier"
@@ -1448,7 +1448,7 @@ tracks/1/keys = {
 "times": PoolRealArray( 0, 0.3, 0.51 )
 }
 
-[sub_resource type="Animation" id=299]
+[sub_resource type="Animation" id=300]
 length = 0.24
 step = 0.03
 tracks/0/type = "bezier"
@@ -1470,33 +1470,33 @@ tracks/1/enabled = true
 tracks/1/keys = {
 "points": PoolRealArray( 1, -0.25, 0, 0.25, 0, 1e-05, -0.25, 0, 0.25, 0 ),
 "times": PoolRealArray( 0, 0.24 )
-}
-
-[sub_resource type="Animation" id=300]
-length = 0.51
-step = 0.03
-tracks/0/type = "bezier"
-tracks/0/path = NodePath(".:rect_scale:x")
-tracks/0/interp = 1
-tracks/0/loop_wrap = true
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/keys = {
-"points": PoolRealArray( 1e-05, -0.25, 0, 0.25, 0, 1.1, -0.25, 0, 0.25, 0, 1, -0.25, 0, 0.25, 0 ),
-"times": PoolRealArray( 0, 0.3, 0.51 )
-}
-tracks/1/type = "bezier"
-tracks/1/path = NodePath(".:rect_scale:y")
-tracks/1/interp = 1
-tracks/1/loop_wrap = true
-tracks/1/imported = false
-tracks/1/enabled = true
-tracks/1/keys = {
-"points": PoolRealArray( 1e-05, -0.25, 0, 0.25, 0, 1.1, -0.25, 0, 0.25, 0, 1, -0.25, 0, 0.25, 0 ),
-"times": PoolRealArray( 0, 0.3, 0.51 )
 }
 
 [sub_resource type="Animation" id=301]
+length = 0.51
+step = 0.03
+tracks/0/type = "bezier"
+tracks/0/path = NodePath(".:rect_scale:x")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"points": PoolRealArray( 1e-05, -0.25, 0, 0.25, 0, 1.1, -0.25, 0, 0.25, 0, 1, -0.25, 0, 0.25, 0 ),
+"times": PoolRealArray( 0, 0.3, 0.51 )
+}
+tracks/1/type = "bezier"
+tracks/1/path = NodePath(".:rect_scale:y")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/keys = {
+"points": PoolRealArray( 1e-05, -0.25, 0, 0.25, 0, 1.1, -0.25, 0, 0.25, 0, 1, -0.25, 0, 0.25, 0 ),
+"times": PoolRealArray( 0, 0.3, 0.51 )
+}
+
+[sub_resource type="Animation" id=302]
 length = 0.24
 step = 0.03
 tracks/0/type = "bezier"
@@ -1520,7 +1520,7 @@ tracks/1/keys = {
 "times": PoolRealArray( 0, 0.24 )
 }
 
-[sub_resource type="Animation" id=302]
+[sub_resource type="Animation" id=303]
 length = 0.51
 step = 0.03
 tracks/0/type = "bezier"
@@ -1544,9 +1544,9 @@ tracks/1/keys = {
 "times": PoolRealArray( 0, 0.33, 0.51 )
 }
 
-[sub_resource type="Animation" id=303]
-
 [sub_resource type="Animation" id=304]
+
+[sub_resource type="Animation" id=305]
 length = 33.3333
 loop = true
 step = 0.0555556
@@ -2127,6 +2127,7 @@ margin_right = 613.0
 margin_bottom = 320.0
 
 [node name="HUD" type="PanelContainer" parent="MenuCanvas/Viz/OptionsContainer/VBoxContainer/TabContainer"]
+visible = false
 anchor_right = 1.0
 anchor_bottom = 1.0
 margin_left = 9.0
@@ -2227,6 +2228,7 @@ __meta__ = {
 }
 
 [node name="Difficulty" type="PanelContainer" parent="MenuCanvas/Viz/OptionsContainer/VBoxContainer/TabContainer"]
+visible = false
 anchor_right = 1.0
 anchor_bottom = 1.0
 margin_left = 9.0
@@ -2256,7 +2258,7 @@ margin_left = 246.0
 margin_right = 486.0
 margin_bottom = 30.0
 rect_min_size = Vector2( 240, 0 )
-theme = SubResource( 305 )
+theme = SubResource( 297 )
 text = "Bring a Bandaid"
 align = 1
 expand_icon = true
@@ -2332,8 +2334,8 @@ rect_min_size = Vector2( 80, 0 )
 text = "Return"
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="MenuCanvas/Viz/OptionsContainer"]
-anims/Hide = SubResource( 297 )
-anims/Show = SubResource( 298 )
+anims/Hide = SubResource( 298 )
+anims/Show = SubResource( 299 )
 
 [node name="NewPlayerPop" type="WindowDialog" parent="MenuCanvas/Viz"]
 anchor_left = 0.5
@@ -2393,8 +2395,8 @@ margin_bottom = 22.0
 text = "Start!"
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="MenuCanvas/Viz/NewPlayerPop"]
-anims/Hide = SubResource( 299 )
-anims/Show = SubResource( 300 )
+anims/Hide = SubResource( 300 )
+anims/Show = SubResource( 301 )
 
 [node name="LoadAcceptDialog" type="AcceptDialog" parent="MenuCanvas/Viz"]
 anchor_left = 0.5
@@ -2413,13 +2415,13 @@ __meta__ = {
 }
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="MenuCanvas/Viz/LoadAcceptDialog"]
-anims/Hide = SubResource( 301 )
-anims/Show = SubResource( 302 )
+anims/Hide = SubResource( 302 )
+anims/Show = SubResource( 303 )
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="MenuCanvas/Viz"]
 autoplay = "Empire_Loop"
-anims/Empire = SubResource( 303 )
-anims/Empire_Loop = SubResource( 304 )
+anims/Empire = SubResource( 304 )
+anims/Empire_Loop = SubResource( 305 )
 
 [connection signal="can_exit" from="Transition" to="." method="_on_Transition_can_exit"]
 [connection signal="pressed" from="MenuCanvas/Viz/MainMenuVBox/InteractVB/ContinueHB/Continue" to="." method="_on_Continue_pressed"]
