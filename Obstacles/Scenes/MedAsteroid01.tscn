@@ -34,6 +34,7 @@ script = ExtResource( 2 )
 health = 20000
 highlight_width_start = 0.1
 highlight_width_end = 1.2
+mineral_contents = [ "4efd8d66-b38f-4b94-8326-2bc21799f888", "d7a332ce-ea38-466e-9539-2ebb94eff566" ]
 
 [node name="Sprite" type="Sprite" parent="."]
 material = ExtResource( 4 )
@@ -47,7 +48,7 @@ shape = SubResource( 1 )
 
 [node name="HurtBox" parent="." instance=ExtResource( 3 )]
 position = Vector2( -0.693695, -0.495499 )
-collision_layer = 4
+collision_layer = 12
 collision_mask = 2
 
 [node name="CollisionShape2D" parent="HurtBox" index="0"]

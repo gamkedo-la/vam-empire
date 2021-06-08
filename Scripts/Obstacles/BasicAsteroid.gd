@@ -14,6 +14,7 @@ onready var targ_tween = $HighlightTween
 onready var hurt_box = $HurtBox
 var coll_efx: AudioStreamPlayer2D
 onready var mine_spawner = preload("res://Pickups/MineSpawner.tscn")
+export (Array, String) var mineral_contents
 var miners = {}
 
 func _ready():
@@ -44,7 +45,8 @@ func _on_HurtBox_area_entered(area):
 		hitParent.hit_something()
 	else:	
 		var laser = area.get_parent()		
-		var newMine = mine_spawner.instance()
+		var newMine = mine_spawner.instance()		
+		newMine.mineral_uuid = mineral_contents[randi() % mineral_contents.size()]
 		laser.connect("disengage", newMine, "_remove_mine_spawner")		
 		get_tree().get_root().add_child(newMine)
 		newMine.laser = laser
