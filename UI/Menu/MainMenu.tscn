@@ -1973,6 +1973,7 @@ rect_min_size = Vector2( 640, 360 )
 drag_to_rearrange_enabled = true
 
 [node name="Audio" type="PanelContainer" parent="MenuCanvas/Viz/OptionsContainer/VBoxContainer/TabContainer"]
+visible = false
 anchor_right = 1.0
 anchor_bottom = 1.0
 margin_left = 9.0
@@ -2228,7 +2229,6 @@ __meta__ = {
 }
 
 [node name="Difficulty" type="PanelContainer" parent="MenuCanvas/Viz/OptionsContainer/VBoxContainer/TabContainer"]
-visible = false
 anchor_right = 1.0
 anchor_bottom = 1.0
 margin_left = 9.0

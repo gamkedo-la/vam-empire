@@ -50,8 +50,7 @@ onready var mini_map_opac_slider = $MenuCanvas/Viz/OptionsContainer/VBoxContaine
 onready var mini_map_style_option = $MenuCanvas/Viz/OptionsContainer/VBoxContainer/TabContainer/HUD/VBoxContainer/MiniMapStyleHBox/mini_map_style_optionbutton
 
 # Difficulty Panel
-onready var difficulty_option = $MenuCanvas/Viz/OptionsContainer/VBoxContainer/TabContainer/Difficulty/VBoxContainer/HBoxContainer/DifficultyOptionButton
-
+onready var difficulty_option = $MenuCanvas/Viz/OptionsContainer/VBoxContainer/TabContainer/Difficulty/VBoxContainer/DifficultyHbox/DifficultyOptionButton
 # System Panel
 onready var contxt_steering_draw_toggle = $MenuCanvas/Viz/OptionsContainer/VBoxContainer/TabContainer/System/VBoxContainer/DebugModeHBox/ContextSteeringToggle
 
