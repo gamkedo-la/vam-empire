@@ -41,6 +41,7 @@ var energyMax: int = 0
 var healingMaxEnergy: int = 0
 
 export var ship_file = preload("res://Ships/Templates/M_Destroyers/DestroyerTemplate01.tscn")
+var explosion = preload("res://VFX/explosion_unlit.tscn")
 onready var ship_node = $PilotedShip
 onready var minimap_sprite = $Sprite
 
@@ -108,6 +109,9 @@ func take_damage(amount):
 	
 	# TODO: Play animations/explosions, random loot drop chances, pay-out bounties to player if a Pirate/Vampire
 	if hullHealth <= 0:
+		var exploder = explosion.instance()
+		get_tree().get_root().add_child(exploder)
+		exploder.global_position = global_position
 		emit_signal("removed", self)
 		call_deferred("queue_free")
 
