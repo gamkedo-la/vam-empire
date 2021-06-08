@@ -269,8 +269,8 @@ func delete_save(slot):
 	dir.remove(UserSettings.get_save_slot(slot))
 
 # Subtract health from either hull or shield by given amount. Negative value indicates healing
-func take_damage(amount):
-	if amount == 0:
+func take_damage(amount, position):
+	if amount <= 1:
 		return
 
 	# We should update shield health when shields are up and we're taking damage, or hull is full and we're healing
@@ -281,10 +281,12 @@ func take_damage(amount):
 	if update_shield:
 		var pre_shield = self.shield_health
 		self.shield_health -= amount
+		Effects.show_player_shield_dmg_text(position, int(round(amount)))
 		if shield_health > pre_shield:
 			Effects.emit_signal("ChargeShield", true)
 	else:
 		self.hull_health -= amount
+		Effects.show_player_hp_dmg_text(position, int(round(amount)))
 
 func accept_mission(miss:Mission) -> bool:
 	mission_state[miss.mission_id] = {}	

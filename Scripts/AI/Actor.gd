@@ -102,10 +102,12 @@ func take_damage(amount):
 	if update_shield:
 		var pre_shield = self.shieldHealth
 		self.shieldHealth -= amount
+		Effects.show_player_shield_dmg_text(global_position, amount)
 		if shieldHealth > pre_shield:
 			Effects.emit_signal("ChargeShield", true)
 	else:
 		self.hullHealth -= amount
+		Effects.show_player_hp_dmg_text(global_position, amount)
 	
 	# TODO: Play animations/explosions, random loot drop chances, pay-out bounties to player if a Pirate/Vampire
 	if hullHealth <= 0:
@@ -135,6 +137,5 @@ func _on_HitBox_area_entered(area):
 	if hitParent.is_in_group("projectile"):
 		if !hitParent.owner_ref.team_group == team_group:
 			take_damage(hitParent.Damage)
-			Effects.show_dmg_text(hitParent.global_position, hitParent.Damage)
 			hitParent.hit_something()
 	pass

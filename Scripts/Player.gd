@@ -217,7 +217,7 @@ func move():
 			var damage  = clamp(((pre_vel.length() - velocity.length())/MAX_SPEED) * PlayerVars.shield_max_health, 
 									0.0, PlayerVars.shield_max_health)
 			if !took_dmg:
-				PlayerVars.take_damage(damage)
+				PlayerVars.take_damage(damage, global_position)
 				took_dmg = true
 				var snd_strength = clamp(damage/PlayerVars.shield_max_health, 0.0, 1.0)
 				if PlayerVars.shield_health > 0:
@@ -257,14 +257,14 @@ func rotate_to_target(target):
 		rcs_amount = 0	
 	piloted_ship.rotate_rcs(rcs_amount)
 
-func take_damage(amount):
+func take_damage(amount, position):
 	# Passthrough to PlayerVars, maybe we'll add animation triggers here down the line
-	PlayerVars.take_damage(amount)
+	PlayerVars.take_damage(amount, position)
 
 func heal(amount, energy_cost):
 	# Don't let player heal if not enough energy or full on shields
 	if (PlayerVars.energy_reserve >= energy_cost && PlayerVars.shield_health < PlayerVars.shield_max_health):
-		take_damage(-amount) # Woah man, a heal is just like, negative damage
+		take_damage(-amount, global_position) # Woah man, a heal is just like, negative damage
 		PlayerVars.energy_reserve -= energy_cost
 	
 	print("Heal: ", PlayerVars.hull_health)
@@ -374,8 +374,7 @@ func _on_HitBox_area_entered(area):
 	var hitParent = area.get_parent()	
 	if hitParent.is_in_group("projectile"):
 		if !hitParent.owner_ref.team_group == team_group:
-			take_damage(hitParent.Damage)
-			Effects.show_dmg_text(hitParent.global_position, hitParent.Damage)
+			take_damage(hitParent.Damage, global_position)
 			hitParent.hit_something()
 
 
