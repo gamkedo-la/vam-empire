@@ -19,6 +19,8 @@ export (float, 0, 5) var energyRecoveryDelayS = 0.5
 export (Array, hpClass) var hardpoint_size
 export (Array, int) var equipped_weapon_index
 
+onready var ship_sprite = $ShipSprite
+
 onready var hardpoints = $Hardpoints
 
 onready var thrusters = $Thrusters
@@ -111,3 +113,5 @@ func rotate_rcs(thrust: float):
 			rcs_thrusters.bank_right(0)
 			rcs_thrusters.bank_left(0)
 
+func get_sprite() -> StreamTexture:
+	return ship_sprite.texture

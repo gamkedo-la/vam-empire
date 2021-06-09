@@ -69,7 +69,10 @@ func populate_item_fields() -> void:
 		master_boxes[inv_uuid] = mastBox
 		newBox.initialize(icon_texture, item_data.itemName, PlayerVars.ship_inventory[inv_uuid])
 		PlayerVars.increment_master_inventory(inv_uuid, 0)
-		mastBox.initialize(icon_texture, item_data.itemName, PlayerVars.master_inventory[inv_uuid])
+		
+		var master_inventory_count = PlayerVars.master_inventory[inv_uuid] if PlayerVars.master_inventory.has(inv_uuid) else 0
+		
+		mastBox.initialize(icon_texture, item_data.itemName, master_inventory_count)
 		
 
 func _transfer_items() -> void:

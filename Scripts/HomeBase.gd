@@ -19,6 +19,7 @@ onready var camera_front: Position2D= $FrontBase
 onready var camera_rear: Position2D = $RearBase
 
 onready var mission_board = $CanvasLayer/MissionBoard
+onready var merchant_menu = $CanvasLayer/MerchantMenu
 
 onready var embark_button: Button = $CanvasLayer/BaseOverlay/BaseBottomMenu/Buttons/Embark
 
@@ -70,9 +71,14 @@ func _show_airlock_overlay() -> void:
 
 func _hide_menu_overlays() -> void:
 	mission_board.visible = false
+	merchant_menu.visible = false
 
 func _show_mission_overlay() -> void:
 	mission_board.visible = true
+
+func _show_merchant_overlay() -> void:
+	merchant_menu.reset()
+	merchant_menu.visible = true
 
 func _camera_pan(loc:Position2D) -> void:
 	cam_tween.interpolate_property(base_camera, "position", base_camera.position, loc.position, 3, Tween.TRANS_BACK, Tween.EASE_IN_OUT)
@@ -129,3 +135,8 @@ func _on_Embark_pressed():
 	_hide_menu_overlays()
 	_show_airlock_overlay()
 	_camera_pan(camera_front)
+
+func _on_Merchant_pressed():
+	_hide_airlock_overlay()
+	_show_merchant_overlay()
+	_camera_pan(camera_rear)

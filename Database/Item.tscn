@@ -14,6 +14,7 @@ collision_mask = 2
 
 [node name="CollisionShape2D" parent="LootTrigger" index="0"]
 shape = SubResource( 1 )
+
 [connection signal="area_entered" from="LootTrigger" to="." method="_on_LootTrigger_area_entered"]
 
 [editable path="LootTrigger"]

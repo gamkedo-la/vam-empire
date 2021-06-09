@@ -18,7 +18,7 @@
 [node name="SHP_TemplateWeapon01" parent="Small/0" instance=ExtResource( 1 )]
 weap_name = "SHP_TemplateWeapon01"
 weapon/projectile = ExtResource( 5 )
-weapon/projectile_sound = 3
+weapon/projectile_sound = 0
 weapon/use_constant_projectile_speed = false
 weapon/fire_rate = 500.0
 weapon/beam_sound = 0
@@ -37,7 +37,6 @@ weapon/beam_sound = 0
 
 [node name="SHP_TemplateMiningLaser01" parent="Small/2" instance=ExtResource( 3 )]
 weap_name = "SHP_TemplateMiningLaser01"
-weapon/weap_type = 3
 
 [node name="3" type="Node2D" parent="Small"]
 
@@ -64,7 +63,7 @@ weapon/beam_sound = 0
 [node name="SHP_TemplateSound02" parent="Small/5" instance=ExtResource( 1 )]
 weap_name = "SHP_TemplateWeapon01"
 weapon/projectile = ExtResource( 5 )
-weapon/projectile_sound = 1
+weapon/projectile_sound = 0
 weapon/use_constant_projectile_speed = false
 weapon/fire_rate = 500.0
 weapon/beam_sound = 0
@@ -74,7 +73,7 @@ weapon/beam_sound = 0
 [node name="SHP_TemplateSound03" parent="Small/6" instance=ExtResource( 1 )]
 weap_name = "SHP_TemplateWeapon01"
 weapon/projectile = ExtResource( 5 )
-weapon/projectile_sound = 2
+weapon/projectile_sound = 0
 weapon/use_constant_projectile_speed = false
 weapon/fire_rate = 500.0
 weapon/beam_sound = 0
@@ -84,7 +83,7 @@ weapon/beam_sound = 0
 [node name="SHP_TemplateSound04" parent="Small/7" instance=ExtResource( 1 )]
 weap_name = "SHP_TemplateWeapon01"
 weapon/projectile = ExtResource( 5 )
-weapon/projectile_sound = 3
+weapon/projectile_sound = 0
 weapon/use_constant_projectile_speed = false
 weapon/fire_rate = 500.0
 weapon/beam_sound = 0
@@ -94,7 +93,7 @@ weapon/beam_sound = 0
 [node name="SHP_TemplateSound05" parent="Small/8" instance=ExtResource( 1 )]
 weap_name = "SHP_TemplateWeapon01"
 weapon/projectile = ExtResource( 5 )
-weapon/projectile_sound = 4
+weapon/projectile_sound = 0
 weapon/use_constant_projectile_speed = false
 weapon/fire_rate = 500.0
 weapon/beam_sound = 0

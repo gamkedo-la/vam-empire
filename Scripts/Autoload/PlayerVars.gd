@@ -218,6 +218,9 @@ func increment_master_inventory(uuid, cnt:int):
 		master_inventory[uuid] += cnt
 	else:
 		master_inventory[uuid] = cnt
+	
+	if master_inventory[uuid] <= 0:
+		master_inventory.erase(uuid)
 
 func _increment_item_objective(uuid: String, cnt: int) -> void:
 	if mission_state.size() > 0:
