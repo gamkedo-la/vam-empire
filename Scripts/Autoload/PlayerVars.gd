@@ -21,7 +21,7 @@ signal player_died
 # File saving/loading methodology adapted from https://gdscript.com/solutions/how-to-save-and-load-godot-game-data/
 var FILE_NAME
 
-var player_node: Player = null
+var player_node = null
 
 # For instantiating a new player file
 var player_defaults = {
@@ -199,7 +199,7 @@ func load_save():
 
 func pickup_item(uuid: String, cnt: int):
 	var inventory = player_node.get_ship_inventory()
-	inventory.insert_item_by_uuid(uuid)
+	inventory.insert_item_by_uuid(uuid)	
 	emit_signal("picked_up", uuid, cnt)
 #	_increment_item_objective(uuid, cnt)
 

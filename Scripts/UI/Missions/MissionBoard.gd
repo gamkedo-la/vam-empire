@@ -45,12 +45,12 @@ func _init_board() -> void:
 			else:
 				mission.visible = true
 			pass
+			if mission.status == Mission.Status.ACCEPTED:
+				mission.set_triggers()
 			if mission.status == Mission.Status.COMPLETE:
 				mission.icon = complete_star
 			else:
 				mission.icon = null
-				
-			mission.set_triggers()
 			mission.check_completable()
 	check_all_prereqs()
 	_mission_selected(mission_list.get_child(0).mission_id)
@@ -80,7 +80,7 @@ func _mission_selected(miss_id:String) -> void:
 		complete_button.visible = true
 	else: 
 		complete_button.visible = false
-	
+		
 	if sel_miss.status >= Mission.Status.ACCEPTED:
 		if mission_debug:
 			$Panel/HBMain/VBRight/ScrollContainer/VBInfo/HBDebug.visible = true
@@ -128,7 +128,9 @@ func _on_Accept_pressed():
 		sel_miss.status = Mission.Status.ACCEPTED
 		success = PlayerVars.accept_mission(sel_miss)
 
-	if !success:
+	if success:
+		sel_miss.set_triggers()
+	else:
 		print_debug("Something wrong with Aceepting Mission: [", sel_miss.mission_id,"] Make sure the mission has an objective!")
 	_mission_selected(sel_miss.mission_id)
 
