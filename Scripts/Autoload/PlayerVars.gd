@@ -118,6 +118,9 @@ func set_energy_recovery_delay(val):
 func new(name: String):
 	player = player_defaults.duplicate()
 	player.name = name
+	mission_state = {}
+	ship_inventory = {}
+	master_inventory = {}
 	save()
 
 func save():
