@@ -39,11 +39,11 @@ height = 8.916
 [sub_resource type="Curve" id=3]
 resource_local_to_scene = true
 max_value = 10.0
-_data = [ Vector2( 0, 10 ), 0.0, -0.531961, 0, 0, Vector2( 1, 0 ), 0.0, 0.0, 0, 0 ]
+_data = [ Vector2( 0, 5.3681 ), 0.0, -15.1446, 0, 0, Vector2( 0.213542, 0.82822 ), 0.0, 0.0, 0, 0, Vector2( 1, 0 ), 0.0, 0.0, 0, 0 ]
 
 [sub_resource type="Gradient" id=4]
 resource_local_to_scene = true
-offsets = PoolRealArray( 0.07, 0.5, 1 )
+offsets = PoolRealArray( 0.07, 0.242798, 1 )
 colors = PoolColorArray( 0.178649, 0.178649, 0.178649, 0.178649, 1, 1, 1, 0.411765, 1, 1, 1, 1 )
 
 [node name="BasicMissile" instance=ExtResource( 1 )]
