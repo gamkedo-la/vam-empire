@@ -314,6 +314,7 @@ func pilot_ship_from_pack(ship):
 		for Collider in hull_colliders:
 			Collider.queue_free()	
 	piloted_ship = ship
+	piloted_ship.set_owner(self)
 	ship_node.add_child(piloted_ship)	
 	# TODO: Retool this to load multiple Hull Colliders from Ship	
 	var hull = piloted_ship.get_node_or_null("HullCollision").duplicate()
