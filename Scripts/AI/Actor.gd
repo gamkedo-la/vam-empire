@@ -44,7 +44,7 @@ export var ship_file = preload("res://Ships/Templates/M_Destroyers/DestroyerTemp
 var explosion = preload("res://VFX/explosion_unlit.tscn")
 onready var ship_node = $PilotedShip
 onready var minimap_sprite = $Sprite
-
+onready var death_timer = Timer.new()
 
 # Movement constants
 const m_s_up = Vector2.ZERO
@@ -57,7 +57,9 @@ var velocity: Vector2 = Vector2.ZERO
 var piloted_ship = null
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
-	
+	death_timer.wait_time = 1
+	death_timer.connect("timeout", self, "_remove_self")
+	add_child(death_timer)
 	pilot_ship_from_file(ship_file)
 	instantiate_ship_variables()
 	var ship_sprite = piloted_ship.get_node_or_null("ShipSprite")
@@ -114,8 +116,19 @@ func take_damage(amount):
 		var exploder = explosion.instance()
 		get_tree().get_root().add_child(exploder)
 		exploder.global_position = global_position
-		emit_signal("removed", self)
-		call_deferred("queue_free")
+		_disable()
+		death_timer.start()
+
+func _disable() -> void:
+#	print_debug("Enemy ", self, " is disabled now.")
+	hit_box.disconnect("area_entered", self, "_on_HitBox_area_entered")
+	emit_signal("removed", self)
+	ai.set_state(2)
+	self.visible = false
+
+func _remove_self() -> void:	
+#	print_debug("Enemy ", self, " being destroyed now.")
+	call_deferred("queue_free")
 
 func _set_team() -> void:
 	match actor_team:
