@@ -6,9 +6,13 @@ const SellRow = preload("res://UI/Menu/Merchant/SellRow.tscn")
 var inventory_data: MerchantInventory = load("res://UI/Menu/Merchant/DefaultMerchantInventory.tres")
 
 onready var ship_row = $Buy/Buy/Row1
-onready var sell_box = $Sell/VBoxContainer/SellVbox
+onready var sell_box = get_node("Sell Minerals/VBoxContainer/ScrollContainer/SellVbox")
+onready var popup_dialog = get_node("Sell Minerals/PopupDialog")
+onready var total_price_label = get_node("Sell Minerals/VBoxContainer/TotalPrice")
 
 var sell_amounts := {}
+
+var dialog_text = "This will sell all Minerals.\n\nYou will receive: "
 
 class CustomSellRowSorter:
 	static func sort(uuid_a, uuid_b):
@@ -57,6 +61,8 @@ func _init_sell_screen():
 		sell_box.add_child(sell_row)
 		sell_row.init(item_uuid, PlayerVars.master_inventory[item_uuid])
 		sell_row.connect("sell_quantity_changed", self, "_onSellRow_sell_quantity_changed", [item_uuid])
+		
+		total_price_label.text = "$0"
 
 
 func _on_MerchantItem_gui_input(event: InputEvent, item: MerchantItem):
@@ -89,9 +95,26 @@ func _onSellRow_sell_quantity_changed(value, item_uuid):
 		sell_amounts.erase(item_uuid)
 	else:
 		sell_amounts[item_uuid] = value
+	total_price_label.text = "$" + str(get_total_price_of_selected())
+	
+
+func get_total_price_of_selected():
+	var total_price = 0
+	for uuid in sell_amounts.keys():
+		total_price += Database.itemByUuid[uuid].sellPrice * sell_amounts[uuid]
+	return total_price
 
 
 func _on_SellAllButton_pressed():
+	var total_price = 0
+	for sell_row in sell_box.get_children():
+		total_price += Database.itemByUuid[sell_row.uuid].sellPrice * PlayerVars.master_inventory[sell_row.uuid]
+	
+	popup_dialog.dialog_text = dialog_text + "$" + str(total_price)
+	popup_dialog.popup_centered()
+	
+
+func _on_PopupDialog_confirmed():
 	sell_amounts.clear()
 	for sell_row in sell_box.get_children():
 		sell_amounts[sell_row.uuid] = PlayerVars.master_inventory[sell_row.uuid]
