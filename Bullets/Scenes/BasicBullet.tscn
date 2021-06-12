@@ -1,9 +1,10 @@
-[gd_scene load_steps=8 format=2]
+[gd_scene load_steps=11 format=2]
 
 [ext_resource path="res://Collisions/HitBox.tscn" type="PackedScene" id=1]
 [ext_resource path="res://Scripts/BasicBullet.gd" type="Script" id=2]
 [ext_resource path="res://Bullets/Textures/Basic_Bullet_001-Sheet.png" type="Texture" id=3]
 [ext_resource path="res://Lights/Textures/light_orb.png" type="Texture" id=4]
+[ext_resource path="res://VFX/Smoketrail.tscn" type="PackedScene" id=5]
 
 [sub_resource type="Animation" id=1]
 resource_name = "HitTarget"
@@ -43,6 +44,15 @@ height = 0.0
 radius = 3.99622
 height = 0.0
 
+[sub_resource type="Curve" id=4]
+resource_local_to_scene = true
+_data = [ Vector2( 0, 0.52454 ), 0.0, -0.531961, 0, 0, Vector2( 1, 0 ), 0.0, 0.0, 0, 0 ]
+
+[sub_resource type="Gradient" id=5]
+resource_local_to_scene = true
+offsets = PoolRealArray( 0.07, 0.8, 1 )
+colors = PoolColorArray( 0.178649, 0.178649, 0.178649, 0.178649, 1, 1, 1, 0.411765, 1, 1, 1, 1 )
+
 [node name="BasicBullet" type="RigidBody2D"]
 position = Vector2( 0, -2 )
 collision_layer = 0
@@ -59,9 +69,11 @@ playback_speed = 2.0
 anims/HitTarget = SubResource( 1 )
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+visible = false
 shape = SubResource( 2 )
 
 [node name="HurtBox" parent="." instance=ExtResource( 1 )]
+visible = false
 collision_mask = 4
 
 [node name="CollisionShape2D" parent="HurtBox" index="0"]
@@ -73,5 +85,12 @@ scale = Vector2( 0.20728, 0.34305 )
 texture = ExtResource( 4 )
 color = Color( 1, 0.501961, 0, 1 )
 shadow_enabled = true
+
+[node name="Smoketrail" parent="." instance=ExtResource( 5 )]
+self_modulate = Color( 1, 1, 0.254902, 1 )
+width_curve = SubResource( 4 )
+gradient = SubResource( 5 )
+limited_lifetime = true
+wildness = 1.0
 
 [editable path="HurtBox"]

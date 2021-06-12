@@ -202,7 +202,7 @@ func _set(property, value): # overridden
 		property_list_changed_notify()
 	if property == "weapon/projectile":
 		projectile = value
-	if property == "weapon/projectilve_sound":
+	if property == "weapon/projectile_sound":
 		projectile_sound = value
 	if property == "weapon/use_constant_projectile_speed":
 		use_constant_projectile_speed = value
