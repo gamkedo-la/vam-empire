@@ -38,17 +38,18 @@ func _free_asteroid():
 
 func _on_HurtBox_area_entered(area):	
 	var hitParent = area.get_parent()
-	print_debug(hitParent)
+	print_debug(hitParent) #Will either be a mining_laser or bullet atm.
 	if !hitParent.is_in_group("can_mine"):
 		health -= hitParent.Damage		
 		Effects.show_dmg_text(hitParent.global_position, hitParent.Damage)
 		hitParent.hit_something()
-	else:	
-		var laser = area.get_parent()		
-		var newMine = mine_spawner.instance()		
+	else: #mining
+		var laser = area.get_parent()
+		var newMine = mine_spawner.instance()
 		newMine.mineral_uuid = mineral_contents[randi() % mineral_contents.size()]
 		laser.connect("disengage", newMine, "_remove_mine_spawner")		
 		get_tree().get_root().add_child(newMine)
+		PlayerVars.enemy_attraction += 1
 		newMine.laser = laser
 		newMine.global_position = self.global_position.linear_interpolate(area.global_position, .25)
 
@@ -110,9 +111,4 @@ func _on_HighlightTween_tween_completed(object, key):
 							cur_color,targ_color, highlight_pulse_speed*2,
 							Tween.TRANS_SINE, Tween.EASE_IN_OUT)
 		targ_tween.start()
-
-
-
-
-
 

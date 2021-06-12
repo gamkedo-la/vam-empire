@@ -18,6 +18,8 @@ signal item_transfer(uuid)
 
 signal player_died
 
+signal attraction_changed
+
 # File saving/loading methodology adapted from https://gdscript.com/solutions/how-to-save-and-load-godot-game-data/
 var FILE_NAME
 
@@ -51,6 +53,9 @@ var hull_max_health = 0 setget set_hull_max_health
 var energy_max_reserve = 0 setget set_energy_max_reserve
 var energy_recovery_per_s = 0 setget set_energy_recovery_per_s
 var energy_recovery_delay_s = 0 setget set_energy_recovery_delay
+
+# Enemy threat
+var enemy_attraction:int = 0 setget set_enemy_attraction
 
 func _ready():
 	FILE_NAME = UserSettings.get_save_slot(UserSettings.current.save.current_slot)
@@ -114,6 +119,10 @@ func set_energy_recovery_per_s(val):
 
 func set_energy_recovery_delay(val):
 	energy_recovery_delay_s = val
+	
+func set_enemy_attraction(val:int) -> void:
+	enemy_attraction = val
+	emit_signal("attraction_changed", enemy_attraction)
 
 func new(name: String):
 	player = player_defaults.duplicate()

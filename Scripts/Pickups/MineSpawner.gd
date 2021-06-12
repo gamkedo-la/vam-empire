@@ -47,3 +47,4 @@ func _spawn_mineral_chance() -> void:
 		var vecy = rng.randf_range(-1,1)
 		newMineral.apply_central_impulse(Vector2(vecx,vecy) * (Vector2.ONE*10))
 		newMineral.angular_velocity = rng.randf_range(-2,2)
+		PlayerVars.enemy_attraction += 1
