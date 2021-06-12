@@ -256,11 +256,10 @@ func rotate_to_target(target: Vector2, delta: float):
 	var rot_delta:float  = self.rotation - old_rot
 	
 	if rot_delta < rot_delta_min:
-		rot_delta_min = rot_delta
-		print_debug("rot_delta_min", rot_delta_min)
+		rot_delta_min = rot_delta		
 	elif rot_delta > rot_delta_max:
 		rot_delta_max = rot_delta
-		print_debug("rot_delta_max", rot_delta_max)
+		
 	
 	if rot_delta < 0 && rot_delta_min != 0:
 		rcs_amount = rot_delta / rot_delta_min
@@ -269,28 +268,7 @@ func rotate_to_target(target: Vector2, delta: float):
 
 	if rcs_amount != 0.0:
 		piloted_ship.rotate_rcs(rcs_amount)
-	
-	
 
-
-func old_rotate_to_target(target: Vector2, delta: float):
-	var rcs_amount = 0
-	if self.get_angle_to(target) > ROT_SPEED:
-		self.rotation += ROT_SPEED + CUR_ROT_ACCEL
-#	
-	else:
-		self.rotation -= ROT_SPEED + CUR_ROT_ACCEL
-
-	rcs_amount = CUR_ROT_ACCEL / ROT_ACCEL
-	if abs(self.get_angle_to(target)) < ROT_SPEED * 1.1:
-		self.look_at(target)
-		CUR_ROT_ACCEL = 0
-	else:
-		CUR_ROT_ACCEL += ROT_ACCEL/4
-	
-	if abs(CUR_ROT_ACCEL) < ROT_ACCEL/3:
-		rcs_amount = 0	
-	piloted_ship.rotate_rcs(rcs_amount)
 
 func take_damage(amount, position):
 	# Passthrough to PlayerVars, maybe we'll add animation triggers here down the line
