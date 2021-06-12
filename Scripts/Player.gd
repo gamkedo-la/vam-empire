@@ -248,8 +248,7 @@ func rotate_to_target(target: Vector2, delta: float):
 	var rcs_amount := 0.0
 	var old_rot = self.rotation
 	targ_pos.global_transform = self.global_transform
-	targ_pos.look_at(target)
-	
+	targ_pos.look_at(target)	
 	
 	self.rotation = lerp(self.rotation, targ_pos.rotation, ROT_SPEED * delta)
 	
@@ -258,11 +257,10 @@ func rotate_to_target(target: Vector2, delta: float):
 	if rot_delta < rot_delta_min:
 		rot_delta_min = rot_delta		
 	elif rot_delta > rot_delta_max:
-		rot_delta_max = rot_delta
-		
+		rot_delta_max = rot_delta		
 	
 	if rot_delta < 0 && rot_delta_min != 0:
-		rcs_amount = rot_delta / rot_delta_min
+		rcs_amount = -(rot_delta / rot_delta_min)
 	elif rot_delta > 0 && rot_delta_max != 0:
 		rcs_amount = rot_delta / rot_delta_max
 
