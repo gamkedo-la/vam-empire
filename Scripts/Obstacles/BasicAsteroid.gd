@@ -49,7 +49,6 @@ func _on_HurtBox_area_entered(area):
 		newMine.mineral_uuid = mineral_contents[randi() % mineral_contents.size()]
 		laser.connect("disengage", newMine, "_remove_mine_spawner")		
 		get_tree().get_root().add_child(newMine)
-		PlayerVars.enemy_attraction += 1
 		newMine.laser = laser
 		newMine.global_position = self.global_position.linear_interpolate(area.global_position, .25)
 
