@@ -11,8 +11,11 @@ var MAX_SPEED = 0
 var FRICTION = 0
 var MASS = 0
 var ROT_SPEED = 0
+var CUR_ROT_ACCEL = 0
 var ROT_ACCEL = 0
-
+var rot_delta_min:float = 0.0
+var rot_delta_max:float = 0.0
+onready var targ_pos := Position2D.new()
 # Default variables for move_and_slide
 const m_s_up = Vector2.ZERO
 const m_s_sos = false
@@ -71,6 +74,8 @@ var can_recover_energy = true
 
 func _ready():
 	#TODO: pilot_ship_from_pack and change variables in PlayerVars to ShipClass/Index 
+	add_child(targ_pos)
+	targ_pos.set_as_toplevel(true)
 	_set_menus_viz(false)
 	pilot_ship(PlayerVars.player.current_ship)	
 	PlayerVars.player_node = self
@@ -88,14 +93,14 @@ func _set_menus_viz(viz:bool) -> void:
 func _process(_delta):
 	Global.player_position = position
 
-func _physics_process(delta):
+func _physics_process(delta: float):
 	var targ = PlayerVars.get_target()
 	if !player_target:
 		targ = get_global_mouse_position()		
 	else:
 		targ = player_target.global_position
 	
-	rotate_to_target(targ)
+	rotate_to_target(targ, delta)
 
 	# I don't love this... But it doesn't feel good to put a process funtion + timer in PlayerVars
 	if (can_recover_energy):
@@ -237,23 +242,53 @@ func roll_animation_finished():
 func attack_animation_finished():
 	state = MOVE
 
-func rotate_to_target(target):
+
+
+func rotate_to_target(target: Vector2, delta: float):
+	var rcs_amount := 0.0
+	var old_rot = self.rotation
+	targ_pos.global_transform = self.global_transform
+	targ_pos.look_at(target)
+	
+	
+	self.rotation = lerp(self.rotation, targ_pos.rotation, ROT_SPEED * delta)
+	
+	var rot_delta:float  = self.rotation - old_rot
+	
+	if rot_delta < rot_delta_min:
+		rot_delta_min = rot_delta
+		print_debug("rot_delta_min", rot_delta_min)
+	elif rot_delta > rot_delta_max:
+		rot_delta_max = rot_delta
+		print_debug("rot_delta_max", rot_delta_max)
+	
+	if rot_delta < 0 && rot_delta_min != 0:
+		rcs_amount = rot_delta / rot_delta_min
+	elif rot_delta > 0 && rot_delta_max != 0:
+		rcs_amount = rot_delta / rot_delta_max
+
+	if rcs_amount != 0.0:
+		piloted_ship.rotate_rcs(rcs_amount)
+	
+	
+
+
+func old_rotate_to_target(target: Vector2, delta: float):
 	var rcs_amount = 0
 	if self.get_angle_to(target) > ROT_SPEED:
-		self.rotation += ROT_SPEED + ROT_ACCEL
-		rcs_amount = (ROT_SPEED + ROT_ACCEL)/(ROT_SPEED+.05)
-		
+		self.rotation += ROT_SPEED + CUR_ROT_ACCEL
+#	
 	else:
-		self.rotation -= ROT_SPEED + ROT_ACCEL
-		rcs_amount = -((ROT_SPEED + ROT_ACCEL)/(ROT_SPEED+.05))
-		
+		self.rotation -= ROT_SPEED + CUR_ROT_ACCEL
+
+	rcs_amount = CUR_ROT_ACCEL / ROT_ACCEL
 	if abs(self.get_angle_to(target)) < ROT_SPEED * 1.1:
 		self.look_at(target)
-		ROT_ACCEL = deg2rad(0)
+		CUR_ROT_ACCEL = 0
 	else:
-		ROT_ACCEL += deg2rad(.05)
+		CUR_ROT_ACCEL += ROT_ACCEL/4
 	
-	if abs(rad2deg(ROT_ACCEL)) < .15:
+	if abs(CUR_ROT_ACCEL) < ROT_ACCEL/3:
 		rcs_amount = 0	
 	piloted_ship.rotate_rcs(rcs_amount)
 
@@ -294,7 +329,9 @@ func instantiate_ship_variables():
 	MASS = piloted_ship.MASS
 	ROT_SPEED = piloted_ship.ROT_SPEED
 	ROT_ACCEL = piloted_ship.ROT_ACCEL
-	
+	rot_delta_min = 0.0
+	rot_delta_max = 0.0
+	CUR_ROT_ACCEL = 0
 	# TODO: move setting char sheet variables to a PlayerVars.connect() signal hookup
 	# order matters! need to set max_* values before regular values. the setters clamp the stat values by the max values
 	PlayerVars.shield_max_health = piloted_ship.shieldHealth

@@ -6,14 +6,14 @@ export (String) var ship_name
 export (int, 0, 3200) var ACCELERATION = 150
 export (int, 0, 10000) var MAX_SPEED = 320
 export (int, 0, 200) var FRICTION = 0
-export (int, 0, 4000) var MASS = 100
-export var ROT_SPEED = deg2rad(2)
-export var ROT_ACCEL = deg2rad(0)
+export (int, 0, 10000) var MASS = 100
+export (float, 0.1, 300) var ROT_SPEED = 0.035
+export (float, 0.1, 10) var ROT_ACCEL = 0.05
 
-export (float, 0, 400) var shieldHealth = 200
-export (float, 0, 600) var hullHealth = 250
-export (float, 0, 150) var energyReserve = 100
-export (float, 0, 150) var energyRecoverPerS = 60
+export (float, 0, 40000) var shieldHealth = 200
+export (float, 0, 60000) var hullHealth = 250
+export (float, 0, 15000) var energyReserve = 100
+export (float, 0, 1500) var energyRecoverPerS = 60
 export (float, 0, 5) var energyRecoveryDelayS = 0.5
 
 export (Array, hpClass) var hardpoint_size
