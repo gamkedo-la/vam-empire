@@ -4,10 +4,12 @@ signal removed
 
 onready var sprite: Sprite = $Sprite
 onready var mineral_dust: Particles2D = $MineralDust
+onready var pickup_trigger: Area2D = $PickupTrigger
 var item_uuid: String = "4efd8d66-b38f-4b94-8326-2bc21799f888"
 
 var despawn_timer
 var particle_color: Color
+var assigned_droid: bool = false
 
 var count: int = 1
 
@@ -28,6 +30,9 @@ func pickup() -> void:
 	PlayerVars.pickup_item(item_uuid, count)
 	sprite.visible = false
 	emit_signal("removed", self)
+	set_as_toplevel(true)
+	pickup_trigger.set_deferred("monitorable", false)
+	pickup_trigger.set_deferred("monitoring", false)
 	mineral_dust.set_emitting(false)
 	despawn_timer.start()
 	

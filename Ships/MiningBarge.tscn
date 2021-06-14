@@ -1,4 +1,4 @@
-[gd_scene load_steps=21 format=2]
+[gd_scene load_steps=22 format=2]
 
 [ext_resource path="res://Scripts/Effects/Trail.gd" type="Script" id=1]
 [ext_resource path="res://Ships/Textures/Corvette/MiningBarge/mining_barge_body.png" type="Texture" id=2]
@@ -9,13 +9,18 @@
 [ext_resource path="res://Lights/Textures/headlight_001.png" type="Texture" id=7]
 [ext_resource path="res://Lights/Textures/light_orb.png" type="Texture" id=8]
 [ext_resource path="res://Ships/Visuals/RotatingShipLight.tscn" type="PackedScene" id=9]
-[ext_resource path="res://Ships/Textures/Corvette/MiningBarge/retractable_container.png" type="Texture" id=10]
-[ext_resource path="res://Ships/Textures/Corvette/MiningBarge/retractable_container_n.png" type="Texture" id=11]
+[ext_resource path="res://Ships/Components/SingleOreContainer.tscn" type="PackedScene" id=10]
 [ext_resource path="res://Scripts/ShipComponents/OreContainers.gd" type="Script" id=12]
 
 [sub_resource type="CapsuleShape2D" id=1]
 radius = 13.0839
 height = 81.0112
+
+[sub_resource type="RectangleShape2D" id=9]
+extents = Vector2( 21.0381, 21.6987 )
+
+[sub_resource type="CircleShape2D" id=10]
+radius = 258.055
 
 [sub_resource type="OccluderPolygon2D" id=2]
 polygon = PoolVector2Array( -51.8183, -2.82562, -53.5663, -5.94709, -56.0635, -5.94709, -57.1248, -1.45217, -57.1248, 3.3549, -55.5641, 5.72721, -53.1918, 5.66479, -52.2553, 1.29472, -20.229, 0.982578, -20.3539, -1.26488, -50.5697, -1.20245 )
@@ -70,45 +75,45 @@ shape = SubResource( 1 )
 [node name="OreContainers" type="Node2D" parent="."]
 script = ExtResource( 12 )
 
-[node name="Container01" type="Sprite" parent="OreContainers"]
-position = Vector2( 11.9865, 12.7356 )
-texture = ExtResource( 10 )
-normal_map = ExtResource( 11 )
-hframes = 9
-region_rect = Rect2( -4.29648, -4.37467, 127.008, 24.8675 )
+[node name="Container01" parent="OreContainers" instance=ExtResource( 10 )]
+position = Vector2( 15, 13 )
 
-[node name="Container02" type="Sprite" parent="OreContainers"]
-position = Vector2( 25.5578, 12.7305 )
-texture = ExtResource( 10 )
-normal_map = ExtResource( 11 )
-hframes = 9
+[node name="Container02" parent="OreContainers" instance=ExtResource( 10 )]
+position = Vector2( 29, 13 )
 
-[node name="Container03" type="Sprite" parent="OreContainers"]
-position = Vector2( 38.9177, 12.7305 )
-texture = ExtResource( 10 )
-normal_map = ExtResource( 11 )
-hframes = 9
+[node name="Container03" parent="OreContainers" instance=ExtResource( 10 )]
+position = Vector2( 43, 13 )
 
-[node name="Container04" type="Sprite" parent="OreContainers"]
-position = Vector2( 11.1125, -13.2351 )
-rotation = -3.14159
-texture = ExtResource( 10 )
-normal_map = ExtResource( 11 )
-hframes = 9
-
-[node name="Container05" type="Sprite" parent="OreContainers"]
-position = Vector2( 24.6838, -13.2402 )
-rotation = -3.14159
-texture = ExtResource( 10 )
-normal_map = ExtResource( 11 )
-hframes = 9
-
-[node name="Container06" type="Sprite" parent="OreContainers"]
-position = Vector2( 38.0437, -13.2402 )
+[node name="Container04" parent="OreContainers" instance=ExtResource( 10 )]
+position = Vector2( 14, -13 )
 rotation = 3.14159
-texture = ExtResource( 10 )
-normal_map = ExtResource( 11 )
-hframes = 9
+
+[node name="Container05" parent="OreContainers" instance=ExtResource( 10 )]
+position = Vector2( 28, -13 )
+rotation = 3.14159
+
+[node name="Container06" parent="OreContainers" instance=ExtResource( 10 )]
+position = Vector2( 42, -13 )
+rotation = 3.14159
+
+[node name="OrePickup" type="Area2D" parent="OreContainers"]
+position = Vector2( 4, 0 )
+collision_layer = 2147483648
+collision_mask = 16
+
+[node name="TriggerCollider" type="CollisionShape2D" parent="OreContainers/OrePickup"]
+position = Vector2( 24.9452, -0.593933 )
+shape = SubResource( 9 )
+
+[node name="OreDetector" type="Area2D" parent="OreContainers"]
+position = Vector2( 4, 0 )
+monitorable = false
+collision_layer = 2147483648
+collision_mask = 16
+
+[node name="TriggerCollider" type="CollisionShape2D" parent="OreContainers/OreDetector"]
+position = Vector2( 24.9452, -0.593933 )
+shape = SubResource( 10 )
 
 [node name="Hardpoints" type="Node2D" parent="."]
 
@@ -290,5 +295,8 @@ position = Vector2( -34.8856, -27.1865 )
 
 [node name="Wing Trail 2" parent="." instance=ExtResource( 3 )]
 position = Vector2( -34.8856, 27.3847 )
+
+[connection signal="area_entered" from="OreContainers/OrePickup" to="OreContainers" method="_on_OrePickup_area_entered"]
+[connection signal="area_entered" from="OreContainers/OreDetector" to="OreContainers" method="_on_OreDetector_area_entered"]
 
 [editable path="RCSThrusters"]
