@@ -100,14 +100,14 @@ func _on_GoMiningMed_pressed():
 	take_off()
 
 
-func _on_TakeoffTween_tween_completed(object, key):
+func _on_TakeoffTween_tween_completed(object, _key):
 	if object == player_ship && backing_up:
 		backing_up = false		
 		take_off()
 	else:
 		transition.transition_out()
 
-func _on_LightingTween_tween_completed(object, key):
+func _on_LightingTween_tween_completed(object, _key):
 	if object.texture_scale - glow_down < 1:
 		lighting_tween.interpolate_property(object, "texture_scale", object.texture_scale, glow_up, glow_time, Tween.TRANS_CUBIC, Tween.EASE_IN_OUT)
 	else:
@@ -120,10 +120,10 @@ func _on_Transition_can_exit():
 		Global.goto_scene(leaving_to)
 
 func _on_Trello_pressed():
-	OS.shell_open("https://trello.com/b/XcQmS3nu/vam-empire")
+	var _open = OS.shell_open("https://trello.com/b/XcQmS3nu/vam-empire")
 
 func _on_README_pressed():
-	OS.shell_open("https://github.com/gamkedo-la/vam-empire#vam-empire-game-info")
+	var _open = OS.shell_open("https://github.com/gamkedo-la/vam-empire#vam-empire-game-info")
 
 
 func _on_Missions_pressed():

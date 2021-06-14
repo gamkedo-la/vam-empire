@@ -6,7 +6,7 @@ extends Node
 const Item = preload("res://Database/Item.tscn")
 
 # uses AsteroidType enum from "res://Scripts/Autoload/Database.gd"
-func get_item_for_asteroid_type(asteroid_type:int):
+func get_item_for_asteroid_type(_asteroid_type:int):
 	# for now, getting random item
 	var items = Database.table.Items
 	return items[randi() % items.size()]

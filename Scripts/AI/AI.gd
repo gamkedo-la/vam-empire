@@ -51,7 +51,7 @@ func _ready() -> void:
 	_generate_patrol_points()
 	set_state(State.PATROL)
 
-func _physics_process(delta: float) -> void:
+func _physics_process(_delta: float) -> void:
 	if !actor:
 		return
 		

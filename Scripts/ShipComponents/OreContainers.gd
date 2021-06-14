@@ -31,7 +31,7 @@ func _on_OrePickup_area_entered(area):
 
 func _on_OreDetector_area_entered(area):
 	var mineral = area.get_parent()
-	print_debug(mineral)
+#	print_debug(mineral)
 	if mineral.is_in_group("pickup"):
 		if !mineral.assigned_droid:
 			for container in containers:

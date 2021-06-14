@@ -27,7 +27,7 @@ func _ready():
 	temp_hangar = Global.ship_hangar[3].duplicate()
 	for Ship in temp_hangar:		
 		dreadnought_list.add_item(Ship[0].ship_name)
-	PlayerVars.connect("mission_complete", self, "_mission_complete")
+	var _connect = PlayerVars.connect("mission_complete", self, "_mission_complete")
 		
 
 func _process(_delta):

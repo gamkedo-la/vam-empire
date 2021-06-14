@@ -79,9 +79,9 @@ func _ready():
 	_set_menus_viz(false)
 	pilot_ship(PlayerVars.player.current_ship)	
 	PlayerVars.player_node = self
-	PlayerVars.connect("target_change", self, "_target_change")
-	PlayerVars.connect("energy_reserve_changed", self, "_on_energy_reserve_changed")
-	PlayerVars.connect("mission_complete", self, "_end_mission_screen")
+	var _connect = PlayerVars.connect("target_change", self, "_target_change")
+	_connect = PlayerVars.connect("energy_reserve_changed", self, "_on_energy_reserve_changed")
+	_connect = PlayerVars.connect("mission_complete", self, "_end_mission_screen")
 	# Let the char sheet know about updated values
 	char_sheet.update_values()
 	rng.randomize()
@@ -141,7 +141,7 @@ func move_state(delta):
 
 	var fa_brake = retro_vector
 	var rcs_braking: bool = false
-	var rcs_strength: int = 0
+#	var rcs_strength: int = 0
 	if thrust_vector != Vector2.ZERO:		
 		velocity = velocity.move_toward(thrust_vector * MAX_SPEED, ACCELERATION * delta)
 		
@@ -341,7 +341,7 @@ func pilot_ship(ship):
 	piloted_ship = ship_load.instance()
 	piloted_ship.set_owner(self)
 	ship_node.add_child(piloted_ship)
-	var test = piloted_ship.get_node_or_null("HullCollision")
+#	var test = piloted_ship.get_node_or_null("HullCollision")
 	#print_debug("TEST: ", test)
 	Global.reparent(piloted_ship.get_node_or_null("HullCollision"), self)
 	instantiate_ship_variables()

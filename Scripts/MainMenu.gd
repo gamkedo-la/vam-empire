@@ -248,7 +248,7 @@ func _on_sound_effect_volume_slider_value_changed(value):
 	UserSettings.current.sound.effects_volume = value
 	update_volume()
 
-func _on_ambience_slider_value_changed(value):
+func _on_ambience_slider_value_changed(_value):
 	#print("Ambience Volume", value)
 	pass
 

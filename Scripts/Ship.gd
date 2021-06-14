@@ -58,9 +58,9 @@ func equip_weapon(ordnance: Weapon, mount: Position2D):
 		ordnance.set_owner(owner_ref)
 	
 func fire_weapons(parent_velocity: Vector2):
-	var fired = false
+	var _fired = false
 	for weapon in weapons:
-		fired = weapon.fire(parent_velocity)
+		_fired = weapon.fire(parent_velocity)
 		# TODO: add conditional checking and remove weapons that don't fire for efficiency
 
 func fire_bomb():

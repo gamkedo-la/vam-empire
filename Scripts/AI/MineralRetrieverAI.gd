@@ -19,14 +19,14 @@ func _ready():
 	if droid_bay:
 		global_position = droid_bay.global_position
 	if target:
-		target.connect("removed", self, "_target_removed")
+		var _connected = target.connect("removed", self, "_target_removed")
 
 func _physics_process(delta: float):
 	if target:
-		_rotate_to_target(target.global_position, delta)
+		_rotate_to_target(target.global_position)
 		_check_pickup()
 	else:
-		_rotate_to_target(droid_bay.global_position, delta)
+		_rotate_to_target(droid_bay.global_position)
 		_check_bay()
 	_move(delta)
 	
@@ -44,14 +44,8 @@ func _check_bay() -> void:
 		if global_position.distance_to(droid_bay.global_position) < 3:
 			emit_signal("dock_droid")
 
-func _rotate_to_target(target: Vector2, delta: float):
-	self.look_at(target)
-#	var rcs_amount := 0.0
-#	var old_rot = self.rotation
-#	targ_pos.global_transform = self.global_transform
-#	targ_pos.look_at(target)	
-#
-#	self.rotation = lerp(self.rotation, targ_pos.rotation, ROT_SPEED * delta)
+func _rotate_to_target(_target: Vector2):
+	self.look_at(_target)
 
 func _move(delta: float) -> void:
 	var thrust_vector = Vector2(1,0)

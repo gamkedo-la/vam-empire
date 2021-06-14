@@ -16,10 +16,10 @@ var _initialized = false
 
 # Note: 192x108 (mini_map dimensions) is 1/5th of 960x540
 func _ready():
-	UserSettings.connect("ui_refresh", self, "_refresh_settings")
+	var _connect = UserSettings.connect("ui_refresh", self, "_refresh_settings")
 	_refresh_settings()
-	zoomtimer.connect("timeout", self, "_hide_zoom_lbl")	
-	PlayerVars.connect("mission_complete", self, "_mission_complete")
+	_connect = zoomtimer.connect("timeout", self, "_hide_zoom_lbl")	
+	_connect = PlayerVars.connect("mission_complete", self, "_mission_complete")
 
 func _initialize():
 	player_marker.position = pixel_grid.rect_size/2

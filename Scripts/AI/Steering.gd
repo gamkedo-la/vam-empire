@@ -48,7 +48,7 @@ func _ready():
 func _physics_process(delta: float):
 	move(delta)
 
-func move(delta: float):	
+func move(_delta: float):	
 	set_interest()
 	if steer_time > 0.1:
 		set_danger()	

@@ -165,7 +165,7 @@ func _fire_projectile(parent_velocity: Vector2) -> void:
 	fire_timer.start()
 	
 
-func _fire_laser(parent_velocity):
+func _fire_laser(_parent_velocity):
 	pass
 
 func _reprime():	

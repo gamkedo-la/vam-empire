@@ -19,7 +19,7 @@ func retrieve_mineral(target:RigidBody2D) -> void:
 	droid.droid_bay = self
 	droid.target = target
 	call_deferred("add_child", newDroid)	
-	droid.connect("dock_droid", self, "_dock_droid")
+	var _connected = droid.connect("dock_droid", self, "_dock_droid")
 	busy = true
 	
 

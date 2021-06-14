@@ -42,11 +42,11 @@ func _ready() -> void:
 	timer.connect("timeout", self, "_transfer_items")
 	timer.start()
 	
-	main_tween.interpolate_property(self, "rect_rotation", self.rect_rotation, 1, 5, Tween.TRANS_BACK, Tween.EASE_IN_OUT)
-	main_tween.interpolate_property(self, "rect_position:x", self.rect_position.x, self.rect_position.x + 5, 1.5, Tween.TRANS_SINE, Tween.EASE_IN_OUT)
-	main_tween.interpolate_property(self, "rect_position:y", self.rect_position.y, self.rect_position.y - 5, 2, Tween.TRANS_SINE, Tween.EASE_IN_OUT)
-	main_tween.interpolate_property(self, "rect_scale", self.rect_scale, self.rect_scale + tween_scale, 0.5, Tween.TRANS_SINE, Tween.EASE_IN)
-	main_tween.start()
+	var _interp = main_tween.interpolate_property(self, "rect_rotation", self.rect_rotation, 1, 5, Tween.TRANS_BACK, Tween.EASE_IN_OUT)
+	_interp = main_tween.interpolate_property(self, "rect_position:x", self.rect_position.x, self.rect_position.x + 5, 1.5, Tween.TRANS_SINE, Tween.EASE_IN_OUT)
+	_interp = main_tween.interpolate_property(self, "rect_position:y", self.rect_position.y, self.rect_position.y - 5, 2, Tween.TRANS_SINE, Tween.EASE_IN_OUT)
+	_interp = main_tween.interpolate_property(self, "rect_scale", self.rect_scale, self.rect_scale + tween_scale, 0.5, Tween.TRANS_SINE, Tween.EASE_IN)
+	var _start = main_tween.start()
 	
 	
 	
@@ -78,7 +78,7 @@ func populate_item_fields() -> void:
 func _transfer_items() -> void:
 	timer.stop()
 	var count_speed: float
-	var trans_cnt: int
+#	var trans_cnt: int
 	for uuid in PlayerVars.ship_inventory.keys():
 		current_uuid = uuid
 		count_speed = 0.1		
@@ -123,15 +123,16 @@ func _on_ReturnButton_mouse_entered():
 	_stop_home_base_countdown()
 
 
-func _on_MainTween_tween_completed(object, key):
+func _on_MainTween_tween_completed(_object, key):
 	print_debug(key)
+	var _interp
 	if key == ":rect_rotation":
-		main_tween.interpolate_property(self, "rect_rotation", self.rect_rotation, -self.rect_rotation, 5, Tween.TRANS_BACK, Tween.EASE_IN_OUT)
+		_interp = main_tween.interpolate_property(self, "rect_rotation", self.rect_rotation, -self.rect_rotation, 5, Tween.TRANS_BACK, Tween.EASE_IN_OUT)
 	if key == ":rect_scale":
 		tween_scale = -tween_scale
-		main_tween.interpolate_property(self, "rect_scale", self.rect_scale, self.rect_scale + tween_scale, 0.5, Tween.TRANS_SINE, Tween.EASE_IN_OUT)
+		_interp = main_tween.interpolate_property(self, "rect_scale", self.rect_scale, self.rect_scale + tween_scale, 0.5, Tween.TRANS_SINE, Tween.EASE_IN_OUT)
 	if key == ":rect_position:x":
-		main_tween.interpolate_property(self, "rect_position:x", self.rect_position.x, -self.rect_position.x, 3, Tween.TRANS_SINE, Tween.EASE_IN_OUT)
+		_interp = main_tween.interpolate_property(self, "rect_position:x", self.rect_position.x, -self.rect_position.x, 3, Tween.TRANS_SINE, Tween.EASE_IN_OUT)
 	if key == ":rect_position:y":
-		main_tween.interpolate_property(self, "rect_position:y", self.rect_position.y, -self.rect_position.y, 3.25, Tween.TRANS_SINE, Tween.EASE_IN_OUT)
-	main_tween.start()
+		_interp = main_tween.interpolate_property(self, "rect_position:y", self.rect_position.y, -self.rect_position.y, 3.25, Tween.TRANS_SINE, Tween.EASE_IN_OUT)
+	var _start = main_tween.start()

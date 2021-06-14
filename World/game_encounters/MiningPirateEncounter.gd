@@ -4,7 +4,7 @@ onready var MiningPirate = preload("res://Enemies/Scenes/MiningPirate.tscn")
 export(int, 1, 1000) var spawn_pirate_thresh = 10
 
 func _ready():
-	PlayerVars.connect("attraction_changed", self, "_check_attraction")
+	var _connect = PlayerVars.connect("attraction_changed", self, "_check_attraction")
 
 func _check_attraction(attraction:int):
 	if attraction > spawn_pirate_thresh:

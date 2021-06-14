@@ -35,7 +35,7 @@ func _process(delta: float) -> void:
 	_set_levels(delta)
 	pass
 func register_enemy(newEnemy: AIController) -> void:
-	newEnemy.connect("state_changed", self, "_enemy_state_changed")
+	var _connected = newEnemy.connect("state_changed", self, "_enemy_state_changed")
 
 
 func _enemy_state_changed(state:int) -> void:
