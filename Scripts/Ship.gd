@@ -6,7 +6,7 @@ export (String) var ship_name
 export (int, 0, 3200) var ACCELERATION = 150
 export (int, 0, 10000) var MAX_SPEED = 320
 export (int, 0, 200) var FRICTION = 0
-export (int, 0, 10000) var MASS = 100
+export (int, 0, 100000) var MASS = 100
 export (float, 0.1, 300) var ROT_SPEED = 0.035
 export (float, 0.1, 10) var ROT_ACCEL = 0.05
 
