@@ -7,9 +7,11 @@ func _ready():
 	var _connect = PlayerVars.connect("attraction_changed", self, "_check_attraction")
 
 func _check_attraction(attraction:int):
+	print(attraction)
 	if attraction > spawn_pirate_thresh:
 		var new_pirate = MiningPirate.instance()
 		add_child(new_pirate)
 		if PlayerVars.player_node:
-			new_pirate.global_position = PlayerVars.player_node.global_position+Vector2(100,0)
+			new_pirate.global_position = PlayerVars.player_node.global_position+Vector2(400,0)
 		PlayerVars.enemy_attraction = 0
+	
