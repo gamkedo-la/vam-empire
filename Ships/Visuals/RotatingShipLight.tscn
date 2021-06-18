@@ -1,0 +1,24 @@
+[gd_scene load_steps=4 format=2]
+
+[ext_resource path="res://Scripts/Effects/RotatingShipLight.gd" type="Script" id=1]
+[ext_resource path="res://Lights/Textures/light_orb.png" type="Texture" id=2]
+
+[sub_resource type="OccluderPolygon2D" id=7]
+polygon = PoolVector2Array( 0.078125, -0.375, -0.4375, -0.359375, -0.421875, 0.3125, 0.101563, 0.3125, 0.101563, 0.5, -0.398438, 0.507813, -0.6875, 0.492188, -0.679688, -0.53125, 0.0703125, -0.570313 )
+
+[node name="RotatingShipLight" type="LightOccluder2D"]
+position = Vector2( -12.6487, 0.00599098 )
+rotation = -6.28319
+occluder = SubResource( 7 )
+script = ExtResource( 1 )
+
+[node name="RotateLight" type="Light2D" parent="."]
+show_behind_parent = true
+position = Vector2( -0.351563, -0.0546876 )
+texture = ExtResource( 2 )
+color = Color( 0.976471, 0.639216, 0.105882, 1 )
+energy = 2.0
+shadow_enabled = true
+shadow_color = Color( 0, 0, 0, 1 )
+shadow_filter = 3
+shadow_filter_smooth = 64.0

@@ -84,7 +84,7 @@ func initialize_slots():
 		cargo_grid.add_child(newSlot)
 		master_slots.append(newSlot)
 
-func play_cargo_pickup(time = 0.0):
+func play_cargo_pickup(_time = 0.0):
 	inv_efx.play()
 
 func clear_inventory():

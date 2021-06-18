@@ -1,0 +1,23 @@
+[gd_resource type="Resource" load_steps=6 format=2]
+
+[ext_resource path="res://UI/Menu/Merchant/MerchantInventory.gd" type="Script" id=1]
+[ext_resource path="res://UI/Menu/Merchant/MerchantInventoryItem.gd" type="Script" id=2]
+
+[sub_resource type="Resource" id=1]
+script = ExtResource( 2 )
+ship = "Frigates-Sound01"
+buy_price = 50000
+
+[sub_resource type="Resource" id=2]
+script = ExtResource( 2 )
+ship = "Frigates-Mantis"
+buy_price = 2000
+
+[sub_resource type="Resource" id=3]
+script = ExtResource( 2 )
+ship = "Dreadnoughts-FrigateTemplate01_Tri-1"
+buy_price = 100
+
+[resource]
+script = ExtResource( 1 )
+ship_inventory = [ SubResource( 1 ), SubResource( 2 ), SubResource( 3 ) ]

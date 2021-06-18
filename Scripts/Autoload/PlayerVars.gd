@@ -18,10 +18,12 @@ signal item_transfer(uuid)
 
 signal player_died
 
+signal attraction_changed
+
 # File saving/loading methodology adapted from https://gdscript.com/solutions/how-to-save-and-load-godot-game-data/
 var FILE_NAME
 
-var player_node: Player = null
+var player_node = null
 
 # For instantiating a new player file
 var player_defaults = {
@@ -51,6 +53,9 @@ var hull_max_health = 0 setget set_hull_max_health
 var energy_max_reserve = 0 setget set_energy_max_reserve
 var energy_recovery_per_s = 0 setget set_energy_recovery_per_s
 var energy_recovery_delay_s = 0 setget set_energy_recovery_delay
+
+# Enemy threat
+var enemy_attraction:int = 0 setget set_enemy_attraction
 
 func _ready():
 	FILE_NAME = UserSettings.get_save_slot(UserSettings.current.save.current_slot)
@@ -114,10 +119,17 @@ func set_energy_recovery_per_s(val):
 
 func set_energy_recovery_delay(val):
 	energy_recovery_delay_s = val
+	
+func set_enemy_attraction(val:int) -> void:
+	enemy_attraction = val
+	emit_signal("attraction_changed", enemy_attraction)
 
 func new(name: String):
 	player = player_defaults.duplicate()
 	player.name = name
+	mission_state = {}
+	ship_inventory = {}
+	master_inventory = {}
 	save()
 
 func save():
@@ -199,7 +211,7 @@ func load_save():
 
 func pickup_item(uuid: String, cnt: int):
 	var inventory = player_node.get_ship_inventory()
-	inventory.insert_item_by_uuid(uuid)
+	inventory.insert_item_by_uuid(uuid)	
 	emit_signal("picked_up", uuid, cnt)
 #	_increment_item_objective(uuid, cnt)
 
@@ -215,6 +227,9 @@ func increment_master_inventory(uuid, cnt:int):
 		master_inventory[uuid] += cnt
 	else:
 		master_inventory[uuid] = cnt
+	
+	if master_inventory[uuid] <= 0:
+		master_inventory.erase(uuid)
 
 func _increment_item_objective(uuid: String, cnt: int) -> void:
 	if mission_state.size() > 0:
@@ -269,8 +284,8 @@ func delete_save(slot):
 	dir.remove(UserSettings.get_save_slot(slot))
 
 # Subtract health from either hull or shield by given amount. Negative value indicates healing
-func take_damage(amount):
-	if amount == 0:
+func take_damage(amount, position):
+	if amount <= 1 && amount >= -1:
 		return
 
 	# We should update shield health when shields are up and we're taking damage, or hull is full and we're healing
@@ -281,10 +296,12 @@ func take_damage(amount):
 	if update_shield:
 		var pre_shield = self.shield_health
 		self.shield_health -= amount
+		Effects.show_player_shield_dmg_text(position, int(round(amount)))
 		if shield_health > pre_shield:
 			Effects.emit_signal("ChargeShield", true)
 	else:
 		self.hull_health -= amount
+		Effects.show_player_hp_dmg_text(position, int(round(amount)))
 
 func accept_mission(miss:Mission) -> bool:
 	mission_state[miss.mission_id] = {}	

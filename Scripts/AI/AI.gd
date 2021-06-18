@@ -8,7 +8,7 @@ onready var steering: Node2D = $Steering
 # Actor Variables
 var actor: Actor = null
 var actor_velocity: Vector2 = Vector2.ZERO
-var actor_team: String
+var team_name: String
 
 var target: KinematicBody2D = null
 var ship: Ship = null
@@ -20,7 +20,8 @@ var journey_percent: float = 0.0
 
 enum State {
 	PATROL,
-	ENGAGE
+	ENGAGE,
+	DEAD
 }
 
 var current_state: int = State.PATROL setget set_state
@@ -50,7 +51,7 @@ func _ready() -> void:
 	_generate_patrol_points()
 	set_state(State.PATROL)
 
-func _physics_process(delta: float) -> void:
+func _physics_process(_delta: float) -> void:
 	if !actor:
 		return
 		
@@ -59,16 +60,20 @@ func _physics_process(delta: float) -> void:
 			_patrol()
 		State.ENGAGE:
 			_engage()
+		State.DEAD:
+			_dead()
 		_:
 			printerr("Error: Found a state for enemy that should not exist", self)
 	
 func initialize(newActor: Actor, newShip: Ship, newTeam: String):
 	self.actor = newActor
 	self.ship = newShip
-	self.actor_team = newTeam
+	self.team_name = newTeam
 	origin = actor.position
 	_install_state_timers()
 	steering.initialize(newActor, newShip, newTeam, self)
+	if self.actor.actor_team == Actor.Team.PIRATE || self.actor.actor_team == Actor.Team.VAMPIRE:
+		Music.register_enemy(self)	
 
 func set_state(new_state: int) -> void:
 	if new_state == current_state:
@@ -91,6 +96,11 @@ func _install_state_timers():
 	patrol_timer.wait_time = patrol_wait
 	add_child(origin_timer)
 	origin_timer.wait_time = origin_wait
+	
+func _dead() -> void:
+	if target_detect_area.is_connected("body_entered", self, "_on_TargetDetect_body_entered"):
+		target_detect_area.disconnect("body_entered", self, "_on_TargetDetect_body_entered")		
+	pass
 
 func _patrol():
 	if patrol_target.distance_to(actor.global_position) < 50:
@@ -131,11 +141,12 @@ func _engage():
 		print("In engage state but no target/ship")
 
 func _on_TargetDetect_body_entered(body: Node) -> void:
-	if body.is_in_group(actor_team):
+	if body.is_in_group(team_name):
 		return
 		
-	#print_debug("Target detected by: ", self, "in group", actor_team, " target: ", body)
+	#print_debug("Target detected by: ", self, "in group", team_name, " target: ", body)
 	set_state(State.ENGAGE)
+	
 	target = body
 	journey_distance = actor.global_position.distance_to(target.global_position)
 	

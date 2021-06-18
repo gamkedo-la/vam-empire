@@ -33,7 +33,7 @@ func _ready():
 	# Start Hidden
 	name_label.text = PlayerVars.player.name
 	for _signal in PLAYER_VARS_SIGNAL_NAMES:
-		PlayerVars.connect(_signal, self, "on_value_changed");
+		var _connect = PlayerVars.connect(_signal, self, "on_value_changed");
 
 func on_value_changed(_val, _change_amount):
 	# signals call with two args, which we don't need

@@ -106,4 +106,7 @@ func _populate_hangars():
 				if Weapon.get_child(0):
 					weapon_hangar[CIdx].append([Weapon.get_child(0)])
 					#print("Weapon ", weapon_hangar[CIdx][Idx], " added to index [", CIdx, "][", Idx, "]")
-		
+	
+	add_child(ships)
+	ships.visible = false
+	ships.set_process(false)

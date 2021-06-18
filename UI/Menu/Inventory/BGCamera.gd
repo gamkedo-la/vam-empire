@@ -12,7 +12,7 @@ func _ready():
 
 
 
-func _on_Tween_tween_completed(object, key):
+func _on_Tween_tween_completed(_object, key):
 	print("key:", key)
 	if key == ":scroll_offset":
 		tween.interpolate_property(plax,"scroll_offset",

@@ -23,40 +23,13 @@ visible = false
 show_behind_parent = true
 
 [node name="Audio" parent="MainMenu/MenuCanvas/Viz/OptionsContainer/VBoxContainer/TabContainer" index="0"]
-margin_left = 9.0
-margin_top = 28.0
-margin_right = -9.0
-margin_bottom = -6.0
-
-[node name="Graphics" parent="MainMenu/MenuCanvas/Viz/OptionsContainer/VBoxContainer/TabContainer" index="1"]
-margin_left = 9.0
-margin_top = 28.0
-margin_right = -9.0
-margin_bottom = -6.0
-
-[node name="HUD" parent="MainMenu/MenuCanvas/Viz/OptionsContainer/VBoxContainer/TabContainer" index="2"]
-margin_left = 9.0
-margin_top = 28.0
-margin_right = -9.0
-margin_bottom = -6.0
+visible = true
 
 [node name="Difficulty" parent="MainMenu/MenuCanvas/Viz/OptionsContainer/VBoxContainer/TabContainer" index="3"]
-margin_left = 9.0
-margin_top = 28.0
-margin_right = -9.0
-margin_bottom = -6.0
+visible = false
 
-[node name="System" parent="MainMenu/MenuCanvas/Viz/OptionsContainer/VBoxContainer/TabContainer" index="4"]
-margin_left = 9.0
-margin_top = 28.0
-margin_right = -9.0
-margin_bottom = -6.0
-
-[node name="About" parent="MainMenu/MenuCanvas/Viz/OptionsContainer/VBoxContainer/TabContainer" index="5"]
-margin_left = 9.0
-margin_top = 28.0
-margin_right = -9.0
-margin_bottom = -6.0
+[node name="DifficultyOptionButton" parent="MainMenu/MenuCanvas/Viz/OptionsContainer/VBoxContainer/TabContainer/Difficulty/VBoxContainer/DifficultyHbox" index="1"]
+items = [ "Bring a Bandaid", null, false, 0, null, "Get Some Gauze", null, false, 1, null, "Seek a Surgeon", null, false, 2, null ]
 
 [node name="NewPlayerPop" parent="MainMenu/MenuCanvas/Viz" index="3"]
 margin_left = -240.0

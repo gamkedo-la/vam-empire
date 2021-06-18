@@ -55,12 +55,14 @@ func move(delta: float):
 	choose_direction()
 	
 	
-	var arrive_pct = clamp(ai.journey_percent, 0.4, 0.8)	
+	var arrive_pct = clamp(ai.journey_percent, 0.01, 0.8)	
 	var desired_velocity = chosen_dir.rotated(actor.rotation) * (actor.MAX_SPEED * arrive_pct)
-	velocity = velocity.linear_interpolate(desired_velocity, steer_force)
+	velocity = lerp(velocity, desired_velocity, steer_force * delta)
 	#rotation = lerp_angle(rotation, velocity.angle(), ROT_SPEED)
+#	actor.rotation = lerp(actor.rotation, velocity.angle(), actor.ROT_SPEED * delta)
 	actor.rotation = velocity.angle()
 #	actor.move_and_collide(velocity * delta)
+
 	velocity = actor.move_and_slide(velocity, m_s_up, m_s_sos, m_s_maxsli, m_s_fma, false)
 	update()
 

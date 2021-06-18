@@ -59,8 +59,8 @@ func _on_ReturnTimer_timeout():
 	PlayerVars.emit_signal("mission_complete")
 #	Global.goto_scene(home_base)	
 
-func _on_ReturnHomeBeacon_area_entered(area):
-	var ar_parent = area.get_parent()
+func _on_ReturnHomeBeacon_area_entered(_area):
+	#var ar_parent = _area.get_parent()
 	#print_debug(ar_parent)
 	begin_return_countdown()
 

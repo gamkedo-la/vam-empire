@@ -11,13 +11,12 @@ emission_sphere_radius = 1.0
 flag_disable_z = true
 direction = Vector3( 0, 0, 0 )
 gravity = Vector3( 0, 0, 0 )
-angular_velocity = 360.0
-angular_velocity_random = 0.67
-orbit_velocity = 1.0
-orbit_velocity_random = 1.0
-radial_accel = 29.36
-radial_accel_random = 0.88
-angle = 1.0
+initial_velocity = 10.0
+initial_velocity_random = 0.54
+orbit_velocity = 0.0
+orbit_velocity_random = 0.0
+linear_accel = 15.83
+linear_accel_random = 0.3
 scale = 0.01
 scale_random = 0.03
 color = Color( 1, 1, 1, 0.443137 )
@@ -28,7 +27,6 @@ color = Color( 1, 1, 1, 0.443137 )
 "mini_map",
 "pickup",
 ]]
-position = Vector2( 480, 270 )
 collision_layer = 0
 collision_mask = 0
 gravity_scale = 0.0
@@ -41,6 +39,7 @@ preprocess = 5.0
 speed_scale = 0.13
 explosiveness = 0.44
 randomness = 1.0
+local_coords = false
 process_material = SubResource( 1 )
 texture = ExtResource( 1 )
 

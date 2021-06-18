@@ -11,8 +11,11 @@ var MAX_SPEED = 0
 var FRICTION = 0
 var MASS = 0
 var ROT_SPEED = 0
+var CUR_ROT_ACCEL = 0
 var ROT_ACCEL = 0
-
+var rot_delta_min:float = 0.0
+var rot_delta_max:float = 0.0
+onready var targ_pos := Position2D.new()
 # Default variables for move_and_slide
 const m_s_up = Vector2.ZERO
 const m_s_sos = false
@@ -63,17 +66,22 @@ var hardpoints = null
 var hull_hitbox = null
 var piloted_ship = null
 
+var team_group: String = "friendly"
+
+
 onready var energy_recovery_delay_timer = $EnergyRecoveryDelayTimer
 var can_recover_energy = true
 
 func _ready():
 	#TODO: pilot_ship_from_pack and change variables in PlayerVars to ShipClass/Index 
+	add_child(targ_pos)
+	targ_pos.set_as_toplevel(true)
 	_set_menus_viz(false)
 	pilot_ship(PlayerVars.player.current_ship)	
 	PlayerVars.player_node = self
-	PlayerVars.connect("target_change", self, "_target_change")
-	PlayerVars.connect("energy_reserve_changed", self, "_on_energy_reserve_changed")
-	PlayerVars.connect("mission_complete", self, "_end_mission_screen")
+	var _connect = PlayerVars.connect("target_change", self, "_target_change")
+	_connect = PlayerVars.connect("energy_reserve_changed", self, "_on_energy_reserve_changed")
+	_connect = PlayerVars.connect("mission_complete", self, "_end_mission_screen")
 	# Let the char sheet know about updated values
 	char_sheet.update_values()
 	rng.randomize()
@@ -85,14 +93,14 @@ func _set_menus_viz(viz:bool) -> void:
 func _process(_delta):
 	Global.player_position = position
 
-func _physics_process(delta):
+func _physics_process(delta: float):
 	var targ = PlayerVars.get_target()
 	if !player_target:
 		targ = get_global_mouse_position()		
 	else:
 		targ = player_target.global_position
 	
-	rotate_to_target(targ)
+	rotate_to_target(targ, delta)
 
 	# I don't love this... But it doesn't feel good to put a process funtion + timer in PlayerVars
 	if (can_recover_energy):
@@ -133,7 +141,7 @@ func move_state(delta):
 
 	var fa_brake = retro_vector
 	var rcs_braking: bool = false
-	var rcs_strength: int = 0
+#	var rcs_strength: int = 0
 	if thrust_vector != Vector2.ZERO:		
 		velocity = velocity.move_toward(thrust_vector * MAX_SPEED, ACCELERATION * delta)
 		
@@ -214,7 +222,7 @@ func move():
 			var damage  = clamp(((pre_vel.length() - velocity.length())/MAX_SPEED) * PlayerVars.shield_max_health, 
 									0.0, PlayerVars.shield_max_health)
 			if !took_dmg:
-				PlayerVars.take_damage(damage)
+				PlayerVars.take_damage(damage, global_position)
 				took_dmg = true
 				var snd_strength = clamp(damage/PlayerVars.shield_max_health, 0.0, 1.0)
 				if PlayerVars.shield_health > 0:
@@ -234,34 +242,40 @@ func roll_animation_finished():
 func attack_animation_finished():
 	state = MOVE
 
-func rotate_to_target(target):
-	var rcs_amount = 0
-	if self.get_angle_to(target) > ROT_SPEED:
-		self.rotation += ROT_SPEED + ROT_ACCEL
-		rcs_amount = (ROT_SPEED + ROT_ACCEL)/(ROT_SPEED+.05)
-		
-	else:
-		self.rotation -= ROT_SPEED + ROT_ACCEL
-		rcs_amount = -((ROT_SPEED + ROT_ACCEL)/(ROT_SPEED+.05))
-		
-	if abs(self.get_angle_to(target)) < ROT_SPEED * 1.1:
-		self.look_at(target)
-		ROT_ACCEL = deg2rad(0)
-	else:
-		ROT_ACCEL += deg2rad(.05)
-	
-	if abs(rad2deg(ROT_ACCEL)) < .15:
-		rcs_amount = 0	
-	piloted_ship.rotate_rcs(rcs_amount)
 
-func take_damage(amount):
+
+func rotate_to_target(target: Vector2, delta: float):
+	var rcs_amount := 0.0
+	var old_rot = self.rotation
+	targ_pos.global_transform = self.global_transform
+	targ_pos.look_at(target)	
+	
+	self.rotation = lerp(self.rotation, targ_pos.rotation, ROT_SPEED * delta)
+	
+	var rot_delta:float  = self.rotation - old_rot
+	
+	if rot_delta < rot_delta_min:
+		rot_delta_min = rot_delta		
+	elif rot_delta > rot_delta_max:
+		rot_delta_max = rot_delta		
+	
+	if rot_delta < 0 && rot_delta_min != 0:
+		rcs_amount = -(rot_delta / rot_delta_min)
+	elif rot_delta > 0 && rot_delta_max != 0:
+		rcs_amount = rot_delta / rot_delta_max
+
+	if rcs_amount != 0.0:
+		piloted_ship.rotate_rcs(rcs_amount)
+
+
+func take_damage(amount, position):
 	# Passthrough to PlayerVars, maybe we'll add animation triggers here down the line
-	PlayerVars.take_damage(amount)
+	PlayerVars.take_damage(amount, position)
 
 func heal(amount, energy_cost):
 	# Don't let player heal if not enough energy or full on shields
 	if (PlayerVars.energy_reserve >= energy_cost && PlayerVars.shield_health < PlayerVars.shield_max_health):
-		take_damage(-amount) # Woah man, a heal is just like, negative damage
+		take_damage(-amount, global_position) # Woah man, a heal is just like, negative damage
 		PlayerVars.energy_reserve -= energy_cost
 	
 	print("Heal: ", PlayerVars.hull_health)
@@ -291,7 +305,9 @@ func instantiate_ship_variables():
 	MASS = piloted_ship.MASS
 	ROT_SPEED = piloted_ship.ROT_SPEED
 	ROT_ACCEL = piloted_ship.ROT_ACCEL
-	
+	rot_delta_min = 0.0
+	rot_delta_max = 0.0
+	CUR_ROT_ACCEL = 0
 	# TODO: move setting char sheet variables to a PlayerVars.connect() signal hookup
 	# order matters! need to set max_* values before regular values. the setters clamp the stat values by the max values
 	PlayerVars.shield_max_health = piloted_ship.shieldHealth
@@ -311,6 +327,7 @@ func pilot_ship_from_pack(ship):
 		for Collider in hull_colliders:
 			Collider.queue_free()	
 	piloted_ship = ship
+	piloted_ship.set_owner(self)
 	ship_node.add_child(piloted_ship)	
 	# TODO: Retool this to load multiple Hull Colliders from Ship	
 	var hull = piloted_ship.get_node_or_null("HullCollision").duplicate()
@@ -322,8 +339,9 @@ func pilot_ship_from_pack(ship):
 func pilot_ship(ship):		
 	var ship_load = load(ship)
 	piloted_ship = ship_load.instance()
+	piloted_ship.set_owner(self)
 	ship_node.add_child(piloted_ship)
-	var test = piloted_ship.get_node_or_null("HullCollision")
+#	var test = piloted_ship.get_node_or_null("HullCollision")
 	#print_debug("TEST: ", test)
 	Global.reparent(piloted_ship.get_node_or_null("HullCollision"), self)
 	instantiate_ship_variables()
@@ -365,3 +383,12 @@ func _on_Trigger_area_entered(area):
 	#print_debug(area, "detected by Player")
 	if area.get_parent().is_in_group("pickup"):
 		area.get_parent().pickup()
+
+func _on_HitBox_area_entered(area):
+	var hitParent = area.get_parent()	
+	if hitParent.is_in_group("projectile"):
+		if !hitParent.owner_ref.team_group == team_group:
+			take_damage(hitParent.Damage, global_position)
+			hitParent.hit_something()
+
+

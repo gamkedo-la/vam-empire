@@ -36,6 +36,8 @@ onready var _type_option = $Tabs/ItemDB/MainVB/MainHB/InspectVB/TypeHB/TypeOptio
 
 onready var _stack_size_edit = $Tabs/ItemDB/MainVB/MainHB/InspectVB/StackHB/StackSizeEdit as LineEdit
 
+onready var _sell_price_edit = $Tabs/ItemDB/MainVB/MainHB/InspectVB/SellPriceHB/SellPriceEdit as LineEdit
+
 onready var _props_vbox = $Tabs/ItemDB/MainVB/MainHB/InspectVB/PropsVB as VBoxContainer
 onready var _add_prop_button = $Tabs/ItemDB/MainVB/MainHB/InspectVB/AddPropHB/AddPropButton as Button
 
@@ -49,7 +51,6 @@ onready var itemsNode
 var selected_item
 var cur_scene
 var Itemdb
-
 
 
 func _ready() -> void:
@@ -86,6 +87,8 @@ func set_selected_item(item):
 		_type_option.select(sel_item.itemType)	
 	if _stack_size_edit:		
 		_stack_size_edit.text = var2str(int(sel_item.stackSize))
+	if _sell_price_edit:
+		_sell_price_edit.text = var2str(int(sel_item.sellPrice) if sel_item.has("sellPrice") else 1)
 	if sel_item.has("properties"):
 		print("HAS PROPERTIES")
 		for props in sel_item.properties:
@@ -165,6 +168,7 @@ func _new_item() -> void:
 	new_item.itemIcon = default_icon_path
 	new_item.itemType = 0
 	new_item.stackSize = 1
+	new_item.sellprice = 1
 	Database.table.Items.append(new_item)
 	Database.save_db()
 	_load_items()
@@ -227,6 +231,8 @@ func _save_item() -> void:
 		item_save.itemType = _type_option.get_selected_id()
 	if _stack_size_edit:
 		item_save.stackSize = str2var(_stack_size_edit.text)
+	if _sell_price_edit:
+		item_save.sellPrice = str2var(_sell_price_edit.text)
 	if _props_vbox:		
 		if _props_vbox.get_child_count() > 0:
 			item_save.properties = []

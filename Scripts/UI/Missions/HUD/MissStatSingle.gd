@@ -7,7 +7,7 @@ var miss_id: String = ""
 
 func _ready() -> void:
 	_init_fields()
-	PlayerVars.connect("mission_updated", self, "_init_fields")
+	var _connect = PlayerVars.connect("mission_updated", self, "_init_fields")
 	
 func _init_fields() -> void:
 	if PlayerVars.mission_state.has(miss_id):

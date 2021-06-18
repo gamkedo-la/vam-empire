@@ -3,6 +3,8 @@ class_name Actor
 signal removed
 onready var ai = $AI
 
+onready var hit_box = $HitBox
+
 # Team Variables
 enum Team {
 	FRIENDLY,
@@ -39,9 +41,10 @@ var energyMax: int = 0
 var healingMaxEnergy: int = 0
 
 export var ship_file = preload("res://Ships/Templates/M_Destroyers/DestroyerTemplate01.tscn")
+var explosion = preload("res://VFX/explosion_unlit.tscn")
 onready var ship_node = $PilotedShip
 onready var minimap_sprite = $Sprite
-
+onready var death_timer = Timer.new()
 
 # Movement constants
 const m_s_up = Vector2.ZERO
@@ -53,8 +56,10 @@ var velocity: Vector2 = Vector2.ZERO
 
 var piloted_ship = null
 # Called when the node enters the scene tree for the first time.
-func _ready():
-	
+func _ready() -> void:
+	death_timer.wait_time = 1
+	death_timer.connect("timeout", self, "_remove_self")
+	add_child(death_timer)
 	pilot_ship_from_file(ship_file)
 	instantiate_ship_variables()
 	var ship_sprite = piloted_ship.get_node_or_null("ShipSprite")
@@ -64,14 +69,16 @@ func _ready():
 	if team_group:
 		self.add_to_group(team_group)
 	ai.initialize(self, piloted_ship, team_group)
+	_init_collision()
 
-func pilot_ship_from_file(ship):
+func pilot_ship_from_file(ship) -> void:
 	piloted_ship = ship.instance()
+	piloted_ship.set_owner(self)
 	ship_node.add_child(piloted_ship)	
 	var hull = piloted_ship.get_node_or_null("HullCollision")
 	Global.reparent(hull, self)
 
-func instantiate_ship_variables():
+func instantiate_ship_variables() -> void:
 	ACCELERATION = piloted_ship.ACCELERATION	
 	MAX_SPEED = piloted_ship.MAX_SPEED	
 	FRICTION = piloted_ship.FRICTION	
@@ -82,11 +89,48 @@ func instantiate_ship_variables():
 	hullHealth = piloted_ship.hullHealth	
 	energyReserve = piloted_ship.energyReserve	
 
-func rotate_toward(location: Vector2):
+func rotate_toward(location: Vector2) -> void:
 	global_rotation = lerp_angle(global_rotation, global_position.direction_to(location).angle(), ROT_SPEED)
 
+func take_damage(amount):
+	if amount == 0:
+		return
 
-func _set_team():
+	# We should update shield health when shields are up and we're taking damage, or hull is full and we're healing
+	var update_shield = false
+	if (amount > 0 && shieldHealth > 0) || (amount < 0 && hullHealth == hullMaxHealth):
+		update_shield = true
+
+	if update_shield:
+		var pre_shield = self.shieldHealth
+		self.shieldHealth -= amount
+		Effects.show_player_shield_dmg_text(global_position, amount)
+		if shieldHealth > pre_shield:
+			Effects.emit_signal("ChargeShield", true)
+	else:
+		self.hullHealth -= amount
+		Effects.show_player_hp_dmg_text(global_position, amount)
+	
+	# TODO: Play animations/explosions, random loot drop chances, pay-out bounties to player if a Pirate/Vampire
+	if hullHealth <= 0:
+		var exploder = explosion.instance()
+		get_tree().get_root().add_child(exploder)
+		exploder.global_position = global_position
+		_disable()
+		death_timer.start()
+
+func _disable() -> void:
+#	print_debug("Enemy ", self, " is disabled now.")
+	hit_box.disconnect("area_entered", self, "_on_HitBox_area_entered")
+	emit_signal("removed", self)
+	ai.set_state(2)
+	self.visible = false
+
+func _remove_self() -> void:	
+#	print_debug("Enemy ", self, " being destroyed now.")
+	call_deferred("queue_free")
+
+func _set_team() -> void:
 	match actor_team:
 		Team.FRIENDLY:
 			team_group = "friendly"
@@ -96,3 +140,15 @@ func _set_team():
 			team_group = "vampire"
 		_:
 			printerr("Unknown Team for Actor ", self)
+
+func _init_collision() -> void:
+	if actor_team == Team.PIRATE || Team.VAMPIRE:
+		hit_box.set_collision_layer_bit(2, true)
+		
+func _on_HitBox_area_entered(area):
+	var hitParent = area.get_parent()	
+	if hitParent.is_in_group("projectile"):
+		if !hitParent.owner_ref.team_group == team_group:
+			take_damage(hitParent.Damage)
+			hitParent.hit_something()
+	pass

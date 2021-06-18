@@ -1,4 +1,4 @@
-[gd_scene load_steps=5 format=2]
+[gd_scene load_steps=7 format=2]
 
 [ext_resource path="res://Bullets/Scenes/BasicBullet.tscn" type="PackedScene" id=1]
 [ext_resource path="res://Bullets/Textures/BasicMissile.png" type="Texture" id=2]
@@ -36,7 +36,17 @@ tracks/1/keys = {
 radius = 2.789
 height = 8.916
 
-[node name="BasicBullet" instance=ExtResource( 1 )]
+[sub_resource type="Curve" id=3]
+resource_local_to_scene = true
+max_value = 10.0
+_data = [ Vector2( 0, 5.3681 ), 0.0, -15.1446, 0, 0, Vector2( 0.213542, 0.82822 ), 0.0, 0.0, 0, 0, Vector2( 1, 0 ), 0.0, 0.0, 0, 0 ]
+
+[sub_resource type="Gradient" id=4]
+resource_local_to_scene = true
+offsets = PoolRealArray( 0.07, 0.242798, 1 )
+colors = PoolColorArray( 0.178649, 0.178649, 0.178649, 0.178649, 1, 1, 1, 0.411765, 1, 1, 1, 1 )
+
+[node name="BasicMissile" instance=ExtResource( 1 )]
 position = Vector2( 0, 0 )
 
 [node name="Sprite" parent="." index="0"]
@@ -49,13 +59,11 @@ autoplay = "Travel"
 anims/Travel = SubResource( 1 )
 
 [node name="CollisionShape2D" parent="." index="2"]
-visible = false
 position = Vector2( 1, 0 )
 rotation = 1.5708
 shape = SubResource( 2 )
 
 [node name="HurtBox" parent="." index="3"]
-visible = false
 position = Vector2( 1, 0 )
 
 [node name="CollisionShape2D" parent="HurtBox" index="0"]
@@ -67,5 +75,10 @@ position = Vector2( -2.32967, 0.279792 )
 rotation = -1.57079
 scale = Vector2( 0.101748, 0.176474 )
 energy = 0.947558
+
+[node name="Smoketrail" parent="." index="5"]
+self_modulate = Color( 0.478431, 0.478431, 0.478431, 1 )
+width_curve = SubResource( 3 )
+gradient = SubResource( 4 )
 
 [editable path="HurtBox"]

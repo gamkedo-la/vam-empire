@@ -11,19 +11,19 @@ onready var hullAnimationPlayer = $HudVbox/HealthHbox/AnimationPlayer
 
 func _ready():
 	_refresh_settings()
-	UserSettings.connect("ui_refresh", self, "_refresh_settings")
+	var _connect = UserSettings.connect("ui_refresh", self, "_refresh_settings")
 
 	# Here, we are "binding" default parameters to add to the end of the signal call. 
 	# The function will get passed in the the first 2 vars from the signal emission, and then the animation player we want to use, if applicable
-	PlayerVars.connect("hull_health_changed", self, "_on_PlayerVars_stat_change", [hullAnimationPlayer])
-	PlayerVars.connect("hull_max_health_changed", self, "_on_PlayerVars_stat_change", [null])
-	PlayerVars.connect("shield_health_changed", self, "_on_PlayerVars_stat_change", [shieldAnimationPlayer])
-	PlayerVars.connect("shield_max_health_changed", self, "_on_PlayerVars_stat_change", [null])	
+	_connect = PlayerVars.connect("hull_health_changed", self, "_on_PlayerVars_stat_change", [hullAnimationPlayer])
+	_connect = PlayerVars.connect("hull_max_health_changed", self, "_on_PlayerVars_stat_change", [null])
+	_connect = PlayerVars.connect("shield_health_changed", self, "_on_PlayerVars_stat_change", [shieldAnimationPlayer])
+	_connect = PlayerVars.connect("shield_max_health_changed", self, "_on_PlayerVars_stat_change", [null])	
 
-	PlayerVars.connect("energy_reserve_changed", self, "_on_PlayerVars_stat_change", [null])	
-	PlayerVars.connect("energy_max_reserve_changed", self, "_on_PlayerVars_stat_change", [null])
+	_connect = PlayerVars.connect("energy_reserve_changed", self, "_on_PlayerVars_stat_change", [null])	
+	_connect = PlayerVars.connect("energy_max_reserve_changed", self, "_on_PlayerVars_stat_change", [null])
 	
-	PlayerVars.connect("mission_complete", self, "_mission_complete")
+	_connect = PlayerVars.connect("mission_complete", self, "_mission_complete")
 	
 		
 func _on_PlayerVars_stat_change(_amount, change_amount, animation_player):

@@ -1,0 +1,55 @@
+[gd_scene load_steps=6 format=2]
+
+[ext_resource path="res://World/game_areas/Templates/AreaTemplate.tscn" type="PackedScene" id=1]
+[ext_resource path="res://Obstacles/Scenes/MedAsteroid01.tscn" type="PackedScene" id=2]
+[ext_resource path="res://Scripts/ZoneOrchestration/Area_RareAsteroidField001.gd" type="Script" id=3]
+[ext_resource path="res://Lights/Textures/rare_asteroid_field_glow.png" type="Texture" id=4]
+
+[sub_resource type="Animation" id=3]
+resource_name = "pulse"
+length = 2.0
+loop = true
+tracks/0/type = "bezier"
+tracks/0/path = NodePath("RareAsteroidFieldGlow:modulate:a")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"points": PoolRealArray( 0.352941, -0.25, 0, 0.25, 0, 0.6, -0.25, 0, 0.25, 0, 0.352941, -0.25, 0, 0.25, 0 ),
+"times": PoolRealArray( 0, 1, 2 )
+}
+
+[node name="Area_RareAsteroidField001" instance=ExtResource( 1 )]
+script = ExtResource( 3 )
+
+[node name="RareAsteroidFieldGlow" type="Sprite" parent="." index="0"]
+modulate = Color( 1, 1, 1, 0.512454 )
+scale = Vector2( 2, 2 )
+texture = ExtResource( 4 )
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="." index="1"]
+autoplay = "pulse"
+anims/pulse = SubResource( 3 )
+
+[node name="MedAsteroids" type="Node2D" parent="." index="2"]
+
+[node name="MedAsteroid01" parent="MedAsteroids" index="0" instance=ExtResource( 2 )]
+position = Vector2( 31.1127, 173.948 )
+mineral_contents = [ "d7a332ce-ea38-466e-9539-2ebb94eff566", "4e2136e8-7e87-4635-9b91-36e68afb1c20" ]
+
+[node name="MedAsteroid02" parent="MedAsteroids" index="1" instance=ExtResource( 2 )]
+position = Vector2( 167.373, 9.33096 )
+mineral_contents = [ "d7a332ce-ea38-466e-9539-2ebb94eff566", "4e2136e8-7e87-4635-9b91-36e68afb1c20" ]
+
+[node name="MedAsteroid03" parent="MedAsteroids" index="2" instance=ExtResource( 2 )]
+position = Vector2( -89.5759, -90.9547 )
+mineral_contents = [ "d7a332ce-ea38-466e-9539-2ebb94eff566", "4e2136e8-7e87-4635-9b91-36e68afb1c20" ]
+
+[node name="MedAsteroid05" parent="MedAsteroids" index="3" instance=ExtResource( 2 )]
+position = Vector2( 93.8162, -164.225 )
+mineral_contents = [ "4e2136e8-7e87-4635-9b91-36e68afb1c20", "e953436f-0ac9-4a11-90b2-14da73ce32a6" ]
+
+[node name="MedAsteroid04" parent="MedAsteroids" index="4" instance=ExtResource( 2 )]
+position = Vector2( -152.343, 80.3188 )
+mineral_contents = [ "d7a332ce-ea38-466e-9539-2ebb94eff566", "4e2136e8-7e87-4635-9b91-36e68afb1c20", "e953436f-0ac9-4a11-90b2-14da73ce32a6", "4fa1a793-846b-409a-820e-77c69ff3cb53" ]

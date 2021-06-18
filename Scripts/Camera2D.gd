@@ -17,11 +17,11 @@ var rcs_front_timer
 
 func _ready():
 	
-	Effects.connect("RCSLeft", self, "_rcs_left")
-	Effects.connect("RCSRight", self, "_rcs_right")
-	Effects.connect("RCSFront", self, "_rcs_front")
-	Effects.connect("PlayerRockCollision", self, "_player_rock_collision")
-	Effects.connect("ChargeShield", self, "_charge_shield")
+	var _connect = Effects.connect("RCSLeft", self, "_rcs_left")
+	_connect = Effects.connect("RCSRight", self, "_rcs_right")
+	_connect = Effects.connect("RCSFront", self, "_rcs_front")
+	_connect = Effects.connect("PlayerRockCollision", self, "_player_rock_collision")
+	_connect = Effects.connect("ChargeShield", self, "_charge_shield")
 	shield_tween.interpolate_property(shield_pivot, "rotation_degrees", shield_pivot.rotation_degrees, 360, 1, Tween.TRANS_SINE, Tween.EASE_IN_OUT)
 	shield_tween.start()
 

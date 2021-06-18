@@ -35,6 +35,8 @@ script = ExtResource( 4 )
 ship_name = "Starter"
 MAX_SPEED = 500
 FRICTION = 50
+ROT_SPEED = 3.0
+ROT_ACCEL = 1.0
 hardpoint_size = [ 0, 0 ]
 equipped_weapon_index = [ 0, 2 ]
 

@@ -51,8 +51,9 @@ func _init_connections() -> void:
 func _mission_pressed() -> void:
 	print_debug("Mission ", mission_id, " pressed.")
 	emit_signal("mission_selected", mission_id)
+	
 func set_triggers() -> void:
-	if mission_type == MissionType.ITEM:
+	if mission_type == MissionType.ITEM:		
 		if not PlayerVars.is_connected("picked_up", self, "_check_item_mission"):
 			assert(PlayerVars.connect("picked_up", self, "_check_item_mission") == OK)
 
@@ -78,6 +79,7 @@ func check_completable() -> void:
 					completable = true
 
 func _check_item_mission(uuid:String, cnt: int) -> void:
+	print_debug("item_uuid: [",item_uuid, "] uuid: [",uuid,"]")
 	if item_uuid == uuid && completed < item_goal:
 		if completed + cnt <= item_goal:
 			completed += cnt

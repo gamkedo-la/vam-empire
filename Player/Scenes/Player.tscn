@@ -1,4 +1,4 @@
-[gd_scene load_steps=9 format=2]
+[gd_scene load_steps=11 format=2]
 
 [ext_resource path="res://UI/HUD/Scenes/CharacterSheet.tscn" type="PackedScene" id=1]
 [ext_resource path="res://UI/HUD/Scenes/PlayerDebugMenu.tscn" type="PackedScene" id=2]
@@ -7,16 +7,18 @@
 [ext_resource path="res://UI/Menu/Missions/MissionBoard.tscn" type="PackedScene" id=5]
 [ext_resource path="res://Player/Scenes/HealingBot.tscn" type="PackedScene" id=6]
 [ext_resource path="res://UI/Menu/Inventory.tscn" type="PackedScene" id=7]
+[ext_resource path="res://Collisions/HitBox.tscn" type="PackedScene" id=8]
 
 [sub_resource type="CircleShape2D" id=1]
 radius = 16.5606
+
+[sub_resource type="RectangleShape2D" id=2]
 
 [node name="Player" type="KinematicBody2D" groups=[
 "friendly",
 "player",
 ]]
 collision_layer = 2
-collision_mask = 9
 script = ExtResource( 4 )
 
 [node name="Trigger" type="Area2D" parent="."]
@@ -25,6 +27,13 @@ collision_mask = 16
 
 [node name="TriggerCollider" type="CollisionShape2D" parent="Trigger"]
 shape = SubResource( 1 )
+
+[node name="HitBox" parent="." instance=ExtResource( 8 )]
+monitorable = false
+collision_layer = 4
+
+[node name="CollisionShape2D" parent="HitBox" index="0"]
+shape = SubResource( 2 )
 
 [node name="PilotedShip" type="Node2D" parent="."]
 
@@ -50,4 +59,7 @@ visible = false
 visible = false
 
 [connection signal="area_entered" from="Trigger" to="." method="_on_Trigger_area_entered"]
+[connection signal="area_entered" from="HitBox" to="." method="_on_HitBox_area_entered"]
 [connection signal="timeout" from="EnergyRecoveryDelayTimer" to="." method="_on_EnergyRecoveryDelayTimer_timeout"]
+
+[editable path="HitBox"]

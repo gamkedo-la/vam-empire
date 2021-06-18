@@ -7,8 +7,6 @@ export (Database.ItemType) var itemType
 export (Array, int) var asteroids
 export (Texture) var itemTexture
 
-func _init(itemName:String = "", itemType:int = 0, asteroids:Array = [], itemTexture:Texture = null):
-	pass
 
 func _ready():
 	print(Database.ItemType)
@@ -27,5 +25,5 @@ func collect():
 	queue_free()
 
 
-func _on_LootTrigger_area_entered(area):
+func _on_LootTrigger_area_entered(_area):
 	collect()

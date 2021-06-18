@@ -325,10 +325,28 @@ margin_bottom = 22.0
 size_flags_horizontal = 3
 text = "999"
 
-[node name="Divider" type="HBoxContainer" parent="Tabs/ItemDB/MainVB/MainHB/InspectVB"]
+[node name="SellPriceHB" type="HBoxContainer" parent="Tabs/ItemDB/MainVB/MainHB/InspectVB"]
 margin_top = 394.0
 margin_right = 435.0
-margin_bottom = 398.0
+margin_bottom = 416.0
+
+[node name="Label" type="Label" parent="Tabs/ItemDB/MainVB/MainHB/InspectVB/SellPriceHB"]
+margin_right = 112.0
+margin_bottom = 22.0
+rect_min_size = Vector2( 70, 0 )
+text = "Sell Price"
+
+[node name="SellPriceEdit" type="LineEdit" parent="Tabs/ItemDB/MainVB/MainHB/InspectVB/SellPriceHB"]
+margin_left = 118.0
+margin_right = 435.0
+margin_bottom = 22.0
+size_flags_horizontal = 3
+text = "100"
+
+[node name="Divider" type="HBoxContainer" parent="Tabs/ItemDB/MainVB/MainHB/InspectVB"]
+margin_top = 422.0
+margin_right = 435.0
+margin_bottom = 426.0
 
 [node name="HSeparator" type="HSeparator" parent="Tabs/ItemDB/MainVB/MainHB/InspectVB/Divider"]
 margin_right = 435.0
@@ -336,9 +354,9 @@ margin_bottom = 4.0
 size_flags_horizontal = 3
 
 [node name="PropertiesLblHB" type="HBoxContainer" parent="Tabs/ItemDB/MainVB/MainHB/InspectVB"]
-margin_top = 404.0
+margin_top = 432.0
 margin_right = 435.0
-margin_bottom = 426.0
+margin_bottom = 454.0
 
 [node name="Label" type="Label" parent="Tabs/ItemDB/MainVB/MainHB/InspectVB/PropertiesLblHB"]
 margin_right = 162.0
@@ -346,9 +364,9 @@ margin_bottom = 22.0
 text = "Item Properties"
 
 [node name="AddPropHB" type="HBoxContainer" parent="Tabs/ItemDB/MainVB/MainHB/InspectVB"]
-margin_top = 432.0
+margin_top = 460.0
 margin_right = 435.0
-margin_bottom = 454.0
+margin_bottom = 482.0
 
 [node name="AddPropButton" type="Button" parent="Tabs/ItemDB/MainVB/MainHB/InspectVB/AddPropHB"]
 margin_right = 48.0
@@ -356,9 +374,9 @@ margin_bottom = 22.0
 text = "[+]"
 
 [node name="PropsVB" type="VBoxContainer" parent="Tabs/ItemDB/MainVB/MainHB/InspectVB"]
-margin_top = 460.0
+margin_top = 488.0
 margin_right = 435.0
-margin_bottom = 460.0
+margin_bottom = 488.0
 
 [node name="ItemActionsVB" type="VBoxContainer" parent="Tabs/ItemDB/MainVB/MainHB"]
 margin_left = 1467.0

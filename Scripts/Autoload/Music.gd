@@ -1,10 +1,20 @@
 extends Node
 
 
-onready var ambient_explo_music = $Ambient_Exploration
+onready var ambient_explo_music: AudioStreamPlayer = $Ambient_Exploration
+onready var impending_threat: AudioStreamPlayer = $ImpendingThreat
+onready var active_combat: AudioStreamPlayer = $ActiveCombat
 onready var tween = $Tween
 
+var fade_speed := 20
+
+var ambient_target = 0
+var impending_target = -80
+var combat_target = -80
+
 var easein_time = 4
+var total_engaged: int = 0
+var total_inrange: int = 0
 
 func _ready():
 	# Ease the music in to avoid 'startling' the player on game load
@@ -19,7 +29,56 @@ func _ready():
 #	ambient_explo_music.volume_db = 0
 	pass
 
+func _process(delta: float) -> void:
+	
+	_set_targets()
+	_set_levels(delta)
+	pass
+func register_enemy(newEnemy: AIController) -> void:
+	var _connected = newEnemy.connect("state_changed", self, "_enemy_state_changed")
 
-# Called every frame. 'delta' is the elapsed time since the previous frame.
-#func _process(delta):
-#	pass
+
+func _enemy_state_changed(state:int) -> void:
+	if state != AIController.State.ENGAGE && total_engaged > 0:
+		total_engaged -= 1
+	elif state == AIController.State.ENGAGE:
+		total_engaged += 1
+	
+#	print_debug("Targets-- Ambient: ", ambient_target, "Impending: ", impending_target, "Combat: ", combat_target)
+		
+func _set_targets() -> void:
+	if total_engaged > 0:
+		var combat_pct = clamp(total_engaged/2, 0.75, 1.0)
+		ambient_target = -40
+		impending_target = 0
+		combat_target = -80 + (80 * combat_pct)
+#		print_debug("Combat Target: ", combat_target, "Combat Pct: ", combat_pct)
+	elif total_inrange > 0:
+		# TODO: Detect a middle state for enemies 'nearby' but not engaged
+		pass
+	else:
+		ambient_target = 0
+		impending_target = -80
+		combat_target = -80
+		
+	pass
+
+func _set_levels(delta: float) -> void:
+	var fade_this_frame = fade_speed * delta
+	
+	if ambient_explo_music.volume_db < ambient_target - fade_this_frame:
+		ambient_explo_music.volume_db += fade_this_frame
+	if ambient_explo_music.volume_db > ambient_target + fade_this_frame:
+		ambient_explo_music.volume_db -= fade_this_frame
+	
+	if impending_threat.volume_db < impending_target - fade_this_frame:
+		impending_threat.volume_db += fade_this_frame
+	if impending_threat.volume_db > impending_target + fade_this_frame:
+		impending_threat.volume_db -= fade_this_frame
+	
+	if active_combat.volume_db < combat_target - fade_this_frame:
+		active_combat.volume_db += fade_this_frame
+	if active_combat.volume_db > combat_target + fade_this_frame:
+		active_combat.volume_db -= fade_this_frame
+		
+	pass

@@ -6,6 +6,7 @@ onready var rng = RandomNumberGenerator.new()
 var laser = null
 var despawn_timer
 var spawn_timer
+var mineral_uuid: String = "4efd8d66-b38f-4b94-8326-2bc21799f888"
 
 var max_life
 
@@ -39,10 +40,11 @@ func _spawn_mineral_chance() -> void:
 	var chance = rng.randi() % 200
 	if chance > 150:
 		var newMineral: MineralDrop = mineral_drop.instance()
-		newMineral.item_uuid = "4efd8d66-b38f-4b94-8326-2bc21799f888"
+		newMineral.item_uuid = mineral_uuid
 		get_tree().get_root().add_child(newMineral)
 		newMineral.global_position = self.global_position
 		var vecx = rng.randf_range(-1,1)
 		var vecy = rng.randf_range(-1,1)
 		newMineral.apply_central_impulse(Vector2(vecx,vecy) * (Vector2.ONE*10))
 		newMineral.angular_velocity = rng.randf_range(-2,2)
+		PlayerVars.enemy_attraction += 1

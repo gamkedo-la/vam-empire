@@ -14,6 +14,7 @@ onready var targ_tween = $HighlightTween
 onready var hurt_box = $HurtBox
 var coll_efx: AudioStreamPlayer2D
 onready var mine_spawner = preload("res://Pickups/MineSpawner.tscn")
+export (Array, String) var mineral_contents
 var miners = {}
 
 func _ready():
@@ -37,21 +38,22 @@ func _free_asteroid():
 
 func _on_HurtBox_area_entered(area):	
 	var hitParent = area.get_parent()
-	print_debug(hitParent)
+#	print_debug(hitParent) #Will either be a mining_laser or bullet atm.
 	if !hitParent.is_in_group("can_mine"):
 		health -= hitParent.Damage		
 		Effects.show_dmg_text(hitParent.global_position, hitParent.Damage)
 		hitParent.hit_something()
-	else:	
-		var laser = area.get_parent()		
+	else: #mining
+		var laser = area.get_parent()
 		var newMine = mine_spawner.instance()
+		newMine.mineral_uuid = mineral_contents[randi() % mineral_contents.size()]
 		laser.connect("disengage", newMine, "_remove_mine_spawner")		
 		get_tree().get_root().add_child(newMine)
 		newMine.laser = laser
 		newMine.global_position = self.global_position.linear_interpolate(area.global_position, .25)
 
-func _on_MedAsteroid01_body_shape_entered(body_id, body, body_shape, local_shape):	
-	print_debug(body)
+func _on_MedAsteroid01_body_shape_entered(_body_id, body, _body_shape, _local_shape):	
+#	print_debug(body)
 	if body.is_in_group("player"):
 		print_debug("Hit the player!")
 		
@@ -86,7 +88,7 @@ func make_target(_viewport, event, _shape_idx):
 									Tween.TRANS_SINE, Tween.EASE_IN_OUT, 1)
 		targ_tween.start()
 
-func _on_HighlightTween_tween_completed(object, key):
+func _on_HighlightTween_tween_completed(_object, key):
 #	print("object: ", object, "key: ", key)
 	if key == ":shader_param/width":
 		var cur_width = sprite.material.get_shader_param("width")
@@ -108,9 +110,4 @@ func _on_HighlightTween_tween_completed(object, key):
 							cur_color,targ_color, highlight_pulse_speed*2,
 							Tween.TRANS_SINE, Tween.EASE_IN_OUT)
 		targ_tween.start()
-
-
-
-
-
 

@@ -1,4 +1,4 @@
-[gd_scene load_steps=9 format=2]
+[gd_scene load_steps=11 format=2]
 
 [ext_resource path="res://Scripts/AI/Actor.gd" type="Script" id=1]
 [ext_resource path="res://Collisions/PlayerDetect.tscn" type="PackedScene" id=2]
@@ -6,12 +6,15 @@
 [ext_resource path="res://Scripts/AI/AI.gd" type="Script" id=4]
 [ext_resource path="res://Enemies/Textures/proto_enemy.png" type="Texture" id=5]
 [ext_resource path="res://Scripts/AI/Steering.gd" type="Script" id=6]
+[ext_resource path="res://Collisions/HurtBox.tscn" type="PackedScene" id=7]
 
 [sub_resource type="CircleShape2D" id=1]
 radius = 196.714
 
 [sub_resource type="CircleShape2D" id=2]
 radius = 400.0
+
+[sub_resource type="RectangleShape2D" id=3]
 
 [node name="Actor" type="KinematicBody2D" groups=[
 "mini_map",
@@ -29,6 +32,7 @@ texture = ExtResource( 5 )
 script = ExtResource( 4 )
 
 [node name="TargetDetect" parent="AI" instance=ExtResource( 2 )]
+visible = false
 collision_layer = 0
 collision_mask = 2
 
@@ -36,6 +40,7 @@ collision_mask = 2
 shape = SubResource( 1 )
 
 [node name="TargetLeash" parent="AI" instance=ExtResource( 3 )]
+visible = false
 
 [node name="CollisionShape2D" parent="AI/TargetLeash" index="0"]
 shape = SubResource( 2 )
@@ -47,8 +52,15 @@ script = ExtResource( 6 )
 steer_force = 0.5
 num_rays = 64
 
+[node name="HitBox" parent="." instance=ExtResource( 7 )]
+
+[node name="CollisionShape2D" parent="HitBox" index="0"]
+shape = SubResource( 3 )
+
 [connection signal="body_entered" from="AI/TargetDetect" to="AI" method="_on_TargetDetect_body_entered"]
 [connection signal="body_exited" from="AI/TargetLeash" to="AI" method="_on_TargetLeash_body_exited"]
+[connection signal="area_entered" from="HitBox" to="." method="_on_HitBox_area_entered"]
 
 [editable path="AI/TargetDetect"]
 [editable path="AI/TargetLeash"]
+[editable path="HitBox"]

@@ -49,6 +49,8 @@ onready var status_bars_opac_slider = $MenuCanvas/Viz/OptionsContainer/VBoxConta
 onready var mini_map_opac_slider = $MenuCanvas/Viz/OptionsContainer/VBoxContainer/TabContainer/HUD/VBoxContainer/MiniMapOpacHBox/mini_map_opac_slider
 onready var mini_map_style_option = $MenuCanvas/Viz/OptionsContainer/VBoxContainer/TabContainer/HUD/VBoxContainer/MiniMapStyleHBox/mini_map_style_optionbutton
 
+# Difficulty Panel
+onready var difficulty_option = $MenuCanvas/Viz/OptionsContainer/VBoxContainer/TabContainer/Difficulty/VBoxContainer/DifficultyHbox/DifficultyOptionButton
 # System Panel
 onready var contxt_steering_draw_toggle = $MenuCanvas/Viz/OptionsContainer/VBoxContainer/TabContainer/System/VBoxContainer/DebugModeHBox/ContextSteeringToggle
 
@@ -81,6 +83,8 @@ func _ready():
 	_setup_slot_buttons()
 	update_ui_settings()
 	update_volume()
+	close_options()
+	close_save_menu()
 	
 	
 func _process(_delta):
@@ -160,6 +164,8 @@ func update_ui_settings():
 		mini_map_style_option.selected = UserSettings.current.ui.mini_map_style
 	for textOpt in mini_map_style_option.get_item_count():
 		UserSettings.mini_map_textures.push_back(mini_map_style_option.get_item_icon(textOpt))
+	if UserSettings.current.difficulty.difficulty_level:
+		difficulty_option.selected = UserSettings.current.difficulty.difficulty_level
 	contxt_steering_draw_toggle.pressed = UserSettings.current.system.show_context_steering	
 	UserSettings.refresh_ui()
 	
@@ -242,7 +248,7 @@ func _on_sound_effect_volume_slider_value_changed(value):
 	UserSettings.current.sound.effects_volume = value
 	update_volume()
 
-func _on_ambience_slider_value_changed(value):
+func _on_ambience_slider_value_changed(_value):
 	#print("Ambience Volume", value)
 	pass
 
@@ -300,6 +306,11 @@ func _on_status_bars_opac_slider_value_changed(value):
 
 func _on_mini_map_opac_slider_value_changed(value):
 	UserSettings.current.ui.mini_map_grid_opacity = value
+	UserSettings.refresh_ui()
+
+
+func _on_DifficultyOptionButton_item_selected(index):
+	UserSettings.current.difficulty.difficulty_level = index
 	UserSettings.refresh_ui()
 
 
@@ -447,3 +458,4 @@ func _on_PlayerNameEdit_text_changed(new_text):
 		name_start_button.disabled = true
 	else:
 		name_start_button.disabled = false
+

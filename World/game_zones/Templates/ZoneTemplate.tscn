@@ -27,41 +27,8 @@ visible = false
 [node name="Viz" parent="MainMenu/MenuCanvas" index="0"]
 visible = false
 
-[node name="Audio" parent="MainMenu/MenuCanvas/Viz/OptionsContainer/VBoxContainer/TabContainer" index="0"]
-margin_left = 9.0
-margin_top = 28.0
-margin_right = -9.0
-margin_bottom = -6.0
-
-[node name="Graphics" parent="MainMenu/MenuCanvas/Viz/OptionsContainer/VBoxContainer/TabContainer" index="1"]
-margin_left = 9.0
-margin_top = 28.0
-margin_right = -9.0
-margin_bottom = -6.0
-
-[node name="HUD" parent="MainMenu/MenuCanvas/Viz/OptionsContainer/VBoxContainer/TabContainer" index="2"]
-margin_left = 9.0
-margin_top = 28.0
-margin_right = -9.0
-margin_bottom = -6.0
-
-[node name="Difficulty" parent="MainMenu/MenuCanvas/Viz/OptionsContainer/VBoxContainer/TabContainer" index="3"]
-margin_left = 9.0
-margin_top = 28.0
-margin_right = -9.0
-margin_bottom = -6.0
-
-[node name="System" parent="MainMenu/MenuCanvas/Viz/OptionsContainer/VBoxContainer/TabContainer" index="4"]
-margin_left = 9.0
-margin_top = 28.0
-margin_right = -9.0
-margin_bottom = -6.0
-
-[node name="About" parent="MainMenu/MenuCanvas/Viz/OptionsContainer/VBoxContainer/TabContainer" index="5"]
-margin_left = 9.0
-margin_top = 28.0
-margin_right = -9.0
-margin_bottom = -6.0
+[node name="DifficultyOptionButton" parent="MainMenu/MenuCanvas/Viz/OptionsContainer/VBoxContainer/TabContainer/Difficulty/VBoxContainer/DifficultyHbox" index="1"]
+items = [ "Bring a Bandaid", null, false, 0, null, "Get Some Gauze", null, false, 1, null, "Seek a Surgeon", null, false, 2, null ]
 
 [node name="CanvasLayer" type="CanvasLayer" parent="."]
 
@@ -165,6 +132,7 @@ position = Vector2( 323.434, 297.635 )
 [editable path="CanvasLayer/HUD"]
 [editable path="ReturnHomeBeacon"]
 [editable path="Player"]
+[editable path="Player/HitBox"]
 [editable path="Player/PlayerUICanvas/CharacterSheet"]
 [editable path="Player/PlayerUICanvas/CharacterSheet/MainVBoxContainer/TopBar"]
 [editable path="ParallaxBackground2"]
