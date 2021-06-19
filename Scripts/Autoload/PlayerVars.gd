@@ -11,6 +11,7 @@ signal energy_reserve_changed(val, change_amount)
 signal energy_max_reserve_changed(val, change_amount)
 
 signal picked_up
+signal actor_killed
 signal mission_updated
 signal mission_complete
 

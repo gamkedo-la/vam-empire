@@ -9,10 +9,10 @@
 [ext_resource path="res://Collisions/HurtBox.tscn" type="PackedScene" id=7]
 
 [sub_resource type="CircleShape2D" id=1]
-radius = 196.714
+radius = 156.246
 
 [sub_resource type="CircleShape2D" id=2]
-radius = 400.0
+radius = 406.044
 
 [sub_resource type="RectangleShape2D" id=3]
 
@@ -32,7 +32,6 @@ texture = ExtResource( 5 )
 script = ExtResource( 4 )
 
 [node name="TargetDetect" parent="AI" instance=ExtResource( 2 )]
-visible = false
 collision_layer = 0
 collision_mask = 2
 
@@ -40,7 +39,6 @@ collision_mask = 2
 shape = SubResource( 1 )
 
 [node name="TargetLeash" parent="AI" instance=ExtResource( 3 )]
-visible = false
 
 [node name="CollisionShape2D" parent="AI/TargetLeash" index="0"]
 shape = SubResource( 2 )

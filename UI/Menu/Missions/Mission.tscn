@@ -9,4 +9,4 @@ script = ExtResource( 1 )
 __meta__ = {
 "_edit_use_anchors_": false
 }
-mission_status = 1
+status = 1

@@ -19,6 +19,7 @@ enum Squadron {
 }
 
 export (Team) var actor_team
+export (String) var mission_string = ""
 export (Squadron) var squadron_status
 
 var team_group = null
@@ -113,11 +114,15 @@ func take_damage(amount):
 	
 	# TODO: Play animations/explosions, random loot drop chances, pay-out bounties to player if a Pirate/Vampire
 	if hullHealth <= 0:
+		_death()
+
+func _death() -> void:
 		var exploder = explosion.instance()
 		get_tree().get_root().add_child(exploder)
 		exploder.global_position = global_position
 		_disable()
 		death_timer.start()
+		PlayerVars.emit_signal("actor_killed", actor_team, mission_string)
 
 func _disable() -> void:
 #	print_debug("Enemy ", self, " is disabled now.")

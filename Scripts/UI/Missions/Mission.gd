@@ -28,6 +28,9 @@ export (Status) var initial_status
 export (MissionType) var mission_type
 export (String) var item_uuid
 export (int) var item_goal
+
+export (Actor.Team) var kill_team
+export (String) var mission_string = "ANY"
 export (int) var kill_goal
 export (int) var completed = 0
 
@@ -56,6 +59,9 @@ func set_triggers() -> void:
 	if mission_type == MissionType.ITEM:		
 		if not PlayerVars.is_connected("picked_up", self, "_check_item_mission"):
 			assert(PlayerVars.connect("picked_up", self, "_check_item_mission") == OK)
+	elif mission_type == MissionType.KILL:
+		if not PlayerVars.is_connected("actor_killed", self, "_check_kill_mission"):
+			assert(PlayerVars.connect("actor_killed", self, "_check_kill_mission") == OK)
 
 func check_preqs() -> void:
 	var unlock = true
@@ -74,9 +80,9 @@ func check_completable() -> void:
 		if mission_type == MissionType.ITEM:
 			if item_goal <= completed:
 				completable = true
-			elif item_goal == MissionType.KILL:
-				if kill_goal <= completed:
-					completable = true
+		elif mission_type == MissionType.KILL:
+			if kill_goal <= completed:
+				completable = true
 
 func _check_item_mission(uuid:String, cnt: int) -> void:
 	print_debug("item_uuid: [",item_uuid, "] uuid: [",uuid,"]")
@@ -88,4 +94,15 @@ func _check_item_mission(uuid:String, cnt: int) -> void:
 		PlayerVars.mission_state[mission_id].completed = completed
 		PlayerVars.save()
 		PlayerVars.emit_signal("mission_updated")
+		
+func _check_kill_mission(_kill_team: int, _mission_string:String) -> void:
+	if (mission_string == "ANY" && kill_team == _kill_team) || mission_string == _mission_string:
+		if completed + 1 <= kill_goal:
+			completed += 1
+		else:
+			completed = item_goal
+		PlayerVars.mission_state[mission_id].completed = completed
+		PlayerVars.save()
+		PlayerVars.emit_signal("mission_updated")
+		
 		
