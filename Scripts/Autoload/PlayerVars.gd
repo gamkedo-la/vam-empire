@@ -55,7 +55,8 @@ var energy_max_reserve = 0 setget set_energy_max_reserve
 var energy_recovery_per_s = 0 setget set_energy_recovery_per_s
 var energy_recovery_delay_s = 0 setget set_energy_recovery_delay
 
-# Enemy threat
+# Enemy Attraction when mining
+var in_mining_pirate_encounter_area:bool = false
 var enemy_attraction:int = 0 setget set_enemy_attraction
 
 func _ready():

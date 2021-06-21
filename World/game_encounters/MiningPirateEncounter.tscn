@@ -5,3 +5,12 @@
 [node name="MiningPirateEncounter" type="Node2D"]
 script = ExtResource( 1 )
 spawn_pirate_thresh = 1000
+
+[node name="Area2D" type="Area2D" parent="."]
+collision_layer = 0
+collision_mask = 2
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
+
+[connection signal="body_entered" from="Area2D" to="." method="_on_Area2D_body_entered"]
+[connection signal="body_exited" from="Area2D" to="." method="_on_Area2D_body_exited"]
