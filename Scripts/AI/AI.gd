@@ -1,6 +1,7 @@
 extends Node2D
 class_name AIController
 signal state_changed(new_state)
+signal near_player
 
 onready var target_detect_area = $TargetDetect
 onready var steering: Node2D = $Steering
@@ -16,7 +17,7 @@ var origin: Vector2 = Vector2.ZERO
 var journey_distance: float = 0.0
 var journey_percent: float = 0.0
 
-
+var in_range: bool = false
 
 enum State {
 	PATROL,
@@ -80,6 +81,10 @@ func set_state(new_state: int) -> void:
 		return		
 	current_state = new_state
 	emit_signal("state_changed", current_state)
+	if current_state == State.DEAD && in_range == true:
+		emit_signal("near_player", false)
+		in_range = false
+		
 
 func get_current_target() -> Vector2:	
 	if target:
@@ -152,6 +157,18 @@ func _on_TargetDetect_body_entered(body: Node) -> void:
 	
 
 func _on_TargetLeash_body_exited(body):
+	if body.is_in_group("player"):
+		emit_signal("near_player", false)
+		in_range = false
 	if target && body == target:
 		set_state(State.PATROL)
 		target = null
+
+
+
+func _on_TargetLeash_body_entered(body):
+	if body.is_in_group(team_name):
+		return
+	elif team_name != "friendly" and body.is_in_group("player"):
+		emit_signal("near_player", true)
+		in_range = true

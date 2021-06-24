@@ -13,8 +13,10 @@ var impending_target = -80
 var combat_target = -80
 
 var easein_time = 4
+var total_near: int = 0
 var total_engaged: int = 0
 var total_inrange: int = 0
+var enem
 
 func _ready():
 	# Ease the music in to avoid 'startling' the player on game load
@@ -34,16 +36,30 @@ func _process(delta: float) -> void:
 	_set_targets()
 	_set_levels(delta)
 	pass
+
 func register_enemy(newEnemy: AIController) -> void:
-	var _connected = newEnemy.connect("state_changed", self, "_enemy_state_changed")
+	if not newEnemy.is_connected("state_changed", self, "_enemy_state_changed"):
+		assert(newEnemy.connect("state_changed", self, "_enemy_state_changed") == OK)
+	if not newEnemy.is_connected("near_player", self, "_impending_threat"):
+		assert(newEnemy.connect("near_player", self, "_impending_threat") == OK)
 
 
 func _enemy_state_changed(state:int) -> void:
 	if state != AIController.State.ENGAGE && total_engaged > 0:
 		total_engaged -= 1
+		if total_inrange > 0:
+			total_inrange -= 1
 	elif state == AIController.State.ENGAGE:
 		total_engaged += 1
+
+func _impending_threat(_inrange: bool) -> void:
+	if _inrange: 
+		total_inrange += 1
+	elif total_inrange > 0:
+		total_inrange -= 1
 	
+	
+
 #	print_debug("Targets-- Ambient: ", ambient_target, "Impending: ", impending_target, "Combat: ", combat_target)
 		
 func _set_targets() -> void:
@@ -54,8 +70,8 @@ func _set_targets() -> void:
 		combat_target = -80 + (80 * combat_pct)
 #		print_debug("Combat Target: ", combat_target, "Combat Pct: ", combat_pct)
 	elif total_inrange > 0:
-		# TODO: Detect a middle state for enemies 'nearby' but not engaged
-		pass
+		ambient_target = -20
+		impending_target = -5
 	else:
 		ambient_target = 0
 		impending_target = -80

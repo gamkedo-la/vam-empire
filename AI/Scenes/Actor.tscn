@@ -56,6 +56,7 @@ num_rays = 64
 shape = SubResource( 3 )
 
 [connection signal="body_entered" from="AI/TargetDetect" to="AI" method="_on_TargetDetect_body_entered"]
+[connection signal="body_entered" from="AI/TargetLeash" to="AI" method="_on_TargetLeash_body_entered"]
 [connection signal="body_exited" from="AI/TargetLeash" to="AI" method="_on_TargetLeash_body_exited"]
 [connection signal="area_entered" from="HitBox" to="." method="_on_HitBox_area_entered"]
 
