@@ -1,6 +1,7 @@
 class_name MineralDrop
 extends RigidBody2D
 signal removed
+signal mineral_spawned
 
 onready var sprite: Sprite = $Sprite
 onready var mineral_dust: Particles2D = $MineralDust
@@ -20,11 +21,18 @@ func _ready() -> void:
 	despawn_timer.connect("timeout", self, "_release_item")
 	if item_uuid != "":
 		init_mineral(item_uuid)
+	init_mining_pirate_encounter()
 
 func init_mineral(uuid:String) -> void:
 	load_item_from_db(uuid)
 	_generate_particles()
 	_set_particle_color()
+
+func init_mining_pirate_encounter():
+	var mining_pirate_encounters = get_tree().get_nodes_in_group("mining_pirate_encounter")
+	for encounter in mining_pirate_encounters:
+		connect("mineral_spawned", encounter, "_try_increase_attraction")
+	emit_signal("mineral_spawned")
 
 func pickup() -> void:
 	PlayerVars.pickup_item(item_uuid, count)

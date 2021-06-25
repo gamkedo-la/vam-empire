@@ -2,9 +2,10 @@
 
 [ext_resource path="res://World/game_encounters/MiningPirateEncounter.gd" type="Script" id=1]
 
-[node name="MiningPirateEncounter" type="Node2D"]
+[node name="MiningPirateEncounter" type="Node2D" groups=[
+"mining_pirate_encounter",
+]]
 script = ExtResource( 1 )
-spawn_pirate_thresh = 1000
 
 [node name="Area2D" type="Area2D" parent="."]
 collision_layer = 0

@@ -40,7 +40,6 @@ position = Vector2( 2.51697, -534.862 )
 
 [node name="MiningPirateEncounter" parent="Zone/Encounters" index="1" instance=ExtResource( 5 )]
 position = Vector2( 829.124, -825.76 )
-spawn_pirate_thresh = 10
 
 [node name="CollisionShape2D" parent="Zone/Encounters/MiningPirateEncounter/Area2D" index="0"]
 position = Vector2( 19.8214, 6.60712 )
