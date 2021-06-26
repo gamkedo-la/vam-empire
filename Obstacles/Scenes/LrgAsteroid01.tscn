@@ -1,0 +1,51 @@
+[gd_scene load_steps=5 format=2]
+
+[ext_resource path="res://Scripts/Obstacles/BasicAsteroid.gd" type="Script" id=1]
+[ext_resource path="res://Shaders/SpriteOutline.tres" type="Material" id=2]
+[ext_resource path="res://Obstacles/Textures/asteroid_lrg_001.png" type="Texture" id=3]
+[ext_resource path="res://Obstacles/Textures/asteroid_lrg_001_n.png" type="Texture" id=4]
+
+[node name="LrgAsteroid01" type="RigidBody2D" groups=[
+"asteroids",
+"mini_map",
+]]
+input_pickable = true
+collision_layer = 9
+collision_mask = 7
+mass = 750.0
+contact_monitor = true
+script = ExtResource( 1 )
+health = 20000
+highlight_width_start = 0.1
+highlight_width_end = 1.2
+mineral_contents = [ "4efd8d66-b38f-4b94-8326-2bc21799f888", "d7a332ce-ea38-466e-9539-2ebb94eff566", "ad06b3ed-dfa6-41f7-ac75-468ed711de08", "4e2136e8-7e87-4635-9b91-36e68afb1c20" ]
+
+[node name="Sprite" type="Sprite" parent="."]
+material = ExtResource( 2 )
+texture = ExtResource( 3 )
+normal_map = ExtResource( 4 )
+
+[node name="CollisionShape2D" type="CollisionPolygon2D" parent="."]
+position = Vector2( -0.3964, 7.62939e-06 )
+rotation = -0.631809
+polygon = PoolVector2Array( 6.704, -53.0681, 37.2024, -32.5796, 36.3449, 8.82971, 15.3076, 50.5509, -4.70607, 52.297, -53.7045, 17.7367, -57.4023, 5.01184, -37.9736, -12.6454, -20.2094, -41.5393, -9.71131, -54.2831, 2.05207, -54.0007 )
+
+[node name="HurtBox" type="Area2D" parent="."]
+position = Vector2( -0.693695, -0.495499 )
+collision_layer = 12
+collision_mask = 2
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="HurtBox"]
+polygon = PoolVector2Array( 8.13664, -51.4417, 24.8306, -40.8373, 26.5105, -31.7029, 35.6449, -21.0986, 40.3696, -9.33932, 40.3696, 7.35463, 44.8843, 23.2086, 44.6744, 39.5876, 34.595, 47.3571, 28.9253, 47.9871, 21.0508, 52.1868, 3.9369, 49.982, -12.2321, 53.2368, -32.4958, 50.2969, -45.41, 39.3776, -40.6853, 14.0742, -42.5752, -14.274, -44.885, -26.3483, -39.4254, -43.8822, -21.7865, -50.7067 )
+
+[node name="Occluders" type="Node2D" parent="."]
+position = Vector2( 0.0127339, 0.839943 )
+
+[node name="HighlightTween" type="Tween" parent="."]
+
+[node name="CollisionEfx" type="AudioStreamPlayer2D" parent="."]
+
+[connection signal="body_shape_entered" from="." to="." method="_on_MedAsteroid01_body_shape_entered"]
+[connection signal="input_event" from="." to="." method="_on_Asteroid002_input_event"]
+[connection signal="area_entered" from="HurtBox" to="." method="_on_HurtBox_area_entered"]
+[connection signal="tween_completed" from="HighlightTween" to="." method="_on_HighlightTween_tween_completed"]

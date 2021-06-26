@@ -16,11 +16,13 @@ var coll_efx: AudioStreamPlayer2D
 onready var mine_spawner = preload("res://Pickups/MineSpawner.tscn")
 export (Array, String) var mineral_contents
 var miners = {}
+var rng = RandomNumberGenerator.new()
 
 func _ready():
+	rng.randomize()
 	add_to_group("mini_map")
 	sprite.material.set_shader_param("textureName_size", sprite.texture.get_size())
-	angular_velocity = rand_range(-8.0, 8.0)
+	angular_velocity = rng.randf_range(-1.0, 1.0)
 	angular_damp = 0.0
 	coll_efx = get_node_or_null("CollisionEfx")
 

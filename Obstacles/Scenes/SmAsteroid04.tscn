@@ -1,18 +1,18 @@
 [gd_scene load_steps=10 format=2]
 
-[ext_resource path="res://Obstacles/Textures/Asteroid_002.png" type="Texture" id=1]
-[ext_resource path="res://Scripts/Obstacles/BasicAsteroid.gd" type="Script" id=2]
-[ext_resource path="res://Collisions/HurtBox.tscn" type="PackedScene" id=3]
-[ext_resource path="res://Shaders/SpriteOutline.tres" type="Material" id=4]
-[ext_resource path="res://Obstacles/Textures/Asteroid_002_n.png" type="Texture" id=5]
+[ext_resource path="res://Scripts/Obstacles/BasicAsteroid.gd" type="Script" id=1]
+[ext_resource path="res://Shaders/SpriteOutline.tres" type="Material" id=2]
+[ext_resource path="res://Obstacles/Textures/asteroid_sm_004.png" type="Texture" id=3]
+[ext_resource path="res://Obstacles/Textures/asteroid_sm_004_n.png" type="Texture" id=4]
+[ext_resource path="res://Collisions/HurtBox.tscn" type="PackedScene" id=5]
 
 [sub_resource type="CapsuleShape2D" id=1]
-radius = 20.4655
-height = 4.20104
+radius = 11.8601
+height = 0.0
 
 [sub_resource type="CapsuleShape2D" id=2]
-radius = 25.5526
-height = 2.76742
+radius = 13.5207
+height = 0.0
 
 [sub_resource type="OccluderPolygon2D" id=3]
 closed = false
@@ -21,7 +21,7 @@ polygon = PoolVector2Array( -14.508, 22.1402, -20.0386, 13.8897, -24.9524, 7.478
 [sub_resource type="OccluderPolygon2D" id=4]
 polygon = PoolVector2Array( -11.0631, 22.8654, 2.6272, 27.036, 18.1308, 21.5961, 24.6587, 11.5324, 24.9307, -5.51254, 12.0563, -20.7442, 0.541908, -25.912, -12.4231, -24.0987, -24.9348, -10.0458, -24.3908, 7.9058 )
 
-[node name="MedAsteroid01" type="RigidBody2D" groups=[
+[node name="SmAsteroid04" type="RigidBody2D" groups=[
 "asteroids",
 "mini_map",
 ]]
@@ -30,29 +30,29 @@ collision_layer = 9
 collision_mask = 7
 mass = 750.0
 contact_monitor = true
-script = ExtResource( 2 )
+script = ExtResource( 1 )
 health = 20000
 highlight_width_start = 0.1
 highlight_width_end = 1.2
 mineral_contents = [ "4efd8d66-b38f-4b94-8326-2bc21799f888", "d7a332ce-ea38-466e-9539-2ebb94eff566" ]
 
 [node name="Sprite" type="Sprite" parent="."]
-material = ExtResource( 4 )
-texture = ExtResource( 1 )
-normal_map = ExtResource( 5 )
+material = ExtResource( 2 )
+texture = ExtResource( 3 )
+normal_map = ExtResource( 4 )
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
-position = Vector2( -0.3964, 7.62939e-06 )
+position = Vector2( 0.346016, 1.48484 )
 rotation = -0.631809
 shape = SubResource( 1 )
 
-[node name="HurtBox" parent="." instance=ExtResource( 3 )]
+[node name="HurtBox" parent="." instance=ExtResource( 5 )]
 position = Vector2( -0.693695, -0.495499 )
 collision_layer = 12
 collision_mask = 2
 
 [node name="CollisionShape2D" parent="HurtBox" index="0"]
-position = Vector2( 0.817163, 1.25168 )
+position = Vector2( 0.520197, 1.54865 )
 rotation = -0.63879
 shape = SubResource( 2 )
 

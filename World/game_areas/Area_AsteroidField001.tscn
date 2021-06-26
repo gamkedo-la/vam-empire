@@ -1,4 +1,4 @@
-[gd_scene load_steps=9 format=2]
+[gd_scene load_steps=16 format=2]
 
 [ext_resource path="res://Scripts/ZoneOrchestration/Area_AsteroidField.gd" type="Script" id=1]
 [ext_resource path="res://Obstacles/Scenes/MedAsteroid01.tscn" type="PackedScene" id=2]
@@ -7,6 +7,13 @@
 [ext_resource path="res://World/common_scenes/textures/ReturnBeacon_placeholder.png" type="Texture" id=5]
 [ext_resource path="res://World/common_scenes/textures/ReturnBeaconIndicator_placeholder.png" type="Texture" id=6]
 [ext_resource path="res://World/game_areas/Templates/AreaTemplate.tscn" type="PackedScene" id=7]
+[ext_resource path="res://Obstacles/Scenes/LrgAsteroid01.tscn" type="PackedScene" id=8]
+[ext_resource path="res://Obstacles/Scenes/SmAsteroid02.tscn" type="PackedScene" id=9]
+[ext_resource path="res://Obstacles/Scenes/SmAsteroid04.tscn" type="PackedScene" id=10]
+[ext_resource path="res://Obstacles/Scenes/SmAsteroid03.tscn" type="PackedScene" id=11]
+[ext_resource path="res://Obstacles/Scenes/WideAsteroid01.tscn" type="PackedScene" id=12]
+[ext_resource path="res://Obstacles/Scenes/SmAsteroid01.tscn" type="PackedScene" id=13]
+[ext_resource path="res://Obstacles/Scenes/MedAsteroid02.tscn" type="PackedScene" id=14]
 
 [sub_resource type="CircleShape2D" id=1]
 radius = 62.0345
@@ -157,6 +164,30 @@ position = Vector2( 4154.55, -6255.02 )
 
 [node name="MedAsteroid23" parent="MedAsteroids" index="22" instance=ExtResource( 2 )]
 position = Vector2( 2838.63, -7468.64 )
+
+[node name="LrgAsteroid01" parent="." index="2" instance=ExtResource( 8 )]
+position = Vector2( 1435.36, -1295.72 )
+
+[node name="SmAsteroid01" parent="." index="3" instance=ExtResource( 13 )]
+position = Vector2( -394.576, 141.227 )
+
+[node name="SmAsteroid02" parent="." index="4" instance=ExtResource( 9 )]
+position = Vector2( 137.769, 195.343 )
+
+[node name="SmAsteroid03" parent="." index="5" instance=ExtResource( 11 )]
+position = Vector2( 588.312, 205.411 )
+
+[node name="SmAsteroid04" parent="." index="6" instance=ExtResource( 10 )]
+position = Vector2( 101.273, -272.819 )
+
+[node name="WideAsteroid01" parent="." index="7" instance=ExtResource( 12 )]
+position = Vector2( -556.923, -347.071 )
+
+[node name="MedAsteroid01" parent="." index="8" instance=ExtResource( 14 )]
+position = Vector2( 200.532, 363.629 )
+
+[node name="MedAsteroid02" parent="." index="9" instance=ExtResource( 14 )]
+position = Vector2( -99.3293, -241.973 )
 
 [connection signal="area_entered" from="ReturnHomeBeacon" to="ReturnHomeBeacon" method="_on_ReturnHomeBeacon_area_entered"]
 [connection signal="area_exited" from="ReturnHomeBeacon" to="ReturnHomeBeacon" method="_on_ReturnHomeBeacon_area_exited"]

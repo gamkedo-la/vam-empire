@@ -1,0 +1,51 @@
+[gd_scene load_steps=5 format=2]
+
+[ext_resource path="res://Scripts/Obstacles/BasicAsteroid.gd" type="Script" id=1]
+[ext_resource path="res://Shaders/SpriteOutline.tres" type="Material" id=2]
+[ext_resource path="res://Obstacles/Textures/asteroid_wide_001_n.png" type="Texture" id=3]
+[ext_resource path="res://Obstacles/Textures/asteroid_wide_001.png" type="Texture" id=4]
+
+[node name="WideAsteroid01" type="RigidBody2D" groups=[
+"asteroids",
+"mini_map",
+]]
+input_pickable = true
+collision_layer = 9
+collision_mask = 7
+mass = 750.0
+contact_monitor = true
+script = ExtResource( 1 )
+health = 20000
+highlight_width_start = 0.1
+highlight_width_end = 1.2
+mineral_contents = [ "4efd8d66-b38f-4b94-8326-2bc21799f888", "d7a332ce-ea38-466e-9539-2ebb94eff566", "ad06b3ed-dfa6-41f7-ac75-468ed711de08", "4e2136e8-7e87-4635-9b91-36e68afb1c20" ]
+
+[node name="Sprite" type="Sprite" parent="."]
+material = ExtResource( 2 )
+texture = ExtResource( 4 )
+normal_map = ExtResource( 3 )
+
+[node name="CollisionShape2D" type="CollisionPolygon2D" parent="."]
+position = Vector2( -0.3964, 7.62939e-06 )
+rotation = -0.631809
+polygon = PoolVector2Array( -79.8357, -51.7846, -70.5107, -64.2592, -43.8044, -56.7997, -33.5063, -50.6272, -18.0668, -54.143, 1.04399, -47.7589, 14.7347, -31.3057, 16.3491, -14.3336, 3.71431, -5.06115, -3.26036, 6.59939, -2.80964, 18.236, 1.78796, 23.9403, 9.70273, 22.715, 13.7236, 8.69773, 27.5717, 3.62731, 39.6471, 11.1006, 70.5875, 60.4529, 57.8157, 76.838, 41.5437, 76.4304, 16.8115, 54.8202, -9.18732, 35.2071, -42.8599, -5.61784, -46.7197, -18.19, -37.4352, -28.7448, -47.9964, -35.8897, -59.9468, -27.286 )
+
+[node name="HurtBox" type="Area2D" parent="."]
+position = Vector2( -0.693695, -0.495499 )
+collision_layer = 12
+collision_mask = 2
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="HurtBox"]
+polygon = PoolVector2Array( -57.5855, -24.1879, -46.8883, -35.3571, -27.6962, -41.9642, -5.67242, -36.1436, 7.54182, -19.7831, 2.50783, -3.89458, 4.08095, 8.5331, 10.3734, 15.2975, 15.5648, 16.556, 19.1829, 11.3647, 13.677, -1.84952, 23.9023, -15.5357, 46.5553, -16.9515, 93.2771, 4.12836, 100.513, 19.7023, 93.749, 32.4446, 79.7482, 41.4114, 15.4074, 38.2652, -41.3823, 25.0509, -49.7199, 16.0841, -49.7199, 2.71254, -56.9563, 3.4991, -61.361, 16.8707, -93.6101, 10.8928, -96.599, 4.12836, -95.8124, -11.7602 )
+
+[node name="Occluders" type="Node2D" parent="."]
+position = Vector2( 0.0127339, 0.839943 )
+
+[node name="HighlightTween" type="Tween" parent="."]
+
+[node name="CollisionEfx" type="AudioStreamPlayer2D" parent="."]
+
+[connection signal="body_shape_entered" from="." to="." method="_on_MedAsteroid01_body_shape_entered"]
+[connection signal="input_event" from="." to="." method="_on_Asteroid002_input_event"]
+[connection signal="area_entered" from="HurtBox" to="." method="_on_HurtBox_area_entered"]
+[connection signal="tween_completed" from="HighlightTween" to="." method="_on_HighlightTween_tween_completed"]
