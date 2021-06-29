@@ -90,6 +90,9 @@ func _mission_selected(miss_id:String) -> void:
 	elif sel_miss.mission_type == Mission.MissionType.KILL:
 		complete_icon.texture = null
 		complete_text.text = str("Kills: ", sel_miss.completed,"/",sel_miss.kill_goal)
+	elif sel_miss.mission_type == Mission.MissionType.CHECKPOINT:
+		complete_icon.texture = null
+		complete_text.text = str("Visited: ", sel_miss.completed,"/",sel_miss.chkp_goal)
 		
 	print(miss_id)
 

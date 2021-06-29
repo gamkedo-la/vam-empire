@@ -13,6 +13,7 @@ signal energy_max_reserve_changed(val, change_amount)
 signal picked_up
 signal actor_killed
 signal mission_updated
+signal checkpoint_reached
 signal mission_complete
 
 signal item_transfer(uuid)
@@ -306,6 +307,8 @@ func accept_mission(miss:Mission) -> bool:
 		mission_state[miss.mission_id]["goal"] = miss.item_goal
 	elif miss.mission_type == Mission.MissionType.KILL:
 		mission_state[miss.mission_id]["goal"] = miss.kill_goal
+	elif miss.mission_type == Mission.MissionType.CHECKPOINT:
+		mission_state[miss.mission_id]["goal"] = miss.chkp_goal
 	mission_state[miss.mission_id]["completed"] = miss.completed
 	mission_state[miss.mission_id]["name"] = miss.m_name
 

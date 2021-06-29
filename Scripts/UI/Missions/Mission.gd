@@ -13,7 +13,8 @@ enum Status {
 
 enum MissionType {
 	ITEM,
-	KILL
+	KILL,
+	CHECKPOINT
 }
 
 export (String) var m_name = ""
@@ -32,6 +33,8 @@ export (int) var item_goal
 export (Actor.Team) var kill_team
 export (String) var mission_string = "ANY"
 export (int) var kill_goal
+
+export (int) var chkp_goal
 export (int) var completed = 0
 
 var completable: bool = false
@@ -62,6 +65,9 @@ func set_triggers() -> void:
 	elif mission_type == MissionType.KILL:
 		if not PlayerVars.is_connected("actor_killed", self, "_check_kill_mission"):
 			assert(PlayerVars.connect("actor_killed", self, "_check_kill_mission") == OK)
+	elif mission_type == MissionType.CHECKPOINT:
+		if not PlayerVars.is_connected("checkpoint_reached", self, "_check_chkp_mission"):
+			assert(PlayerVars.connect("checkpoint_reached", self, "_check_chkp_mission") == OK)
 
 func check_preqs() -> void:
 	var unlock = true
@@ -82,6 +88,9 @@ func check_completable() -> void:
 				completable = true
 		elif mission_type == MissionType.KILL:
 			if kill_goal <= completed:
+				completable = true
+		elif mission_type == MissionType.CHECKPOINT:
+			if chkp_goal <= completed:
 				completable = true
 
 func _check_item_mission(uuid:String, cnt: int) -> void:
@@ -105,4 +114,12 @@ func _check_kill_mission(_kill_team: int, _mission_string:String) -> void:
 		PlayerVars.save()
 		PlayerVars.emit_signal("mission_updated")
 		
-		
+func _check_chkpoint_mission(_mission_string:String) -> void:
+	if mission_string == _mission_string:
+		if completed + 1 <= chkp_goal:
+			completed += 1
+		else:
+			completed = chkp_goal
+		PlayerVars.mission_state[mission_id].completed = completed
+		PlayerVars.save()
+		PlayerVars.emit_signal("mission_updated")
