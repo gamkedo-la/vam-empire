@@ -356,7 +356,7 @@ func release_mining_lasers():
 	piloted_ship.release_mining_lasers()
 
 func fire_attached_bomb():
-	piloted_ship.fire_bomb()
+	piloted_ship.fire_weapons(velocity)
 
 # Useful for End Mission
 func _hide_all_overlays():
