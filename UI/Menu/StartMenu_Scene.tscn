@@ -22,12 +22,6 @@ visible = false
 [node name="Control" parent="MainMenu/MenuCanvas/Viz/MainMenuVBox/LogoBox/VamLogo" index="0"]
 show_behind_parent = true
 
-[node name="Audio" parent="MainMenu/MenuCanvas/Viz/OptionsContainer/VBoxContainer/TabContainer" index="0"]
-visible = true
-
-[node name="Difficulty" parent="MainMenu/MenuCanvas/Viz/OptionsContainer/VBoxContainer/TabContainer" index="3"]
-visible = false
-
 [node name="DifficultyOptionButton" parent="MainMenu/MenuCanvas/Viz/OptionsContainer/VBoxContainer/TabContainer/Difficulty/VBoxContainer/DifficultyHbox" index="1"]
 items = [ "Bring a Bandaid", null, false, 0, null, "Get Some Gauze", null, false, 1, null, "Seek a Surgeon", null, false, 2, null ]
 

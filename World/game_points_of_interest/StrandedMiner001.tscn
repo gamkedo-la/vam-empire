@@ -1,0 +1,12 @@
+[gd_scene load_steps=4 format=2]
+
+[ext_resource path="res://World/game_points_of_interest/Templates/PoITemplate.tscn" type="PackedScene" id=1]
+[ext_resource path="res://Scripts/ZoneOrchestration/MissionCheck.gd" type="Script" id=2]
+[ext_resource path="res://World/game_points_of_interest/Expedition_001.tscn" type="PackedScene" id=3]
+
+[node name="StrandedMiner001" instance=ExtResource( 1 )]
+
+[node name="MissionCheck" type="Node2D" parent="." index="0"]
+script = ExtResource( 2 )
+mission_id = "expedition_001"
+mission_scene = ExtResource( 3 )

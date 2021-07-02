@@ -1,4 +1,4 @@
-[gd_scene load_steps=8 format=2]
+[gd_scene load_steps=9 format=2]
 
 [ext_resource path="res://World/game_zones/Templates/ZoneTemplate.tscn" type="PackedScene" id=1]
 [ext_resource path="res://World/game_areas/Area_AsteroidField001.tscn" type="PackedScene" id=2]
@@ -6,6 +6,7 @@
 [ext_resource path="res://World/game_points_of_interest/PoI_001.tscn" type="PackedScene" id=4]
 [ext_resource path="res://World/game_encounters/MiningPirateEncounter.tscn" type="PackedScene" id=5]
 [ext_resource path="res://World/game_encounters/EnemyAITest_encounter.tscn" type="PackedScene" id=6]
+[ext_resource path="res://World/game_points_of_interest/StrandedMiner001.tscn" type="PackedScene" id=7]
 
 [sub_resource type="CircleShape2D" id=1]
 radius = 300.0
@@ -40,6 +41,9 @@ position = Vector2( 19.8214, 6.60712 )
 shape = SubResource( 1 )
 
 [node name="PoI_001" parent="Zone/PointsOfInterest" index="0" instance=ExtResource( 4 )]
+
+[node name="StrandedMiner001" parent="Zone/PointsOfInterest" index="1" instance=ExtResource( 7 )]
+position = Vector2( 371.58, 645.271 )
 
 [editable path="MainMenu"]
 [editable path="CanvasLayer/HUD"]

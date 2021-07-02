@@ -318,3 +318,11 @@ func accept_mission(miss:Mission) -> bool:
 func complete_mission(miss:Mission) -> void:
 	mission_state[miss.mission_id].status = Mission.Status.COMPLETE
 	save()
+
+func check_mission_active(_miss_id: String) -> bool:
+	if mission_state.has(_miss_id):
+		if mission_state[_miss_id].status == Mission.Status.ACCEPTED:
+			return true
+	
+	return false
+	

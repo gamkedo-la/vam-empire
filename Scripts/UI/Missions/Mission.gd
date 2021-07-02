@@ -66,8 +66,8 @@ func set_triggers() -> void:
 		if not PlayerVars.is_connected("actor_killed", self, "_check_kill_mission"):
 			assert(PlayerVars.connect("actor_killed", self, "_check_kill_mission") == OK)
 	elif mission_type == MissionType.CHECKPOINT:
-		if not PlayerVars.is_connected("checkpoint_reached", self, "_check_chkp_mission"):
-			assert(PlayerVars.connect("checkpoint_reached", self, "_check_chkp_mission") == OK)
+		if not PlayerVars.is_connected("checkpoint_reached", self, "_check_chkpoint_mission"):
+			assert(PlayerVars.connect("checkpoint_reached", self, "_check_chkpoint_mission") == OK)
 
 func check_preqs() -> void:
 	var unlock = true
