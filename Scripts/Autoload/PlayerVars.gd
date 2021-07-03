@@ -12,6 +12,8 @@ signal energy_max_reserve_changed(val, change_amount)
 
 signal picked_up
 signal actor_killed
+signal check_target
+signal target_active
 signal mission_updated
 signal checkpoint_reached
 signal mission_complete
@@ -325,4 +327,4 @@ func check_mission_active(_miss_id: String) -> bool:
 			return true
 	
 	return false
-	
+

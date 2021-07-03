@@ -1,0 +1,12 @@
+[gd_scene load_steps=2 format=2]
+
+[ext_resource path="res://UI/Textures/minimap_icons/exclamation.png" type="Texture" id=1]
+
+[node name="ActiveTargetIndicator" type="Node2D" groups=[
+"mini_map",
+]]
+
+[node name="Sprite" type="Sprite" parent="."]
+visible = false
+scale = Vector2( 3, 3 )
+texture = ExtResource( 1 )

@@ -42,6 +42,10 @@ var energyMax: int = 0
 var healingMaxEnergy: int = 0
 
 export var ship_file = preload("res://Ships/Templates/M_Destroyers/DestroyerTemplate01.tscn")
+export var active_targetind = preload("res://AI/Scenes/ActiveTargetIndicator.tscn")
+
+var indicator_active: bool = false
+
 var explosion = preload("res://VFX/explosion_unlit.tscn")
 onready var ship_node = $PilotedShip
 onready var minimap_sprite = $Sprite
@@ -71,6 +75,9 @@ func _ready() -> void:
 		self.add_to_group(team_group)
 	ai.initialize(self, piloted_ship, team_group)
 	_init_collision()
+	if not PlayerVars.is_connected("target_active", self, "_check_if_active_target"):
+		assert(PlayerVars.connect("target_active", self, "_check_if_active_target") == OK)
+	PlayerVars.emit_signal("check_target", actor_team, mission_string, self)
 
 func pilot_ship_from_file(ship) -> void:
 	piloted_ship = ship.instance()
@@ -157,3 +164,11 @@ func _on_HitBox_area_entered(area):
 			take_damage(hitParent.Damage)
 			hitParent.hit_something()
 	pass
+
+func _check_if_active_target(_actor:Actor) -> void:
+	if _actor == self && !indicator_active:
+		
+		var newIndicator = active_targetind.instance()
+		call_deferred("add_child", newIndicator)
+		indicator_active = true
+		

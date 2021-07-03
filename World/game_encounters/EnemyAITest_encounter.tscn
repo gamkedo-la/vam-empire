@@ -44,19 +44,19 @@ position = Vector2( 887.497, 427.105 )
 ship_file = ExtResource( 3 )
 
 [node name="Pirate" parent="." index="8" instance=ExtResource( 2 )]
-position = Vector2( 1797.75, 514.579 )
+position = Vector2( 199.557, 450.651 )
 collision_mask = 63
 actor_team = 1
 ship_file = ExtResource( 3 )
 
 [node name="Pirate2" parent="." index="9" instance=ExtResource( 2 )]
-position = Vector2( 1689.4, 1721.3 )
+position = Vector2( 466.782, -132.605 )
 collision_mask = 63
 actor_team = 1
 ship_file = ExtResource( 3 )
 
 [node name="Pirate3" parent="." index="10" instance=ExtResource( 2 )]
-position = Vector2( 1928.38, -263.464 )
+position = Vector2( -404.983, -279.446 )
 collision_mask = 63
 actor_team = 1
 ship_file = ExtResource( 3 )
