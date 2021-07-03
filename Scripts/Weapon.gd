@@ -16,6 +16,7 @@ enum WeaponType {
 	MINING_LASER,
 	MINING_DRILL,
 	DRONE_BAY,
+	BOMB
 	 }
 enum ProjectileSounds {
 	PROJECTILE_01,
@@ -118,6 +119,11 @@ func fire(parent_velocity: Vector2):
 				return true
 			WeaponType.LASER:
 				_fire_laser(parent_velocity)
+				if muzzle_flash:
+					muzzle_flash.on()
+				return true
+			WeaponType.BOMB:
+				_fire_projectile(parent_velocity)
 				if muzzle_flash:
 					muzzle_flash.on()
 				return true
@@ -231,10 +237,10 @@ func _get_property_list():	# overridden function
 	# List the weapon type choice no matter what. This is the 'primary driver and must be listed this way.
 	# As an "export", weap_type can't trigger the property_list_change_notify(), that I have found yet! It would be nice if it *could*.
 	property_list.append({"name": "weapon/weap_type","type": 2,"hint": 3,
-	"hint_string": "Phys_Projectile:0,Energy_Projectile:1,Laser:2,Mining_Laser:3,Mining_Drill:4,Drone_Bay:5","usage": 8199,})
+	"hint_string": "Phys_Projectile:0,Energy_Projectile:1,Laser:2,Mining_Laser:3,Mining_Drill:4,Drone_Bay:5,Bomb:6","usage": 8199,})
 	
 	# Projectile only features
-	if weap_type == WeaponType.PHYS_PROJECTILE || weap_type == WeaponType.ENERGY_PROJECTILE:
+	if weap_type == WeaponType.PHYS_PROJECTILE || weap_type == WeaponType.ENERGY_PROJECTILE || weap_type == WeaponType.BOMB:
 		property_list.append({"name": "weapon/projectile","type": 17,"usage": 8199,"hint": 17,"hint_string": "PackedScene",})
 		property_list.append({"name":"weapon/projectile_sound","hint":3,
 		"hint_string":"Projectile 01:0,Projectile 02:1,Projectile 03:2,Projectile 04:3,Projectile 05:4,Random:5","type":2,"usage":8199,})
@@ -247,8 +253,9 @@ func _get_property_list():	# overridden function
 		property_list.append({"name": "weapon/beam","type": 17,"usage": 8199,"hint": 17,"hint_string": "PackedScene",})
 		
 	# Features common to Phys/Eneryg Proj and Lasers
-	if weap_type == WeaponType.PHYS_PROJECTILE || weap_type == WeaponType.ENERGY_PROJECTILE || weap_type == WeaponType.LASER || weap_type == WeaponType.MINING_LASER:
+	if weap_type == WeaponType.PHYS_PROJECTILE || weap_type == WeaponType.ENERGY_PROJECTILE || weap_type == WeaponType.LASER || weap_type == WeaponType.MINING_LASER || weap_type == WeaponType.BOMB:
 		property_list.append({"name":"weapon/fire_rate","hint":1,"hint_string":"50,10000", "type":3, "usage":8199,})
 		property_list.append({"name":"weapon/beam_sound","hint":3,
 		"hint_string":"Beam 01:0,Beam 02:1,Beam 03:2,Beam 04:3,Beam 05:4,Random:5","type":2,"usage":8199,})
+	
 	return property_list
