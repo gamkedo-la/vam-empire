@@ -45,6 +45,7 @@ export var ship_file = preload("res://Ships/Templates/M_Destroyers/DestroyerTemp
 export var active_targetind = preload("res://AI/Scenes/ActiveTargetIndicator.tscn")
 
 var indicator_active: bool = false
+var indicator_ref = null
 
 var explosion = preload("res://VFX/explosion_unlit.tscn")
 onready var ship_node = $PilotedShip
@@ -135,6 +136,9 @@ func _disable() -> void:
 #	print_debug("Enemy ", self, " is disabled now.")
 	hit_box.disconnect("area_entered", self, "_on_HitBox_area_entered")
 	emit_signal("removed", self)
+	if indicator_active:
+		indicator_ref.emit_signal("removed", indicator_ref)
+	
 	ai.set_state(2)
 	self.visible = false
 
@@ -168,7 +172,7 @@ func _on_HitBox_area_entered(area):
 func _check_if_active_target(_actor:Actor) -> void:
 	if _actor == self && !indicator_active:
 		
-		var newIndicator = active_targetind.instance()
-		call_deferred("add_child", newIndicator)
+		indicator_ref = active_targetind.instance()
+		call_deferred("add_child", indicator_ref)
 		indicator_active = true
 		
