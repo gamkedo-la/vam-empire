@@ -127,16 +127,18 @@ func _on_README_pressed():
 
 
 func _on_Missions_pressed():
+	_hide_menu_overlays()
 	_hide_airlock_overlay()
 	_show_mission_overlay()
-	_camera_pan(camera_rear)
+#	_camera_pan(camera_rear)
 
 func _on_Embark_pressed():
 	_hide_menu_overlays()
 	_show_airlock_overlay()
-	_camera_pan(camera_front)
+#	_camera_pan(camera_front)
 
 func _on_Merchant_pressed():
+	_hide_menu_overlays()
 	_hide_airlock_overlay()
 	_show_merchant_overlay()
-	_camera_pan(camera_rear)
+#	_camera_pan(camera_rear)
