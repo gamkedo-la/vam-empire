@@ -5,6 +5,7 @@
 
 [node name="ActiveTargetIndicator" type="Node2D" groups=[
 "mini_map",
+"no_rotation_mini_map",
 ]]
 script = ExtResource( 2 )
 
