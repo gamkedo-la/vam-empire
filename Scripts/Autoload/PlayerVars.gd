@@ -46,6 +46,9 @@ var master_inventory = {}
 
 var mission_state = {}
 
+# For tracking UI Helper Indicators in the save file
+var first_use = {}
+
 var target = null setget set_target, get_target
 
 # Variables originally kept in Player.gd
@@ -139,6 +142,7 @@ func save():
 	save["ship_inventory"] = ship_inventory
 	save["master_inventory"] = master_inventory
 	save["mission_state"] = mission_state
+	save["first_use"] = first_use
 #	print_debug("Save file...: ", save)
 	file.open(FILE_NAME, File.WRITE)
 	file.store_string(JSON.print(save, "\t"))
@@ -174,6 +178,7 @@ func load_save():
 				temp_data["ship_inventory"] = {}
 				temp_data["master_inventory"] = {}
 				temp_data["mission_state"] = {}
+				temp_data["first_use"] = {}
 				data.clear()
 				data = temp_data.duplicate()
 			# Does the save file have all of the 'high level' dictionaries/keys i.e. Sound, Graphics, Difficulty?
@@ -199,6 +204,8 @@ func load_save():
 				ship_inventory = data.ship_inventory if data.has("ship_inventory") else {}
 				master_inventory = data.master_inventory if data.has("master_inventory") else {}
 				mission_state = data.mission_state if data.has("mission_state") else {}
+				first_use = data.first_use if data.has("first_use") else {}
+				print_debug("Save file: ", data)
 				save()
 				return true
 		else:
