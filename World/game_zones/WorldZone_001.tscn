@@ -10,6 +10,9 @@
 [node name="DifficultyOptionButton" parent="MainMenu/MenuCanvas/Viz/OptionsContainer/VBoxContainer/TabContainer/Difficulty/VBoxContainer/DifficultyHbox" index="1"]
 items = [ "Bring a Bandaid", null, false, 0, null, "Get Some Gauze", null, false, 1, null, "Seek a Surgeon", null, false, 2, null ]
 
+[node name="Sprite" parent="ParallaxBackground2/StarFieldBlack" index="0"]
+visible = true
+
 [node name="EasyPirateEncounter" parent="Zone/Encounters" index="0" instance=ExtResource( 4 )]
 position = Vector2( 58140.5, -27777.2 )
 

@@ -99,6 +99,10 @@ func _on_GoMiningMed_pressed():
 	leaving_to = "res://World/game_zones/EasyZone_002.tscn"
 	take_off()
 
+func _on_GoFinalWorld_pressed():
+	leaving_to = "res://World/game_zones/WorldZone_001.tscn"
+	take_off()
+	
 
 func _on_TakeoffTween_tween_completed(object, _key):
 	if object == player_ship && backing_up:
@@ -142,3 +146,6 @@ func _on_Merchant_pressed():
 	_hide_airlock_overlay()
 	_show_merchant_overlay()
 #	_camera_pan(camera_rear)
+
+
+
