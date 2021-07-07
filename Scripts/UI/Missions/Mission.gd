@@ -27,6 +27,8 @@ export (Status) var status
 export (Status) var initial_status
 
 export (MissionType) var mission_type
+export (int) var cash_reward
+
 export (String) var item_uuid
 export (int) var item_goal
 

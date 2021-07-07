@@ -1,0 +1,29 @@
+[gd_scene load_steps=5 format=2]
+
+[ext_resource path="res://World/game_points_of_interest/StrandedMiner001.tscn" type="PackedScene" id=1]
+[ext_resource path="res://World/game_zones/Templates/ZoneTemplate.tscn" type="PackedScene" id=2]
+[ext_resource path="res://World/game_points_of_interest/VampireComms001.tscn" type="PackedScene" id=3]
+[ext_resource path="res://World/game_encounters/EasyPirateEncounter.tscn" type="PackedScene" id=4]
+
+[node name="World" instance=ExtResource( 2 )]
+
+[node name="DifficultyOptionButton" parent="MainMenu/MenuCanvas/Viz/OptionsContainer/VBoxContainer/TabContainer/Difficulty/VBoxContainer/DifficultyHbox" index="1"]
+items = [ "Bring a Bandaid", null, false, 0, null, "Get Some Gauze", null, false, 1, null, "Seek a Surgeon", null, false, 2, null ]
+
+[node name="EasyPirateEncounter" parent="Zone/Encounters" index="0" instance=ExtResource( 4 )]
+position = Vector2( 58140.5, -27777.2 )
+
+[node name="StrandedMiner001" parent="Zone/PointsOfInterest" index="0" instance=ExtResource( 1 )]
+position = Vector2( 10080.7, -16487.9 )
+
+[node name="VampireComms001" parent="Zone/PointsOfInterest" index="1" instance=ExtResource( 3 )]
+position = Vector2( 58107.2, -26247.8 )
+
+[editable path="MainMenu"]
+[editable path="CanvasLayer/HUD"]
+[editable path="ReturnHomeBeacon"]
+[editable path="Player"]
+[editable path="Player/HitBox"]
+[editable path="Player/PlayerUICanvas/CharacterSheet"]
+[editable path="Player/PlayerUICanvas/CharacterSheet/MainVBoxContainer/TopBar"]
+[editable path="ParallaxBackground2"]
