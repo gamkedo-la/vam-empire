@@ -205,7 +205,7 @@ func load_save():
 				master_inventory = data.master_inventory if data.has("master_inventory") else {}
 				mission_state = data.mission_state if data.has("mission_state") else {}
 				first_use = data.first_use if data.has("first_use") else {}
-				print_debug("Save file: ", data)
+				
 				save()
 				return true
 		else:

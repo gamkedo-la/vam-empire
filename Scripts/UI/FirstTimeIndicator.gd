@@ -34,8 +34,7 @@ func _start_pulse_tween() -> void:
 	tween.start()
 
 func _reverse_tween() -> void:
-	print_debug(PlayerVars.first_use)
-#	print_debug("Definitely getting here...")
+
 	var targ_alpha: int = 0
 	if self.color.a8 <= 10:
 		targ_alpha = 255
