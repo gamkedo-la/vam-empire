@@ -46,7 +46,8 @@ func _ready():
 
 
 func _physics_process(delta: float):
-	move(delta)
+	if ai.current_state != ai.State.SLEEP:
+		move(delta)
 
 func move(delta: float):	
 	set_interest()

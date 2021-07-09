@@ -22,6 +22,7 @@ var in_range: bool = false
 enum State {
 	PATROL,
 	ENGAGE,
+	SLEEP,
 	DEAD
 }
 
@@ -61,6 +62,8 @@ func _physics_process(_delta: float) -> void:
 			_patrol()
 		State.ENGAGE:
 			_engage()
+		State.SLEEP:
+			_sleep()
 		State.DEAD:
 			_dead()
 		_:
@@ -86,7 +89,7 @@ func set_state(new_state: int) -> void:
 		in_range = false
 		
 
-func get_current_target() -> Vector2:	
+func get_current_target() -> Vector2:
 	if target:
 		return to_local(target.global_position)
 	elif patrol_target:
@@ -106,7 +109,10 @@ func _dead() -> void:
 	if target_detect_area.is_connected("body_entered", self, "_on_TargetDetect_body_entered"):
 		target_detect_area.disconnect("body_entered", self, "_on_TargetDetect_body_entered")		
 	pass
-
+func _sleep() -> void:
+	if actor.global_position.distance_to(PlayerVars.player_node.global_position) < 1500:
+		set_state(State.PATROL)
+		
 func _patrol():
 	if patrol_target.distance_to(actor.global_position) < 50:
 		patrol_reached = true
@@ -123,7 +129,11 @@ func _patrol():
 #		patrol_target = patrol_points[current_patrol_point]
 		journey_distance = actor.global_position.distance_to(patrol_target)
 		patrol_reached = false
+	if actor.global_position.distance_to(PlayerVars.player_node.global_position) > 2000:
+		print_debug("Actor: ", actor, " going to sleep.")
+		set_state(State.SLEEP)
 		
+
 func _generate_patrol_points() -> void:
 	# Generate patrol points in a 360deg circle at random distances (1-range) from the origin, choose clockwise vs counter-clockwise randomly
 	var dir = rng.randi_range(0,1)

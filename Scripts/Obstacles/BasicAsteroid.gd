@@ -17,8 +17,8 @@ onready var mine_spawner = preload("res://Pickups/MineSpawner.tscn")
 export (Array, String) var mineral_contents
 export (bool) var is_spinning = false
 var miners = {}
-var rng = RandomNumberGenerator.new()
-var despawn_timer = Timer.new()
+onready var rng = RandomNumberGenerator.new()
+onready var despawn_timer = Timer.new()
 
 func _ready():
 #	rng.randomize()
@@ -41,6 +41,7 @@ func initialize_in_group(_owner: RoidSpawner) -> void:
 		assert(_owner.connect("despawn_roids", self, "_free_asteroid") == OK)
 
 func _free_asteroid():
+	
 	emit_signal("removed", self)
 	if PlayerVars.get_target() == self:
 		PlayerVars.set_target(null)
