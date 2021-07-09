@@ -3,9 +3,9 @@
 [ext_resource path="res://World/game_points_of_interest/StrandedMiner001.tscn" type="PackedScene" id=1]
 [ext_resource path="res://World/game_zones/Templates/ZoneTemplate.tscn" type="PackedScene" id=2]
 [ext_resource path="res://World/game_points_of_interest/VampireComms001.tscn" type="PackedScene" id=3]
-[ext_resource path="res://World/game_encounters/EasyPirateEncounter.tscn" type="PackedScene" id=4]
 [ext_resource path="res://World/game_areas/AsteroidFieldSpawner.tscn" type="PackedScene" id=5]
 [ext_resource path="res://World/game_encounters/VampireEncounter01.tscn" type="PackedScene" id=6]
+[ext_resource path="res://Enemies/Scenes/Small/SinglePirateSpawn.tscn" type="PackedScene" id=7]
 
 [node name="World" instance=ExtResource( 2 )]
 
@@ -2747,13 +2747,7 @@ mineral_contents = [ "e9909275-97f2-4ce4-afc3-d22801a6bc24" ]
 position = Vector2( -18302.8, 70.6885 )
 mineral_contents = [ "e9909275-97f2-4ce4-afc3-d22801a6bc24" ]
 
-[node name="EasyPirateEncounter" parent="Zone/Encounters" index="0" instance=ExtResource( 4 )]
-position = Vector2( 6246.61, -16747.5 )
-
-[node name="EasyPirateEncounter2" parent="Zone/Encounters" index="1" instance=ExtResource( 4 )]
-position = Vector2( 14473.7, -20092.6 )
-
-[node name="VanadiniteImpalers" type="Node2D" parent="Zone/Encounters" index="2"]
+[node name="VanadiniteImpalers" type="Node2D" parent="Zone/Encounters" index="0"]
 
 [node name="VampireEncounter01" parent="Zone/Encounters/VanadiniteImpalers" index="0" instance=ExtResource( 6 )]
 position = Vector2( -904.078, -40683.4 )
@@ -3618,6 +3612,92 @@ position = Vector2( 3797.1, -44480.5 )
 
 [node name="VampireEncounter288" parent="Zone/Encounters/VanadiniteImpalers" index="287" instance=ExtResource( 6 )]
 position = Vector2( 1536.91, -44480.5 )
+
+[node name="PirateSpawns" type="Node2D" parent="Zone/Encounters" index="1"]
+
+[node name="SinglePirateSpawn" parent="Zone/Encounters/PirateSpawns" index="0" instance=ExtResource( 7 )]
+position = Vector2( 1727.09, -3962.16 )
+
+[node name="SinglePirateSpawn2" parent="Zone/Encounters/PirateSpawns" index="1" instance=ExtResource( 7 )]
+position = Vector2( 5418.33, -3996.02 )
+
+[node name="SinglePirateSpawn3" parent="Zone/Encounters/PirateSpawns" index="2" instance=ExtResource( 7 )]
+position = Vector2( 9109.56, -5384.46 )
+
+[node name="SinglePirateSpawn4" parent="Zone/Encounters/PirateSpawns" index="3" instance=ExtResource( 7 )]
+position = Vector2( -8906.38, -11717.1 )
+
+[node name="SinglePirateSpawn5" parent="Zone/Encounters/PirateSpawns" index="4" instance=ExtResource( 7 )]
+position = Vector2( 1456.17, -10227.1 )
+
+[node name="SinglePirateSpawn6" parent="Zone/Encounters/PirateSpawns" index="5" instance=ExtResource( 7 )]
+position = Vector2( -13105.6, -7992.04 )
+
+[node name="SinglePirateSpawn7" parent="Zone/Encounters/PirateSpawns" index="6" instance=ExtResource( 7 )]
+position = Vector2( -21131.5, -7043.83 )
+
+[node name="SinglePirateSpawn8" parent="Zone/Encounters/PirateSpawns" index="7" instance=ExtResource( 7 )]
+position = Vector2( -9380.48, -4436.26 )
+
+[node name="SinglePirateSpawn9" parent="Zone/Encounters/PirateSpawns" index="8" instance=ExtResource( 7 )]
+position = Vector2( 16898.4, -10633.5 )
+
+[node name="SinglePirateSpawn10" parent="Zone/Encounters/PirateSpawns" index="9" instance=ExtResource( 7 )]
+position = Vector2( 9346.62, -12089.6 )
+
+[node name="SinglePirateSpawn11" parent="Zone/Encounters/PirateSpawns" index="10" instance=ExtResource( 7 )]
+position = Vector2( 10904.4, -16864.5 )
+
+[node name="SinglePirateSpawn12" parent="Zone/Encounters/PirateSpawns" index="11" instance=ExtResource( 7 )]
+position = Vector2( 16221.1, -17067.7 )
+
+[node name="SinglePirateSpawn13" parent="Zone/Encounters/PirateSpawns" index="12" instance=ExtResource( 7 )]
+position = Vector2( 11378.5, -20081.7 )
+
+[node name="SinglePirateSpawn14" parent="Zone/Encounters/PirateSpawns" index="13" instance=ExtResource( 7 )]
+position = Vector2( 15205.2, -19404.4 )
+
+[node name="SinglePirateSpawn15" parent="Zone/Encounters/PirateSpawns" index="14" instance=ExtResource( 7 )]
+position = Vector2( 15002, -21774.9 )
+
+[node name="SinglePirateSpawn16" parent="Zone/Encounters/PirateSpawns" index="15" instance=ExtResource( 7 )]
+position = Vector2( 7009.97, -20521.9 )
+
+[node name="SinglePirateSpawn17" parent="Zone/Encounters/PirateSpawns" index="16" instance=ExtResource( 7 )]
+position = Vector2( -135.451, -18828.7 )
+
+[node name="SinglePirateSpawn18" parent="Zone/Encounters/PirateSpawns" index="17" instance=ExtResource( 7 )]
+position = Vector2( -5486.05, -17778.9 )
+
+[node name="SinglePirateSpawn19" parent="Zone/Encounters/PirateSpawns" index="18" instance=ExtResource( 7 )]
+position = Vector2( -2539.83, -14900.4 )
+
+[node name="SinglePirateSpawn20" parent="Zone/Encounters/PirateSpawns" index="19" instance=ExtResource( 7 )]
+position = Vector2( 4978.1, -12462.2 )
+
+[node name="SinglePirateSpawn21" parent="Zone/Encounters/PirateSpawns" index="20" instance=ExtResource( 7 )]
+position = Vector2( 11920.3, -8330.69 )
+
+[node name="SinglePirateSpawn22" parent="Zone/Encounters/PirateSpawns" index="21" instance=ExtResource( 7 )]
+position = Vector2( 14934.3, -5316.74 )
+
+[node name="SinglePirateSpawn23" parent="Zone/Encounters/PirateSpawns" index="22" instance=ExtResource( 7 )]
+position = Vector2( 9719.13, -2641.44 )
+
+[node name="SinglePirateSpawn24" parent="Zone/Encounters/PirateSpawns" index="23" instance=ExtResource( 7 )]
+position = Vector2( 19133.5, -2743.04 )
+
+[node name="SinglePirateSpawn25" parent="Zone/Encounters/PirateSpawns" index="24" instance=ExtResource( 7 )]
+position = Vector2( 23265, -10531.9 )
+
+[node name="SinglePirateSpawn26" parent="Zone/Encounters/PirateSpawns" index="25" instance=ExtResource( 7 )]
+position = Vector2( 21368.5, -17101.6 )
+
+[node name="SinglePirateSpawn27" parent="Zone/Encounters/PirateSpawns" index="26" instance=ExtResource( 7 )]
+position = Vector2( 21131.5, -22621.5 )
+
+[node name="SinglePirateSpawn28" parent="Zone/Encounters/PirateSpawns" index="27" instance=ExtResource( 7 )]
+position = Vector2( 4334.67, -23772.9 )
 
 [node name="StrandedMiner001" parent="Zone/PointsOfInterest" index="0" instance=ExtResource( 1 )]
 position = Vector2( 10080.7, -16487.9 )
