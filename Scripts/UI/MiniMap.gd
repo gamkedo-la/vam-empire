@@ -20,6 +20,9 @@ func _ready():
 	_refresh_settings()
 	_connect = zoomtimer.connect("timeout", self, "_hide_zoom_lbl")	
 	_connect = PlayerVars.connect("mission_complete", self, "_mission_complete")
+	
+	if not Global.is_connected("update_minimap", self, "_update_objs"):
+		assert(Global.connect("update_minimap", self, "_update_objs") == OK)
 
 func _initialize():
 	player_marker.position = pixel_grid.rect_size/2
@@ -27,20 +30,23 @@ func _initialize():
 	grid_scale = pixel_grid.rect_size / (get_viewport_rect().size * zoom)
 	#print(get_viewport_rect().size)
 	#print("player_marker: ", player_marker, " PlayerVars.player_node.position: ", PlayerVars.player_node.position)
-	var map_objects = get_tree().get_nodes_in_group("mini_map")
-	#print("map_objects: ", map_objects.size())
-	for obj in map_objects:	
-		obj.connect("removed", self, "_on_object_removed")	
-		var new_icon = obj.get_node_or_null("Sprite").duplicate()
-		if new_icon:
-			new_icon.scale /= zoom
-			pixel_grid.add_child(new_icon)
-			new_icon.set_visible(true)
-			map_icons[obj] = new_icon
-		
+	_update_objs()
 	_initialized = true
 	UserSettings.refresh_ui()
 	_refresh_settings()
+
+func _update_objs() -> void:
+	var map_objects = get_tree().get_nodes_in_group("mini_map")
+	#print("map_objects: ", map_objects.size())
+	for obj in map_objects:
+		if not obj.is_connected("removed", self, "_on_object_removed"):
+			assert(obj.connect("removed", self, "_on_object_removed") == OK)
+			var new_icon = obj.get_node_or_null("Sprite").duplicate()
+			if new_icon:
+				new_icon.scale /= zoom
+				pixel_grid.add_child(new_icon)
+				new_icon.set_visible(true)
+				map_icons[obj] = new_icon
 
 func _process(_delta):
 	if Input.is_action_pressed("minimap_zoom_in"):

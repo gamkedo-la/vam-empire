@@ -1,5 +1,7 @@
 extends Node
 
+signal update_minimap
+
 # Built largely by following the doc: https://docs.godotengine.org/en/stable/getting_started/step_by_step/singletons_autoload.html#global-gd
 var current_scene = null
 var in_game_menu = null

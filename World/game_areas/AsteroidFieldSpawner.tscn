@@ -1,0 +1,38 @@
+[gd_scene load_steps=13 format=2]
+
+[ext_resource path="res://World/game_areas/Templates/AreaTemplate.tscn" type="PackedScene" id=1]
+[ext_resource path="res://Scripts/ZoneOrchestration/AsteroidFieldSpawner.gd" type="Script" id=2]
+[ext_resource path="res://Obstacles/Scenes/SmAsteroid01.tscn" type="PackedScene" id=3]
+[ext_resource path="res://Obstacles/Scenes/MedAsteroid02.tscn" type="PackedScene" id=4]
+[ext_resource path="res://Obstacles/Scenes/SmAsteroid04.tscn" type="PackedScene" id=5]
+[ext_resource path="res://Obstacles/Scenes/SmAsteroid03.tscn" type="PackedScene" id=6]
+[ext_resource path="res://Obstacles/Scenes/MedAsteroid01.tscn" type="PackedScene" id=7]
+[ext_resource path="res://Obstacles/Scenes/SmAsteroid02.tscn" type="PackedScene" id=8]
+[ext_resource path="res://Obstacles/Scenes/LrgAsteroid01.tscn" type="PackedScene" id=9]
+[ext_resource path="res://Obstacles/Scenes/WideAsteroid01.tscn" type="PackedScene" id=10]
+
+[sub_resource type="CircleShape2D" id=1]
+radius = 6081.38
+
+[sub_resource type="RectangleShape2D" id=2]
+extents = Vector2( 962.318, 540.668 )
+
+[node name="AsteroidFieldSpawner" instance=ExtResource( 1 )]
+script = ExtResource( 2 )
+asteroids = [ ExtResource( 3 ), ExtResource( 8 ), ExtResource( 6 ), ExtResource( 5 ), ExtResource( 7 ), ExtResource( 4 ), ExtResource( 10 ), ExtResource( 9 ) ]
+asteroid_weight = [ 10, 10, 10, 10, 5, 5, 3, 2 ]
+
+[node name="Area2D" type="Area2D" parent="." index="0"]
+monitorable = false
+collision_layer = 0
+collision_mask = 2
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D" index="0"]
+visible = false
+shape = SubResource( 1 )
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." index="1"]
+shape = SubResource( 2 )
+
+[connection signal="body_entered" from="Area2D" to="." method="_on_Area2D_body_entered"]
+[connection signal="body_exited" from="Area2D" to="." method="_on_Area2D_body_exited"]

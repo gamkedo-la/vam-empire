@@ -15,28 +15,32 @@ onready var hurt_box = $HurtBox
 var coll_efx: AudioStreamPlayer2D
 onready var mine_spawner = preload("res://Pickups/MineSpawner.tscn")
 export (Array, String) var mineral_contents
+export (bool) var is_spinning = false
 var miners = {}
 var rng = RandomNumberGenerator.new()
 
 func _ready():
-	rng.randomize()
+#	rng.randomize()
 	add_to_group("mini_map")
 	sprite.material.set_shader_param("textureName_size", sprite.texture.get_size())
-	angular_velocity = rng.randf_range(-1.0, 1.0)
-	angular_damp = 0.0
+	if is_spinning:
+		angular_velocity = rng.randf_range(-1.0, 1.0)
+		angular_damp = 0.0
 	coll_efx = get_node_or_null("CollisionEfx")
 
 func _process(_delta):
 	if health < 0:
 		_free_asteroid()
 	
-
+func initialize_in_group(_owner: RoidSpawner) -> void:
+	if not _owner.is_connected("despawn_roids", self, "_free_asteroid"):
+		assert(_owner.connect("despawn_roids", self, "_free_asteroid") == OK)
 
 func _free_asteroid():
 	emit_signal("removed", self)
 	if PlayerVars.get_target() == self:
 		PlayerVars.set_target(null)
-	queue_free()
+	call_deferred("queue_free")
 
 func _on_HurtBox_area_entered(area):	
 	var hitParent = area.get_parent()

@@ -90,6 +90,11 @@ _global_script_classes=[ {
 "path": "res://Scripts/Player.gd"
 }, {
 "base": "Node2D",
+"class": "RoidSpawner",
+"language": "GDScript",
+"path": "res://Scripts/ZoneOrchestration/AsteroidFieldSpawner.gd"
+}, {
+"base": "Node2D",
 "class": "Ship",
 "language": "GDScript",
 "path": "res://Scripts/Ship.gd"
@@ -116,6 +121,7 @@ _global_script_class_icons={
 "Mission": "",
 "MissionBoard": "",
 "Player": "",
+"RoidSpawner": "",
 "Ship": "",
 "Weapon": ""
 }
