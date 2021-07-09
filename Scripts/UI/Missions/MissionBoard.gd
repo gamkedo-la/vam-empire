@@ -117,12 +117,7 @@ func _on_DebugComplete_pressed():
 	
 	if sel_miss is Mission:
 		if sel_miss.status == Mission.Status.ACCEPTED:
-			print_debug(sel_miss.m_name)
-			sel_miss.status = Mission.Status.COMPLETE
-			PlayerVars.complete_mission(sel_miss)
-			sel_miss.icon = complete_star
-	check_all_prereqs()
-	_mission_selected(sel_miss.mission_id)
+			complete_mission()
 
 
 func _on_Accept_pressed():
@@ -145,15 +140,20 @@ func _on_ResetAll_pressed() -> void:
 
 
 func _on_Complete_pressed() -> void:
-	complete_mission()
-
-func complete_mission() -> void:
 	if sel_miss is Mission:
 		if sel_miss.status == Mission.Status.ACCEPTED && sel_miss.completable:
-			print_debug(sel_miss.m_name)
-			sel_miss.status = Mission.Status.COMPLETE
-			sel_miss.completable = false
-			PlayerVars.complete_mission(sel_miss)
-			sel_miss.icon = complete_star
+			complete_mission()
+
+func complete_mission() -> void:
+
+	print_debug(sel_miss.m_name)
+	sel_miss.status = Mission.Status.COMPLETE
+	sel_miss.completable = false
+	PlayerVars.complete_mission(sel_miss)
+	sel_miss.icon = complete_star
+	if sel_miss.cash_reward > 0:
+		PlayerVars.player.cash += sel_miss.cash_reward
+
 	check_all_prereqs()
 	_mission_selected(sel_miss.mission_id)
+	PlayerVars.save()
