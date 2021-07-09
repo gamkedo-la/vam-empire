@@ -62,6 +62,7 @@ func _process(_delta):
 		_initialized = false
 		return	
 	player_marker.rotation = PlayerVars.player_node.rotation
+	var trash_pile = []
 	for item in map_icons:
 		if is_instance_valid(item):
 			var obj_pos = (item.global_position - PlayerVars.player_node.global_position) * grid_scale + pixel_grid.rect_size / 2
@@ -76,7 +77,14 @@ func _process(_delta):
 			map_icons[item].position = obj_pos
 			if !item.is_in_group("no_rotation_mini_map"):
 				map_icons[item].global_rotation = item.global_rotation	
-	
+		else:
+			trash_pile.append(item)
+		
+		if trash_pile.size() > 0:
+			for trash in trash_pile:
+				_on_object_removed(trash)
+				print_debug("I just removed an item from the minimap")
+		
 	#player_marker.rotation = PlayerVars.player_node.rotation	
 
 func set_zoom(value):
