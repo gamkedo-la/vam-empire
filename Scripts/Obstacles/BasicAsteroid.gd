@@ -18,9 +18,12 @@ export (Array, String) var mineral_contents
 export (bool) var is_spinning = false
 var miners = {}
 var rng = RandomNumberGenerator.new()
+var despawn_timer = Timer.new()
 
 func _ready():
 #	rng.randomize()
+	despawn_timer.wait_time = 3
+	despawn_timer.connect("timeout", self, "_final_free")
 	add_to_group("mini_map")
 	sprite.material.set_shader_param("textureName_size", sprite.texture.get_size())
 	if is_spinning:
@@ -40,6 +43,9 @@ func _free_asteroid():
 	emit_signal("removed", self)
 	if PlayerVars.get_target() == self:
 		PlayerVars.set_target(null)
+	despawn_timer.start()
+
+func _final_free() -> void:
 	call_deferred("queue_free")
 
 func _on_HurtBox_area_entered(area):	
