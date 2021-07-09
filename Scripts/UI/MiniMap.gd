@@ -63,7 +63,7 @@ func _process(_delta):
 		return	
 	player_marker.rotation = PlayerVars.player_node.rotation
 	for item in map_icons:
-		if item:
+		if is_instance_valid(item):
 			var obj_pos = (item.global_position - PlayerVars.player_node.global_position) * grid_scale + pixel_grid.rect_size / 2
 			if !item.is_in_group("always_on_map"):
 				if pixel_grid.get_rect().has_point(obj_pos + pixel_grid.rect_position):

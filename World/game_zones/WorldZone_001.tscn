@@ -1,10 +1,11 @@
-[gd_scene load_steps=6 format=2]
+[gd_scene load_steps=7 format=2]
 
 [ext_resource path="res://World/game_points_of_interest/StrandedMiner001.tscn" type="PackedScene" id=1]
 [ext_resource path="res://World/game_zones/Templates/ZoneTemplate.tscn" type="PackedScene" id=2]
 [ext_resource path="res://World/game_points_of_interest/VampireComms001.tscn" type="PackedScene" id=3]
 [ext_resource path="res://World/game_encounters/EasyPirateEncounter.tscn" type="PackedScene" id=4]
 [ext_resource path="res://World/game_areas/AsteroidFieldSpawner.tscn" type="PackedScene" id=5]
+[ext_resource path="res://World/game_encounters/VampireEncounter01.tscn" type="PackedScene" id=6]
 
 [node name="World" instance=ExtResource( 2 )]
 
@@ -2751,6 +2752,872 @@ position = Vector2( 6246.61, -16747.5 )
 
 [node name="EasyPirateEncounter2" parent="Zone/Encounters" index="1" instance=ExtResource( 4 )]
 position = Vector2( 14473.7, -20092.6 )
+
+[node name="VanadiniteImpalers" type="Node2D" parent="Zone/Encounters" index="2"]
+
+[node name="VampireEncounter01" parent="Zone/Encounters/VanadiniteImpalers" index="0" instance=ExtResource( 6 )]
+position = Vector2( -904.078, -40683.4 )
+
+[node name="VampireEncounter02" parent="Zone/Encounters/VanadiniteImpalers" index="1" instance=ExtResource( 6 )]
+position = Vector2( -2983.45, -40683.4 )
+
+[node name="VampireEncounter03" parent="Zone/Encounters/VanadiniteImpalers" index="2" instance=ExtResource( 6 )]
+position = Vector2( -5243.64, -40683.4 )
+
+[node name="VampireEncounter04" parent="Zone/Encounters/VanadiniteImpalers" index="3" instance=ExtResource( 6 )]
+position = Vector2( 5966.89, -40683.4 )
+
+[node name="VampireEncounter05" parent="Zone/Encounters/VanadiniteImpalers" index="4" instance=ExtResource( 6 )]
+position = Vector2( 3887.52, -40683.4 )
+
+[node name="VampireEncounter06" parent="Zone/Encounters/VanadiniteImpalers" index="5" instance=ExtResource( 6 )]
+position = Vector2( 1627.33, -40683.4 )
+
+[node name="VampireEncounter07" parent="Zone/Encounters/VanadiniteImpalers" index="6" instance=ExtResource( 6 )]
+position = Vector2( 12024.2, -40683.4 )
+
+[node name="VampireEncounter08" parent="Zone/Encounters/VanadiniteImpalers" index="7" instance=ExtResource( 6 )]
+position = Vector2( 9944.83, -40683.4 )
+
+[node name="VampireEncounter09" parent="Zone/Encounters/VanadiniteImpalers" index="8" instance=ExtResource( 6 )]
+position = Vector2( 7684.64, -40683.4 )
+
+[node name="VampireEncounter10" parent="Zone/Encounters/VanadiniteImpalers" index="9" instance=ExtResource( 6 )]
+position = Vector2( 18895.2, -40683.4 )
+
+[node name="VampireEncounter11" parent="Zone/Encounters/VanadiniteImpalers" index="10" instance=ExtResource( 6 )]
+position = Vector2( 16815.8, -40683.4 )
+
+[node name="VampireEncounter12" parent="Zone/Encounters/VanadiniteImpalers" index="11" instance=ExtResource( 6 )]
+position = Vector2( 14555.6, -40683.4 )
+
+[node name="VampireEncounter13" parent="Zone/Encounters/VanadiniteImpalers" index="12" instance=ExtResource( 6 )]
+position = Vector2( -27574.3, -40593 )
+
+[node name="VampireEncounter14" parent="Zone/Encounters/VanadiniteImpalers" index="13" instance=ExtResource( 6 )]
+position = Vector2( -29653.7, -40593 )
+
+[node name="VampireEncounter15" parent="Zone/Encounters/VanadiniteImpalers" index="14" instance=ExtResource( 6 )]
+position = Vector2( -31913.9, -40593 )
+
+[node name="VampireEncounter16" parent="Zone/Encounters/VanadiniteImpalers" index="15" instance=ExtResource( 6 )]
+position = Vector2( -20703.3, -40593 )
+
+[node name="VampireEncounter17" parent="Zone/Encounters/VanadiniteImpalers" index="16" instance=ExtResource( 6 )]
+position = Vector2( -22782.7, -40593 )
+
+[node name="VampireEncounter18" parent="Zone/Encounters/VanadiniteImpalers" index="17" instance=ExtResource( 6 )]
+position = Vector2( -25042.9, -40593 )
+
+[node name="VampireEncounter19" parent="Zone/Encounters/VanadiniteImpalers" index="18" instance=ExtResource( 6 )]
+position = Vector2( -14646, -40593 )
+
+[node name="VampireEncounter20" parent="Zone/Encounters/VanadiniteImpalers" index="19" instance=ExtResource( 6 )]
+position = Vector2( -16725.4, -40593 )
+
+[node name="VampireEncounter21" parent="Zone/Encounters/VanadiniteImpalers" index="20" instance=ExtResource( 6 )]
+position = Vector2( -18985.6, -40593 )
+
+[node name="VampireEncounter22" parent="Zone/Encounters/VanadiniteImpalers" index="21" instance=ExtResource( 6 )]
+position = Vector2( -7775.05, -40593 )
+
+[node name="VampireEncounter23" parent="Zone/Encounters/VanadiniteImpalers" index="22" instance=ExtResource( 6 )]
+position = Vector2( -9854.43, -40593 )
+
+[node name="VampireEncounter24" parent="Zone/Encounters/VanadiniteImpalers" index="23" instance=ExtResource( 6 )]
+position = Vector2( -12114.6, -40593 )
+
+[node name="VampireEncounter25" parent="Zone/Encounters/VanadiniteImpalers" index="24" instance=ExtResource( 6 )]
+position = Vector2( 10848.9, -42401.1 )
+
+[node name="VampireEncounter26" parent="Zone/Encounters/VanadiniteImpalers" index="25" instance=ExtResource( 6 )]
+position = Vector2( 8769.53, -42401.1 )
+
+[node name="VampireEncounter27" parent="Zone/Encounters/VanadiniteImpalers" index="26" instance=ExtResource( 6 )]
+position = Vector2( 6509.34, -42401.1 )
+
+[node name="VampireEncounter28" parent="Zone/Encounters/VanadiniteImpalers" index="27" instance=ExtResource( 6 )]
+position = Vector2( 17719.9, -42401.1 )
+
+[node name="VampireEncounter29" parent="Zone/Encounters/VanadiniteImpalers" index="28" instance=ExtResource( 6 )]
+position = Vector2( 15640.5, -42401.1 )
+
+[node name="VampireEncounter30" parent="Zone/Encounters/VanadiniteImpalers" index="29" instance=ExtResource( 6 )]
+position = Vector2( 13380.3, -42401.1 )
+
+[node name="VampireEncounter31" parent="Zone/Encounters/VanadiniteImpalers" index="30" instance=ExtResource( 6 )]
+position = Vector2( 23777.2, -42401.1 )
+
+[node name="VampireEncounter32" parent="Zone/Encounters/VanadiniteImpalers" index="31" instance=ExtResource( 6 )]
+position = Vector2( 21697.8, -42401.1 )
+
+[node name="VampireEncounter33" parent="Zone/Encounters/VanadiniteImpalers" index="32" instance=ExtResource( 6 )]
+position = Vector2( 19437.6, -42401.1 )
+
+[node name="VampireEncounter34" parent="Zone/Encounters/VanadiniteImpalers" index="33" instance=ExtResource( 6 )]
+position = Vector2( 30648.2, -42401.1 )
+
+[node name="VampireEncounter35" parent="Zone/Encounters/VanadiniteImpalers" index="34" instance=ExtResource( 6 )]
+position = Vector2( 28568.8, -42401.1 )
+
+[node name="VampireEncounter36" parent="Zone/Encounters/VanadiniteImpalers" index="35" instance=ExtResource( 6 )]
+position = Vector2( 26308.6, -42401.1 )
+
+[node name="VampireEncounter37" parent="Zone/Encounters/VanadiniteImpalers" index="36" instance=ExtResource( 6 )]
+position = Vector2( -15821.3, -42310.7 )
+
+[node name="VampireEncounter38" parent="Zone/Encounters/VanadiniteImpalers" index="37" instance=ExtResource( 6 )]
+position = Vector2( -17900.7, -42310.7 )
+
+[node name="VampireEncounter39" parent="Zone/Encounters/VanadiniteImpalers" index="38" instance=ExtResource( 6 )]
+position = Vector2( -20160.9, -42310.7 )
+
+[node name="VampireEncounter40" parent="Zone/Encounters/VanadiniteImpalers" index="39" instance=ExtResource( 6 )]
+position = Vector2( -8950.35, -42310.7 )
+
+[node name="VampireEncounter41" parent="Zone/Encounters/VanadiniteImpalers" index="40" instance=ExtResource( 6 )]
+position = Vector2( -11029.7, -42310.7 )
+
+[node name="VampireEncounter42" parent="Zone/Encounters/VanadiniteImpalers" index="41" instance=ExtResource( 6 )]
+position = Vector2( -13289.9, -42310.7 )
+
+[node name="VampireEncounter43" parent="Zone/Encounters/VanadiniteImpalers" index="42" instance=ExtResource( 6 )]
+position = Vector2( -2893.04, -42310.7 )
+
+[node name="VampireEncounter44" parent="Zone/Encounters/VanadiniteImpalers" index="43" instance=ExtResource( 6 )]
+position = Vector2( -4972.41, -42310.7 )
+
+[node name="VampireEncounter45" parent="Zone/Encounters/VanadiniteImpalers" index="44" instance=ExtResource( 6 )]
+position = Vector2( -7232.6, -42310.7 )
+
+[node name="VampireEncounter46" parent="Zone/Encounters/VanadiniteImpalers" index="45" instance=ExtResource( 6 )]
+position = Vector2( 3977.93, -42310.7 )
+
+[node name="VampireEncounter47" parent="Zone/Encounters/VanadiniteImpalers" index="46" instance=ExtResource( 6 )]
+position = Vector2( 1898.55, -42310.7 )
+
+[node name="VampireEncounter48" parent="Zone/Encounters/VanadiniteImpalers" index="47" instance=ExtResource( 6 )]
+position = Vector2( -361.633, -42310.7 )
+
+[node name="VampireEncounter49" parent="Zone/Encounters/VanadiniteImpalers" index="48" instance=ExtResource( 6 )]
+position = Vector2( 542.438, -43938.1 )
+
+[node name="VampireEncounter50" parent="Zone/Encounters/VanadiniteImpalers" index="49" instance=ExtResource( 6 )]
+position = Vector2( -1536.94, -43938.1 )
+
+[node name="VampireEncounter51" parent="Zone/Encounters/VanadiniteImpalers" index="50" instance=ExtResource( 6 )]
+position = Vector2( -3797.13, -43938.1 )
+
+[node name="VampireEncounter52" parent="Zone/Encounters/VanadiniteImpalers" index="51" instance=ExtResource( 6 )]
+position = Vector2( 7413.41, -43938.1 )
+
+[node name="VampireEncounter53" parent="Zone/Encounters/VanadiniteImpalers" index="52" instance=ExtResource( 6 )]
+position = Vector2( 5334.03, -43938.1 )
+
+[node name="VampireEncounter54" parent="Zone/Encounters/VanadiniteImpalers" index="53" instance=ExtResource( 6 )]
+position = Vector2( 3073.84, -43938.1 )
+
+[node name="VampireEncounter55" parent="Zone/Encounters/VanadiniteImpalers" index="54" instance=ExtResource( 6 )]
+position = Vector2( 13470.7, -43938.1 )
+
+[node name="VampireEncounter56" parent="Zone/Encounters/VanadiniteImpalers" index="55" instance=ExtResource( 6 )]
+position = Vector2( 11391.3, -43938.1 )
+
+[node name="VampireEncounter57" parent="Zone/Encounters/VanadiniteImpalers" index="56" instance=ExtResource( 6 )]
+position = Vector2( 9131.16, -43938.1 )
+
+[node name="VampireEncounter58" parent="Zone/Encounters/VanadiniteImpalers" index="57" instance=ExtResource( 6 )]
+position = Vector2( 20341.7, -43938.1 )
+
+[node name="VampireEncounter59" parent="Zone/Encounters/VanadiniteImpalers" index="58" instance=ExtResource( 6 )]
+position = Vector2( 18262.3, -43938.1 )
+
+[node name="VampireEncounter60" parent="Zone/Encounters/VanadiniteImpalers" index="59" instance=ExtResource( 6 )]
+position = Vector2( 16002.1, -43938.1 )
+
+[node name="VampireEncounter61" parent="Zone/Encounters/VanadiniteImpalers" index="60" instance=ExtResource( 6 )]
+position = Vector2( -26127.8, -43847.7 )
+
+[node name="VampireEncounter62" parent="Zone/Encounters/VanadiniteImpalers" index="61" instance=ExtResource( 6 )]
+position = Vector2( -28207.2, -43847.7 )
+
+[node name="VampireEncounter63" parent="Zone/Encounters/VanadiniteImpalers" index="62" instance=ExtResource( 6 )]
+position = Vector2( -30467.4, -43847.7 )
+
+[node name="VampireEncounter64" parent="Zone/Encounters/VanadiniteImpalers" index="63" instance=ExtResource( 6 )]
+position = Vector2( -19256.8, -43847.7 )
+
+[node name="VampireEncounter65" parent="Zone/Encounters/VanadiniteImpalers" index="64" instance=ExtResource( 6 )]
+position = Vector2( -21336.2, -43847.7 )
+
+[node name="VampireEncounter66" parent="Zone/Encounters/VanadiniteImpalers" index="65" instance=ExtResource( 6 )]
+position = Vector2( -23596.4, -43847.7 )
+
+[node name="VampireEncounter67" parent="Zone/Encounters/VanadiniteImpalers" index="66" instance=ExtResource( 6 )]
+position = Vector2( -13199.5, -43847.7 )
+
+[node name="VampireEncounter68" parent="Zone/Encounters/VanadiniteImpalers" index="67" instance=ExtResource( 6 )]
+position = Vector2( -15278.9, -43847.7 )
+
+[node name="VampireEncounter69" parent="Zone/Encounters/VanadiniteImpalers" index="68" instance=ExtResource( 6 )]
+position = Vector2( -17539.1, -43847.7 )
+
+[node name="VampireEncounter70" parent="Zone/Encounters/VanadiniteImpalers" index="69" instance=ExtResource( 6 )]
+position = Vector2( -6328.54, -43847.7 )
+
+[node name="VampireEncounter71" parent="Zone/Encounters/VanadiniteImpalers" index="70" instance=ExtResource( 6 )]
+position = Vector2( -8407.91, -43847.7 )
+
+[node name="VampireEncounter72" parent="Zone/Encounters/VanadiniteImpalers" index="71" instance=ExtResource( 6 )]
+position = Vector2( -10668.1, -43847.7 )
+
+[node name="VampireEncounter73" parent="Zone/Encounters/VanadiniteImpalers" index="72" instance=ExtResource( 6 )]
+position = Vector2( 12295.4, -45655.8 )
+
+[node name="VampireEncounter74" parent="Zone/Encounters/VanadiniteImpalers" index="73" instance=ExtResource( 6 )]
+position = Vector2( 10216, -45655.8 )
+
+[node name="VampireEncounter75" parent="Zone/Encounters/VanadiniteImpalers" index="74" instance=ExtResource( 6 )]
+position = Vector2( 7955.86, -45655.8 )
+
+[node name="VampireEncounter76" parent="Zone/Encounters/VanadiniteImpalers" index="75" instance=ExtResource( 6 )]
+position = Vector2( 19166.4, -45655.8 )
+
+[node name="VampireEncounter77" parent="Zone/Encounters/VanadiniteImpalers" index="76" instance=ExtResource( 6 )]
+position = Vector2( 17087, -45655.8 )
+
+[node name="VampireEncounter78" parent="Zone/Encounters/VanadiniteImpalers" index="77" instance=ExtResource( 6 )]
+position = Vector2( 14826.8, -45655.8 )
+
+[node name="VampireEncounter79" parent="Zone/Encounters/VanadiniteImpalers" index="78" instance=ExtResource( 6 )]
+position = Vector2( 25223.7, -45655.8 )
+
+[node name="VampireEncounter80" parent="Zone/Encounters/VanadiniteImpalers" index="79" instance=ExtResource( 6 )]
+position = Vector2( 23144.3, -45655.8 )
+
+[node name="VampireEncounter81" parent="Zone/Encounters/VanadiniteImpalers" index="80" instance=ExtResource( 6 )]
+position = Vector2( 20884.1, -45655.8 )
+
+[node name="VampireEncounter82" parent="Zone/Encounters/VanadiniteImpalers" index="81" instance=ExtResource( 6 )]
+position = Vector2( 32094.7, -45655.8 )
+
+[node name="VampireEncounter83" parent="Zone/Encounters/VanadiniteImpalers" index="82" instance=ExtResource( 6 )]
+position = Vector2( 30015.3, -45655.8 )
+
+[node name="VampireEncounter84" parent="Zone/Encounters/VanadiniteImpalers" index="83" instance=ExtResource( 6 )]
+position = Vector2( 27755.1, -45655.8 )
+
+[node name="VampireEncounter85" parent="Zone/Encounters/VanadiniteImpalers" index="84" instance=ExtResource( 6 )]
+position = Vector2( -14374.8, -45565.4 )
+
+[node name="VampireEncounter86" parent="Zone/Encounters/VanadiniteImpalers" index="85" instance=ExtResource( 6 )]
+position = Vector2( -16454.2, -45565.4 )
+
+[node name="VampireEncounter87" parent="Zone/Encounters/VanadiniteImpalers" index="86" instance=ExtResource( 6 )]
+position = Vector2( -18714.4, -45565.4 )
+
+[node name="VampireEncounter88" parent="Zone/Encounters/VanadiniteImpalers" index="87" instance=ExtResource( 6 )]
+position = Vector2( -7503.84, -45565.4 )
+
+[node name="VampireEncounter89" parent="Zone/Encounters/VanadiniteImpalers" index="88" instance=ExtResource( 6 )]
+position = Vector2( -9583.21, -45565.4 )
+
+[node name="VampireEncounter90" parent="Zone/Encounters/VanadiniteImpalers" index="89" instance=ExtResource( 6 )]
+position = Vector2( -11843.4, -45565.4 )
+
+[node name="VampireEncounter91" parent="Zone/Encounters/VanadiniteImpalers" index="90" instance=ExtResource( 6 )]
+position = Vector2( -1446.52, -45565.4 )
+
+[node name="VampireEncounter92" parent="Zone/Encounters/VanadiniteImpalers" index="91" instance=ExtResource( 6 )]
+position = Vector2( -3525.9, -45565.4 )
+
+[node name="VampireEncounter93" parent="Zone/Encounters/VanadiniteImpalers" index="92" instance=ExtResource( 6 )]
+position = Vector2( -5786.09, -45565.4 )
+
+[node name="VampireEncounter94" parent="Zone/Encounters/VanadiniteImpalers" index="93" instance=ExtResource( 6 )]
+position = Vector2( 5424.45, -45565.4 )
+
+[node name="VampireEncounter95" parent="Zone/Encounters/VanadiniteImpalers" index="94" instance=ExtResource( 6 )]
+position = Vector2( 3345.07, -45565.4 )
+
+[node name="VampireEncounter96" parent="Zone/Encounters/VanadiniteImpalers" index="95" instance=ExtResource( 6 )]
+position = Vector2( 1084.88, -45565.4 )
+
+[node name="VampireEncounter97" parent="Zone/Encounters/VanadiniteImpalers" index="96" instance=ExtResource( 6 )]
+position = Vector2( 1536.92, -38694.4 )
+
+[node name="VampireEncounter98" parent="Zone/Encounters/VanadiniteImpalers" index="97" instance=ExtResource( 6 )]
+position = Vector2( -542.453, -38694.4 )
+
+[node name="VampireEncounter99" parent="Zone/Encounters/VanadiniteImpalers" index="98" instance=ExtResource( 6 )]
+position = Vector2( -2802.64, -38694.4 )
+
+[node name="VampireEncounter100" parent="Zone/Encounters/VanadiniteImpalers" index="99" instance=ExtResource( 6 )]
+position = Vector2( 8407.89, -38694.4 )
+
+[node name="VampireEncounter101" parent="Zone/Encounters/VanadiniteImpalers" index="100" instance=ExtResource( 6 )]
+position = Vector2( 6328.52, -38694.4 )
+
+[node name="VampireEncounter102" parent="Zone/Encounters/VanadiniteImpalers" index="101" instance=ExtResource( 6 )]
+position = Vector2( 4068.33, -38694.4 )
+
+[node name="VampireEncounter103" parent="Zone/Encounters/VanadiniteImpalers" index="102" instance=ExtResource( 6 )]
+position = Vector2( 14465.2, -38694.4 )
+
+[node name="VampireEncounter104" parent="Zone/Encounters/VanadiniteImpalers" index="103" instance=ExtResource( 6 )]
+position = Vector2( 12385.8, -38694.4 )
+
+[node name="VampireEncounter105" parent="Zone/Encounters/VanadiniteImpalers" index="104" instance=ExtResource( 6 )]
+position = Vector2( 10125.6, -38694.4 )
+
+[node name="VampireEncounter106" parent="Zone/Encounters/VanadiniteImpalers" index="105" instance=ExtResource( 6 )]
+position = Vector2( 21336.2, -38694.4 )
+
+[node name="VampireEncounter107" parent="Zone/Encounters/VanadiniteImpalers" index="106" instance=ExtResource( 6 )]
+position = Vector2( 19256.8, -38694.4 )
+
+[node name="VampireEncounter108" parent="Zone/Encounters/VanadiniteImpalers" index="107" instance=ExtResource( 6 )]
+position = Vector2( 16996.6, -38694.4 )
+
+[node name="VampireEncounter109" parent="Zone/Encounters/VanadiniteImpalers" index="108" instance=ExtResource( 6 )]
+position = Vector2( -25133.3, -38604 )
+
+[node name="VampireEncounter110" parent="Zone/Encounters/VanadiniteImpalers" index="109" instance=ExtResource( 6 )]
+position = Vector2( -27212.7, -38604 )
+
+[node name="VampireEncounter111" parent="Zone/Encounters/VanadiniteImpalers" index="110" instance=ExtResource( 6 )]
+position = Vector2( -29472.9, -38604 )
+
+[node name="VampireEncounter112" parent="Zone/Encounters/VanadiniteImpalers" index="111" instance=ExtResource( 6 )]
+position = Vector2( -18262.3, -38604 )
+
+[node name="VampireEncounter113" parent="Zone/Encounters/VanadiniteImpalers" index="112" instance=ExtResource( 6 )]
+position = Vector2( -20341.7, -38604 )
+
+[node name="VampireEncounter114" parent="Zone/Encounters/VanadiniteImpalers" index="113" instance=ExtResource( 6 )]
+position = Vector2( -22601.9, -38604 )
+
+[node name="VampireEncounter115" parent="Zone/Encounters/VanadiniteImpalers" index="114" instance=ExtResource( 6 )]
+position = Vector2( -12205, -38604 )
+
+[node name="VampireEncounter116" parent="Zone/Encounters/VanadiniteImpalers" index="115" instance=ExtResource( 6 )]
+position = Vector2( -14284.4, -38604 )
+
+[node name="VampireEncounter117" parent="Zone/Encounters/VanadiniteImpalers" index="116" instance=ExtResource( 6 )]
+position = Vector2( -16544.6, -38604 )
+
+[node name="VampireEncounter118" parent="Zone/Encounters/VanadiniteImpalers" index="117" instance=ExtResource( 6 )]
+position = Vector2( -5334.05, -38604 )
+
+[node name="VampireEncounter119" parent="Zone/Encounters/VanadiniteImpalers" index="118" instance=ExtResource( 6 )]
+position = Vector2( -7413.43, -38604 )
+
+[node name="VampireEncounter120" parent="Zone/Encounters/VanadiniteImpalers" index="119" instance=ExtResource( 6 )]
+position = Vector2( -9673.62, -38604 )
+
+[node name="VampireEncounter121" parent="Zone/Encounters/VanadiniteImpalers" index="120" instance=ExtResource( 6 )]
+position = Vector2( 13289.9, -40412.2 )
+
+[node name="VampireEncounter122" parent="Zone/Encounters/VanadiniteImpalers" index="121" instance=ExtResource( 6 )]
+position = Vector2( 11210.5, -40412.2 )
+
+[node name="VampireEncounter123" parent="Zone/Encounters/VanadiniteImpalers" index="122" instance=ExtResource( 6 )]
+position = Vector2( 8950.34, -40412.2 )
+
+[node name="VampireEncounter124" parent="Zone/Encounters/VanadiniteImpalers" index="123" instance=ExtResource( 6 )]
+position = Vector2( 20160.9, -40412.2 )
+
+[node name="VampireEncounter125" parent="Zone/Encounters/VanadiniteImpalers" index="124" instance=ExtResource( 6 )]
+position = Vector2( 18081.5, -40412.2 )
+
+[node name="VampireEncounter126" parent="Zone/Encounters/VanadiniteImpalers" index="125" instance=ExtResource( 6 )]
+position = Vector2( 15821.3, -40412.2 )
+
+[node name="VampireEncounter127" parent="Zone/Encounters/VanadiniteImpalers" index="126" instance=ExtResource( 6 )]
+position = Vector2( 26218.2, -40412.2 )
+
+[node name="VampireEncounter128" parent="Zone/Encounters/VanadiniteImpalers" index="127" instance=ExtResource( 6 )]
+position = Vector2( 24138.8, -40412.2 )
+
+[node name="VampireEncounter129" parent="Zone/Encounters/VanadiniteImpalers" index="128" instance=ExtResource( 6 )]
+position = Vector2( 21878.6, -40412.2 )
+
+[node name="VampireEncounter130" parent="Zone/Encounters/VanadiniteImpalers" index="129" instance=ExtResource( 6 )]
+position = Vector2( 33089.2, -40412.2 )
+
+[node name="VampireEncounter131" parent="Zone/Encounters/VanadiniteImpalers" index="130" instance=ExtResource( 6 )]
+position = Vector2( 31009.8, -40412.2 )
+
+[node name="VampireEncounter132" parent="Zone/Encounters/VanadiniteImpalers" index="131" instance=ExtResource( 6 )]
+position = Vector2( 28749.6, -40412.2 )
+
+[node name="VampireEncounter133" parent="Zone/Encounters/VanadiniteImpalers" index="132" instance=ExtResource( 6 )]
+position = Vector2( -13380.3, -40321.8 )
+
+[node name="VampireEncounter134" parent="Zone/Encounters/VanadiniteImpalers" index="133" instance=ExtResource( 6 )]
+position = Vector2( -15459.7, -40321.8 )
+
+[node name="VampireEncounter135" parent="Zone/Encounters/VanadiniteImpalers" index="134" instance=ExtResource( 6 )]
+position = Vector2( -17719.9, -40321.8 )
+
+[node name="VampireEncounter136" parent="Zone/Encounters/VanadiniteImpalers" index="135" instance=ExtResource( 6 )]
+position = Vector2( -6509.35, -40321.8 )
+
+[node name="VampireEncounter137" parent="Zone/Encounters/VanadiniteImpalers" index="136" instance=ExtResource( 6 )]
+position = Vector2( -8588.73, -40321.8 )
+
+[node name="VampireEncounter138" parent="Zone/Encounters/VanadiniteImpalers" index="137" instance=ExtResource( 6 )]
+position = Vector2( -10848.9, -40321.8 )
+
+[node name="VampireEncounter139" parent="Zone/Encounters/VanadiniteImpalers" index="138" instance=ExtResource( 6 )]
+position = Vector2( -452.039, -40321.8 )
+
+[node name="VampireEncounter140" parent="Zone/Encounters/VanadiniteImpalers" index="139" instance=ExtResource( 6 )]
+position = Vector2( -2531.41, -40321.8 )
+
+[node name="VampireEncounter141" parent="Zone/Encounters/VanadiniteImpalers" index="140" instance=ExtResource( 6 )]
+position = Vector2( -4791.6, -40321.8 )
+
+[node name="VampireEncounter142" parent="Zone/Encounters/VanadiniteImpalers" index="141" instance=ExtResource( 6 )]
+position = Vector2( 6418.93, -40321.8 )
+
+[node name="VampireEncounter143" parent="Zone/Encounters/VanadiniteImpalers" index="142" instance=ExtResource( 6 )]
+position = Vector2( 4339.55, -40321.8 )
+
+[node name="VampireEncounter144" parent="Zone/Encounters/VanadiniteImpalers" index="143" instance=ExtResource( 6 )]
+position = Vector2( 2079.37, -40321.8 )
+
+[node name="VampireEncounter145" parent="Zone/Encounters/VanadiniteImpalers" index="144" instance=ExtResource( 6 )]
+position = Vector2( 2983.44, -41949.1 )
+
+[node name="VampireEncounter146" parent="Zone/Encounters/VanadiniteImpalers" index="145" instance=ExtResource( 6 )]
+position = Vector2( 904.063, -41949.1 )
+
+[node name="VampireEncounter147" parent="Zone/Encounters/VanadiniteImpalers" index="146" instance=ExtResource( 6 )]
+position = Vector2( -1356.13, -41949.1 )
+
+[node name="VampireEncounter148" parent="Zone/Encounters/VanadiniteImpalers" index="147" instance=ExtResource( 6 )]
+position = Vector2( 9854.41, -41949.1 )
+
+[node name="VampireEncounter149" parent="Zone/Encounters/VanadiniteImpalers" index="148" instance=ExtResource( 6 )]
+position = Vector2( 7775.03, -41949.1 )
+
+[node name="VampireEncounter150" parent="Zone/Encounters/VanadiniteImpalers" index="149" instance=ExtResource( 6 )]
+position = Vector2( 5514.84, -41949.1 )
+
+[node name="VampireEncounter151" parent="Zone/Encounters/VanadiniteImpalers" index="150" instance=ExtResource( 6 )]
+position = Vector2( 15911.7, -41949.1 )
+
+[node name="VampireEncounter152" parent="Zone/Encounters/VanadiniteImpalers" index="151" instance=ExtResource( 6 )]
+position = Vector2( 13832.3, -41949.1 )
+
+[node name="VampireEncounter153" parent="Zone/Encounters/VanadiniteImpalers" index="152" instance=ExtResource( 6 )]
+position = Vector2( 11572.2, -41949.1 )
+
+[node name="VampireEncounter154" parent="Zone/Encounters/VanadiniteImpalers" index="153" instance=ExtResource( 6 )]
+position = Vector2( 22782.7, -41949.1 )
+
+[node name="VampireEncounter155" parent="Zone/Encounters/VanadiniteImpalers" index="154" instance=ExtResource( 6 )]
+position = Vector2( 20703.3, -41949.1 )
+
+[node name="VampireEncounter156" parent="Zone/Encounters/VanadiniteImpalers" index="155" instance=ExtResource( 6 )]
+position = Vector2( 18443.1, -41949.1 )
+
+[node name="VampireEncounter157" parent="Zone/Encounters/VanadiniteImpalers" index="156" instance=ExtResource( 6 )]
+position = Vector2( -23686.8, -41858.7 )
+
+[node name="VampireEncounter158" parent="Zone/Encounters/VanadiniteImpalers" index="157" instance=ExtResource( 6 )]
+position = Vector2( -25766.2, -41858.7 )
+
+[node name="VampireEncounter159" parent="Zone/Encounters/VanadiniteImpalers" index="158" instance=ExtResource( 6 )]
+position = Vector2( -28026.4, -41858.7 )
+
+[node name="VampireEncounter160" parent="Zone/Encounters/VanadiniteImpalers" index="159" instance=ExtResource( 6 )]
+position = Vector2( -16815.8, -41858.7 )
+
+[node name="VampireEncounter161" parent="Zone/Encounters/VanadiniteImpalers" index="160" instance=ExtResource( 6 )]
+position = Vector2( -18895.2, -41858.7 )
+
+[node name="VampireEncounter162" parent="Zone/Encounters/VanadiniteImpalers" index="161" instance=ExtResource( 6 )]
+position = Vector2( -21155.4, -41858.7 )
+
+[node name="VampireEncounter163" parent="Zone/Encounters/VanadiniteImpalers" index="162" instance=ExtResource( 6 )]
+position = Vector2( -10758.5, -41858.7 )
+
+[node name="VampireEncounter164" parent="Zone/Encounters/VanadiniteImpalers" index="163" instance=ExtResource( 6 )]
+position = Vector2( -12837.9, -41858.7 )
+
+[node name="VampireEncounter165" parent="Zone/Encounters/VanadiniteImpalers" index="164" instance=ExtResource( 6 )]
+position = Vector2( -15098.1, -41858.7 )
+
+[node name="VampireEncounter166" parent="Zone/Encounters/VanadiniteImpalers" index="165" instance=ExtResource( 6 )]
+position = Vector2( -3887.54, -41858.7 )
+
+[node name="VampireEncounter167" parent="Zone/Encounters/VanadiniteImpalers" index="166" instance=ExtResource( 6 )]
+position = Vector2( -5966.91, -41858.7 )
+
+[node name="VampireEncounter168" parent="Zone/Encounters/VanadiniteImpalers" index="167" instance=ExtResource( 6 )]
+position = Vector2( -8227.1, -41858.7 )
+
+[node name="VampireEncounter169" parent="Zone/Encounters/VanadiniteImpalers" index="168" instance=ExtResource( 6 )]
+position = Vector2( 14736.4, -43666.8 )
+
+[node name="VampireEncounter170" parent="Zone/Encounters/VanadiniteImpalers" index="169" instance=ExtResource( 6 )]
+position = Vector2( 12657, -43666.8 )
+
+[node name="VampireEncounter171" parent="Zone/Encounters/VanadiniteImpalers" index="170" instance=ExtResource( 6 )]
+position = Vector2( 10396.9, -43666.8 )
+
+[node name="VampireEncounter172" parent="Zone/Encounters/VanadiniteImpalers" index="171" instance=ExtResource( 6 )]
+position = Vector2( 21607.4, -43666.8 )
+
+[node name="VampireEncounter173" parent="Zone/Encounters/VanadiniteImpalers" index="172" instance=ExtResource( 6 )]
+position = Vector2( 19528, -43666.8 )
+
+[node name="VampireEncounter174" parent="Zone/Encounters/VanadiniteImpalers" index="173" instance=ExtResource( 6 )]
+position = Vector2( 17267.8, -43666.8 )
+
+[node name="VampireEncounter175" parent="Zone/Encounters/VanadiniteImpalers" index="174" instance=ExtResource( 6 )]
+position = Vector2( 27664.7, -43666.8 )
+
+[node name="VampireEncounter176" parent="Zone/Encounters/VanadiniteImpalers" index="175" instance=ExtResource( 6 )]
+position = Vector2( 25585.3, -43666.8 )
+
+[node name="VampireEncounter177" parent="Zone/Encounters/VanadiniteImpalers" index="176" instance=ExtResource( 6 )]
+position = Vector2( 23325.1, -43666.8 )
+
+[node name="VampireEncounter178" parent="Zone/Encounters/VanadiniteImpalers" index="177" instance=ExtResource( 6 )]
+position = Vector2( 34535.7, -43666.8 )
+
+[node name="VampireEncounter179" parent="Zone/Encounters/VanadiniteImpalers" index="178" instance=ExtResource( 6 )]
+position = Vector2( 32456.3, -43666.8 )
+
+[node name="VampireEncounter180" parent="Zone/Encounters/VanadiniteImpalers" index="179" instance=ExtResource( 6 )]
+position = Vector2( 30196.1, -43666.8 )
+
+[node name="VampireEncounter181" parent="Zone/Encounters/VanadiniteImpalers" index="180" instance=ExtResource( 6 )]
+position = Vector2( -11933.8, -43576.4 )
+
+[node name="VampireEncounter182" parent="Zone/Encounters/VanadiniteImpalers" index="181" instance=ExtResource( 6 )]
+position = Vector2( -14013.2, -43576.4 )
+
+[node name="VampireEncounter183" parent="Zone/Encounters/VanadiniteImpalers" index="182" instance=ExtResource( 6 )]
+position = Vector2( -16273.4, -43576.4 )
+
+[node name="VampireEncounter184" parent="Zone/Encounters/VanadiniteImpalers" index="183" instance=ExtResource( 6 )]
+position = Vector2( -5062.84, -43576.4 )
+
+[node name="VampireEncounter185" parent="Zone/Encounters/VanadiniteImpalers" index="184" instance=ExtResource( 6 )]
+position = Vector2( -7142.21, -43576.4 )
+
+[node name="VampireEncounter186" parent="Zone/Encounters/VanadiniteImpalers" index="185" instance=ExtResource( 6 )]
+position = Vector2( -9402.4, -43576.4 )
+
+[node name="VampireEncounter187" parent="Zone/Encounters/VanadiniteImpalers" index="186" instance=ExtResource( 6 )]
+position = Vector2( 994.477, -43576.4 )
+
+[node name="VampireEncounter188" parent="Zone/Encounters/VanadiniteImpalers" index="187" instance=ExtResource( 6 )]
+position = Vector2( -1084.9, -43576.4 )
+
+[node name="VampireEncounter189" parent="Zone/Encounters/VanadiniteImpalers" index="188" instance=ExtResource( 6 )]
+position = Vector2( -3345.09, -43576.4 )
+
+[node name="VampireEncounter190" parent="Zone/Encounters/VanadiniteImpalers" index="189" instance=ExtResource( 6 )]
+position = Vector2( 7865.45, -43576.4 )
+
+[node name="VampireEncounter191" parent="Zone/Encounters/VanadiniteImpalers" index="190" instance=ExtResource( 6 )]
+position = Vector2( 5786.07, -43576.4 )
+
+[node name="VampireEncounter192" parent="Zone/Encounters/VanadiniteImpalers" index="191" instance=ExtResource( 6 )]
+position = Vector2( 3525.88, -43576.4 )
+
+[node name="VampireEncounter193" parent="Zone/Encounters/VanadiniteImpalers" index="192" instance=ExtResource( 6 )]
+position = Vector2( -452.047, -39598.5 )
+
+[node name="VampireEncounter194" parent="Zone/Encounters/VanadiniteImpalers" index="193" instance=ExtResource( 6 )]
+position = Vector2( -2531.42, -39598.5 )
+
+[node name="VampireEncounter195" parent="Zone/Encounters/VanadiniteImpalers" index="194" instance=ExtResource( 6 )]
+position = Vector2( -4791.61, -39598.5 )
+
+[node name="VampireEncounter196" parent="Zone/Encounters/VanadiniteImpalers" index="195" instance=ExtResource( 6 )]
+position = Vector2( 6418.92, -39598.5 )
+
+[node name="VampireEncounter197" parent="Zone/Encounters/VanadiniteImpalers" index="196" instance=ExtResource( 6 )]
+position = Vector2( 4339.55, -39598.5 )
+
+[node name="VampireEncounter198" parent="Zone/Encounters/VanadiniteImpalers" index="197" instance=ExtResource( 6 )]
+position = Vector2( 2079.36, -39598.5 )
+
+[node name="VampireEncounter199" parent="Zone/Encounters/VanadiniteImpalers" index="198" instance=ExtResource( 6 )]
+position = Vector2( 12476.2, -39598.5 )
+
+[node name="VampireEncounter200" parent="Zone/Encounters/VanadiniteImpalers" index="199" instance=ExtResource( 6 )]
+position = Vector2( 10396.9, -39598.5 )
+
+[node name="VampireEncounter201" parent="Zone/Encounters/VanadiniteImpalers" index="200" instance=ExtResource( 6 )]
+position = Vector2( 8136.67, -39598.5 )
+
+[node name="VampireEncounter202" parent="Zone/Encounters/VanadiniteImpalers" index="201" instance=ExtResource( 6 )]
+position = Vector2( 19347.2, -39598.5 )
+
+[node name="VampireEncounter203" parent="Zone/Encounters/VanadiniteImpalers" index="202" instance=ExtResource( 6 )]
+position = Vector2( 17267.8, -39598.5 )
+
+[node name="VampireEncounter204" parent="Zone/Encounters/VanadiniteImpalers" index="203" instance=ExtResource( 6 )]
+position = Vector2( 15007.6, -39598.5 )
+
+[node name="VampireEncounter205" parent="Zone/Encounters/VanadiniteImpalers" index="204" instance=ExtResource( 6 )]
+position = Vector2( -27122.3, -39508.1 )
+
+[node name="VampireEncounter206" parent="Zone/Encounters/VanadiniteImpalers" index="205" instance=ExtResource( 6 )]
+position = Vector2( -29201.6, -39508.1 )
+
+[node name="VampireEncounter207" parent="Zone/Encounters/VanadiniteImpalers" index="206" instance=ExtResource( 6 )]
+position = Vector2( -31461.8, -39508.1 )
+
+[node name="VampireEncounter208" parent="Zone/Encounters/VanadiniteImpalers" index="207" instance=ExtResource( 6 )]
+position = Vector2( -20251.3, -39508.1 )
+
+[node name="VampireEncounter209" parent="Zone/Encounters/VanadiniteImpalers" index="208" instance=ExtResource( 6 )]
+position = Vector2( -22330.7, -39508.1 )
+
+[node name="VampireEncounter210" parent="Zone/Encounters/VanadiniteImpalers" index="209" instance=ExtResource( 6 )]
+position = Vector2( -24590.9, -39508.1 )
+
+[node name="VampireEncounter211" parent="Zone/Encounters/VanadiniteImpalers" index="210" instance=ExtResource( 6 )]
+position = Vector2( -14194, -39508.1 )
+
+[node name="VampireEncounter212" parent="Zone/Encounters/VanadiniteImpalers" index="211" instance=ExtResource( 6 )]
+position = Vector2( -16273.4, -39508.1 )
+
+[node name="VampireEncounter213" parent="Zone/Encounters/VanadiniteImpalers" index="212" instance=ExtResource( 6 )]
+position = Vector2( -18533.6, -39508.1 )
+
+[node name="VampireEncounter214" parent="Zone/Encounters/VanadiniteImpalers" index="213" instance=ExtResource( 6 )]
+position = Vector2( -7323.02, -39508.1 )
+
+[node name="VampireEncounter215" parent="Zone/Encounters/VanadiniteImpalers" index="214" instance=ExtResource( 6 )]
+position = Vector2( -9402.4, -39508.1 )
+
+[node name="VampireEncounter216" parent="Zone/Encounters/VanadiniteImpalers" index="215" instance=ExtResource( 6 )]
+position = Vector2( -11662.6, -39508.1 )
+
+[node name="VampireEncounter217" parent="Zone/Encounters/VanadiniteImpalers" index="216" instance=ExtResource( 6 )]
+position = Vector2( 11300.9, -41316.2 )
+
+[node name="VampireEncounter218" parent="Zone/Encounters/VanadiniteImpalers" index="217" instance=ExtResource( 6 )]
+position = Vector2( 9221.56, -41316.2 )
+
+[node name="VampireEncounter219" parent="Zone/Encounters/VanadiniteImpalers" index="218" instance=ExtResource( 6 )]
+position = Vector2( 6961.38, -41316.2 )
+
+[node name="VampireEncounter220" parent="Zone/Encounters/VanadiniteImpalers" index="219" instance=ExtResource( 6 )]
+position = Vector2( 18171.9, -41316.2 )
+
+[node name="VampireEncounter221" parent="Zone/Encounters/VanadiniteImpalers" index="220" instance=ExtResource( 6 )]
+position = Vector2( 16092.5, -41316.2 )
+
+[node name="VampireEncounter222" parent="Zone/Encounters/VanadiniteImpalers" index="221" instance=ExtResource( 6 )]
+position = Vector2( 13832.3, -41316.2 )
+
+[node name="VampireEncounter223" parent="Zone/Encounters/VanadiniteImpalers" index="222" instance=ExtResource( 6 )]
+position = Vector2( 24229.2, -41316.2 )
+
+[node name="VampireEncounter224" parent="Zone/Encounters/VanadiniteImpalers" index="223" instance=ExtResource( 6 )]
+position = Vector2( 22149.8, -41316.2 )
+
+[node name="VampireEncounter225" parent="Zone/Encounters/VanadiniteImpalers" index="224" instance=ExtResource( 6 )]
+position = Vector2( 19889.7, -41316.2 )
+
+[node name="VampireEncounter226" parent="Zone/Encounters/VanadiniteImpalers" index="225" instance=ExtResource( 6 )]
+position = Vector2( 31100.2, -41316.2 )
+
+[node name="VampireEncounter227" parent="Zone/Encounters/VanadiniteImpalers" index="226" instance=ExtResource( 6 )]
+position = Vector2( 29020.8, -41316.2 )
+
+[node name="VampireEncounter228" parent="Zone/Encounters/VanadiniteImpalers" index="227" instance=ExtResource( 6 )]
+position = Vector2( 26760.6, -41316.2 )
+
+[node name="VampireEncounter229" parent="Zone/Encounters/VanadiniteImpalers" index="228" instance=ExtResource( 6 )]
+position = Vector2( -15369.3, -41225.8 )
+
+[node name="VampireEncounter230" parent="Zone/Encounters/VanadiniteImpalers" index="229" instance=ExtResource( 6 )]
+position = Vector2( -17448.7, -41225.8 )
+
+[node name="VampireEncounter231" parent="Zone/Encounters/VanadiniteImpalers" index="230" instance=ExtResource( 6 )]
+position = Vector2( -19708.9, -41225.8 )
+
+[node name="VampireEncounter232" parent="Zone/Encounters/VanadiniteImpalers" index="231" instance=ExtResource( 6 )]
+position = Vector2( -8498.32, -41225.8 )
+
+[node name="VampireEncounter233" parent="Zone/Encounters/VanadiniteImpalers" index="232" instance=ExtResource( 6 )]
+position = Vector2( -10577.7, -41225.8 )
+
+[node name="VampireEncounter234" parent="Zone/Encounters/VanadiniteImpalers" index="233" instance=ExtResource( 6 )]
+position = Vector2( -12837.9, -41225.8 )
+
+[node name="VampireEncounter235" parent="Zone/Encounters/VanadiniteImpalers" index="234" instance=ExtResource( 6 )]
+position = Vector2( -2441.01, -41225.8 )
+
+[node name="VampireEncounter236" parent="Zone/Encounters/VanadiniteImpalers" index="235" instance=ExtResource( 6 )]
+position = Vector2( -4520.38, -41225.8 )
+
+[node name="VampireEncounter237" parent="Zone/Encounters/VanadiniteImpalers" index="236" instance=ExtResource( 6 )]
+position = Vector2( -6780.57, -41225.8 )
+
+[node name="VampireEncounter238" parent="Zone/Encounters/VanadiniteImpalers" index="237" instance=ExtResource( 6 )]
+position = Vector2( 4429.96, -41225.8 )
+
+[node name="VampireEncounter239" parent="Zone/Encounters/VanadiniteImpalers" index="238" instance=ExtResource( 6 )]
+position = Vector2( 2350.59, -41225.8 )
+
+[node name="VampireEncounter240" parent="Zone/Encounters/VanadiniteImpalers" index="239" instance=ExtResource( 6 )]
+position = Vector2( 90.3984, -41225.8 )
+
+[node name="VampireEncounter241" parent="Zone/Encounters/VanadiniteImpalers" index="240" instance=ExtResource( 6 )]
+position = Vector2( 994.469, -42853.2 )
+
+[node name="VampireEncounter242" parent="Zone/Encounters/VanadiniteImpalers" index="241" instance=ExtResource( 6 )]
+position = Vector2( -1084.91, -42853.2 )
+
+[node name="VampireEncounter243" parent="Zone/Encounters/VanadiniteImpalers" index="242" instance=ExtResource( 6 )]
+position = Vector2( -3345.09, -42853.2 )
+
+[node name="VampireEncounter244" parent="Zone/Encounters/VanadiniteImpalers" index="243" instance=ExtResource( 6 )]
+position = Vector2( 7865.44, -42853.2 )
+
+[node name="VampireEncounter245" parent="Zone/Encounters/VanadiniteImpalers" index="244" instance=ExtResource( 6 )]
+position = Vector2( 5786.06, -42853.2 )
+
+[node name="VampireEncounter246" parent="Zone/Encounters/VanadiniteImpalers" index="245" instance=ExtResource( 6 )]
+position = Vector2( 3525.88, -42853.2 )
+
+[node name="VampireEncounter247" parent="Zone/Encounters/VanadiniteImpalers" index="246" instance=ExtResource( 6 )]
+position = Vector2( 13922.8, -42853.2 )
+
+[node name="VampireEncounter248" parent="Zone/Encounters/VanadiniteImpalers" index="247" instance=ExtResource( 6 )]
+position = Vector2( 11843.4, -42853.2 )
+
+[node name="VampireEncounter249" parent="Zone/Encounters/VanadiniteImpalers" index="248" instance=ExtResource( 6 )]
+position = Vector2( 9583.19, -42853.2 )
+
+[node name="VampireEncounter250" parent="Zone/Encounters/VanadiniteImpalers" index="249" instance=ExtResource( 6 )]
+position = Vector2( 20793.7, -42853.2 )
+
+[node name="VampireEncounter251" parent="Zone/Encounters/VanadiniteImpalers" index="250" instance=ExtResource( 6 )]
+position = Vector2( 18714.3, -42853.2 )
+
+[node name="VampireEncounter252" parent="Zone/Encounters/VanadiniteImpalers" index="251" instance=ExtResource( 6 )]
+position = Vector2( 16454.2, -42853.2 )
+
+[node name="VampireEncounter253" parent="Zone/Encounters/VanadiniteImpalers" index="252" instance=ExtResource( 6 )]
+position = Vector2( -25675.8, -42762.8 )
+
+[node name="VampireEncounter254" parent="Zone/Encounters/VanadiniteImpalers" index="253" instance=ExtResource( 6 )]
+position = Vector2( -27755.1, -42762.8 )
+
+[node name="VampireEncounter255" parent="Zone/Encounters/VanadiniteImpalers" index="254" instance=ExtResource( 6 )]
+position = Vector2( -30015.3, -42762.8 )
+
+[node name="VampireEncounter256" parent="Zone/Encounters/VanadiniteImpalers" index="255" instance=ExtResource( 6 )]
+position = Vector2( -18804.8, -42762.8 )
+
+[node name="VampireEncounter257" parent="Zone/Encounters/VanadiniteImpalers" index="256" instance=ExtResource( 6 )]
+position = Vector2( -20884.2, -42762.8 )
+
+[node name="VampireEncounter258" parent="Zone/Encounters/VanadiniteImpalers" index="257" instance=ExtResource( 6 )]
+position = Vector2( -23144.4, -42762.8 )
+
+[node name="VampireEncounter259" parent="Zone/Encounters/VanadiniteImpalers" index="258" instance=ExtResource( 6 )]
+position = Vector2( -12747.5, -42762.8 )
+
+[node name="VampireEncounter260" parent="Zone/Encounters/VanadiniteImpalers" index="259" instance=ExtResource( 6 )]
+position = Vector2( -14826.9, -42762.8 )
+
+[node name="VampireEncounter261" parent="Zone/Encounters/VanadiniteImpalers" index="260" instance=ExtResource( 6 )]
+position = Vector2( -17087, -42762.8 )
+
+[node name="VampireEncounter262" parent="Zone/Encounters/VanadiniteImpalers" index="261" instance=ExtResource( 6 )]
+position = Vector2( -5876.51, -42762.8 )
+
+[node name="VampireEncounter263" parent="Zone/Encounters/VanadiniteImpalers" index="262" instance=ExtResource( 6 )]
+position = Vector2( -7955.88, -42762.8 )
+
+[node name="VampireEncounter264" parent="Zone/Encounters/VanadiniteImpalers" index="263" instance=ExtResource( 6 )]
+position = Vector2( -10216.1, -42762.8 )
+
+[node name="VampireEncounter265" parent="Zone/Encounters/VanadiniteImpalers" index="264" instance=ExtResource( 6 )]
+position = Vector2( 12747.5, -44570.9 )
+
+[node name="VampireEncounter266" parent="Zone/Encounters/VanadiniteImpalers" index="265" instance=ExtResource( 6 )]
+position = Vector2( 10668.1, -44570.9 )
+
+[node name="VampireEncounter267" parent="Zone/Encounters/VanadiniteImpalers" index="266" instance=ExtResource( 6 )]
+position = Vector2( 8407.89, -44570.9 )
+
+[node name="VampireEncounter268" parent="Zone/Encounters/VanadiniteImpalers" index="267" instance=ExtResource( 6 )]
+position = Vector2( 19618.4, -44570.9 )
+
+[node name="VampireEncounter269" parent="Zone/Encounters/VanadiniteImpalers" index="268" instance=ExtResource( 6 )]
+position = Vector2( 17539, -44570.9 )
+
+[node name="VampireEncounter270" parent="Zone/Encounters/VanadiniteImpalers" index="269" instance=ExtResource( 6 )]
+position = Vector2( 15278.9, -44570.9 )
+
+[node name="VampireEncounter271" parent="Zone/Encounters/VanadiniteImpalers" index="270" instance=ExtResource( 6 )]
+position = Vector2( 25675.7, -44570.9 )
+
+[node name="VampireEncounter272" parent="Zone/Encounters/VanadiniteImpalers" index="271" instance=ExtResource( 6 )]
+position = Vector2( 23596.4, -44570.9 )
+
+[node name="VampireEncounter273" parent="Zone/Encounters/VanadiniteImpalers" index="272" instance=ExtResource( 6 )]
+position = Vector2( 21336.2, -44570.9 )
+
+[node name="VampireEncounter274" parent="Zone/Encounters/VanadiniteImpalers" index="273" instance=ExtResource( 6 )]
+position = Vector2( 32546.7, -44570.9 )
+
+[node name="VampireEncounter275" parent="Zone/Encounters/VanadiniteImpalers" index="274" instance=ExtResource( 6 )]
+position = Vector2( 30467.3, -44570.9 )
+
+[node name="VampireEncounter276" parent="Zone/Encounters/VanadiniteImpalers" index="275" instance=ExtResource( 6 )]
+position = Vector2( 28207.1, -44570.9 )
+
+[node name="VampireEncounter277" parent="Zone/Encounters/VanadiniteImpalers" index="276" instance=ExtResource( 6 )]
+position = Vector2( -13922.8, -44480.5 )
+
+[node name="VampireEncounter278" parent="Zone/Encounters/VanadiniteImpalers" index="277" instance=ExtResource( 6 )]
+position = Vector2( -16002.1, -44480.5 )
+
+[node name="VampireEncounter279" parent="Zone/Encounters/VanadiniteImpalers" index="278" instance=ExtResource( 6 )]
+position = Vector2( -18262.3, -44480.5 )
+
+[node name="VampireEncounter280" parent="Zone/Encounters/VanadiniteImpalers" index="279" instance=ExtResource( 6 )]
+position = Vector2( -7051.8, -44480.5 )
+
+[node name="VampireEncounter281" parent="Zone/Encounters/VanadiniteImpalers" index="280" instance=ExtResource( 6 )]
+position = Vector2( -9131.18, -44480.5 )
+
+[node name="VampireEncounter282" parent="Zone/Encounters/VanadiniteImpalers" index="281" instance=ExtResource( 6 )]
+position = Vector2( -11391.4, -44480.5 )
+
+[node name="VampireEncounter283" parent="Zone/Encounters/VanadiniteImpalers" index="282" instance=ExtResource( 6 )]
+position = Vector2( -994.492, -44480.5 )
+
+[node name="VampireEncounter284" parent="Zone/Encounters/VanadiniteImpalers" index="283" instance=ExtResource( 6 )]
+position = Vector2( -3073.87, -44480.5 )
+
+[node name="VampireEncounter285" parent="Zone/Encounters/VanadiniteImpalers" index="284" instance=ExtResource( 6 )]
+position = Vector2( -5334.05, -44480.5 )
+
+[node name="VampireEncounter286" parent="Zone/Encounters/VanadiniteImpalers" index="285" instance=ExtResource( 6 )]
+position = Vector2( 5876.48, -44480.5 )
+
+[node name="VampireEncounter287" parent="Zone/Encounters/VanadiniteImpalers" index="286" instance=ExtResource( 6 )]
+position = Vector2( 3797.1, -44480.5 )
+
+[node name="VampireEncounter288" parent="Zone/Encounters/VanadiniteImpalers" index="287" instance=ExtResource( 6 )]
+position = Vector2( 1536.91, -44480.5 )
 
 [node name="StrandedMiner001" parent="Zone/PointsOfInterest" index="0" instance=ExtResource( 1 )]
 position = Vector2( 10080.7, -16487.9 )
