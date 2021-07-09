@@ -22,6 +22,7 @@ var despawn_timer = Timer.new()
 
 func _ready():
 #	rng.randomize()
+	add_child(despawn_timer)
 	despawn_timer.wait_time = 3
 	despawn_timer.connect("timeout", self, "_final_free")
 	add_to_group("mini_map")
