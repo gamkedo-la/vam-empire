@@ -50,7 +50,7 @@ shape = SubResource( 2 )
 
 [node name="Steering" type="Node2D" parent="VampireImpalerAI/AI"]
 script = ExtResource( 3 )
-steer_force = 1.0
+steer_force = 6.0
 
 [node name="HitBox" parent="VampireImpalerAI" instance=ExtResource( 5 )]
 

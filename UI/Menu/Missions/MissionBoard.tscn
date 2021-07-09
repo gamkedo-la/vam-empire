@@ -6,24 +6,28 @@
 [ext_resource path="res://Scripts/UI/Missions/MissionBoard.gd" type="Script" id=4]
 
 [node name="MissionBoard" type="MarginContainer"]
-anchor_right = 1.0
-anchor_bottom = 1.0
-margin_right = -480.0
+anchor_left = 0.5
+anchor_right = 0.5
+margin_left = -350.0
+margin_right = 350.0
+margin_bottom = 388.0
+rect_min_size = Vector2( 700, 388 )
 script = ExtResource( 4 )
 __meta__ = {
 "_edit_use_anchors_": false
 }
 
 [node name="Panel" type="PanelContainer" parent="."]
-margin_right = 480.0
-margin_bottom = 540.0
+margin_right = 700.0
+margin_bottom = 388.0
+rect_min_size = Vector2( 700, 350 )
 theme = ExtResource( 2 )
 
 [node name="HBMain" type="HBoxContainer" parent="Panel"]
 margin_left = 9.0
 margin_top = 6.0
-margin_right = 471.0
-margin_bottom = 534.0
+margin_right = 691.0
+margin_bottom = 382.0
 alignment = 1
 __meta__ = {
 "_edit_use_anchors_": false
@@ -31,8 +35,8 @@ __meta__ = {
 
 [node name="VBLeft" type="VBoxContainer" parent="Panel/HBMain"]
 margin_right = 152.0
-margin_bottom = 528.0
-rect_min_size = Vector2( 152, 500 )
+margin_bottom = 376.0
+rect_min_size = Vector2( 152, 350 )
 
 [node name="HBSpacer" type="HBoxContainer" parent="Panel/HBMain/VBLeft"]
 margin_right = 152.0
@@ -42,14 +46,14 @@ rect_min_size = Vector2( 0, 20 )
 [node name="MissionsScroll" type="ScrollContainer" parent="Panel/HBMain/VBLeft"]
 margin_top = 26.0
 margin_right = 152.0
-margin_bottom = 506.0
-rect_min_size = Vector2( 0, 480 )
+margin_bottom = 376.0
+rect_min_size = Vector2( 0, 350 )
 theme = ExtResource( 2 )
 scroll_horizontal_enabled = false
 
 [node name="VBMissions" type="VBoxContainer" parent="Panel/HBMain/VBLeft/MissionsScroll"]
 margin_right = 152.0
-margin_bottom = 480.0
+margin_bottom = 350.0
 size_flags_horizontal = 3
 size_flags_vertical = 3
 
@@ -148,29 +152,31 @@ pre_req_missions = [ NodePath("../expedition_001") ]
 
 [node name="VBRight" type="VBoxContainer" parent="Panel/HBMain"]
 margin_left = 158.0
-margin_right = 462.0
-margin_bottom = 528.0
+margin_right = 682.0
+margin_bottom = 376.0
 size_flags_horizontal = 3
 
 [node name="HBSpacer" type="HBoxContainer" parent="Panel/HBMain/VBRight"]
-margin_right = 304.0
+margin_right = 524.0
 margin_bottom = 20.0
 rect_min_size = Vector2( 0, 20 )
 
 [node name="ScrollContainer" type="ScrollContainer" parent="Panel/HBMain/VBRight"]
 margin_top = 26.0
-margin_right = 304.0
-margin_bottom = 528.0
+margin_right = 524.0
+margin_bottom = 376.0
+rect_min_size = Vector2( 480, 350 )
 size_flags_vertical = 3
 theme = ExtResource( 2 )
 
 [node name="VBInfo" type="VBoxContainer" parent="Panel/HBMain/VBRight/ScrollContainer"]
-margin_right = 282.0
-margin_bottom = 502.0
+margin_right = 400.0
+margin_bottom = 374.0
+rect_min_size = Vector2( 400, 350 )
 size_flags_vertical = 3
 
 [node name="HBName" type="HBoxContainer" parent="Panel/HBMain/VBRight/ScrollContainer/VBInfo"]
-margin_right = 282.0
+margin_right = 400.0
 margin_bottom = 22.0
 
 [node name="NameLabel" type="Label" parent="Panel/HBMain/VBRight/ScrollContainer/VBInfo/HBName"]
@@ -186,7 +192,7 @@ text = "Mission Name"
 
 [node name="HBStatus" type="HBoxContainer" parent="Panel/HBMain/VBRight/ScrollContainer/VBInfo"]
 margin_top = 28.0
-margin_right = 282.0
+margin_right = 400.0
 margin_bottom = 50.0
 
 [node name="StatusLabel" type="Label" parent="Panel/HBMain/VBRight/ScrollContainer/VBInfo/HBStatus"]
@@ -202,7 +208,7 @@ text = "Incomplete"
 
 [node name="HBCompletion" type="HBoxContainer" parent="Panel/HBMain/VBRight/ScrollContainer/VBInfo"]
 margin_top = 56.0
-margin_right = 282.0
+margin_right = 400.0
 margin_bottom = 78.0
 
 [node name="CompleteIcon" type="TextureRect" parent="Panel/HBMain/VBRight/ScrollContainer/VBInfo/HBCompletion"]
@@ -216,7 +222,7 @@ text = "0/0"
 
 [node name="HBName2" type="HBoxContainer" parent="Panel/HBMain/VBRight/ScrollContainer/VBInfo"]
 margin_top = 84.0
-margin_right = 282.0
+margin_right = 400.0
 margin_bottom = 106.0
 
 [node name="SummaryLabel" type="Label" parent="Panel/HBMain/VBRight/ScrollContainer/VBInfo/HBName2"]
@@ -226,24 +232,24 @@ text = "Summary"
 
 [node name="HBName3" type="HBoxContainer" parent="Panel/HBMain/VBRight/ScrollContainer/VBInfo"]
 margin_top = 112.0
-margin_right = 282.0
-margin_bottom = 386.0
+margin_right = 400.0
+margin_bottom = 312.0
 size_flags_horizontal = 3
 
 [node name="Summary" type="Label" parent="Panel/HBMain/VBRight/ScrollContainer/VBInfo/HBName3"]
-margin_right = 282.0
-margin_bottom = 274.0
-rect_min_size = Vector2( 230, 0 )
+margin_right = 400.0
+margin_bottom = 200.0
+rect_min_size = Vector2( 230, 200 )
 size_flags_horizontal = 3
-text = "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Pellentesque mollis nunc nec dolor accumsan, sit amet bibendum enim congue. Mauris quis ante sit amet lorem fermentum tempor id at sapien.
+text = "Lorem ipsum dolor sit amet, consectetur adipiscing elit.
 
 Lorem ipsum dolor sit amet, consectetur adipiscing elit. Pellentesque mollis nunc nec dolor accumsan, sit amet bibendum enim congue. Mauris quis ante sit amet lorem fermentum tempor id at sapien."
 autowrap = true
 
 [node name="HBReward" type="HBoxContainer" parent="Panel/HBMain/VBRight/ScrollContainer/VBInfo"]
-margin_top = 392.0
-margin_right = 282.0
-margin_bottom = 414.0
+margin_top = 318.0
+margin_right = 400.0
+margin_bottom = 340.0
 
 [node name="RewardLabel" type="Label" parent="Panel/HBMain/VBRight/ScrollContainer/VBInfo/HBReward"]
 margin_right = 82.0
@@ -257,9 +263,9 @@ margin_bottom = 22.0
 text = "reward"
 
 [node name="HBButtons" type="HBoxContainer" parent="Panel/HBMain/VBRight/ScrollContainer/VBInfo"]
-margin_top = 420.0
-margin_right = 282.0
-margin_bottom = 420.0
+margin_top = 346.0
+margin_right = 400.0
+margin_bottom = 346.0
 
 [node name="Accept" type="Button" parent="Panel/HBMain/VBRight/ScrollContainer/VBInfo/HBButtons"]
 visible = false
@@ -274,9 +280,9 @@ margin_bottom = 22.0
 text = "Complete"
 
 [node name="HBDebug" type="HBoxContainer" parent="Panel/HBMain/VBRight/ScrollContainer/VBInfo"]
-margin_top = 426.0
-margin_right = 282.0
-margin_bottom = 448.0
+margin_top = 352.0
+margin_right = 400.0
+margin_bottom = 374.0
 
 [node name="DebugComplete" type="Button" parent="Panel/HBMain/VBRight/ScrollContainer/VBInfo/HBDebug"]
 margin_right = 168.0
@@ -293,7 +299,7 @@ text = "RESET ALL"
 self_modulate = Color( 1, 1, 1, 0 )
 margin_left = 9.0
 margin_top = 6.0
-margin_right = 471.0
+margin_right = 691.0
 margin_bottom = 26.0
 size_flags_horizontal = 3
 size_flags_vertical = 0

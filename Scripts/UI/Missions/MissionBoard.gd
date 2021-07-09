@@ -75,7 +75,7 @@ func _mission_selected(miss_id:String) -> void:
 		accept_button.visible = true
 	else:
 		accept_button.visible = false
-	print_debug("completable: ", sel_miss.completable, " is_home_base")
+#	print_debug("completable: ", sel_miss.completable, " is_home_base")
 	if sel_miss.completable && is_home_base:
 		complete_button.visible = true
 	else: 
@@ -151,7 +151,8 @@ func complete_mission() -> void:
 	if sel_miss is Mission:
 		if sel_miss.status == Mission.Status.ACCEPTED && sel_miss.completable:
 			print_debug(sel_miss.m_name)
-			sel_miss.status = Mission.Status.COMPLETE			
+			sel_miss.status = Mission.Status.COMPLETE
+			sel_miss.completable = false
 			PlayerVars.complete_mission(sel_miss)
 			sel_miss.icon = complete_star
 	check_all_prereqs()
