@@ -5,13 +5,17 @@ extends Node
 #var target = load("res://Cursors/target.png")
 
 func _ready():
-	set_default()
+#	set_default()
+	pass
 
-func set_default():
-	Input.set_custom_mouse_cursor(normal)
-
-func set_over_active_ui_element():
-	Input.set_custom_mouse_cursor(overUI)
-
-func set_target():
-	Input.set_custom_mouse_cursor(target)
+#func set_default():
+#	Input.set_custom_mouse_cursor(normal)
+#	pass
+#
+#func set_over_active_ui_element():
+#	Input.set_custom_mouse_cursor(overUI)
+#	pass
+#
+#func set_target():
+#	Input.set_custom_mouse_cursor(target)
+#	pass

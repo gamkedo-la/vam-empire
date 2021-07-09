@@ -9,10 +9,10 @@
 [ext_resource path="res://Collisions/HurtBox.tscn" type="PackedScene" id=7]
 
 [sub_resource type="CircleShape2D" id=1]
-radius = 571.809
+radius = 635.665
 
 [sub_resource type="CircleShape2D" id=2]
-radius = 771.44
+radius = 961.246
 
 [sub_resource type="RectangleShape2D" id=3]
 
