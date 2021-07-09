@@ -19,6 +19,7 @@ onready var summary_label: Label = $Panel/HBMain/VBRight/ScrollContainer/VBInfo/
 onready var accept_button: Button = $Panel/HBMain/VBRight/ScrollContainer/VBInfo/HBButtons/Accept
 onready var complete_button: Button = $Panel/HBMain/VBRight/ScrollContainer/VBInfo/HBButtons/Complete
 onready var debug_complete: Button = $Panel/HBMain/VBRight/ScrollContainer/VBInfo/HBDebug/DebugComplete
+onready var reward_label: Label = $Panel/HBMain/VBRight/ScrollContainer/VBInfo/HBReward/Reward
 
 
 func _ready() -> void:
@@ -71,6 +72,7 @@ func _mission_selected(miss_id:String) -> void:
 	name_label.text = str(sel_miss.m_name)
 	status_label.text = str(status[sel_miss.status])
 	summary_label.text = str(sel_miss.summary)
+	reward_label.text = str("$", sel_miss.cash_reward)
 	if sel_miss.status == Mission.Status.UNLOCKED:
 		accept_button.visible = true
 	else:
@@ -93,8 +95,9 @@ func _mission_selected(miss_id:String) -> void:
 	elif sel_miss.mission_type == Mission.MissionType.CHECKPOINT:
 		complete_icon.texture = null
 		complete_text.text = str("Visited: ", sel_miss.completed,"/",sel_miss.chkp_goal)
-		
-	print(miss_id)
+	
+	
+#	print(miss_id)
 
 func check_all_prereqs() -> void:
 	for mission in mission_list.get_children():
@@ -146,7 +149,7 @@ func _on_Complete_pressed() -> void:
 
 func complete_mission() -> void:
 
-	print_debug(sel_miss.m_name)
+#	print_debug(sel_miss.m_name)
 	sel_miss.status = Mission.Status.COMPLETE
 	sel_miss.completable = false
 	PlayerVars.complete_mission(sel_miss)
