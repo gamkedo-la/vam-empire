@@ -1,8 +1,8 @@
 extends Node
 
-var normal = load("res://Cursors/normal.png")
-var overUI = load("res://Cursors/overUI.png")
-var target = load("res://Cursors/target.png")
+#var normal = load("res://Cursors/normal.png")
+#var overUI = load("res://Cursors/overUI.png")
+#var target = load("res://Cursors/target.png")
 
 func _ready():
 	set_default()
