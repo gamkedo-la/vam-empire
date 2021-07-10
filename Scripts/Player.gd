@@ -77,7 +77,7 @@ func _ready():
 	add_child(targ_pos)
 	targ_pos.set_as_toplevel(true)
 	_set_menus_viz(false)
-	pilot_ship(PlayerVars.player.current_ship)	
+	pilot_ship(PlayerVars.player.current_ship_class, PlayerVars.player.current_ship_idx)
 	PlayerVars.player_node = self
 	var _connect = PlayerVars.connect("target_change", self, "_target_change")
 	_connect = PlayerVars.connect("energy_reserve_changed", self, "_on_energy_reserve_changed")
@@ -336,15 +336,9 @@ func pilot_ship_from_pack(ship):
 	
 	instantiate_ship_variables()
 
-func pilot_ship(ship):		
-	var ship_load = load(ship)
-	piloted_ship = ship_load.instance()
-	piloted_ship.set_owner(self)
-	ship_node.add_child(piloted_ship)
-#	var test = piloted_ship.get_node_or_null("HullCollision")
-	#print_debug("TEST: ", test)
-	Global.reparent(piloted_ship.get_node_or_null("HullCollision"), self)
-	instantiate_ship_variables()
+func pilot_ship(ship_class: int, ship_idx: int):
+	var newShip = Global.ship_hangar[ship_class][ship_idx].duplicate(true)
+	pilot_ship_from_pack(newShip[0].duplicate())
 
 func fire_attached_weapons():
 	piloted_ship.fire_weapons(velocity)

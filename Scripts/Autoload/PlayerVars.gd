@@ -33,7 +33,8 @@ var player_node = null
 var player_defaults = {
 	"name": " ",
 	"cash": 10000,
-	"current_ship": "res://Ships/StarterShip.tscn"	
+	"current_ship_class": 0,
+	"current_ship_idx": 0
 }
 
 var player = player_defaults
@@ -153,7 +154,11 @@ func set_save_slot(slot):
 	UserSettings.set_current_slot(slot)
 	FILE_NAME = UserSettings.get_save_slot(slot)
 
-	
+func save_ship_idx(s_class:int, s_idx: int) -> void:
+	PlayerVars.player.current_ship_class = s_class
+	PlayerVars.player.current_ship_idx = s_idx
+	save()
+
 func get_save_summary(slot):
 	var remember_slot = UserSettings.current.save.current_slot
 	FILE_NAME = UserSettings.get_save_slot(slot)

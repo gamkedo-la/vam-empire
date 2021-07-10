@@ -65,18 +65,22 @@ func _on_ShipSelect_mouse_exited():
 func _on_ShipSelect_item_selected(index):
 	var newShip = Global.ship_hangar[0][index].duplicate(true)
 	player_node.pilot_ship_from_pack(newShip[0].duplicate())
+	PlayerVars.save_ship_idx(0, index)
 
 func _on_DestroyerSelect_item_selected(index):
 	var newShip = Global.ship_hangar[1][index].duplicate(true)
 	player_node.pilot_ship_from_pack(newShip[0].duplicate())
-	
+	PlayerVars.save_ship_idx(1, index)
 func _on_CorvetteSelect_item_selected(index):
 	var newShip = Global.ship_hangar[2][index].duplicate(true)
 	player_node.pilot_ship_from_pack(newShip[0].duplicate())
-
+	PlayerVars.save_ship_idx(2, index)
+	
 func _on_DreadnoughtSelect_item_selected(index):
 	var newShip = Global.ship_hangar[3][index].duplicate(true)
 	player_node.pilot_ship_from_pack(newShip[0].duplicate())
+	PlayerVars.save_ship_idx(3, index)
+	
 
 
 # Take Damage Debug
