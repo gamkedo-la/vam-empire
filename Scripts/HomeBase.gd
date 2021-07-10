@@ -43,6 +43,7 @@ var leaving_to = null
 func _ready():
 	start_light_tweens()
 	Global.game_live = false
+	load_player_sprite()
 
 func _process(_delta):
 	starfield.scroll_offset.x += 10
@@ -52,6 +53,12 @@ func start_light_tweens():
 	lighting_tween.interpolate_property(port_light, "texture_scale", port_light.texture_scale, glow_up, glow_time, Tween.TRANS_CUBIC, Tween.EASE_IN_OUT)
 	lighting_tween.interpolate_property(starboard_light, "texture_scale", starboard_light.texture_scale, glow_up, glow_time, Tween.TRANS_CUBIC, Tween.EASE_IN_OUT)
 	lighting_tween.start()
+
+func load_player_sprite() -> void:
+	var newShip = Global.ship_hangar[PlayerVars.player.current_ship_class][PlayerVars.player.current_ship_idx]
+#	player_node.pilot_ship_from_pack(newShip[0].duplicate())
+	if newShip[0].get_node_or_null("ShipSprite"):
+		player_ship.texture = newShip[0].get_sprite()
 	
 func take_off():
 	if backing_up:
