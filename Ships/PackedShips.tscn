@@ -1,4 +1,4 @@
-[gd_scene load_steps=10 format=2]
+[gd_scene load_steps=11 format=2]
 
 [ext_resource path="res://Ships/StarterShip.tscn" type="PackedScene" id=1]
 [ext_resource path="res://Ships/Templates/Sm_Frigates/FrigateTemplate01_Tri.tscn" type="PackedScene" id=2]
@@ -9,6 +9,7 @@
 [ext_resource path="res://Enemies/Scenes/Small/Impaler.tscn" type="PackedScene" id=7]
 [ext_resource path="res://Ships/Mantis.tscn" type="PackedScene" id=8]
 [ext_resource path="res://Ships/MiningBarge.tscn" type="PackedScene" id=9]
+[ext_resource path="res://Ships/EscapePod/EscapePod.tscn" type="PackedScene" id=10]
 
 [node name="PackedShips" type="Node2D"]
 
@@ -36,9 +37,7 @@ ROT_ACCEL = 1.0
 
 [node name="4" type="Node2D" parent="Frigates"]
 
-[node name="Sound01" parent="Frigates/4" instance=ExtResource( 1 )]
-ship_name = "Sound01"
-equipped_weapon_index = [ 4, 4 ]
+[node name="EscapePod" parent="Frigates/4" instance=ExtResource( 10 )]
 
 [node name="5" type="Node2D" parent="Frigates"]
 

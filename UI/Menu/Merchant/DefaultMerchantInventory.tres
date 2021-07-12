@@ -5,18 +5,18 @@
 
 [sub_resource type="Resource" id=1]
 script = ExtResource( 2 )
-ship = "Frigates-Sound01"
+ship = "Frigates-StarterShip"
 buy_price = 50000
 
 [sub_resource type="Resource" id=2]
 script = ExtResource( 2 )
 ship = "Frigates-Mantis"
-buy_price = 2000
+buy_price = 125000
 
 [sub_resource type="Resource" id=3]
 script = ExtResource( 2 )
-ship = "Dreadnoughts-FrigateTemplate01_Tri-1"
-buy_price = 100
+ship = "Corvettes-MiningBarge"
+buy_price = 250000
 
 [resource]
 script = ExtResource( 1 )

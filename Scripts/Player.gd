@@ -278,8 +278,8 @@ func heal(amount, energy_cost):
 		take_damage(-amount, global_position) # Woah man, a heal is just like, negative damage
 		PlayerVars.energy_reserve -= energy_cost
 	
-	print("Heal: ", PlayerVars.hull_health)
-	print("Shield: ", PlayerVars.shield_health)
+#	print("Heal: ", PlayerVars.hull_health)
+#	print("Shield: ", PlayerVars.shield_health)
 
 func _on_energy_reserve_changed(_val, change_amount):
 	if (change_amount < 0): 

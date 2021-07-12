@@ -307,12 +307,14 @@ func take_damage(amount, position):
 	if update_shield:
 		var pre_shield = self.shield_health
 		self.shield_health -= amount
-		Effects.show_player_shield_dmg_text(position, int(round(amount)))
+		if amount > 0:
+			Effects.show_player_shield_dmg_text(position, int(round(amount)))
 		if shield_health > pre_shield:
 			Effects.emit_signal("ChargeShield", true)
 	else:
 		self.hull_health -= amount
-		Effects.show_player_hp_dmg_text(position, int(round(amount)))
+		if amount > 0:
+			Effects.show_player_hp_dmg_text(position, int(round(amount)))
 
 func accept_mission(miss:Mission) -> bool:
 	mission_state[miss.mission_id] = {}	

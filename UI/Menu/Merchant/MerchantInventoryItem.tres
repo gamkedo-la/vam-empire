@@ -4,5 +4,5 @@
 
 [resource]
 script = ExtResource( 1 )
-ship = 0
+ship = "Frigates-StarterShip"
 buy_price = 100
