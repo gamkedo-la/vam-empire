@@ -30,7 +30,8 @@ var weapons = []
 var thrust_length = 0.0
 
 var owner_ref = null
-
+onready var explosion = preload("res://VFX/explosion_unlit.tscn")
+onready var expl_sfx = preload("res://Sounds/Explosions/ship_explosion.tscn")
 func _ready():
 	for HPoint in hardpoints.get_children():
 		var HPidx = HPoint.get_index()
@@ -117,3 +118,26 @@ func rotate_rcs(thrust: float):
 
 func get_sprite() -> StreamTexture:
 	return ship_sprite.texture
+
+func self_destruct() -> void:
+	var rng = RandomNumberGenerator.new()
+	rng.randomize()
+	var x = 25
+	while x > 0:
+		print_debug("Looping ", x, " times")
+		yield(get_tree().create_timer(0.4), "timeout")
+		var exploder = explosion.instance()
+		var exp_sfx = expl_sfx.instance()
+		add_child(exploder)
+		add_child(exp_sfx)
+
+		var rndVec = Vector2(rng.randf_range(-5,5), rng.randf_range(-5,5))
+		self.rotation_degrees += rng.randi_range(-5,5)
+		self.position += rndVec
+		exploder.global_position = global_position + rndVec
+#		expl_sfx.play()
+		x -= 1
+		
+		
+	self.call_deferred("queue_free")
+		

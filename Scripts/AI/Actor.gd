@@ -47,7 +47,7 @@ export var active_targetind = preload("res://AI/Scenes/ActiveTargetIndicator.tsc
 var indicator_active: bool = false
 var indicator_ref = null
 
-var explosion = preload("res://VFX/explosion_unlit.tscn")
+onready var explosion = preload("res://VFX/explosion_unlit.tscn")
 onready var ship_node = $PilotedShip
 onready var minimap_sprite = $Sprite
 onready var death_timer = Timer.new()

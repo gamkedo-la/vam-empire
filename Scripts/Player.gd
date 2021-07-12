@@ -35,7 +35,7 @@ var roll_vector = Vector2.LEFT
 var rng = RandomNumberGenerator.new()
 
 var player_target = null
-
+onready var explosion = preload("res://VFX/explosion_unlit.tscn")
 # Bullet will be modularized as part of the Hardpoint mounted weapons, for now we're just going to fire it off the hardpoints
 onready var base_bullet = preload("res://Bullets/Scenes/BasicBullet.tscn")
 #provisional
@@ -66,6 +66,11 @@ var hardpoints = null
 var hull_hitbox = null
 var piloted_ship = null
 
+#Player has an escape pod to drop into
+var escape_pod = true
+var escape_pod_class: int = 0
+var escape_pod_idx: int = 4
+
 var team_group: String = "friendly"
 
 
@@ -79,9 +84,15 @@ func _ready():
 	_set_menus_viz(false)
 	pilot_ship(PlayerVars.player.current_ship_class, PlayerVars.player.current_ship_idx)
 	PlayerVars.player_node = self
-	var _connect = PlayerVars.connect("target_change", self, "_target_change")
-	_connect = PlayerVars.connect("energy_reserve_changed", self, "_on_energy_reserve_changed")
-	_connect = PlayerVars.connect("mission_complete", self, "_end_mission_screen")
+	if not PlayerVars.is_connected("target_change", self, "_target_change"):
+		assert(PlayerVars.connect("target_change", self, "_target_change") == OK)
+	if not PlayerVars.is_connected("energy_reserve_changed", self, "_on_energy_reserve_changed"):
+		assert(PlayerVars.connect("energy_reserve_changed", self, "_on_energy_reserve_changed") == OK)
+	if not PlayerVars.is_connected("mission_complete", self, "_end_mission_screen"):
+		assert(PlayerVars.connect("mission_complete", self, "_end_mission_screen") == OK)
+	if not PlayerVars.is_connected("player_died", self, "_player_died"):
+		assert(PlayerVars.connect("player_died", self, "_player_died") == OK)
+		
 	# Let the char sheet know about updated values
 	char_sheet.update_values()
 	rng.randomize()
@@ -277,9 +288,7 @@ func heal(amount, energy_cost):
 	if (PlayerVars.energy_reserve >= energy_cost && PlayerVars.shield_health < PlayerVars.shield_max_health):
 		take_damage(-amount, global_position) # Woah man, a heal is just like, negative damage
 		PlayerVars.energy_reserve -= energy_cost
-	
-#	print("Heal: ", PlayerVars.hull_health)
-#	print("Shield: ", PlayerVars.shield_health)
+
 
 func _on_energy_reserve_changed(_val, change_amount):
 	if (change_amount < 0): 
@@ -322,10 +331,10 @@ func instantiate_ship_variables():
 func pilot_ship_from_pack(ship):
 	var hull_colliders =  self.get_tree().get_nodes_in_group("HullCollider")
 	if piloted_ship:
-		piloted_ship.queue_free()
+		piloted_ship.call_deferred("queue_free")
 	if hull_colliders:
 		for Collider in hull_colliders:
-			Collider.queue_free()	
+			Collider.call_deferred("queue_free")
 	piloted_ship = ship
 	piloted_ship.set_owner(self)
 	ship_node.add_child(piloted_ship)	
@@ -339,6 +348,29 @@ func pilot_ship_from_pack(ship):
 func pilot_ship(ship_class: int, ship_idx: int):
 	var newShip = Global.ship_hangar[ship_class][ship_idx].duplicate(true)
 	pilot_ship_from_pack(newShip[0].duplicate())
+
+func eject_ship() -> void:
+	var newShip = Global.ship_hangar[escape_pod_class][escape_pod_idx].duplicate(true)
+	var hull_colliders = self.get_tree().get_nodes_in_group("HullCollider")
+	var ship = newShip[0].duplicate()
+	var old_ship = null
+	if hull_colliders:
+		for Collider in hull_colliders:
+			Collider.call_deferred("queue_free")
+	piloted_ship.set_as_toplevel(true)
+	old_ship = piloted_ship	
+	piloted_ship = ship
+	old_ship.global_position = self.global_position
+	old_ship.global_rotation = self.global_rotation
+	Global.reparent(old_ship, self)
+	old_ship.self_destruct()
+	ship_node.add_child(piloted_ship)	
+	# TODO: Retool this to load multiple Hull Colliders from Ship	
+	var hull = piloted_ship.get_node_or_null("HullCollision").duplicate()
+	add_child(hull)	
+	instantiate_ship_variables()
+	PlayerVars.save_ship_idx(escape_pod_class, escape_pod_idx)
+	
 
 func fire_attached_weapons():
 	piloted_ship.fire_weapons(velocity)
@@ -371,6 +403,15 @@ func _target_change(val):
 
 func get_ship_inventory():
 	return inventory
+
+func _player_died() -> void:
+#	print_debug("Getting here")
+	if escape_pod:
+		eject_ship()
+		escape_pod = false
+#		PlayerVars.disconnect("player_died", self, "_player_died")
+	else:
+		print_debug("Escape Pod Blew Up! GAME OVER")
 
 
 func _on_Trigger_area_entered(area):

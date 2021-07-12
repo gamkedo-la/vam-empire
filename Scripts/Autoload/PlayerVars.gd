@@ -80,6 +80,10 @@ func emit_signal_if_value_changed(signal_name, value, change_amount):
 	if change_amount != 0:
 		emit_signal(signal_name, value, change_amount)
 
+func emit_simple_signal_if_value_changed(signal_name, value, change_amount):
+	if change_amount != 0:
+		emit_signal(signal_name)
+
 func set_shield_health(val):
 	var previous_val = shield_health
 	shield_health = val
@@ -92,7 +96,7 @@ func set_hull_health(val):
 	hull_health = clamp(hull_health, 0, hull_max_health)
 	if hull_health <= 0:
 		print_debug("Player died...")
-		emit_signal("player_died")
+		emit_simple_signal_if_value_changed("player_died", hull_health, hull_health - previous_val)
 	
 	emit_signal_if_value_changed("hull_health_changed", hull_health, hull_health - previous_val)
 	
@@ -316,8 +320,9 @@ func take_damage(amount, position):
 		if amount > 0:
 			Effects.show_player_hp_dmg_text(position, int(round(amount)))
 
+
 func accept_mission(miss:Mission) -> bool:
-	mission_state[miss.mission_id] = {}	
+	mission_state[miss.mission_id] = {}
 	mission_state[miss.mission_id]["status"] = miss.status
 	if miss.mission_type == Mission.MissionType.ITEM:
 		mission_state[miss.mission_id]["goal"] = miss.item_goal

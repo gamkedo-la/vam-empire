@@ -124,7 +124,7 @@ func _on_ReturnButton_mouse_entered():
 
 
 func _on_MainTween_tween_completed(_object, key):
-	print_debug(key)
+#	print_debug(key)
 	var _interp
 	if key == ":rect_rotation":
 		_interp = main_tween.interpolate_property(self, "rect_rotation", self.rect_rotation, -self.rect_rotation, 5, Tween.TRANS_BACK, Tween.EASE_IN_OUT)

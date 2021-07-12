@@ -130,7 +130,7 @@ func _patrol():
 		journey_distance = actor.global_position.distance_to(patrol_target)
 		patrol_reached = false
 	if actor.global_position.distance_to(PlayerVars.player_node.global_position) > 2000:
-		print_debug("Actor: ", actor, " going to sleep.")
+#		print_debug("Actor: ", actor, " going to sleep.")
 		set_state(State.SLEEP)
 		
 

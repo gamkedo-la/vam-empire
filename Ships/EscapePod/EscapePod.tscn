@@ -33,12 +33,14 @@ colors = PoolColorArray( 0.995117, 1, 0, 1, 0.992676, 0.27908, 0.00387764, 1, 0.
 [node name="EscapePod" type="Node2D"]
 script = ExtResource( 6 )
 ship_name = "EscapePod"
-ACCELERATION = 3000
-MAX_SPEED = 3000
+ACCELERATION = 500
+MAX_SPEED = 1500
 FRICTION = 50
 MASS = 50
 ROT_SPEED = 6.0
 ROT_ACCEL = 2.0
+hardpoint_size = [ 0 ]
+equipped_weapon_index = [ 0 ]
 
 [node name="ShipSprite" type="Sprite" parent="."]
 texture = ExtResource( 2 )
@@ -52,6 +54,9 @@ rotation = 1.5708
 shape = SubResource( 1 )
 
 [node name="Hardpoints" type="Node2D" parent="."]
+
+[node name="Position2D" type="Position2D" parent="Hardpoints"]
+position = Vector2( 6.24612, -0.117851 )
 
 [node name="Lights" type="Node2D" parent="."]
 

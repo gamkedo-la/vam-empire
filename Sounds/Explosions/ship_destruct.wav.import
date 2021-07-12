@@ -1,0 +1,21 @@
+[remap]
+
+importer="wav"
+type="AudioStreamSample"
+path="res://.import/ship_destruct.wav-8ea10b1371d40d831dfb2c670aa5c969.sample"
+
+[deps]
+
+source_file="res://Sounds/Explosions/ship_destruct.wav"
+dest_files=[ "res://.import/ship_destruct.wav-8ea10b1371d40d831dfb2c670aa5c969.sample" ]
+
+[params]
+
+force/8_bit=false
+force/mono=false
+force/max_rate=false
+force/max_rate_hz=44100
+edit/trim=false
+edit/normalize=false
+edit/loop=false
+compress/mode=0

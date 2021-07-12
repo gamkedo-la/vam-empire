@@ -16,6 +16,7 @@ items = [ "Bring a Bandaid", null, false, 0, null, "Get Some Gauze", null, false
 visible = true
 
 [node name="RoidCol1" type="Node2D" parent="Zone/Areas" index="0"]
+visible = false
 
 [node name="RoidRow01" type="Node2D" parent="Zone/Areas/RoidCol1" index="0"]
 position = Vector2( 6273.81, -1005.73 )
@@ -3616,7 +3617,7 @@ position = Vector2( 1536.91, -44480.5 )
 [node name="PirateSpawns" type="Node2D" parent="Zone/Encounters" index="1"]
 
 [node name="SinglePirateSpawn" parent="Zone/Encounters/PirateSpawns" index="0" instance=ExtResource( 7 )]
-position = Vector2( 1727.09, -3962.16 )
+position = Vector2( -935.747, -3329.36 )
 
 [node name="SinglePirateSpawn2" parent="Zone/Encounters/PirateSpawns" index="1" instance=ExtResource( 7 )]
 position = Vector2( 5418.33, -3996.02 )
