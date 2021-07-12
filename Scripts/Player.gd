@@ -364,6 +364,7 @@ func eject_ship() -> void:
 	old_ship.global_rotation = self.global_rotation
 	Global.reparent(old_ship, self)
 	old_ship.self_destruct()
+	piloted_ship.set_owner(self)
 	ship_node.add_child(piloted_ship)	
 	# TODO: Retool this to load multiple Hull Colliders from Ship	
 	var hull = piloted_ship.get_node_or_null("HullCollision").duplicate()
