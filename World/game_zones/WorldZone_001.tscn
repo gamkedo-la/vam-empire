@@ -16,7 +16,6 @@ items = [ "Bring a Bandaid", null, false, 0, null, "Get Some Gauze", null, false
 visible = true
 
 [node name="RoidCol1" type="Node2D" parent="Zone/Areas" index="0"]
-visible = false
 
 [node name="RoidRow01" type="Node2D" parent="Zone/Areas/RoidCol1" index="0"]
 position = Vector2( 6273.81, -1005.73 )
