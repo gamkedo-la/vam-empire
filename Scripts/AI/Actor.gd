@@ -21,6 +21,7 @@ enum Squadron {
 export (Team) var actor_team
 export (String) var mission_string = ""
 export (Squadron) var squadron_status
+export (bool) var is_a_boss = false
 
 var team_group = null
 

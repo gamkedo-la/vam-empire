@@ -1,13 +1,17 @@
-[gd_scene load_steps=7 format=2]
+[gd_scene load_steps=8 format=2]
 
 [ext_resource path="res://World/game_points_of_interest/StrandedMiner001.tscn" type="PackedScene" id=1]
 [ext_resource path="res://World/game_zones/Templates/ZoneTemplate.tscn" type="PackedScene" id=2]
 [ext_resource path="res://World/game_points_of_interest/VampireComms001.tscn" type="PackedScene" id=3]
+[ext_resource path="res://Enemies/Scenes/Bosses/BossPrototype001.tscn" type="PackedScene" id=4]
 [ext_resource path="res://World/game_areas/AsteroidFieldSpawner.tscn" type="PackedScene" id=5]
 [ext_resource path="res://World/game_encounters/VampireEncounter01.tscn" type="PackedScene" id=6]
 [ext_resource path="res://Enemies/Scenes/Small/SinglePirateSpawn.tscn" type="PackedScene" id=7]
 
 [node name="World" instance=ExtResource( 2 )]
+
+[node name="BossPrototype001" parent="." index="0" instance=ExtResource( 4 )]
+position = Vector2( 660.359, 1693.23 )
 
 [node name="DifficultyOptionButton" parent="MainMenu/MenuCanvas/Viz/OptionsContainer/VBoxContainer/TabContainer/Difficulty/VBoxContainer/DifficultyHbox" index="1"]
 items = [ "Bring a Bandaid", null, false, 0, null, "Get Some Gauze", null, false, 1, null, "Seek a Surgeon", null, false, 2, null ]

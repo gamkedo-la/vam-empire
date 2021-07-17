@@ -1,9 +1,10 @@
-[gd_scene load_steps=5 format=2]
+[gd_scene load_steps=6 format=2]
 
 [ext_resource path="res://Music/Ambient Space Exploration Loop.wav" type="AudioStream" id=1]
 [ext_resource path="res://Scripts/Autoload/Music.gd" type="Script" id=2]
 [ext_resource path="res://Music/Active Combat Loop.wav" type="AudioStream" id=3]
 [ext_resource path="res://Music/Impending Threat Loop.wav" type="AudioStream" id=4]
+[ext_resource path="res://Music/VAM Empire Base Theme Loop.wav" type="AudioStream" id=5]
 
 [node name="Music" type="Node"]
 pause_mode = 2
@@ -25,6 +26,12 @@ bus = "Music"
 
 [node name="ActiveCombat" type="AudioStreamPlayer" parent="."]
 stream = ExtResource( 3 )
+volume_db = -80.0
+autoplay = true
+bus = "Music"
+
+[node name="BossMusic" type="AudioStreamPlayer" parent="."]
+stream = ExtResource( 5 )
 volume_db = -80.0
 autoplay = true
 bus = "Music"

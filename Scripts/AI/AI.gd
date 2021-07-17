@@ -76,8 +76,10 @@ func initialize(newActor: Actor, newShip: Ship, newTeam: String):
 	origin = actor.position
 	_install_state_timers()
 	steering.initialize(newActor, newShip, newTeam, self)
-	if self.actor.actor_team == Actor.Team.PIRATE || self.actor.actor_team == Actor.Team.VAMPIRE:
-		Music.register_enemy(self)	
+	if (self.actor.actor_team == Actor.Team.PIRATE || self.actor.actor_team == Actor.Team.VAMPIRE) && !self.actor.is_a_boss:
+		Music.register_enemy(self)
+	if self.actor.is_a_boss:
+		Music.register_boss(self)
 
 func set_state(new_state: int) -> void:
 	if new_state == current_state:

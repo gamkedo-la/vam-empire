@@ -4,6 +4,7 @@ extends Node
 onready var ambient_explo_music: AudioStreamPlayer = $Ambient_Exploration
 onready var impending_threat: AudioStreamPlayer = $ImpendingThreat
 onready var active_combat: AudioStreamPlayer = $ActiveCombat
+onready var boss_music: AudioStreamPlayer = $BossMusic
 onready var tween = $Tween
 
 var fade_speed := 20
@@ -11,11 +12,13 @@ var fade_speed := 20
 var ambient_target = 0
 var impending_target = -80
 var combat_target = -80
+var boss_target = -80
 
 var easein_time = 4
 var total_near: int = 0
 var total_engaged: int = 0
 var total_inrange: int = 0
+var boss_inrange: bool = false
 var enem
 
 func _ready():
@@ -43,6 +46,9 @@ func register_enemy(newEnemy: AIController) -> void:
 	if not newEnemy.is_connected("near_player", self, "_impending_threat"):
 		assert(newEnemy.connect("near_player", self, "_impending_threat") == OK)
 
+func register_boss(newBoss: AIController) -> void:
+	if not newBoss.is_connected("near_player", self, "_boss_music"):
+		assert(newBoss.connect("near_player", self, "_boss_music") == OK)
 
 func _enemy_state_changed(state:int) -> void:
 	if state != AIController.State.ENGAGE && total_engaged > 0:
@@ -57,12 +63,18 @@ func _impending_threat(_inrange: bool) -> void:
 		total_inrange += 1
 	elif total_inrange > 0:
 		total_inrange -= 1
-	
+
+func _boss_music(_inrange: bool) -> void:
+	if _inrange:
+		boss_inrange = true
+	else:
+		boss_inrange = false
 	
 
 #	print_debug("Targets-- Ambient: ", ambient_target, "Impending: ", impending_target, "Combat: ", combat_target)
 		
 func _set_targets() -> void:
+	boss_target = -80
 	if total_engaged > 0:
 		var combat_pct = clamp(total_engaged/2, 0.75, 1.0)
 		ambient_target = -40
@@ -76,7 +88,12 @@ func _set_targets() -> void:
 		ambient_target = 0
 		impending_target = -80
 		combat_target = -80
-		
+	
+	if boss_inrange:
+		ambient_target = -80
+		impending_target = -80
+		combat_target = -80
+		boss_target = 0
 	pass
 
 func _set_levels(delta: float) -> void:
@@ -96,5 +113,9 @@ func _set_levels(delta: float) -> void:
 		active_combat.volume_db += fade_this_frame
 	if active_combat.volume_db > combat_target + fade_this_frame:
 		active_combat.volume_db -= fade_this_frame
-		
+	
+	if boss_music.volume_db < boss_target - fade_this_frame:
+		boss_music.volume_db += fade_this_frame
+	if boss_music.volume_db > boss_target + fade_this_frame:
+		boss_music.volume_db -= fade_this_frame
 	pass
