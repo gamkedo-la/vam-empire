@@ -1,4 +1,4 @@
-[gd_scene load_steps=16 format=2]
+[gd_scene load_steps=17 format=2]
 
 [ext_resource path="res://Scripts/AI/Steering.gd" type="Script" id=1]
 [ext_resource path="res://Enemies/Textures/Bosses/boss_proto_vanadium_core_megaship.png" type="Texture" id=2]
@@ -19,9 +19,12 @@ radius = 3316.88
 radius = 5169.01
 
 [sub_resource type="RectangleShape2D" id=3]
+extents = Vector2( 233.718, 216.888 )
 
 [sub_resource type="CircleShape2D" id=4]
 radius = 282.171
+
+[sub_resource type="StyleBoxEmpty" id=5]
 
 [node name="BossPrototype001" type="KinematicBody2D" groups=[
 "mini_map",
@@ -67,6 +70,7 @@ num_rays = 64
 [node name="HitBox" parent="." instance=ExtResource( 4 )]
 
 [node name="CollisionShape2D" parent="HitBox" index="0"]
+position = Vector2( 0, 10 )
 shape = SubResource( 3 )
 
 [node name="BossCore" type="Node2D" parent="."]
@@ -74,12 +78,14 @@ script = ExtResource( 11 )
 
 [node name="VanadCore" type="Area2D" parent="BossCore"]
 position = Vector2( -7.54248, -3.77124 )
+monitorable = false
+collision_layer = 12
+collision_mask = 0
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="BossCore/VanadCore"]
 shape = SubResource( 4 )
 
 [node name="BossHUD" type="CanvasLayer" parent="BossCore"]
-layer = -20
 
 [node name="BossUI" type="MarginContainer" parent="BossCore/BossHUD"]
 anchor_right = 1.0
@@ -135,9 +141,50 @@ __meta__ = {
 "_edit_use_anchors_": false
 }
 
+[node name="BossUI2" type="MarginContainer" parent="BossCore/BossHUD"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+margin_left = 20.0
+margin_top = 20.0
+margin_right = -20.0
+margin_bottom = -20.0
+mouse_filter = 1
+mouse_default_cursor_shape = 2
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="VBoxContainer" type="VBoxContainer" parent="BossCore/BossHUD/BossUI2"]
+margin_right = 920.0
+margin_bottom = 507.0
+size_flags_horizontal = 3
+size_flags_vertical = 3
+alignment = 2
+
+[node name="HBoxContainer" type="HBoxContainer" parent="BossCore/BossHUD/BossUI2/VBoxContainer"]
+margin_top = 457.0
+margin_right = 920.0
+margin_bottom = 507.0
+alignment = 1
+
+[node name="CoreShield" type="ProgressBar" parent="BossCore/BossHUD/BossUI2/VBoxContainer/HBoxContainer"]
+self_modulate = Color( 1, 0, 0, 1 )
+margin_left = 310.0
+margin_right = 610.0
+margin_bottom = 50.0
+rect_min_size = Vector2( 300, 50 )
+custom_styles/bg = SubResource( 5 )
+max_value = 1000.0
+step = 1.0
+value = 500.0
+rounded = true
+
+[node name="VanadCoreTimer" type="Timer" parent="BossCore"]
+wait_time = 10.0
+one_shot = true
+
 [connection signal="body_entered" from="AI/TargetDetect" to="AI" method="_on_TargetDetect_body_entered"]
 [connection signal="body_entered" from="AI/TargetLeash" to="AI" method="_on_TargetLeash_body_entered"]
 [connection signal="body_exited" from="AI/TargetLeash" to="AI" method="_on_TargetLeash_body_exited"]
-[connection signal="area_entered" from="HitBox" to="." method="_on_HitBox_area_entered"]
 
 [editable path="HitBox"]

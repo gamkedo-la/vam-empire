@@ -22,6 +22,7 @@ export (Team) var actor_team
 export (String) var mission_string = ""
 export (Squadron) var squadron_status
 export (bool) var is_a_boss = false
+var bosscore = null
 
 var team_group = null
 
@@ -79,6 +80,13 @@ func _ready() -> void:
 	_init_collision()
 	if not PlayerVars.is_connected("target_active", self, "_check_if_active_target"):
 		assert(PlayerVars.connect("target_active", self, "_check_if_active_target") == OK)
+	if !is_a_boss:
+		if not hit_box.is_connected("area_entered", self, "_on_HitBox_area_entered"):
+			assert(hit_box.connect("area_entered", self, "_on_HitBox_area_entered") == OK)
+	else:
+		bosscore = get_node_or_null("BossCore")
+		bosscore.initialize(self, ai)
+		
 	PlayerVars.emit_signal("check_target", actor_team, mission_string, self)
 
 func pilot_ship_from_file(ship) -> void:
@@ -135,7 +143,8 @@ func _death() -> void:
 
 func _disable() -> void:
 #	print_debug("Enemy ", self, " is disabled now.")
-	hit_box.disconnect("area_entered", self, "_on_HitBox_area_entered")
+	if hit_box.is_connected("area_entered", self, "_on_HitBox_area_entered"):
+		hit_box.disconnect("area_entered", self, "_on_HitBox_area_entered")
 	emit_signal("removed", self)
 	if indicator_active:
 		indicator_ref.emit_signal("removed", indicator_ref)

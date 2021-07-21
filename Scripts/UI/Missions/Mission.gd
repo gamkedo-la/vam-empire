@@ -77,9 +77,9 @@ func check_preqs() -> void:
 	var unlock = true
 	if status == Status.LOCKED:
 		for preq in pre_req_missions:
-			print_debug("preq: ",preq)
+#			print_debug("preq: ",preq)
 			var preq_mission = get_node_or_null(preq)
-			print_debug("preq_mission: ", preq_mission)
+#			print_debug("preq_mission: ", preq_mission)
 			if !preq_mission.status == Status.COMPLETE:
 				unlock = false
 		if unlock:

@@ -124,7 +124,7 @@ func self_destruct() -> void:
 	rng.randomize()
 	var x = 25
 	while x > 0:
-		print_debug("Looping ", x, " times")
+#		print_debug("Looping ", x, " times")
 		yield(get_tree().create_timer(0.4), "timeout")
 		var exploder = explosion.instance()
 		var exp_sfx = expl_sfx.instance()
