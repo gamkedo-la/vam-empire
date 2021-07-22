@@ -155,7 +155,8 @@ func get_fire_rate():
 
 func _fire_projectile(parent_velocity: Vector2) -> void:	
 	var proj = projectile.instance()
-	root_node.add_child(proj)
+	call_deferred("add_child", proj)
+	proj.set_as_toplevel(true)
 	proj.global_position = barrel_tip.global_position
 	proj.global_rotation = barrel_tip.global_rotation	
 	var dir = Vector2(1, 0).rotated(barrel_tip.global_rotation)

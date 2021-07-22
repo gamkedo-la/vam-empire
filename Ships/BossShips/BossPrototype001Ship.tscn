@@ -51,14 +51,6 @@ polygon = PoolVector2Array( 10.3951, -1.32915, 10.3951, 1.24607, -3.51102, 1.667
 [node name="Hardpoints" type="Node2D" parent="."]
 position = Vector2( 8, 0 )
 
-[node name="PortHp01" type="Position2D" parent="Hardpoints"]
-position = Vector2( 1042.98, -95.4684 )
-rotation = 0.191986
-
-[node name="StarboardHp01" type="Position2D" parent="Hardpoints"]
-position = Vector2( 1039.05, 93.7867 )
-rotation = -0.191986
-
 [node name="Lights" type="Node2D" parent="."]
 position = Vector2( 8, 0 )
 

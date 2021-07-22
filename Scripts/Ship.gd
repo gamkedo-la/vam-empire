@@ -33,12 +33,13 @@ var owner_ref = null
 onready var explosion = preload("res://VFX/explosion_unlit.tscn")
 onready var expl_sfx = preload("res://Sounds/Explosions/ship_explosion.tscn")
 func _ready():
-	for HPoint in hardpoints.get_children():
-		var HPidx = HPoint.get_index()
-		var weapon = Global.weapon_hangar[hardpoint_size[HPidx]][equipped_weapon_index[HPidx]].duplicate(true)
-		#print(weapon[0], HPoint)
+	if hardpoints.get_child_count() > 0:
+		for HPoint in hardpoints.get_children():
+			var HPidx = HPoint.get_index()
+			var weapon = Global.weapon_hangar[hardpoint_size[HPidx]][equipped_weapon_index[HPidx]].duplicate(true)
+			#print(weapon[0], HPoint)
 		
-		equip_weapon(weapon[0].duplicate(), HPoint)
+			equip_weapon(weapon[0].duplicate(), HPoint)
 	for T in thrusters.get_children():
 		var thrust_exhaust = T.get_node_or_null("ParticleEffect")
 		thrust_exhaust.emitting = true

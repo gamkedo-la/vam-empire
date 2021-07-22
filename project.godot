@@ -146,6 +146,10 @@ Music="*res://Music/Music.tscn"
 ItemSpawner="*res://Scripts/Autoload/ItemSpawner.gd"
 Cursor="*res://Scripts/Autoload/Cursor.gd"
 
+[debug]
+
+settings/stdout/print_fps=true
+
 [display]
 
 window/size/width=960
@@ -290,6 +294,7 @@ attack_bomb={
 
 [physics]
 
+common/physics_fps=20
 2d/default_gravity=0
 
 [rendering]
