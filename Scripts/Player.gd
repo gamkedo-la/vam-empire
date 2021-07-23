@@ -45,6 +45,8 @@ onready var end_mission_screen = preload("res://UI/Menu/EndMissionScreen.tscn")
 
 onready var player_canvas = $PlayerUICanvas
 
+onready var heal_bot = $HealingBot
+
 onready var char_sheet = $PlayerUICanvas/CharacterSheet
 onready var debug_menu = $PlayerUICanvas/PlayerDebugMenu
 onready var mission_menu = $PlayerUICanvas/MissionBoard
@@ -327,6 +329,7 @@ func instantiate_ship_variables():
 	PlayerVars.energy_reserve = piloted_ship.energyReserve
 	PlayerVars.energy_recovery_per_s = piloted_ship.energyRecoverPerS
 	PlayerVars.energy_recovery_delay_s = piloted_ship.energyRecoveryDelayS
+	heal_bot.initialize(PlayerVars.hull_health)
 
 func pilot_ship_from_pack(ship):
 	var hull_colliders =  self.get_tree().get_nodes_in_group("HullCollider")

@@ -89,7 +89,7 @@ func _process(_delta):
 
 func set_zoom(value):
 	zoomtimer.stop()
-	zoom = clamp(value,0.5, 50)
+	zoom = clamp(value,0.5, 16)
 	zoomlbl.text = str(zoom).pad_decimals(1)
 	zoomlbl.visible = true
 	grid_scale = pixel_grid.rect_size / (get_viewport_rect().size * zoom)

@@ -1,4 +1,4 @@
-[gd_scene load_steps=17 format=2]
+[gd_scene load_steps=18 format=2]
 
 [ext_resource path="res://Scripts/AI/Steering.gd" type="Script" id=1]
 [ext_resource path="res://Enemies/Textures/Bosses/boss_proto_vanadium_core_megaship.png" type="Texture" id=2]
@@ -11,6 +11,7 @@
 [ext_resource path="res://UI/HUD/Textures/hull_bar_fill.png" type="Texture" id=9]
 [ext_resource path="res://UI/HUD/Textures/shield_bar_bord.png" type="Texture" id=10]
 [ext_resource path="res://Scripts/Bosses/BossCore.gd" type="Script" id=11]
+[ext_resource path="res://UI/Theme/font/default_font.tres" type="DynamicFont" id=12]
 
 [sub_resource type="CircleShape2D" id=1]
 radius = 3316.88
@@ -113,7 +114,7 @@ margin_right = 920.0
 margin_bottom = 480.0
 alignment = 1
 
-[node name="TextureProgress" type="TextureProgress" parent="BossCore/BossHUD/BossUI/VBoxContainer/HBoxContainer"]
+[node name="ShieldHealth" type="TextureProgress" parent="BossCore/BossHUD/BossUI/VBoxContainer/HBoxContainer"]
 margin_left = 340.0
 margin_right = 580.0
 margin_bottom = 16.0
@@ -130,7 +131,7 @@ margin_right = 920.0
 margin_bottom = 500.0
 alignment = 1
 
-[node name="TextureProgress" type="TextureProgress" parent="BossCore/BossHUD/BossUI/VBoxContainer/HBoxContainer2"]
+[node name="HullHealth" type="TextureProgress" parent="BossCore/BossHUD/BossUI/VBoxContainer/HBoxContainer2"]
 margin_left = 340.0
 margin_right = 580.0
 margin_bottom = 16.0
@@ -156,15 +157,15 @@ __meta__ = {
 
 [node name="VBoxContainer" type="VBoxContainer" parent="BossCore/BossHUD/BossUI2"]
 margin_right = 920.0
-margin_bottom = 500.0
+margin_bottom = 507.0
 size_flags_horizontal = 3
 size_flags_vertical = 3
 alignment = 2
 
 [node name="HBoxContainer" type="HBoxContainer" parent="BossCore/BossHUD/BossUI2/VBoxContainer"]
-margin_top = 450.0
+margin_top = 457.0
 margin_right = 920.0
-margin_bottom = 500.0
+margin_bottom = 507.0
 alignment = 1
 
 [node name="CoreShield" type="ProgressBar" parent="BossCore/BossHUD/BossUI2/VBoxContainer/HBoxContainer"]
@@ -174,6 +175,8 @@ margin_right = 610.0
 margin_bottom = 50.0
 rect_min_size = Vector2( 300, 50 )
 custom_styles/bg = SubResource( 5 )
+custom_fonts/font = ExtResource( 12 )
+custom_colors/font_color = Color( 5, 5, 5, 1 )
 max_value = 1000.0
 step = 1.0
 value = 500.0
@@ -186,11 +189,11 @@ one_shot = true
 [node name="Spawners" type="Node2D" parent="BossCore"]
 
 [node name="Position2D2" type="Position2D" parent="BossCore/Spawners"]
-position = Vector2( 222.131, 225.694 )
+position = Vector2( -11.3414, 58.8216 )
 rotation = -2.39273
 
 [node name="Position2D3" type="Position2D" parent="BossCore/Spawners"]
-position = Vector2( 223.319, -209.064 )
+position = Vector2( -10.9019, -72.1239 )
 rotation = 2.09889
 
 [connection signal="body_entered" from="AI/TargetDetect" to="AI" method="_on_TargetDetect_body_entered"]

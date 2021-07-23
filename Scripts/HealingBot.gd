@@ -9,8 +9,11 @@ export var heal_energy_cost_per_s = 60.0
 onready var parentNode = get_parent() 
 var isHealing = false
 # Called when the node enters the scene tree for the first time.
-func _ready():
+func _ready():	
 	self.visible = false
+	
+func initialize(player_hull) -> void:
+	heal_amount_per_s = player_hull * .05
 
 func _physics_process(_delta):
 	if(Input.is_key_pressed(KEY_H)):

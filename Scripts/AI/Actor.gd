@@ -104,12 +104,18 @@ func instantiate_ship_variables() -> void:
 	ROT_SPEED = piloted_ship.ROT_SPEED	
 	ROT_ACCEL = piloted_ship.ROT_ACCEL	
 	shieldHealth = piloted_ship.shieldHealth	
-	hullHealth = piloted_ship.hullHealth	
+	hullHealth = piloted_ship.hullHealth
+	shieldMaxHealth = piloted_ship.shieldHealth
+	hullMaxHealth = piloted_ship.hullHealth
 	energyReserve = piloted_ship.energyReserve	
 
 func rotate_toward(location: Vector2) -> void:
 	global_rotation = lerp_angle(global_rotation, global_position.direction_to(location).angle(), ROT_SPEED)
 
+func set_target(target) -> void:
+	ai.target = target
+	ai.set_state(1)
+	
 func take_damage(amount):
 	if amount == 0:
 		return
