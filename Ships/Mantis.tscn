@@ -32,9 +32,11 @@ ship_name = "Mantis"
 ACCELERATION = 300
 MAX_SPEED = 900
 FRICTION = 50
-shieldHealth = 100.0
-hullHealth = 150.0
-energyReserve = 150.0
+shieldHealth = 1400.0
+hullHealth = 1600.0
+energyReserve = 500.0
+energyRecoverPerS = 240.0
+energyRecoveryDelayS = 0.1
 hardpoint_size = [ 0, 0, 0 ]
 equipped_weapon_index = [ 0, 0, 0 ]
 

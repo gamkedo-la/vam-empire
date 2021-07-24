@@ -9,7 +9,8 @@ onready var hit_box = $HitBox
 enum Team {
 	FRIENDLY,
 	PIRATE,
-	VAMPIRE
+	VAMPIRE,
+	BOSS
 }
 
 enum Squadron {
@@ -86,7 +87,10 @@ func _ready() -> void:
 	else:
 		bosscore = get_node_or_null("BossCore")
 		bosscore.initialize(self, ai)
-		
+		print_debug("PlayerVars.is_connected(target_active, self, _check_if_active_target): ", 
+			PlayerVars.is_connected("target_active", self, "_check_if_active_target"))
+	
+	yield(get_tree().create_timer(3.0), "timeout")
 	PlayerVars.emit_signal("check_target", actor_team, mission_string, self)
 
 func pilot_ship_from_file(ship) -> void:
@@ -170,6 +174,8 @@ func _set_team() -> void:
 			team_group = "pirate"
 		Team.VAMPIRE:
 			team_group = "vampire"
+		Team.BOSS:
+			team_group = "boss"
 		_:
 			printerr("Unknown Team for Actor ", self)
 
@@ -186,9 +192,18 @@ func _on_HitBox_area_entered(area):
 	pass
 
 func _check_if_active_target(_actor:Actor) -> void:
+	if is_a_boss:
+		print_debug("Getting to boss check and ", _actor, " ", self)
+		
 	if _actor == self && !indicator_active:
 		
 		indicator_ref = active_targetind.instance()
 		call_deferred("add_child", indicator_ref)
 		indicator_active = true
+		if is_a_boss:
+			call_deferred("_always_on_map")
+		Global.emit_signal("update_minimap")
 		
+func _always_on_map() -> void:
+	indicator_ref.add_to_group("always_on_map")
+	Global.emit_signal("update_minimap")

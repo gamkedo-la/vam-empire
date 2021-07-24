@@ -57,7 +57,7 @@ func _init_connections() -> void:
 		assert(self.connect("pressed", self, "_mission_pressed") == OK)
 		
 func _mission_pressed() -> void:
-	print_debug("Mission ", mission_id, " pressed.")
+#	print_debug("Mission ", mission_id, " pressed.")
 	emit_signal("mission_selected", mission_id)
 	
 func set_triggers() -> void:
@@ -98,7 +98,7 @@ func check_completable() -> void:
 				completable = true
 
 func _check_item_mission(uuid:String, cnt: int) -> void:
-	print_debug("item_uuid: [",item_uuid, "] uuid: [",uuid,"]")
+#	print_debug("item_uuid: [",item_uuid, "] uuid: [",uuid,"]")
 	if item_uuid == uuid && completed < item_goal:
 		if completed + cnt <= item_goal:
 			completed += cnt
@@ -113,13 +113,15 @@ func _check_kill_mission(_kill_team: int, _mission_string:String) -> void:
 		if completed + 1 <= kill_goal:
 			completed += 1
 		else:
-			completed = item_goal
+			completed = kill_goal
 		PlayerVars.mission_state[mission_id].completed = completed
 		PlayerVars.save()
 		PlayerVars.emit_signal("mission_updated")
 
 func _check_target_type(_kill_team: int, _mission_string:String, _actor: Actor) -> void:
-	print_debug("Checking target:", _kill_team, " ", _mission_string, " ", _actor)
+#	print_debug("Checking target:", _kill_team, " ", _mission_string, " ", _actor)
+	if _kill_team == Actor.Team.BOSS:
+		print_debug("Is a Boss")
 	if (mission_string == "ANY" && kill_team == _kill_team) || mission_string == _mission_string:
 		PlayerVars.emit_signal("target_active", _actor)
 		

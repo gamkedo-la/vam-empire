@@ -73,7 +73,7 @@ void fragment(){
 }
 "
 
-[sub_resource type="ShaderMaterial" id=9]
+[sub_resource type="ShaderMaterial" id=7]
 shader = SubResource( 6 )
 shader_param/lightning_color = Color( 0.141176, 0.623529, 0.870588, 1 )
 shader_param/size = 0.005
@@ -85,6 +85,16 @@ shader_param/time_shift = 0.0
 
 [sub_resource type="ImageTexture" id=8]
 size = Vector2( 512, 512 )
+
+[sub_resource type="ShaderMaterial" id=9]
+shader = SubResource( 6 )
+shader_param/lightning_color = Color( 0.141176, 0.623529, 0.870588, 1 )
+shader_param/size = 0.005
+shader_param/width = 0.1
+shader_param/speed = 0.075
+shader_param/cycle = 7.0
+shader_param/ratio = 0.3
+shader_param/time_shift = 0.0
 
 [sub_resource type="ShaderMaterial" id=10]
 shader = SubResource( 6 )
@@ -116,23 +126,14 @@ shader_param/cycle = 7.0
 shader_param/ratio = 0.3
 shader_param/time_shift = 0.0
 
-[sub_resource type="ShaderMaterial" id=13]
-shader = SubResource( 6 )
-shader_param/lightning_color = Color( 0.141176, 0.623529, 0.870588, 1 )
-shader_param/size = 0.005
-shader_param/width = 0.1
-shader_param/speed = 0.075
-shader_param/cycle = 7.0
-shader_param/ratio = 0.3
-shader_param/time_shift = 0.0
-
 [node name="BossPrototype001" type="KinematicBody2D" groups=[
 "mini_map",
 ]]
 collision_layer = 33
 collision_mask = 39
 script = ExtResource( 6 )
-actor_team = 2
+actor_team = 3
+mission_string = "ANY"
 is_a_boss = true
 ship_file = ExtResource( 3 )
 
@@ -249,7 +250,7 @@ anchor_bottom = 1.0
 margin_left = 20.0
 margin_top = 20.0
 margin_right = -20.0
-margin_bottom = -20.0
+margin_bottom = -15.0
 mouse_filter = 1
 mouse_default_cursor_shape = 2
 __meta__ = {
@@ -258,15 +259,15 @@ __meta__ = {
 
 [node name="VBoxContainer" type="VBoxContainer" parent="BossCore/BossHUD/BossUI2"]
 margin_right = 920.0
-margin_bottom = 500.0
+margin_bottom = 505.0
 size_flags_horizontal = 3
 size_flags_vertical = 3
 alignment = 2
 
 [node name="HBoxContainer" type="HBoxContainer" parent="BossCore/BossHUD/BossUI2/VBoxContainer"]
-margin_top = 450.0
+margin_top = 455.0
 margin_right = 920.0
-margin_bottom = 500.0
+margin_bottom = 505.0
 alignment = 1
 
 [node name="CoreShield" type="ProgressBar" parent="BossCore/BossHUD/BossUI2/VBoxContainer/HBoxContainer"]
@@ -280,7 +281,7 @@ custom_fonts/font = ExtResource( 12 )
 custom_colors/font_color = Color( 5, 5, 5, 1 )
 max_value = 1000.0
 step = 1.0
-value = 500.0
+value = 1000.0
 rounded = true
 
 [node name="VanadCoreTimer" type="Timer" parent="BossCore"]
@@ -301,26 +302,26 @@ rotation = 2.09889
 script = ExtResource( 13 )
 
 [node name="ElectricityEfx" type="Sprite" parent="BossCore/ShieldFX"]
-material = SubResource( 9 )
+material = SubResource( 7 )
 texture = SubResource( 8 )
 
 [node name="ElectricityEfx2" type="Sprite" parent="BossCore/ShieldFX"]
-material = SubResource( 10 )
+material = SubResource( 9 )
 rotation = 0.734784
 texture = SubResource( 8 )
 
 [node name="ElectricityEfx3" type="Sprite" parent="BossCore/ShieldFX"]
-material = SubResource( 11 )
+material = SubResource( 10 )
 rotation = 1.53764
 texture = SubResource( 8 )
 
 [node name="ElectricityEfx4" type="Sprite" parent="BossCore/ShieldFX"]
-material = SubResource( 12 )
+material = SubResource( 11 )
 rotation = 2.33874
 texture = SubResource( 8 )
 
 [node name="ElectricityEfx5" type="Sprite" parent="BossCore/ShieldFX"]
-material = SubResource( 13 )
+material = SubResource( 12 )
 rotation = -1.2706
 texture = SubResource( 8 )
 

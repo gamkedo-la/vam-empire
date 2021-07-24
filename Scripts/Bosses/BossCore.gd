@@ -3,6 +3,7 @@ extends Node2D
 onready var vanad_core: Area2D = $VanadCore
 onready var vanad_core_coll: CollisionShape2D = $VanadCore/CollisionShape2D
 onready var boss_hud = $BossHUD/BossUI
+onready var boss_hud2 = $BossHUD/BossUI2
 onready var targ_detect = null
 onready var core_shield = $BossHUD/BossUI2/VBoxContainer/HBoxContainer/CoreShield
 onready var shield_hud = $BossHUD/BossUI/VBoxContainer/HBoxContainer/ShieldHealth
@@ -105,10 +106,12 @@ func disable_hit_box() -> void:
 func show_boss_HUD(body: Node) -> void:
 	if body.is_in_group("player"):
 		boss_hud.visible = true
+		boss_hud2.visible = true
 
 func hide_boss_HUD(body: Node) -> void:
 	if body.is_in_group("player"):
 		boss_hud.visible = false
+		boss_hud2.visible = false
 
 func _reset_core_shields() -> void:
 	tween.interpolate_property(self, "vanad_core_hp", vanad_core_hp, 1000, 3.0, Tween.TRANS_EXPO, Tween.EASE_IN_OUT)

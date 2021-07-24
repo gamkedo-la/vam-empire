@@ -9,10 +9,7 @@ script = ExtResource( 3 )
 
 [node name="MainMenuParallax" parent="." instance=ExtResource( 28 )]
 
-[node name="Sprite" parent="MainMenuParallax/StarFieldBlack" index="0"]
-visible = true
-
-[node name="3DBG" parent="MainMenuParallax" index="1"]
+[node name="3DBG" parent="MainMenuParallax" index="2"]
 visible = false
 
 [node name="Tween" type="Tween" parent="."]
@@ -24,6 +21,9 @@ show_behind_parent = true
 
 [node name="DifficultyOptionButton" parent="MainMenu/MenuCanvas/Viz/OptionsContainer/VBoxContainer/TabContainer/Difficulty/VBoxContainer/DifficultyHbox" index="1"]
 items = [ "Bring a Bandaid", null, false, 0, null, "Get Some Gauze", null, false, 1, null, "Seek a Surgeon", null, false, 2, null ]
+
+[node name="TextEdit" parent="MainMenu/MenuCanvas/Viz/OptionsContainer/VBoxContainer/TabContainer/Credits" index="0"]
+scroll_vertical = 0.0
 
 [node name="NewPlayerPop" parent="MainMenu/MenuCanvas/Viz" index="3"]
 margin_left = -240.0

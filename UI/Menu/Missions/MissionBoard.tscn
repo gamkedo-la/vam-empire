@@ -138,7 +138,7 @@ visible = false
 margin_top = 28.0
 margin_right = 188.0
 margin_bottom = 50.0
-text = "Stranded Miner"
+text = "VAM Empire Comms"
 m_name = "VAM Empire Comms"
 mission_id = "expedition_002"
 summary = "While you were rescuing that miner, we think we picked up a transmission from some form of vampire communication device down in the belt and we need you to investigate! This may help us uncover where they are basing their operations!"
@@ -149,6 +149,58 @@ kill_team = 1
 mission_string = "expedition_002"
 chkp_goal = 1
 pre_req_missions = [ NodePath("../expedition_001") ]
+
+[node name="combat_003" parent="Panel/HBMain/VBLeft/MissionsScroll/VBMissions" instance=ExtResource( 3 )]
+visible = false
+margin_top = 28.0
+margin_right = 188.0
+margin_bottom = 50.0
+text = "Vamps in the Vanadinte"
+m_name = "Vamps in the Vanadinte"
+mission_id = "combat_003"
+summary = "Deep into the asteroid belt there are veins of rich Vanadinite. We believe the vampires that have been disrupting our operations require this mineral to sustain themselves.  Try your hand at gunning some of these vampires down, we may be able to learn just a bit more about their base of operations and find a way to put a stop to them disrupting our operations!
+
+Recommended Ship: Mantis"
+mission_type = 1
+cash_reward = 50000
+item_goal = 3
+kill_team = 2
+kill_goal = 5
+pre_req_missions = [ NodePath("../expedition_002") ]
+
+[node name="mine_vanadinite" parent="Panel/HBMain/VBLeft/MissionsScroll/VBMissions" instance=ExtResource( 3 )]
+visible = false
+margin_top = 28.0
+margin_right = 152.0
+margin_bottom = 50.0
+action_mode = 0
+text = "Vanadinite Run"
+m_name = "Vanadinite Run"
+mission_id = "mine_vanadinite"
+summary = "Now that you have some experience combatting those Vampires, we need you to harvest a nice pile of vanadinite. We think this mineral will help us power a new experimental device to track down the primary VAM Empire ship out in the asteroid belt and hopefully learn more about it's potential weaknesses, so we can take them out once and for all!  Remember the rich vanadinite veins will be deep into the belt where you last fought the VAM Empire!
+
+Reccomended Ship: Mining Barge"
+cash_reward = 500000
+item_uuid = "e9909275-97f2-4ce4-afc3-d22801a6bc24"
+item_goal = 50
+pre_req_missions = [ NodePath("../combat_003") ]
+
+[node name="boss_fight" parent="Panel/HBMain/VBLeft/MissionsScroll/VBMissions" instance=ExtResource( 3 )]
+visible = false
+margin_top = 28.0
+margin_right = 238.0
+margin_bottom = 50.0
+text = "Take down the VAM Empire"
+m_name = "Take down the VAM Empire"
+mission_id = "boss_fight"
+summary = "Deep into the asteroid belt there are veins of rich Vanadinite. We believe the vampires that have been disrupting our operations require this mineral to sustain themselves.  Try your hand at gunning some of these vampires down, we may be able to learn just a bit more about their base of operations and find a way to put a stop to them disrupting our operations!
+
+Recommended Ship: Mantis"
+mission_type = 1
+cash_reward = 50000
+kill_team = 3
+kill_goal = 1
+pre_req_missions = [ NodePath("../expedition_002") ]
 
 [node name="VBRight" type="VBoxContainer" parent="Panel/HBMain"]
 margin_left = 158.0
