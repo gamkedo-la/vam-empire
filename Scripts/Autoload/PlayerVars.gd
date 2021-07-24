@@ -18,6 +18,8 @@ signal mission_updated
 signal checkpoint_reached
 signal mission_complete
 
+signal update_baseship
+
 signal item_transfer(uuid)
 
 signal player_died
@@ -34,7 +36,8 @@ var player_defaults = {
 	"name": " ",
 	"cash": 10000,
 	"current_ship_class": 0,
-	"current_ship_idx": 0
+	"current_ship_idx": 0,
+	"current_ship_sell": 50000
 }
 
 var player = player_defaults

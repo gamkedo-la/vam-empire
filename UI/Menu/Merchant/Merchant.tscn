@@ -76,8 +76,20 @@ margin_bottom = 110.0
 [node name="Row2" type="HBoxContainer" parent="Buy/Buy"]
 margin_top = 116.0
 margin_right = 530.0
-margin_bottom = 116.0
+margin_bottom = 138.0
 alignment = 1
+
+[node name="Label" type="Label" parent="Buy/Buy/Row2"]
+margin_left = 135.0
+margin_right = 327.0
+margin_bottom = 22.0
+text = "Ship Sale Value: $"
+
+[node name="ShipSaleValue" type="Label" parent="Buy/Buy/Row2"]
+margin_left = 333.0
+margin_right = 395.0
+margin_bottom = 22.0
+text = "10000"
 
 [node name="Sell Minerals" type="MarginContainer" parent="."]
 visible = false

@@ -44,6 +44,8 @@ func _ready():
 	start_light_tweens()
 	Global.game_live = false
 	load_player_sprite()
+	if not PlayerVars.is_connected("update_baseship", self, "load_player_sprite"):
+		assert(PlayerVars.connect("update_baseship", self, "load_player_sprite") == OK)
 
 func _process(_delta):
 	starfield.scroll_offset.x += 10
@@ -55,6 +57,7 @@ func start_light_tweens():
 	lighting_tween.start()
 
 func load_player_sprite() -> void:
+	print_debug("Getting here")
 	var newShip = Global.ship_hangar[PlayerVars.player.current_ship_class][PlayerVars.player.current_ship_idx]
 #	player_node.pilot_ship_from_pack(newShip[0].duplicate())
 	if newShip[0].get_node_or_null("ShipSprite"):

@@ -31,7 +31,7 @@ func disable_collision_temporarily():
 	
 func disable_collision():
 	hurtBox.set_deferred("monitorable", false)
-	
+
 func free_laser_beam():
 	visible = false
 	emit_signal("disengage", self)
@@ -39,8 +39,8 @@ func free_laser_beam():
 	if not damageTickTimer.is_connected("timeout", self, "_free_beam"):
 		assert(damageTickTimer.connect("timeout", self, "_free_beam") == OK)
 	damageTickTimer.start()
-	
-	
+
+
 func _free_beam() -> void:
 	call_deferred("queue_free")
 

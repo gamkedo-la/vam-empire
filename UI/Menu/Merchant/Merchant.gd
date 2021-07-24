@@ -9,6 +9,7 @@ onready var ship_row = $Buy/Buy/Row1
 onready var sell_box = get_node("Sell Minerals/VBoxContainer/ScrollContainer/SellVbox")
 onready var popup_dialog = get_node("Sell Minerals/PopupDialog")
 onready var total_price_label = get_node("Sell Minerals/VBoxContainer/TotalPrice")
+onready var sell_value_lbl: Label = $Buy/Buy/Row2/ShipSaleValue
 
 var sell_amounts := {}
 
@@ -40,6 +41,10 @@ func _init_buy_screen():
 		ship_row.add_child(item)
 		item.init(merchant_inventory_item)
 		item.connect("gui_input", self, "_on_MerchantItem_gui_input", [item])
+	update_sale_label()
+
+func update_sale_label() -> void:
+	sell_value_lbl.text = str(PlayerVars.player.current_ship_sell)
 
 func _init_sell_screen():
 	sell_amounts = {}
@@ -68,7 +73,9 @@ func _init_sell_screen():
 func _on_MerchantItem_gui_input(event: InputEvent, item: MerchantItem):
 	if event is InputEventMouseButton:
 		if event.button_index == BUTTON_LEFT and event.pressed:
-			print("pressed")
+			if PlayerVars.player.cash + PlayerVars.player.current_ship_sell >= item.inventory_item.buy_price:
+				item.buy_ship()
+				update_sale_label()
 
 # Reset the sell amounts when tab changes
 func _on_MerchantUI_tab_changed(tab):
