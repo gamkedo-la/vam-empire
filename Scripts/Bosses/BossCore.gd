@@ -9,7 +9,7 @@ onready var shield_hud = $BossHUD/BossUI/VBoxContainer/HBoxContainer/ShieldHealt
 onready var hull_hud = $BossHUD/BossUI/VBoxContainer/HBoxContainer2/HullHealth
 onready var core_timer: Timer = $VanadCoreTimer
 onready var launched_fighter = preload("res://Enemies/Scenes/Small/SingleImpalerSpawn.tscn")
-
+onready var shield_fx = $ShieldFX
 onready var spawners = $Spawners
 onready var tween = Tween.new()
 var spawn_nodes = []
@@ -66,6 +66,7 @@ func on_VanadCore_hit(area: Area2D) -> void:
 			if vanad_core_hp <= 0:
 				launch_fighters()
 				vanad_core_is_up = false
+				shield_fx.visible = false
 				vanad_core_coll.shape.radius /= 4
 				core_timer.start()
 		elif hitparent.is_in_group("projectile"):
@@ -115,6 +116,7 @@ func _reset_core_shields() -> void:
 
 func _on_tween_all_completed() -> void:
 	vanad_core_coll.shape.radius *= 4
+	shield_fx.visible = true
 	vanad_core_is_up = true
 	
 func _on_HitBox_area_entered(area:Area2D) -> void:

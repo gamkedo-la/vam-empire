@@ -36,7 +36,8 @@ func free_laser_beam():
 	visible = false
 	emit_signal("disengage", self)
 	damageTickTimer.wait_time = 1.0
-	damageTickTimer.connect("timeout", self, "_free_beam")
+	if not damageTickTimer.is_connected("timeout", self, "_free_beam"):
+		assert(damageTickTimer.connect("timeout", self, "_free_beam") == OK)
 	damageTickTimer.start()
 	
 	

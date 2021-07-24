@@ -7,13 +7,16 @@
 
 [node name="ParallaxBackground2" type="ParallaxBackground"]
 
+[node name="ParallaxLayer" type="ParallaxLayer" parent="."]
+
+[node name="Sprite" type="Sprite" parent="ParallaxLayer"]
+
 [node name="StarFieldBlack" type="ParallaxLayer" parent="."]
 motion_scale = Vector2( 0.001, 0.001 )
 motion_offset = Vector2( 0, 320 )
 motion_mirroring = Vector2( 960, 1280 )
 
 [node name="Sprite" type="Sprite" parent="StarFieldBlack"]
-visible = false
 texture = ExtResource( 2 )
 centered = false
 

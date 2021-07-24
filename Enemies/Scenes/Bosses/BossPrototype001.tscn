@@ -1,4 +1,4 @@
-[gd_scene load_steps=18 format=2]
+[gd_scene load_steps=27 format=2]
 
 [ext_resource path="res://Scripts/AI/Steering.gd" type="Script" id=1]
 [ext_resource path="res://Enemies/Textures/Bosses/boss_proto_vanadium_core_megaship.png" type="Texture" id=2]
@@ -12,6 +12,8 @@
 [ext_resource path="res://UI/HUD/Textures/shield_bar_bord.png" type="Texture" id=10]
 [ext_resource path="res://Scripts/Bosses/BossCore.gd" type="Script" id=11]
 [ext_resource path="res://UI/Theme/font/default_font.tres" type="DynamicFont" id=12]
+[ext_resource path="res://Enemies/Scenes/Bosses/ShieldFX.gd" type="Script" id=13]
+[ext_resource path="res://Lights/Textures/light_orb.png" type="Texture" id=14]
 
 [sub_resource type="CircleShape2D" id=1]
 radius = 3316.88
@@ -26,6 +28,103 @@ extents = Vector2( 233.718, 216.888 )
 radius = 282.171
 
 [sub_resource type="StyleBoxEmpty" id=5]
+
+[sub_resource type="Shader" id=6]
+code = "// Adapted from godotshaders.com, MIT License
+// https://godotshaders.com/shader/2d-lightning/
+
+shader_type canvas_item;
+
+uniform vec4 lightning_color: hint_color;
+
+uniform float size: hint_range (0.,1.);
+uniform float width: hint_range (0.,1.);
+uniform float speed;
+uniform float cycle;
+uniform float ratio;
+uniform float time_shift;
+const float PI = 3.14159265359;
+
+float rand(float x){
+	return fract(sin(x)*100000.0);
+}
+
+void fragment(){
+	float bolt = abs(mod(UV.y * cycle + (rand(TIME) + time_shift) * speed * -1., 0.5)-0.25)-0.125;
+	bolt *= 4. * width;
+	// why 4 ? Because we use mod 0.5, the value be devide by half
+	// and we -0.25 (which is half again) for abs function. So it 25%!
+	
+	// scale down at start and end
+	bolt *=  (0.5 - abs(UV.y-0.5)) * 2.; 
+	
+	// turn to a line
+	// center align line
+	float wave = abs(UV.x - 0.5 + bolt);
+	// invert and ajust size
+	wave = 1. - step(size*.5, wave);
+	
+	float blink = step(rand(TIME)*ratio, .5);
+	wave *= blink;
+	
+	vec4 display = lightning_color * vec4(wave);
+	
+	COLOR = display;
+}
+"
+
+[sub_resource type="ShaderMaterial" id=9]
+shader = SubResource( 6 )
+shader_param/lightning_color = Color( 0.141176, 0.623529, 0.870588, 1 )
+shader_param/size = 0.005
+shader_param/width = 0.1
+shader_param/speed = 0.075
+shader_param/cycle = 7.0
+shader_param/ratio = 0.3
+shader_param/time_shift = 0.0
+
+[sub_resource type="ImageTexture" id=8]
+size = Vector2( 512, 512 )
+
+[sub_resource type="ShaderMaterial" id=10]
+shader = SubResource( 6 )
+shader_param/lightning_color = Color( 0.141176, 0.623529, 0.870588, 1 )
+shader_param/size = 0.005
+shader_param/width = 0.1
+shader_param/speed = 0.075
+shader_param/cycle = 7.0
+shader_param/ratio = 0.3
+shader_param/time_shift = 0.0
+
+[sub_resource type="ShaderMaterial" id=11]
+shader = SubResource( 6 )
+shader_param/lightning_color = Color( 0.141176, 0.623529, 0.870588, 1 )
+shader_param/size = 0.005
+shader_param/width = 0.1
+shader_param/speed = 0.075
+shader_param/cycle = 7.0
+shader_param/ratio = 0.3
+shader_param/time_shift = 0.0
+
+[sub_resource type="ShaderMaterial" id=12]
+shader = SubResource( 6 )
+shader_param/lightning_color = Color( 0.141176, 0.623529, 0.870588, 1 )
+shader_param/size = 0.005
+shader_param/width = 0.1
+shader_param/speed = 0.075
+shader_param/cycle = 7.0
+shader_param/ratio = 0.3
+shader_param/time_shift = 0.0
+
+[sub_resource type="ShaderMaterial" id=13]
+shader = SubResource( 6 )
+shader_param/lightning_color = Color( 0.141176, 0.623529, 0.870588, 1 )
+shader_param/size = 0.005
+shader_param/width = 0.1
+shader_param/speed = 0.075
+shader_param/cycle = 7.0
+shader_param/ratio = 0.3
+shader_param/time_shift = 0.0
 
 [node name="BossPrototype001" type="KinematicBody2D" groups=[
 "mini_map",
@@ -69,6 +168,7 @@ script = ExtResource( 1 )
 num_rays = 64
 
 [node name="HitBox" parent="." instance=ExtResource( 4 )]
+visible = false
 
 [node name="CollisionShape2D" parent="HitBox" index="0"]
 position = Vector2( 0, 10 )
@@ -78,6 +178,7 @@ shape = SubResource( 3 )
 script = ExtResource( 11 )
 
 [node name="VanadCore" type="Area2D" parent="BossCore"]
+visible = false
 position = Vector2( -7.54248, -3.77124 )
 monitorable = false
 collision_layer = 12
@@ -157,15 +258,15 @@ __meta__ = {
 
 [node name="VBoxContainer" type="VBoxContainer" parent="BossCore/BossHUD/BossUI2"]
 margin_right = 920.0
-margin_bottom = 507.0
+margin_bottom = 500.0
 size_flags_horizontal = 3
 size_flags_vertical = 3
 alignment = 2
 
 [node name="HBoxContainer" type="HBoxContainer" parent="BossCore/BossHUD/BossUI2/VBoxContainer"]
-margin_top = 457.0
+margin_top = 450.0
 margin_right = 920.0
-margin_bottom = 507.0
+margin_bottom = 500.0
 alignment = 1
 
 [node name="CoreShield" type="ProgressBar" parent="BossCore/BossHUD/BossUI2/VBoxContainer/HBoxContainer"]
@@ -195,6 +296,40 @@ rotation = -2.39273
 [node name="Position2D3" type="Position2D" parent="BossCore/Spawners"]
 position = Vector2( -10.9019, -72.1239 )
 rotation = 2.09889
+
+[node name="ShieldFX" type="Node2D" parent="BossCore"]
+script = ExtResource( 13 )
+
+[node name="ElectricityEfx" type="Sprite" parent="BossCore/ShieldFX"]
+material = SubResource( 9 )
+texture = SubResource( 8 )
+
+[node name="ElectricityEfx2" type="Sprite" parent="BossCore/ShieldFX"]
+material = SubResource( 10 )
+rotation = 0.734784
+texture = SubResource( 8 )
+
+[node name="ElectricityEfx3" type="Sprite" parent="BossCore/ShieldFX"]
+material = SubResource( 11 )
+rotation = 1.53764
+texture = SubResource( 8 )
+
+[node name="ElectricityEfx4" type="Sprite" parent="BossCore/ShieldFX"]
+material = SubResource( 12 )
+rotation = 2.33874
+texture = SubResource( 8 )
+
+[node name="ElectricityEfx5" type="Sprite" parent="BossCore/ShieldFX"]
+material = SubResource( 13 )
+rotation = -1.2706
+texture = SubResource( 8 )
+
+[node name="CoreEnergy" type="Light2D" parent="BossCore/ShieldFX"]
+texture = ExtResource( 14 )
+texture_scale = 7.0
+color = Color( 0.137255, 0.623529, 0.870588, 1 )
+energy = 2.73
+range_height = 10.0
 
 [connection signal="body_entered" from="AI/TargetDetect" to="AI" method="_on_TargetDetect_body_entered"]
 [connection signal="body_entered" from="AI/TargetLeash" to="AI" method="_on_TargetLeash_body_entered"]
