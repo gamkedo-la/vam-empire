@@ -11,7 +11,7 @@
 [node name="World" instance=ExtResource( 2 )]
 
 [node name="BossPrototype001" parent="." index="0" instance=ExtResource( 4 )]
-position = Vector2( 2165.55, 2983.44 )
+position = Vector2( -7725.67, -48623 )
 
 [node name="DifficultyOptionButton" parent="MainMenu/MenuCanvas/Viz/OptionsContainer/VBoxContainer/TabContainer/Difficulty/VBoxContainer/DifficultyHbox" index="1"]
 items = [ "Bring a Bandaid", null, false, 0, null, "Get Some Gauze", null, false, 1, null, "Seek a Surgeon", null, false, 2, null ]

@@ -40,7 +40,7 @@ func _update_objs() -> void:
 	#print("map_objects: ", map_objects.size())
 	for obj in map_objects:
 		if not obj.is_connected("removed", self, "_on_object_removed"):
-			assert(obj.connect("removed", self, "_on_object_removed") == OK)
+			obj.connect("removed", self, "_on_object_removed")
 			var new_icon = obj.get_node_or_null("Sprite").duplicate()
 			if new_icon:
 				new_icon.scale /= zoom
