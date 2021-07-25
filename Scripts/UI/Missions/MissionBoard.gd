@@ -9,7 +9,7 @@ var missions = {}
 var status = ["Locked", "Unlocked", "Accepted", "Complete"]
 var sel_miss: Mission = null
 var is_home_base: bool = false
-var mission_debug: bool = true
+var mission_debug: bool = false
 
 onready var name_label: Label = $Panel/HBMain/VBRight/ScrollContainer/VBInfo/HBName/Name
 onready var status_label: Label = $Panel/HBMain/VBRight/ScrollContainer/VBInfo/HBStatus/Status
