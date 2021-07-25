@@ -135,6 +135,7 @@ script = ExtResource( 6 )
 actor_team = 3
 mission_string = "ANY"
 is_a_boss = true
+is_final_boss = true
 ship_file = ExtResource( 3 )
 
 [node name="Sprite" type="Sprite" parent="."]

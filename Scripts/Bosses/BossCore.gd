@@ -86,16 +86,30 @@ func update_HUD() -> void:
 	hull_hud.value = actor.hullHealth
 
 func launch_fighters() -> void:
+#	for x in UserSettings.current.difficulty.difficulty_level + 1:
+#		print_debug("Launching fighter step 1")
+#		call_deferred("launch_fighter")
 	for posnode in spawn_nodes:
-		var fighter = launched_fighter.instance()
-		call_deferred("add_child", fighter)
-		fighter.call_deferred("set", "global_position", vanad_core.global_position)
-		fighter.call_deferred("set_as_toplevel", true)
-		var fighter_ai:Actor = null 
-		fighter_ai = get_node_or_null("VampireImpalerAI")
-		if fighter_ai != null:
-			fighter_ai.set_target(PlayerVars.player_node)
-	
+		call_deferred("launch_fighter", posnode.global_position)
+		
+#		call_deferred("add_child", fighter)
+#		fighter.call_deferred("set", "global_position", vanad_core.global_position)
+#		fighter.call_deferred("set_as_toplevel", true)
+#		add_child(fighter)
+#		fighter.global_position = vanad_core.global_position
+#		fighter.set_as_toplevel(true)
+#		var fighter_ai:Actor = null 
+#		fighter_ai = get_node_or_null("VampireImpalerAI")
+#		if fighter_ai != null:
+#			fighter_ai.set_target(PlayerVars.player_node)
+
+func launch_fighter(_position: Vector2) -> void:
+	print_debug("Launching Fighter Step 2")
+	var fighter = launched_fighter.instance()
+	add_child(fighter)	
+	fighter.set_as_toplevel(true)
+	fighter.global_position = _position
+
 func enable_hit_box() -> void:
 	if not actor.hit_box.is_connected("area_entered", self, "_on_HitBox_area_entered"):
 		assert(actor.hit_box.connect("area_entered", self, "_on_HitBox_area_entered") == OK)

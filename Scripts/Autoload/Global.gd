@@ -2,12 +2,14 @@ extends Node
 
 signal update_minimap
 
+
 # Built largely by following the doc: https://docs.godotengine.org/en/stable/getting_started/step_by_step/singletons_autoload.html#global-gd
 var current_scene = null
 var in_game_menu = null
 var main_menu_scene = load("res://UI/Menu/MainMenu.tscn")
 var home_base = "res://World/game_zones/home_base.tscn"
 var packed_ships = load("res://Ships/PackedShips.tscn")
+onready var end_scroller = preload("res://UI/EndScroller.tscn")
 var ship_hangar = []
 var packed_weapons = load("res://Weapons/PackedWeapons.tscn")
 var weapon_hangar = []
@@ -18,6 +20,7 @@ var debug_mode = false
 var player_position := Vector2.ZERO
 var home_beacon_position := Vector2.ZERO
 export var day = true
+var final_boss_dead = false
 
 func _ready():
 	var root = get_tree().get_root()
@@ -48,6 +51,12 @@ func debug_print(text):
 		
 func pause_game(pause: bool):
 	get_tree().paused = pause
+
+func final_boss_defeated() -> void:
+	var scroll_end = end_scroller.instance()
+	final_boss_dead = true
+	add_child(scroll_end)
+	
 
 func _deferred_goto_scene(path):
 	

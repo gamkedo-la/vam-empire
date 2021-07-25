@@ -23,6 +23,7 @@ export (Team) var actor_team
 export (String) var mission_string = ""
 export (Squadron) var squadron_status
 export (bool) var is_a_boss = false
+export (bool) var is_final_boss = false
 var bosscore = null
 
 var team_group = null
@@ -150,6 +151,9 @@ func _death() -> void:
 		_disable()
 		death_timer.start()
 		PlayerVars.emit_signal("actor_killed", actor_team, mission_string)
+		if is_final_boss && !Global.final_boss_dead:			
+			Global.final_boss_defeated()
+
 
 func _disable() -> void:
 #	print_debug("Enemy ", self, " is disabled now.")
@@ -164,6 +168,7 @@ func _disable() -> void:
 
 func _remove_self() -> void:	
 #	print_debug("Enemy ", self, " being destroyed now.")
+
 	call_deferred("queue_free")
 
 func _set_team() -> void:
