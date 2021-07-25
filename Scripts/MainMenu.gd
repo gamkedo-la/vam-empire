@@ -63,6 +63,13 @@ func _ready():
 #	options.visible = false
 #	main_menu.visible = true
 #	menu_open = true
+	if PlayerVars.save_exists(UserSettings.current.save.current_slot):
+		continue_button.visible = true
+		load_button.disabled = false
+	else:
+		continue_button.visible = false
+		load_button.disabled = true
+		
 	if get_parent().name == "StartMenu":
 		self.visible = true
 		start_menu = true
@@ -71,13 +78,9 @@ func _ready():
 	else:
 		menu_viz.visible = false
 		start_menu = false
-				
-	if PlayerVars.save_exists(UserSettings.current.save.current_slot):
-		continue_button.visible = true
-		load_button.disabled = false
-	else:
 		continue_button.visible = false
-		load_button.disabled = true
+				
+
 	#TODO: This is just a quick hack to get some placeholder menu music. Music should be handled in a persistent way to allow smooth transitions
 	ani_player.play("Empire_Loop")
 	_setup_slot_buttons()

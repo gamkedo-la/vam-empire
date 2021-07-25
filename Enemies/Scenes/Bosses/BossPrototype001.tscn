@@ -197,8 +197,7 @@ margin_left = 20.0
 margin_top = 20.0
 margin_right = -20.0
 margin_bottom = -20.0
-mouse_filter = 1
-mouse_default_cursor_shape = 2
+mouse_filter = 2
 __meta__ = {
 "_edit_use_anchors_": false
 }
@@ -251,8 +250,7 @@ margin_left = 20.0
 margin_top = 20.0
 margin_right = -20.0
 margin_bottom = -15.0
-mouse_filter = 1
-mouse_default_cursor_shape = 2
+mouse_filter = 2
 __meta__ = {
 "_edit_use_anchors_": false
 }

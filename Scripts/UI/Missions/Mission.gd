@@ -120,8 +120,6 @@ func _check_kill_mission(_kill_team: int, _mission_string:String) -> void:
 
 func _check_target_type(_kill_team: int, _mission_string:String, _actor: Actor) -> void:
 #	print_debug("Checking target:", _kill_team, " ", _mission_string, " ", _actor)
-	if _kill_team == Actor.Team.BOSS:
-		print_debug("Is a Boss")
 	if (mission_string == "ANY" && kill_team == _kill_team) || mission_string == _mission_string:
 		PlayerVars.emit_signal("target_active", _actor)
 		

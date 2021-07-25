@@ -26,6 +26,7 @@ var vanad_core_is_up: bool = true
 
 func _ready():
 	boss_hud.visible = false
+	boss_hud2.visible = false
 	spawn_nodes = spawners.get_children()
 	core_shield.value = vanad_core_hp
 	call_deferred("add_child", tween)
