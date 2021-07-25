@@ -84,6 +84,96 @@ item_uuid = "d7a332ce-ea38-466e-9539-2ebb94eff566"
 item_goal = 10
 pre_req_missions = [ NodePath("../mine_001"), NodePath("../combat_001") ]
 
+[node name="mine_003" parent="Panel/HBMain/VBLeft/MissionsScroll/VBMissions" instance=ExtResource( 3 )]
+visible = false
+margin_top = 28.0
+margin_right = 152.0
+margin_bottom = 50.0
+action_mode = 0
+text = "Mining Run 2"
+m_name = "Optional: Ice Run"
+mission_id = "mine_003"
+summary = "Optional: Head out and collect 10 Ice!"
+cash_reward = 100000
+item_uuid = "ad06b3ed-dfa6-41f7-ac75-468ed711de08"
+item_goal = 10
+pre_req_missions = [ NodePath("../mine_002") ]
+
+[node name="mine_004" parent="Panel/HBMain/VBLeft/MissionsScroll/VBMissions" instance=ExtResource( 3 )]
+visible = false
+margin_top = 28.0
+margin_right = 152.0
+margin_bottom = 50.0
+action_mode = 0
+text = "Optional: Ice Run"
+m_name = "Optional: Gold Run"
+mission_id = "mine_004"
+summary = "Optional: Head out and collect 10 Gold!"
+cash_reward = 250000
+item_uuid = "e953436f-0ac9-4a11-90b2-14da73ce32a6"
+item_goal = 10
+pre_req_missions = [ NodePath("../mine_002") ]
+
+[node name="mine_005" parent="Panel/HBMain/VBLeft/MissionsScroll/VBMissions" instance=ExtResource( 3 )]
+visible = false
+margin_top = 28.0
+margin_right = 152.0
+margin_bottom = 50.0
+action_mode = 0
+text = "Optional: Gold Run"
+m_name = "Optional: Silver Run"
+mission_id = "mine_005"
+summary = "Optional: Head out and collect 10 Silver!"
+cash_reward = 250000
+item_uuid = "4e2136e8-7e87-4635-9b91-36e68afb1c20"
+item_goal = 10
+pre_req_missions = [ NodePath("../mine_002") ]
+
+[node name="mine_006" parent="Panel/HBMain/VBLeft/MissionsScroll/VBMissions" instance=ExtResource( 3 )]
+visible = false
+margin_top = 28.0
+margin_right = 152.0
+margin_bottom = 50.0
+action_mode = 0
+text = "Optional: Silver Run"
+m_name = "Optional: Peridot Run"
+mission_id = "mine_006"
+summary = "Optional: Head out and collect 10 Peridot!"
+cash_reward = 250000
+item_uuid = "ae14dca8-35d6-4a30-ab35-266c415a5ce9"
+item_goal = 10
+pre_req_missions = [ NodePath("../mine_002") ]
+
+[node name="mine_007" parent="Panel/HBMain/VBLeft/MissionsScroll/VBMissions" instance=ExtResource( 3 )]
+visible = false
+margin_top = 28.0
+margin_right = 152.0
+margin_bottom = 50.0
+action_mode = 0
+text = "Optional: Peridot Run"
+m_name = "Optional: Platinum Run"
+mission_id = "mine_007"
+summary = "Optional: Head out and collect 10 Platinum!"
+cash_reward = 250000
+item_uuid = "4fa1a793-846b-409a-820e-77c69ff3cb53"
+item_goal = 10
+pre_req_missions = [ NodePath("../mine_002") ]
+
+[node name="mine_008" parent="Panel/HBMain/VBLeft/MissionsScroll/VBMissions" instance=ExtResource( 3 )]
+visible = false
+margin_top = 28.0
+margin_right = 152.0
+margin_bottom = 50.0
+action_mode = 0
+text = "Optional: Platinum Run"
+m_name = "Challenge: Diamond Run"
+mission_id = "mine_008"
+summary = "Optional: Head out and collect 10 Diamonds! They are super rare and hard to find!"
+cash_reward = 1000000
+item_uuid = "b343b543-44a2-4a94-82b6-72a5d843f8f6"
+item_goal = 10
+pre_req_missions = [ NodePath("../mine_002") ]
+
 [node name="combat_001" parent="Panel/HBMain/VBLeft/MissionsScroll/VBMissions" instance=ExtResource( 3 )]
 visible = false
 margin_top = 28.0
@@ -193,14 +283,16 @@ margin_bottom = 50.0
 text = "Take down the VAM Empire"
 m_name = "Take down the VAM Empire"
 mission_id = "boss_fight"
-summary = "Deep into the asteroid belt there are veins of rich Vanadinite. We believe the vampires that have been disrupting our operations require this mineral to sustain themselves.  Try your hand at gunning some of these vampires down, we may be able to learn just a bit more about their base of operations and find a way to put a stop to them disrupting our operations!
+summary = "Thanks to your efforts, we've located the mother ship of the VAM Empire! The ship has been patrolling the inner ring, not far from the richest Vanadinite asteroids in the belt... They must desperately need this resource! From some reconnaisance we were able to do, we found that the mothership has a large Vanadinite core mounted at the rear of the ship. It seems to be powering a powerful shield, but portions of the vanadinite appear to be exposed. We believe that giving short blasts (Right Click, and release) to the ships core shields with your mining lasers will be able to bring the shields down, allowing you to attack the core and destroy the ship! Beware though, the ship is capable of launching the same Impalers you've been fighting throughout the belt already! 
 
-Recommended Ship: Mantis"
+Good luck, we're all counting on you!
+
+Recommended Ship: Mining Barge"
 mission_type = 1
 cash_reward = 50000
 kill_team = 3
 kill_goal = 1
-pre_req_missions = [ NodePath("../expedition_002") ]
+pre_req_missions = [ NodePath("../mine_vanadinite") ]
 
 [node name="VBRight" type="VBoxContainer" parent="Panel/HBMain"]
 margin_left = 158.0

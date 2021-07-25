@@ -82,6 +82,7 @@ rect_min_size = Vector2( 0, 30 )
 alignment = 1
 
 [node name="Spacer" type="HBoxContainer" parent="CanvasLayer/BaseOverlay/VBoxContainer"]
+visible = false
 margin_top = 36.0
 margin_right = 960.0
 margin_bottom = 66.0
@@ -102,9 +103,10 @@ focus_mode = 2
 text = "README"
 
 [node name="WelcomeSign" type="HBoxContainer" parent="CanvasLayer/BaseOverlay/VBoxContainer"]
-margin_top = 72.0
+visible = false
+margin_top = 64.0
 margin_right = 960.0
-margin_bottom = 392.0
+margin_bottom = 384.0
 rect_min_size = Vector2( 320, 0 )
 alignment = 1
 
@@ -152,6 +154,7 @@ Thanks again for being here, and drop a message in the Discord channel if you ha
 autowrap = true
 
 [node name="HB_GoMiningEasy" type="HBoxContainer" parent="CanvasLayer/BaseOverlay/VBoxContainer"]
+visible = false
 margin_top = 398.0
 margin_right = 960.0
 margin_bottom = 442.0
@@ -198,40 +201,40 @@ margin_bottom = 80.0
 alignment = 1
 
 [node name="Missions" type="Button" parent="CanvasLayer/BaseOverlay/BaseBottomMenu/Buttons"]
-margin_left = 255.0
-margin_right = 353.0
+margin_left = 337.0
+margin_right = 435.0
 margin_bottom = 80.0
+theme = ExtResource( 8 )
 text = "Missions"
 
 [node name="FirstTimeColorRect" parent="CanvasLayer/BaseOverlay/BaseBottomMenu/Buttons/Missions" instance=ExtResource( 12 )]
 indicator_string = "use_mission"
 
-[node name="Inventory" type="Button" parent="CanvasLayer/BaseOverlay/BaseBottomMenu/Buttons"]
-margin_left = 359.0
-margin_right = 467.0
-margin_bottom = 80.0
-text = "Inventory"
-
-[node name="ShipHangar" type="Button" parent="CanvasLayer/BaseOverlay/BaseBottomMenu/Buttons"]
-margin_left = 473.0
-margin_right = 601.0
-margin_bottom = 80.0
-text = "Ship Hangar"
-
 [node name="Merchant" type="Button" parent="CanvasLayer/BaseOverlay/BaseBottomMenu/Buttons"]
-margin_left = 607.0
-margin_right = 705.0
+margin_left = 441.0
+margin_right = 539.0
 margin_bottom = 80.0
 text = "Merchant"
 
 [node name="FirstTimeColorRect" parent="CanvasLayer/BaseOverlay/BaseBottomMenu/Buttons/Merchant" instance=ExtResource( 12 )]
 
 [node name="Embark" type="Button" parent="CanvasLayer/BaseOverlay/BaseBottomMenu/Buttons"]
-visible = false
-margin_left = 669.0
-margin_right = 747.0
+margin_left = 545.0
+margin_right = 623.0
 margin_bottom = 80.0
 text = "Embark"
+
+[node name="Popup" type="Popup" parent="CanvasLayer/BaseOverlay/BaseBottomMenu/Buttons/Embark"]
+visible = true
+margin_left = -248.109
+margin_top = -187.758
+margin_right = -208.109
+margin_bottom = -147.758
+
+[node name="Label" type="Label" parent="CanvasLayer/BaseOverlay/BaseBottomMenu/Buttons/Embark/Popup"]
+margin_right = 12.0
+margin_bottom = 22.0
+text = "Grab a mission before embarking!"
 
 [node name="MissionBoard" parent="CanvasLayer" instance=ExtResource( 10 )]
 visible = false
@@ -267,10 +270,7 @@ position = Vector2( 1004.77, 282.815 )
 
 [node name="ParallaxBackground2" parent="." instance=ExtResource( 4 )]
 
-[node name="Sprite" parent="ParallaxBackground2/StarFieldBlack" index="0"]
-visible = true
-
-[node name="3DBG" parent="ParallaxBackground2" index="1"]
+[node name="3DBG" parent="ParallaxBackground2" index="2"]
 visible = false
 
 [node name="CanvasModulate" type="CanvasModulate" parent="."]

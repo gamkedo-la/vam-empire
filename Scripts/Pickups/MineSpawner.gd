@@ -38,12 +38,28 @@ func _despawn() -> void:
 
 func _spawn_mineral_chance() -> void:
 	var chance = rng.randi() % 200
+	var modifier = 0
+	if UserSettings.current.difficulty.difficulty_level == 1:
+		modifier = 10
+	if UserSettings.current.difficulty.difficulty_level == 0:
+		modifier = 30
+		
 	if chance > 150:
-		var newMineral: MineralDrop = mineral_drop.instance()
-		newMineral.item_uuid = mineral_uuid
-		get_tree().get_root().add_child(newMineral)
-		newMineral.global_position = self.global_position
-		var vecx = rng.randf_range(-1,1)
-		var vecy = rng.randf_range(-1,1)
-		newMineral.apply_central_impulse(Vector2(vecx,vecy) * (Vector2.ONE*10))
-		newMineral.angular_velocity = rng.randf_range(-2,2)
+		_spawn_mineral(mineral_uuid)
+
+	# If chance is especially high, drop a random mineral of *any* kind. 
+	# modifier increases chance for lower difficulty modes
+	if chance >= 199 - modifier:
+		rng.randomize()		
+		var new_uuid = Database.table.Items[rng.randi_range(0,Database.table.Items.size() - 1)].itemUuid
+		_spawn_mineral(new_uuid)
+
+func _spawn_mineral(itemUuid: String) -> void:
+	var newMineral: MineralDrop = mineral_drop.instance()
+	newMineral.item_uuid = itemUuid
+	get_tree().get_root().add_child(newMineral)
+	newMineral.global_position = self.global_position
+	var vecx = rng.randf_range(-1,1)
+	var vecy = rng.randf_range(-1,1)
+	newMineral.apply_central_impulse(Vector2(vecx,vecy) * (Vector2.ONE*10))
+	newMineral.angular_velocity = rng.randf_range(-2,2)

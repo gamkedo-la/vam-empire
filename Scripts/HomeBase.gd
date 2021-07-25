@@ -22,6 +22,7 @@ onready var mission_board = $CanvasLayer/MissionBoard
 onready var merchant_menu = $CanvasLayer/MerchantMenu
 
 onready var embark_button: Button = $CanvasLayer/BaseOverlay/BaseBottomMenu/Buttons/Embark
+onready var embark_popup: Popup = $CanvasLayer/BaseOverlay/BaseBottomMenu/Buttons/Embark/Popup
 
 onready var base_camera = $Camera2D
 
@@ -148,7 +149,12 @@ func _on_Missions_pressed():
 
 func _on_Embark_pressed():
 	_hide_menu_overlays()
-	_show_airlock_overlay()
+#	_show_airlock_overlay()
+	if !PlayerVars.mission_state.empty():
+		leaving_to = "res://World/game_zones/WorldZone_001.tscn"
+		take_off()
+	else:
+		embark_popup.popup_centered()
 #	_camera_pan(camera_front)
 
 func _on_Merchant_pressed():
