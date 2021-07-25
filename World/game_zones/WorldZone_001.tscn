@@ -16,6 +16,9 @@ position = Vector2( -7725.67, -48623 )
 [node name="DifficultyOptionButton" parent="MainMenu/MenuCanvas/Viz/OptionsContainer/VBoxContainer/TabContainer/Difficulty/VBoxContainer/DifficultyHbox" index="1"]
 items = [ "Bring a Bandaid", null, false, 0, null, "Get Some Gauze", null, false, 1, null, "Seek a Surgeon", null, false, 2, null ]
 
+[node name="MarginContainer" parent="CanvasLayer" index="3"]
+visible = false
+
 [node name="RoidCol1" type="Node2D" parent="Zone/Areas" index="0"]
 
 [node name="RoidRow01" type="Node2D" parent="Zone/Areas/RoidCol1" index="0"]

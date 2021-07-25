@@ -11,8 +11,13 @@ dof_blur_far_amount = 0.05
 dof_blur_far_quality = 2
 
 [sub_resource type="SpatialMaterial" id=2]
+params_diffuse_mode = 1
 params_specular_mode = 4
-albedo_color = Color( 0.509804, 0.0666667, 0.0666667, 1 )
+params_billboard_mode = 3
+particles_anim_h_frames = 1
+particles_anim_v_frames = 1
+particles_anim_loop = false
+albedo_color = Color( 0.435294, 0.439216, 0.454902, 1 )
 albedo_texture = ExtResource( 3 )
 
 [sub_resource type="SpatialMaterial" id=3]
