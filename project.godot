@@ -146,10 +146,6 @@ Music="*res://Music/Music.tscn"
 ItemSpawner="*res://Scripts/Autoload/ItemSpawner.gd"
 Cursor="*res://Scripts/Autoload/Cursor.gd"
 
-[debug]
-
-settings/stdout/print_fps=true
-
 [display]
 
 window/size/width=960
