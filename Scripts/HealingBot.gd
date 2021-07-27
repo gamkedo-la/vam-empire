@@ -13,7 +13,7 @@ func _ready():
 	self.visible = false
 	
 func initialize(player_hull) -> void:
-	heal_amount_per_s = player_hull * .05
+	heal_amount_per_s = clamp(player_hull * .05,60,1000)
 
 func _physics_process(_delta):
 	if(Input.is_key_pressed(KEY_H)):
@@ -32,6 +32,6 @@ func _on_HealingTimer_timeout():
 	# 	parentNode.healingEnergy = min(parentNode.healingEnergy + parentNode.healingEnergyRecoveryPerTimeUnit, parentNode.healingMaxEnergy)
 	# 	#print("Healing Energy : ", parentNode.healingEnergy)
 
-func heal_parent(amount, energy_cost):
+func heal_parent(amount, energy_cost):	
 	parentNode.heal(amount, energy_cost)
 
