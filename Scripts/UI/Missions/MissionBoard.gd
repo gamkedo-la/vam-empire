@@ -11,15 +11,15 @@ var sel_miss: Mission = null
 var is_home_base: bool = false
 var mission_debug: bool = false
 
-onready var name_label: Label = $Panel/HBMain/VBRight/ScrollContainer/VBInfo/HBName/Name
-onready var status_label: Label = $Panel/HBMain/VBRight/ScrollContainer/VBInfo/HBStatus/Status
-onready var complete_icon: TextureRect = $Panel/HBMain/VBRight/ScrollContainer/VBInfo/HBCompletion/CompleteIcon
-onready var complete_text: Label = $Panel/HBMain/VBRight/ScrollContainer/VBInfo/HBCompletion/CompleteText
-onready var summary_label: Label = $Panel/HBMain/VBRight/ScrollContainer/VBInfo/HBName3/Summary
-onready var accept_button: Button = $Panel/HBMain/VBRight/ScrollContainer/VBInfo/HBButtons/Accept
-onready var complete_button: Button = $Panel/HBMain/VBRight/ScrollContainer/VBInfo/HBButtons/Complete
-onready var debug_complete: Button = $Panel/HBMain/VBRight/ScrollContainer/VBInfo/HBDebug/DebugComplete
-onready var reward_label: Label = $Panel/HBMain/VBRight/ScrollContainer/VBInfo/HBReward/Reward
+onready var name_label: Label = $Panel/HBMain/VBRight/ScrollContainer/MissionInfo/VBInfo/HBName/Name
+onready var status_label: Label = $Panel/HBMain/VBRight/ScrollContainer/MissionInfo/VBInfo/HBStatus/Status
+onready var complete_icon: TextureRect = $Panel/HBMain/VBRight/ScrollContainer/MissionInfo/VBInfo/HBCompletion/CompleteIcon
+onready var complete_text: Label = $Panel/HBMain/VBRight/ScrollContainer/MissionInfo/VBInfo/HBCompletion/CompleteText
+onready var summary_label: Label = $Panel/HBMain/VBRight/ScrollContainer/MissionInfo/VBInfo/HBName3/Summary
+onready var accept_button: Button = $Panel/HBMain/VBRight/ScrollContainer/MissionInfo/VBButtons/HBButtons/Accept
+onready var complete_button: Button = $Panel/HBMain/VBRight/ScrollContainer/MissionInfo/VBButtons/HBButtons/Complete
+onready var debug_complete: Button = $Panel/HBMain/VBRight/ScrollContainer/MissionInfo/VBButtons/HBDebug/DebugComplete
+onready var reward_label: Label = $Panel/HBMain/VBRight/ScrollContainer/MissionInfo/VBInfo/HBReward/Reward
 
 
 func _ready() -> void:
@@ -67,7 +67,7 @@ func _process(_delta):
 	
 
 func _mission_selected(miss_id:String) -> void:
-	$Panel/HBMain/VBRight/ScrollContainer/VBInfo/HBDebug.visible = false
+	$Panel/HBMain/VBRight/ScrollContainer/MissionInfo/VBButtons/HBDebug.visible = false
 	sel_miss = mission_list.get_node_or_null(miss_id)
 	name_label.text = str(sel_miss.m_name)
 	status_label.text = str(status[sel_miss.status])
@@ -85,7 +85,7 @@ func _mission_selected(miss_id:String) -> void:
 		
 	if sel_miss.status >= Mission.Status.ACCEPTED:
 		if mission_debug:
-			$Panel/HBMain/VBRight/ScrollContainer/VBInfo/HBDebug.visible = true
+			$Panel/HBMain/VBRight/ScrollContainer/MissionInfo/VBButtons/HBDebug.visible = true
 	if sel_miss.mission_type == Mission.MissionType.ITEM:
 		complete_icon.texture = load(Database.itemByUuid[sel_miss.item_uuid].itemIcon)
 		complete_text.text = str(sel_miss.completed,"/",sel_miss.item_goal)
